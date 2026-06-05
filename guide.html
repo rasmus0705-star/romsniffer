@@ -85,50 +85,120 @@
     .nav-links a:hover, .nav-links a.active { color: var(--copper-light); background: rgba(184,115,51,0.1); }
 
     .guide-hero {
-        padding: 3rem 2rem 2rem;
+        padding: 2.5rem 2rem 2.5rem;
         text-align: center;
         border-bottom: 1px solid var(--border);
-        background: radial-gradient(ellipse at 50% 0%, rgba(184,115,51,0.08) 0%, transparent 60%),
-                    linear-gradient(180deg, var(--leather) 0%, transparent 100%);
+        background: 
+            radial-gradient(ellipse at 30% 20%, rgba(184,115,51,0.1) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 60%, rgba(107,44,14,0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 50% -10%, rgba(212,168,71,0.06) 0%, transparent 40%),
+            linear-gradient(180deg, var(--leather) 0%, var(--bg) 100%);
+        position: relative;
+        overflow: hidden;
+    }
+    .hero-glow {
+        position: absolute;
+        top: -80px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 600px;
+        height: 300px;
+        background: radial-gradient(ellipse, rgba(184,115,51,0.15) 0%, transparent 70%);
+        pointer-events: none;
+    }
+    .guide-hero-logo {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 25px rgba(200,116,30,0.5));
+        animation: bob 4s ease-in-out infinite;
+        margin: 0 auto 0.8rem;
+        display: block;
+        position: relative;
+    }
+    @keyframes bob {
+        0%, 100% { transform: translateY(0) rotate(-1deg); }
+        50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    .hero-eyebrow {
+        font-size: 0.62rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--copper);
+        margin-bottom: 0.6rem;
+        position: relative;
     }
     .guide-hero h1 {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: clamp(2rem, 5vw, 3rem);
-        color: var(--copper-light);
-        letter-spacing: 0.08em;
-        margin-bottom: 0.5rem;
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+        color: var(--text);
+        font-weight: 600;
+        margin-bottom: 0.6rem;
+        position: relative;
     }
     .guide-hero p {
         color: var(--text-muted);
-        font-size: 1rem;
-        max-width: 600px;
+        font-size: 0.95rem;
+        max-width: 550px;
         margin: 0 auto 2rem;
+        position: relative;
     }
+    .hero-back-link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        color: var(--copper);
+        font-size: 0.78rem;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+        transition: color 0.2s;
+        position: relative;
+    }
+    .hero-back-link:hover { color: var(--copper-light); }
 
     /* Indholdsfortegnelse */
     .toc {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 0.8rem;
-        max-width: 900px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.7rem;
+        max-width: 750px;
         margin: 0 auto;
+        position: relative;
     }
     .toc-card {
-        background: var(--surface);
+        background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
         border: 1px solid var(--border-light);
         border-radius: 10px;
-        padding: 1rem;
+        padding: 1rem 0.9rem;
         text-decoration: none;
-        text-align: center;
-        transition: all 0.2s;
+        text-align: left;
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
     }
-    .toc-card:hover { border-color: var(--copper); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
-    .toc-icon { font-size: 1.5rem; margin-bottom: 0.4rem; display: block; }
+    .toc-card:hover {
+        border-color: var(--copper);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 20px rgba(184,115,51,0.1);
+        background: linear-gradient(135deg, var(--surface2) 0%, rgba(184,115,51,0.08) 100%);
+    }
+    .toc-num {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.7rem;
+        color: var(--copper);
+        letter-spacing: 0.15em;
+        opacity: 0.6;
+    }
     .toc-label {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: var(--copper-light);
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
+    }
+    .toc-desc {
+        font-size: 0.68rem;
+        color: var(--text-dim);
+        line-height: 1.4;
     }
 
     /* Sektioner */
@@ -348,6 +418,7 @@
         .guide-hero { padding: 2rem 1rem 1.5rem; }
         .content { padding: 0 1rem 3rem; }
         .toc { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        .guide-hero-logo { width: 60px; height: 60px; }
         .type-card { padding: 1rem; }
         .country-grid { grid-template-columns: 1fr; }
         .label-grid { grid-template-columns: 1fr; }
@@ -370,16 +441,44 @@
 </nav>
 
 <div class="guide-hero">
-    <h1>🥃 Rom-guiden</h1>
-    <p>Alt du skal vide om rom — fra stilarter og lande til etiketter, budget og cocktails. Din genvej til at vælge den rigtige flaske.</p>
+    <div class="hero-glow"></div>
+    <img src="logo.png" alt="" class="guide-hero-logo" onerror="this.style.display='none'">
+    <div class="hero-eyebrow">✦ Din komplette rom-guide ✦</div>
+    <h1>Bliv klogere på rom</h1>
+    <p>Fra stilarter og lande til etiketter, budget og cocktails — alt hvad du skal vide for at vælge den rigtige flaske.</p>
     <div class="toc">
-        <a href="#stilarter" class="toc-card"><span class="toc-icon">🥃</span><span class="toc-label">Stilarter</span></a>
-        <a href="#lande" class="toc-card"><span class="toc-icon">🌍</span><span class="toc-label">Lande</span></a>
-        <a href="#etiket" class="toc-card"><span class="toc-icon">🏷️</span><span class="toc-label">Læs en etiket</span></a>
-        <a href="#produktion" class="toc-card"><span class="toc-icon">⚗️</span><span class="toc-label">Produktion</span></a>
-        <a href="#budget" class="toc-card"><span class="toc-icon">💰</span><span class="toc-label">Rom til dit budget</span></a>
-        <a href="#cocktails" class="toc-card"><span class="toc-icon">🍹</span><span class="toc-label">Cocktails</span></a>
+        <a href="#stilarter" class="toc-card">
+            <div class="toc-num">01</div>
+            <div class="toc-label">Stilarter</div>
+            <div class="toc-desc">Aged, Spiced, Mørk, Agricole og mere</div>
+        </a>
+        <a href="#lande" class="toc-card">
+            <div class="toc-num">02</div>
+            <div class="toc-label">Lande</div>
+            <div class="toc-desc">Cuba, Jamaica, Barbados og 5 andre</div>
+        </a>
+        <a href="#etiket" class="toc-card">
+            <div class="toc-num">03</div>
+            <div class="toc-label">Læs en etiket</div>
+            <div class="toc-desc">XO, Solera, ABV og hvad de betyder</div>
+        </a>
+        <a href="#produktion" class="toc-card">
+            <div class="toc-num">04</div>
+            <div class="toc-label">Produktion</div>
+            <div class="toc-desc">Pot still, column still og lagring</div>
+        </a>
+        <a href="#budget" class="toc-card">
+            <div class="toc-num">05</div>
+            <div class="toc-label">Rom til dit budget</div>
+            <div class="toc-desc">Bedste rom fra 100 til 1.500+ kr</div>
+        </a>
+        <a href="#cocktails" class="toc-card">
+            <div class="toc-num">06</div>
+            <div class="toc-label">Cocktails</div>
+            <div class="toc-desc">Mojito, Daiquiri, Mai Tai og 5 andre</div>
+        </a>
     </div>
+    <a href="index.html" class="hero-back-link">← Tilbage til prissammenligning</a>
 </div>
 
 <div class="content">
