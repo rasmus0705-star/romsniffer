@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RomSniffer — Sammenlign rom-priser fra danske webshops</title>
+<meta name="description" content="Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.">
+<link rel="icon" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+    :root {
+        /* Sofistikeret bar palette */
+        --bg: #0a0604;
+        --surface: #1a0f08;
+        --surface2: #251810;
+        --surface3: #2f1f14;
+        --mahogny: #3d1f10;
+        --caramel: #c8741e;
+        --caramel-light: #f0a050;
+        --copper: #b87333;
+        --copper-light: #d99458;
+        --rum-dark: #6b2c0e;
+        --leather: #2a1810;
+        --text: #f5e4cf;
+        --text-muted: #a08570;
+        --text-dim: #5a4838;
+        --border: #2e1d10;
+        --border-light: #3d2818;
+        --discount: #3dba6f;
+        --danger: #e05050;
+        --gold: #d4a847;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        min-height: 100vh;
+        line-height: 1.6;
+    }
+    /* Læder-tekstur overlay */
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: 
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0 0.04 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.4'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.5;
+    }
+    body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 9999;
+    }
+    body > * { position: relative; z-index: 2; }
+
+    /* ── NAV ── */
+    nav {
+        background: rgba(10,6,4,0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0.85rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
+    }
+    .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+    .nav-logo span {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--copper-light), var(--copper));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .nav-links { display: flex; gap: 0.5rem; }
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 0.5rem 0.9rem;
+        border-radius: 6px;
+        transition: all 0.2s;
+    }
+    .nav-links a:hover {
+        color: var(--copper-light);
+        background: rgba(184,115,51,0.1);
+    }
+
+    /* ── HERO med pris-spotlight ── */
+    .hero {
+        padding: 3rem 2rem 4rem;
+        border-bottom: 1px solid var(--border);
+        background: 
+            radial-gradient(ellipse at 20% 20%, rgba(184,115,51,0.06) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 60%, rgba(107,44,14,0.08) 0%, transparent 50%),
+            linear-gradient(180deg, var(--leather) 0%, transparent 100%);
+        position: relative;
+    }
+    .hero-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+        align-items: center;
+    }
+    .hero-left {
+        text-align: center;
+    }
+    .hero-eyebrow {
+        font-size: 0.7rem;
+        letter-spacing: 0.4em;
+        text-transform: uppercase;
+        color: var(--copper);
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 25px;
+        height: 1px;
+        background: var(--copper);
+    }
+    .hero-eyebrow::before { left: -40px; }
+    .hero-eyebrow::after { right: -40px; }
+    .hero-logo {
+        width: clamp(180px, 22vw, 260px);
+        height: clamp(180px, 22vw, 260px);
+        object-fit: contain;
+        filter: drop-shadow(0 16px 50px rgba(200,116,30,0.4)) drop-shadow(0 0 80px rgba(212,98,10,0.15));
+        animation: bob 4s ease-in-out infinite;
+        margin: 0 auto 1.5rem;
+        display: block;
+    }
+    @keyframes bob {
+        0%, 100% { transform: translateY(0) rotate(-1deg); }
+        50% { transform: translateY(-10px) rotate(1deg); }
+    }
+    .hero-tagline {
+        font-family: 'Playfair Display', serif;
+        font-style: italic;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+        font-weight: 400;
+    }
+    .hero-tagline strong {
+        color: var(--copper-light);
+        font-style: normal;
+        font-weight: 600;
+    }
+    .hero-divider {
+        width: 80px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--copper), transparent);
+        margin: 0 auto 1.2rem;
+    }
+    .hero-subtitle {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        max-width: 380px;
+        margin: 0 auto 1.5rem;
+    }
+    .hero-cta {
+        display: flex;
+        gap: 0.8rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .cta-btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 700;
+        font-size: 0.85rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.15s;
+        border: none;
+        letter-spacing: 0.05em;
+    }
+    .cta-btn.primary {
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+        box-shadow: 0 4px 15px rgba(184,115,51,0.3);
+    }
+    .cta-btn.primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(184,115,51,0.5);
+    }
+    .cta-btn.secondary {
+        background: transparent;
+        color: var(--copper-light);
+        border: 1px solid var(--copper);
+    }
+    .cta-btn.secondary:hover {
+        background: rgba(184,115,51,0.1);
+    }
+
+    /* PRIS-SPOTLIGHT (højre side af hero) */
+    .spotlight-wrap {
+        background: linear-gradient(180deg, rgba(42,24,16,0.6) 0%, rgba(26,15,8,0.8) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 16px;
+        padding: 1.5rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,168,71,0.1);
+    }
+    .spotlight-label {
+        font-size: 0.62rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--copper);
+        margin-bottom: 0.4rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .spotlight-label::before {
+        content: '✦';
+        color: var(--gold);
+    }
+    .spotlight-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+        font-weight: 400;
+        font-style: italic;
+    }
+    .spotlight-content {
+        display: flex;
+        gap: 1.2rem;
+        align-items: center;
+    }
+    .spotlight-img-wrap {
+        width: 140px;
+        height: 180px;
+        background: linear-gradient(180deg, #1a1108 0%, #0a0604 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem;
+        flex-shrink: 0;
+        position: relative;
+        box-shadow: inset 0 2px 10px rgba(0,0,0,0.6);
+    }
+    .spotlight-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+        transition: opacity 0.4s;
+    }
+    .spotlight-img.fading { opacity: 0; }
+    .spotlight-info {
+        flex: 1;
+        min-width: 0;
+        transition: opacity 0.4s;
+    }
+    .spotlight-info.fading { opacity: 0; }
+    .spotlight-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        color: var(--text);
+        font-weight: 600;
+        line-height: 1.3;
+        margin-bottom: 0.5rem;
+    }
+    .spotlight-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem;
+        margin-bottom: 0.7rem;
+    }
+    .spotlight-tag {
+        background: rgba(184,115,51,0.15);
+        border: 1px solid var(--border-light);
+        color: var(--copper-light);
+        padding: 0.18rem 0.5rem;
+        border-radius: 4px;
+        font-size: 0.68rem;
+    }
+    .spotlight-prices {
+        margin-bottom: 0.8rem;
+    }
+    .spotlight-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.45rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.85rem;
+    }
+    .spotlight-price-row:last-child { border-bottom: none; }
+    .spotlight-shop {
+        color: var(--text-muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.05em;
+    }
+    .spotlight-shop.best { color: var(--discount); font-weight: 600; }
+    .spotlight-shop.best::before { content: '✓ '; }
+    .spotlight-price {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.1rem;
+        color: var(--text);
+        letter-spacing: 0.03em;
+    }
+    .spotlight-price.best { color: var(--discount); }
+    .spotlight-savings {
+        background: linear-gradient(135deg, rgba(61,186,111,0.15), rgba(212,168,71,0.1));
+        border: 1px solid var(--discount);
+        color: var(--discount);
+        padding: 0.5rem 0.8rem;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 0.78rem;
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+    }
+    .spotlight-savings strong {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.05rem;
+        letter-spacing: 0.05em;
+    }
+    .spotlight-cta {
+        display: block;
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+        text-align: center;
+        padding: 0.7rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        transition: all 0.15s;
+    }
+    .spotlight-cta:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(184,115,51,0.5);
+    }
+    .spotlight-dots {
+        display: flex;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 1rem;
+    }
+    .spotlight-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    .spotlight-dot.active {
+        background: var(--copper);
+        width: 22px;
+        border-radius: 4px;
+    }
+
+    /* ── STATS ── */
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+        max-width: 1100px;
+        margin: 2rem auto;
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+    .stat {
+        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        padding: 1.1rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        transition: all 0.2s;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(212,168,71,0.05);
+    }
+    .stat:hover {
+        border-color: var(--copper);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+    .stat-icon { font-size: 1.7rem; flex-shrink: 0; }
+    .stat-content { flex: 1; min-width: 0; }
+    .stat-number {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.7rem;
+        color: var(--copper-light);
+        line-height: 1;
+        letter-spacing: 0.02em;
+    }
+    .stat-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-top: 0.3rem;
+    }
+
+    /* ── LAYOUT ── */
+    .layout {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 1.25rem;
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 clamp(0.75rem, 1.5vw, 2rem) 4rem;
+        align-items: start;
+    }
+    @media (min-width: 1400px) {
+        .layout { grid-template-columns: 280px 1fr; gap: 1.5rem; }
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        padding: 1.25rem 1rem;
+        height: fit-content;
+        position: sticky;
+        top: 70px;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .sidebar::-webkit-scrollbar { width: 6px; }
+    .sidebar::-webkit-scrollbar-track { background: var(--surface2); border-radius: 3px; }
+    .sidebar::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+    .sidebar::-webkit-scrollbar-thumb:hover { background: var(--copper); }
+
+    .sidebar-section {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .sidebar-section:last-child { border-bottom: none; }
+    .sidebar-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.95rem;
+        letter-spacing: 0.18em;
+        color: var(--copper);
+        margin-bottom: 0.7rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .sidebar-clear-link {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 0.7rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-family: 'DM Sans', sans-serif;
+    }
+    .sidebar-clear-link:hover { color: var(--danger); }
+    .sidebar-search {
+        width: 100%;
+        background: var(--surface2);
+        border: 1px solid var(--border-light);
+        border-radius: 8px;
+        padding: 0.6rem 0.8rem;
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        outline: none;
+    }
+    .sidebar-search:focus { border-color: var(--copper); }
+    .sidebar-filter-btn {
+        display: block;
+        width: 100%;
+        background: transparent;
+        border: 1px solid var(--border-light);
+        color: var(--text-muted);
+        padding: 0.55rem 0.8rem;
+        border-radius: 8px;
+        margin-bottom: 0.35rem;
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.82rem;
+        text-align: left;
+        transition: all 0.15s;
+    }
+    .sidebar-filter-btn:hover {
+        border-color: var(--copper);
+        color: var(--text);
+    }
+    .sidebar-filter-btn.active {
+        background: rgba(184,115,51,0.15);
+        border-color: var(--copper);
+        color: var(--copper-light);
+        font-weight: 600;
+    }
+    .sidebar-checkbox-list {
+        max-height: 180px;
+        overflow-y: auto;
+        padding-right: 0.3rem;
+    }
+    .sidebar-checkbox-list::-webkit-scrollbar { width: 4px; }
+    .sidebar-checkbox-list::-webkit-scrollbar-track { background: var(--surface2); }
+    .sidebar-checkbox-list::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
+    .sidebar-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.35rem 0.4rem;
+        cursor: pointer;
+        border-radius: 6px;
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        transition: all 0.1s;
+    }
+    .sidebar-checkbox:hover { background: var(--surface2); color: var(--text); }
+    .sidebar-checkbox input[type="checkbox"] {
+        accent-color: var(--copper);
+        cursor: pointer;
+    }
+    .sidebar-select {
+        width: 100%;
+        background: var(--surface2);
+        border: 1px solid var(--border-light);
+        border-radius: 8px;
+        padding: 0.55rem 0.7rem;
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        outline: none;
+        cursor: pointer;
+    }
+    .range-slider { margin-top: 0.5rem; }
+    .range-values {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-bottom: 0.4rem;
+    }
+    .range-values strong { color: var(--copper-light); }
+    .dual-range { position: relative; height: 28px; }
+    .dual-range input[type="range"] {
+        position: absolute;
+        width: 100%;
+        appearance: none;
+        background: none;
+        pointer-events: none;
+        height: 28px;
+        margin: 0;
+        z-index: 2;
+    }
+    .dual-range input[type="range"]::-webkit-slider-thumb {
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        background: var(--copper-light);
+        border: 2px solid var(--bg);
+        border-radius: 50%;
+        cursor: pointer;
+        pointer-events: all;
+        margin-top: -5px;
+    }
+    .dual-range input[type="range"]::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        background: var(--copper-light);
+        border: 2px solid var(--bg);
+        border-radius: 50%;
+        cursor: pointer;
+        pointer-events: all;
+    }
+    .dual-range::before {
+        content: '';
+        position: absolute;
+        top: 12px;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--surface3);
+        border-radius: 2px;
+    }
+    .dual-range-track {
+        position: absolute;
+        top: 12px;
+        height: 4px;
+        background: var(--copper);
+        border-radius: 2px;
+        z-index: 1;
+    }
+    .sidebar-reset {
+        width: 100%;
+        background: linear-gradient(135deg, var(--mahogny), var(--copper));
+        color: var(--text);
+        font-weight: 700;
+        padding: 0.65rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+    }
+    .sidebar-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+    }
+    .sidebar-chip {
+        background: rgba(184,115,51,0.15);
+        border: 1px solid var(--copper);
+        color: var(--copper-light);
+        padding: 0.25rem 0.55rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        cursor: pointer;
+        display: inline-flex;
+        gap: 0.35rem;
+    }
+    .sidebar-chip:hover { background: rgba(184,115,51,0.25); }
+    .sidebar-chip .x { opacity: 0.6; font-weight: 700; }
+    .sidebar-chip:hover .x { color: var(--danger); opacity: 1; }
+
+    .main-content { min-width: 0; }
+    
+    .sort-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0.5rem 0;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+    .sort-bar-count { color: var(--text-muted); font-size: 0.85rem; }
+    .sort-bar-count strong { color: var(--copper-light); }
+    .sort-bar select {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 8px;
+        padding: 0.5rem 0.8rem;
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        cursor: pointer;
+    }
+
+    /* ── GRID ── */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 0.85rem;
+    }
+    @media (min-width: 1200px) {
+        .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    }
+    .card {
+        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.2s;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    .card:hover {
+        transform: translateY(-3px);
+        border-color: var(--copper);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 30px rgba(184,115,51,0.15);
+    }
+    .card.has-deal { border-color: rgba(61,186,111,0.4); }
+    .card.multi-shop { border-color: rgba(212,168,71,0.4); }
+    .card.multi-shop.has-deal { border-color: rgba(61,186,111,0.5); }
+
+    .discount-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: linear-gradient(135deg, var(--discount), #29a35a);
+        color: #000;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.9rem;
+        padding: 4px 9px;
+        border-radius: 6px;
+        z-index: 2;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    }
+    .multi-shop-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: linear-gradient(135deg, var(--gold), #c89020);
+        color: #1a0f08;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.7rem;
+        padding: 3px 7px;
+        border-radius: 5px;
+        z-index: 2;
+        letter-spacing: 0.05em;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+    }
+    .premium-badge {
+        position: absolute;
+        top: 38px;
+        left: 10px;
+        background: linear-gradient(135deg, #c8a020, #f0c850);
+        color: #000;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.7rem;
+        padding: 3px 7px;
+        border-radius: 5px;
+        z-index: 2;
+        letter-spacing: 0.05em;
+    }
+    .card.no-multi .premium-badge { top: 10px; }
+
+    .card-img-wrap {
+        height: 170px;
+        background: linear-gradient(180deg, #1a1108 0%, #0a0604 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.7rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .card-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+    }
+    .card-img-placeholder { font-size: 2.5rem; opacity: 0.4; }
+    .card-body {
+        padding: 0.85rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+    }
+    .card-meta { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .card-tag {
+        font-size: 0.62rem;
+        background: rgba(184,115,51,0.15);
+        color: var(--copper-light);
+        padding: 0.15rem 0.45rem;
+        border-radius: 4px;
+        border: 1px solid var(--border-light);
+    }
+    .card-tag.country { background: rgba(107,44,14,0.25); }
+    .card-tag.abv { background: rgba(42,24,16,0.5); color: var(--text-muted); }
+    .card-tag.age { background: rgba(212,168,71,0.12); color: var(--gold); border-color: rgba(212,168,71,0.3); }
+    .card-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.3;
+        margin-top: 0.3rem;
+        min-height: 2.5rem;
+    }
+
+    /* Pris-sammenligning på kort */
+    .card-prices {
+        margin-top: auto;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border);
+    }
+    .card-price-single {
+        display: flex;
+        align-items: baseline;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .card-price {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        color: var(--copper-light);
+        letter-spacing: 0.03em;
+    }
+    .card.has-deal .card-price { color: var(--discount); }
+    .card-old-price {
+        font-size: 0.78rem;
+        color: var(--text-dim);
+        text-decoration: line-through;
+    }
+    .card-shop {
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+    .card-multi-prices {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        font-size: 0.78rem;
+    }
+    .card-multi-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.2rem 0;
+    }
+    .card-multi-shop {
+        color: var(--text-muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+    .card-multi-shop.best {
+        color: var(--discount);
+        font-weight: 600;
+    }
+    .card-multi-shop.best::before { content: '✓ '; font-weight: 700; }
+    .card-multi-price {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1rem;
+        color: var(--text);
+        letter-spacing: 0.02em;
+    }
+    .card-multi-price.best { color: var(--discount); }
+    .card-savings {
+        background: rgba(61,186,111,0.1);
+        border: 1px solid rgba(61,186,111,0.3);
+        color: var(--discount);
+        text-align: center;
+        padding: 0.3rem;
+        border-radius: 6px;
+        font-size: 0.72rem;
+        margin-top: 0.4rem;
+        font-weight: 600;
+        letter-spacing: 0.03em;
+    }
+    .card-savings strong {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.95rem;
+    }
+
+    .card-buy {
+        display: block;
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+        text-align: center;
+        padding: 0.6rem;
+        margin: 0.5rem 0.85rem 0.85rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.05em;
+    }
+    .card.has-deal .card-buy {
+        background: linear-gradient(135deg, var(--discount), #29a35a);
+        color: #000;
+    }
+    .card-buy:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(184,115,51,0.4);
+    }
+
+    .loading {
+        text-align: center;
+        padding: 5rem 2rem;
+        color: var(--text-muted);
+        grid-column: 1/-1;
+    }
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid var(--border-light);
+        border-top-color: var(--copper);
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        margin: 0 auto 1rem;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER ── */
+    footer {
+        background: linear-gradient(180deg, var(--leather) 0%, var(--bg) 100%);
+        border-top: 1px solid var(--border);
+        padding: 3rem 2rem 1.5rem;
+        margin-top: 4rem;
+    }
+    .footer-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1fr;
+        gap: 2.5rem;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
+    .footer-brand-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .footer-brand-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .footer-brand-logo span {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--copper-light), var(--copper));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .footer-brand p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        max-width: 280px;
+        line-height: 1.6;
+    }
+    .footer-col h4 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1rem;
+        color: var(--copper);
+        letter-spacing: 0.18em;
+        margin-bottom: 0.8rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.5rem; }
+    .footer-col a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.82rem;
+        transition: color 0.15s;
+    }
+    .footer-col a:hover { color: var(--copper-light); }
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 2.5rem auto 0;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--border);
+        text-align: center;
+        font-size: 0.72rem;
+        color: var(--text-dim);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+    .footer-disclaimer {
+        max-width: 800px;
+        margin: 1.5rem auto 0;
+        padding: 0.9rem;
+        background: rgba(184,115,51,0.05);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        font-style: italic;
+    }
+    .footer-disclaimer strong { color: var(--copper-light); font-style: normal; }
+
+    .mobile-filter-toggle {
+        display: none;
+        width: 100%;
+        background: linear-gradient(135deg, var(--mahogny), var(--copper));
+        color: var(--text);
+        padding: 0.7rem;
+        border: none;
+        border-radius: 10px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        cursor: pointer;
+    }
+    .mobile-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+        z-index: 998;
+    }
+    .mobile-backdrop.visible { display: block; }
+
+    @media (max-width: 1100px) {
+        .hero-container { grid-template-columns: 1fr; gap: 2rem; }
+        .layout { grid-template-columns: 1fr; max-width: 100%; }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            bottom: 0;
+            width: 300px;
+            height: 100vh;
+            max-height: 100vh;
+            border-radius: 0;
+            z-index: 999;
+            transition: left 0.3s;
+            box-shadow: 4px 0 20px rgba(0,0,0,0.6);
+        }
+        .sidebar.open { left: 0; }
+        .mobile-filter-toggle { display: block; }
+        .grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0.75rem; }
+        .footer-main { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    }
+    @media (max-width: 640px) {
+        nav { padding: 0.7rem 1rem; }
+        .nav-links a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
+        .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.6rem; }
+        .card-img-wrap { height: 140px; }
+        .card-body { padding: 0.65rem; }
+        .card-name { font-size: 0.78rem; min-height: 2.2rem; }
+        .card-price { font-size: 1.3rem; }
+        .card-buy { margin: 0.4rem 0.65rem 0.65rem; padding: 0.55rem; font-size: 0.78rem; }
+        .hero { padding: 2.5rem 1rem 2rem; }
+        .stats { padding: 0 1rem; gap: 0.5rem; }
+        .stat { padding: 0.7rem 0.5rem; }
+        .stat-number { font-size: 1.4rem; }
+        .stat-icon { font-size: 1.3rem; }
+        .footer-main { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+        .footer-brand { align-items: center; }
+        .spotlight-content { flex-direction: column; align-items: center; text-align: center; }
+        .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
+    }
+    @media (max-width: 380px) {
+        .grid { grid-template-columns: 1fr; gap: 0.7rem; }
+        .card-img-wrap { height: 200px; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'">
+        <span>RomSniffer</span>
+    </a>
+    <div class="nav-links">
+        <a href="#hero">Forsiden</a>
+        <a href="om.html">Om</a>
+    </div>
+</nav>
+
+<div class="hero" id="hero">
+    <div class="hero-container">
+        <div class="hero-left">
+            <div class="hero-eyebrow">Find Danmarks bedste rom-tilbud</div>
+            <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'">
+            <div class="hero-tagline">Spar penge på din <strong>næste flaske rom</strong></div>
+            <div class="hero-divider"></div>
+            <p class="hero-subtitle">Vi sammenligner priser fra danske webshops så du altid får den bedste deal</p>
+            <div class="hero-cta">
+                <a href="#grid" class="cta-btn primary">🥃 Find billigste rom</a>
+                <a href="#" onclick="document.querySelector('.sidebar-filter-btn[data-filter=&quot;multi&quot;]').click();window.scrollTo({top:600,behavior:'smooth'});return false;" class="cta-btn secondary">🔄 Pris-sammenligning</a>
+            </div>
+        </div>
+
+        <div class="spotlight-wrap" id="spotlight" style="display:none">
+            <div class="spotlight-label">Pris-spotlight</div>
+            <div class="spotlight-title">Bedste pris-sammenligning lige nu</div>
+            <div class="spotlight-content">
+                <div class="spotlight-img-wrap">
+                    <img class="spotlight-img" id="spotlight-img" src="" alt="" onerror="this.style.display='none'">
+                </div>
+                <div class="spotlight-info" id="spotlight-info">
+                    <div class="spotlight-name" id="spotlight-name">–</div>
+                    <div class="spotlight-meta" id="spotlight-meta"></div>
+                    <div class="spotlight-prices" id="spotlight-prices"></div>
+                    <div class="spotlight-savings" id="spotlight-savings"></div>
+                    <a class="spotlight-cta" id="spotlight-cta" href="#" target="_blank">Køb billigst →</a>
+                </div>
+            </div>
+            <div class="spotlight-dots" id="spotlight-dots"></div>
+        </div>
+    </div>
+</div>
+
+<div class="stats" id="stats">
+    <div class="stat">
+        <span class="stat-icon">🥃</span>
+        <div class="stat-content">
+            <div class="stat-number" id="stat-total">–</div>
+            <div class="stat-label">Rom i alt</div>
+        </div>
+    </div>
+    <div class="stat">
+        <span class="stat-icon">🔄</span>
+        <div class="stat-content">
+            <div class="stat-number" id="stat-multi">–</div>
+            <div class="stat-label">I flere butikker</div>
+        </div>
+    </div>
+    <div class="stat">
+        <span class="stat-icon">🔥</span>
+        <div class="stat-content">
+            <div class="stat-number" id="stat-deals">–</div>
+            <div class="stat-label">Aktive tilbud</div>
+        </div>
+    </div>
+    <div class="stat">
+        <span class="stat-icon">💰</span>
+        <div class="stat-content">
+            <div class="stat-number" id="stat-cheapest">–</div>
+            <div class="stat-label">Billigste (kr)</div>
+        </div>
+    </div>
+</div>
+
+<div class="mobile-backdrop" id="mobile-backdrop"></div>
+
+<div class="layout">
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-section" id="active-filters-section" style="display:none">
+            <div class="sidebar-title">
+                <span>✨ Aktive filtre</span>
+                <button class="sidebar-clear-link" id="clear-all">Ryd alle</button>
+            </div>
+            <div class="sidebar-chips" id="active-chips"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">🔍 Søg</div>
+            <input type="text" id="search" class="sidebar-search" placeholder="Søg rom, brand, land...">
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">⚡ Hurtige filtre</div>
+            <button class="sidebar-filter-btn active" data-filter="all">🥃 Alle</button>
+            <button class="sidebar-filter-btn" data-filter="multi">🔄 I flere butikker</button>
+            <button class="sidebar-filter-btn" data-filter="deals">🔥 Tilbud</button>
+            <button class="sidebar-filter-btn" data-filter="favs">❤️ Favoritter <span id="fav-count"></span></button>
+            <button class="sidebar-filter-btn" data-filter="hverdagsrom">🥃 Hverdagsrom (under 500 kr)</button>
+            <button class="sidebar-filter-btn" data-filter="premium">💎 Premium (over 1.500 kr)</button>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">🏪 Butikker</div>
+            <div class="sidebar-checkbox-list" id="shop-list"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">🌍 Lande</div>
+            <div class="sidebar-checkbox-list" id="country-list"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">🥃 Rom-typer</div>
+            <div class="sidebar-checkbox-list" id="type-list"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">🕰️ Alder</div>
+            <div class="sidebar-checkbox-list" id="age-list"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">💰 Pris</div>
+            <div class="range-slider">
+                <div class="range-values">
+                    <span><strong id="price-min-val">0</strong> kr</span>
+                    <span><strong id="price-max-val">6000</strong> kr</span>
+                </div>
+                <div class="dual-range">
+                    <div class="dual-range-track" id="price-track"></div>
+                    <input type="range" id="price-min" min="0" max="6000" value="0" step="50">
+                    <input type="range" id="price-max" min="0" max="6000" value="6000" step="50">
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">🍻 Alkohol (ABV)</div>
+            <div class="range-slider">
+                <div class="range-values">
+                    <span><strong id="abv-min-val">30</strong>%</span>
+                    <span><strong id="abv-max-val">80</strong>%</span>
+                </div>
+                <div class="dual-range">
+                    <div class="dual-range-track" id="abv-track"></div>
+                    <input type="range" id="abv-min" min="30" max="80" value="30" step="1">
+                    <input type="range" id="abv-max" min="30" max="80" value="80" step="1">
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">📦 Volumen</div>
+            <select id="volume" class="sidebar-select">
+                <option value="">Alle størrelser</option>
+                <option value="small">Mini (under 35cl)</option>
+                <option value="medium">Normal (35-75cl)</option>
+                <option value="large">Stor (over 75cl)</option>
+            </select>
+        </div>
+
+        <button class="sidebar-reset" id="reset-btn">🔄 Nulstil alle filtre</button>
+
+    </aside>
+
+    <main class="main-content">
+
+        <button class="mobile-filter-toggle" id="mobile-filter-open">🎛️ Filtre & sortering</button>
+
+        <div class="sort-bar">
+            <div class="sort-bar-count"><strong id="result-count">0</strong> rom fundet</div>
+            <select id="sort">
+                <option value="savings">Største besparelse (mellem butikker)</option>
+                <option value="price-asc">Pris (lav-høj)</option>
+                <option value="price-desc">Pris (høj-lav)</option>
+                <option value="discount">Største rabat</option>
+                <option value="name">Navn</option>
+                <option value="age">Alder (ældste først)</option>
+            </select>
+        </div>
+
+        <div class="grid" id="grid">
+            <div class="loading">
+                <div class="spinner"></div>
+                Henter rom-data...
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+<footer>
+    <div class="footer-main">
+        <div class="footer-brand">
+            <div class="footer-brand-logo">
+                <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'">
+                <span>RomSniffer</span>
+            </div>
+            <p>Danmarks rom-prisaggregator. Vi sammenligner priser fra danske webshops så du altid får den bedste deal på din næste flaske rom.</p>
+        </div>
+        <div class="footer-col">
+            <h4>RomSniffer</h4>
+            <ul>
+                <li><a href="index.html">Forsiden</a></li>
+                <li><a href="om.html">Om RomSniffer</a></li>
+                <li><a href="om.html#kontakt">Kontakt</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Juridisk</h4>
+            <ul>
+                <li><a href="om.html#privatlivspolitik">Privatlivspolitik</a></li>
+                <li><a href="om.html#handelsbetingelser">Handelsbetingelser</a></li>
+                <li><a href="om.html#cookies">Cookiepolitik</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>For Partnere</h4>
+            <ul>
+                <li><a href="om.html#partnere">Samarbejde</a></li>
+                <li><a href="om.html#affiliate">Affiliate</a></li>
+                <li><a href="mailto:admin@romsniffer.dk">Skriv til os</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-disclaimer">
+        <strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision når du køber via vores links. Det koster dig ingenting ekstra og påvirker ikke vores prissammenligning — vi viser altid den billigste pris først.
+    </div>
+    <div class="footer-bottom">
+        🥃 RomSniffer &copy; 2026 &mdash; Kun for personer over 18 år
+    </div>
+</footer>
+
+<script>
+let allRoms = [];
+let currentFilter = 'all';
+let selectedShops = new Set();
+let selectedCountries = new Set();
+let selectedTypes = new Set();
+let selectedAges = new Set();
+let favorites = new Set(JSON.parse(localStorage.getItem('rom_favs') || '[]'));
+
+let priceMin = 0, priceMax = 6000;
+let abvMin = 30, abvMax = 80;
+
+let spotlightRoms = [];
+let spotlightIndex = 0;
+let spotlightInterval = null;
+
+async function loadData() {
+    try {
+        const r = await fetch('rom_data.json');
+        const data = await r.json();
+        allRoms = data.roms || [];
+
+        document.getElementById('stat-total').textContent = data.stats.total;
+        document.getElementById('stat-multi').textContent = data.stats.multi_shop || 0;
+        document.getElementById('stat-deals').textContent = data.stats.deals;
+        document.getElementById('stat-cheapest').textContent = Math.round(data.stats.cheapest);
+
+        const maxPrice = Math.max(...allRoms.map(r => r.min_price));
+        const roundedMax = Math.ceil(maxPrice / 100) * 100;
+        document.getElementById('price-max').max = roundedMax;
+        document.getElementById('price-max').value = roundedMax;
+        priceMax = roundedMax;
+        document.getElementById('price-max-val').textContent = roundedMax;
+
+        // Butikker
+        const shopList = document.getElementById('shop-list');
+        shopList.innerHTML = data.stats.shop_names.map(s => `
+            <label class="sidebar-checkbox">
+                <input type="checkbox" value="${s}" class="filter-shop">
+                <span>${s}</span>
+            </label>
+        `).join('');
+
+        const countryList = document.getElementById('country-list');
+        countryList.innerHTML = data.stats.countries.map(c => `
+            <label class="sidebar-checkbox">
+                <input type="checkbox" value="${c}" class="filter-country">
+                <span>${c}</span>
+            </label>
+        `).join('');
+
+        const typeList = document.getElementById('type-list');
+        typeList.innerHTML = data.stats.types.map(t => `
+            <label class="sidebar-checkbox">
+                <input type="checkbox" value="${t}" class="filter-type">
+                <span>${t}</span>
+            </label>
+        `).join('');
+
+        const ageList = document.getElementById('age-list');
+        ageList.innerHTML = (data.stats.ages || []).map(a => `
+            <label class="sidebar-checkbox">
+                <input type="checkbox" value="${a}" class="filter-age">
+                <span>${a}</span>
+            </label>
+        `).join('');
+
+        document.querySelectorAll('.filter-shop').forEach(cb => {
+            cb.addEventListener('change', e => {
+                if (e.target.checked) selectedShops.add(e.target.value);
+                else selectedShops.delete(e.target.value);
+                render();
+            });
+        });
+        document.querySelectorAll('.filter-country').forEach(cb => {
+            cb.addEventListener('change', e => {
+                if (e.target.checked) selectedCountries.add(e.target.value);
+                else selectedCountries.delete(e.target.value);
+                render();
+            });
+        });
+        document.querySelectorAll('.filter-type').forEach(cb => {
+            cb.addEventListener('change', e => {
+                if (e.target.checked) selectedTypes.add(e.target.value);
+                else selectedTypes.delete(e.target.value);
+                render();
+            });
+        });
+        document.querySelectorAll('.filter-age').forEach(cb => {
+            cb.addEventListener('change', e => {
+                if (e.target.checked) selectedAges.add(e.target.value);
+                else selectedAges.delete(e.target.value);
+                render();
+            });
+        });
+
+        setupSpotlight();
+        document.getElementById('fav-count').textContent = favorites.size > 0 ? `(${favorites.size})` : '';
+
+        render();
+    } catch (e) {
+        console.error(e);
+        document.getElementById('grid').innerHTML =
+            '<div class="loading">❌ Kunne ikke hente data.</div>';
+    }
+}
+
+function getSavings(rom) {
+    if (!rom.prices || rom.prices.length < 2) return 0;
+    const sortedPrices = [...rom.prices].sort((a, b) => a.price - b.price);
+    return sortedPrices[sortedPrices.length - 1].price - sortedPrices[0].price;
+}
+
+function setupSpotlight() {
+    // Vælg de bedste pris-sammenlignings-rom (findes i flere butikker med stor forskel)
+    spotlightRoms = allRoms
+        .filter(r => r.shop_count > 1)
+        .sort((a, b) => getSavings(b) - getSavings(a))
+        .slice(0, 8);
+
+    if (!spotlightRoms.length) {
+        // Fallback: største tilbud
+        spotlightRoms = [...allRoms]
+            .filter(r => r.max_discount_pct > 0)
+            .sort((a, b) => b.max_discount_pct - a.max_discount_pct)
+            .slice(0, 5);
+    }
+
+    if (!spotlightRoms.length) return;
+
+    document.getElementById('spotlight').style.display = 'block';
+
+    const dots = document.getElementById('spotlight-dots');
+    dots.innerHTML = spotlightRoms.map((_, i) =>
+        `<span class="spotlight-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></span>`
+    ).join('');
+    dots.querySelectorAll('.spotlight-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            spotlightIndex = parseInt(dot.dataset.idx);
+            showSpotlight();
+            resetSpotlightInterval();
+        });
+    });
+
+    showSpotlight();
+    resetSpotlightInterval();
+}
+
+function showSpotlight() {
+    const rom = spotlightRoms[spotlightIndex];
+    if (!rom) return;
+
+    const imgEl = document.getElementById('spotlight-img');
+    const infoEl = document.getElementById('spotlight-info');
+
+    imgEl.classList.add('fading');
+    infoEl.classList.add('fading');
+
+    setTimeout(() => {
+        if (rom.image) {
+            imgEl.src = rom.image;
+            imgEl.style.display = 'block';
+        }
+
+        document.getElementById('spotlight-name').textContent = rom.name;
+
+        const meta = [];
+        if (rom.country) meta.push(`<span class="spotlight-tag">🌍 ${rom.country}</span>`);
+        if (rom.type) meta.push(`<span class="spotlight-tag">${rom.type}</span>`);
+        if (rom.age) meta.push(`<span class="spotlight-tag">🕰️ ${rom.age}</span>`);
+        document.getElementById('spotlight-meta').innerHTML = meta.join('');
+
+        const sortedPrices = [...rom.prices].sort((a, b) => a.price - b.price);
+        const cheapest = sortedPrices[0];
+        const pricesHTML = sortedPrices.map((p, i) => `
+            <div class="spotlight-price-row">
+                <span class="spotlight-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
+                <span class="spotlight-price ${i === 0 ? 'best' : ''}">${p.price.toFixed(0)} kr</span>
+            </div>
+        `).join('');
+        document.getElementById('spotlight-prices').innerHTML = pricesHTML;
+
+        const savingsEl = document.getElementById('spotlight-savings');
+        if (sortedPrices.length > 1) {
+            const savings = sortedPrices[sortedPrices.length - 1].price - cheapest.price;
+            const savingsPct = Math.round((savings / sortedPrices[sortedPrices.length - 1].price) * 100);
+            savingsEl.innerHTML = `💰 Spar <strong>${savings.toFixed(0)} kr</strong> (${savingsPct}%) vs dyreste butik`;
+            savingsEl.style.display = 'block';
+        } else if (rom.max_discount_pct > 0) {
+            savingsEl.innerHTML = `🔥 <strong>−${rom.max_discount_pct}%</strong> rabat`;
+            savingsEl.style.display = 'block';
+        } else {
+            savingsEl.style.display = 'none';
+        }
+
+        document.getElementById('spotlight-cta').href = cheapest.url;
+
+        document.querySelectorAll('.spotlight-dot').forEach((dot, i) => {
+            dot.classList.toggle('active', i === spotlightIndex);
+        });
+
+        imgEl.classList.remove('fading');
+        infoEl.classList.remove('fading');
+    }, 200);
+}
+
+function resetSpotlightInterval() {
+    if (spotlightInterval) clearInterval(spotlightInterval);
+    spotlightInterval = setInterval(() => {
+        spotlightIndex = (spotlightIndex + 1) % spotlightRoms.length;
+        showSpotlight();
+    }, 5000);
+}
+
+function getVolumeBucket(vol) {
+    if (!vol) return null;
+    if (vol < 35) return 'small';
+    if (vol <= 75) return 'medium';
+    return 'large';
+}
+
+function render() {
+    const search = document.getElementById('search').value.toLowerCase();
+    const sort = document.getElementById('sort').value;
+    const volume = document.getElementById('volume').value;
+
+    let filtered = allRoms.filter(r => {
+        if (search) {
+            const hay = (r.name + ' ' + (r.brand || '') + ' ' + (r.country || '')).toLowerCase();
+            if (!hay.includes(search)) return false;
+        }
+        if (currentFilter === 'deals' && !(r.max_discount_pct > 0)) return false;
+        if (currentFilter === 'multi' && !(r.shop_count > 1)) return false;
+        if (currentFilter === 'favs' && !favorites.has(r.normalized_name || r.name)) return false;
+        if (currentFilter === 'hverdagsrom' && r.min_price >= 500) return false;
+        if (currentFilter === 'premium' && r.min_price < 1500) return false;
+        if (selectedShops.size) {
+            const romShops = new Set((r.prices || []).map(p => p.shop_name));
+            if (![...selectedShops].some(s => romShops.has(s))) return false;
+        }
+        if (selectedCountries.size && !selectedCountries.has(r.country)) return false;
+        if (selectedTypes.size && !selectedTypes.has(r.type)) return false;
+        if (selectedAges.size && !selectedAges.has(r.age)) return false;
+        if (r.min_price < priceMin || r.min_price > priceMax) return false;
+        if (r.abv) {
+            if (r.abv < abvMin || r.abv > abvMax) return false;
+        }
+        if (volume && getVolumeBucket(r.volume_cl) !== volume) return false;
+        return true;
+    });
+
+    if (sort === 'savings') filtered.sort((a, b) => getSavings(b) - getSavings(a));
+    else if (sort === 'price-asc') filtered.sort((a, b) => a.min_price - b.min_price);
+    else if (sort === 'price-desc') filtered.sort((a, b) => b.min_price - a.min_price);
+    else if (sort === 'discount') filtered.sort((a, b) => b.max_discount_pct - a.max_discount_pct);
+    else if (sort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
+    else if (sort === 'age') {
+        const ageVal = a => {
+            if (!a.age) return -1;
+            const m = a.age.match(/(\d+)/);
+            return m ? parseInt(m[1]) : (a.age === 'XO' ? 6 : a.age === 'Solera' ? 5 : 0);
+        };
+        filtered.sort((a, b) => ageVal(b) - ageVal(a));
+    }
+
+    document.getElementById('result-count').textContent = filtered.length;
+    renderActiveChips();
+
+    const grid = document.getElementById('grid');
+    if (!filtered.length) {
+        grid.innerHTML = '<div class="loading">Ingen rom matchede dine filtre</div>';
+        return;
+    }
+
+    grid.innerHTML = filtered.map(r => {
+        const hasDeal = r.max_discount_pct > 0;
+        const isPremium = r.min_price >= 1500;
+        const isMulti = r.shop_count > 1;
+        const sortedPrices = [...r.prices].sort((a, b) => a.price - b.price);
+        const cheapest = sortedPrices[0];
+
+        let priceHTML = '';
+        if (isMulti && sortedPrices.length >= 2) {
+            // Vis pris-sammenligning
+            const dyrest = sortedPrices[sortedPrices.length - 1];
+            const savings = dyrest.price - cheapest.price;
+            priceHTML = `
+                <div class="card-multi-prices">
+                    ${sortedPrices.slice(0, 3).map((p, i) => `
+                        <div class="card-multi-row">
+                            <span class="card-multi-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
+                            <span class="card-multi-price ${i === 0 ? 'best' : ''}">${p.price.toFixed(0)} kr</span>
+                        </div>
+                    `).join('')}
+                </div>
+                ${savings > 5 ? `<div class="card-savings">Spar <strong>${savings.toFixed(0)} KR</strong></div>` : ''}
+            `;
+        } else {
+            // Bare en pris
+            priceHTML = `
+                <div class="card-price-single">
+                    <span class="card-price">${cheapest.price.toFixed(0)} kr</span>
+                    ${cheapest.old_price ? `<span class="card-old-price">${cheapest.old_price.toFixed(0)} kr</span>` : ''}
+                    <span class="card-shop" style="margin-left:auto">${cheapest.shop_name}</span>
+                </div>
+            `;
+        }
+
+        const cardClasses = [
+            'card',
+            hasDeal ? 'has-deal' : '',
+            isMulti ? 'multi-shop' : 'no-multi'
+        ].filter(Boolean).join(' ');
+
+        return `
+            <div class="${cardClasses}">
+                ${hasDeal ? `<div class="discount-badge">−${r.max_discount_pct}%</div>` : ''}
+                ${isMulti ? `<div class="multi-shop-badge">🔄 ${r.shop_count} BUTIKKER</div>` : ''}
+                ${isPremium && !hasDeal ? `<div class="premium-badge">💎 PREMIUM</div>` : ''}
+                <div class="card-img-wrap">
+                    ${r.image ? `<img class="card-img" src="${r.image}" alt="${r.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">` : ''}
+                    <span class="card-img-placeholder" ${r.image ? 'style="display:none"' : ''}>🥃</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-meta">
+                        ${r.country ? `<span class="card-tag country">🌍 ${r.country}</span>` : ''}
+                        ${r.type ? `<span class="card-tag">${r.type}</span>` : ''}
+                        ${r.age ? `<span class="card-tag age">🕰️ ${r.age}</span>` : ''}
+                        ${r.abv ? `<span class="card-tag abv">${r.abv}%</span>` : ''}
+                    </div>
+                    <div class="card-name">${r.name}</div>
+                    <div class="card-prices">${priceHTML}</div>
+                </div>
+                <a class="card-buy" href="${cheapest.url}" target="_blank">Køb billigst →</a>
+            </div>
+        `;
+    }).join('');
+}
+
+function renderActiveChips() {
+    const section = document.getElementById('active-filters-section');
+    const container = document.getElementById('active-chips');
+    const chips = [];
+
+    if (currentFilter !== 'all') {
+        const labels = {
+            'multi': '🔄 I flere butikker',
+            'deals': '🔥 Tilbud',
+            'favs': '❤️ Favoritter',
+            'hverdagsrom': '🥃 Hverdagsrom',
+            'premium': '💎 Premium'
+        };
+        chips.push({ label: labels[currentFilter], type: 'quick' });
+    }
+    selectedShops.forEach(s => chips.push({ label: `🏪 ${s}`, type: 'shop', val: s }));
+    selectedCountries.forEach(c => chips.push({ label: `🌍 ${c}`, type: 'country', val: c }));
+    selectedTypes.forEach(t => chips.push({ label: `🥃 ${t}`, type: 'type', val: t }));
+    selectedAges.forEach(a => chips.push({ label: `🕰️ ${a}`, type: 'age', val: a }));
+
+    const search = document.getElementById('search').value.trim();
+    if (search) chips.push({ label: `🔍 "${search}"`, type: 'search' });
+
+    const priceMaxEl = parseInt(document.getElementById('price-max').max);
+    if (priceMin > 0 || priceMax < priceMaxEl) {
+        chips.push({ label: `💰 ${priceMin}-${priceMax} kr`, type: 'price' });
+    }
+    if (abvMin > 30 || abvMax < 80) {
+        chips.push({ label: `🍻 ${abvMin}-${abvMax}%`, type: 'abv' });
+    }
+    const volume = document.getElementById('volume').value;
+    if (volume) {
+        const labels = { 'small': '📦 Mini', 'medium': '📦 Normal', 'large': '📦 Stor' };
+        chips.push({ label: labels[volume], type: 'volume' });
+    }
+
+    if (!chips.length) {
+        section.style.display = 'none';
+        return;
+    }
+    section.style.display = 'block';
+    container.innerHTML = chips.map(c =>
+        `<span class="sidebar-chip" data-type="${c.type}" data-val="${c.val || ''}">${c.label} <span class="x">✕</span></span>`
+    ).join('');
+
+    container.querySelectorAll('.sidebar-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const type = chip.dataset.type;
+            const val = chip.dataset.val;
+            if (type === 'quick') {
+                document.querySelector('.sidebar-filter-btn[data-filter="all"]').click();
+            } else if (type === 'shop') {
+                selectedShops.delete(val);
+                document.querySelector(`.filter-shop[value="${val}"]`).checked = false;
+                render();
+            } else if (type === 'country') {
+                selectedCountries.delete(val);
+                document.querySelector(`.filter-country[value="${val}"]`).checked = false;
+                render();
+            } else if (type === 'type') {
+                selectedTypes.delete(val);
+                document.querySelector(`.filter-type[value="${val}"]`).checked = false;
+                render();
+            } else if (type === 'age') {
+                selectedAges.delete(val);
+                document.querySelector(`.filter-age[value="${val}"]`).checked = false;
+                render();
+            } else if (type === 'search') {
+                document.getElementById('search').value = '';
+                render();
+            } else if (type === 'price') {
+                document.getElementById('price-min').value = 0;
+                document.getElementById('price-max').value = priceMaxEl;
+                priceMin = 0; priceMax = priceMaxEl;
+                document.getElementById('price-min-val').textContent = 0;
+                document.getElementById('price-max-val').textContent = priceMaxEl;
+                updateRangeTracks();
+                render();
+            } else if (type === 'abv') {
+                document.getElementById('abv-min').value = 30;
+                document.getElementById('abv-max').value = 80;
+                abvMin = 30; abvMax = 80;
+                document.getElementById('abv-min-val').textContent = 30;
+                document.getElementById('abv-max-val').textContent = 80;
+                updateRangeTracks();
+                render();
+            } else if (type === 'volume') {
+                document.getElementById('volume').value = '';
+                render();
+            }
+        });
+    });
+}
+
+function updateRangeTracks() {
+    const priceMaxEl = parseInt(document.getElementById('price-max').max);
+    const pTrack = document.getElementById('price-track');
+    pTrack.style.left = (priceMin / priceMaxEl * 100) + '%';
+    pTrack.style.right = (100 - priceMax / priceMaxEl * 100) + '%';
+    const aTrack = document.getElementById('abv-track');
+    aTrack.style.left = ((abvMin - 30) / 50 * 100) + '%';
+    aTrack.style.right = (100 - (abvMax - 30) / 50 * 100) + '%';
+}
+
+document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.dataset.filter;
+        if (currentFilter === 'deals') document.getElementById('sort').value = 'discount';
+        if (currentFilter === 'multi') document.getElementById('sort').value = 'savings';
+        render();
+    });
+});
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('sort').addEventListener('change', render);
+document.getElementById('volume').addEventListener('change', render);
+
+document.getElementById('price-min').addEventListener('input', e => {
+    priceMin = parseInt(e.target.value);
+    if (priceMin > priceMax) { priceMin = priceMax; e.target.value = priceMin; }
+    document.getElementById('price-min-val').textContent = priceMin;
+    updateRangeTracks();
+    render();
+});
+document.getElementById('price-max').addEventListener('input', e => {
+    priceMax = parseInt(e.target.value);
+    if (priceMax < priceMin) { priceMax = priceMin; e.target.value = priceMax; }
+    document.getElementById('price-max-val').textContent = priceMax;
+    updateRangeTracks();
+    render();
+});
+
+document.getElementById('abv-min').addEventListener('input', e => {
+    abvMin = parseInt(e.target.value);
+    if (abvMin > abvMax) { abvMin = abvMax; e.target.value = abvMin; }
+    document.getElementById('abv-min-val').textContent = abvMin;
+    updateRangeTracks();
+    render();
+});
+document.getElementById('abv-max').addEventListener('input', e => {
+    abvMax = parseInt(e.target.value);
+    if (abvMax < abvMin) { abvMax = abvMin; e.target.value = abvMax; }
+    document.getElementById('abv-max-val').textContent = abvMax;
+    updateRangeTracks();
+    render();
+});
+
+function resetAll() {
+    document.getElementById('search').value = '';
+    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
+    document.querySelector('.sidebar-filter-btn[data-filter="all"]').classList.add('active');
+    currentFilter = 'all';
+    selectedShops.clear();
+    selectedCountries.clear();
+    selectedTypes.clear();
+    selectedAges.clear();
+    document.querySelectorAll('.filter-shop, .filter-country, .filter-type, .filter-age').forEach(cb => cb.checked = false);
+    const priceMaxEl = parseInt(document.getElementById('price-max').max);
+    priceMin = 0; priceMax = priceMaxEl;
+    document.getElementById('price-min').value = 0;
+    document.getElementById('price-max').value = priceMaxEl;
+    document.getElementById('price-min-val').textContent = 0;
+    document.getElementById('price-max-val').textContent = priceMaxEl;
+    abvMin = 30; abvMax = 80;
+    document.getElementById('abv-min').value = 30;
+    document.getElementById('abv-max').value = 80;
+    document.getElementById('abv-min-val').textContent = 30;
+    document.getElementById('abv-max-val').textContent = 80;
+    document.getElementById('volume').value = '';
+    document.getElementById('sort').value = 'savings';
+    updateRangeTracks();
+    render();
+}
+document.getElementById('reset-btn').addEventListener('click', resetAll);
+document.getElementById('clear-all').addEventListener('click', resetAll);
+
+const sidebar = document.getElementById('sidebar');
+const backdrop = document.getElementById('mobile-backdrop');
+document.getElementById('mobile-filter-open').addEventListener('click', () => {
+    sidebar.classList.add('open');
+    backdrop.classList.add('visible');
+});
+backdrop.addEventListener('click', () => {
+    sidebar.classList.remove('open');
+    backdrop.classList.remove('visible');
+});
+
+updateRangeTracks();
+loadData();
+</script>
+
+</body>
+</html>
