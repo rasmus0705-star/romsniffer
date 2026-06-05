@@ -1746,6 +1746,12 @@ function render(append) {
     }
 
     document.getElementById('load-more').style.display = currentPage < totalPages ? 'block' : 'none';
+    // Parse twemoji på det nye indhold
+    if (typeof twemoji !== 'undefined') {
+        twemoji.parse(document.getElementById('grid'), { folder: 'svg', ext: '.svg' });
+        twemoji.parse(document.getElementById('country-list'), { folder: 'svg', ext: '.svg' });
+        twemoji.parse(document.getElementById('quick-bar'), { folder: 'svg', ext: '.svg' });
+    }
 }
 
 // ── TOP DEALS CAROUSEL ────────────────────────────────────────────
@@ -2153,10 +2159,6 @@ async function loadData() {
         renderTopDeals();
         setupSpotlight();
         render();
-        // Render flag-emojis korrekt på Windows via Twemoji
-        if (typeof twemoji !== 'undefined') {
-            twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
-        }
 
     } catch (e) {
         console.error(e);
