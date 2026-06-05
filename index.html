@@ -1402,9 +1402,11 @@ const COUNTRY_ISO = {
 function flagImg(country, size) {
     const iso = COUNTRY_ISO[country];
     if (!iso) return '<span style="font-size:0.85em">🌍</span>';
-    const h = size === 'sm' ? 10 : 12;
-    const w = size === 'sm' ? 15 : 16;
-    return `<img src="https://flagcdn.com/${h}x${w}/${iso}.png" alt="${country}" width="${w}" height="${h}" style="vertical-align:middle;border-radius:1px;margin-right:2px">`;
+    // flagcdn.com format: {bredde}x{hoejde} — fx 16x12
+    const dim = size === 'sm' ? '16x12' : '20x15';
+    const w = size === 'sm' ? 16 : 20;
+    const h = size === 'sm' ? 12 : 15;
+    return `<img src="https://flagcdn.com/${dim}/${iso}.png" alt="${country}" width="${w}" height="${h}" style="vertical-align:middle;border-radius:1px;margin-right:2px">`;
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
