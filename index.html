@@ -4,8 +4,6 @@
     <!-- Start cookieyes banner -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/89fa8867d76958bb0adf126ff23ddbf6/script.js"></script>
     <!-- End cookieyes banner -->
-    <!-- Twemoji: flag-emojis virker på Windows -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RomSniffer — Sammenlign rom-priser fra danske webshops</title>
@@ -1130,9 +1128,9 @@
             <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
                 <button class="qbtn" data-qtype="filter" data-val="deals"       onclick="quickFilter('deals')">🔥 Tilbud</button>
                 <button class="qbtn" data-qtype="filter" data-val="multi"       onclick="quickFilter('multi')">🔄 Billigst på tværs</button>
-                <button class="qbtn" data-qtype="country" data-val="Cuba"       onclick="quickCountry('Cuba')"><img src="https://flagcdn.com/12x16/cu.png" alt="Cuba" width="16" height="12" style="vertical-align:middle;margin-right:3px"> Cuba</button>
-                <button class="qbtn" data-qtype="country" data-val="Jamaica"    onclick="quickCountry('Jamaica')"><img src="https://flagcdn.com/12x16/jm.png" alt="Jamaica" width="16" height="12" style="vertical-align:middle;margin-right:3px"> Jamaica</button>
-                <button class="qbtn" data-qtype="country" data-val="Barbados"   onclick="quickCountry('Barbados')"><img src="https://flagcdn.com/12x16/bb.png" alt="Barbados" width="16" height="12" style="vertical-align:middle;margin-right:3px"> Barbados</button>
+                <button class="qbtn" data-qtype="country" data-val="Cuba"       onclick="quickCountry('Cuba')"><span style="display:inline-block;vertical-align:middle;margin-right:4px;border-radius:2px;overflow:hidden;line-height:0"><svg viewBox="0 0 9 6" width="18" height="12"><rect width="9" height="6" fill="#002a8f"/><rect y="1.2" width="9" height="1.2" fill="#fff"/><rect y="3.6" width="9" height="1.2" fill="#fff"/><path d="M0 0L4 3 0 6Z" fill="#cb1515"/><path d="M1.1 2.4l.5 1.4-1.2-.9h1.5l-1.2.9z" fill="#fff"/></svg></span> Cuba</button>
+                <button class="qbtn" data-qtype="country" data-val="Jamaica"    onclick="quickCountry('Jamaica')"><span style="display:inline-block;vertical-align:middle;margin-right:4px;border-radius:2px;overflow:hidden;line-height:0"><svg viewBox="0 0 12 6" width="18" height="9"><rect width="12" height="6" fill="#009b3a"/><path d="M0 0L12 6M12 0L0 6" stroke="#fed100" stroke-width="1.3"/><path d="M0 0L5 3 0 6Z M12 0L7 3 12 6Z" fill="#000"/><path d="M0 0L6 2.2 12 0Z M0 6L6 3.8 12 6Z" fill="#009b3a"/></svg></span> Jamaica</button>
+                <button class="qbtn" data-qtype="country" data-val="Barbados"   onclick="quickCountry('Barbados')"><span style="display:inline-block;vertical-align:middle;margin-right:4px;border-radius:2px;overflow:hidden;line-height:0"><svg viewBox="0 0 9 6" width="18" height="12"><rect width="3" height="6" fill="#00267f"/><rect x="3" width="3" height="6" fill="#ffc726"/><rect x="6" width="3" height="6" fill="#00267f"/><path d="M4.5 1.8c-.3.5-.3 1.5 0 2.4.3-.9.3-1.9 0-2.4z" fill="#000"/></svg></span> Barbados</button>
                 <button class="qbtn" data-qtype="type" data-val="Aged rom"      onclick="quickType('Aged rom')">🥃 Aged</button>
                 <button class="qbtn" data-qtype="type" data-val="Spiced"        onclick="quickType('Spiced')">🌿 Spiced</button>
                 <button class="qbtn" data-qtype="age" data-val="XO"             onclick="quickAge('XO')">✨ XO</button>
@@ -1389,42 +1387,80 @@ const TYPE_DESCRIPTIONS = {
     'Flavoured':     'Tilsmagt med frugt, kokosnød eller andre smagsgivere. Letdrikkeligt og festligt.',
 };
 
+// Inline SVG-flag — virker på alle platforme uden eksterne kald
+const FLAG_SVG = {
+    'cu': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#002a8f"/><rect y="1.2" width="9" height="1.2" fill="#fff"/><rect y="3.6" width="9" height="1.2" fill="#fff"/><path d="M0 0L4 3 0 6Z" fill="#cb1515"/><path d="M1.1 2.4l.5 1.4-1.2-.9h1.5l-1.2.9z" fill="#fff"/></svg>',
+    'jm': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#009b3a"/><path d="M0 0L12 6M12 0L0 6" stroke="#fed100" stroke-width="1.3"/><path d="M0 0L5 3 0 6Z M12 0L7 3 12 6Z" fill="#000"/><path d="M0 0L6 2.2 12 0Z M0 6L6 3.8 12 6Z" fill="#009b3a"/></svg>',
+    'bb': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="3" height="6" fill="#00267f"/><rect x="3" width="3" height="6" fill="#ffc726"/><rect x="6" width="3" height="6" fill="#00267f"/><path d="M4.5 1.8c-.3.5-.3 1.5 0 2.4.3-.9.3-1.9 0-2.4z" fill="#000"/></svg>',
+    'tt': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#da1a35"/><path d="M0 0h2.5L12 6H9.5z" fill="#fff"/><path d="M.8 0h1.7L11 5.4H9.2z" fill="#000"/></svg>',
+    'gy': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#009e49"/><path d="M0 0L12 3 0 6Z" fill="#fff"/><path d="M0 0L10.5 3 0 6Z" fill="#fcd116"/><path d="M0 0L6 3 0 6Z" fill="#fff"/><path d="M0 0L5 3 0 6Z" fill="#ce1126"/><path d="M0 .3v5.4L4.3 3z" fill="#000"/></svg>',
+    'gt': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fff"/><rect width="3" height="6" fill="#4997d0"/><rect x="6" width="3" height="6" fill="#4997d0"/></svg>',
+    'pa': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fff"/><rect x="4.5" width="4.5" height="3" fill="#da121a"/><rect y="3" width="4.5" height="3" fill="#072357"/><path d="M2.25 .8l.4 1.1-1-.7h1.2l-1 .7z" fill="#072357"/><path d="M6.75 3.8l.4 1.1-1-.7h1.2l-1 .7z" fill="#da121a"/></svg>',
+    'ni': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fff"/><rect width="9" height="2" fill="#0067c6"/><rect y="4" width="9" height="2" fill="#0067c6"/></svg>',
+    'do': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#002d62"/><rect x="4.5" width="4.5" height="3" fill="#ce1126"/><rect y="3" width="4.5" height="3" fill="#ce1126"/><rect x="3.8" width="1.4" height="6" fill="#fff"/><rect y="2.3" width="9" height="1.4" fill="#fff"/></svg>',
+    'pr': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#fff"/><rect y="0" width="12" height="1.2" fill="#ed0000"/><rect y="2.4" width="12" height="1.2" fill="#ed0000"/><rect y="4.8" width="12" height="1.2" fill="#ed0000"/><path d="M0 0L5.2 3 0 6Z" fill="#0050f0"/><path d="M1.2 2.4l.5 1.4-1.2-.9h1.5l-1.2.9z" fill="#fff"/></svg>',
+    'mq': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#0072ce"/><path d="M4.5 0v6M0 3h9" stroke="#fff" stroke-width=".5"/></svg>',
+    'ht': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="3" fill="#00209f"/><rect y="3" width="9" height="3" fill="#d21034"/></svg>',
+    'bz': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#ce1126"/><rect y="1" width="9" height="4" fill="#003f87"/><circle cx="4.5" cy="3" r="1.4" fill="#fff"/></svg>',
+    'br': '<svg viewBox="0 0 10 7" width="16" height="11"><rect width="10" height="7" fill="#009b3a"/><path d="M5 .7L9.3 3.5 5 6.3.7 3.5Z" fill="#fedf00"/><circle cx="5" cy="3.5" r="1.5" fill="#002776"/></svg>',
+    'co': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fcd116"/><rect y="3" width="9" height="1.5" fill="#003893"/><rect y="4.5" width="9" height="1.5" fill="#ce1126"/></svg>',
+    've': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="2" fill="#fc0"/><rect y="2" width="9" height="2" fill="#00247d"/><rect y="4" width="9" height="2" fill="#cf142b"/></svg>',
+    'pe': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="3" height="6" fill="#d91023"/><rect x="3" width="3" height="6" fill="#fff"/><rect x="6" width="3" height="6" fill="#d91023"/></svg>',
+    'mu': '<svg viewBox="0 0 8 6" width="16" height="12"><rect width="8" height="1.5" fill="#ea2839"/><rect y="1.5" width="8" height="1.5" fill="#1a206d"/><rect y="3" width="8" height="1.5" fill="#ffd500"/><rect y="4.5" width="8" height="1.5" fill="#00a551"/></svg>',
+    'in': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="2" fill="#ff9933"/><rect y="2" width="9" height="2" fill="#fff"/><rect y="4" width="9" height="2" fill="#138808"/><circle cx="4.5" cy="3" r=".7" fill="none" stroke="#000080" stroke-width=".15"/></svg>',
+    'ph': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="3" fill="#0038a8"/><rect y="3" width="9" height="3" fill="#ce1126"/><path d="M0 0L3.5 3 0 6Z" fill="#fff"/></svg>',
+    'dk': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#c8102e"/><rect x="2.5" width="1" height="6" fill="#fff"/><rect y="2.5" width="9" height="1" fill="#fff"/></svg>',
+    'fj': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#68bfe5"/></svg>',
+    'au': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#00008b"/><rect width="6" height="3" fill="#00008b"/><path d="M0 0L6 3M6 0L0 3" stroke="#fff" stroke-width=".6"/><path d="M3 0v3M0 1.5h6" stroke="#fff" stroke-width="1"/><path d="M3 0v3M0 1.5h6" stroke="#c8102e" stroke-width=".6"/></svg>',
+    'gb': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#012169"/><path d="M0 0L12 6M12 0L0 6" stroke="#fff" stroke-width="1.2"/><path d="M0 0L12 6M12 0L0 6" stroke="#c8102e" stroke-width=".7"/><path d="M6 0v6M0 3h12" stroke="#fff" stroke-width="2"/><path d="M6 0v6M0 3h12" stroke="#c8102e" stroke-width="1.2"/></svg>',
+    'fr': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="3" height="6" fill="#002395"/><rect x="3" width="3" height="6" fill="#fff"/><rect x="6" width="3" height="6" fill="#ed2939"/></svg>',
+    'th': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#a51931"/><rect y="1" width="9" height="4" fill="#fff"/><rect y="2" width="9" height="2" fill="#2d2a4a"/></svg>',
+};
+// Inline SVG-flag — virker på alle platforme uden eksterne kald
+const FLAG_SVG = {
+    'cu': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#002a8f"/><rect y="1.2" width="9" height="1.2" fill="#fff"/><rect y="3.6" width="9" height="1.2" fill="#fff"/><path d="M0 0L4 3 0 6Z" fill="#cb1515"/><path d="M1.1 2.4l.5 1.4-1.2-.9h1.5l-1.2.9z" fill="#fff"/></svg>',
+    'jm': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#009b3a"/><path d="M0 0L12 6M12 0L0 6" stroke="#fed100" stroke-width="1.3"/><path d="M0 0L5 3 0 6Z M12 0L7 3 12 6Z" fill="#000"/><path d="M0 0L6 2.2 12 0Z M0 6L6 3.8 12 6Z" fill="#009b3a"/></svg>',
+    'bb': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="3" height="6" fill="#00267f"/><rect x="3" width="3" height="6" fill="#ffc726"/><rect x="6" width="3" height="6" fill="#00267f"/><path d="M4.5 1.8c-.3.5-.3 1.5 0 2.4.3-.9.3-1.9 0-2.4z" fill="#000"/></svg>',
+    'tt': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#da1a35"/><path d="M0 0h2.5L12 6H9.5z" fill="#fff"/><path d="M.8 0h1.7L11 5.4H9.2z" fill="#000"/></svg>',
+    'gy': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#009e49"/><path d="M0 0L12 3 0 6Z" fill="#fff"/><path d="M0 0L10.5 3 0 6Z" fill="#fcd116"/><path d="M0 0L6 3 0 6Z" fill="#fff"/><path d="M0 0L5 3 0 6Z" fill="#ce1126"/><path d="M0 .3v5.4L4.3 3z" fill="#000"/></svg>',
+    'gt': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fff"/><rect width="3" height="6" fill="#4997d0"/><rect x="6" width="3" height="6" fill="#4997d0"/></svg>',
+    'pa': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fff"/><rect x="4.5" width="4.5" height="3" fill="#da121a"/><rect y="3" width="4.5" height="3" fill="#072357"/><path d="M2.25 .8l.4 1.1-1-.7h1.2l-1 .7z" fill="#072357"/><path d="M6.75 3.8l.4 1.1-1-.7h1.2l-1 .7z" fill="#da121a"/></svg>',
+    'ni': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fff"/><rect width="9" height="2" fill="#0067c6"/><rect y="4" width="9" height="2" fill="#0067c6"/></svg>',
+    'do': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#002d62"/><rect x="4.5" width="4.5" height="3" fill="#ce1126"/><rect y="3" width="4.5" height="3" fill="#ce1126"/><rect x="3.8" width="1.4" height="6" fill="#fff"/><rect y="2.3" width="9" height="1.4" fill="#fff"/></svg>',
+    'pr': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#fff"/><rect y="0" width="12" height="1.2" fill="#ed0000"/><rect y="2.4" width="12" height="1.2" fill="#ed0000"/><rect y="4.8" width="12" height="1.2" fill="#ed0000"/><path d="M0 0L5.2 3 0 6Z" fill="#0050f0"/><path d="M1.2 2.4l.5 1.4-1.2-.9h1.5l-1.2.9z" fill="#fff"/></svg>',
+    'mq': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#0072ce"/><path d="M4.5 0v6M0 3h9" stroke="#fff" stroke-width=".5"/></svg>',
+    'ht': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="3" fill="#00209f"/><rect y="3" width="9" height="3" fill="#d21034"/></svg>',
+    'bz': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#ce1126"/><rect y="1" width="9" height="4" fill="#003f87"/><circle cx="4.5" cy="3" r="1.4" fill="#fff"/></svg>',
+    'br': '<svg viewBox="0 0 10 7" width="16" height="11"><rect width="10" height="7" fill="#009b3a"/><path d="M5 .7L9.3 3.5 5 6.3.7 3.5Z" fill="#fedf00"/><circle cx="5" cy="3.5" r="1.5" fill="#002776"/></svg>',
+    'co': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#fcd116"/><rect y="3" width="9" height="1.5" fill="#003893"/><rect y="4.5" width="9" height="1.5" fill="#ce1126"/></svg>',
+    've': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="2" fill="#fc0"/><rect y="2" width="9" height="2" fill="#00247d"/><rect y="4" width="9" height="2" fill="#cf142b"/></svg>',
+    'pe': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="3" height="6" fill="#d91023"/><rect x="3" width="3" height="6" fill="#fff"/><rect x="6" width="3" height="6" fill="#d91023"/></svg>',
+    'mu': '<svg viewBox="0 0 8 6" width="16" height="12"><rect width="8" height="1.5" fill="#ea2839"/><rect y="1.5" width="8" height="1.5" fill="#1a206d"/><rect y="3" width="8" height="1.5" fill="#ffd500"/><rect y="4.5" width="8" height="1.5" fill="#00a551"/></svg>',
+    'in': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="2" fill="#ff9933"/><rect y="2" width="9" height="2" fill="#fff"/><rect y="4" width="9" height="2" fill="#138808"/><circle cx="4.5" cy="3" r=".7" fill="none" stroke="#000080" stroke-width=".15"/></svg>',
+    'ph': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="3" fill="#0038a8"/><rect y="3" width="9" height="3" fill="#ce1126"/><path d="M0 0L3.5 3 0 6Z" fill="#fff"/></svg>',
+    'dk': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#c8102e"/><rect x="2.5" width="1" height="6" fill="#fff"/><rect y="2.5" width="9" height="1" fill="#fff"/></svg>',
+    'fj': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#68bfe5"/></svg>',
+    'au': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#00008b"/><rect width="6" height="3" fill="#00008b"/><path d="M0 0L6 3M6 0L0 3" stroke="#fff" stroke-width=".6"/><path d="M3 0v3M0 1.5h6" stroke="#fff" stroke-width="1"/><path d="M3 0v3M0 1.5h6" stroke="#c8102e" stroke-width=".6"/></svg>',
+    'gb': '<svg viewBox="0 0 12 6" width="16" height="8"><rect width="12" height="6" fill="#012169"/><path d="M0 0L12 6M12 0L0 6" stroke="#fff" stroke-width="1.2"/><path d="M0 0L12 6M12 0L0 6" stroke="#c8102e" stroke-width=".7"/><path d="M6 0v6M0 3h12" stroke="#fff" stroke-width="2"/><path d="M6 0v6M0 3h12" stroke="#c8102e" stroke-width="1.2"/></svg>',
+    'fr': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="3" height="6" fill="#002395"/><rect x="3" width="3" height="6" fill="#fff"/><rect x="6" width="3" height="6" fill="#ed2939"/></svg>',
+    'th': '<svg viewBox="0 0 9 6" width="16" height="11"><rect width="9" height="6" fill="#a51931"/><rect y="1" width="9" height="4" fill="#fff"/><rect y="2" width="9" height="2" fill="#2d2a4a"/></svg>',
+};
 const COUNTRY_ISO = {
     'Cuba': 'cu', 'Jamaica': 'jm', 'Barbados': 'bb', 'Trinidad': 'tt',
     'Guyana': 'gy', 'Guatemala': 'gt', 'Panama': 'pa', 'Nicaragua': 'ni',
     'Dominican Republic': 'do', 'Dominikanske Republik': 'do', 'Puerto Rico': 'pr',
     'Martinique': 'mq', 'Haiti': 'ht', 'Belize': 'bz', 'Brazil': 'br',
     'Brasilien': 'br', 'Colombia': 'co', 'Venezuela': 've', 'Peru': 'pe',
-    'Réunion': 're', 'Mauritius': 'mu', 'India': 'in', 'Philippines': 'ph',
+    'Mauritius': 'mu', 'India': 'in', 'Philippines': 'ph',
     'Danmark': 'dk', 'Denmark': 'dk', 'Fiji': 'fj', 'Australia': 'au',
     'Australien': 'au', 'UK': 'gb', 'England': 'gb', 'Scotland': 'gb',
-    'France': 'fr', 'Frankrig': 'fr', 'Spain': 'es', 'Spanien': 'es',
-    'Thailand': 'th', 'Ecuador': 'ec', 'Bolivia': 'bo',
-};
-// Flag-emojis renderes korrekt via Twemoji (virker på Windows)
-const COUNTRY_EMOJI = {
-    'Cuba': '\u{1F1E8}\u{1F1FA}', 'Jamaica': '\u{1F1EF}\u{1F1F2}',
-    'Barbados': '\u{1F1E7}\u{1F1E7}', 'Trinidad': '\u{1F1F9}\u{1F1F9}',
-    'Guyana': '\u{1F1EC}\u{1F1FE}', 'Guatemala': '\u{1F1EC}\u{1F1F9}',
-    'Panama': '\u{1F1F5}\u{1F1E6}', 'Nicaragua': '\u{1F1F3}\u{1F1EE}',
-    'Dominican Republic': '\u{1F1E9}\u{1F1F4}', 'Dominikanske Republik': '\u{1F1E9}\u{1F1F4}',
-    'Puerto Rico': '\u{1F1F5}\u{1F1F7}', 'Martinique': '\u{1F1F2}\u{1F1F6}',
-    'Haiti': '\u{1F1ED}\u{1F1F9}', 'Belize': '\u{1F1E7}\u{1F1FF}',
-    'Brazil': '\u{1F1E7}\u{1F1F7}', 'Brasilien': '\u{1F1E7}\u{1F1F7}',
-    'Colombia': '\u{1F1E8}\u{1F1F4}', 'Venezuela': '\u{1F1FB}\u{1F1EA}',
-    'Peru': '\u{1F1F5}\u{1F1EA}', 'Mauritius': '\u{1F1F2}\u{1F1FA}',
-    'India': '\u{1F1EE}\u{1F1F3}', 'Philippines': '\u{1F1F5}\u{1F1ED}',
-    'Danmark': '\u{1F1E9}\u{1F1F0}', 'Denmark': '\u{1F1E9}\u{1F1F0}',
-    'Fiji': '\u{1F1EB}\u{1F1EF}', 'Australia': '\u{1F1E6}\u{1F1FA}',
-    'Australien': '\u{1F1E6}\u{1F1FA}', 'UK': '\u{1F1EC}\u{1F1E7}',
-    'England': '\u{1F1EC}\u{1F1E7}', 'France': '\u{1F1EB}\u{1F1F7}',
-    'Frankrig': '\u{1F1EB}\u{1F1F7}', 'Thailand': '\u{1F1F9}\u{1F1ED}',
+    'France': 'fr', 'Frankrig': 'fr', 'Thailand': 'th',
 };
 function flagImg(country, size) {
-    const emoji = COUNTRY_EMOJI[country];
-    if (!emoji) return '\u{1F30D}';
-    const sz = size === 'sm' ? '0.9em' : '1em';
-    return `<span style="font-size:${sz};line-height:1">${emoji}</span>`;
+    const iso = COUNTRY_ISO[country];
+    const svg = iso && FLAG_SVG[iso];
+    if (!svg) return '<span style="opacity:.6">\u{1F30D}</span>';
+    return '<span style="display:inline-block;vertical-align:middle;margin-right:3px;border-radius:2px;overflow:hidden;line-height:0;box-shadow:0 0 0 .5px rgba(0,0,0,.3)">' + svg + '</span>';
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
@@ -1746,12 +1782,6 @@ function render(append) {
     }
 
     document.getElementById('load-more').style.display = currentPage < totalPages ? 'block' : 'none';
-    // Parse twemoji på det nye indhold
-    if (typeof twemoji !== 'undefined') {
-        twemoji.parse(document.getElementById('grid'), { folder: 'svg', ext: '.svg' });
-        twemoji.parse(document.getElementById('country-list'), { folder: 'svg', ext: '.svg' });
-        twemoji.parse(document.getElementById('quick-bar'), { folder: 'svg', ext: '.svg' });
-    }
 }
 
 // ── TOP DEALS CAROUSEL ────────────────────────────────────────────
