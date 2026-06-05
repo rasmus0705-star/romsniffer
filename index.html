@@ -6,10 +6,11 @@
 <title>RomSniffer — Sammenlign rom-priser fra danske webshops</title>
 <meta name="description" content="Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.">
 <link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
     :root {
-        /* Sofistikeret bar palette */
         --bg: #0a0604;
         --surface: #1a0f08;
         --surface2: #251810;
@@ -37,26 +38,19 @@
         font-family: 'DM Sans', sans-serif;
         min-height: 100vh;
         line-height: 1.6;
+        overflow-x: hidden;
     }
-    /* Læder-tekstur overlay */
+    body.sidebar-open { overflow: hidden; touch-action: none; }
     body::before {
         content: '';
         position: fixed;
         inset: 0;
-        background-image: 
-            url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0 0.04 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.4'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0 0.04 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.4'/%3E%3C/svg%3E");
         pointer-events: none;
         z-index: 1;
         opacity: 0.5;
     }
-    body::after {
-        content: '';
-        position: fixed;
-        inset: 0;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
-        pointer-events: none;
-        z-index: 9999;
-    }
+    @media (max-width: 640px) { body::before { display: none; } }
     body > * { position: relative; z-index: 2; }
 
     /* ── NAV ── */
@@ -70,15 +64,10 @@
         align-items: center;
         position: sticky;
         top: 0;
-        z-index: 100;
+        z-index: 200;
         box-shadow: 0 2px 20px rgba(0,0,0,0.6);
     }
-    .nav-logo {
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-        text-decoration: none;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
     .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
     .nav-logo span {
         font-family: 'Bebas Neue', sans-serif;
@@ -100,380 +89,254 @@
         border-radius: 6px;
         transition: all 0.2s;
     }
-    .nav-links a:hover {
-        color: var(--copper-light);
-        background: rgba(184,115,51,0.1);
-    }
+    .nav-links a:hover { color: var(--copper-light); background: rgba(184,115,51,0.1); }
+    .nav-updated { font-size: 0.65rem; color: var(--text-dim); text-align: right; line-height: 1.4; }
+    .nav-updated strong { color: var(--text-muted); }
 
-    /* ── HERO med pris-spotlight ── */
+    /* ── HERO ── */
     .hero {
-        padding: 3rem 2rem 4rem;
+        padding: 2.5rem 2rem 1.5rem;
         border-bottom: 1px solid var(--border);
-        background: 
+        background:
             radial-gradient(ellipse at 20% 20%, rgba(184,115,51,0.06) 0%, transparent 50%),
             radial-gradient(ellipse at 80% 60%, rgba(107,44,14,0.08) 0%, transparent 50%),
             linear-gradient(180deg, var(--leather) 0%, transparent 100%);
-        position: relative;
     }
-    .hero-container {
-        max-width: 1400px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 2.5rem;
-        align-items: center;
-    }
-    .hero-left {
-        text-align: center;
-    }
-    .hero-eyebrow {
-        font-size: 0.7rem;
-        letter-spacing: 0.4em;
-        text-transform: uppercase;
-        color: var(--copper);
-        margin-bottom: 1.5rem;
-        position: relative;
-        display: inline-block;
-    }
-    .hero-eyebrow::before, .hero-eyebrow::after {
-        content: '';
-        position: absolute;
-        top: 50%;
-        width: 25px;
-        height: 1px;
-        background: var(--copper);
-    }
-    .hero-eyebrow::before { left: -40px; }
-    .hero-eyebrow::after { right: -40px; }
+    .hero-inner { max-width: 900px; margin: 0 auto; text-align: center; }
     .hero-logo {
-        width: clamp(180px, 22vw, 260px);
-        height: clamp(180px, 22vw, 260px);
+        width: clamp(80px, 12vw, 120px);
+        height: clamp(80px, 12vw, 120px);
         object-fit: contain;
-        filter: drop-shadow(0 16px 50px rgba(200,116,30,0.4)) drop-shadow(0 0 80px rgba(212,98,10,0.15));
+        filter: drop-shadow(0 8px 30px rgba(200,116,30,0.4));
         animation: bob 4s ease-in-out infinite;
-        margin: 0 auto 1.5rem;
+        margin: 0 auto 0.8rem;
         display: block;
     }
     @keyframes bob {
         0%, 100% { transform: translateY(0) rotate(-1deg); }
-        50% { transform: translateY(-10px) rotate(1deg); }
+        50% { transform: translateY(-8px) rotate(1deg); }
     }
-    .hero-tagline {
-        font-family: 'Playfair Display', serif;
-        font-style: italic;
-        font-size: clamp(1.1rem, 2vw, 1.4rem);
-        color: var(--text-muted);
-        margin-bottom: 0.5rem;
-        font-weight: 400;
-    }
-    .hero-tagline strong {
+    .hero-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(1.6rem, 4vw, 2.2rem);
         color: var(--copper-light);
-        font-style: normal;
-        font-weight: 600;
+        letter-spacing: 0.06em;
+        margin-bottom: 0.2rem;
     }
-    .hero-divider {
-        width: 80px;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, var(--copper), transparent);
-        margin: 0 auto 1.2rem;
-    }
-    .hero-subtitle {
+    .hero-sub { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 1rem; }
+    .hero-search-wrap { position: relative; max-width: 560px; margin: 0 auto 1rem; }
+    .hero-search-wrap svg {
+        position: absolute;
+        left: 1.2rem;
+        top: 50%;
+        transform: translateY(-50%);
         color: var(--text-muted);
-        font-size: 0.88rem;
-        max-width: 380px;
-        margin: 0 auto 1.5rem;
+        width: 20px;
+        height: 20px;
+        pointer-events: none;
     }
-    .hero-cta {
-        display: flex;
-        gap: 0.8rem;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    .cta-btn {
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
+    .hero-search-input {
+        width: 100%;
+        background: var(--surface2);
+        border: 2px solid var(--border-light);
+        border-radius: 14px;
+        padding: 1rem 1.2rem 1rem 3.2rem;
+        color: var(--text);
         font-family: 'DM Sans', sans-serif;
-        font-weight: 700;
-        font-size: 0.85rem;
-        cursor: pointer;
-        text-decoration: none;
-        transition: all 0.15s;
-        border: none;
-        letter-spacing: 0.05em;
-    }
-    .cta-btn.primary {
-        background: linear-gradient(135deg, var(--copper), var(--copper-light));
-        color: #1a0f08;
-        box-shadow: 0 4px 15px rgba(184,115,51,0.3);
-    }
-    .cta-btn.primary:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 8px 25px rgba(184,115,51,0.5);
-    }
-    .cta-btn.secondary {
-        background: transparent;
-        color: var(--copper-light);
-        border: 1px solid var(--copper);
-    }
-    .cta-btn.secondary:hover {
-        background: rgba(184,115,51,0.1);
-    }
-
-    /* PRIS-SPOTLIGHT (højre side af hero) */
-    .spotlight-wrap {
-        background: linear-gradient(180deg, rgba(42,24,16,0.6) 0%, rgba(26,15,8,0.8) 100%);
-        border: 1px solid var(--border-light);
-        border-radius: 16px;
-        padding: 1.5rem;
-        position: relative;
-        overflow: hidden;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,168,71,0.1);
-    }
-    .spotlight-label {
-        font-size: 0.62rem;
-        letter-spacing: 0.3em;
-        text-transform: uppercase;
-        color: var(--copper);
-        margin-bottom: 0.4rem;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-    }
-    .spotlight-label::before {
-        content: '✦';
-        color: var(--gold);
-    }
-    .spotlight-title {
-        font-family: 'Playfair Display', serif;
         font-size: 1rem;
-        color: var(--text-muted);
-        margin-bottom: 1rem;
-        font-weight: 400;
-        font-style: italic;
+        outline: none;
+        transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .spotlight-content {
+    .hero-search-input:focus { border-color: var(--copper); box-shadow: 0 0 30px rgba(184,115,51,0.15); }
+    .hero-search-input::placeholder { color: var(--text-muted); }
+
+    /* ── QUICK-FILTER BAR ── */
+    .quick-bar {
         display: flex;
-        gap: 1.2rem;
-        align-items: center;
-    }
-    .spotlight-img-wrap {
-        width: 140px;
-        height: 180px;
-        background: linear-gradient(180deg, #1a1108 0%, #0a0604 100%);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
+        gap: 0.45rem;
         justify-content: center;
-        padding: 0.8rem;
-        flex-shrink: 0;
-        position: relative;
-        box-shadow: inset 0 2px 10px rgba(0,0,0,0.6);
-    }
-    .spotlight-img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-        filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
-        transition: opacity 0.4s;
-    }
-    .spotlight-img.fading { opacity: 0; }
-    .spotlight-info {
-        flex: 1;
-        min-width: 0;
-        transition: opacity 0.4s;
-    }
-    .spotlight-info.fading { opacity: 0; }
-    .spotlight-name {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.1rem;
-        color: var(--text);
-        font-weight: 600;
-        line-height: 1.3;
-        margin-bottom: 0.5rem;
-    }
-    .spotlight-meta {
-        display: flex;
         flex-wrap: wrap;
-        gap: 0.3rem;
-        margin-bottom: 0.7rem;
+        padding-bottom: 0.4rem;
+        overflow-x: auto;
     }
-    .spotlight-tag {
-        background: rgba(184,115,51,0.15);
+    .quick-bar::-webkit-scrollbar { display: none; }
+    .qbtn {
+        background: var(--surface2);
         border: 1px solid var(--border-light);
-        color: var(--copper-light);
-        padding: 0.18rem 0.5rem;
-        border-radius: 4px;
-        font-size: 0.68rem;
-    }
-    .spotlight-prices {
-        margin-bottom: 0.8rem;
-    }
-    .spotlight-price-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.45rem 0;
-        border-bottom: 1px solid var(--border);
-        font-size: 0.85rem;
-    }
-    .spotlight-price-row:last-child { border-bottom: none; }
-    .spotlight-shop {
-        color: var(--text-muted);
-        font-size: 0.78rem;
-        letter-spacing: 0.05em;
-    }
-    .spotlight-shop.best { color: var(--discount); font-weight: 600; }
-    .spotlight-shop.best::before { content: '✓ '; }
-    .spotlight-price {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.1rem;
+        border-radius: 999px;
+        padding: 0.45rem 0.95rem;
         color: var(--text);
-        letter-spacing: 0.03em;
-    }
-    .spotlight-price.best { color: var(--discount); }
-    .spotlight-savings {
-        background: linear-gradient(135deg, rgba(61,186,111,0.15), rgba(212,168,71,0.1));
-        border: 1px solid var(--discount);
-        color: var(--discount);
-        padding: 0.5rem 0.8rem;
-        border-radius: 8px;
-        text-align: center;
+        font-family: 'DM Sans', sans-serif;
         font-size: 0.78rem;
-        margin-bottom: 0.8rem;
-        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        min-height: 36px;
+        flex-shrink: 0;
+        border: none;
     }
-    .spotlight-savings strong {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.05rem;
-        letter-spacing: 0.05em;
-    }
-    .spotlight-cta {
-        display: block;
+    .qbtn:hover, .qbtn.active {
         background: linear-gradient(135deg, var(--copper), var(--copper-light));
         color: #1a0f08;
-        text-align: center;
-        padding: 0.7rem;
-        border-radius: 8px;
-        text-decoration: none;
         font-weight: 700;
-        font-size: 0.85rem;
-        letter-spacing: 0.05em;
-        transition: all 0.15s;
-    }
-    .spotlight-cta:hover {
+        box-shadow: 0 0 12px rgba(184,115,51,0.4);
         transform: translateY(-1px);
-        box-shadow: 0 6px 20px rgba(184,115,51,0.5);
     }
-    .spotlight-dots {
-        display: flex;
-        justify-content: center;
-        gap: 6px;
-        margin-top: 1rem;
-    }
-    .spotlight-dot {
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: rgba(255,255,255,0.15);
-        cursor: pointer;
-        transition: all 0.3s;
-    }
-    .spotlight-dot.active {
-        background: var(--copper);
-        width: 22px;
-        border-radius: 4px;
-    }
+    .qbtn:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
 
     /* ── STATS ── */
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-        max-width: 1100px;
-        margin: 2rem auto;
-        padding: 0 2rem;
-        gap: 1rem;
-    }
-    .stat {
-        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
-        border: 1px solid var(--border-light);
-        border-radius: 12px;
-        padding: 1.1rem 1rem;
+    .stats-bar {
         display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        transition: all 0.2s;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3), inset 0 1px 0 rgba(212,168,71,0.05);
+        justify-content: center;
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        flex-wrap: wrap;
     }
-    .stat:hover {
-        border-color: var(--copper);
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    .stat-item {
+        text-align: center;
+        padding: 0.85rem 1.6rem;
+        border-right: 1px solid var(--border);
+        flex: 1;
+        max-width: 200px;
     }
-    .stat-icon { font-size: 1.7rem; flex-shrink: 0; }
-    .stat-content { flex: 1; min-width: 0; }
-    .stat-number {
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.7rem;
+        font-size: 1.9rem;
         color: var(--copper-light);
         line-height: 1;
-        letter-spacing: 0.02em;
     }
-    .stat-label {
+    .stat-lbl { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.15rem; }
+
+    /* ── TOP DEALS CAROUSEL ── */
+    .top-deals-section {
+        padding: 1.1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+    }
+    .top-deals-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.7rem; }
+    .top-deals-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+        color: var(--discount);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .top-deals-title::before { content: '🔥'; font-size: 1rem; }
+    .top-deals-see-all { font-size: 0.75rem; color: var(--copper); cursor: pointer; text-decoration: none; transition: color 0.2s; }
+    .top-deals-see-all:hover { color: var(--copper-light); }
+    .top-deals-scroll {
+        display: flex;
+        gap: 0.8rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 0.4rem;
+    }
+    .top-deals-scroll::-webkit-scrollbar { display: none; }
+    .top-card {
+        background: linear-gradient(135deg, var(--surface2) 0%, rgba(61,186,111,0.06) 100%);
+        border: 1px solid rgba(61,186,111,0.3);
+        border-radius: 12px;
+        overflow: hidden;
+        flex: 0 0 155px;
+        min-width: 155px;
+        scroll-snap-align: start;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+    }
+    .top-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(61,186,111,0.15); }
+    .top-card-pct {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        background: linear-gradient(135deg, var(--discount), #29a35a);
+        color: #000;
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.88rem;
+        padding: 0.15rem 0.5rem 0.15rem 0.4rem;
+        border-radius: 4px 0 0 4px;
+        z-index: 10;
+    }
+    .top-card-img { width: 100%; height: 95px; object-fit: contain; background: var(--surface2); padding: 0.5rem; }
+    .top-card-img-placeholder { width: 100%; height: 95px; background: var(--surface2); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; }
+    .top-card-body { padding: 0.5rem; }
+    .top-card-shop { font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--discount); margin-bottom: 0.1rem; }
+    .top-card-name {
+        font-size: 0.7rem;
+        font-weight: 500;
+        color: var(--text);
+        line-height: 1.25;
+        margin-bottom: 0.25rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .top-card-prices { display: flex; align-items: baseline; gap: 0.35rem; flex-wrap: wrap; }
+    .top-card-price { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--copper-light); }
+    .top-card-old { font-size: 0.68rem; color: #a08070; text-decoration: line-through; text-decoration-color: #e05050; text-decoration-thickness: 1.5px; }
+    .top-card-link {
+        display: block;
+        text-align: center;
+        margin-top: 0.35rem;
+        padding: 0.28rem;
+        background: rgba(61,186,111,0.1);
+        border: 1px solid rgba(61,186,111,0.25);
+        border-radius: 5px;
+        color: var(--discount);
         font-size: 0.6rem;
-        letter-spacing: 0.18em;
+        text-decoration: none;
+        transition: all 0.2s;
         text-transform: uppercase;
-        color: var(--text-muted);
-        margin-top: 0.3rem;
+        letter-spacing: 0.08em;
     }
+    .top-card-link:hover { background: var(--discount); color: #000; }
+
+    /* ── MOBILE FILTER TOGGLE ── */
+    .mobile-filter-toggle { display: none; }
+    .mobile-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); z-index: 998; }
+    .mobile-backdrop.visible { display: block; }
 
     /* ── LAYOUT ── */
-    .layout {
-        display: grid;
-        grid-template-columns: 260px 1fr;
-        gap: 1.25rem;
-        max-width: 1600px;
-        margin: 0 auto;
-        padding: 0 clamp(0.75rem, 1.5vw, 2rem) 4rem;
-        align-items: start;
-    }
-    @media (min-width: 1400px) {
-        .layout { grid-template-columns: 280px 1fr; gap: 1.5rem; }
-    }
+    .layout-wrap { display: flex; max-width: 100%; margin: 0 auto; min-height: 80vh; }
 
     /* ── SIDEBAR ── */
     .sidebar {
-        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
-        border: 1px solid var(--border-light);
-        border-radius: 12px;
+        width: clamp(230px, 18vw, 280px);
+        flex-shrink: 0;
+        background: var(--surface);
+        border-right: 1px solid var(--border);
         padding: 1.25rem 1rem;
-        height: fit-content;
         position: sticky;
-        top: 70px;
-        max-height: calc(100vh - 90px);
+        top: 61px;
+        height: calc(100vh - 61px);
         overflow-y: auto;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        align-self: flex-start;
+        scrollbar-width: thin;
+        scrollbar-color: var(--border-light) transparent;
     }
-    .sidebar::-webkit-scrollbar { width: 6px; }
-    .sidebar::-webkit-scrollbar-track { background: var(--surface2); border-radius: 3px; }
+    .sidebar::-webkit-scrollbar { width: 5px; }
     .sidebar::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
-    .sidebar::-webkit-scrollbar-thumb:hover { background: var(--copper); }
-
-    .sidebar-section {
-        margin-bottom: 1.5rem;
-        padding-bottom: 1.25rem;
-        border-bottom: 1px solid var(--border);
-    }
+    .sidebar-section { margin-bottom: 1.3rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--border); }
     .sidebar-section:last-child { border-bottom: none; }
     .sidebar-title {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         letter-spacing: 0.18em;
         color: var(--copper);
-        margin-bottom: 0.7rem;
+        margin-bottom: 0.6rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
+    .sidebar-mobile-header { display: none; }
     .sidebar-clear-link {
         background: none;
         border: none;
@@ -483,69 +346,65 @@
         text-transform: uppercase;
         letter-spacing: 0.1em;
         font-family: 'DM Sans', sans-serif;
+        text-decoration: underline;
     }
     .sidebar-clear-link:hover { color: var(--danger); }
-    .sidebar-search {
+    .sidebar-filter-btns { display: flex; flex-direction: column; gap: 0.3rem; }
+    .sidebar-filter-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         width: 100%;
         background: var(--surface2);
         border: 1px solid var(--border-light);
         border-radius: 8px;
-        padding: 0.6rem 0.8rem;
-        color: var(--text);
-        font-family: 'DM Sans', sans-serif;
-        font-size: 0.85rem;
-        outline: none;
-    }
-    .sidebar-search:focus { border-color: var(--copper); }
-    .sidebar-filter-btn {
-        display: block;
-        width: 100%;
-        background: transparent;
-        border: 1px solid var(--border-light);
-        color: var(--text-muted);
         padding: 0.55rem 0.8rem;
-        border-radius: 8px;
-        margin-bottom: 0.35rem;
-        cursor: pointer;
+        color: var(--text-muted);
         font-family: 'DM Sans', sans-serif;
         font-size: 0.82rem;
-        text-align: left;
+        cursor: pointer;
         transition: all 0.15s;
+        text-align: left;
+        min-height: 40px;
     }
-    .sidebar-filter-btn:hover {
-        border-color: var(--copper);
-        color: var(--text);
-    }
+    .sidebar-filter-btn:hover { border-color: var(--copper); color: var(--text); }
     .sidebar-filter-btn.active {
-        background: rgba(184,115,51,0.15);
+        background: rgba(184,115,51,0.18);
         border-color: var(--copper);
         color: var(--copper-light);
         font-weight: 600;
     }
-    .sidebar-checkbox-list {
-        max-height: 180px;
-        overflow-y: auto;
-        padding-right: 0.3rem;
-    }
+    .sidebar-filter-btn:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+    .sidebar-checkbox-list { max-height: 180px; overflow-y: auto; display: flex; flex-direction: column; gap: 0.1rem; }
     .sidebar-checkbox-list::-webkit-scrollbar { width: 4px; }
-    .sidebar-checkbox-list::-webkit-scrollbar-track { background: var(--surface2); }
     .sidebar-checkbox-list::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
     .sidebar-checkbox {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        padding: 0.35rem 0.4rem;
-        cursor: pointer;
+        padding: 0.4rem 0.5rem;
         border-radius: 6px;
+        cursor: pointer;
         font-size: 0.82rem;
         color: var(--text-muted);
-        transition: all 0.1s;
+        transition: background 0.1s;
+        min-height: 38px;
     }
     .sidebar-checkbox:hover { background: var(--surface2); color: var(--text); }
-    .sidebar-checkbox input[type="checkbox"] {
-        accent-color: var(--copper);
-        cursor: pointer;
+    .sidebar-checkbox.selected { background: rgba(184,115,51,0.12); color: var(--copper-light); }
+    .sidebar-checkbox .cb {
+        width: 16px;
+        height: 16px;
+        border: 1.5px solid var(--border-light);
+        border-radius: 4px;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.65rem;
+        transition: all 0.15s;
     }
+    .sidebar-checkbox.selected .cb { background: var(--copper); border-color: var(--copper); color: #1a0f08; font-weight: 700; }
     .sidebar-select {
         width: 100%;
         background: var(--surface2);
@@ -554,18 +413,14 @@
         padding: 0.55rem 0.7rem;
         color: var(--text);
         font-family: 'DM Sans', sans-serif;
-        font-size: 0.85rem;
-        outline: none;
+        font-size: 0.82rem;
         cursor: pointer;
+        outline: none;
+        min-height: 40px;
     }
-    .range-slider { margin-top: 0.5rem; }
-    .range-values {
-        display: flex;
-        justify-content: space-between;
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        margin-bottom: 0.4rem;
-    }
+    .sidebar-select:focus { border-color: var(--copper); }
+    .range-slider { margin-top: 0.4rem; }
+    .range-values { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--text-muted); margin-bottom: 0.4rem; }
     .range-values strong { color: var(--copper-light); }
     .dual-range { position: relative; height: 28px; }
     .dual-range input[type="range"] {
@@ -597,6 +452,7 @@
         border-radius: 50%;
         cursor: pointer;
         pointer-events: all;
+        border: none;
     }
     .dual-range::before {
         content: '';
@@ -608,14 +464,7 @@
         background: var(--surface3);
         border-radius: 2px;
     }
-    .dual-range-track {
-        position: absolute;
-        top: 12px;
-        height: 4px;
-        background: var(--copper);
-        border-radius: 2px;
-        z-index: 1;
-    }
+    .dual-range-track { position: absolute; top: 12px; height: 4px; background: var(--copper); border-radius: 2px; z-index: 1; }
     .sidebar-reset {
         width: 100%;
         background: linear-gradient(135deg, var(--mahogny), var(--copper));
@@ -627,12 +476,11 @@
         cursor: pointer;
         font-family: 'DM Sans', sans-serif;
         font-size: 0.85rem;
+        min-height: 40px;
+        transition: all 0.15s;
     }
-    .sidebar-chips {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.35rem;
-    }
+    .sidebar-reset:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(107,44,14,0.4); }
+    .sidebar-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; }
     .sidebar-chip {
         background: rgba(184,115,51,0.15);
         border: 1px solid var(--copper);
@@ -643,108 +491,126 @@
         cursor: pointer;
         display: inline-flex;
         gap: 0.35rem;
+        min-height: 28px;
+        align-items: center;
+        transition: all 0.15s;
     }
     .sidebar-chip:hover { background: rgba(184,115,51,0.25); }
     .sidebar-chip .x { opacity: 0.6; font-weight: 700; }
     .sidebar-chip:hover .x { color: var(--danger); opacity: 1; }
 
-    .main-content { min-width: 0; }
-    
+    /* ── MAIN CONTENT ── */
+    .main-content { flex: 1; min-width: 0; }
+    .active-filters-bar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        padding: 0.7rem 1.2rem 0;
+        align-items: center;
+    }
+    .active-filters-bar:empty { display: none; }
+    .filter-chip {
+        background: rgba(184,115,51,0.12);
+        border: 1px solid var(--copper);
+        color: var(--copper-light);
+        padding: 0.28rem 0.65rem;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .filter-chip .x { cursor: pointer; opacity: 0.65; font-weight: 700; }
+    .filter-chip .x:hover { opacity: 1; color: var(--danger); }
+    .filter-chip-label { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-right: 0.35rem; }
+
     .sort-bar {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 1rem;
-        padding: 0.5rem 0;
+        padding: 0.6rem 1.2rem;
         gap: 1rem;
         flex-wrap: wrap;
     }
-    .sort-bar-count { color: var(--text-muted); font-size: 0.85rem; }
-    .sort-bar-count strong { color: var(--copper-light); }
-    .sort-bar select {
+    .sort-bar-count { color: var(--text-muted); font-size: 0.82rem; }
+    .sort-bar-count strong { color: var(--copper-light); font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.03em; }
+    .sort-bar-count strong::after { content: ' rom fundet'; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; letter-spacing: 0; color: var(--text-muted); font-weight: 400; }
+    .sort-select {
         background: var(--surface);
         border: 1px solid var(--border-light);
         border-radius: 8px;
-        padding: 0.5rem 0.8rem;
+        padding: 0.45rem 0.75rem;
         color: var(--text);
         font-family: 'DM Sans', sans-serif;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         cursor: pointer;
+        outline: none;
+        min-height: 38px;
     }
+    .sort-select:focus { border-color: var(--copper); }
 
     /* ── GRID ── */
+    .grid-wrap { padding: clamp(0.6rem, 1.2vw, 1.2rem); }
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 0.85rem;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr));
+        gap: clamp(0.6rem, 0.9vw, 0.9rem);
     }
-    @media (min-width: 1200px) {
-        .grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
-    }
+
+    /* ── CARDS ── */
     .card {
         background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
         border: 1px solid var(--border-light);
-        border-radius: 12px;
+        border-radius: 14px;
         overflow: hidden;
-        transition: all 0.2s;
+        transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
         display: flex;
         flex-direction: column;
         position: relative;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+        animation: fadeUp 0.4s ease both;
     }
-    .card:hover {
-        transform: translateY(-3px);
-        border-color: var(--copper);
-        box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 30px rgba(184,115,51,0.15);
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+    .card:hover { transform: translateY(-3px); border-color: var(--copper); box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 24px rgba(184,115,51,0.15); }
     .card.has-deal { border-color: rgba(61,186,111,0.4); }
-    .card.multi-shop { border-color: rgba(212,168,71,0.4); }
-    .card.multi-shop.has-deal { border-color: rgba(61,186,111,0.5); }
+    .card.has-deal:hover { box-shadow: 0 12px 30px rgba(0,0,0,0.5), 0 0 24px rgba(61,186,111,0.2); border-color: var(--discount); }
+    .card.multi-shop { border-color: rgba(212,168,71,0.35); }
 
     .discount-badge {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 0;
+        right: 0;
         background: linear-gradient(135deg, var(--discount), #29a35a);
         color: #000;
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 0.9rem;
-        padding: 4px 9px;
-        border-radius: 6px;
-        z-index: 2;
-        box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+        font-size: 0.95rem;
+        padding: 0.3rem 0.7rem 0.3rem 0.8rem;
+        border-radius: 0 0 0 10px;
+        z-index: 5;
     }
-    .multi-shop-badge {
+    .fav-btn {
         position: absolute;
-        top: 10px;
-        left: 10px;
-        background: linear-gradient(135deg, var(--gold), #c89020);
-        color: #1a0f08;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 0.7rem;
-        padding: 3px 7px;
-        border-radius: 5px;
-        z-index: 2;
-        letter-spacing: 0.05em;
-        box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+        top: 8px;
+        left: 8px;
+        background: rgba(0,0,0,0.55);
+        backdrop-filter: blur(5px);
+        border: 1px solid var(--border-light);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 0.85rem;
+        transition: all 0.2s;
+        z-index: 5;
     }
-    .premium-badge {
-        position: absolute;
-        top: 38px;
-        left: 10px;
-        background: linear-gradient(135deg, #c8a020, #f0c850);
-        color: #000;
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 0.7rem;
-        padding: 3px 7px;
-        border-radius: 5px;
-        z-index: 2;
-        letter-spacing: 0.05em;
-    }
-    .card.no-multi .premium-badge { top: 10px; }
+    .fav-btn:hover { transform: scale(1.1); border-color: var(--danger); }
+    .fav-btn.active { background: rgba(220,50,50,0.25); border-color: var(--danger); }
 
     .card-img-wrap {
-        height: 170px;
+        height: 160px;
         background: linear-gradient(180deg, #1a1108 0%, #0a0604 100%);
         display: flex;
         align-items: center;
@@ -752,388 +618,430 @@
         padding: 0.7rem;
         position: relative;
         overflow: hidden;
-        box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
     }
     .card-img {
         max-width: 100%;
         max-height: 100%;
         object-fit: contain;
-        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+        filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5));
+        transition: transform 0.35s ease;
     }
-    .card-img-placeholder { font-size: 2.5rem; opacity: 0.4; }
-    .card-body {
-        padding: 0.85rem;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        gap: 0.35rem;
-    }
-    .card-meta { display: flex; gap: 0.3rem; flex-wrap: wrap; }
+    .card:hover .card-img { transform: scale(1.04); }
+    .card-img-placeholder { font-size: 2.5rem; opacity: 0.35; }
+
+    .card-body { padding: 0.75rem; flex: 1; display: flex; flex-direction: column; gap: 0.3rem; }
+    .card-meta { display: flex; gap: 0.25rem; flex-wrap: wrap; }
     .card-tag {
-        font-size: 0.62rem;
-        background: rgba(184,115,51,0.15);
+        font-size: 0.6rem;
+        background: rgba(184,115,51,0.12);
         color: var(--copper-light);
-        padding: 0.15rem 0.45rem;
+        padding: 0.15rem 0.4rem;
         border-radius: 4px;
         border: 1px solid var(--border-light);
+        white-space: nowrap;
     }
-    .card-tag.country { background: rgba(107,44,14,0.25); }
+    .card-tag.country { background: rgba(107,44,14,0.2); }
     .card-tag.abv { background: rgba(42,24,16,0.5); color: var(--text-muted); }
-    .card-tag.age { background: rgba(212,168,71,0.12); color: var(--gold); border-color: rgba(212,168,71,0.3); }
+    .card-tag.age { background: rgba(212,168,71,0.1); color: var(--gold); border-color: rgba(212,168,71,0.3); }
+    .card-tag.vol { background: rgba(74,120,180,0.1); color: #7ab0e0; border-color: rgba(74,120,180,0.25); }
+    .card-tag.ppl { background: rgba(61,186,111,0.08); color: var(--discount); border-color: rgba(61,186,111,0.2); }
     .card-name {
         font-family: 'Playfair Display', serif;
-        font-size: 0.92rem;
+        font-size: 0.88rem;
         font-weight: 600;
         color: var(--text);
         line-height: 1.3;
-        margin-top: 0.3rem;
-        min-height: 2.5rem;
+        min-height: 2.3em;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
-    /* Pris-sammenligning på kort */
-    .card-prices {
-        margin-top: auto;
-        padding-top: 0.5rem;
-        border-top: 1px solid var(--border);
-    }
-    .card-price-single {
-        display: flex;
-        align-items: baseline;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    .card-price {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.5rem;
-        color: var(--copper-light);
-        letter-spacing: 0.03em;
-    }
-    .card.has-deal .card-price { color: var(--discount); }
-    .card-old-price {
-        font-size: 0.78rem;
-        color: var(--text-dim);
-        text-decoration: line-through;
-    }
-    .card-shop {
-        font-size: 0.65rem;
-        color: var(--text-muted);
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-    }
-    .card-multi-prices {
+    /* ── PRICE ROWS ── */
+    .price-rows { display: flex; flex-direction: column; gap: 0.3rem; margin-top: auto; padding-top: 0.4rem; border-top: 1px solid var(--border); }
+    .price-row {
         display: flex;
         flex-direction: column;
         gap: 0.3rem;
-        font-size: 0.78rem;
-    }
-    .card-multi-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.2rem 0;
-    }
-    .card-multi-shop {
-        color: var(--text-muted);
-        font-size: 0.72rem;
-        text-transform: uppercase;
-        letter-spacing: 0.05em;
-    }
-    .card-multi-shop.best {
-        color: var(--discount);
-        font-weight: 600;
-    }
-    .card-multi-shop.best::before { content: '✓ '; font-weight: 700; }
-    .card-multi-price {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1rem;
-        color: var(--text);
-        letter-spacing: 0.02em;
-    }
-    .card-multi-price.best { color: var(--discount); }
-    .card-savings {
-        background: rgba(61,186,111,0.1);
-        border: 1px solid rgba(61,186,111,0.3);
-        color: var(--discount);
-        text-align: center;
-        padding: 0.3rem;
-        border-radius: 6px;
-        font-size: 0.72rem;
-        margin-top: 0.4rem;
-        font-weight: 600;
-        letter-spacing: 0.03em;
-    }
-    .card-savings strong {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 0.95rem;
-    }
-
-    .card-buy {
-        display: block;
-        background: linear-gradient(135deg, var(--copper), var(--copper-light));
-        color: #1a0f08;
-        text-align: center;
-        padding: 0.6rem;
-        margin: 0.5rem 0.85rem 0.85rem;
+        padding: 0.5rem 0.6rem;
+        background: var(--surface2);
+        border: 1px solid var(--border);
         border-radius: 8px;
-        text-decoration: none;
-        font-weight: 700;
-        font-size: 0.82rem;
-        letter-spacing: 0.05em;
+        transition: border-color 0.15s;
     }
-    .card.has-deal .card-buy {
+    .price-row:hover { border-color: var(--copper); }
+    .price-row.cheapest { border: 2px solid var(--copper); background: linear-gradient(135deg, rgba(184,115,51,0.12), rgba(107,44,14,0.05)); }
+    .price-row.cheapest.has-discount { border-color: var(--discount); background: linear-gradient(135deg, rgba(61,186,111,0.14), rgba(184,115,51,0.04)); }
+    .price-row-header { display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; }
+    .price-row-shop {
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #b8a98a;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+        min-width: 0;
+    }
+    .price-row.cheapest .price-row-shop { color: var(--copper-light); font-weight: 700; }
+    .price-row.cheapest.has-discount .price-row-shop { color: var(--discount); }
+    .price-row-disc {
         background: linear-gradient(135deg, var(--discount), #29a35a);
         color: #000;
+        font-size: 0.64rem;
+        font-weight: 800;
+        padding: 0.12rem 0.38rem;
+        border-radius: 4px;
+        white-space: nowrap;
+        flex-shrink: 0;
     }
-    .card-buy:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(184,115,51,0.4);
+    .price-row-main { display: flex; justify-content: space-between; align-items: flex-end; gap: 0.4rem; }
+    .price-row-left { display: flex; flex-direction: column; gap: 1px; flex: 1; min-width: 0; }
+    .price-row-amounts { display: flex; align-items: baseline; gap: 0.3rem; flex-wrap: wrap; }
+    .price-row-amount {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.35rem;
+        color: var(--copper-light);
+        line-height: 1;
+        white-space: nowrap;
     }
-
-    .loading {
-        text-align: center;
-        padding: 5rem 2rem;
-        color: var(--text-muted);
-        grid-column: 1/-1;
+    .price-row.cheapest.has-discount .price-row-amount { color: var(--discount); }
+    .price-row-old {
+        font-size: 0.72rem;
+        color: #a08070;
+        text-decoration: line-through;
+        text-decoration-color: #e05050;
+        text-decoration-thickness: 1.5px;
+        white-space: nowrap;
     }
-    .spinner {
-        width: 40px;
-        height: 40px;
-        border: 3px solid var(--border-light);
-        border-top-color: var(--copper);
-        border-radius: 50%;
-        animation: spin 0.8s linear infinite;
-        margin: 0 auto 1rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── FOOTER ── */
-    footer {
-        background: linear-gradient(180deg, var(--leather) 0%, var(--bg) 100%);
-        border-top: 1px solid var(--border);
-        padding: 3rem 2rem 1.5rem;
-        margin-top: 4rem;
-    }
-    .footer-main {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1fr;
-        gap: 2.5rem;
-    }
-    .footer-brand { display: flex; flex-direction: column; gap: 0.8rem; }
-    .footer-brand-logo {
+    .price-row-save { font-size: 0.6rem; color: var(--discount); font-weight: 700; white-space: nowrap; }
+    .price-row-ppl { font-size: 0.58rem; color: var(--text-dim); white-space: nowrap; }
+    .price-row-actions { display: flex; align-items: center; gap: 0.25rem; flex-shrink: 0; }
+    .price-row-link {
+        font-size: 0.68rem;
+        font-weight: 800;
+        color: #1a0f08;
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        padding: 0.38rem 0.7rem;
+        border-radius: 6px;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        transition: all 0.15s;
+        white-space: nowrap;
+        min-height: 32px;
         display: flex;
         align-items: center;
-        gap: 0.6rem;
     }
-    .footer-brand-logo img { width: 48px; height: 48px; object-fit: contain; }
+    .price-row.cheapest.has-discount .price-row-link { background: linear-gradient(135deg, var(--discount), #29a35a); color: #000; }
+    .price-row-link:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,115,51,0.4); }
+    .price-row-link:focus-visible { outline: 2px solid var(--copper); outline-offset: 2px; }
+
+    .more-shops-toggle {
+        font-size: 0.68rem;
+        color: var(--copper);
+        cursor: pointer;
+        padding: 0.32rem 0.6rem;
+        background: rgba(184,115,51,0.06);
+        border: 1px solid rgba(184,115,51,0.2);
+        border-radius: 6px;
+        text-align: center;
+        transition: all 0.2s;
+        margin-top: 0.2rem;
+        min-height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .more-shops-toggle:hover { background: rgba(184,115,51,0.12); }
+    .more-shops { flex-direction: column; gap: 0.25rem; margin-top: 0.2rem; }
+
+    /* Pristransparens badge */
+    .transparency-badge {
+        font-size: 0.58rem;
+        color: var(--gold);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-top: 0.3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        opacity: 0.7;
+    }
+    .transparency-badge::before { content: '✦'; font-size: 0.55rem; }
+
+    /* Type tooltip */
+    .type-tooltip-wrap { position: relative; display: inline-flex; align-items: center; }
+    .type-tooltip-icon {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: rgba(184,115,51,0.25);
+        color: var(--copper-light);
+        font-size: 0.55rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: help;
+        font-style: italic;
+        font-weight: 700;
+        margin-left: 2px;
+        flex-shrink: 0;
+    }
+    .type-tooltip {
+        position: absolute;
+        bottom: calc(100% + 6px);
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1c1208;
+        border: 1px solid var(--border-light);
+        border-radius: 8px;
+        padding: 0.5rem 0.7rem;
+        min-width: 180px;
+        max-width: 220px;
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        line-height: 1.5;
+        z-index: 50;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.15s;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.7);
+        white-space: normal;
+    }
+    .type-tooltip strong { color: var(--copper-light); display: block; margin-bottom: 0.2rem; font-size: 0.75rem; }
+    .type-tooltip-wrap:hover .type-tooltip { opacity: 1; }
+
+    .load-more-wrap { text-align: center; margin: 1.2rem 0; }
+    .load-more-btn {
+        background: var(--surface2);
+        border: 1px solid var(--border-light);
+        border-radius: 999px;
+        padding: 0.6rem 1.8rem;
+        color: var(--copper-light);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .load-more-btn:hover { border-color: var(--copper); background: rgba(184,115,51,0.08); }
+
+    .loading { text-align: center; padding: 5rem 2rem; color: var(--text-muted); grid-column: 1/-1; }
+    .spinner { width: 38px; height: 38px; border: 3px solid var(--border-light); border-top-color: var(--copper); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty { text-align: center; padding: 3rem; color: var(--text-muted); grid-column: 1/-1; }
+    .empty-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+
+    .scroll-top {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 42px;
+        height: 42px;
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+        border: none;
+        border-radius: 50%;
+        font-size: 1.1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 16px rgba(184,115,51,0.4);
+        z-index: 500;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+    }
+    .scroll-top.visible { display: flex; }
+    .scroll-top:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,115,51,0.5); }
+
+    /* ── FOOTER ── */
+    footer { background: linear-gradient(180deg, var(--leather) 0%, var(--bg) 100%); border-top: 1px solid var(--border); padding: 2.5rem 2rem 1.5rem; margin-top: 3rem; }
+    .footer-main { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2rem; }
+    .footer-brand { display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-brand-logo { display: flex; align-items: center; gap: 0.6rem; }
+    .footer-brand-logo img { width: 42px; height: 42px; object-fit: contain; }
     .footer-brand-logo span {
         font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         letter-spacing: 0.06em;
         background: linear-gradient(135deg, var(--copper-light), var(--copper));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
-    .footer-brand p {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        max-width: 280px;
-        line-height: 1.6;
-    }
-    .footer-col h4 {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1rem;
-        color: var(--copper);
-        letter-spacing: 0.18em;
-        margin-bottom: 0.8rem;
-    }
+    .footer-brand p { font-size: 0.78rem; color: var(--text-muted); max-width: 260px; line-height: 1.6; }
+    .footer-col h4 { font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; color: var(--copper); letter-spacing: 0.18em; margin-bottom: 0.7rem; }
     .footer-col ul { list-style: none; }
-    .footer-col ul li { margin-bottom: 0.5rem; }
-    .footer-col a {
-        color: var(--text-muted);
-        text-decoration: none;
-        font-size: 0.82rem;
-        transition: color 0.15s;
-    }
+    .footer-col ul li { margin-bottom: 0.45rem; }
+    .footer-col a { color: var(--text-muted); text-decoration: none; font-size: 0.8rem; transition: color 0.15s; }
     .footer-col a:hover { color: var(--copper-light); }
-    .footer-bottom {
-        max-width: 1200px;
-        margin: 2.5rem auto 0;
-        padding-top: 1.5rem;
-        border-top: 1px solid var(--border);
-        text-align: center;
-        font-size: 0.72rem;
-        color: var(--text-dim);
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-    }
-    .footer-disclaimer {
-        max-width: 800px;
-        margin: 1.5rem auto 0;
-        padding: 0.9rem;
-        background: rgba(184,115,51,0.05);
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        line-height: 1.5;
-        font-style: italic;
-    }
+    .footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.2rem; border-top: 1px solid var(--border); text-align: center; font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; }
+    .footer-disclaimer { max-width: 800px; margin: 1.2rem auto 0; padding: 0.8rem; background: rgba(184,115,51,0.05); border: 1px solid var(--border); border-radius: 8px; font-size: 0.74rem; color: var(--text-muted); line-height: 1.5; font-style: italic; }
     .footer-disclaimer strong { color: var(--copper-light); font-style: normal; }
 
-    .mobile-filter-toggle {
-        display: none;
-        width: 100%;
-        background: linear-gradient(135deg, var(--mahogny), var(--copper));
-        color: var(--text);
-        padding: 0.7rem;
-        border: none;
-        border-radius: 10px;
-        font-weight: 700;
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-        cursor: pointer;
-    }
-    .mobile-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.7);
-        z-index: 998;
-    }
-    .mobile-backdrop.visible { display: block; }
-
+    /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
-        .hero-container { grid-template-columns: 1fr; gap: 2rem; }
-        .layout { grid-template-columns: 1fr; max-width: 100%; }
+        .layout-wrap { display: block; }
         .sidebar {
             position: fixed;
             top: 0;
-            left: -320px;
-            bottom: 0;
-            width: 300px;
+            left: -100%;
+            width: 88%;
+            max-width: 340px;
             height: 100vh;
-            max-height: 100vh;
-            border-radius: 0;
             z-index: 999;
-            transition: left 0.3s;
-            box-shadow: 4px 0 20px rgba(0,0,0,0.6);
+            transition: left 0.3s ease;
+            box-shadow: 4px 0 30px rgba(0,0,0,0.8);
+            padding: 1.25rem 1rem 100px;
         }
-        .sidebar.open { left: 0; }
-        .mobile-filter-toggle { display: block; }
-        .grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 0.75rem; }
+        .sidebar.mobile-open { left: 0; }
+        .sidebar-mobile-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+        .sidebar-mobile-close {
+            background: var(--surface2);
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: var(--text);
+        }
+        .mobile-filter-toggle {
+            display: flex;
+            position: sticky;
+            top: 61px;
+            z-index: 100;
+            background: var(--bg);
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .mobile-filter-btn {
+            flex: 1;
+            background: linear-gradient(135deg, var(--mahogny), var(--copper));
+            color: var(--text);
+            font-weight: 700;
+            padding: 0.65rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.86rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 42px;
+        }
+        .mobile-filter-count { background: rgba(0,0,0,0.35); padding: 1px 8px; border-radius: 10px; font-size: 0.7rem; }
         .footer-main { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .hero { padding: 1.8rem 1rem 1.2rem; }
     }
     @media (max-width: 640px) {
-        nav { padding: 0.7rem 1rem; }
-        .nav-links a { font-size: 0.72rem; padding: 0.3rem 0.5rem; }
-        .grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.6rem; }
-        .card-img-wrap { height: 140px; }
-        .card-body { padding: 0.65rem; }
-        .card-name { font-size: 0.78rem; min-height: 2.2rem; }
-        .card-price { font-size: 1.3rem; }
-        .card-buy { margin: 0.4rem 0.65rem 0.65rem; padding: 0.55rem; font-size: 0.78rem; }
-        .hero { padding: 2.5rem 1rem 2rem; }
-        .stats { padding: 0 1rem; gap: 0.5rem; }
-        .stat { padding: 0.7rem 0.5rem; }
-        .stat-number { font-size: 1.4rem; }
-        .stat-icon { font-size: 1.3rem; }
-        .footer-main { grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
+        nav { padding: 0.65rem 1rem; }
+        .nav-updated { display: none; }
+        .stat-item { padding: 0.55rem 0.7rem; max-width: none; }
+        .stat-num { font-size: 1.5rem; }
+        .stat-lbl { font-size: 0.5rem; }
+        .grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        .grid-wrap { padding: 0.55rem; }
+        .card-img-wrap { height: 130px; }
+        .card-body { padding: 0.6rem; }
+        .card-name { font-size: 0.8rem; min-height: 2em; }
+        .price-row-amount { font-size: 1.15rem; }
+        .price-row-link { font-size: 0.62rem; padding: 0.32rem 0.55rem; }
+        .footer-main { grid-template-columns: 1fr; gap: 1.2rem; text-align: center; }
         .footer-brand { align-items: center; }
-        .spotlight-content { flex-direction: column; align-items: center; text-align: center; }
-        .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
-    }
-    @media (max-width: 380px) {
-        .grid { grid-template-columns: 1fr; gap: 0.7rem; }
-        .card-img-wrap { height: 200px; }
+        .scroll-top { bottom: 16px; right: 16px; }
+        .top-card { flex: 0 0 135px; min-width: 135px; }
     }
 </style>
 </head>
 <body>
 
+<!-- SEO: skjult H1 -->
+<h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Find de bedste rom-priser i Danmark — RomSniffer</h1>
+
 <nav>
     <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'">
+        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'" decoding="async">
         <span>RomSniffer</span>
     </a>
     <div class="nav-links">
-        <a href="#hero">Forsiden</a>
         <a href="om.html">Om</a>
     </div>
+    <div class="nav-updated" id="nav-updated"></div>
 </nav>
 
+<!-- HERO + SØGNING + QUICK-FILTER BAR -->
 <div class="hero" id="hero">
-    <div class="hero-container">
-        <div class="hero-left">
-            <div class="hero-eyebrow">Find Danmarks bedste rom-tilbud</div>
-            <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'">
-            <div class="hero-tagline">Spar penge på din <strong>næste flaske rom</strong></div>
-            <div class="hero-divider"></div>
-            <p class="hero-subtitle">Vi sammenligner priser fra danske webshops så du altid får den bedste deal</p>
-            <div class="hero-cta">
-                <a href="#grid" class="cta-btn primary">🥃 Find billigste rom</a>
-                <a href="#" onclick="document.querySelector('.sidebar-filter-btn[data-filter=&quot;multi&quot;]').click();window.scrollTo({top:600,behavior:'smooth'});return false;" class="cta-btn secondary">🔄 Pris-sammenligning</a>
-            </div>
+    <div class="hero-inner">
+        <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'" decoding="async">
+        <h2 class="hero-title">Find den billigste rom — på få sekunder</h2>
+        <p class="hero-sub">Sammenlign <strong id="hero-count">500+</strong> rom fra <strong id="hero-shops">2</strong> butikker — opdateres dagligt</p>
+        <div class="hero-search-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+            </svg>
+            <input type="text" id="search" class="hero-search-input"
+                placeholder="Søg rom, brand, land..."
+                aria-label="Søg efter rom, brand eller land">
         </div>
-
-        <div class="spotlight-wrap" id="spotlight" style="display:none">
-            <div class="spotlight-label">Pris-spotlight</div>
-            <div class="spotlight-title">Bedste pris-sammenligning lige nu</div>
-            <div class="spotlight-content">
-                <div class="spotlight-img-wrap">
-                    <img class="spotlight-img" id="spotlight-img" src="" alt="" onerror="this.style.display='none'">
-                </div>
-                <div class="spotlight-info" id="spotlight-info">
-                    <div class="spotlight-name" id="spotlight-name">–</div>
-                    <div class="spotlight-meta" id="spotlight-meta"></div>
-                    <div class="spotlight-prices" id="spotlight-prices"></div>
-                    <div class="spotlight-savings" id="spotlight-savings"></div>
-                    <a class="spotlight-cta" id="spotlight-cta" href="#" target="_blank">Køb billigst →</a>
-                </div>
-            </div>
-            <div class="spotlight-dots" id="spotlight-dots"></div>
+        <!-- QUICK-FILTER BAR -->
+        <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
+            <button class="qbtn" data-qtype="filter" data-val="deals"      onclick="quickFilter('deals')">🔥 Tilbud</button>
+            <button class="qbtn" data-qtype="filter" data-val="multi"      onclick="quickFilter('multi')">🔄 Billigst på tværs</button>
+            <button class="qbtn" data-qtype="country" data-val="Cuba"      onclick="quickCountry('Cuba')">🇨🇺 Cuba</button>
+            <button class="qbtn" data-qtype="country" data-val="Jamaica"   onclick="quickCountry('Jamaica')">🇯🇲 Jamaica</button>
+            <button class="qbtn" data-qtype="country" data-val="Barbados"  onclick="quickCountry('Barbados')">🇧🇧 Barbados</button>
+            <button class="qbtn" data-qtype="type" data-val="Aged rom"     onclick="quickType('Aged rom')">🥃 Aged</button>
+            <button class="qbtn" data-qtype="type" data-val="Spiced"       onclick="quickType('Spiced')">🌿 Spiced</button>
+            <button class="qbtn" data-qtype="age" data-val="XO"            onclick="quickAge('XO')">✨ XO</button>
+            <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">💰 Under 500 kr</button>
+            <button class="qbtn" data-qtype="filter" data-val="premium"    onclick="quickFilter('premium')">💎 Premium</button>
         </div>
     </div>
 </div>
 
-<div class="stats" id="stats">
-    <div class="stat">
-        <span class="stat-icon">🥃</span>
-        <div class="stat-content">
-            <div class="stat-number" id="stat-total">–</div>
-            <div class="stat-label">Rom i alt</div>
-        </div>
+<!-- STATS BAR -->
+<div class="stats-bar" role="region" aria-label="Statistik">
+    <div class="stat-item"><div class="stat-num" id="stat-total">–</div><div class="stat-lbl">Rom i alt</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-multi">–</div><div class="stat-lbl">I flere butikker</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-deals">–</div><div class="stat-lbl">Aktive tilbud</div></div>
+    <div class="stat-item"><div class="stat-num" id="stat-cheapest">–</div><div class="stat-lbl">Billigste (kr)</div></div>
+</div>
+
+<!-- TOP DEALS CAROUSEL -->
+<div class="top-deals-section" id="top-deals-section" style="display:none" role="region" aria-label="Bedste tilbud lige nu">
+    <div class="top-deals-header">
+        <span class="top-deals-title">Bedste tilbud lige nu</span>
+        <a class="top-deals-see-all" onclick="quickFilter('deals')">Se alle tilbud →</a>
     </div>
-    <div class="stat">
-        <span class="stat-icon">🔄</span>
-        <div class="stat-content">
-            <div class="stat-number" id="stat-multi">–</div>
-            <div class="stat-label">I flere butikker</div>
-        </div>
-    </div>
-    <div class="stat">
-        <span class="stat-icon">🔥</span>
-        <div class="stat-content">
-            <div class="stat-number" id="stat-deals">–</div>
-            <div class="stat-label">Aktive tilbud</div>
-        </div>
-    </div>
-    <div class="stat">
-        <span class="stat-icon">💰</span>
-        <div class="stat-content">
-            <div class="stat-number" id="stat-cheapest">–</div>
-            <div class="stat-label">Billigste (kr)</div>
-        </div>
-    </div>
+    <div class="top-deals-scroll" id="top-deals-scroll"></div>
+</div>
+
+<!-- MOBILE FILTER -->
+<div class="mobile-filter-toggle">
+    <button class="mobile-filter-btn" id="mobile-filter-open"
+        aria-label="Åbn filtre" aria-expanded="false" aria-controls="sidebar">
+        🎛️ Filtrér <span class="mobile-filter-count" id="mobile-filter-count" style="display:none">0</span>
+    </button>
 </div>
 
 <div class="mobile-backdrop" id="mobile-backdrop"></div>
 
-<div class="layout">
-
-    <aside class="sidebar" id="sidebar">
+<!-- LAYOUT -->
+<div class="layout-wrap">
+    <aside class="sidebar" id="sidebar" aria-label="Filtre">
+        <div class="sidebar-mobile-header">
+            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.12em;color:var(--copper)">FILTRE</span>
+            <button class="sidebar-mobile-close" id="mobile-filter-close" aria-label="Luk filtre">✕</button>
+        </div>
 
         <div class="sidebar-section" id="active-filters-section" style="display:none">
             <div class="sidebar-title">
@@ -1144,38 +1052,60 @@
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">🔍 Søg</div>
-            <input type="text" id="search" class="sidebar-search" placeholder="Søg rom, brand, land...">
-        </div>
-
-        <div class="sidebar-section">
             <div class="sidebar-title">⚡ Hurtige filtre</div>
-            <button class="sidebar-filter-btn active" data-filter="all">🥃 Alle</button>
-            <button class="sidebar-filter-btn" data-filter="multi">🔄 I flere butikker</button>
-            <button class="sidebar-filter-btn" data-filter="deals">🔥 Tilbud</button>
-            <button class="sidebar-filter-btn" data-filter="favs">❤️ Favoritter <span id="fav-count"></span></button>
-            <button class="sidebar-filter-btn" data-filter="hverdagsrom">🥃 Hverdagsrom (under 500 kr)</button>
-            <button class="sidebar-filter-btn" data-filter="premium">💎 Premium (over 1.500 kr)</button>
+            <div class="sidebar-filter-btns">
+                <button class="sidebar-filter-btn active" data-filter="all">🥃 Alle rom</button>
+                <button class="sidebar-filter-btn" data-filter="multi">🔄 I flere butikker</button>
+                <button class="sidebar-filter-btn" data-filter="deals">🔥 Tilbud</button>
+                <button class="sidebar-filter-btn" data-filter="favs">❤️ Favoritter <span id="fav-count"></span></button>
+                <button class="sidebar-filter-btn" data-filter="hverdagsrom">💰 Hverdagsrom (under 500 kr)</button>
+                <button class="sidebar-filter-btn" data-filter="premium">💎 Premium (over 1.500 kr)</button>
+            </div>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">🏪 Butikker</div>
-            <div class="sidebar-checkbox-list" id="shop-list"></div>
+            <div class="sidebar-title">🔢 Sortér efter</div>
+            <select id="sort" class="sidebar-select" aria-label="Vælg sortering">
+                <option value="savings">Størst besparelse (butikker)</option>
+                <option value="price-asc">Pris: Lav → Høj</option>
+                <option value="price-desc">Pris: Høj → Lav</option>
+                <option value="discount">Størst rabat</option>
+                <option value="price-per-cl">Pris pr. cl</option>
+                <option value="age">Alder (ældste først)</option>
+                <option value="name">Navn A–Z</option>
+            </select>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">🌍 Lande</div>
-            <div class="sidebar-checkbox-list" id="country-list"></div>
+            <div class="sidebar-title">
+                <span>🏪 Butikker <span id="shop-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <button class="sidebar-clear-link" id="clear-shops" style="display:none">Ryd</button>
+            </div>
+            <div class="sidebar-checkbox-list" id="shop-list" role="group" aria-label="Filtrer efter butik"></div>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">🥃 Rom-typer</div>
-            <div class="sidebar-checkbox-list" id="type-list"></div>
+            <div class="sidebar-title">
+                <span>🌍 Lande <span id="country-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <button class="sidebar-clear-link" id="clear-countries" style="display:none">Ryd</button>
+            </div>
+            <div class="sidebar-checkbox-list" id="country-list" role="group" aria-label="Filtrer efter land"></div>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">🕰️ Alder</div>
-            <div class="sidebar-checkbox-list" id="age-list"></div>
+            <div class="sidebar-title">
+                <span>🥃 Typer <span id="type-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <button class="sidebar-clear-link" id="clear-types" style="display:none">Ryd</button>
+            </div>
+            <div class="sidebar-checkbox-list" id="type-list" role="group" aria-label="Filtrer efter type"></div>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">
+                <span>🕰️ Alder <span id="age-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <button class="sidebar-clear-link" id="clear-ages" style="display:none">Ryd</button>
+            </div>
+            <div class="sidebar-checkbox-list" id="age-list" role="group" aria-label="Filtrer efter alder"></div>
         </div>
 
         <div class="sidebar-section">
@@ -1187,8 +1117,8 @@
                 </div>
                 <div class="dual-range">
                     <div class="dual-range-track" id="price-track"></div>
-                    <input type="range" id="price-min" min="0" max="6000" value="0" step="50">
-                    <input type="range" id="price-max" min="0" max="6000" value="6000" step="50">
+                    <input type="range" id="price-min" min="0" max="6000" value="0" step="50" aria-label="Minimum pris">
+                    <input type="range" id="price-max" min="0" max="6000" value="6000" step="50" aria-label="Maksimum pris">
                 </div>
             </div>
         </div>
@@ -1202,52 +1132,53 @@
                 </div>
                 <div class="dual-range">
                     <div class="dual-range-track" id="abv-track"></div>
-                    <input type="range" id="abv-min" min="30" max="80" value="30" step="1">
-                    <input type="range" id="abv-max" min="30" max="80" value="80" step="1">
+                    <input type="range" id="abv-min" min="30" max="80" value="30" step="1" aria-label="Minimum ABV">
+                    <input type="range" id="abv-max" min="30" max="80" value="80" step="1" aria-label="Maksimum ABV">
                 </div>
             </div>
         </div>
 
         <div class="sidebar-section">
             <div class="sidebar-title">📦 Volumen</div>
-            <select id="volume" class="sidebar-select">
+            <select id="volume" class="sidebar-select" aria-label="Filtrer efter volumen">
                 <option value="">Alle størrelser</option>
-                <option value="small">Mini (under 35cl)</option>
-                <option value="medium">Normal (35-75cl)</option>
-                <option value="large">Stor (over 75cl)</option>
+                <option value="small">Mini (under 35 cl)</option>
+                <option value="medium">Normal (35–75 cl)</option>
+                <option value="large">Stor (over 75 cl)</option>
             </select>
         </div>
 
-        <button class="sidebar-reset" id="reset-btn">🔄 Nulstil alle filtre</button>
-
+        <div class="sidebar-section">
+            <button class="sidebar-reset" id="reset-btn">🔄 Nulstil alle filtre</button>
+        </div>
     </aside>
 
-    <main class="main-content">
-
-        <button class="mobile-filter-toggle" id="mobile-filter-open">🎛️ Filtre & sortering</button>
-
+    <div class="main-content">
+        <div class="active-filters-bar" id="active-filters-bar" aria-live="polite"></div>
         <div class="sort-bar">
-            <div class="sort-bar-count"><strong id="result-count">0</strong> rom fundet</div>
-            <select id="sort">
-                <option value="savings">Største besparelse (mellem butikker)</option>
-                <option value="price-asc">Pris (lav-høj)</option>
-                <option value="price-desc">Pris (høj-lav)</option>
-                <option value="discount">Største rabat</option>
-                <option value="name">Navn</option>
+            <div class="sort-bar-count"><strong id="result-count">0</strong></div>
+            <select id="sort-top" class="sort-select" aria-label="Vælg sortering">
+                <option value="savings">Størst besparelse (butikker)</option>
+                <option value="price-asc">Pris: Lav → Høj</option>
+                <option value="price-desc">Pris: Høj → Lav</option>
+                <option value="discount">Størst rabat</option>
+                <option value="price-per-cl">Pris pr. cl</option>
                 <option value="age">Alder (ældste først)</option>
+                <option value="name">Navn A–Z</option>
             </select>
         </div>
-
-        <div class="grid" id="grid">
-            <div class="loading">
-                <div class="spinner"></div>
-                Henter rom-data...
+        <div class="grid-wrap">
+            <div class="grid" id="grid">
+                <div class="loading"><div class="spinner"></div>Henter rom-data...</div>
+            </div>
+            <div class="load-more-wrap">
+                <button id="load-more" class="load-more-btn" style="display:none">Vis flere rom ↓</button>
             </div>
         </div>
-
-    </main>
-
+    </div>
 </div>
+
+<button class="scroll-top" id="scroll-top" aria-label="Scroll til toppen">↑</button>
 
 <footer>
     <div class="footer-main">
@@ -1286,223 +1217,56 @@
     <div class="footer-disclaimer">
         <strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision når du køber via vores links. Det koster dig ingenting ekstra og påvirker ikke vores prissammenligning — vi viser altid den billigste pris først.
     </div>
-    <div class="footer-bottom">
-        🥃 RomSniffer &copy; 2026 &mdash; Kun for personer over 18 år
-    </div>
+    <div class="footer-bottom">🥃 RomSniffer &copy; 2026 &mdash; Kun for personer over 18 år &mdash; Nyd med omtanke</div>
 </footer>
 
 <script>
+// ── KONSTANTER OG TYPE-FORKLARINGER ──────────────────────────────
+const PAGE_SIZE = 48;
+
+const TYPE_DESCRIPTIONS = {
+    'Aged rom':      'Lagret rom — typisk i træfade fra måneder til årtier. Giver dybde, vanille og karamelnuancer.',
+    'Spiced':        'Krydret rom tilsat urter og krydderier som vanilje, kanel og ingefær. Populær i cocktails.',
+    'White rom':     'Ulagret eller kortlagret rom med frisk og let smag. Klassisk i daiquiri og mojito.',
+    'Dark rom':      'Mørk, fyldig rom lagret i kraftigt ristede fade. Rig på melasse, chokolade og røg.',
+    'Overproof':     'Rom med usædvanlig høj alkohol (typisk 57%+). Intenst og for den erfarne smagning.',
+    'Agricole':      'Fremstillet af frisk sukkerrørsjuice i stedet for melasse — frugtig, grøn og floral karakter.',
+    'Navy Strength': 'Historisk rum til den engelske flåde — mindst 57% ABV, stærk og kompleks.',
+    'Solera':        'Blendet ved hjælp af Solera-systemet, hvor gammel og ny rom kontinuerligt blandes over år.',
+    'Flavoured':     'Tilsmagt med frugt, kokosnød eller andre smagsgivere. Letdrikkeligt og festligt.',
+};
+
+const COUNTRY_FLAGS = {
+    'Cuba': '🇨🇺', 'Jamaica': '🇯🇲', 'Barbados': '🇧🇧', 'Trinidad': '🇹🇹',
+    'Guyana': '🇬🇾', 'Guatemala': '🇬🇹', 'Panama': '🇵🇦', 'Nicaragua': '🇳🇮',
+    'Dominican Republic': '🇩🇴', 'Dominikanske Republik': '🇩🇴', 'Puerto Rico': '🇵🇷',
+    'Martinique': '🇲🇶', 'Haiti': '🇭🇹', 'Belize': '🇧🇿', 'Brazil': '🇧🇷',
+    'Brasilien': '🇧🇷', 'Colombia': '🇨🇴', 'Venezuela': '🇻🇪', 'Peru': '🇵🇪',
+    'Réunion': '🇷🇪', 'Mauritius': '🇲🇺', 'India': '🇮🇳', 'Philippines': '🇵🇭',
+    'Danmark': '🇩🇰', 'Denmark': '🇩🇰', 'Fiji': '🇫🇯', 'Australia': '🇦🇺',
+    'Australien': '🇦🇺', 'UK': '🇬🇧', 'England': '🇬🇧',
+};
+
+// ── STATE ─────────────────────────────────────────────────────────
 let allRoms = [];
+let currentPage = 1;
 let currentFilter = 'all';
+let currentSort = 'savings';
 let selectedShops = new Set();
 let selectedCountries = new Set();
 let selectedTypes = new Set();
 let selectedAges = new Set();
 let favorites = new Set(JSON.parse(localStorage.getItem('rom_favs') || '[]'));
-
 let priceMin = 0, priceMax = 6000;
 let abvMin = 30, abvMax = 80;
 
-let spotlightRoms = [];
-let spotlightIndex = 0;
-let spotlightInterval = null;
+const isMobile = () => window.innerWidth <= 1100;
 
-async function loadData() {
-    try {
-        const r = await fetch('rom_data.json');
-        const data = await r.json();
-        allRoms = data.roms || [];
-
-        document.getElementById('stat-total').textContent = data.stats.total;
-        document.getElementById('stat-multi').textContent = data.stats.multi_shop || 0;
-        document.getElementById('stat-deals').textContent = data.stats.deals;
-        document.getElementById('stat-cheapest').textContent = Math.round(data.stats.cheapest);
-
-        const maxPrice = Math.max(...allRoms.map(r => r.min_price));
-        const roundedMax = Math.ceil(maxPrice / 100) * 100;
-        document.getElementById('price-max').max = roundedMax;
-        document.getElementById('price-max').value = roundedMax;
-        priceMax = roundedMax;
-        document.getElementById('price-max-val').textContent = roundedMax;
-
-        // Butikker
-        const shopList = document.getElementById('shop-list');
-        shopList.innerHTML = data.stats.shop_names.map(s => `
-            <label class="sidebar-checkbox">
-                <input type="checkbox" value="${s}" class="filter-shop">
-                <span>${s}</span>
-            </label>
-        `).join('');
-
-        const countryList = document.getElementById('country-list');
-        countryList.innerHTML = data.stats.countries.map(c => `
-            <label class="sidebar-checkbox">
-                <input type="checkbox" value="${c}" class="filter-country">
-                <span>${c}</span>
-            </label>
-        `).join('');
-
-        const typeList = document.getElementById('type-list');
-        typeList.innerHTML = data.stats.types.map(t => `
-            <label class="sidebar-checkbox">
-                <input type="checkbox" value="${t}" class="filter-type">
-                <span>${t}</span>
-            </label>
-        `).join('');
-
-        const ageList = document.getElementById('age-list');
-        ageList.innerHTML = (data.stats.ages || []).map(a => `
-            <label class="sidebar-checkbox">
-                <input type="checkbox" value="${a}" class="filter-age">
-                <span>${a}</span>
-            </label>
-        `).join('');
-
-        document.querySelectorAll('.filter-shop').forEach(cb => {
-            cb.addEventListener('change', e => {
-                if (e.target.checked) selectedShops.add(e.target.value);
-                else selectedShops.delete(e.target.value);
-                render();
-            });
-        });
-        document.querySelectorAll('.filter-country').forEach(cb => {
-            cb.addEventListener('change', e => {
-                if (e.target.checked) selectedCountries.add(e.target.value);
-                else selectedCountries.delete(e.target.value);
-                render();
-            });
-        });
-        document.querySelectorAll('.filter-type').forEach(cb => {
-            cb.addEventListener('change', e => {
-                if (e.target.checked) selectedTypes.add(e.target.value);
-                else selectedTypes.delete(e.target.value);
-                render();
-            });
-        });
-        document.querySelectorAll('.filter-age').forEach(cb => {
-            cb.addEventListener('change', e => {
-                if (e.target.checked) selectedAges.add(e.target.value);
-                else selectedAges.delete(e.target.value);
-                render();
-            });
-        });
-
-        setupSpotlight();
-        document.getElementById('fav-count').textContent = favorites.size > 0 ? `(${favorites.size})` : '';
-
-        render();
-    } catch (e) {
-        console.error(e);
-        document.getElementById('grid').innerHTML =
-            '<div class="loading">❌ Kunne ikke hente data.</div>';
-    }
-}
-
-function getSavings(rom) {
-    if (!rom.prices || rom.prices.length < 2) return 0;
-    const sortedPrices = [...rom.prices].sort((a, b) => a.price - b.price);
-    return sortedPrices[sortedPrices.length - 1].price - sortedPrices[0].price;
-}
-
-function setupSpotlight() {
-    // Vælg de bedste pris-sammenlignings-rom (findes i flere butikker med stor forskel)
-    spotlightRoms = allRoms
-        .filter(r => r.shop_count > 1)
-        .sort((a, b) => getSavings(b) - getSavings(a))
-        .slice(0, 8);
-
-    if (!spotlightRoms.length) {
-        // Fallback: største tilbud
-        spotlightRoms = [...allRoms]
-            .filter(r => r.max_discount_pct > 0)
-            .sort((a, b) => b.max_discount_pct - a.max_discount_pct)
-            .slice(0, 5);
-    }
-
-    if (!spotlightRoms.length) return;
-
-    document.getElementById('spotlight').style.display = 'block';
-
-    const dots = document.getElementById('spotlight-dots');
-    dots.innerHTML = spotlightRoms.map((_, i) =>
-        `<span class="spotlight-dot${i === 0 ? ' active' : ''}" data-idx="${i}"></span>`
-    ).join('');
-    dots.querySelectorAll('.spotlight-dot').forEach(dot => {
-        dot.addEventListener('click', () => {
-            spotlightIndex = parseInt(dot.dataset.idx);
-            showSpotlight();
-            resetSpotlightInterval();
-        });
-    });
-
-    showSpotlight();
-    resetSpotlightInterval();
-}
-
-function showSpotlight() {
-    const rom = spotlightRoms[spotlightIndex];
-    if (!rom) return;
-
-    const imgEl = document.getElementById('spotlight-img');
-    const infoEl = document.getElementById('spotlight-info');
-
-    imgEl.classList.add('fading');
-    infoEl.classList.add('fading');
-
-    setTimeout(() => {
-        if (rom.image) {
-            imgEl.src = rom.image;
-            imgEl.style.display = 'block';
-        }
-
-        document.getElementById('spotlight-name').textContent = rom.name;
-
-        const meta = [];
-        if (rom.country) meta.push(`<span class="spotlight-tag">🌍 ${rom.country}</span>`);
-        if (rom.type) meta.push(`<span class="spotlight-tag">${rom.type}</span>`);
-        if (rom.age) meta.push(`<span class="spotlight-tag">🕰️ ${rom.age}</span>`);
-        document.getElementById('spotlight-meta').innerHTML = meta.join('');
-
-        const sortedPrices = [...rom.prices].sort((a, b) => a.price - b.price);
-        const cheapest = sortedPrices[0];
-        const pricesHTML = sortedPrices.map((p, i) => `
-            <div class="spotlight-price-row">
-                <span class="spotlight-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
-                <span class="spotlight-price ${i === 0 ? 'best' : ''}">${p.price.toFixed(0)} kr</span>
-            </div>
-        `).join('');
-        document.getElementById('spotlight-prices').innerHTML = pricesHTML;
-
-        const savingsEl = document.getElementById('spotlight-savings');
-        if (sortedPrices.length > 1) {
-            const savings = sortedPrices[sortedPrices.length - 1].price - cheapest.price;
-            const savingsPct = Math.round((savings / sortedPrices[sortedPrices.length - 1].price) * 100);
-            savingsEl.innerHTML = `💰 Spar <strong>${savings.toFixed(0)} kr</strong> (${savingsPct}%) vs dyreste butik`;
-            savingsEl.style.display = 'block';
-        } else if (rom.max_discount_pct > 0) {
-            savingsEl.innerHTML = `🔥 <strong>−${rom.max_discount_pct}%</strong> rabat`;
-            savingsEl.style.display = 'block';
-        } else {
-            savingsEl.style.display = 'none';
-        }
-
-        document.getElementById('spotlight-cta').href = cheapest.url;
-
-        document.querySelectorAll('.spotlight-dot').forEach((dot, i) => {
-            dot.classList.toggle('active', i === spotlightIndex);
-        });
-
-        imgEl.classList.remove('fading');
-        infoEl.classList.remove('fading');
-    }, 200);
-}
-
-function resetSpotlightInterval() {
-    if (spotlightInterval) clearInterval(spotlightInterval);
-    spotlightInterval = setInterval(() => {
-        spotlightIndex = (spotlightIndex + 1) % spotlightRoms.length;
-        showSpotlight();
-    }, 5000);
+// ── HELPERS ───────────────────────────────────────────────────────
+function getSavings(r) {
+    if (!r.prices || r.prices.length < 2) return 0;
+    const s = [...r.prices].sort((a, b) => a.price - b.price);
+    return s[s.length - 1].price - s[0].price;
 }
 
 function getVolumeBucket(vol) {
@@ -1512,21 +1276,129 @@ function getVolumeBucket(vol) {
     return 'large';
 }
 
-function render() {
-    const search = document.getElementById('search').value.toLowerCase();
-    const sort = document.getElementById('sort').value;
+function pricePerCl(r) {
+    if (!r.volume_cl || r.volume_cl <= 0) return Infinity;
+    return r.min_price / r.volume_cl;
+}
+
+function ageVal(r) {
+    if (!r.age) return -1;
+    const m = r.age.match(/(\d+)/);
+    return m ? parseInt(m[1]) : (r.age === 'XO' ? 6 : r.age === 'Solera' ? 5 : 0);
+}
+
+function esc(s) { return (s || '').replace(/'/g, ' ').replace(/"/g, ' '); }
+
+function flagFor(country) { return COUNTRY_FLAGS[country] || '🌍'; }
+
+// ── QUICK FILTERS ─────────────────────────────────────────────────
+function quickFilter(val) {
+    // Clear type/country/age quick selections
+    document.querySelectorAll('.qbtn').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.qbtn[data-val="${val}"]`);
+    if (btn) btn.classList.add('active');
+
+    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === val)
+    );
+    currentFilter = val;
+    if (val === 'deals') { currentSort = 'discount'; syncSortSelects('discount'); }
+    if (val === 'multi') { currentSort = 'savings'; syncSortSelects('savings'); }
+    currentPage = 1;
+    render();
+    window.scrollTo({ top: document.querySelector('.sort-bar').offsetTop - 70, behavior: 'smooth' });
+}
+
+function quickCountry(val) {
+    document.querySelectorAll('.qbtn').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.qbtn[data-val="${val}"]`);
+    if (btn) btn.classList.add('active');
+
+    // Reset quick filter but keep as "all"
+    currentFilter = 'all';
+    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === 'all')
+    );
+
+    // Toggle country
+    if (selectedCountries.has(val)) {
+        selectedCountries.delete(val);
+        if (btn) btn.classList.remove('active');
+    } else {
+        selectedCountries.add(val);
+    }
+    updateCountryCheckboxes();
+    currentPage = 1;
+    render();
+    window.scrollTo({ top: document.querySelector('.sort-bar').offsetTop - 70, behavior: 'smooth' });
+}
+
+function quickType(val) {
+    document.querySelectorAll('.qbtn').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.qbtn[data-val="${val}"]`);
+    if (btn) btn.classList.add('active');
+
+    currentFilter = 'all';
+    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === 'all')
+    );
+
+    if (selectedTypes.has(val)) {
+        selectedTypes.delete(val);
+        if (btn) btn.classList.remove('active');
+    } else {
+        selectedTypes.add(val);
+    }
+    updateTypeCheckboxes();
+    currentPage = 1;
+    render();
+    window.scrollTo({ top: document.querySelector('.sort-bar').offsetTop - 70, behavior: 'smooth' });
+}
+
+function quickAge(val) {
+    document.querySelectorAll('.qbtn').forEach(b => b.classList.remove('active'));
+    const btn = document.querySelector(`.qbtn[data-val="${val}"]`);
+    if (btn) btn.classList.add('active');
+
+    currentFilter = 'all';
+    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === 'all')
+    );
+
+    if (selectedAges.has(val)) {
+        selectedAges.delete(val);
+        if (btn) btn.classList.remove('active');
+    } else {
+        selectedAges.add(val);
+    }
+    updateAgeCheckboxes();
+    currentPage = 1;
+    render();
+    window.scrollTo({ top: document.querySelector('.sort-bar').offsetTop - 70, behavior: 'smooth' });
+}
+
+function syncSortSelects(val) {
+    document.getElementById('sort').value = val;
+    document.getElementById('sort-top').value = val;
+    currentSort = val;
+}
+
+// ── FILTER + SORT ─────────────────────────────────────────────────
+function filterAndSort() {
+    const search = document.getElementById('search').value.toLowerCase().trim();
     const volume = document.getElementById('volume').value;
 
     let filtered = allRoms.filter(r => {
         if (search) {
-            const hay = (r.name + ' ' + (r.brand || '') + ' ' + (r.country || '')).toLowerCase();
+            const hay = (r.name + ' ' + (r.brand || '') + ' ' + (r.country || '') + ' ' + (r.type || '')).toLowerCase();
             if (!hay.includes(search)) return false;
         }
         if (currentFilter === 'deals' && !(r.max_discount_pct > 0)) return false;
         if (currentFilter === 'multi' && !(r.shop_count > 1)) return false;
-        if (currentFilter === 'favs' && !favorites.has(r.normalized_name || r.name)) return false;
+        if (currentFilter === 'favs' && !favorites.has(r.name)) return false;
         if (currentFilter === 'hverdagsrom' && r.min_price >= 500) return false;
         if (currentFilter === 'premium' && r.min_price < 1500) return false;
+
         if (selectedShops.size) {
             const romShops = new Set((r.prices || []).map(p => p.shop_name));
             if (![...selectedShops].some(s => romShops.has(s))) return false;
@@ -1534,196 +1406,345 @@ function render() {
         if (selectedCountries.size && !selectedCountries.has(r.country)) return false;
         if (selectedTypes.size && !selectedTypes.has(r.type)) return false;
         if (selectedAges.size && !selectedAges.has(r.age)) return false;
+
         if (r.min_price < priceMin || r.min_price > priceMax) return false;
-        if (r.abv) {
-            if (r.abv < abvMin || r.abv > abvMax) return false;
-        }
+        if (r.abv && (r.abv < abvMin || r.abv > abvMax)) return false;
         if (volume && getVolumeBucket(r.volume_cl) !== volume) return false;
+
         return true;
     });
 
-    if (sort === 'savings') filtered.sort((a, b) => getSavings(b) - getSavings(a));
-    else if (sort === 'price-asc') filtered.sort((a, b) => a.min_price - b.min_price);
-    else if (sort === 'price-desc') filtered.sort((a, b) => b.min_price - a.min_price);
-    else if (sort === 'discount') filtered.sort((a, b) => b.max_discount_pct - a.max_discount_pct);
-    else if (sort === 'name') filtered.sort((a, b) => a.name.localeCompare(b.name));
-    else if (sort === 'age') {
-        const ageVal = a => {
-            if (!a.age) return -1;
-            const m = a.age.match(/(\d+)/);
-            return m ? parseInt(m[1]) : (a.age === 'XO' ? 6 : a.age === 'Solera' ? 5 : 0);
-        };
-        filtered.sort((a, b) => ageVal(b) - ageVal(a));
+    const sorted = [...filtered];
+    switch (currentSort) {
+        case 'savings':      sorted.sort((a, b) => getSavings(b) - getSavings(a)); break;
+        case 'price-asc':    sorted.sort((a, b) => a.min_price - b.min_price); break;
+        case 'price-desc':   sorted.sort((a, b) => b.min_price - a.min_price); break;
+        case 'discount':     sorted.sort((a, b) => b.max_discount_pct - a.max_discount_pct); break;
+        case 'price-per-cl': sorted.sort((a, b) => pricePerCl(a) - pricePerCl(b)); break;
+        case 'age':          sorted.sort((a, b) => ageVal(b) - ageVal(a)); break;
+        case 'name':         sorted.sort((a, b) => a.name.localeCompare(b.name, 'da')); break;
     }
+    return sorted;
+}
+
+// ── CARD HTML ─────────────────────────────────────────────────────
+function makeCard(r, delay) {
+    const hasDeal = r.max_discount_pct > 0;
+    const isMulti = r.shop_count > 1;
+    const isFav = favorites.has(r.name);
+    const sortedPrices = [...r.prices].sort((a, b) => a.price - b.price);
+    const cheapest = sortedPrices[0];
+
+    const flag = r.country ? flagFor(r.country) : '';
+    const typeDesc = r.type && TYPE_DESCRIPTIONS[r.type];
+    const typeTag = r.type ? `
+        <span class="card-tag type-tooltip-wrap">
+            ${r.type}
+            ${typeDesc ? `<span class="type-tooltip-icon" title="${typeDesc}">i</span>
+            <div class="type-tooltip"><strong>${r.type}</strong>${typeDesc}</div>` : ''}
+        </span>` : '';
+
+    const pplTag = r.volume_cl && r.volume_cl > 0
+        ? `<span class="card-tag ppl">${(r.min_price / r.volume_cl).toFixed(1)} kr/cl</span>`
+        : '';
+
+    const cardClasses = ['card', hasDeal ? 'has-deal' : '', isMulti ? 'multi-shop' : ''].filter(Boolean).join(' ');
+
+    let html = `<div class="${cardClasses}" style="animation-delay:${delay}s" role="listitem">`;
+    if (hasDeal) html += `<div class="discount-badge">−${r.max_discount_pct}%</div>`;
+    html += `<button class="fav-btn ${isFav ? 'active' : ''}"
+                aria-label="${isFav ? 'Fjern fra favoritter' : 'Tilføj til favoritter'}: ${esc(r.name)}"
+                onclick="toggleFav('${esc(r.name)}',this)">
+                ${isFav ? '❤️' : '🤍'}</button>`;
+
+    html += `<div class="card-img-wrap">
+        ${r.image
+            ? `<img class="card-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+            : ''}
+        <div class="card-img-placeholder" ${r.image ? 'style="display:none"' : ''}>🥃</div>
+    </div>`;
+
+    html += `<div class="card-body">
+        <div class="card-meta">
+            ${r.country ? `<span class="card-tag country">${flag} ${r.country}</span>` : ''}
+            ${typeTag}
+            ${r.age ? `<span class="card-tag age">🕰️ ${r.age}</span>` : ''}
+            ${r.abv ? `<span class="card-tag abv">${r.abv}%</span>` : ''}
+            ${r.volume_cl ? `<span class="card-tag vol">${r.volume_cl} cl</span>` : ''}
+            ${pplTag}
+        </div>
+        <div class="card-name">${r.name}</div>
+        <div class="price-rows">`;
+
+    // Cheapest price row
+    html += `<div class="price-row cheapest${hasDeal ? ' has-discount' : ''}">
+        <div class="price-row-header">
+            <span class="price-row-shop">✓ ${cheapest.shop_name}</span>
+            ${cheapest.discount_pct ? `<span class="price-row-disc">−${cheapest.discount_pct}%</span>` : ''}
+        </div>
+        <div class="price-row-main">
+            <div class="price-row-left">
+                <div class="price-row-amounts">
+                    <span class="price-row-amount">${cheapest.price.toFixed(0)} kr</span>
+                    ${cheapest.old_price ? `<span class="price-row-old">${cheapest.old_price.toFixed(0)} kr</span>` : ''}
+                </div>
+                ${cheapest.old_price ? `<span class="price-row-save">💰 Spar ${(cheapest.old_price - cheapest.price).toFixed(0)} kr</span>` : ''}
+                ${r.volume_cl && r.volume_cl > 0 ? `<span class="price-row-ppl">${(cheapest.price / r.volume_cl).toFixed(2)} kr/cl</span>` : ''}
+            </div>
+            <div class="price-row-actions">
+                ${cheapest.url ? `<a class="price-row-link" href="${cheapest.url}" target="_blank" rel="noopener"
+                    aria-label="Køb ${esc(r.name)} hos ${esc(cheapest.shop_name)} for ${cheapest.price.toFixed(0)} kr">Køb →</a>` : ''}
+            </div>
+        </div>
+    </div>`;
+
+    // More shops toggle
+    if (sortedPrices.length > 1) {
+        const savings = getSavings(r);
+        html += `<div class="more-shops-toggle" onclick="const ms=this.nextElementSibling;const open=ms.style.display==='flex';ms.style.display=open?'none':'flex';this.textContent=open?'+ ${sortedPrices.length - 1} butik${sortedPrices.length > 2 ? 'ker' : ''} mere':'▲ Skjul andre butikker'">
+            + ${sortedPrices.length - 1} butik${sortedPrices.length > 2 ? 'ker' : ''} mere
+        </div>
+        <div class="more-shops" style="display:none">`;
+
+        sortedPrices.slice(1).forEach(p => {
+            html += `<div class="price-row${p.discount_pct ? ' has-discount' : ''}">
+                <div class="price-row-header">
+                    <span class="price-row-shop">${p.shop_name}</span>
+                    ${p.discount_pct ? `<span class="price-row-disc">−${p.discount_pct}%</span>` : ''}
+                </div>
+                <div class="price-row-main">
+                    <div class="price-row-left">
+                        <div class="price-row-amounts">
+                            <span class="price-row-amount">${p.price.toFixed(0)} kr</span>
+                            ${p.old_price ? `<span class="price-row-old">${p.old_price.toFixed(0)} kr</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="price-row-actions">
+                        ${p.url ? `<a class="price-row-link" href="${p.url}" target="_blank" rel="noopener"
+                            aria-label="Køb ${esc(r.name)} hos ${esc(p.shop_name)} for ${p.price.toFixed(0)} kr">Køb →</a>` : ''}
+                    </div>
+                </div>
+            </div>`;
+        });
+
+        html += `</div>`;
+
+        if (savings > 10) {
+            html += `<div class="transparency-badge">Sammenlignet på tværs af ${r.shop_count} butikker — spar op til ${savings.toFixed(0)} kr</div>`;
+        }
+    }
+
+    html += `</div></div></div>`;
+    return html;
+}
+
+// ── RENDER ────────────────────────────────────────────────────────
+function render(append) {
+    const filtered = filterAndSort();
+    const grid = document.getElementById('grid');
 
     document.getElementById('result-count').textContent = filtered.length;
     renderActiveChips();
 
-    const grid = document.getElementById('grid');
     if (!filtered.length) {
-        grid.innerHTML = '<div class="loading">Ingen rom matchede dine filtre</div>';
+        grid.innerHTML = `<div class="empty"><div class="empty-icon">${currentFilter === 'favs' ? '❤️' : '🔍'}</div><p>${currentFilter === 'favs' ? 'Ingen favoritter — klik 🤍 på et kort' : 'Ingen rom matchede dine filtre'}</p></div>`;
+        document.getElementById('load-more').style.display = 'none';
         return;
     }
 
-    grid.innerHTML = filtered.map(r => {
-        const hasDeal = r.max_discount_pct > 0;
-        const isPremium = r.min_price >= 1500;
-        const isMulti = r.shop_count > 1;
-        const sortedPrices = [...r.prices].sort((a, b) => a.price - b.price);
-        const cheapest = sortedPrices[0];
+    const totalPages = Math.ceil(filtered.length / PAGE_SIZE);
 
-        let priceHTML = '';
-        if (isMulti && sortedPrices.length >= 2) {
-            // Vis pris-sammenligning
-            const dyrest = sortedPrices[sortedPrices.length - 1];
-            const savings = dyrest.price - cheapest.price;
-            priceHTML = `
-                <div class="card-multi-prices">
-                    ${sortedPrices.slice(0, 3).map((p, i) => `
-                        <div class="card-multi-row">
-                            <span class="card-multi-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
-                            <span class="card-multi-price ${i === 0 ? 'best' : ''}">${p.price.toFixed(0)} kr</span>
-                        </div>
-                    `).join('')}
-                </div>
-                ${savings > 5 ? `<div class="card-savings">Spar <strong>${savings.toFixed(0)} KR</strong></div>` : ''}
-            `;
-        } else {
-            // Bare en pris
-            priceHTML = `
-                <div class="card-price-single">
-                    <span class="card-price">${cheapest.price.toFixed(0)} kr</span>
-                    ${cheapest.old_price ? `<span class="card-old-price">${cheapest.old_price.toFixed(0)} kr</span>` : ''}
-                    <span class="card-shop" style="margin-left:auto">${cheapest.shop_name}</span>
-                </div>
-            `;
-        }
+    if (append) {
+        const start = (currentPage - 1) * PAGE_SIZE;
+        const end = start + PAGE_SIZE;
+        grid.insertAdjacentHTML('beforeend',
+            filtered.slice(start, end).map((r, i) => makeCard(r, Math.min(i * 0.02, 0.3))).join('')
+        );
+    } else {
+        grid.innerHTML = filtered.slice(0, currentPage * PAGE_SIZE)
+            .map((r, i) => makeCard(r, Math.min(i * 0.02, 0.5))).join('');
+    }
 
-        const cardClasses = [
-            'card',
-            hasDeal ? 'has-deal' : '',
-            isMulti ? 'multi-shop' : 'no-multi'
-        ].filter(Boolean).join(' ');
+    document.getElementById('load-more').style.display = currentPage < totalPages ? 'block' : 'none';
+}
 
-        return `
-            <div class="${cardClasses}">
-                ${hasDeal ? `<div class="discount-badge">−${r.max_discount_pct}%</div>` : ''}
-                ${isMulti ? `<div class="multi-shop-badge">🔄 ${r.shop_count} BUTIKKER</div>` : ''}
-                ${isPremium && !hasDeal ? `<div class="premium-badge">💎 PREMIUM</div>` : ''}
-                <div class="card-img-wrap">
-                    ${r.image ? `<img class="card-img" src="${r.image}" alt="${r.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">` : ''}
-                    <span class="card-img-placeholder" ${r.image ? 'style="display:none"' : ''}>🥃</span>
+// ── TOP DEALS CAROUSEL ────────────────────────────────────────────
+function renderTopDeals() {
+    const topDeals = allRoms
+        .filter(r => r.max_discount_pct > 0)
+        .sort((a, b) => b.max_discount_pct - a.max_discount_pct)
+        .slice(0, 10);
+
+    const section = document.getElementById('top-deals-section');
+    if (!topDeals.length) { section.style.display = 'none'; return; }
+    section.style.display = 'block';
+
+    document.getElementById('top-deals-scroll').innerHTML = topDeals.map(r => {
+        const best = [...r.prices].sort((a, b) => (b.discount_pct || 0) - (a.discount_pct || 0))[0] || {};
+        return `<div class="top-card">
+            <div class="top-card-pct">−${r.max_discount_pct}%</div>
+            ${r.image
+                ? `<img class="top-card-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+                : ''}
+            <div class="top-card-img-placeholder" ${r.image ? 'style="display:none"' : ''} aria-hidden="true">🥃</div>
+            <div class="top-card-body">
+                <div class="top-card-shop">${best.shop_name || ''}</div>
+                <div class="top-card-name">${r.name}</div>
+                <div class="top-card-prices">
+                    <span class="top-card-price">${(best.price || 0).toFixed(0)} kr</span>
+                    ${best.old_price ? `<span class="top-card-old">${best.old_price.toFixed(0)} kr</span>` : ''}
                 </div>
-                <div class="card-body">
-                    <div class="card-meta">
-                        ${r.country ? `<span class="card-tag country">🌍 ${r.country}</span>` : ''}
-                        ${r.type ? `<span class="card-tag">${r.type}</span>` : ''}
-                        ${r.age ? `<span class="card-tag age">🕰️ ${r.age}</span>` : ''}
-                        ${r.abv ? `<span class="card-tag abv">${r.abv}%</span>` : ''}
-                    </div>
-                    <div class="card-name">${r.name}</div>
-                    <div class="card-prices">${priceHTML}</div>
-                </div>
-                <a class="card-buy" href="${cheapest.url}" target="_blank">Køb billigst →</a>
+                ${best.url ? `<a class="top-card-link" href="${best.url}" target="_blank" rel="noopener"
+                    aria-label="Køb ${esc(r.name)} nu">Køb nu →</a>` : ''}
             </div>
-        `;
+        </div>`;
     }).join('');
 }
 
+// ── ACTIVE CHIPS ──────────────────────────────────────────────────
 function renderActiveChips() {
-    const section = document.getElementById('active-filters-section');
-    const container = document.getElementById('active-chips');
-    const chips = [];
+    const bar = document.getElementById('active-filters-bar');
+    const sidebarSection = document.getElementById('active-filters-section');
+    const sidebarChips = document.getElementById('active-chips');
+    const chips = [], sc = [];
 
     if (currentFilter !== 'all') {
-        const labels = {
-            'multi': '🔄 I flere butikker',
-            'deals': '🔥 Tilbud',
-            'favs': '❤️ Favoritter',
-            'hverdagsrom': '🥃 Hverdagsrom',
-            'premium': '💎 Premium'
-        };
-        chips.push({ label: labels[currentFilter], type: 'quick' });
+        const labels = { 'multi': '🔄 I flere butikker', 'deals': '🔥 Tilbud', 'favs': '❤️ Favoritter', 'hverdagsrom': '💰 Under 500 kr', 'premium': '💎 Premium' };
+        const l = labels[currentFilter] || currentFilter;
+        chips.push(`<span class="filter-chip">${l}<span class="x" onclick="quickFilter('all')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="quickFilter('all')">${l}<span class="x">✕</span></span>`);
     }
-    selectedShops.forEach(s => chips.push({ label: `🏪 ${s}`, type: 'shop', val: s }));
-    selectedCountries.forEach(c => chips.push({ label: `🌍 ${c}`, type: 'country', val: c }));
-    selectedTypes.forEach(t => chips.push({ label: `🥃 ${t}`, type: 'type', val: t }));
-    selectedAges.forEach(a => chips.push({ label: `🕰️ ${a}`, type: 'age', val: a }));
-
-    const search = document.getElementById('search').value.trim();
-    if (search) chips.push({ label: `🔍 "${search}"`, type: 'search' });
-
+    selectedShops.forEach(s => {
+        chips.push(`<span class="filter-chip">🏪 ${s}<span class="x" onclick="removeShop('${esc(s)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeShop('${esc(s)}')">🏪 ${s}<span class="x">✕</span></span>`);
+    });
+    selectedCountries.forEach(c => {
+        chips.push(`<span class="filter-chip">${flagFor(c)} ${c}<span class="x" onclick="removeCountry('${esc(c)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeCountry('${esc(c)}')">${flagFor(c)} ${c}<span class="x">✕</span></span>`);
+    });
+    selectedTypes.forEach(t => {
+        chips.push(`<span class="filter-chip">🥃 ${t}<span class="x" onclick="removeType('${esc(t)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeType('${esc(t)}')">🥃 ${t}<span class="x">✕</span></span>`);
+    });
+    selectedAges.forEach(a => {
+        chips.push(`<span class="filter-chip">🕰️ ${a}<span class="x" onclick="removeAge('${esc(a)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeAge('${esc(a)}')" >🕰️ ${a}<span class="x">✕</span></span>`);
+    });
+    const sv = document.getElementById('search').value.trim();
+    if (sv) {
+        chips.push(`<span class="filter-chip">🔍 "${sv}"<span class="x" onclick="clearSearch()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearSearch()">🔍 "${sv}"<span class="x">✕</span></span>`);
+    }
     const priceMaxEl = parseInt(document.getElementById('price-max').max);
     if (priceMin > 0 || priceMax < priceMaxEl) {
-        chips.push({ label: `💰 ${priceMin}-${priceMax} kr`, type: 'price' });
+        chips.push(`<span class="filter-chip">💰 ${priceMin}–${priceMax} kr<span class="x" onclick="clearPrice()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearPrice()">💰 ${priceMin}–${priceMax} kr<span class="x">✕</span></span>`);
     }
     if (abvMin > 30 || abvMax < 80) {
-        chips.push({ label: `🍻 ${abvMin}-${abvMax}%`, type: 'abv' });
+        chips.push(`<span class="filter-chip">🍻 ${abvMin}–${abvMax}%<span class="x" onclick="clearAbv()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearAbv()">🍻 ${abvMin}–${abvMax}%<span class="x">✕</span></span>`);
     }
-    const volume = document.getElementById('volume').value;
-    if (volume) {
-        const labels = { 'small': '📦 Mini', 'medium': '📦 Normal', 'large': '📦 Stor' };
-        chips.push({ label: labels[volume], type: 'volume' });
+    const vol = document.getElementById('volume').value;
+    if (vol) {
+        const vl = { small: '📦 Mini', medium: '📦 Normal', large: '📦 Stor' };
+        chips.push(`<span class="filter-chip">${vl[vol]}<span class="x" onclick="clearVolume()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearVolume()">${vl[vol]}<span class="x">✕</span></span>`);
     }
 
-    if (!chips.length) {
-        section.style.display = 'none';
-        return;
+    if (chips.length) {
+        bar.innerHTML = '<span class="filter-chip-label">Filtre:</span>' + chips.join('');
+        sidebarSection.style.display = 'block';
+        sidebarChips.innerHTML = sc.join('');
+    } else {
+        bar.innerHTML = '';
+        sidebarSection.style.display = 'none';
+        sidebarChips.innerHTML = '';
     }
-    section.style.display = 'block';
-    container.innerHTML = chips.map(c =>
-        `<span class="sidebar-chip" data-type="${c.type}" data-val="${c.val || ''}">${c.label} <span class="x">✕</span></span>`
-    ).join('');
 
-    container.querySelectorAll('.sidebar-chip').forEach(chip => {
-        chip.addEventListener('click', () => {
-            const type = chip.dataset.type;
-            const val = chip.dataset.val;
-            if (type === 'quick') {
-                document.querySelector('.sidebar-filter-btn[data-filter="all"]').click();
-            } else if (type === 'shop') {
-                selectedShops.delete(val);
-                document.querySelector(`.filter-shop[value="${val}"]`).checked = false;
-                render();
-            } else if (type === 'country') {
-                selectedCountries.delete(val);
-                document.querySelector(`.filter-country[value="${val}"]`).checked = false;
-                render();
-            } else if (type === 'type') {
-                selectedTypes.delete(val);
-                document.querySelector(`.filter-type[value="${val}"]`).checked = false;
-                render();
-            } else if (type === 'age') {
-                selectedAges.delete(val);
-                document.querySelector(`.filter-age[value="${val}"]`).checked = false;
-                render();
-            } else if (type === 'search') {
-                document.getElementById('search').value = '';
-                render();
-            } else if (type === 'price') {
-                document.getElementById('price-min').value = 0;
-                document.getElementById('price-max').value = priceMaxEl;
-                priceMin = 0; priceMax = priceMaxEl;
-                document.getElementById('price-min-val').textContent = 0;
-                document.getElementById('price-max-val').textContent = priceMaxEl;
-                updateRangeTracks();
-                render();
-            } else if (type === 'abv') {
-                document.getElementById('abv-min').value = 30;
-                document.getElementById('abv-max').value = 80;
-                abvMin = 30; abvMax = 80;
-                document.getElementById('abv-min-val').textContent = 30;
-                document.getElementById('abv-max-val').textContent = 80;
-                updateRangeTracks();
-                render();
-            } else if (type === 'volume') {
-                document.getElementById('volume').value = '';
-                render();
-            }
-        });
-    });
+    // Mobile count badge
+    const mc = document.getElementById('mobile-filter-count');
+    if (mc) {
+        if (chips.length) { mc.style.display = 'inline-block'; mc.textContent = chips.length; }
+        else mc.style.display = 'none';
+    }
 }
 
+// ── CLEAR HELPERS ─────────────────────────────────────────────────
+window.removeShop = s => { selectedShops.delete(s); updateShopCheckboxes(); currentPage = 1; render(); };
+window.removeCountry = c => { selectedCountries.delete(c); updateCountryCheckboxes(); currentPage = 1; render(); };
+window.removeType = t => { selectedTypes.delete(t); updateTypeCheckboxes(); currentPage = 1; render(); };
+window.removeAge = a => { selectedAges.delete(a); updateAgeCheckboxes(); currentPage = 1; render(); };
+window.clearSearch = () => { document.getElementById('search').value = ''; currentPage = 1; render(); };
+window.clearPrice = () => {
+    const max = parseInt(document.getElementById('price-max').max);
+    priceMin = 0; priceMax = max;
+    document.getElementById('price-min').value = 0;
+    document.getElementById('price-max').value = max;
+    document.getElementById('price-min-val').textContent = 0;
+    document.getElementById('price-max-val').textContent = max;
+    updateRangeTracks();
+    currentPage = 1; render();
+};
+window.clearAbv = () => {
+    abvMin = 30; abvMax = 80;
+    document.getElementById('abv-min').value = 30;
+    document.getElementById('abv-max').value = 80;
+    document.getElementById('abv-min-val').textContent = 30;
+    document.getElementById('abv-max-val').textContent = 80;
+    updateRangeTracks();
+    currentPage = 1; render();
+};
+window.clearVolume = () => { document.getElementById('volume').value = ''; currentPage = 1; render(); };
+
+// ── CHECKBOX SYNC ─────────────────────────────────────────────────
+function updateCheckboxList(listId, selectedSet, dataAttr) {
+    document.querySelectorAll(`#${listId} .sidebar-checkbox`).forEach(item => {
+        const val = item.dataset[dataAttr];
+        const sel = selectedSet.has(val);
+        item.classList.toggle('selected', sel);
+        item.querySelector('.cb').textContent = sel ? '✓' : '';
+        item.setAttribute('aria-checked', sel ? 'true' : 'false');
+    });
+}
+function updateShopCheckboxes() {
+    updateCheckboxList('shop-list', selectedShops, 'shop');
+    const badge = document.getElementById('shop-count-badge');
+    const cl = document.getElementById('clear-shops');
+    if (selectedShops.size) { badge.style.display = 'inline-block'; badge.textContent = selectedShops.size; cl.style.display = 'inline-block'; }
+    else { badge.style.display = 'none'; cl.style.display = 'none'; }
+}
+function updateCountryCheckboxes() {
+    updateCheckboxList('country-list', selectedCountries, 'country');
+    const badge = document.getElementById('country-count-badge');
+    const cl = document.getElementById('clear-countries');
+    if (selectedCountries.size) { badge.style.display = 'inline-block'; badge.textContent = selectedCountries.size; cl.style.display = 'inline-block'; }
+    else { badge.style.display = 'none'; cl.style.display = 'none'; }
+}
+function updateTypeCheckboxes() {
+    updateCheckboxList('type-list', selectedTypes, 'type');
+    const badge = document.getElementById('type-count-badge');
+    const cl = document.getElementById('clear-types');
+    if (selectedTypes.size) { badge.style.display = 'inline-block'; badge.textContent = selectedTypes.size; cl.style.display = 'inline-block'; }
+    else { badge.style.display = 'none'; cl.style.display = 'none'; }
+}
+function updateAgeCheckboxes() {
+    updateCheckboxList('age-list', selectedAges, 'age');
+    const badge = document.getElementById('age-count-badge');
+    const cl = document.getElementById('clear-ages');
+    if (selectedAges.size) { badge.style.display = 'inline-block'; badge.textContent = selectedAges.size; cl.style.display = 'inline-block'; }
+    else { badge.style.display = 'none'; cl.style.display = 'none'; }
+}
+
+// ── FAVORITES ─────────────────────────────────────────────────────
+function toggleFav(name, btn) {
+    if (favorites.has(name)) { favorites.delete(name); btn.classList.remove('active'); btn.textContent = '🤍'; }
+    else { favorites.add(name); btn.classList.add('active'); btn.textContent = '❤️'; }
+    localStorage.setItem('rom_favs', JSON.stringify([...favorites]));
+    document.getElementById('fav-count').textContent = favorites.size > 0 ? `(${favorites.size})` : '';
+    if (currentFilter === 'favs') render();
+}
+
+// ── RANGE TRACKS ──────────────────────────────────────────────────
 function updateRangeTracks() {
     const priceMaxEl = parseInt(document.getElementById('price-max').max);
     const pTrack = document.getElementById('price-track');
@@ -1734,61 +1755,20 @@ function updateRangeTracks() {
     aTrack.style.right = (100 - (abvMax - 30) / 50 * 100) + '%';
 }
 
-document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentFilter = btn.dataset.filter;
-        if (currentFilter === 'deals') document.getElementById('sort').value = 'discount';
-        if (currentFilter === 'multi') document.getElementById('sort').value = 'savings';
-        render();
-    });
-});
-
-document.getElementById('search').addEventListener('input', render);
-document.getElementById('sort').addEventListener('change', render);
-document.getElementById('volume').addEventListener('change', render);
-
-document.getElementById('price-min').addEventListener('input', e => {
-    priceMin = parseInt(e.target.value);
-    if (priceMin > priceMax) { priceMin = priceMax; e.target.value = priceMin; }
-    document.getElementById('price-min-val').textContent = priceMin;
-    updateRangeTracks();
-    render();
-});
-document.getElementById('price-max').addEventListener('input', e => {
-    priceMax = parseInt(e.target.value);
-    if (priceMax < priceMin) { priceMax = priceMin; e.target.value = priceMax; }
-    document.getElementById('price-max-val').textContent = priceMax;
-    updateRangeTracks();
-    render();
-});
-
-document.getElementById('abv-min').addEventListener('input', e => {
-    abvMin = parseInt(e.target.value);
-    if (abvMin > abvMax) { abvMin = abvMax; e.target.value = abvMin; }
-    document.getElementById('abv-min-val').textContent = abvMin;
-    updateRangeTracks();
-    render();
-});
-document.getElementById('abv-max').addEventListener('input', e => {
-    abvMax = parseInt(e.target.value);
-    if (abvMax < abvMin) { abvMax = abvMin; e.target.value = abvMax; }
-    document.getElementById('abv-max-val').textContent = abvMax;
-    updateRangeTracks();
-    render();
-});
-
+// ── RESET ─────────────────────────────────────────────────────────
 function resetAll() {
     document.getElementById('search').value = '';
-    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
-    document.querySelector('.sidebar-filter-btn[data-filter="all"]').classList.add('active');
     currentFilter = 'all';
+    currentSort = 'savings';
+    currentPage = 1;
     selectedShops.clear();
     selectedCountries.clear();
     selectedTypes.clear();
     selectedAges.clear();
-    document.querySelectorAll('.filter-shop, .filter-country, .filter-type, .filter-age').forEach(cb => cb.checked = false);
+    document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(b =>
+        b.classList.toggle('active', b.dataset.filter === 'all')
+    );
+    document.querySelectorAll('.qbtn').forEach(b => b.classList.remove('active'));
     const priceMaxEl = parseInt(document.getElementById('price-max').max);
     priceMin = 0; priceMax = priceMaxEl;
     document.getElementById('price-min').value = 0;
@@ -1801,27 +1781,190 @@ function resetAll() {
     document.getElementById('abv-min-val').textContent = 30;
     document.getElementById('abv-max-val').textContent = 80;
     document.getElementById('volume').value = '';
-    document.getElementById('sort').value = 'savings';
+    syncSortSelects('savings');
     updateRangeTracks();
+    updateShopCheckboxes();
+    updateCountryCheckboxes();
+    updateTypeCheckboxes();
+    updateAgeCheckboxes();
     render();
 }
+
+// ── LOAD DATA ─────────────────────────────────────────────────────
+async function loadData() {
+    try {
+        const r = await fetch('rom_data.json?v=' + Date.now());
+        if (!r.ok) throw new Error('Kunne ikke hente rom_data.json');
+        const data = await r.json();
+        allRoms = data.roms || [];
+
+        // Stats
+        document.getElementById('stat-total').textContent = data.stats.total || allRoms.length;
+        document.getElementById('stat-multi').textContent = data.stats.multi_shop || 0;
+        document.getElementById('stat-deals').textContent = data.stats.deals || allRoms.filter(r => r.max_discount_pct > 0).length;
+        document.getElementById('stat-cheapest').textContent = Math.round(data.stats.cheapest || 0);
+        document.getElementById('hero-count').textContent = (data.stats.total || allRoms.length).toLocaleString('da-DK');
+        document.getElementById('hero-shops').textContent = data.stats.shops || data.stats.shop_names?.length || 2;
+
+        if (data.updated) {
+            const d = new Date(data.updated);
+            const opts = { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' };
+            document.getElementById('nav-updated').innerHTML = `<strong>Opdateret</strong><br>${d.toLocaleDateString('da-DK', opts)}`;
+        }
+
+        // Max price
+        const maxP = Math.max(...allRoms.map(r => r.min_price), 500);
+        const roundedMax = Math.ceil(maxP / 100) * 100;
+        document.getElementById('price-max').max = roundedMax;
+        document.getElementById('price-max').value = roundedMax;
+        priceMax = roundedMax;
+        document.getElementById('price-max-val').textContent = roundedMax;
+
+        // Build checkbox lists
+        function buildCheckboxList(listId, items, dataAttr, set, updateFn) {
+            const list = document.getElementById(listId);
+            list.innerHTML = items.map(v => `
+                <div class="sidebar-checkbox" data-${dataAttr}="${v}" role="checkbox" aria-checked="false" tabindex="0">
+                    <span class="cb"></span> ${dataAttr === 'country' ? flagFor(v) + ' ' : ''}${v}
+                </div>`).join('');
+            list.querySelectorAll('.sidebar-checkbox').forEach(item => {
+                const toggle = () => {
+                    const val = item.dataset[dataAttr];
+                    if (set.has(val)) set.delete(val); else set.add(val);
+                    updateFn();
+                    currentPage = 1;
+                    render();
+                    if (isMobile()) closeSidebar();
+                };
+                item.addEventListener('click', e => { e.stopPropagation(); toggle(); });
+                item.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
+            });
+        }
+
+        buildCheckboxList('shop-list', data.stats.shop_names || [], 'shop', selectedShops, updateShopCheckboxes);
+        buildCheckboxList('country-list', data.stats.countries || [], 'country', selectedCountries, updateCountryCheckboxes);
+        buildCheckboxList('type-list', data.stats.types || [], 'type', selectedTypes, updateTypeCheckboxes);
+        buildCheckboxList('age-list', data.stats.ages || [], 'age', selectedAges, updateAgeCheckboxes);
+
+        document.getElementById('clear-shops').addEventListener('click', e => {
+            e.stopPropagation(); selectedShops.clear(); updateShopCheckboxes(); currentPage = 1; render();
+        });
+        document.getElementById('clear-countries').addEventListener('click', e => {
+            e.stopPropagation(); selectedCountries.clear(); updateCountryCheckboxes(); currentPage = 1; render();
+        });
+        document.getElementById('clear-types').addEventListener('click', e => {
+            e.stopPropagation(); selectedTypes.clear(); updateTypeCheckboxes(); currentPage = 1; render();
+        });
+        document.getElementById('clear-ages').addEventListener('click', e => {
+            e.stopPropagation(); selectedAges.clear(); updateAgeCheckboxes(); currentPage = 1; render();
+        });
+
+        document.getElementById('fav-count').textContent = favorites.size > 0 ? `(${favorites.size})` : '';
+        updateRangeTracks();
+        renderTopDeals();
+        render();
+
+    } catch (e) {
+        console.error(e);
+        document.getElementById('grid').innerHTML = '<div class="empty"><div class="empty-icon">😢</div><p>Kunne ikke hente rom-data — tjek at rom_data.json findes</p></div>';
+    }
+}
+
+// ── MOBILE SIDEBAR ────────────────────────────────────────────────
+function openSidebar() {
+    document.getElementById('sidebar').classList.add('mobile-open');
+    document.getElementById('mobile-backdrop').classList.add('visible');
+    document.body.classList.add('sidebar-open');
+    document.getElementById('mobile-filter-open').setAttribute('aria-expanded', 'true');
+}
+function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('mobile-open');
+    document.getElementById('mobile-backdrop').classList.remove('visible');
+    document.body.classList.remove('sidebar-open');
+    document.getElementById('mobile-filter-open').setAttribute('aria-expanded', 'false');
+}
+
+// ── EVENT LISTENERS ───────────────────────────────────────────────
+document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        quickFilter(btn.dataset.filter);
+        if (isMobile()) closeSidebar();
+    });
+});
+
+// Sync both sort dropdowns
+function handleSortChange(val) {
+    currentSort = val;
+    document.getElementById('sort').value = val;
+    document.getElementById('sort-top').value = val;
+    currentPage = 1;
+    render();
+}
+document.getElementById('sort').addEventListener('change', e => handleSortChange(e.target.value));
+document.getElementById('sort-top').addEventListener('change', e => handleSortChange(e.target.value));
+
+document.getElementById('volume').addEventListener('change', () => { currentPage = 1; render(); });
+
+let searchTimer;
+document.getElementById('search').addEventListener('input', function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { currentPage = 1; render(); }, 300);
+});
+
+let priceTimer;
+document.getElementById('price-min').addEventListener('input', e => {
+    priceMin = parseInt(e.target.value);
+    if (priceMin > priceMax) { priceMin = priceMax; e.target.value = priceMin; }
+    document.getElementById('price-min-val').textContent = priceMin;
+    updateRangeTracks();
+    clearTimeout(priceTimer);
+    priceTimer = setTimeout(() => { currentPage = 1; render(); }, 400);
+});
+document.getElementById('price-max').addEventListener('input', e => {
+    priceMax = parseInt(e.target.value);
+    if (priceMax < priceMin) { priceMax = priceMin; e.target.value = priceMax; }
+    document.getElementById('price-max-val').textContent = priceMax;
+    updateRangeTracks();
+    clearTimeout(priceTimer);
+    priceTimer = setTimeout(() => { currentPage = 1; render(); }, 400);
+});
+
+let abvTimer;
+document.getElementById('abv-min').addEventListener('input', e => {
+    abvMin = parseInt(e.target.value);
+    if (abvMin > abvMax) { abvMin = abvMax; e.target.value = abvMin; }
+    document.getElementById('abv-min-val').textContent = abvMin;
+    updateRangeTracks();
+    clearTimeout(abvTimer);
+    abvTimer = setTimeout(() => { currentPage = 1; render(); }, 400);
+});
+document.getElementById('abv-max').addEventListener('input', e => {
+    abvMax = parseInt(e.target.value);
+    if (abvMax < abvMin) { abvMax = abvMin; e.target.value = abvMax; }
+    document.getElementById('abv-max-val').textContent = abvMax;
+    updateRangeTracks();
+    clearTimeout(abvTimer);
+    abvTimer = setTimeout(() => { currentPage = 1; render(); }, 400);
+});
+
 document.getElementById('reset-btn').addEventListener('click', resetAll);
 document.getElementById('clear-all').addEventListener('click', resetAll);
+document.getElementById('mobile-filter-open').addEventListener('click', openSidebar);
+document.getElementById('mobile-filter-close').addEventListener('click', closeSidebar);
+document.getElementById('mobile-backdrop').addEventListener('click', closeSidebar);
 
-const sidebar = document.getElementById('sidebar');
-const backdrop = document.getElementById('mobile-backdrop');
-document.getElementById('mobile-filter-open').addEventListener('click', () => {
-    sidebar.classList.add('open');
-    backdrop.classList.add('visible');
-});
-backdrop.addEventListener('click', () => {
-    sidebar.classList.remove('open');
-    backdrop.classList.remove('visible');
+document.getElementById('load-more').addEventListener('click', () => {
+    currentPage++;
+    render(true);
 });
 
+const stBtn = document.getElementById('scroll-top');
+window.addEventListener('scroll', () => { stBtn.classList.toggle('visible', window.scrollY > 600); }, { passive: true });
+stBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ── INIT ──────────────────────────────────────────────────────────
 updateRangeTracks();
 loadData();
 </script>
-
 </body>
 </html>
