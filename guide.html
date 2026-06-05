@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/89fa8867d76958bb0adf126ff23ddbf6/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rom-guiden — Alt du skal vide om rom | RomSniffer</title>
+<meta name="description" content="Lær alt om rom: stilarter, lande, smagsprofiler, etiketter og cocktails. Din komplette guide til at vælge den rigtige rom.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0604;
+        --surface: #1a0f08;
+        --surface2: #251810;
+        --surface3: #2f1f14;
+        --copper: #b87333;
+        --copper-light: #d99458;
+        --leather: #2a1810;
+        --text: #f5e4cf;
+        --text-muted: #a08570;
+        --text-dim: #5a4838;
+        --border: #2e1d10;
+        --border-light: #3d2818;
+        --discount: #3dba6f;
+        --gold: #d4a847;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        min-height: 100vh;
+        line-height: 1.7;
+    }
+    body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.15 0 0 0 0 0.08 0 0 0 0 0.04 0 0 0 0.3 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23leather)' opacity='0.4'/%3E%3C/svg%3E");
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0.5;
+    }
+    @media (max-width: 640px) { body::before { display: none; } }
+    body > * { position: relative; z-index: 2; }
+
+    nav {
+        background: rgba(10,6,4,0.97);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0.85rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+    .nav-logo span {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--copper-light), var(--copper));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .nav-links { display: flex; gap: 0.5rem; }
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 0.5rem 0.9rem;
+        border-radius: 6px;
+        transition: all 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--copper-light); background: rgba(184,115,51,0.1); }
+
+    .guide-hero {
+        padding: 3rem 2rem 2rem;
+        text-align: center;
+        border-bottom: 1px solid var(--border);
+        background: radial-gradient(ellipse at 50% 0%, rgba(184,115,51,0.08) 0%, transparent 60%),
+                    linear-gradient(180deg, var(--leather) 0%, transparent 100%);
+    }
+    .guide-hero h1 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        color: var(--copper-light);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.5rem;
+    }
+    .guide-hero p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+
+    /* Indholdsfortegnelse */
+    .toc {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 0.8rem;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .toc-card {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 10px;
+        padding: 1rem;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.2s;
+    }
+    .toc-card:hover { border-color: var(--copper); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.4); }
+    .toc-icon { font-size: 1.5rem; margin-bottom: 0.4rem; display: block; }
+    .toc-label {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.9rem;
+        color: var(--copper-light);
+        letter-spacing: 0.1em;
+    }
+
+    /* Sektioner */
+    .content { max-width: 860px; margin: 0 auto; padding: 0 2rem 4rem; }
+    .section { padding-top: 3rem; }
+    .section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.8rem;
+        border-bottom: 2px solid var(--border-light);
+    }
+    .section-icon { font-size: 1.8rem; }
+    .section-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        color: var(--copper-light);
+        letter-spacing: 0.08em;
+    }
+    .section p { color: var(--text-muted); margin-bottom: 1rem; font-size: 0.92rem; }
+    .section p strong { color: var(--text); }
+
+    /* Type-kort */
+    .type-card {
+        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        transition: border-color 0.2s;
+    }
+    .type-card:hover { border-color: var(--copper); }
+    .type-card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 0.8rem;
+    }
+    .type-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.2rem;
+        color: var(--text);
+        font-weight: 600;
+    }
+    .type-abv {
+        font-size: 0.7rem;
+        color: var(--text-dim);
+        background: var(--surface2);
+        padding: 0.2rem 0.5rem;
+        border-radius: 4px;
+        white-space: nowrap;
+    }
+    .type-card p { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 0.6rem; }
+    .flavor-tags { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.8rem; }
+    .flavor-tag {
+        font-size: 0.68rem;
+        padding: 0.2rem 0.55rem;
+        border-radius: 999px;
+        background: rgba(184,115,51,0.12);
+        border: 1px solid var(--border-light);
+        color: var(--copper-light);
+    }
+    .type-cocktail {
+        font-size: 0.8rem;
+        color: var(--text-dim);
+        font-style: italic;
+        margin-bottom: 0.6rem;
+    }
+    .type-cta {
+        display: inline-block;
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+        padding: 0.45rem 1rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.04em;
+        transition: all 0.15s;
+    }
+    .type-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(184,115,51,0.4); }
+
+    /* Lande-kort */
+    .country-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .country-card {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 10px;
+        padding: 1.2rem;
+        transition: all 0.2s;
+    }
+    .country-card:hover { border-color: var(--copper); transform: translateY(-2px); }
+    .country-card h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        color: var(--text);
+        margin-bottom: 0.4rem;
+    }
+    .country-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+    .country-card .type-cta { font-size: 0.72rem; padding: 0.35rem 0.8rem; }
+
+    /* Etiket-sektion */
+    .label-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .label-card {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 10px;
+        padding: 1.1rem;
+    }
+    .label-card h4 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.95rem;
+        color: var(--copper-light);
+        letter-spacing: 0.1em;
+        margin-bottom: 0.4rem;
+    }
+    .label-card p { font-size: 0.82rem; color: var(--text-muted); margin: 0; }
+
+    /* Budget-sektion */
+    .budget-tier {
+        background: var(--surface);
+        border: 1px solid var(--border-light);
+        border-radius: 10px;
+        padding: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    .budget-tier h4 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.1rem;
+        color: var(--copper-light);
+        letter-spacing: 0.08em;
+        margin-bottom: 0.3rem;
+    }
+    .budget-tier .price-range {
+        font-size: 0.72rem;
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        margin-bottom: 0.5rem;
+    }
+    .budget-tier p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 0.6rem; }
+    .budget-tier .type-cta { font-size: 0.72rem; }
+
+    /* Cocktail-kort */
+    .cocktail-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    .cocktail-card {
+        background: linear-gradient(180deg, var(--surface) 0%, var(--leather) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 10px;
+        padding: 1.2rem;
+    }
+    .cocktail-card h4 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.05rem;
+        color: var(--text);
+        margin-bottom: 0.3rem;
+    }
+    .cocktail-type {
+        font-size: 0.68rem;
+        color: var(--copper);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 0.5rem;
+    }
+    .cocktail-card p { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0.3rem; }
+    .cocktail-ingredients {
+        font-size: 0.78rem;
+        color: var(--text-dim);
+        margin-top: 0.4rem;
+        padding-top: 0.4rem;
+        border-top: 1px solid var(--border);
+        font-style: italic;
+    }
+
+    /* Tilbage til top */
+    .back-top {
+        display: block;
+        text-align: center;
+        padding: 1.5rem;
+        color: var(--copper);
+        font-size: 0.8rem;
+        text-decoration: none;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+    .back-top:hover { color: var(--copper-light); }
+
+    /* Footer */
+    footer {
+        background: linear-gradient(180deg, var(--leather) 0%, var(--bg) 100%);
+        border-top: 1px solid var(--border);
+        padding: 2rem;
+        text-align: center;
+    }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.78rem; transition: color 0.15s; }
+    .footer-links a:hover { color: var(--copper-light); }
+    .footer-copy { font-size: 0.65rem; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; }
+
+    @media (max-width: 640px) {
+        nav { padding: 0.65rem 1rem; }
+        .guide-hero { padding: 2rem 1rem 1.5rem; }
+        .content { padding: 0 1rem 3rem; }
+        .toc { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+        .type-card { padding: 1rem; }
+        .country-grid { grid-template-columns: 1fr; }
+        .label-grid { grid-template-columns: 1fr; }
+        .cocktail-grid { grid-template-columns: 1fr; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'">
+        <span>RomSniffer</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Priser</a>
+        <a href="guide.html" class="active">Guide</a>
+        <a href="om.html">Om</a>
+    </div>
+</nav>
+
+<div class="guide-hero">
+    <h1>🥃 Rom-guiden</h1>
+    <p>Alt du skal vide om rom — fra stilarter og lande til etiketter, budget og cocktails. Din genvej til at vælge den rigtige flaske.</p>
+    <div class="toc">
+        <a href="#stilarter" class="toc-card"><span class="toc-icon">🥃</span><span class="toc-label">Stilarter</span></a>
+        <a href="#lande" class="toc-card"><span class="toc-icon">🌍</span><span class="toc-label">Lande</span></a>
+        <a href="#etiket" class="toc-card"><span class="toc-icon">🏷️</span><span class="toc-label">Læs en etiket</span></a>
+        <a href="#produktion" class="toc-card"><span class="toc-icon">⚗️</span><span class="toc-label">Produktion</span></a>
+        <a href="#budget" class="toc-card"><span class="toc-icon">💰</span><span class="toc-label">Rom til dit budget</span></a>
+        <a href="#cocktails" class="toc-card"><span class="toc-icon">🍹</span><span class="toc-label">Cocktails</span></a>
+    </div>
+</div>
+
+<div class="content">
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- STILARTER -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="stilarter">
+        <div class="section-header">
+            <span class="section-icon">🥃</span>
+            <h2 class="section-title">Rom-stilarter</h2>
+        </div>
+        <p>Rom er ikke bare rom. Fra let og frisk hvid rom til tung og kompleks XO findes der en verden af smagsprofiler. Her er de vigtigste stilarter du møder på flaskerne.</p>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Aged rom (lagret rom)</h3>
+                <span class="type-abv">Typisk 40–46%</span>
+            </div>
+            <p>Lagret i egetræsfade fra måneder til årtier. Jo længere lagring, jo mere kompleksitet. Fadene giver farve, smag og karakter — vanille, karamel, tobak og krydderier udvikler sig over tid. Det er her de store smagsoplevelser ligger.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Vanille</span>
+                <span class="flavor-tag">Karamel</span>
+                <span class="flavor-tag">Egetræ</span>
+                <span class="flavor-tag">Tobak</span>
+                <span class="flavor-tag">Tørret frugt</span>
+            </div>
+            <div class="type-cocktail">🍸 Drikkes bedst rent, med en enkelt isterning, eller i en Old Fashioned</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Aged rom')" class="type-cta">Se alle aged rom →</a>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Spiced rom (krydret rom)</h3>
+                <span class="type-abv">Typisk 35–40%</span>
+            </div>
+            <p>Rom tilsat krydderier og naturlige smagsgivere efter destillation. Vanilje, kanel, ingefær og muskatnød er de mest almindelige. Resultatet er en blød, aromatisk rom der er meget tilgængelig for begyndere og fantastisk i cocktails.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Vanilje</span>
+                <span class="flavor-tag">Kanel</span>
+                <span class="flavor-tag">Ingefær</span>
+                <span class="flavor-tag">Muskatnød</span>
+                <span class="flavor-tag">Nellike</span>
+            </div>
+            <div class="type-cocktail">🍸 Perfekt i Dark & Stormy, Spiced Rum & Cola, eller som base i en Hot Toddy</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Spiced')" class="type-cta">Se alle spiced rom →</a>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Hvid rom (white / silver)</h3>
+                <span class="type-abv">Typisk 37,5–40%</span>
+            </div>
+            <p>Ulagret eller kortlagret rom der er filtreret for at fjerne farve. Frisk, let og ren i smagen med noter af sukkerrør, citrus og tropisk frugt. Det er cocktailbartenderens foretrukne base fordi den ikke dominerer, men komplementerer.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Sukkerrør</span>
+                <span class="flavor-tag">Citrus</span>
+                <span class="flavor-tag">Tropisk frugt</span>
+                <span class="flavor-tag">Peber</span>
+            </div>
+            <div class="type-cocktail">🍸 Uundværlig i Mojito, Daiquiri og Piña Colada</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Hvid rom')" class="type-cta">Se alle hvide rom →</a>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Mørk rom (dark rum)</h3>
+                <span class="type-abv">Typisk 40–47%</span>
+            </div>
+            <p>Lagret i kraftigt ristede egetræsfade eller tilsat karamelfarve for dybde. Fyldig og intens med markante noter af melasse, mørk chokolade, røg og tørrede frugter. Mere robust end aged rom og med mere punch i cocktails.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Melasse</span>
+                <span class="flavor-tag">Chokolade</span>
+                <span class="flavor-tag">Røg</span>
+                <span class="flavor-tag">Svesker</span>
+                <span class="flavor-tag">Kaffe</span>
+            </div>
+            <div class="type-cocktail">🍸 Oplagt til Dark & Stormy, Rum Punch og bagt ind i desserter</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Mørk rom')" class="type-cta">Se alle mørke rom →</a>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Overproof rom</h3>
+                <span class="type-abv">Typisk 57–75%</span>
+            </div>
+            <p>Rom med usædvanligt høj alkoholprocent — traditionelt over 57% (Navy Strength). Ekstremt intens i smag med koncentrerede aromaer. Ikke til begyndere rent, men fantastisk til at løfte cocktails og i tiki-drinks hvor den skærer igennem frugtjuice.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Intens</span>
+                <span class="flavor-tag">Koncentreret frugt</span>
+                <span class="flavor-tag">Varme</span>
+                <span class="flavor-tag">Ester-rig</span>
+            </div>
+            <div class="type-cocktail">🍸 Brug i Zombie, Mai Tai eller som float på tiki-cocktails</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Overproof')" class="type-cta">Se alle overproof rom →</a>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Rhum Agricole</h3>
+                <span class="type-abv">Typisk 40–55%</span>
+            </div>
+            <p>Fremstillet af frisk presset sukkerrørsjuice i stedet for melasse — primært fra de franske caribiske øer. Resultatet er en markant anderledes smag: grønne, florale, frugtige noter der minder mere om terroir end om sukkerfabrik. Kontrolleret af AOC-lovgivning ligesom vin.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Frisk sukkerrør</span>
+                <span class="flavor-tag">Græs</span>
+                <span class="flavor-tag">Blomster</span>
+                <span class="flavor-tag">Tropisk frugt</span>
+                <span class="flavor-tag">Mineralsk</span>
+            </div>
+            <div class="type-cocktail">🍸 Klassisk i Ti' Punch (agricole + lime + sukkersirup), men også fremragende rent</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Rhum Agricole')" class="type-cta">Se alle agricole rom →</a>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header">
+                <h3>Cachaça</h3>
+                <span class="type-abv">Typisk 38–48%</span>
+            </div>
+            <p>Brasiliens nationaldrik og teknisk set ikke rom — men tæt beslægtet. Ligesom agricole lavet af frisk sukkerrørsjuice, men med brasilianske produktionsmetoder og ofte lagret i eksotiske brasilianske træsorter som amburana, der giver unikke smagsprofiler.</p>
+            <div class="flavor-tags">
+                <span class="flavor-tag">Sukkerrør</span>
+                <span class="flavor-tag">Grønt græs</span>
+                <span class="flavor-tag">Tropisk</span>
+                <span class="flavor-tag">Kanel (amburana)</span>
+            </div>
+            <div class="type-cocktail">🍸 Skabt til Caipirinha — og næsten intet andet kan erstatte den</div>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_filter','Cachaça')" class="type-cta">Se alle cachaça →</a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- LANDE -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="lande">
+        <div class="section-header">
+            <span class="section-icon">🌍</span>
+            <h2 class="section-title">Rom-lande</h2>
+        </div>
+        <p>Hvert land har sin egen rom-tradition, klimaforhold og lovgivning der former smagen. Her er de vigtigste oprindelseslande og hvad du kan forvente af deres rom.</p>
+
+        <div class="country-grid">
+            <div class="country-card">
+                <h4>🇨🇺 Cuba</h4>
+                <p><strong>Stil:</strong> Let, tør og elegant. Cubansk rom er typisk column-still destilleret og lagret i tropisk klima, hvilket giver en glat, raffineret karakter med lette noter af vanille og tropisk frugt.</p>
+                <p><strong>Kendte mærker:</strong> Havana Club, Santiago de Cuba</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Cuba')" class="type-cta">Se cubansk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇯🇲 Jamaica</h4>
+                <p><strong>Stil:</strong> Funky, frugtig og intens. Jamaica er berømt for pot still-rom med høje ester-niveauer der giver eksplosive aromaer af banan, ananas og fermenteret frugt. Elsket af entusiaster.</p>
+                <p><strong>Kendte mærker:</strong> Appleton, Hampden, Worthy Park</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Jamaica')" class="type-cta">Se jamaicansk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇧🇧 Barbados</h4>
+                <p><strong>Stil:</strong> Elegant og balanceret. Barbados bruger ofte en blanding af pot still og column still, hvilket giver rom med fin kompleksitet uden at være overvældende. Anses for "sweet spot" i rom-verdenen.</p>
+                <p><strong>Kendte mærker:</strong> Foursquare, Mount Gay, Doorly's</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Barbados')" class="type-cta">Se barbadisk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇬🇹 Guatemala</h4>
+                <p><strong>Stil:</strong> Blød og sød med tydelig karamelsødme. Guatemalansk rom lagres ofte ved høj højde hvor temperaturen svinger, hvilket fremskynder fadmodning. Solera-blending er udbredt.</p>
+                <p><strong>Kendte mærker:</strong> Zacapa, Botran</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Guatemala')" class="type-cta">Se guatemalansk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇬🇾 Guyana</h4>
+                <p><strong>Stil:</strong> Tung, fyldig og kompleks. Guyana er hjemsted for den legendariske Demerara-rom, destilleret på historiske træ-pot stills der ikke findes andre steder i verden. Rig på melasse, toffee og krydderier.</p>
+                <p><strong>Kendte mærker:</strong> El Dorado</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Guyana')" class="type-cta">Se guyansk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇹🇹 Trinidad</h4>
+                <p><strong>Stil:</strong> Blød og krydret med god balance. Trinidad producerer primært lettere column still-rom men også komplekse lagrede udgaver. Angostura-destilleriet er et af verdens største.</p>
+                <p><strong>Kendte mærker:</strong> Angostura</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Trinidad')" class="type-cta">Se trinidadisk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇲🇶 Martinique</h4>
+                <p><strong>Stil:</strong> Frisk, floral og terroir-drevet. Martinique er hjemstedet for rhum agricole — rom lavet af frisk sukkerrørsjuice. Beskyttet af AOC-lovgivning der sikrer kvalitet og autenticitet, ligesom champagne.</p>
+                <p><strong>Kendte mærker:</strong> Clément, JM, La Favorite, Trois Rivières</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Martinique')" class="type-cta">Se martiniquansk rom →</a>
+            </div>
+
+            <div class="country-card">
+                <h4>🇵🇦 Panama</h4>
+                <p><strong>Stil:</strong> Glat, tilgængelig og let sødmefuld. Panama producerer rom der er nemme at drikke og gode til begyndere. Lagringen i tropisk klima giver hurtig modning.</p>
+                <p><strong>Kendte mærker:</strong> Ron Abuelo</p>
+                <a href="index.html#grid" onclick="localStorage.setItem('rs_country','Panama')" class="type-cta">Se panamansk rom →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- LÆS EN ETIKET -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="etiket">
+        <div class="section-header">
+            <span class="section-icon">🏷️</span>
+            <h2 class="section-title">Sådan læser du en rom-etiket</h2>
+        </div>
+        <p>Tal, betegnelser og marketing-sprog på rom-etiketter kan være forvirrende. Her er hvad de faktisk betyder — og hvornår du skal være skeptisk.</p>
+
+        <div class="label-grid">
+            <div class="label-card">
+                <h4>Alder (fx "12 år")</h4>
+                <p>I de fleste lande angiver tallet den <strong>yngste</strong> rom i blandingen. En "12 år" kan altså indeholde ældre rom — men aldrig yngre. Undtagelse: Guatemala og Venezuela bruger solera-systemer hvor tallet er mere vilkårligt.</p>
+            </div>
+            <div class="label-card">
+                <h4>XO</h4>
+                <p>Står for "Extra Old" — men der er <strong>ingen international standard</strong> for hvad det præcist kræver. Generelt signalerer det lang lagring (typisk 6+ år), men det varierer enormt mellem mærker. Stol mere på brand end på bogstaverne.</p>
+            </div>
+            <div class="label-card">
+                <h4>Solera</h4>
+                <p>Et blendings-system hvor gammel og ny rom blandes løbende i en kaskade af fade. Resultatet er en rom der aldrig har én bestemt alder. Når Zacapa skriver "23", er det <strong>ikke</strong> 23 års lagring — det er det ældste fade i solera-systemet.</p>
+            </div>
+            <div class="label-card">
+                <h4>ABV / Alkohol%</h4>
+                <p><strong>40%</strong> er standard. <strong>43–46%</strong> antyder at der ikke er tilsat vand for at spare penge (godt tegn). <strong>57%+</strong> er overproof/Navy Strength. Generelt: højere ABV = mere smag og karakter, men også mere intenst.</p>
+            </div>
+            <div class="label-card">
+                <h4>Single Cask</h4>
+                <p>Rom fra ét enkelt fad — ikke blandet med andre fade. Hvert fad smager forskelligt, og nummereringen på flasken er unik. For samlere og entusiaster der vil smage fadets individuelle karakter.</p>
+            </div>
+            <div class="label-card">
+                <h4>Cask Finish</h4>
+                <p>"Sherry Cask Finish" eller "Port Cask Finish" betyder at rommen er <strong>efterlagret</strong> i et andet fad for ekstra smagsnoter. Det er ikke det primære lagringsfad, men en afsluttende behandling der tilføjer kompleksitet.</p>
+            </div>
+            <div class="label-card">
+                <h4>Reserva / Gran Reserva</h4>
+                <p>Ubeskyttede termer uden lovkrav i de fleste lande. En "Reserva" behøver <strong>ikke</strong> at være ældre eller bedre end en standard-udgave. Det er primært marketing — kig på alder og ABV i stedet.</p>
+            </div>
+            <div class="label-card">
+                <h4>Tilsat sukker?</h4>
+                <p>Mange rom-producenter tilsætter sukker og karamel efter destillation — især fra Guatemala, Venezuela og Den Dominikanske Republik. Det er ikke ulovligt men sjældent deklareret. Højere ABV og brands som Foursquare garanterer "no added sugar".</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- PRODUKTION -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="produktion">
+        <div class="section-header">
+            <span class="section-icon">⚗️</span>
+            <h2 class="section-title">Hvordan rom laves</h2>
+        </div>
+        <p>Produktionsmetoden er afgørende for smagen. To rom fra samme land kan smage vidt forskelligt afhængigt af om de er lavet med pot still eller column still, melasse eller frisk sukkerrør.</p>
+
+        <div class="type-card">
+            <div class="type-card-header"><h3>Råmaterialet: Melasse vs. sukkerrør</h3></div>
+            <p><strong>Melasse</strong> (ca. 95% af al rom) — et biprodukt fra sukkerproduktionen. Giver fyldig, sød og karamelpræget rom. Bruges af de fleste caribiske producenter.</p>
+            <p><strong>Frisk sukkerrørsjuice</strong> (ca. 5%) — presset direkte fra sukkerrør og fermenteret hurtigt. Giver friskere, mere aromatisk og terroir-drevet rom. Bruges primært i rhum agricole fra Martinique og Guadeloupe, samt i cachaça fra Brasilien.</p>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header"><h3>Destillation: Pot still vs. column still</h3></div>
+            <p><strong>Pot still</strong> — batch-destillation i kobberkedler. Giver tungere, mere kompleks og smagfuld rom med højere ester-indhold. Jamaica og Guyana er berømte for pot still-rom. Tager længere tid og er dyrere.</p>
+            <p><strong>Column still</strong> (kolonneapparat) — kontinuerlig destillation der producerer lettere, renere spiritus. Cuba, Puerto Rico og Trinidad bruger primært column stills. Hurtigere og mere effektiv.</p>
+            <p><strong>Blending</strong> — mange producenter (fx Barbados) blander pot still og column still for at kombinere kompleksitet med elegance. Det er en kunst i sig selv.</p>
+        </div>
+
+        <div class="type-card">
+            <div class="type-card-header"><h3>Lagring: Tropisk vs. kontinental</h3></div>
+            <p><strong>Tropisk lagring</strong> (Caribien) — høj varme og fugtighed accelererer fadinteraktion. 1 år i tropisk klima svarer til ca. 2-3 år i Europa. "Angel's share" (fordampning) er 6-8% per år — mod 2% i Skotland.</p>
+            <p><strong>Kontinental lagring</strong> (Europa) — langsommere, mere kontrolleret modning. Nogle producenter shipper rom til Europa for at lagre ved lavere temperatur, hvilket giver en anderledes, mere behersket karakter.</p>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- BUDGET -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="budget">
+        <div class="section-header">
+            <span class="section-icon">💰</span>
+            <h2 class="section-title">Rom til dit budget</h2>
+        </div>
+        <p>God rom findes i alle prisklasser. Her er hvad du kan forvente — og hvad du skal kigge efter — på hvert prisniveau.</p>
+
+        <div class="budget-tier">
+            <h4>🥉 Begynder &amp; cocktails</h4>
+            <div class="price-range">Under 200 kr</div>
+            <p>Her finder du solide hvide og spiced rom til cocktails, plus enkelte aged rom der overrasker positivt. Forvent enkel smag uden stor kompleksitet — men perfekt til at lære rom at kende og blande drinks.</p>
+            <p><strong>Kig efter:</strong> Havana Club 3, Bacardi Superior, Sailor Jerry, Angostura 5</p>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_budget','under200')" class="type-cta">Se rom under 200 kr →</a>
+        </div>
+
+        <div class="budget-tier">
+            <h4>🥈 Hverdagsrom</h4>
+            <div class="price-range">200–500 kr</div>
+            <p>Sweet spot for kvalitet og pris. Her finder du seriøst gode aged rom med 8-15 års lagring, vellavet spiced rom og single-origin flasker der fungerer både rent og i cocktails. Det er her de fleste entusiaster opholder sig til daglig.</p>
+            <p><strong>Kig efter:</strong> Appleton 12, Doorly's 12, El Dorado 12, Plantation, A.H. Riise</p>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_budget','200-500')" class="type-cta">Se rom 200–500 kr →</a>
+        </div>
+
+        <div class="budget-tier">
+            <h4>🥇 Premium sipping</h4>
+            <div class="price-range">500–1.500 kr</div>
+            <p>Langlagrede rom med dyb kompleksitet, limited editions og single cask-udgivelser. Disse rom fortjener at drikkes rent eller med en enkelt isterning. Her mærker du forskellen mellem gode og exceptionelle producenter.</p>
+            <p><strong>Kig efter:</strong> Foursquare Exceptional Cask, Hampden Estate, Clément 10, Zacapa XO</p>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_budget','500-1500')" class="type-cta">Se rom 500–1.500 kr →</a>
+        </div>
+
+        <div class="budget-tier">
+            <h4>💎 Samlerstykker</h4>
+            <div class="price-range">Over 1.500 kr</div>
+            <p>De sjældne flasker — vintage-udgivelser, 20+ års lagring, historiske destillerier og nummererede single casks. Til den seriøse samler eller til en helt speciel aften. Kvaliteten er typisk ekstraordinær, men der er også prestige-priser i dette segment.</p>
+            <a href="index.html#grid" onclick="localStorage.setItem('rs_budget','over1500')" class="type-cta">Se premium rom →</a>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════ -->
+    <!-- COCKTAILS -->
+    <!-- ══════════════════════════════════════════════ -->
+    <div class="section" id="cocktails">
+        <div class="section-header">
+            <span class="section-icon">🍹</span>
+            <h2 class="section-title">Klassiske rom-cocktails</h2>
+        </div>
+        <p>Hver cocktail kræver en bestemt type rom for at fungere optimalt. Her er de vigtigste klassikere og hvilken rom du skal bruge.</p>
+
+        <div class="cocktail-grid">
+            <div class="cocktail-card">
+                <h4>Mojito</h4>
+                <div class="cocktail-type">Kræver: Hvid rom</div>
+                <p>Den ultimative sommerdrink — frisk mynte, lime og sukker med hvid rom og danskvand. Nøglen er en let, ren rom der ikke overskygger mynten.</p>
+                <div class="cocktail-ingredients">Hvid rom · frisk mynte · lime · sukkersirup · danskvand</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Daiquiri</h4>
+                <div class="cocktail-type">Kræver: Hvid rom</div>
+                <p>Tre ingredienser, perfekt balance. Hemingways yndlingsdrink er langt mere sofistikeret end frozen-versionen fra ferieresorts. Shakes med is til iskold perfektion.</p>
+                <div class="cocktail-ingredients">Hvid rom · frisk lime · sukkersirup</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Dark &amp; Stormy</h4>
+                <div class="cocktail-type">Kræver: Mørk rom</div>
+                <p>Mørk rom og ginger beer — simpelt, kraftfuldt og forfriskende. Den mørke rom flyder oven på den gyldne ginger beer som en stormsky.</p>
+                <div class="cocktail-ingredients">Mørk rom · ginger beer · lime</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Old Fashioned (rom)</h4>
+                <div class="cocktail-type">Kræver: Aged rom</div>
+                <p>Whiskey-klassikeren oversat til rom. En vellagret, kompleks rom med et drys angostura bitters og en appelsintwist. Simpelt, elegant, tidløst.</p>
+                <div class="cocktail-ingredients">Aged rom · angostura bitters · sukker · appelsinskræl</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Mai Tai</h4>
+                <div class="cocktail-type">Kræver: Aged rom + overproof</div>
+                <p>Tiki-kulturens kronjuvel — en lagdelt cocktail med aged rom, lime, orgeat (mandelmælk-sirup) og orange liqueur. En overproof float giver ekstra punch.</p>
+                <div class="cocktail-ingredients">Aged rom · lime · orgeat · orange curaçao · overproof float</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Caipirinha</h4>
+                <div class="cocktail-type">Kræver: Cachaça</div>
+                <p>Brasiliens nationalcocktail. Frisk lime muddles direkte med sukker og cachaça — rå, enkel og umulig at erstatte med noget andet end ægte cachaça.</p>
+                <div class="cocktail-ingredients">Cachaça · frisk lime · rørsukker · knust is</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Ti' Punch</h4>
+                <div class="cocktail-type">Kræver: Rhum Agricole</div>
+                <p>Martiniques svar på daiquirien — men stærkere, enklere og mere aromatisk. Bare agricole, en disk limezest og sukkersirup. Drikkes traditionelt som en "petit punch" før middag.</p>
+                <div class="cocktail-ingredients">Rhum agricole · limezest · sukkerrørssirup</div>
+            </div>
+
+            <div class="cocktail-card">
+                <h4>Piña Colada</h4>
+                <div class="cocktail-type">Kræver: Hvid rom + mørk rom</div>
+                <p>Tropisk klassiker med kremet kokosmælk og frisk ananas. Brug hvid rom som base og float en smule mørk rom på toppen for ekstra dybde.</p>
+                <div class="cocktail-ingredients">Hvid rom · kokosmælk · ananasjuice · mørk rom float</div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-top">↑ Tilbage til toppen</a>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="index.html">🥃 Sammenlign priser</a>
+        <a href="guide.html">📖 Rom-guiden</a>
+        <a href="om.html">Om RomSniffer</a>
+        <a href="mailto:admin@romsniffer.dk">Kontakt</a>
+    </div>
+    <div class="footer-copy">🥃 RomSniffer &copy; 2026 — Kun for personer over 18 år — Nyd med omtanke</div>
+</footer>
+
+</body>
+</html>
