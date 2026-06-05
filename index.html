@@ -95,23 +95,149 @@
 
     /* ── HERO ── */
     .hero {
-        padding: 2.5rem 2rem 1.5rem;
+        padding: 1.2rem 2rem 1.2rem;
         border-bottom: 1px solid var(--border);
         background:
             radial-gradient(ellipse at 20% 20%, rgba(184,115,51,0.06) 0%, transparent 50%),
             radial-gradient(ellipse at 80% 60%, rgba(107,44,14,0.08) 0%, transparent 50%),
             linear-gradient(180deg, var(--leather) 0%, transparent 100%);
     }
-    .hero-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-inner {
+        max-width: 1400px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 2rem;
+        align-items: center;
+    }
+    .hero-left { text-align: center; }
     .hero-logo {
-        width: clamp(80px, 12vw, 120px);
-        height: clamp(80px, 12vw, 120px);
+        width: clamp(70px, 10vw, 100px);
+        height: clamp(70px, 10vw, 100px);
         object-fit: contain;
         filter: drop-shadow(0 8px 30px rgba(200,116,30,0.4));
         animation: bob 4s ease-in-out infinite;
-        margin: 0 auto 0.8rem;
+        margin: 0 auto 0.6rem;
         display: block;
     }
+
+    /* ── SPOTLIGHT ── */
+    .spotlight-wrap {
+        background: linear-gradient(180deg, rgba(42,24,16,0.7) 0%, rgba(26,15,8,0.9) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 14px;
+        padding: 1.1rem;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 16px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(212,168,71,0.08);
+    }
+    .spotlight-label {
+        font-size: 0.6rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--copper);
+        margin-bottom: 0.7rem;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+    }
+    .spotlight-label::before { content: '✦'; color: var(--gold); }
+    .spotlight-content { display: flex; gap: 1rem; align-items: flex-start; }
+    .spotlight-img-wrap {
+        width: 110px;
+        height: 145px;
+        background: linear-gradient(180deg, #1a1108 0%, #0a0604 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.6rem;
+        flex-shrink: 0;
+        box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+    }
+    .spotlight-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 6px 16px rgba(0,0,0,0.6));
+        transition: opacity 0.35s;
+    }
+    .spotlight-img.fading { opacity: 0; }
+    .spotlight-info { flex: 1; min-width: 0; transition: opacity 0.35s; }
+    .spotlight-info.fading { opacity: 0; }
+    .spotlight-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.3;
+        margin-bottom: 0.4rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    .spotlight-meta { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-bottom: 0.5rem; }
+    .spotlight-tag {
+        background: rgba(184,115,51,0.15);
+        border: 1px solid var(--border-light);
+        color: var(--copper-light);
+        padding: 0.15rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.65rem;
+    }
+    .spotlight-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 0.8rem;
+    }
+    .spotlight-price-row:last-of-type { border-bottom: none; }
+    .spotlight-shop { color: var(--text-muted); font-size: 0.72rem; letter-spacing: 0.04em; }
+    .spotlight-shop.best { color: var(--discount); font-weight: 600; }
+    .spotlight-shop.best::before { content: '✓ '; }
+    .spotlight-price { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--text); letter-spacing: 0.03em; }
+    .spotlight-price.best { color: var(--discount); }
+    .spotlight-savings {
+        background: linear-gradient(135deg, rgba(61,186,111,0.12), rgba(212,168,71,0.08));
+        border: 1px solid var(--discount);
+        color: var(--discount);
+        padding: 0.4rem 0.6rem;
+        border-radius: 7px;
+        text-align: center;
+        font-size: 0.75rem;
+        margin-top: 0.5rem;
+        font-weight: 600;
+    }
+    .spotlight-savings strong { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.04em; }
+    .spotlight-cta {
+        display: block;
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+        text-align: center;
+        padding: 0.55rem;
+        border-radius: 7px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        margin-top: 0.5rem;
+        transition: all 0.15s;
+    }
+    .spotlight-cta:hover { transform: translateY(-1px); box-shadow: 0 5px 16px rgba(184,115,51,0.5); }
+    .spotlight-dots { display: flex; justify-content: center; gap: 5px; margin-top: 0.8rem; }
+    .spotlight-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.15);
+        cursor: pointer;
+        transition: all 0.3s;
+        border: none;
+    }
+    .spotlight-dot.active { background: var(--copper); width: 20px; border-radius: 3px; }
     @keyframes bob {
         0%, 100% { transform: translateY(0) rotate(-1deg); }
         50% { transform: translateY(-8px) rotate(1deg); }
@@ -884,6 +1010,8 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 1100px) {
         .layout-wrap { display: block; }
+        .hero-inner { grid-template-columns: 1fr; gap: 1.5rem; }
+        .spotlight-wrap { max-width: 560px; margin: 0 auto; }
         .sidebar {
             position: fixed;
             top: 0;
@@ -981,29 +1109,49 @@
 <!-- HERO + SØGNING + QUICK-FILTER BAR -->
 <div class="hero" id="hero">
     <div class="hero-inner">
-        <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'" decoding="async">
-        <h2 class="hero-title">Find den billigste rom — på få sekunder</h2>
-        <p class="hero-sub">Sammenlign <strong id="hero-count">500+</strong> rom fra <strong id="hero-shops">2</strong> butikker — opdateres dagligt</p>
-        <div class="hero-search-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
-            </svg>
-            <input type="text" id="search" class="hero-search-input"
-                placeholder="Søg rom, brand, land..."
-                aria-label="Søg efter rom, brand eller land">
+        <!-- VENSTRE: Logo + søgning + quick-bar -->
+        <div class="hero-left">
+            <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'" decoding="async">
+            <h2 class="hero-title">Find den billigste rom — på få sekunder</h2>
+            <p class="hero-sub">Sammenlign <strong id="hero-count">500+</strong> rom fra <strong id="hero-shops">2</strong> butikker — opdateres dagligt</p>
+            <div class="hero-search-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
+                </svg>
+                <input type="text" id="search" class="hero-search-input"
+                    placeholder="Søg rom, brand, land..."
+                    aria-label="Søg efter rom, brand eller land">
+            </div>
+            <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
+                <button class="qbtn" data-qtype="filter" data-val="deals"       onclick="quickFilter('deals')">🔥 Tilbud</button>
+                <button class="qbtn" data-qtype="filter" data-val="multi"       onclick="quickFilter('multi')">🔄 Billigst på tværs</button>
+                <button class="qbtn" data-qtype="country" data-val="Cuba"       onclick="quickCountry('Cuba')">🇨🇺 Cuba</button>
+                <button class="qbtn" data-qtype="country" data-val="Jamaica"    onclick="quickCountry('Jamaica')">🇯🇲 Jamaica</button>
+                <button class="qbtn" data-qtype="country" data-val="Barbados"   onclick="quickCountry('Barbados')">🇧🇧 Barbados</button>
+                <button class="qbtn" data-qtype="type" data-val="Aged rom"      onclick="quickType('Aged rom')">🥃 Aged</button>
+                <button class="qbtn" data-qtype="type" data-val="Spiced"        onclick="quickType('Spiced')">🌿 Spiced</button>
+                <button class="qbtn" data-qtype="age" data-val="XO"             onclick="quickAge('XO')">✨ XO</button>
+                <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">💰 Under 500 kr</button>
+                <button class="qbtn" data-qtype="filter" data-val="premium"     onclick="quickFilter('premium')">💎 Premium</button>
+            </div>
         </div>
-        <!-- QUICK-FILTER BAR -->
-        <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
-            <button class="qbtn" data-qtype="filter" data-val="deals"      onclick="quickFilter('deals')">🔥 Tilbud</button>
-            <button class="qbtn" data-qtype="filter" data-val="multi"      onclick="quickFilter('multi')">🔄 Billigst på tværs</button>
-            <button class="qbtn" data-qtype="country" data-val="Cuba"      onclick="quickCountry('Cuba')">🇨🇺 Cuba</button>
-            <button class="qbtn" data-qtype="country" data-val="Jamaica"   onclick="quickCountry('Jamaica')">🇯🇲 Jamaica</button>
-            <button class="qbtn" data-qtype="country" data-val="Barbados"  onclick="quickCountry('Barbados')">🇧🇧 Barbados</button>
-            <button class="qbtn" data-qtype="type" data-val="Aged rom"     onclick="quickType('Aged rom')">🥃 Aged</button>
-            <button class="qbtn" data-qtype="type" data-val="Spiced"       onclick="quickType('Spiced')">🌿 Spiced</button>
-            <button class="qbtn" data-qtype="age" data-val="XO"            onclick="quickAge('XO')">✨ XO</button>
-            <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">💰 Under 500 kr</button>
-            <button class="qbtn" data-qtype="filter" data-val="premium"    onclick="quickFilter('premium')">💎 Premium</button>
+
+        <!-- HØJRE: Roterende pris-spotlight -->
+        <div class="spotlight-wrap" id="spotlight" style="display:none" aria-label="Bedste pris-sammenligninger">
+            <div class="spotlight-label">Pris-spotlight — skifter automatisk</div>
+            <div class="spotlight-content">
+                <div class="spotlight-img-wrap">
+                    <img class="spotlight-img" id="spotlight-img" src="" alt="" onerror="this.style.display='none'">
+                </div>
+                <div class="spotlight-info" id="spotlight-info">
+                    <div class="spotlight-name" id="spotlight-name">–</div>
+                    <div class="spotlight-meta" id="spotlight-meta"></div>
+                    <div id="spotlight-prices"></div>
+                    <div class="spotlight-savings" id="spotlight-savings" style="display:none"></div>
+                    <a class="spotlight-cta" id="spotlight-cta" href="#" target="_blank" rel="noopener">Køb billigst →</a>
+                </div>
+            </div>
+            <div class="spotlight-dots" id="spotlight-dots"></div>
         </div>
     </div>
 </div>
@@ -1601,7 +1749,116 @@ function renderTopDeals() {
     }).join('');
 }
 
-// ── ACTIVE CHIPS ──────────────────────────────────────────────────
+// ── SPOTLIGHT ─────────────────────────────────────────────────────
+let spotlightRoms = [];
+let spotlightIndex = 0;
+let spotlightInterval = null;
+
+function setupSpotlight() {
+    // Prioriter rom med prissammenligning, dernæst tilbud
+    spotlightRoms = allRoms
+        .filter(r => r.shop_count > 1)
+        .sort((a, b) => getSavings(b) - getSavings(a))
+        .slice(0, 8);
+
+    if (spotlightRoms.length < 3) {
+        // Fallback: største tilbud
+        const extra = allRoms
+            .filter(r => r.max_discount_pct > 0 && r.shop_count === 1)
+            .sort((a, b) => b.max_discount_pct - a.max_discount_pct)
+            .slice(0, 8 - spotlightRoms.length);
+        spotlightRoms = [...spotlightRoms, ...extra];
+    }
+
+    if (!spotlightRoms.length) return;
+
+    const wrap = document.getElementById('spotlight');
+    wrap.style.display = 'block';
+
+    const dots = document.getElementById('spotlight-dots');
+    dots.innerHTML = spotlightRoms.map((_, i) =>
+        `<button class="spotlight-dot${i === 0 ? ' active' : ''}" data-idx="${i}" aria-label="Vis tilbud ${i + 1}"></button>`
+    ).join('');
+    dots.querySelectorAll('.spotlight-dot').forEach(dot => {
+        dot.addEventListener('click', () => {
+            spotlightIndex = parseInt(dot.dataset.idx);
+            showSpotlight();
+            resetSpotlightInterval();
+        });
+    });
+
+    showSpotlight();
+    resetSpotlightInterval();
+}
+
+function showSpotlight() {
+    const rom = spotlightRoms[spotlightIndex];
+    if (!rom) return;
+
+    const imgEl = document.getElementById('spotlight-img');
+    const infoEl = document.getElementById('spotlight-info');
+    imgEl.classList.add('fading');
+    infoEl.classList.add('fading');
+
+    setTimeout(() => {
+        // Billede
+        if (rom.image) { imgEl.src = rom.image; imgEl.style.display = 'block'; }
+        else imgEl.style.display = 'none';
+
+        // Navn
+        document.getElementById('spotlight-name').textContent = rom.name;
+
+        // Meta-tags
+        const meta = [];
+        if (rom.country) meta.push(`<span class="spotlight-tag">${flagFor(rom.country)} ${rom.country}</span>`);
+        if (rom.type) meta.push(`<span class="spotlight-tag">${rom.type}</span>`);
+        if (rom.age) meta.push(`<span class="spotlight-tag">🕰️ ${rom.age}</span>`);
+        document.getElementById('spotlight-meta').innerHTML = meta.join('');
+
+        // Priser
+        const sorted = [...rom.prices].sort((a, b) => a.price - b.price);
+        document.getElementById('spotlight-prices').innerHTML = sorted.map((p, i) => `
+            <div class="spotlight-price-row">
+                <span class="spotlight-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
+                <span class="spotlight-price ${i === 0 ? 'best' : ''}">${p.price.toFixed(0)} kr</span>
+            </div>`).join('');
+
+        // Besparelse
+        const savingsEl = document.getElementById('spotlight-savings');
+        const savings = getSavings(rom);
+        if (savings > 5) {
+            const pct = Math.round((savings / sorted[sorted.length - 1].price) * 100);
+            savingsEl.innerHTML = `💰 Spar <strong>${savings.toFixed(0)} kr</strong> (${pct}%) vs dyreste`;
+            savingsEl.style.display = 'block';
+        } else if (rom.max_discount_pct > 0) {
+            savingsEl.innerHTML = `🔥 <strong>−${rom.max_discount_pct}%</strong> rabat`;
+            savingsEl.style.display = 'block';
+        } else {
+            savingsEl.style.display = 'none';
+        }
+
+        // CTA
+        document.getElementById('spotlight-cta').href = sorted[0].url || '#';
+
+        // Dots
+        document.querySelectorAll('.spotlight-dot').forEach((d, i) =>
+            d.classList.toggle('active', i === spotlightIndex)
+        );
+
+        imgEl.classList.remove('fading');
+        infoEl.classList.remove('fading');
+    }, 200);
+}
+
+function resetSpotlightInterval() {
+    if (spotlightInterval) clearInterval(spotlightInterval);
+    spotlightInterval = setInterval(() => {
+        spotlightIndex = (spotlightIndex + 1) % spotlightRoms.length;
+        showSpotlight();
+    }, 5000);
+}
+
+
 function renderActiveChips() {
     const bar = document.getElementById('active-filters-bar');
     const sidebarSection = document.getElementById('active-filters-section');
@@ -1862,6 +2119,7 @@ async function loadData() {
         document.getElementById('fav-count').textContent = favorites.size > 0 ? `(${favorites.size})` : '';
         updateRangeTracks();
         renderTopDeals();
+        setupSpotlight();
         render();
 
     } catch (e) {
