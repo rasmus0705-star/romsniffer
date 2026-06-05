@@ -4,6 +4,7 @@ Bruger smart parsing + hård gate matching + HTML enrichment.
 """
 import json
 import time
+import subprocess
 from datetime import datetime
 
 from kokkensvinhus_rom import scrape_kokkensvinhus_rom
@@ -194,6 +195,21 @@ def main():
 
     with open("rom_data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
+
+    # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
+    print("\n📤 Pusher rom_data.json til GitHub...")
+    try:
+        subprocess.run(["git", "add", "rom_data.json"], check=True)
+        subprocess.run(
+            ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
+            check=True
+        )
+        subprocess.run(["git", "push"], check=True)
+        print("✅ rom_data.json pushet til GitHub!")
+    except subprocess.CalledProcessError as e:
+        print(f"⚠️  Git push fejlede: {e}")
+        print("   (Kør manuelt: git add rom_data.json && git commit -m 'opdater' && git push)")
+    # ──────────────────────────────────────────────────────────────
 
     elapsed = time.time() - start
     print(f"\n{'=' * 70}")
