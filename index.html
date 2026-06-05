@@ -4,6 +4,8 @@
     <!-- Start cookieyes banner -->
     <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/89fa8867d76958bb0adf126ff23ddbf6/script.js"></script>
     <!-- End cookieyes banner -->
+    <!-- Twemoji: flag-emojis virker på Windows -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/twemoji.min.js" crossorigin="anonymous"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RomSniffer — Sammenlign rom-priser fra danske webshops</title>
@@ -1399,14 +1401,30 @@ const COUNTRY_ISO = {
     'France': 'fr', 'Frankrig': 'fr', 'Spain': 'es', 'Spanien': 'es',
     'Thailand': 'th', 'Ecuador': 'ec', 'Bolivia': 'bo',
 };
+// Flag-emojis renderes korrekt via Twemoji (virker på Windows)
+const COUNTRY_EMOJI = {
+    'Cuba': '\u{1F1E8}\u{1F1FA}', 'Jamaica': '\u{1F1EF}\u{1F1F2}',
+    'Barbados': '\u{1F1E7}\u{1F1E7}', 'Trinidad': '\u{1F1F9}\u{1F1F9}',
+    'Guyana': '\u{1F1EC}\u{1F1FE}', 'Guatemala': '\u{1F1EC}\u{1F1F9}',
+    'Panama': '\u{1F1F5}\u{1F1E6}', 'Nicaragua': '\u{1F1F3}\u{1F1EE}',
+    'Dominican Republic': '\u{1F1E9}\u{1F1F4}', 'Dominikanske Republik': '\u{1F1E9}\u{1F1F4}',
+    'Puerto Rico': '\u{1F1F5}\u{1F1F7}', 'Martinique': '\u{1F1F2}\u{1F1F6}',
+    'Haiti': '\u{1F1ED}\u{1F1F9}', 'Belize': '\u{1F1E7}\u{1F1FF}',
+    'Brazil': '\u{1F1E7}\u{1F1F7}', 'Brasilien': '\u{1F1E7}\u{1F1F7}',
+    'Colombia': '\u{1F1E8}\u{1F1F4}', 'Venezuela': '\u{1F1FB}\u{1F1EA}',
+    'Peru': '\u{1F1F5}\u{1F1EA}', 'Mauritius': '\u{1F1F2}\u{1F1FA}',
+    'India': '\u{1F1EE}\u{1F1F3}', 'Philippines': '\u{1F1F5}\u{1F1ED}',
+    'Danmark': '\u{1F1E9}\u{1F1F0}', 'Denmark': '\u{1F1E9}\u{1F1F0}',
+    'Fiji': '\u{1F1EB}\u{1F1EF}', 'Australia': '\u{1F1E6}\u{1F1FA}',
+    'Australien': '\u{1F1E6}\u{1F1FA}', 'UK': '\u{1F1EC}\u{1F1E7}',
+    'England': '\u{1F1EC}\u{1F1E7}', 'France': '\u{1F1EB}\u{1F1F7}',
+    'Frankrig': '\u{1F1EB}\u{1F1F7}', 'Thailand': '\u{1F1F9}\u{1F1ED}',
+};
 function flagImg(country, size) {
-    const iso = COUNTRY_ISO[country];
-    if (!iso) return '<span style="font-size:0.85em">🌍</span>';
-    // flagcdn.com format: {bredde}x{hoejde} — fx 16x12
-    const dim = size === 'sm' ? '16x12' : '20x15';
-    const w = size === 'sm' ? 16 : 20;
-    const h = size === 'sm' ? 12 : 15;
-    return `<img src="https://flagcdn.com/${dim}/${iso}.png" alt="${country}" width="${w}" height="${h}" style="vertical-align:middle;border-radius:1px;margin-right:2px">`;
+    const emoji = COUNTRY_EMOJI[country];
+    if (!emoji) return '\u{1F30D}';
+    const sz = size === 'sm' ? '0.9em' : '1em';
+    return `<span style="font-size:${sz};line-height:1">${emoji}</span>`;
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
@@ -2135,6 +2153,10 @@ async function loadData() {
         renderTopDeals();
         setupSpotlight();
         render();
+        // Render flag-emojis korrekt på Windows via Twemoji
+        if (typeof twemoji !== 'undefined') {
+            twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+        }
 
     } catch (e) {
         console.error(e);
