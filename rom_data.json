@@ -1,8 +1,8 @@
 {
-  "updated": "2026-06-05T16:25:04.404375",
+  "updated": "2026-06-05T16:29:34.979419",
   "stats": {
-    "total": 560,
-    "deals": 69,
+    "total": 567,
+    "deals": 72,
     "shops": 2,
     "shop_names": [
       "Kokkens Vinhus",
@@ -66,6 +66,7 @@
       "26 år",
       "30 år",
       "37 år",
+      "39 år",
       "41 år",
       "45 år",
       "50 år",
@@ -3044,6 +3045,30 @@
       ]
     },
     {
+      "name": "Phantom Spirits x Æblerov (cider) – Apple x Italian Plum Bourbon – Guatemala 4 Years Old",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/phantom-spirits-x-_blerov-cider-_-apple-x-italian-plum-bourbon-_-guatemala-4yo.jpg",
+      "type": "Aged rom",
+      "country": "Dansk",
+      "brand": null,
+      "abv": null,
+      "volume_cl": null,
+      "age": "4 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 349.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/phantom-spirits-x-aeblerov-cider-apple-x-italian-plum-bourbon-guatemala-4-years-old-2/"
+        }
+      ]
+    },
+    {
       "name": "Ron Cristobal NINA",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/CristobalNina.jpg",
       "type": "Aged rom",
@@ -4936,30 +4961,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/new-grove-10-years/"
-        }
-      ]
-    },
-    {
-      "name": "Opthimus 15 Años Malt Whisky Finish",
-      "image": "https://spitus.dk/wp-content/uploads/2020/12/100310-1-Opthimus-15Y-Malt-Whisky.jpg",
-      "type": "Aged rom",
-      "country": "Cuba",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "15 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 419.0,
-      "cheapest_price": 419.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 419.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/opthimus-15-y-o-malt-whisky/"
         }
       ]
     },
@@ -7241,6 +7242,30 @@
       ]
     },
     {
+      "name": "Patridom XO Ltd. Cherry Wine Cask Finish",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/09/Patridom-XO-Ltd.-Cherry-Wine-Cask-Finish.jpg",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": "Patridom",
+      "abv": 50.0,
+      "volume_cl": null,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 549.0,
+      "cheapest_price": 549.0,
+      "max_discount_pct": 8.3,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 549.0,
+          "old_price": 599.0,
+          "discount_pct": 8.3,
+          "url": "https://www.kokkensvinhus.dk/shop/patridom-xo-ltd-cherry-wine-cask-finish/"
+        }
+      ]
+    },
+    {
       "name": "Ron Sostenible Tokaji Experimental Cask 43 %",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/03/ron-sostanible-experiment-port-e1709718738820.jpg",
       "type": null,
@@ -7296,7 +7321,7 @@
       "brand": "Don Q",
       "abv": 40.0,
       "volume_cl": null,
-      "age": "XO",
+      "age": null,
       "category": "rom",
       "shop_count": 1,
       "min_price": 549.0,
@@ -8561,6 +8586,30 @@
       ]
     },
     {
+      "name": "SBS Belize 2011, Bourbon and Cognac Cask",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/09/SBS-Belize-2011-e1765027842708.jpg",
+      "type": "Aged rom",
+      "country": null,
+      "brand": null,
+      "abv": 52.0,
+      "volume_cl": null,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 629.0,
+      "cheapest_price": 629.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 629.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/sbs-belize-2011-bourbon-and-cognac-cask/"
+        }
+      ]
+    },
+    {
       "name": "Rammstein Rum Ltd. 8 Limoux",
       "image": "",
       "type": "Aged rom",
@@ -9569,30 +9618,6 @@
       ]
     },
     {
-      "name": "Opthimus 25 Años Malt Whisky Finish",
-      "image": "https://spitus.dk/wp-content/uploads/2020/06/100252-1.jpg",
-      "type": null,
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 699.0,
-      "cheapest_price": 699.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 699.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/opthimus-25-anos-malt-whisky-finish/"
-        }
-      ]
-    },
-    {
       "name": "Ron Quorhum 30 Aniversario Oporto Finish",
       "image": "https://spitus.dk/wp-content/uploads/2025/09/Ron-quorhum-oporto-finish.png",
       "type": "Aged rom",
@@ -9637,6 +9662,30 @@
           "old_price": 849.0,
           "discount_pct": 11.8,
           "url": "https://www.kokkensvinhus.dk/shop/ron-cueva-1501-sistema-25-panama-40/"
+        }
+      ]
+    },
+    {
+      "name": "SBS Ecuador 2016, Bourbon and Virgin Cask",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/09/SBS-Ecuador-2016.jpg",
+      "type": null,
+      "country": null,
+      "brand": null,
+      "abv": 57.0,
+      "volume_cl": null,
+      "age": "13 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 749.0,
+      "cheapest_price": 749.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 749.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/sbs-ecuador-2016-bourbon-and-virgin-cask/"
         }
       ]
     },
@@ -10582,9 +10631,9 @@
       "type": null,
       "country": null,
       "brand": null,
-      "abv": 50.0,
+      "abv": null,
       "volume_cl": 20.0,
-      "age": "XO",
+      "age": null,
       "category": "rom",
       "shop_count": 1,
       "min_price": 899.0,
@@ -11125,6 +11174,30 @@
           "old_price": 1199.0,
           "discount_pct": 16.7,
           "url": "https://www.kokkensvinhus.dk/shop/ron-cueva-1501-sistema-30-panama-40/"
+        }
+      ]
+    },
+    {
+      "name": "Chasing Casks Barbados 8 YO, Malaga Mountain Wine Finish 49,7%",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2023/12/CC-Foursquare-Malaga.jpg",
+      "type": "Aged rom",
+      "country": "Barbados",
+      "brand": "Foursquare",
+      "abv": 49.7,
+      "volume_cl": null,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 999.0,
+      "cheapest_price": 999.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 999.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/chasing-casks-barbados-8-yo-malaga-mountain-wine-finish-49-7/"
         }
       ]
     },
@@ -12253,6 +12326,54 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.kokkensvinhus.dk/shop/bristol-spirits-jamaica-trelawney-2009-2021-475/"
+        }
+      ]
+    },
+    {
+      "name": "La Favorite 2002- La reserve du Chateau 43% Old Version",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/la_favo_2002_old_version.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": "La Favorite",
+      "abv": 43.0,
+      "volume_cl": null,
+      "age": "14 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1499.0,
+      "cheapest_price": 1499.0,
+      "max_discount_pct": 16.7,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 1499.0,
+          "old_price": 1799.0,
+          "discount_pct": 16.7,
+          "url": "https://www.kokkensvinhus.dk/shop/la-favorite-2002-la-reserve-du-chateau-43-old-version-2/"
+        }
+      ]
+    },
+    {
+      "name": "La Favorite 2002, La reserve du Chateau &#8211; 41,2 %",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/habitation-la-favorite-la-reserve-du-chateau-2002-18-ans.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": "La Favorite",
+      "abv": 41.2,
+      "volume_cl": null,
+      "age": "18 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1499.0,
+      "cheapest_price": 1499.0,
+      "max_discount_pct": 18.9,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 1499.0,
+          "old_price": 1849.0,
+          "discount_pct": 18.9,
+          "url": "https://www.kokkensvinhus.dk/shop/la-favorite-2002-la-reserve-du-chateau-412-2/"
         }
       ]
     },
@@ -13501,6 +13622,54 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.kokkensvinhus.dk/shop/el-dorado-guyana-rom-25-aar-43-2/"
+        }
+      ]
+    },
+    {
+      "name": "Dictador 2 Masters 1978 39 Years Old Château d’Arche Finish 2nd Release",
+      "image": "https://spitus.dk/wp-content/uploads/2025/01/Dictador-2-Masters-1978-39-Years-Old-Chateau-dArche-Finish-2nd-Release.png",
+      "type": "Aged rom",
+      "country": "Colombia",
+      "brand": "Dictador",
+      "abv": 44.1,
+      "volume_cl": 70.0,
+      "age": "39 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 4899.0,
+      "cheapest_price": 4899.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 4899.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/dictador-2-masters1978-39-years-old-chateau-darche-finish-2nd-release/"
+        }
+      ]
+    },
+    {
+      "name": "Château Latour 2001 1.Cru Paulliac",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/ch.latour_4.jpg",
+      "type": "Aged rom",
+      "country": null,
+      "brand": null,
+      "abv": null,
+      "volume_cl": null,
+      "age": "30 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 5995.95,
+      "cheapest_price": 5995.95,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 5995.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/chateau-latour-2001-1-cru-paulliac-2/"
         }
       ]
     },
