@@ -1128,9 +1128,9 @@
             <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
                 <button class="qbtn" data-qtype="filter" data-val="deals"       onclick="quickFilter('deals')">🔥 Tilbud</button>
                 <button class="qbtn" data-qtype="filter" data-val="multi"       onclick="quickFilter('multi')">🔄 Billigst på tværs</button>
-                <button class="qbtn" data-qtype="country" data-val="Cuba"       onclick="quickCountry('Cuba')">🇨🇺 Cuba</button>
-                <button class="qbtn" data-qtype="country" data-val="Jamaica"    onclick="quickCountry('Jamaica')">🇯🇲 Jamaica</button>
-                <button class="qbtn" data-qtype="country" data-val="Barbados"   onclick="quickCountry('Barbados')">🇧🇧 Barbados</button>
+                <button class="qbtn" data-qtype="country" data-val="Cuba"       onclick="quickCountry('Cuba')"><img src="https://flagcdn.com/12x16/cu.png" alt="Cuba" width="16" height="12" style="vertical-align:middle;margin-right:3px"> Cuba</button>
+                <button class="qbtn" data-qtype="country" data-val="Jamaica"    onclick="quickCountry('Jamaica')"><img src="https://flagcdn.com/12x16/jm.png" alt="Jamaica" width="16" height="12" style="vertical-align:middle;margin-right:3px"> Jamaica</button>
+                <button class="qbtn" data-qtype="country" data-val="Barbados"   onclick="quickCountry('Barbados')"><img src="https://flagcdn.com/12x16/bb.png" alt="Barbados" width="16" height="12" style="vertical-align:middle;margin-right:3px"> Barbados</button>
                 <button class="qbtn" data-qtype="type" data-val="Aged rom"      onclick="quickType('Aged rom')">🥃 Aged</button>
                 <button class="qbtn" data-qtype="type" data-val="Spiced"        onclick="quickType('Spiced')">🌿 Spiced</button>
                 <button class="qbtn" data-qtype="age" data-val="XO"             onclick="quickAge('XO')">✨ XO</button>
@@ -1387,16 +1387,25 @@ const TYPE_DESCRIPTIONS = {
     'Flavoured':     'Tilsmagt med frugt, kokosnød eller andre smagsgivere. Letdrikkeligt og festligt.',
 };
 
-const COUNTRY_FLAGS = {
-    'Cuba': '🇨🇺', 'Jamaica': '🇯🇲', 'Barbados': '🇧🇧', 'Trinidad': '🇹🇹',
-    'Guyana': '🇬🇾', 'Guatemala': '🇬🇹', 'Panama': '🇵🇦', 'Nicaragua': '🇳🇮',
-    'Dominican Republic': '🇩🇴', 'Dominikanske Republik': '🇩🇴', 'Puerto Rico': '🇵🇷',
-    'Martinique': '🇲🇶', 'Haiti': '🇭🇹', 'Belize': '🇧🇿', 'Brazil': '🇧🇷',
-    'Brasilien': '🇧🇷', 'Colombia': '🇨🇴', 'Venezuela': '🇻🇪', 'Peru': '🇵🇪',
-    'Réunion': '🇷🇪', 'Mauritius': '🇲🇺', 'India': '🇮🇳', 'Philippines': '🇵🇭',
-    'Danmark': '🇩🇰', 'Denmark': '🇩🇰', 'Fiji': '🇫🇯', 'Australia': '🇦🇺',
-    'Australien': '🇦🇺', 'UK': '🇬🇧', 'England': '🇬🇧',
+const COUNTRY_ISO = {
+    'Cuba': 'cu', 'Jamaica': 'jm', 'Barbados': 'bb', 'Trinidad': 'tt',
+    'Guyana': 'gy', 'Guatemala': 'gt', 'Panama': 'pa', 'Nicaragua': 'ni',
+    'Dominican Republic': 'do', 'Dominikanske Republik': 'do', 'Puerto Rico': 'pr',
+    'Martinique': 'mq', 'Haiti': 'ht', 'Belize': 'bz', 'Brazil': 'br',
+    'Brasilien': 'br', 'Colombia': 'co', 'Venezuela': 've', 'Peru': 'pe',
+    'Réunion': 're', 'Mauritius': 'mu', 'India': 'in', 'Philippines': 'ph',
+    'Danmark': 'dk', 'Denmark': 'dk', 'Fiji': 'fj', 'Australia': 'au',
+    'Australien': 'au', 'UK': 'gb', 'England': 'gb', 'Scotland': 'gb',
+    'France': 'fr', 'Frankrig': 'fr', 'Spain': 'es', 'Spanien': 'es',
+    'Thailand': 'th', 'Ecuador': 'ec', 'Bolivia': 'bo',
 };
+function flagImg(country, size) {
+    const iso = COUNTRY_ISO[country];
+    if (!iso) return '<span style="font-size:0.85em">🌍</span>';
+    const h = size === 'sm' ? 10 : 12;
+    const w = size === 'sm' ? 15 : 16;
+    return `<img src="https://flagcdn.com/${h}x${w}/${iso}.png" alt="${country}" width="${w}" height="${h}" style="vertical-align:middle;border-radius:1px;margin-right:2px">`;
+}
 
 // ── STATE ─────────────────────────────────────────────────────────
 let allRoms = [];
@@ -1440,7 +1449,7 @@ function ageVal(r) {
 
 function esc(s) { return (s || '').replace(/'/g, ' ').replace(/"/g, ' '); }
 
-function flagFor(country) { return COUNTRY_FLAGS[country] || '🌍'; }
+// flagFor() replaced by flagImg()
 
 // ── QUICK FILTERS ─────────────────────────────────────────────────
 function quickFilter(val) {
@@ -1586,7 +1595,7 @@ function makeCard(r, delay) {
     const sortedPrices = [...r.prices].sort((a, b) => a.price - b.price);
     const cheapest = sortedPrices[0];
 
-    const flag = r.country ? flagFor(r.country) : '';
+    // flag variabel fjernet
     const typeDesc = r.type && TYPE_DESCRIPTIONS[r.type];
     const typeTag = r.type ? `
         <span class="card-tag type-tooltip-wrap">
@@ -1617,7 +1626,7 @@ function makeCard(r, delay) {
 
     html += `<div class="card-body">
         <div class="card-meta">
-            ${r.country ? `<span class="card-tag country">${flag} ${r.country}</span>` : ''}
+            ${r.country ? `<span class="card-tag country">${flagImg(r.country, 'sm')} ${r.country}</span>` : ''}
             ${typeTag}
             ${r.age ? `<span class="card-tag age">🕰️ ${r.age}</span>` : ''}
             ${r.abv ? `<span class="card-tag abv">${r.abv}%</span>` : ''}
@@ -1813,7 +1822,7 @@ function showSpotlight() {
 
         // Meta-tags
         const meta = [];
-        if (rom.country) meta.push(`<span class="spotlight-tag">${flagFor(rom.country)} ${rom.country}</span>`);
+        if (rom.country) meta.push(`<span class="spotlight-tag">${flagImg(rom.country, 'sm')} ${rom.country}</span>`);
         if (rom.type) meta.push(`<span class="spotlight-tag">${rom.type}</span>`);
         if (rom.age) meta.push(`<span class="spotlight-tag">🕰️ ${rom.age}</span>`);
         document.getElementById('spotlight-meta').innerHTML = meta.join('');
@@ -1879,8 +1888,8 @@ function renderActiveChips() {
         sc.push(`<span class="sidebar-chip" onclick="removeShop('${esc(s)}')">🏪 ${s}<span class="x">✕</span></span>`);
     });
     selectedCountries.forEach(c => {
-        chips.push(`<span class="filter-chip">${flagFor(c)} ${c}<span class="x" onclick="removeCountry('${esc(c)}')">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="removeCountry('${esc(c)}')">${flagFor(c)} ${c}<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">${flagImg(c, 'sm')} ${c}<span class="x" onclick="removeCountry('${esc(c)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeCountry('${esc(c)}')">${flagImg(c, 'sm')} ${c}<span class="x">✕</span></span>`);
     });
     selectedTypes.forEach(t => {
         chips.push(`<span class="filter-chip">🥃 ${t}<span class="x" onclick="removeType('${esc(t)}')">✕</span></span>`);
@@ -2085,7 +2094,7 @@ async function loadData() {
             const list = document.getElementById(listId);
             list.innerHTML = items.map(v => `
                 <div class="sidebar-checkbox" data-${dataAttr}="${v}" role="checkbox" aria-checked="false" tabindex="0">
-                    <span class="cb"></span> ${dataAttr === 'country' ? flagFor(v) + ' ' : ''}${v}
+                    <span class="cb"></span> ${dataAttr === 'country' ? flagImg(v, 'sm') + ' ' : ''}${v}
                 </div>`).join('');
             list.querySelectorAll('.sidebar-checkbox').forEach(item => {
                 const toggle = () => {
