@@ -2262,7 +2262,34 @@ const stBtn = document.getElementById('scroll-top');
 window.addEventListener('scroll', () => { stBtn.classList.toggle('visible', window.scrollY > 600); }, { passive: true });
 stBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// ── URL-PARAMETRE (fra guide.html links) ──────────────────────────
+function applyUrlParams() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    const country = params.get('country');
+    const pMin = params.get('min');
+    const pMax = params.get('max');
+
+    if (type) {
+        selectedTypes.add(type);
+    }
+    if (country) {
+        selectedCountries.add(country);
+    }
+    if (pMin) {
+        priceMin = parseInt(pMin);
+        document.getElementById('price-min').value = priceMin;
+        document.getElementById('price-min-val').textContent = priceMin;
+    }
+    if (pMax) {
+        priceMax = parseInt(pMax);
+        document.getElementById('price-max').value = priceMax;
+        document.getElementById('price-max-val').textContent = priceMax;
+    }
+}
+
 // ── INIT ──────────────────────────────────────────────────────────
+applyUrlParams();
 updateRangeTracks();
 loadData();
 </script>
