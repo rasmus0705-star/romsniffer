@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/89fa8867d76958bb0adf126ff23ddbf6/script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium &amp; Sjældne Rom — Eksklusive samlerflasker | RomSniffer</title>
+<meta name="description" content="Kurateret udvalg af premium og sjældne rom. Foursquare ECS, Hampden Estate, Velier, Caroni og andre eftertragede flasker — sammenlign priser fra danske webshops.">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #060408;
+        --surface: #0e0a14;
+        --surface2: #16101e;
+        --surface3: #1e1628;
+        --gold: #c9a84c;
+        --gold-light: #e8c868;
+        --gold-dim: #8a7030;
+        --gold-glow: rgba(201,168,76,0.12);
+        --text: #f0e8d8;
+        --text-muted: #8a7e6e;
+        --text-dim: #4a4038;
+        --border: #1e1818;
+        --border-light: #2e2420;
+        --accent: #3dba6f;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        min-height: 100vh;
+        line-height: 1.7;
+    }
+    body > * { position: relative; z-index: 2; }
+
+    /* ── NAV ── */
+    nav {
+        background: rgba(6,4,8,0.95);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(201,168,76,0.1);
+        padding: 0.85rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo img { width: 40px; height: 40px; object-fit: contain; }
+    .nav-logo span {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--gold-light), var(--gold));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .nav-links { display: flex; gap: 0.4rem; align-items: center; }
+    .nav-links a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 0.5rem 0.9rem;
+        border-radius: 6px;
+        transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a.active {
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        font-weight: 700;
+    }
+    .nav-sep {
+        width: 1px;
+        height: 16px;
+        background: var(--border-light);
+        margin: 0 0.3rem;
+    }
+
+    /* ── HERO ── */
+    .hero {
+        padding: 4rem 2rem 3.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: -150px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 800px;
+        height: 500px;
+        background: radial-gradient(ellipse, rgba(201,168,76,0.08) 0%, transparent 65%);
+        pointer-events: none;
+    }
+    .hero::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    }
+    .hero-logo {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 40px rgba(201,168,76,0.4)) brightness(1.05);
+        animation: float 5s ease-in-out infinite;
+        margin: 0 auto 1.5rem;
+        display: block;
+        position: relative;
+    }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+    }
+    .hero-eyebrow {
+        font-size: 0.58rem;
+        letter-spacing: 0.6em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+    .hero-eyebrow::before { right: calc(100% + 14px); }
+    .hero-eyebrow::after { left: calc(100% + 14px); background: linear-gradient(90deg, var(--gold-dim), transparent); }
+    .hero h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        color: var(--text);
+        font-weight: 400;
+        margin-bottom: 0.6rem;
+        position: relative;
+        letter-spacing: -0.01em;
+    }
+    .hero h1 em {
+        color: var(--gold-light);
+        font-style: italic;
+    }
+    .hero-sub {
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        max-width: 520px;
+        margin: 0 auto 2.5rem;
+        position: relative;
+        line-height: 1.8;
+    }
+    .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        position: relative;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.2rem;
+        color: var(--gold-light);
+        line-height: 1;
+        font-weight: 600;
+    }
+    .hero-stat-lbl {
+        font-size: 0.55rem;
+        letter-spacing: 0.25em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+        margin-top: 0.3rem;
+    }
+
+    /* ── FILTER BAR ── */
+    .filter-section {
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        padding: 1rem 2rem;
+    }
+    .filter-inner {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .fbtn {
+        background: transparent;
+        border: 1px solid var(--border-light);
+        border-radius: 6px;
+        padding: 0.5rem 1.1rem;
+        color: var(--text-muted);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.76rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        white-space: nowrap;
+        letter-spacing: 0.04em;
+    }
+    .fbtn:hover { border-color: var(--gold-dim); color: var(--text); }
+    .fbtn.active {
+        background: var(--gold);
+        color: var(--bg);
+        border-color: var(--gold);
+        font-weight: 700;
+    }
+    .filter-search {
+        background: var(--surface2);
+        border: 1px solid var(--border-light);
+        border-radius: 6px;
+        padding: 0.5rem 0.9rem;
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.82rem;
+        outline: none;
+        width: 220px;
+        transition: border-color 0.2s;
+    }
+    .filter-search:focus { border-color: var(--gold); }
+    .filter-search::placeholder { color: var(--text-dim); }
+
+    /* ── CONTENT ── */
+    .content { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; }
+    .result-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    .result-count {
+        font-size: 0.72rem;
+        color: var(--text-dim);
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+    }
+    .result-count strong {
+        color: var(--gold-light);
+        font-family: 'Playfair Display', serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0;
+    }
+    .sort-select {
+        background: var(--surface2);
+        border: 1px solid var(--border-light);
+        border-radius: 6px;
+        padding: 0.4rem 0.7rem;
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.78rem;
+        cursor: pointer;
+        outline: none;
+    }
+
+    /* ── PREMIUM CARDS ── */
+    .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    .p-card {
+        background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+        border: 1px solid var(--border-light);
+        border-radius: 14px;
+        overflow: hidden;
+        transition: all 0.3s;
+        display: grid;
+        grid-template-columns: 180px 1fr auto;
+        align-items: stretch;
+    }
+    .p-card:hover {
+        border-color: var(--gold-dim);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 40px rgba(201,168,76,0.05);
+    }
+
+    /* Billede */
+    .p-img-wrap {
+        background: linear-gradient(180deg, #0e0a08 0%, #060404 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.2rem;
+        position: relative;
+        border-right: 1px solid var(--border);
+    }
+    .p-img { max-width: 100%; max-height: 200px; object-fit: contain; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6)); }
+    .p-img-ph { font-size: 3rem; opacity: 0.2; }
+    .p-badge {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 0.52rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    .p-badge.limited { background: rgba(220,80,80,0.15); border: 1px solid rgba(220,80,80,0.3); color: #e88; }
+    .p-badge.premium { background: var(--gold-glow); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); }
+    .p-badge.rare { background: rgba(120,80,220,0.12); border: 1px solid rgba(120,80,220,0.3); color: #a888e8; }
+
+    /* Info */
+    .p-info {
+        padding: 1.3rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.4rem;
+    }
+    .p-brand {
+        font-size: 0.58rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold);
+    }
+    .p-name {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.3;
+    }
+    .p-details {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin-top: 0.3rem;
+    }
+    .p-det {
+        font-size: 0.7rem;
+        color: var(--text-muted);
+    }
+    .p-det strong { color: var(--text); font-weight: 500; }
+    .p-det-sep { color: var(--border-light); }
+    .p-tags { display: flex; gap: 0.3rem; flex-wrap: wrap; margin-top: 0.4rem; }
+    .p-tag {
+        font-size: 0.58rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 4px;
+        border: 1px solid var(--border-light);
+        color: var(--text-muted);
+    }
+    .p-tag.gold { border-color: rgba(201,168,76,0.25); color: var(--gold); background: var(--gold-glow); }
+
+    /* Priser (højre kolonne) */
+    .p-prices {
+        border-left: 1px solid var(--border);
+        padding: 1rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 220px;
+        gap: 0.5rem;
+        background: rgba(201,168,76,0.015);
+    }
+    .p-price-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.6rem;
+    }
+    .p-shop {
+        font-size: 0.62rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .p-shop.best { color: var(--gold-light); font-weight: 600; }
+    .p-shop.best::before { content: '✦ '; }
+    .p-price-right { display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+    .p-amount {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.35rem;
+        color: var(--text);
+        font-weight: 600;
+    }
+    .p-price-row.best .p-amount { color: var(--gold-light); }
+    .p-old {
+        font-size: 0.68rem;
+        color: var(--text-dim);
+        text-decoration: line-through;
+        text-decoration-color: rgba(220,80,80,0.5);
+    }
+    .p-buy {
+        font-size: 0.62rem;
+        font-weight: 700;
+        color: var(--bg);
+        background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        padding: 0.35rem 0.65rem;
+        border-radius: 5px;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: all 0.15s;
+        white-space: nowrap;
+    }
+    .p-buy:hover { box-shadow: 0 4px 12px rgba(201,168,76,0.35); transform: translateY(-1px); }
+    .p-savings {
+        text-align: center;
+        font-size: 0.65rem;
+        color: var(--accent);
+        padding-top: 0.4rem;
+        border-top: 1px solid var(--border);
+        margin-top: 0.3rem;
+        font-weight: 500;
+    }
+    .p-savings strong { font-family: 'Playfair Display', serif; font-size: 0.85rem; }
+
+    .load-wrap { text-align: center; margin: 2.5rem 0; }
+    .load-btn {
+        background: transparent;
+        border: 1px solid var(--gold-dim);
+        border-radius: 6px;
+        padding: 0.65rem 2.5rem;
+        color: var(--gold);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.82rem;
+        cursor: pointer;
+        letter-spacing: 0.08em;
+        transition: all 0.2s;
+    }
+    .load-btn:hover { background: var(--gold-glow); border-color: var(--gold); }
+
+    .loading { text-align: center; padding: 5rem 2rem; color: var(--text-muted); }
+    .spinner { width: 36px; height: 36px; border: 2px solid var(--border-light); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── FOOTER ── */
+    footer {
+        border-top: 1px solid var(--border);
+        padding: 2.5rem 2rem 1.5rem;
+        text-align: center;
+        background: var(--surface);
+    }
+    .footer-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.76rem; transition: color 0.15s; letter-spacing: 0.05em; }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-copy { font-size: 0.6rem; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+        .p-card { grid-template-columns: 1fr; }
+        .p-img-wrap { height: 200px; border-right: none; border-bottom: 1px solid var(--border); }
+        .p-prices { border-left: none; border-top: 1px solid var(--border); min-width: 0; }
+        .hero-eyebrow::before, .hero-eyebrow::after { display: none; }
+    }
+    @media (max-width: 640px) {
+        nav { padding: 0.65rem 1rem; }
+        .nav-sep { display: none; }
+        .hero { padding: 2.5rem 1rem 2rem; }
+        .hero-stats { gap: 1.5rem; }
+        .hero-stat-num { font-size: 1.6rem; }
+        .content { padding: 1.2rem 0.8rem 3rem; }
+        .filter-section { padding: 0.8rem 1rem; }
+        .filter-search { width: 100%; }
+    }
+</style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">
+        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'">
+        <span>RomSniffer</span>
+    </a>
+    <div class="nav-links">
+        <a href="index.html">Priser</a>
+        <a href="premium.html" class="active">Premium</a>
+        <span class="nav-sep"></span>
+        <a href="guide.html">Guide</a>
+        <a href="om.html">Om</a>
+    </div>
+</nav>
+
+<div class="hero">
+    <img src="logo.png" alt="" class="hero-logo" onerror="this.style.display='none'">
+    <div class="hero-eyebrow">Kurateret udvalg</div>
+    <h1>Premium &amp; <em>Sjældne</em> Rom</h1>
+    <p class="hero-sub">Eftertragede flasker fra verdens mest anerkendte destillerier. Sammenlign priser — køb den rigtige flaske til den rigtige pris.</p>
+    <div class="hero-stats">
+        <div class="hero-stat"><div class="hero-stat-num" id="stat-count">–</div><div class="hero-stat-lbl">Flasker</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="stat-brands">–</div><div class="hero-stat-lbl">Brands</div></div>
+        <div class="hero-stat"><div class="hero-stat-num" id="stat-multi">–</div><div class="hero-stat-lbl">I flere butikker</div></div>
+    </div>
+</div>
+
+<div class="filter-section">
+    <div class="filter-inner">
+        <button class="fbtn active" data-f="all">Alle</button>
+        <button class="fbtn" data-f="limited">Limited Edition</button>
+        <button class="fbtn" data-f="singlecask">Single Cask</button>
+        <button class="fbtn" data-f="xo">XO &amp; Langlagret</button>
+        <button class="fbtn" data-f="ultra">Over 2.000 kr</button>
+        <input type="text" id="search" class="filter-search" placeholder="Søg brand, flaske, land...">
+    </div>
+</div>
+
+<div class="content">
+    <div class="result-bar">
+        <div class="result-count"><strong id="result-num">0</strong> flasker</div>
+        <select id="sort" class="sort-select">
+            <option value="price-desc">Pris: Høj → Lav</option>
+            <option value="price-asc">Pris: Lav → Høj</option>
+            <option value="savings">Størst besparelse</option>
+            <option value="age">Alder (ældste først)</option>
+            <option value="name">Navn A–Z</option>
+        </select>
+    </div>
+    <div class="grid" id="grid">
+        <div class="loading"><div class="spinner"></div>Henter premium rom...</div>
+    </div>
+    <div class="load-wrap">
+        <button id="load-more" class="load-btn" style="display:none">Vis flere</button>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-links">
+        <a href="index.html">Alle rom &amp; priser</a>
+        <a href="premium.html">Premium &amp; Sjældne</a>
+        <a href="guide.html">Rom-guiden</a>
+        <a href="om.html">Om RomSniffer</a>
+    </div>
+    <div class="footer-copy">RomSniffer &copy; 2026 — Kun for personer over 18 år</div>
+</footer>
+
+<script>
+// ── Collector detection ──
+const COLLECTOR_BRANDS = [
+    'foursquare','hampden','worthy park','velier','caroni','black tot',
+    'long pond','habitation velier','compagnie des indes','privateer',
+    'clairin','monymusk','new yarmouth','diamond','port mourant','enmore',
+    'uitvlugt','skeldon','providence','holmes cay','rum artesanal',
+    'transcontinental','samaroli','silver seal','bristol',
+    'plantation single cask','nine leaves','takamaka',
+];
+const COLLECTOR_KEYWORDS = [
+    'single cask','limited','exceptional cask','ecs','rare','vintage',
+    'collector','master blender','hearts collection','great house',
+    'private cask','cask strength','full proof','single barrel',
+    'one-off','old release','rare cask','special release',
+];
+const PREMIUM_PRICE = 600;
+
+function isCollector(r) {
+    const n = r.name.toLowerCase();
+    const b = (r.brand || '').toLowerCase();
+    if (r.min_price >= PREMIUM_PRICE) return true;
+    if (COLLECTOR_BRANDS.some(x => n.includes(x) || b.includes(x))) return true;
+    if (COLLECTOR_KEYWORDS.some(k => n.includes(k))) return true;
+    if (r.age) {
+        const m = r.age.match(/(\d+)/);
+        if (m && parseInt(m[1]) >= 15) return true;
+        if (r.age === 'XO') return true;
+    }
+    return false;
+}
+function hasKeyword(r) { return COLLECTOR_KEYWORDS.some(k => r.name.toLowerCase().includes(k)); }
+function isXOorUltra(r) {
+    if (!r.age) return false;
+    if (r.age === 'XO') return true;
+    const m = r.age.match(/(\d+)/);
+    return m && parseInt(m[1]) >= 15;
+}
+
+// ── Flags (inline SVG) ──
+const F={'cu':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#002a8f"/><rect y=1.2 width=9 height=1.2 fill="#fff"/><rect y=3.6 width=9 height=1.2 fill="#fff"/><path d="M0 0L4 3 0 6Z" fill="#cb1515"/></svg>','jm':'<svg viewBox="0 0 12 6" w=14 h=7><rect width=12 height=6 fill="#009b3a"/><path d="M0 0L12 6M12 0L0 6" stroke="#fed100" stroke-width=1.3/></svg>','bb':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=3 height=6 fill="#00267f"/><rect x=3 width=3 height=6 fill="#ffc726"/><rect x=6 width=3 height=6 fill="#00267f"/></svg>','gt':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#fff"/><rect width=3 height=6 fill="#4997d0"/><rect x=6 width=3 height=6 fill="#4997d0"/></svg>','gy':'<svg viewBox="0 0 12 6" w=14 h=7><rect width=12 height=6 fill="#009e49"/><path d="M0 0L12 3 0 6Z" fill="#fcd116"/></svg>','tt':'<svg viewBox="0 0 12 6" w=14 h=7><rect width=12 height=6 fill="#da1a35"/><path d="M0 0h2.5L12 6H9.5z" fill="#fff"/><path d=".8 0h1.7L11 5.4H9.2z" fill="#000"/></svg>','mq':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#0072ce"/></svg>','pa':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#fff"/><rect x=4.5 width=4.5 height=3 fill="#da121a"/><rect y=3 width=4.5 height=3 fill="#072357"/></svg>','ni':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#fff"/><rect width=9 height=2 fill="#0067c6"/><rect y=4 width=9 height=2 fill="#0067c6"/></svg>','do':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#002d62"/><rect x=3.8 width=1.4 height=6 fill="#fff"/><rect y=2.3 width=9 height=1.4 fill="#fff"/></svg>','br':'<svg viewBox="0 0 10 7" w=14 h=10><rect width=10 height=7 fill="#009b3a"/><path d="M5 .7L9.3 3.5 5 6.3.7 3.5Z" fill="#fedf00"/></svg>','co':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#fcd116"/><rect y=3 width=9 height=1.5 fill="#003893"/><rect y=4.5 width=9 height=1.5 fill="#ce1126"/></svg>','ve':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=2 fill="#fc0"/><rect y=2 width=9 height=2 fill="#00247d"/><rect y=4 width=9 height=2 fill="#cf142b"/></svg>','pe':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=3 height=6 fill="#d91023"/><rect x=3 width=3 height=6 fill="#fff"/><rect x=6 width=3 height=6 fill="#d91023"/></svg>','dk':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=6 fill="#c8102e"/><rect x=2.5 width=1 height=6 fill="#fff"/><rect y=2.5 width=9 height=1 fill="#fff"/></svg>','gb':'<svg viewBox="0 0 12 6" w=14 h=7><rect width=12 height=6 fill="#012169"/><path d="M6 0v6M0 3h12" stroke="#fff" stroke-width=2/><path d="M6 0v6M0 3h12" stroke="#c8102e" stroke-width=1.2/></svg>','at':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=2 fill="#ed2939"/><rect y=2 width=9 height=2 fill="#fff"/><rect y=4 width=9 height=2 fill="#ed2939"/></svg>','ph':'<svg viewBox="0 0 9 6" w=14 h=9><rect width=9 height=3 fill="#0038a8"/><rect y=3 width=9 height=3 fill="#ce1126"/><path d="M0 0L3.5 3 0 6Z" fill="#fff"/></svg>'};
+const ISO={'Cuba':'cu','Jamaica':'jm','Barbados':'bb','Trinidad':'tt','Guyana':'gy','Guatemala':'gt','Panama':'pa','Nicaragua':'ni','Martinique':'mq','Dominican Republic':'do','Dominikansk':'do','Puerto Rico':'pr','Brasilien':'br','Colombia':'co','Venezuela':'ve','Peru':'pe','Dansk':'dk','Danmark':'dk','Filippinerne':'ph','Østrig':'at','UK':'gb','England':'gb'};
+function flag(c){const i=ISO[c];if(!i)return '';return '<span style="display:inline-block;vertical-align:middle;margin-right:3px;border-radius:1px;overflow:hidden;line-height:0">'+(F[i]||'')+'</span>';}
+
+// ── State ──
+let allRoms=[], premRoms=[], currentFilter='all', currentSort='price-desc', currentPage=1;
+const PAGE=20;
+function esc(s){return (s||'').replace(/'/g,' ').replace(/"/g,' ');}
+function getSavings(r){if(!r.prices||r.prices.length<2)return 0;const s=[...r.prices].sort((a,b)=>a.price-b.price);return s[s.length-1].price-s[0].price;}
+function ageNum(r){if(!r.age)return -1;const m=r.age.match(/(\d+)/);return m?parseInt(m[1]):(r.age==='XO'?6:0);}
+
+// ── Card ──
+function makeCard(r){
+    const sorted=[...r.prices].sort((a,b)=>a.price-b.price);
+    const cheap=sorted[0];
+    const savings=getSavings(r);
+    const limited=hasKeyword(r);
+
+    let badge='';
+    if(limited) badge='<span class="p-badge limited">Limited</span>';
+    else if(r.min_price>=2000) badge='<span class="p-badge rare">Rare</span>';
+    else badge='<span class="p-badge premium">Premium</span>';
+
+    let dets=[];
+    if(r.country) dets.push(`${flag(r.country)}<strong>${r.country}</strong>`);
+    if(r.type) dets.push(r.type);
+    if(r.age) dets.push(r.age);
+    if(r.abv) dets.push(r.abv+'%');
+    if(r.volume_cl) dets.push(r.volume_cl+' cl');
+    if(r.volume_cl&&r.volume_cl>0) dets.push((r.min_price/r.volume_cl).toFixed(1)+' kr/cl');
+
+    let tags=[];
+    if(r.shop_count>1) tags.push(`<span class="p-tag gold">${r.shop_count} butikker</span>`);
+    if(limited) tags.push('<span class="p-tag gold">Limited</span>');
+    if(r.age==='XO') tags.push('<span class="p-tag gold">XO</span>');
+
+    let priceRows=sorted.map((p,i)=>`
+        <div class="p-price-row${i===0?' best':''}">
+            <span class="p-shop${i===0?' best':''}">${p.shop_name}</span>
+            <div class="p-price-right">
+                ${p.old_price?`<span class="p-old">${p.old_price.toFixed(0)} kr</span>`:''}
+                <span class="p-amount">${p.price.toFixed(0)} kr</span>
+                ${p.url?`<a class="p-buy" href="${p.url}" target="_blank" rel="noopener">Køb</a>`:''}
+            </div>
+        </div>`).join('');
+
+    let savingsHtml='';
+    if(savings>30&&sorted.length>1) savingsHtml=`<div class="p-savings">Spar <strong>${savings.toFixed(0)} kr</strong> ved billigste butik</div>`;
+
+    return `<div class="p-card">
+        <div class="p-img-wrap">
+            ${badge}
+            ${r.image?`<img class="p-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
+            <span class="p-img-ph" ${r.image?'style="display:none"':''}>🥃</span>
+        </div>
+        <div class="p-info">
+            ${r.brand?`<div class="p-brand">${r.brand}</div>`:''}
+            <div class="p-name">${r.name}</div>
+            <div class="p-details">${dets.map((d,i)=>(i>0?'<span class="p-det-sep">·</span>':'')+`<span class="p-det">${d}</span>`).join('')}</div>
+            ${tags.length?`<div class="p-tags">${tags.join('')}</div>`:''}
+        </div>
+        <div class="p-prices">${priceRows}${savingsHtml}</div>
+    </div>`;
+}
+
+// ── Filter + Sort ──
+function getFiltered(){
+    const q=document.getElementById('search').value.toLowerCase().trim();
+    let roms=premRoms;
+    if(q) roms=roms.filter(r=>(r.name+' '+(r.brand||'')+' '+(r.country||'')).toLowerCase().includes(q));
+    if(currentFilter==='limited') roms=roms.filter(hasKeyword);
+    if(currentFilter==='singlecask') roms=roms.filter(r=>/single cask|single barrel/i.test(r.name));
+    if(currentFilter==='xo') roms=roms.filter(isXOorUltra);
+    if(currentFilter==='ultra') roms=roms.filter(r=>r.min_price>=2000);
+
+    const s=[...roms];
+    switch(currentSort){
+        case 'price-desc':s.sort((a,b)=>b.min_price-a.min_price);break;
+        case 'price-asc':s.sort((a,b)=>a.min_price-b.min_price);break;
+        case 'savings':s.sort((a,b)=>getSavings(b)-getSavings(a));break;
+        case 'age':s.sort((a,b)=>ageNum(b)-ageNum(a));break;
+        case 'name':s.sort((a,b)=>a.name.localeCompare(b.name,'da'));break;
+    }
+    return s;
+}
+
+function render(append){
+    const roms=getFiltered();
+    const grid=document.getElementById('grid');
+    document.getElementById('result-num').textContent=roms.length;
+    if(!roms.length){grid.innerHTML='<div class="loading">Ingen flasker matchede din søgning</div>';document.getElementById('load-more').style.display='none';return;}
+    const tp=Math.ceil(roms.length/PAGE);
+    if(append){const s=(currentPage-1)*PAGE;grid.insertAdjacentHTML('beforeend',roms.slice(s,s+PAGE).map(makeCard).join(''));}
+    else{grid.innerHTML=roms.slice(0,currentPage*PAGE).map(makeCard).join('');}
+    document.getElementById('load-more').style.display=currentPage<tp?'block':'none';
+}
+
+// ── Load ──
+async function loadData(){
+    try{
+        const r=await fetch('rom_data.json?v='+Date.now());
+        const data=await r.json();
+        allRoms=data.roms||[];
+        premRoms=allRoms.filter(isCollector).sort((a,b)=>b.min_price-a.min_price);
+        document.getElementById('stat-count').textContent=premRoms.length;
+        const brands=new Set(premRoms.filter(r=>r.brand).map(r=>r.brand));
+        document.getElementById('stat-brands').textContent=brands.size;
+        const multi=premRoms.filter(r=>r.shop_count>1).length;
+        document.getElementById('stat-multi').textContent=multi;
+        render();
+    }catch(e){console.error(e);document.getElementById('grid').innerHTML='<div class="loading">Kunne ikke hente data</div>';}
+}
+
+// ── Events ──
+document.querySelectorAll('.fbtn').forEach(b=>{b.addEventListener('click',()=>{
+    document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
+    b.classList.add('active');currentFilter=b.dataset.f;currentPage=1;render();
+});});
+document.getElementById('sort').addEventListener('change',e=>{currentSort=e.target.value;currentPage=1;render();});
+let t;document.getElementById('search').addEventListener('input',()=>{clearTimeout(t);t=setTimeout(()=>{currentPage=1;render();},300);});
+document.getElementById('load-more').addEventListener('click',()=>{currentPage++;render(true);});
+loadData();
+</script>
+</body>
+</html>
