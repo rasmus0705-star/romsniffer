@@ -9,6 +9,7 @@ from datetime import datetime
 
 from kokkensvinhus_rom import scrape_kokkensvinhus_rom
 from spitus_rom import scrape_spitus_rom
+from rombo_rom import scrape_rombo_rom
 from rom_parser import enrich_from_html
 from rom_matching import group_products
 
@@ -80,6 +81,12 @@ def main():
     spitus_items = scrape_spitus_rom()
     all_items.extend(spitus_items)
     print(f"   ✅ {len(spitus_items)} produkter")
+
+    # Rombo
+    print("\n🥃 Kører Rombo...")
+    rombo_items = scrape_rombo_rom()
+    all_items.extend(rombo_items)
+    print(f"   ✅ {len(rombo_items)} produkter")
 
     if not all_items:
         print("❌ Ingen produkter — afslutter")
