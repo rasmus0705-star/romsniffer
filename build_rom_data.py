@@ -230,10 +230,42 @@ def main():
     with open("rom_data.json", "w", encoding="utf-8") as f:
         json.dump(output, f, ensure_ascii=False, indent=2)
 
+    # ── Gem prishistorik (daglig log) ──
+    print("\n📈 Gemmer prishistorik...")
+    history_file = "price_history.json"
+    try:
+        with open(history_file, "r", encoding="utf-8") as hf:
+            history = json.load(hf)
+    except (FileNotFoundError, json.JSONDecodeError):
+        history = {}
+
+    today = datetime.now().strftime("%Y-%m-%d")
+    today_data = {}
+    for rom in unique_roms:
+        key = rom["name"]
+        shops = {}
+        for p in rom["prices"]:
+            shops[p["shop_name"]] = p["price"]
+        today_data[key] = {
+            "min": rom["min_price"],
+            "shops": shops,
+        }
+    history[today] = today_data
+
+    # Behold max 90 dages historik
+    dates = sorted(history.keys())
+    if len(dates) > 90:
+        for old_date in dates[:-90]:
+            del history[old_date]
+
+    with open(history_file, "w", encoding="utf-8") as hf:
+        json.dump(history, hf, ensure_ascii=False)
+    print(f"   ✅ Prishistorik gemt for {len(today_data)} rom ({today})")
+
     # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
-        subprocess.run(["git", "add", "rom_data.json"], check=True)
+        subprocess.run(["git", "add", "rom_data.json", "price_history.json"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True
