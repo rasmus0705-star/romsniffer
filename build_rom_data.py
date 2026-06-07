@@ -88,14 +88,41 @@ def main():
     # Filtrér åbenlyse ikke-rom
     print(f"\n🧹 Filtrerer ikke-rom væk...")
     before = len(all_items)
-    bad_keywords = ["château", "chateau", "wine", "champagne", "bourbon", "vodka", "tequila"]
+    bad_keywords = ["champagne", "vodka", "tequila", "prosecco", "gin ", "whisky", "whiskey"]
+    # Kendte rom-brands/termer — behold altid selv hvis "cask"/"wine" optræder i navnet
+    rom_whitelist = [
+        "sbs ", "patridom", "la favorite", "dictador", "chasing casks",
+        "plantation", "diplomatico", "diplomático", "foursquare", "el dorado",
+        "appleton", "mount gay", "zacapa", "angostura", "doorly", "clément",
+        "clement", "worthy park", "hampden", "smith & cross", "pusser",
+        "compagnie des indes", "rum nation", "real mccoy", "don papa",
+        "bumbu", "sailor jerry", "kraken", "brugal", "flor de caña",
+        "santa teresa", "pampero", "botran", "abuelo", "a.h. riise",
+        "ah riise", "riise", "santos dumont", "trois rivières",
+        "chairman", "botucal", "cachaça", "cachaca", "millonario",
+        "cartavio", "quorhum", "ron esclavo", "old pascas", "cobra bay",
+        "saison rum", "takamaka",
+    ]
     filtered = []
     for item in all_items:
         name_lower = item["name"].lower()
-        if "rom" not in name_lower and "rum" not in name_lower and "ron " not in name_lower and "rhum" not in name_lower:
-            if any(bad in name_lower for bad in bad_keywords):
-                print(f"   🚫 Skipper: {item['name'][:60]}")
-                continue
+        # Altid behold hvis navn indeholder rom/rum/ron/rhum
+        if "rom" in name_lower or "rum" in name_lower or "ron " in name_lower or "rhum" in name_lower:
+            filtered.append(item)
+            continue
+        # Behold hvis kendt rom-brand
+        if any(brand in name_lower for brand in rom_whitelist):
+            filtered.append(item)
+            continue
+        # Behold hvis det har brand fra parser
+        if item.get("brand"):
+            filtered.append(item)
+            continue
+        # Smid kun væk hvis det rammer et tydeligt ikke-rom keyword
+        if any(bad in name_lower for bad in bad_keywords):
+            print(f"   🚫 Skipper: {item['name'][:60]}")
+            continue
+        # Ellers behold (bedre at have for mange end for få)
         filtered.append(item)
     all_items = filtered
     print(f"   Filtreret {before - len(all_items)} produkter væk")

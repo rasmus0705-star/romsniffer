@@ -3,4 +3,5 @@ __pycache__/
 .env
 venv/
 .venv/
+Add-Content .gitignore "`n*.py`n!build_rom_data.py`n!rom_parser.py`n!rom_matching.py`n!*_rom.py"
 *.log
