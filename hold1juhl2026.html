@@ -415,110 +415,14 @@ function ensureAudio() {
 
 // ── MISSION IMPOSSIBLE STYLE BG MUSIC ────────────────────
 function startBgMusic() {
-  // Iconic rhythm: short-short-long pattern (dit-dit-daah)
-  const bpm = 116;
-  const beat = 60 / bpm;
-
-  function playNote(freq, startTime, duration, vol=0.06, type='sine') {
-    const osc = AC.createOscillator();
-    const gain = AC.createGain();
-    // slight reverb via convolver would be ideal; use gain shaping instead
-    osc.connect(gain); gain.connect(AC.destination);
-    osc.type = type;
-    osc.frequency.value = freq;
-    gain.gain.setValueAtTime(0, startTime);
-    gain.gain.linearRampToValueAtTime(vol, startTime + 0.02);
-    gain.gain.setValueAtTime(vol, startTime + duration - 0.05);
-    gain.gain.linearRampToValueAtTime(0, startTime + duration);
-    osc.start(startTime);
-    osc.stop(startTime + duration + 0.05);
-  }
-
-  function playDrum(startTime, isAccent=false) {
-    // kick
-    const osc = AC.createOscillator();
-    const g = AC.createGain();
-    osc.connect(g); g.connect(AC.destination);
-    osc.type = 'sine';
-    osc.frequency.setValueAtTime(isAccent ? 100 : 80, startTime);
-    osc.frequency.exponentialRampToValueAtTime(30, startTime + 0.15);
-    g.gain.setValueAtTime(isAccent ? 0.25 : 0.15, startTime);
-    g.gain.exponentialRampToValueAtTime(0.001, startTime + 0.2);
-    osc.start(startTime); osc.stop(startTime + 0.25);
-
-    // snare noise
-    if (isAccent) {
-      const bufSize = AC.sampleRate * 0.1;
-      const buf = AC.createBuffer(1, bufSize, AC.sampleRate);
-      const d = buf.getChannelData(0);
-      for (let i=0;i<bufSize;i++) d[i]=(Math.random()*2-1)*0.3;
-      const src = AC.createBufferSource();
-      src.buffer = buf;
-      const sg = AC.createGain();
-      src.connect(sg); sg.connect(AC.destination);
-      sg.gain.setValueAtTime(0.18, startTime);
-      sg.gain.exponentialRampToValueAtTime(0.001, startTime+0.1);
-      src.start(startTime);
-    }
-  }
-
-  function scheduleLoop(startTime) {
-    if (gameOver) return;
-    const b = beat;
-
-    // Mission Impossible rhythm pattern over 4 beats
-    // Melody: E4 E4 E4 rest C4 rest E4 rest G4 rest G3
-    const melody = [
-      {f:330,t:0,    d:b*0.4},
-      {f:330,t:b*0.5,d:b*0.4},
-      {f:330,t:b*1,  d:b*0.4},
-      {f:262,t:b*1.5,d:b*0.3},
-      {f:330,t:b*2,  d:b*0.6},
-      {f:392,t:b*3,  d:b*0.8},
-      {f:196,t:b*3.5,d:b*0.4},
-    ];
-
-    // bass line
-    const bass = [
-      {f:82, t:0,    d:b*0.3},
-      {f:82, t:b*0.5,d:b*0.3},
-      {f:82, t:b*1,  d:b*0.3},
-      {f:73, t:b*1.5,d:b*0.3},
-      {f:82, t:b*2,  d:b*0.5},
-      {f:98, t:b*3,  d:b*0.8},
-    ];
-
-    melody.forEach(n => playNote(n.f, startTime+n.t, n.d, 0.07, 'triangle'));
-    bass.forEach(n => playNote(n.f, startTime+n.t, n.d, 0.09, 'sawtooth'));
-
-    // drums on beats
-    [0, b, b*2, b*3].forEach((t,i) => playDrum(startTime+t, i===1||i===3));
-
-    // hi-hat every half beat
-    for (let hi=0; hi<8; hi++) {
-      const ht = startTime + hi*(b*0.5);
-      const bufSize = Math.floor(AC.sampleRate * 0.04);
-      const buf = AC.createBuffer(1, bufSize, AC.sampleRate);
-      const d = buf.getChannelData(0);
-      for (let j=0;j<bufSize;j++) d[j]=(Math.random()*2-1);
-      const src = AC.createBufferSource();
-      src.buffer = buf;
-      const hg = AC.createGain();
-      const hf = AC.createBiquadFilter();
-      hf.type = 'highpass'; hf.frequency.value = 8000;
-      src.connect(hf); hf.connect(hg); hg.connect(AC.destination);
-      hg.gain.setValueAtTime(0.04, ht);
-      hg.gain.exponentialRampToValueAtTime(0.001, ht+0.04);
-      src.start(ht);
-    }
-
-    const loopLength = b * 4;
-    const nextLoop = startTime + loopLength;
-    const delay = (nextLoop - AC.currentTime) * 1000 - 50;
-    setTimeout(() => scheduleLoop(nextLoop), Math.max(0, delay));
-  }
-
-  scheduleLoop(AC.currentTime + 0.1);
+  const audio = new Audio('mi-theme.mp3');
+  audio.loop = true;
+  audio.volume = 0.45;
+  audio.play().catch(() => {});
+  bgMusic = audio;
+  // fallback if autoplay blocked
+  document.addEventListener('touchstart', () => audio.play(), { once: true });
+  document.addEventListener('click', () => audio.play(), { once: true });
 }
 
 // ── TYPING ANIMATION ─────────────────────────────────────
