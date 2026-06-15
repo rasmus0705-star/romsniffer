@@ -7,7 +7,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     background: #0d0703;
     min-height: 100vh;
@@ -17,7 +16,6 @@
     padding: 1.5rem 1rem;
     font-family: 'EB Garamond', serif;
   }
-
   .card {
     background: #1a0f07;
     max-width: 480px;
@@ -27,8 +25,8 @@
     padding: 2rem 1.5rem;
     position: relative;
     overflow: hidden;
+    transition: transform 0.1s;
   }
-
   .card::before {
     content: '';
     position: absolute;
@@ -36,240 +34,107 @@
     height: 3px;
     background: linear-gradient(90deg, transparent, #c8922a, transparent);
   }
-
-  .ornament {
-    text-align: center;
-    color: #5a3a1a;
-    font-size: 18px;
-    letter-spacing: 8px;
-    margin-bottom: 0.4rem;
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 26px;
-    color: #c8922a;
-    text-align: center;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-bottom: 0.3rem;
-  }
-
-  .subtitle {
-    text-align: center;
-    color: #7a5830;
-    font-size: 15px;
-    font-style: italic;
-    margin-bottom: 2rem;
-  }
-
-  .divider {
-    border: none;
-    border-top: 1px solid #2d1e0a;
-    margin: 1.5rem 0;
-  }
-
+  .ornament { text-align: center; color: #5a3a1a; font-size: 18px; letter-spacing: 8px; margin-bottom: 0.4rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 26px; color: #c8922a; text-align: center; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .subtitle { text-align: center; color: #7a5830; font-size: 15px; font-style: italic; margin-bottom: 2rem; }
+  .divider { border: none; border-top: 1px solid #2d1e0a; margin: 1.5rem 0; }
   .question { margin-bottom: 1.25rem; }
-
-  .question label {
-    display: block;
-    color: #b8864a;
-    font-size: 17px;
-    margin-bottom: 8px;
-    font-style: italic;
-    line-height: 1.5;
-  }
-
+  .question label { display: block; color: #b8864a; font-size: 17px; margin-bottom: 8px; font-style: italic; line-height: 1.5; }
   .q-row { display: flex; gap: 8px; align-items: center; }
-
   input[type="text"] {
-    flex: 1;
-    background: #0a0502;
-    border: 1px solid #3d2215;
-    border-radius: 8px;
-    color: #d4a96a;
-    font-family: 'EB Garamond', serif;
-    font-size: max(16px, 1em);
-    padding: 11px 13px;
-    outline: none;
-    transition: border-color 0.2s;
+    flex: 1; background: #0a0502; border: 1px solid #3d2215; border-radius: 8px;
+    color: #d4a96a; font-family: 'EB Garamond', serif; font-size: max(16px, 1em);
+    padding: 11px 13px; outline: none; transition: border-color 0.2s;
   }
-
   input[type="text"]:focus { border-color: #7a4e1e; }
   input[type="text"].correct { border-color: #4a7c2f; color: #7acc4a; }
   input[type="text"].wrong { animation: shake 0.3s; border-color: #7c2f2f; }
-
-  .check-icon {
-    font-size: 20px;
-    color: #4a7c2f;
-    display: none;
-    flex-shrink: 0;
-    width: 28px;
-    text-align: center;
-  }
+  .check-icon { font-size: 20px; color: #4a7c2f; display: none; flex-shrink: 0; width: 28px; text-align: center; }
   .check-icon.show { display: block; }
-
   button {
-    background: transparent;
-    border: 1px solid #3d2215;
-    border-radius: 8px;
-    color: #7a5030;
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    padding: 11px 14px;
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: all 0.2s;
-    white-space: nowrap;
-    min-width: 76px;
-    flex-shrink: 0;
+    background: transparent; border: 1px solid #3d2215; border-radius: 8px;
+    color: #7a5030; font-family: 'Playfair Display', serif; font-size: 13px;
+    padding: 11px 14px; cursor: pointer; letter-spacing: 1px; transition: all 0.2s;
+    white-space: nowrap; min-width: 76px; flex-shrink: 0;
   }
   button:hover { border-color: #c8922a; color: #c8922a; }
   button:active { transform: scale(0.97); }
-
-  .progress-wrap {
-    margin: 1.5rem 0 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .progress-bar-bg {
-    flex: 1;
-    height: 4px;
-    background: #1e1008;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .progress-bar-fill {
-    height: 100%;
-    width: 0%;
-    background: #c8922a;
-    border-radius: 2px;
-    transition: width 0.5s ease;
-  }
-  .progress-label {
-    font-size: 12px;
-    color: #4a2e10;
-    letter-spacing: 2px;
-    white-space: nowrap;
-  }
-
+  .progress-wrap { margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 10px; }
+  .progress-bar-bg { flex: 1; height: 4px; background: #1e1008; border-radius: 2px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; width: 0%; background: #c8922a; border-radius: 2px; transition: width 0.5s ease; }
+  .progress-label { font-size: 12px; color: #4a2e10; letter-spacing: 2px; white-space: nowrap; }
   .code-section { margin-top: 1.5rem; text-align: center; }
-
-  .code-label {
-    font-size: 11px;
-    color: #4a2e10;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-
-  .code-display {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-  }
-
-  .digit {
-    width: 58px;
-    height: 74px;
-    background: #0a0502;
-    border: 1px solid #2d1a08;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    color: #2d1a08;
-  }
-
-  .status {
-    font-size: 14px;
-    color: #4a2e10;
-    text-align: center;
-    margin-top: 1rem;
-    min-height: 20px;
-    font-style: italic;
-    letter-spacing: 1px;
-    line-height: 1.5;
-  }
+  .code-label { font-size: 11px; color: #4a2e10; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 1rem; }
+  .code-display { display: flex; justify-content: center; gap: 12px; }
+  .digit { width: 58px; height: 74px; background: #0a0502; border: 1px solid #2d1a08; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 38px; color: #2d1a08; }
+  .status { font-size: 14px; color: #4a2e10; text-align: center; margin-top: 1rem; min-height: 20px; font-style: italic; letter-spacing: 1px; line-height: 1.5; }
   .status.ok { color: #5a9c30; }
   .status.err { color: #9c3030; }
 
   /* MATRIX OVERLAY */
-  #matrix-overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: #000;
-    z-index: 9999;
+  #matrix-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 9999; }
+  #matrix-overlay canvas { display: block; width: 100%; height: 100%; }
+
+  /* ADGANG GODKENDT */
+  #access-granted {
+    display: none; position: fixed; inset: 0; z-index: 10000;
+    align-items: center; justify-content: center; pointer-events: none;
   }
-  #matrix-overlay canvas {
-    display: block;
-    width: 100%;
-    height: 100%;
+  #access-granted.show { display: flex; }
+  .ag-text {
+    font-family: 'Courier New', monospace; font-size: clamp(24px, 7vw, 42px);
+    color: #00ff41; text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41;
+    letter-spacing: 6px; text-align: center;
+    opacity: 0; transform: scale(0.8);
+    transition: opacity 0.4s, transform 0.4s;
+  }
+  .ag-text.show { opacity: 1; transform: scale(1); }
+
+  /* COUNTDOWN */
+  #countdown {
+    display: none; position: fixed; inset: 0; z-index: 10001;
+    align-items: center; justify-content: center; background: rgba(0,0,0,0.85);
+  }
+  #countdown.show { display: flex; }
+  .cd-number {
+    font-family: 'Playfair Display', serif; font-size: clamp(80px, 25vw, 140px);
+    color: #c8922a; text-shadow: 0 0 40px rgba(200,146,42,0.6);
+    opacity: 0; transition: opacity 0.2s;
   }
 
   /* CODE REVEAL */
   #code-reveal {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.94);
-    z-index: 10000;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    padding: 2rem;
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96);
+    z-index: 10002; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 2rem;
   }
   #code-reveal.show { display: flex; }
-
-  .reveal-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    color: #5a3a1a;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-  }
-
-  .reveal-digits {
-    display: flex;
-    gap: 16px;
-  }
-
+  .reveal-label { font-family: 'Playfair Display', serif; font-size: 13px; color: #5a3a1a; letter-spacing: 6px; text-transform: uppercase; }
+  .reveal-digits { display: flex; gap: 16px; }
   .reveal-digit {
-    width: 72px;
-    height: 90px;
-    background: #050a05;
-    border: 1px solid #0a2a0a;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Playfair Display', serif;
-    font-size: 50px;
-    color: #050a05;
-    transition: color 0.2s, border-color 0.3s, box-shadow 0.3s;
+    width: 72px; height: 90px; background: #050a05; border: 1px solid #0a2a0a;
+    border-radius: 10px; display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif; font-size: 50px; color: #050a05;
+    transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.2s;
   }
-
   .reveal-digit.lit {
-    color: #c8922a;
-    border-color: #c8922a;
-    box-shadow: 0 0 24px rgba(200,146,42,0.4);
+    color: #c8922a; border-color: #c8922a;
+    box-shadow: 0 0 30px rgba(200,146,42,0.5);
+    transform: scale(1.08);
   }
 
-  .reveal-msg {
-    font-family: 'Playfair Display', serif;
-    font-size: 16px;
-    color: #5a3a1a;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    opacity: 0;
-    transition: opacity 1s;
-    text-align: center;
+  /* UNLOCKED badge */
+  .unlock-badge {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Playfair Display', serif; font-size: 18px; letter-spacing: 4px;
+    text-transform: uppercase; opacity: 0; transition: opacity 0.8s;
   }
+  .unlock-badge.show { opacity: 1; }
+  .lock-icon { font-size: 22px; }
+  .unlock-badge.locked-state { color: #7c2f2f; }
+  .unlock-badge.unlocked-state { color: #5a9c30; text-shadow: 0 0 12px rgba(90,156,48,0.5); }
+
+  .reveal-msg { font-family: 'Playfair Display', serif; font-size: 15px; color: #5a3a1a; letter-spacing: 3px; text-transform: uppercase; opacity: 0; transition: opacity 1s; text-align: center; }
   .reveal-msg.show { opacity: 1; }
 
   @keyframes shake {
@@ -277,7 +142,13 @@
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
   }
-
+  @keyframes screenShake {
+    0%,100% { transform: translate(0,0); }
+    20% { transform: translate(-4px, 2px); }
+    40% { transform: translate(4px, -2px); }
+    60% { transform: translate(-3px, -3px); }
+    80% { transform: translate(3px, 3px); }
+  }
   @media (max-width: 360px) {
     .reveal-digit { width: 62px; height: 78px; font-size: 42px; }
     .reveal-digits { gap: 10px; }
@@ -302,7 +173,6 @@
       <span class="check-icon" id="chk1">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>2. Hvad laver vores nabo i kælderen?</label>
     <div class="q-row">
@@ -311,7 +181,6 @@
       <span class="check-icon" id="chk2">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>3. Hvor mange vinduer har vi i vores hus?</label>
     <div class="q-row">
@@ -320,7 +189,6 @@
       <span class="check-icon" id="chk3">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>4. Hvor mange fadølshaner har vi i baren?</label>
     <div class="q-row">
@@ -329,7 +197,6 @@
       <span class="check-icon" id="chk4">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>5. Hvad hed Vivi og Frodes første hund?</label>
     <div class="q-row">
@@ -338,7 +205,6 @@
       <span class="check-icon" id="chk5">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>6. Hvilket år blev Hanne og Rasmus gift?</label>
     <div class="q-row">
@@ -347,7 +213,6 @@
       <span class="check-icon" id="chk6">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>7. Hvilken farve har naboens træhus?</label>
     <div class="q-row">
@@ -356,7 +221,6 @@
       <span class="check-icon" id="chk7">✓</span>
     </div>
   </div>
-
   <div class="question">
     <label>8. Hvor var vi samlet i sommerhus sidste gang?</label>
     <div class="q-row">
@@ -367,29 +231,25 @@
   </div>
 
   <hr class="divider">
-
   <div class="progress-wrap">
-    <div class="progress-bar-bg">
-      <div class="progress-bar-fill" id="progress-fill"></div>
-    </div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
     <div class="progress-label" id="progress-label">0 / 8</div>
   </div>
-
   <div class="code-section">
     <div class="code-label">Koden til låsen</div>
     <div class="code-display">
-      <div class="digit">—</div>
-      <div class="digit">—</div>
-      <div class="digit">—</div>
-      <div class="digit">—</div>
+      <div class="digit">—</div><div class="digit">—</div>
+      <div class="digit">—</div><div class="digit">—</div>
     </div>
     <div class="status" id="status">Besvar alle spørgsmål for at afsløre koden</div>
   </div>
 </div>
 
-<div id="matrix-overlay">
-  <canvas id="matrix-canvas"></canvas>
-</div>
+<div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
+
+<div id="access-granted"><div class="ag-text" id="ag-text">ADGANG GODKENDT</div></div>
+
+<div id="countdown"><div class="cd-number" id="cd-number"></div></div>
 
 <div id="code-reveal">
   <div class="reveal-label">Koden er</div>
@@ -398,6 +258,10 @@
     <div class="reveal-digit" id="r1"></div>
     <div class="reveal-digit" id="r2"></div>
     <div class="reveal-digit" id="r3"></div>
+  </div>
+  <div class="unlock-badge" id="unlock-badge">
+    <span class="lock-icon">🔒</span>
+    <span id="unlock-text">LÅST</span>
   </div>
   <div class="reveal-msg" id="reveal-msg">✦ Åbn låsen ✦</div>
 </div>
@@ -410,21 +274,98 @@
     4: ['6'],
     5: ['dina'],
     6: ['2018'],
-    7: ['blå', 'blaa', 'blue'],
-    8: ['bønnerup', 'boennerup', 'bonnerup']
+    7: ['blå','blaa','blue'],
+    8: ['bønnerup','boennerup','bonnerup']
   };
   const CODE = ['9','9','7','6'];
   const solved = {};
   let solvedCount = 0;
   const TOTAL = 8;
 
+  // ── AUDIO ─────────────────────────────────────────────────
+  const AC = new (window.AudioContext || window.webkitAudioContext)();
+
+  function playHackSound() {
+    // rising electronic hum
+    const osc = AC.createOscillator();
+    const gain = AC.createGain();
+    osc.connect(gain); gain.connect(AC.destination);
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(80, AC.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(800, AC.currentTime + 3);
+    gain.gain.setValueAtTime(0.0, AC.currentTime);
+    gain.gain.linearRampToValueAtTime(0.08, AC.currentTime + 0.3);
+    gain.gain.linearRampToValueAtTime(0.12, AC.currentTime + 2.5);
+    gain.gain.linearRampToValueAtTime(0.0, AC.currentTime + 4);
+    osc.start(AC.currentTime);
+    osc.stop(AC.currentTime + 4);
+
+    // digital noise layer
+    const bufSize = AC.sampleRate * 3;
+    const buf = AC.createBuffer(1, bufSize, AC.sampleRate);
+    const data = buf.getChannelData(0);
+    for (let i = 0; i < bufSize; i++) data[i] = (Math.random() * 2 - 1) * 0.04;
+    const noise = AC.createBufferSource();
+    noise.buffer = buf;
+    const nGain = AC.createGain();
+    noise.connect(nGain); nGain.connect(AC.destination);
+    nGain.gain.setValueAtTime(0.3, AC.currentTime);
+    nGain.gain.linearRampToValueAtTime(0.0, AC.currentTime + 3);
+    noise.start(AC.currentTime);
+  }
+
+  function playClickSound() {
+    const osc = AC.createOscillator();
+    const gain = AC.createGain();
+    osc.connect(gain); gain.connect(AC.destination);
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(220, AC.currentTime);
+    osc.frequency.exponentialRampToValueAtTime(55, AC.currentTime + 0.08);
+    gain.gain.setValueAtTime(0.3, AC.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.12);
+    osc.start(AC.currentTime);
+    osc.stop(AC.currentTime + 0.15);
+  }
+
+  function playUnlockFanfare() {
+    const notes = [261, 329, 392, 523];
+    notes.forEach((freq, i) => {
+      const osc = AC.createOscillator();
+      const gain = AC.createGain();
+      osc.connect(gain); gain.connect(AC.destination);
+      osc.type = 'sine';
+      const t = AC.currentTime + i * 0.18;
+      osc.frequency.setValueAtTime(freq, t);
+      gain.gain.setValueAtTime(0.0, t);
+      gain.gain.linearRampToValueAtTime(0.15, t + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.001, t + 0.6);
+      osc.start(t);
+      osc.stop(t + 0.65);
+    });
+  }
+
+  function playCountdownBeep(isLast) {
+    const osc = AC.createOscillator();
+    const gain = AC.createGain();
+    osc.connect(gain); gain.connect(AC.destination);
+    osc.type = 'sine';
+    osc.frequency.value = isLast ? 880 : 440;
+    gain.gain.setValueAtTime(0.2, AC.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + (isLast ? 0.5 : 0.2));
+    osc.start(AC.currentTime);
+    osc.stop(AC.currentTime + (isLast ? 0.55 : 0.25));
+  }
+
+  // ── PROGRESS ──────────────────────────────────────────────
   function updateProgress() {
     const pct = (solvedCount / TOTAL) * 100;
     document.getElementById('progress-fill').style.width = pct + '%';
     document.getElementById('progress-label').textContent = solvedCount + ' / ' + TOTAL;
   }
 
+  // ── CHECK ─────────────────────────────────────────────────
   function check(n) {
+    if (AC.state === 'suspended') AC.resume();
     const input = document.getElementById('q' + n);
     const val = input.value.trim().toLowerCase();
     if (solved[n]) return;
@@ -438,32 +379,47 @@
       solved[n] = true;
       solvedCount++;
       updateProgress();
+      playClickSound();
 
       if (solvedCount === TOTAL) {
         document.getElementById('status').textContent = '✦ Analyserer...';
         document.getElementById('status').className = 'status ok';
-        setTimeout(startMatrixSequence, 700);
+        setTimeout(startSequence, 700);
       } else {
         const left = TOTAL - solvedCount;
         document.getElementById('status').textContent = left + ' spørgsmål tilbage';
-        document.getElementById('status').className = 'status';
       }
     } else {
       input.classList.add('wrong');
       document.getElementById('status').textContent = 'Forkert svar — prøv igen';
       document.getElementById('status').className = 'status err';
+      // wrong buzz
+      const osc = AC.createOscillator();
+      const g = AC.createGain();
+      osc.connect(g); g.connect(AC.destination);
+      osc.type = 'sawtooth'; osc.frequency.value = 120;
+      g.gain.setValueAtTime(0.15, AC.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.3);
+      osc.start(AC.currentTime); osc.stop(AC.currentTime + 0.35);
+
       setTimeout(() => { input.classList.remove('wrong'); }, 350);
       setTimeout(() => {
         if (solvedCount < TOTAL) {
-          const left = TOTAL - solvedCount;
-          document.getElementById('status').textContent = left + ' spørgsmål tilbage';
+          document.getElementById('status').textContent = (TOTAL - solvedCount) + ' spørgsmål tilbage';
           document.getElementById('status').className = 'status';
         }
       }, 2000);
     }
   }
 
-  function startMatrixSequence() {
+  // ── FULL SEQUENCE ─────────────────────────────────────────
+  function startSequence() {
+    playHackSound();
+    startMatrix();
+  }
+
+  // ── MATRIX ────────────────────────────────────────────────
+  function startMatrix() {
     const overlay = document.getElementById('matrix-overlay');
     const canvas = document.getElementById('matrix-canvas');
     overlay.style.display = 'block';
@@ -477,65 +433,151 @@
     const ctx = canvas.getContext('2d');
     ctx.scale(dpr, dpr);
 
-    const W = window.innerWidth;
-    const H = window.innerHeight;
+    const W = window.innerWidth, H = window.innerHeight;
     const fontSize = 16;
     const cols = Math.floor(W / fontSize);
     const drops = Array(cols).fill(0).map(() => Math.random() * -(H / fontSize));
-    const CHARS = '0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノ01001101JUHL2026';
+    const CHARS = '0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ01001101JUHL2026';
 
     let frame = 0;
-    let fadeOut = false;
+    let phase = 'ramp'; // ramp → hold → flash → fadeout
     let alpha = 1;
+    let speed = 0.3;
     let animId;
 
+    // Show "ADGANG GODKENDT" at peak
+    setTimeout(() => {
+      const ag = document.getElementById('access-granted');
+      ag.style.display = 'flex';
+      setTimeout(() => document.getElementById('ag-text').classList.add('show'), 50);
+      setTimeout(() => {
+        document.getElementById('ag-text').classList.remove('show');
+        setTimeout(() => { ag.style.display = 'none'; }, 500);
+      }, 1800);
+    }, 2500);
+
     function draw() {
-      ctx.fillStyle = fadeOut
-        ? `rgba(0,0,0,${0.04 + (1 - alpha) * 0.08})`
-        : 'rgba(0,0,0,0.05)';
+      // Trail
+      if (phase === 'fadeout') {
+        ctx.fillStyle = `rgba(0,0,0,${0.06 + (1-alpha)*0.1})`;
+      } else {
+        ctx.fillStyle = 'rgba(0,0,0,0.05)';
+      }
       ctx.fillRect(0, 0, W, H);
       ctx.font = fontSize + 'px monospace';
 
       for (let i = 0; i < drops.length; i++) {
         const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
-        const x = i * fontSize;
-        const y = drops[i] * fontSize;
-        ctx.fillStyle = fadeOut
-          ? `rgba(0,255,65,${alpha * 0.9})`
-          : (Math.random() > 0.95 ? '#ffffff' : '#00ff41');
+        const x = i * fontSize, y = drops[i] * fontSize;
+
+        if (phase === 'fadeout') {
+          ctx.fillStyle = `rgba(0,255,65,${alpha * 0.9})`;
+        } else if (Math.random() > 0.97) {
+          ctx.fillStyle = '#ffffff';
+        } else if (Math.random() > 0.9) {
+          ctx.fillStyle = '#00ff41';
+        } else {
+          ctx.fillStyle = '#009920';
+        }
         ctx.fillText(ch, x, y);
         if (y > H && Math.random() > 0.975) drops[i] = 0;
-        drops[i] += 0.5;
+        drops[i] += speed;
       }
 
       frame++;
-      if (frame > 210) fadeOut = true;
-      if (fadeOut) {
-        alpha -= 0.012;
+
+      // accelerate
+      if (phase === 'ramp' && frame < 120) speed = 0.3 + (frame / 120) * 0.7;
+      if (frame === 120) phase = 'hold';
+      // hold at full speed, then slow after 5s total
+      if (frame === 300) { phase = 'slow'; }
+      if (phase === 'slow') speed = Math.max(0.15, speed - 0.008);
+      if (frame === 380) phase = 'fadeout';
+
+      if (phase === 'fadeout') {
+        alpha -= 0.014;
         if (alpha <= 0) {
           cancelAnimationFrame(animId);
           overlay.style.display = 'none';
-          showCodeReveal();
+          startCountdown();
           return;
         }
       }
+
+      // random white flash
+      if (Math.random() > 0.995 && phase === 'hold') {
+        ctx.fillStyle = 'rgba(255,255,255,0.03)';
+        ctx.fillRect(0, 0, W, H);
+      }
+
       animId = requestAnimationFrame(draw);
     }
-
     animId = requestAnimationFrame(draw);
   }
 
+  // ── COUNTDOWN ─────────────────────────────────────────────
+  function startCountdown() {
+    const el = document.getElementById('countdown');
+    const num = document.getElementById('cd-number');
+    el.classList.add('show');
+
+    let count = 3;
+    function tick() {
+      num.textContent = count;
+      num.style.opacity = '1';
+      playCountdownBeep(count === 1);
+      setTimeout(() => { num.style.opacity = '0'; }, 700);
+      if (count > 1) {
+        count--;
+        setTimeout(tick, 1000);
+      } else {
+        setTimeout(() => {
+          el.classList.remove('show');
+          // screen shake
+          document.querySelector('.card').style.animation = 'screenShake 0.4s ease';
+          setTimeout(() => { document.querySelector('.card').style.animation = ''; }, 400);
+          showCodeReveal();
+        }, 900);
+      }
+    }
+    tick();
+  }
+
+  // ── CODE REVEAL ───────────────────────────────────────────
   function showCodeReveal() {
     const reveal = document.getElementById('code-reveal');
     reveal.classList.add('show');
+
+    // show locked badge first
+    const badge = document.getElementById('unlock-badge');
+    badge.className = 'unlock-badge locked-state';
+    document.getElementById('unlock-text').textContent = 'LÅST';
+    document.querySelector('.lock-icon').textContent = '🔒';
+    setTimeout(() => badge.classList.add('show'), 200);
+
+    // light up digits one by one
     CODE.forEach((val, i) => {
       const el = document.getElementById('r' + i);
       el.textContent = val;
-      setTimeout(() => { el.classList.add('lit'); }, 400 + i * 500);
+      setTimeout(() => {
+        el.classList.add('lit');
+        playClickSound();
+      }, 800 + i * 600);
     });
+
+    // flip to UNLOCKED
+    const unlockT = 800 + CODE.length * 600 + 300;
+    setTimeout(() => {
+      badge.classList.remove('locked-state');
+      badge.classList.add('unlocked-state');
+      document.getElementById('unlock-text').textContent = 'OPLÅST';
+      document.querySelector('.lock-icon').textContent = '🔓';
+      playUnlockFanfare();
+    }, unlockT);
+
     setTimeout(() => {
       document.getElementById('reveal-msg').classList.add('show');
-    }, 400 + CODE.length * 500 + 400);
+    }, unlockT + 600);
   }
 
   for (let i = 1; i <= 8; i++) {
@@ -543,7 +585,6 @@
       if (e.key === 'Enter') check(i);
     });
   }
-
   updateProgress();
 </script>
 </body>
