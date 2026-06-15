@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUHL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d0703;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+    font-family: 'EB Garamond', serif;
+  }
+  .card {
+    background: #1a0f07;
+    max-width: 560px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #3d2a12;
+    padding: 3rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #c8922a, transparent);
+  }
+  .ornament {
+    text-align: center;
+    color: #5a3a1a;
+    font-size: 20px;
+    letter-spacing: 8px;
+    margin-bottom: 0.5rem;
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: #c8922a;
+    text-align: center;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .subtitle {
+    text-align: center;
+    color: #7a5830;
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 2.5rem;
+  }
+  .divider {
+    border: none;
+    border-top: 1px solid #2d1e0a;
+    margin: 2rem 0;
+  }
+  .question { margin-bottom: 1.5rem; }
+  .question label {
+    display: block;
+    color: #b8864a;
+    font-size: 17px;
+    margin-bottom: 10px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+  .q-row { display: flex; gap: 8px; }
+  input[type="text"] {
+    flex: 1;
+    background: #0a0502;
+    border: 1px solid #3d2215;
+    border-radius: 6px;
+    color: #d4a96a;
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type="text"]:focus { border-color: #7a4e1e; }
+  input[type="text"].correct { border-color: #4a7c2f; color: #7acc4a; }
+  input[type="text"].wrong { animation: shake 0.3s; border-color: #7c2f2f; }
+  button {
+    background: transparent;
+    border: 1px solid #3d2215;
+    border-radius: 6px;
+    color: #7a5030;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    padding: 10px 16px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  button:hover { border-color: #c8922a; color: #c8922a; }
+  .code-section { margin-top: 2rem; text-align: center; }
+  .code-label {
+    font-size: 11px;
+    color: #4a2e10;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .code-display { display: flex; justify-content: center; gap: 14px; }
+  .digit {
+    width: 58px;
+    height: 74px;
+    background: #0a0502;
+    border: 1px solid #2d1a08;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #2d1a08;
+  }
+  .status {
+    font-size: 14px;
+    color: #4a2e10;
+    text-align: center;
+    margin-top: 1rem;
+    min-height: 20px;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+  .status.ok { color: #5a9c30; }
+  .status.err { color: #9c3030; }
+
+  /* MATRIX OVERLAY */
+  #matrix-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+  }
+  #matrix-overlay canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* CODE REVEAL */
+  #code-reveal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 10000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+  #code-reveal.show { display: flex; }
+  .reveal-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #5a3a1a;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+  .reveal-digits {
+    display: flex;
+    gap: 20px;
+  }
+  .reveal-digit {
+    width: 80px;
+    height: 100px;
+    background: #050a05;
+    border: 1px solid #0a2a0a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 56px;
+    color: #050a05;
+    transition: color 0.2s, border-color 0.3s, box-shadow 0.3s;
+  }
+  .reveal-digit.lit {
+    color: #c8922a;
+    border-color: #c8922a;
+    box-shadow: 0 0 24px rgba(200,146,42,0.4);
+  }
+  .reveal-msg {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    color: #5a3a1a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  .reveal-msg.show { opacity: 1; }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="ornament">✦ ✦ ✦</div>
+  <h1>JUHL 2026</h1>
+  <div class="subtitle">Svar på spørgsmålene for at få koden</div>
+  <hr class="divider">
+
+  <div class="question">
+    <label>1. Hvad hedder vores kat?</label>
+    <div class="q-row">
+      <input type="text" id="q1" placeholder="dit svar..." autocomplete="off" />
+      <button onclick="check(1)">Bekræft</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>2. Hvad laver vores nabo i kælderen?</label>
+    <div class="q-row">
+      <input type="text" id="q2" placeholder="dit svar..." autocomplete="off" />
+      <button onclick="check(2)">Bekræft</button>
+    </div>
+  </div>
+
+  <hr class="divider">
+  <div class="code-section">
+    <div class="code-label">Koden til låsen</div>
+    <div class="code-display">
+      <div class="digit">—</div>
+      <div class="digit">—</div>
+      <div class="digit">—</div>
+      <div class="digit">—</div>
+    </div>
+    <div class="status" id="status">Besvar begge spørgsmål for at afsløre koden</div>
+  </div>
+</div>
+
+<!-- Matrix canvas -->
+<div id="matrix-overlay">
+  <canvas id="matrix-canvas"></canvas>
+</div>
+
+<!-- Code reveal screen -->
+<div id="code-reveal">
+  <div class="reveal-label">Koden er</div>
+  <div class="reveal-digits">
+    <div class="reveal-digit" id="r0"></div>
+    <div class="reveal-digit" id="r1"></div>
+    <div class="reveal-digit" id="r2"></div>
+    <div class="reveal-digit" id="r3"></div>
+  </div>
+  <div class="reveal-msg" id="reveal-msg">✦ Åbn låsen ✦</div>
+</div>
+
+<script>
+  const ANSWERS = { 1: ['fritz','frits'], 2: ['keramik'] };
+  const CODE = ['8','9','6','3'];
+  const solved = { 1: false, 2: false };
+
+  function check(n) {
+    const input = document.getElementById('q' + n);
+    const val = input.value.trim().toLowerCase();
+    if (solved[n]) return;
+
+    if (ANSWERS[n].includes(val)) {
+      input.classList.remove('wrong');
+      input.classList.add('correct');
+      input.disabled = true;
+      solved[n] = true;
+
+      if (solved[1] && solved[2]) {
+        document.getElementById('status').textContent = '✦ Analyserer...';
+        document.getElementById('status').className = 'status ok';
+        setTimeout(startMatrixSequence, 600);
+      } else {
+        document.getElementById('status').textContent = 'Halvvejen — besvar det næste spørgsmål';
+      }
+    } else {
+      input.classList.add('wrong');
+      document.getElementById('status').textContent = 'Forkert svar — prøv igen';
+      document.getElementById('status').className = 'status err';
+      setTimeout(() => { input.classList.remove('wrong'); }, 350);
+      setTimeout(() => {
+        if (!solved[1] || !solved[2]) {
+          document.getElementById('status').textContent = 'Besvar begge spørgsmål for at afsløre koden';
+          document.getElementById('status').className = 'status';
+        }
+      }, 2000);
+    }
+  }
+
+  // ── MATRIX RAIN ──────────────────────────────────────────
+  function startMatrixSequence() {
+    const overlay = document.getElementById('matrix-overlay');
+    const canvas = document.getElementById('matrix-canvas');
+    overlay.style.display = 'block';
+
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const cols = Math.floor(canvas.width / 18);
+    const drops = Array(cols).fill(0).map(() => Math.random() * -canvas.height / 18);
+    const CHARS = '0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ01001101JUHL2026';
+
+    let frame = 0;
+    let fadeOut = false;
+    let alpha = 1;
+    let animId;
+
+    function draw() {
+      // semi-transparent black = trail effect
+      ctx.fillStyle = fadeOut
+        ? `rgba(0,0,0,${0.04 + (1 - alpha) * 0.08})`
+        : 'rgba(0,0,0,0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.font = '15px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        const x = i * 18;
+        const y = drops[i] * 18;
+
+        // brightest char at head
+        ctx.fillStyle = fadeOut
+          ? `rgba(0,255,65,${alpha * 0.9})`
+          : (Math.random() > 0.95 ? '#ffffff' : '#00ff41');
+        ctx.fillText(ch, x, y);
+
+        // reset drop
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i] += 0.5;
+      }
+
+      frame++;
+
+      if (fadeOut) {
+        alpha -= 0.012;
+        if (alpha <= 0) {
+          cancelAnimationFrame(animId);
+          overlay.style.display = 'none';
+          showCodeReveal();
+          return;
+        }
+      }
+
+      // start fading after ~3.5s
+      if (frame > 210) fadeOut = true;
+
+      animId = requestAnimationFrame(draw);
+    }
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  // ── CODE REVEAL ──────────────────────────────────────────
+  function showCodeReveal() {
+    const reveal = document.getElementById('code-reveal');
+    reveal.classList.add('show');
+
+    CODE.forEach((val, i) => {
+      const el = document.getElementById('r' + i);
+      el.textContent = val;
+      setTimeout(() => {
+        el.classList.add('lit');
+      }, 400 + i * 500);
+    });
+
+    setTimeout(() => {
+      document.getElementById('reveal-msg').classList.add('show');
+    }, 400 + CODE.length * 500 + 400);
+  }
+
+  document.getElementById('q1').addEventListener('keydown', e => { if (e.key === 'Enter') check(1); });
+  document.getElementById('q2').addEventListener('keydown', e => { if (e.key === 'Enter') check(2); });
+</script>
+</body>
+</html>
