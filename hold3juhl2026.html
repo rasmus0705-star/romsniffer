@@ -39,16 +39,17 @@
   .sound-banner {
     position: fixed;
     top: 0; left: 0; right: 0;
-    background: #1a0f07;
-    border-bottom: 1px solid #c8922a;
+    background: #0a0502;
+    border-bottom: 2px solid #c8922a;
     color: #c8922a;
     font-family: 'Share Tech Mono', monospace;
-    font-size: 13px;
+    font-size: clamp(15px, 4vw, 20px);
     text-align: center;
-    padding: 8px 1rem;
-    letter-spacing: 2px;
+    padding: 14px 1rem;
+    letter-spacing: 3px;
     z-index: 6000;
-    animation: pulseBanner 2s ease-in-out infinite;
+    animation: pulseBanner 1.2s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(200,146,42,0.3);
   }
   @keyframes pulseBanner {
     0%,100% { opacity: 1; }
@@ -64,7 +65,7 @@
     padding: 2rem 1.5rem;
     position: relative;
     overflow: hidden;
-    margin-top: 48px;
+    margin-top: 58px;
   }
 
   .card::before {
@@ -146,13 +147,14 @@
   /* TIMER */
   .timer-wrap { text-align: center; margin-bottom: 0.5rem; }
   .timer-display {
-    font-family: 'Share Tech Mono', monospace; font-size: 28px;
-    color: #c8922a; letter-spacing: 4px;
+    font-family: 'Share Tech Mono', monospace; font-size: clamp(48px, 14vw, 72px);
+    color: #c8922a; letter-spacing: 6px;
     transition: color 0.3s;
+    text-shadow: 0 0 20px rgba(200,146,42,0.4);
   }
   .timer-display.warning { color: #cc4444; animation: timerPulse 0.5s ease-in-out infinite; }
   @keyframes timerPulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-  .timer-label { font-size: 10px; color: #4a2e10; letter-spacing: 3px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; }
+  .timer-label { font-size: 13px; color: #7a5030; letter-spacing: 4px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; margin-bottom: 4px; }
 
   .code-section { margin-top: 1.5rem; text-align: center; }
   .code-label { font-size: 11px; color: #4a2e10; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; }
@@ -250,7 +252,7 @@
 </head>
 <body>
 
-<div class="sound-banner">🔊 HUSK AT TÆNDE FOR LYDEN &nbsp;·&nbsp; 🔊 TURN ON SOUND</div>
+<div class="sound-banner">🔊 &nbsp; HUSK AT TÆNDE FOR LYDEN &nbsp; 🔊</div>
 
 <div class="card" id="main-card">
   <div class="ornament">✦ ✦ ✦</div>
@@ -258,8 +260,8 @@
   <div class="subtitle">Svar på spørgsmålene for at få koden</div>
   <hr class="divider">
 
-  <div class="timer-wrap">
-    <div class="timer-label">Tid tilbage</div>
+  <div class="timer-wrap" style="padding: 1rem 0 0.5rem; border-bottom: 1px solid #2d1e0a; margin-bottom: 1rem;">
+    <div class="timer-label">⏱ TID TILBAGE</div>
     <div class="timer-display" id="timer-display">05:00</div>
   </div>
 
