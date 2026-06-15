@@ -248,9 +248,86 @@
     .digit{width:50px;height:64px;font-size:32px;}
     .code-display{gap:8px;}
   }
+
+  /* SPLASH SCREEN */
+  #splash {
+    position: fixed;
+    inset: 0;
+    background: #0a0502;
+    z-index: 20000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    cursor: pointer;
+    transition: opacity 0.6s;
+  }
+  #splash.hiding { opacity: 0; pointer-events: none; }
+  .splash-ornament { color: #3d2010; font-size: 24px; letter-spacing: 10px; }
+  .splash-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 8vw, 48px);
+    color: #c8922a;
+    text-align: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(200,146,42,0.4);
+  }
+  .splash-divider { width: 60px; height: 1px; background: #3d2010; }
+  .splash-msg {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(16px, 4vw, 20px);
+    color: #8a6030;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 340px;
+  }
+  .splash-msg strong { color: #c8922a; font-style: normal; }
+  .splash-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(14px, 4vw, 18px);
+    color: #0a0502;
+    background: #c8922a;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 36px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    animation: pulseSplash 1.5s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(200,146,42,0.4);
+    margin-top: 0.5rem;
+  }
+  @keyframes pulseSplash {
+    0%,100% { box-shadow: 0 0 20px rgba(200,146,42,0.3); transform: scale(1); }
+    50% { box-shadow: 0 0 40px rgba(200,146,42,0.7); transform: scale(1.04); }
+  }
+  .splash-warn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #4a2e10;
+    letter-spacing: 2px;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
+
+
+<div id="splash" onclick="startGame()">
+  <div class="splash-ornament">✦ ✦ ✦</div>
+  <div class="splash-title">JUHL 2026</div>
+  <div class="splash-divider"></div>
+  <div class="splash-msg">
+    Du har <strong>5 minutter</strong> til at besvare alle spørgsmål og afsløre koden.<br><br>
+    Timeren starter først når du trykker.
+  </div>
+  <button class="splash-btn">▶ &nbsp; TRYK FOR AT STARTE</button>
+  <div class="splash-warn">🔊 Sørg for lyden er tændt</div>
+</div>
 
 <div class="sound-banner">🔊 &nbsp; HUSK AT TÆNDE FOR LYDEN &nbsp; 🔊</div>
 
@@ -412,7 +489,6 @@ const AC = new (window.AudioContext || window.webkitAudioContext)();
 
 function ensureAudio() {
   if (AC.state === 'suspended') AC.resume();
-  if (!bgStarted) { bgStarted = true; startBgMusic(); }
 }
 
 // ── MISSION IMPOSSIBLE STYLE BG MUSIC ────────────────────
@@ -817,7 +893,6 @@ function showCodeReveal(){
 // ── INIT ──────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',()=>{
   typeLabels();
-  startTimer();
 
   for(let i=1;i<=8;i++){
     const inp=document.getElementById('q'+i);
@@ -831,6 +906,18 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   updateProgress();
 });
+
+  function startGame() {
+    const splash = document.getElementById('splash');
+    splash.classList.add('hiding');
+    setTimeout(() => { splash.style.display = 'none'; }, 600);
+    // start music
+    if (AC.state === 'suspended') AC.resume();
+    if (!bgStarted) { bgStarted = true; startBgMusic(); }
+    // start timer
+    startTimer();
+  }
+
 </script>
 </body>
 </html>
