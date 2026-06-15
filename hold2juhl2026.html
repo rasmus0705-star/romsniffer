@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUHL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0703;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    font-family: 'EB Garamond', serif;
+  }
+
+  .card {
+    background: #1a0f07;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #3d2a12;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #c8922a, transparent);
+  }
+
+  .ornament {
+    text-align: center;
+    color: #5a3a1a;
+    font-size: 18px;
+    letter-spacing: 8px;
+    margin-bottom: 0.4rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    color: #c8922a;
+    text-align: center;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #7a5830;
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid #2d1e0a;
+    margin: 1.5rem 0;
+  }
+
+  .question { margin-bottom: 1.25rem; }
+
+  .question label {
+    display: block;
+    color: #b8864a;
+    font-size: 17px;
+    margin-bottom: 8px;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .q-row { display: flex; gap: 8px; align-items: center; }
+
+  input[type="text"] {
+    flex: 1;
+    background: #0a0502;
+    border: 1px solid #3d2215;
+    border-radius: 8px;
+    color: #d4a96a;
+    font-family: 'EB Garamond', serif;
+    font-size: max(16px, 1em);
+    padding: 11px 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input[type="text"]:focus { border-color: #7a4e1e; }
+  input[type="text"].correct { border-color: #4a7c2f; color: #7acc4a; }
+  input[type="text"].wrong { animation: shake 0.3s; border-color: #7c2f2f; }
+
+  .check-icon {
+    font-size: 20px;
+    color: #4a7c2f;
+    display: none;
+    flex-shrink: 0;
+    width: 28px;
+    text-align: center;
+  }
+  .check-icon.show { display: block; }
+
+  button {
+    background: transparent;
+    border: 1px solid #3d2215;
+    border-radius: 8px;
+    color: #7a5030;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    padding: 11px 14px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+    white-space: nowrap;
+    min-width: 76px;
+    flex-shrink: 0;
+  }
+  button:hover { border-color: #c8922a; color: #c8922a; }
+  button:active { transform: scale(0.97); }
+
+  .progress-wrap {
+    margin: 1.5rem 0 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .progress-bar-bg {
+    flex: 1;
+    height: 4px;
+    background: #1e1008;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    width: 0%;
+    background: #c8922a;
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+  .progress-label {
+    font-size: 12px;
+    color: #4a2e10;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .code-section { margin-top: 1.5rem; text-align: center; }
+
+  .code-label {
+    font-size: 11px;
+    color: #4a2e10;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .code-display {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .digit {
+    width: 58px;
+    height: 74px;
+    background: #0a0502;
+    border: 1px solid #2d1a08;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #2d1a08;
+  }
+
+  .status {
+    font-size: 14px;
+    color: #4a2e10;
+    text-align: center;
+    margin-top: 1rem;
+    min-height: 20px;
+    font-style: italic;
+    letter-spacing: 1px;
+    line-height: 1.5;
+  }
+  .status.ok { color: #5a9c30; }
+  .status.err { color: #9c3030; }
+
+  /* MATRIX OVERLAY */
+  #matrix-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9999;
+  }
+  #matrix-overlay canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* CODE REVEAL */
+  #code-reveal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.94);
+    z-index: 10000;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  #code-reveal.show { display: flex; }
+
+  .reveal-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: #5a3a1a;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+  }
+
+  .reveal-digits {
+    display: flex;
+    gap: 16px;
+  }
+
+  .reveal-digit {
+    width: 72px;
+    height: 90px;
+    background: #050a05;
+    border: 1px solid #0a2a0a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    color: #050a05;
+    transition: color 0.2s, border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .reveal-digit.lit {
+    color: #c8922a;
+    border-color: #c8922a;
+    box-shadow: 0 0 24px rgba(200,146,42,0.4);
+  }
+
+  .reveal-msg {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: #5a3a1a;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 1s;
+    text-align: center;
+  }
+  .reveal-msg.show { opacity: 1; }
+
+  @keyframes shake {
+    0%,100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  @media (max-width: 360px) {
+    .reveal-digit { width: 62px; height: 78px; font-size: 42px; }
+    .reveal-digits { gap: 10px; }
+    .digit { width: 50px; height: 64px; font-size: 32px; }
+    .code-display { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="ornament">✦ ✦ ✦</div>
+  <h1>JUHL 2026</h1>
+  <div class="subtitle">Svar på spørgsmålene for at få koden</div>
+  <hr class="divider">
+
+  <div class="question">
+    <label>1. Hvad hedder vores kat?</label>
+    <div class="q-row">
+      <input type="text" id="q1" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(1)">Bekræft</button>
+      <span class="check-icon" id="chk1">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>2. Hvad laver vores nabo i kælderen?</label>
+    <div class="q-row">
+      <input type="text" id="q2" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(2)">Bekræft</button>
+      <span class="check-icon" id="chk2">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>3. Hvor mange vinduer har vi i vores hus?</label>
+    <div class="q-row">
+      <input type="text" id="q3" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(3)">Bekræft</button>
+      <span class="check-icon" id="chk3">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>4. Hvor mange fadølshaner har vi i baren?</label>
+    <div class="q-row">
+      <input type="text" id="q4" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(4)">Bekræft</button>
+      <span class="check-icon" id="chk4">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>5. Hvad hed Vivi og Frodes første hund?</label>
+    <div class="q-row">
+      <input type="text" id="q5" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(5)">Bekræft</button>
+      <span class="check-icon" id="chk5">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>6. Hvilket år blev Hanne og Rasmus gift?</label>
+    <div class="q-row">
+      <input type="text" id="q6" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(6)">Bekræft</button>
+      <span class="check-icon" id="chk6">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>7. Hvilken farve har naboens træhus?</label>
+    <div class="q-row">
+      <input type="text" id="q7" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(7)">Bekræft</button>
+      <span class="check-icon" id="chk7">✓</span>
+    </div>
+  </div>
+
+  <div class="question">
+    <label>8. Hvor var vi samlet i sommerhus sidste gang?</label>
+    <div class="q-row">
+      <input type="text" id="q8" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(8)">Bekræft</button>
+      <span class="check-icon" id="chk8">✓</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="progress-wrap">
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <div class="progress-label" id="progress-label">0 / 8</div>
+  </div>
+
+  <div class="code-section">
+    <div class="code-label">Koden til låsen</div>
+    <div class="code-display">
+      <div class="digit">—</div>
+      <div class="digit">—</div>
+      <div class="digit">—</div>
+      <div class="digit">—</div>
+    </div>
+    <div class="status" id="status">Besvar alle spørgsmål for at afsløre koden</div>
+  </div>
+</div>
+
+<div id="matrix-overlay">
+  <canvas id="matrix-canvas"></canvas>
+</div>
+
+<div id="code-reveal">
+  <div class="reveal-label">Koden er</div>
+  <div class="reveal-digits">
+    <div class="reveal-digit" id="r0"></div>
+    <div class="reveal-digit" id="r1"></div>
+    <div class="reveal-digit" id="r2"></div>
+    <div class="reveal-digit" id="r3"></div>
+  </div>
+  <div class="reveal-msg" id="reveal-msg">✦ Åbn låsen ✦</div>
+</div>
+
+<script>
+  const ANSWERS = {
+    1: ['fritz','frits'],
+    2: ['keramik'],
+    3: ['18'],
+    4: ['6'],
+    5: ['dina'],
+    6: ['2018'],
+    7: ['blå', 'blaa', 'blue'],
+    8: ['bønnerup', 'boennerup', 'bonnerup']
+  };
+  const CODE = ['2','3','8','7'];
+  const solved = {};
+  let solvedCount = 0;
+  const TOTAL = 8;
+
+  function updateProgress() {
+    const pct = (solvedCount / TOTAL) * 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = solvedCount + ' / ' + TOTAL;
+  }
+
+  function check(n) {
+    const input = document.getElementById('q' + n);
+    const val = input.value.trim().toLowerCase();
+    if (solved[n]) return;
+
+    if (ANSWERS[n].includes(val)) {
+      input.classList.remove('wrong');
+      input.classList.add('correct');
+      input.disabled = true;
+      input.blur();
+      document.getElementById('chk' + n).classList.add('show');
+      solved[n] = true;
+      solvedCount++;
+      updateProgress();
+
+      if (solvedCount === TOTAL) {
+        document.getElementById('status').textContent = '✦ Analyserer...';
+        document.getElementById('status').className = 'status ok';
+        setTimeout(startMatrixSequence, 700);
+      } else {
+        const left = TOTAL - solvedCount;
+        document.getElementById('status').textContent = left + ' spørgsmål tilbage';
+        document.getElementById('status').className = 'status';
+      }
+    } else {
+      input.classList.add('wrong');
+      document.getElementById('status').textContent = 'Forkert svar — prøv igen';
+      document.getElementById('status').className = 'status err';
+      setTimeout(() => { input.classList.remove('wrong'); }, 350);
+      setTimeout(() => {
+        if (solvedCount < TOTAL) {
+          const left = TOTAL - solvedCount;
+          document.getElementById('status').textContent = left + ' spørgsmål tilbage';
+          document.getElementById('status').className = 'status';
+        }
+      }, 2000);
+    }
+  }
+
+  function startMatrixSequence() {
+    const overlay = document.getElementById('matrix-overlay');
+    const canvas = document.getElementById('matrix-canvas');
+    overlay.style.display = 'block';
+
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    const fontSize = 16;
+    const cols = Math.floor(W / fontSize);
+    const drops = Array(cols).fill(0).map(() => Math.random() * -(H / fontSize));
+    const CHARS = '0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノ01001101JUHL2026';
+
+    let frame = 0;
+    let fadeOut = false;
+    let alpha = 1;
+    let animId;
+
+    function draw() {
+      ctx.fillStyle = fadeOut
+        ? `rgba(0,0,0,${0.04 + (1 - alpha) * 0.08})`
+        : 'rgba(0,0,0,0.05)';
+      ctx.fillRect(0, 0, W, H);
+      ctx.font = fontSize + 'px monospace';
+
+      for (let i = 0; i < drops.length; i++) {
+        const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+        ctx.fillStyle = fadeOut
+          ? `rgba(0,255,65,${alpha * 0.9})`
+          : (Math.random() > 0.95 ? '#ffffff' : '#00ff41');
+        ctx.fillText(ch, x, y);
+        if (y > H && Math.random() > 0.975) drops[i] = 0;
+        drops[i] += 0.5;
+      }
+
+      frame++;
+      if (frame > 210) fadeOut = true;
+      if (fadeOut) {
+        alpha -= 0.012;
+        if (alpha <= 0) {
+          cancelAnimationFrame(animId);
+          overlay.style.display = 'none';
+          showCodeReveal();
+          return;
+        }
+      }
+      animId = requestAnimationFrame(draw);
+    }
+
+    animId = requestAnimationFrame(draw);
+  }
+
+  function showCodeReveal() {
+    const reveal = document.getElementById('code-reveal');
+    reveal.classList.add('show');
+    CODE.forEach((val, i) => {
+      const el = document.getElementById('r' + i);
+      el.textContent = val;
+      setTimeout(() => { el.classList.add('lit'); }, 400 + i * 500);
+    });
+    setTimeout(() => {
+      document.getElementById('reveal-msg').classList.add('show');
+    }, 400 + CODE.length * 500 + 400);
+  }
+
+  for (let i = 1; i <= 8; i++) {
+    document.getElementById('q' + i).addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') check(i);
+    });
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
