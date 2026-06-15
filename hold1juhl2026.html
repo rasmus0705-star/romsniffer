@@ -7,25 +7,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
   body {
     background: #0d0703;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem;
+    padding: 1.5rem 1rem;
     font-family: 'EB Garamond', serif;
   }
+
   .card {
     background: #1a0f07;
-    max-width: 560px;
+    max-width: 480px;
     width: 100%;
     border-radius: 12px;
     border: 1px solid #3d2a12;
-    padding: 3rem 2.5rem;
+    padding: 2rem 1.5rem;
     position: relative;
     overflow: hidden;
   }
+
   .card::before {
     content: '';
     position: absolute;
@@ -33,74 +36,91 @@
     height: 3px;
     background: linear-gradient(90deg, transparent, #c8922a, transparent);
   }
+
   .ornament {
     text-align: center;
     color: #5a3a1a;
-    font-size: 20px;
+    font-size: 18px;
     letter-spacing: 8px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
   }
+
   h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 26px;
     color: #c8922a;
     text-align: center;
     letter-spacing: 4px;
     text-transform: uppercase;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
   }
+
   .subtitle {
     text-align: center;
     color: #7a5830;
     font-size: 15px;
     font-style: italic;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
+
   .divider {
     border: none;
     border-top: 1px solid #2d1e0a;
-    margin: 2rem 0;
+    margin: 1.5rem 0;
   }
+
   .question { margin-bottom: 1.5rem; }
+
   .question label {
     display: block;
     color: #b8864a;
-    font-size: 17px;
+    font-size: 18px;
     margin-bottom: 10px;
     font-style: italic;
     line-height: 1.5;
   }
+
   .q-row { display: flex; gap: 8px; }
+
   input[type="text"] {
     flex: 1;
     background: #0a0502;
     border: 1px solid #3d2215;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #d4a96a;
     font-family: 'EB Garamond', serif;
-    font-size: 17px;
-    padding: 10px 14px;
+    font-size: 18px;
+    padding: 12px 14px;
     outline: none;
     transition: border-color 0.2s;
+    /* prevent iOS zoom on focus */
+    font-size: max(16px, 1em);
   }
+
   input[type="text"]:focus { border-color: #7a4e1e; }
   input[type="text"].correct { border-color: #4a7c2f; color: #7acc4a; }
   input[type="text"].wrong { animation: shake 0.3s; border-color: #7c2f2f; }
+
   button {
     background: transparent;
     border: 1px solid #3d2215;
-    border-radius: 6px;
+    border-radius: 8px;
     color: #7a5030;
     font-family: 'Playfair Display', serif;
-    font-size: 13px;
-    padding: 10px 16px;
+    font-size: 14px;
+    padding: 12px 16px;
     cursor: pointer;
     letter-spacing: 1px;
     transition: all 0.2s;
     white-space: nowrap;
+    /* larger tap target */
+    min-width: 80px;
   }
   button:hover { border-color: #c8922a; color: #c8922a; }
-  .code-section { margin-top: 2rem; text-align: center; }
+  button:active { transform: scale(0.97); }
+
+  .code-section { margin-top: 1.5rem; text-align: center; }
+
   .code-label {
     font-size: 11px;
     color: #4a2e10;
@@ -108,7 +128,13 @@
     text-transform: uppercase;
     margin-bottom: 1rem;
   }
-  .code-display { display: flex; justify-content: center; gap: 14px; }
+
+  .code-display {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+
   .digit {
     width: 58px;
     height: 74px;
@@ -119,9 +145,10 @@
     align-items: center;
     justify-content: center;
     font-family: 'Playfair Display', serif;
-    font-size: 40px;
+    font-size: 38px;
     color: #2d1a08;
   }
+
   .status {
     font-size: 14px;
     color: #4a2e10;
@@ -130,6 +157,7 @@
     min-height: 20px;
     font-style: italic;
     letter-spacing: 1px;
+    line-height: 1.5;
   }
   .status.ok { color: #5a9c30; }
   .status.err { color: #9c3030; }
@@ -153,14 +181,16 @@
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.92);
+    background: rgba(0,0,0,0.94);
     z-index: 10000;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 2rem;
   }
   #code-reveal.show { display: flex; }
+
   .reveal-label {
     font-family: 'Playfair Display', serif;
     font-size: 13px;
@@ -168,13 +198,15 @@
     letter-spacing: 6px;
     text-transform: uppercase;
   }
+
   .reveal-digits {
     display: flex;
-    gap: 20px;
+    gap: 16px;
   }
+
   .reveal-digit {
-    width: 80px;
-    height: 100px;
+    width: 72px;
+    height: 90px;
     background: #050a05;
     border: 1px solid #0a2a0a;
     border-radius: 10px;
@@ -182,23 +214,26 @@
     align-items: center;
     justify-content: center;
     font-family: 'Playfair Display', serif;
-    font-size: 56px;
+    font-size: 50px;
     color: #050a05;
     transition: color 0.2s, border-color 0.3s, box-shadow 0.3s;
   }
+
   .reveal-digit.lit {
     color: #c8922a;
     border-color: #c8922a;
     box-shadow: 0 0 24px rgba(200,146,42,0.4);
   }
+
   .reveal-msg {
     font-family: 'Playfair Display', serif;
-    font-size: 15px;
+    font-size: 16px;
     color: #5a3a1a;
     letter-spacing: 3px;
     text-transform: uppercase;
     opacity: 0;
     transition: opacity 1s;
+    text-align: center;
   }
   .reveal-msg.show { opacity: 1; }
 
@@ -206,6 +241,14 @@
     0%,100% { transform: translateX(0); }
     25% { transform: translateX(-5px); }
     75% { transform: translateX(5px); }
+  }
+
+  /* Responsive: very small screens */
+  @media (max-width: 360px) {
+    .reveal-digit { width: 62px; height: 78px; font-size: 42px; }
+    .reveal-digits { gap: 10px; }
+    .digit { width: 50px; height: 64px; font-size: 32px; }
+    .code-display { gap: 8px; }
   }
 </style>
 </head>
@@ -220,7 +263,7 @@
   <div class="question">
     <label>1. Hvad hedder vores kat?</label>
     <div class="q-row">
-      <input type="text" id="q1" placeholder="dit svar..." autocomplete="off" />
+      <input type="text" id="q1" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
       <button onclick="check(1)">Bekræft</button>
     </div>
   </div>
@@ -228,12 +271,13 @@
   <div class="question">
     <label>2. Hvad laver vores nabo i kælderen?</label>
     <div class="q-row">
-      <input type="text" id="q2" placeholder="dit svar..." autocomplete="off" />
+      <input type="text" id="q2" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
       <button onclick="check(2)">Bekræft</button>
     </div>
   </div>
 
   <hr class="divider">
+
   <div class="code-section">
     <div class="code-label">Koden til låsen</div>
     <div class="code-display">
@@ -246,12 +290,10 @@
   </div>
 </div>
 
-<!-- Matrix canvas -->
 <div id="matrix-overlay">
   <canvas id="matrix-canvas"></canvas>
 </div>
 
-<!-- Code reveal screen -->
 <div id="code-reveal">
   <div class="reveal-label">Koden er</div>
   <div class="reveal-digits">
@@ -277,6 +319,8 @@
       input.classList.remove('wrong');
       input.classList.add('correct');
       input.disabled = true;
+      // dismiss keyboard on mobile
+      input.blur();
       solved[n] = true;
 
       if (solved[1] && solved[2]) {
@@ -285,6 +329,7 @@
         setTimeout(startMatrixSequence, 600);
       } else {
         document.getElementById('status').textContent = 'Halvvejen — besvar det næste spørgsmål';
+        document.getElementById('status').className = 'status';
       }
     } else {
       input.classList.add('wrong');
@@ -300,19 +345,26 @@
     }
   }
 
-  // ── MATRIX RAIN ──────────────────────────────────────────
   function startMatrixSequence() {
     const overlay = document.getElementById('matrix-overlay');
     const canvas = document.getElementById('matrix-canvas');
     overlay.style.display = 'block';
 
-    const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
 
-    const cols = Math.floor(canvas.width / 18);
-    const drops = Array(cols).fill(0).map(() => Math.random() * -canvas.height / 18);
-    const CHARS = '0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ01001101JUHL2026';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+    const fontSize = 16;
+    const cols = Math.floor(W / fontSize);
+    const drops = Array(cols).fill(0).map(() => Math.random() * -(H / fontSize));
+    const CHARS = '0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノ01001101JUHL2026';
 
     let frame = 0;
     let fadeOut = false;
@@ -320,32 +372,29 @@
     let animId;
 
     function draw() {
-      // semi-transparent black = trail effect
       ctx.fillStyle = fadeOut
         ? `rgba(0,0,0,${0.04 + (1 - alpha) * 0.08})`
         : 'rgba(0,0,0,0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillRect(0, 0, W, H);
 
-      ctx.font = '15px monospace';
+      ctx.font = fontSize + 'px monospace';
+
       for (let i = 0; i < drops.length; i++) {
         const ch = CHARS[Math.floor(Math.random() * CHARS.length)];
-        const x = i * 18;
-        const y = drops[i] * 18;
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
 
-        // brightest char at head
         ctx.fillStyle = fadeOut
           ? `rgba(0,255,65,${alpha * 0.9})`
           : (Math.random() > 0.95 ? '#ffffff' : '#00ff41');
         ctx.fillText(ch, x, y);
 
-        // reset drop
-        if (y > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
+        if (y > H && Math.random() > 0.975) drops[i] = 0;
         drops[i] += 0.5;
       }
 
       frame++;
+      if (frame > 210) fadeOut = true;
 
       if (fadeOut) {
         alpha -= 0.012;
@@ -357,16 +406,12 @@
         }
       }
 
-      // start fading after ~3.5s
-      if (frame > 210) fadeOut = true;
-
       animId = requestAnimationFrame(draw);
     }
 
     animId = requestAnimationFrame(draw);
   }
 
-  // ── CODE REVEAL ──────────────────────────────────────────
   function showCodeReveal() {
     const reveal = document.getElementById('code-reveal');
     reveal.classList.add('show');
@@ -374,9 +419,7 @@
     CODE.forEach((val, i) => {
       const el = document.getElementById('r' + i);
       el.textContent = val;
-      setTimeout(() => {
-        el.classList.add('lit');
-      }, 400 + i * 500);
+      setTimeout(() => { el.classList.add('lit'); }, 400 + i * 500);
     });
 
     setTimeout(() => {
