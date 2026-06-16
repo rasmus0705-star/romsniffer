@@ -578,7 +578,7 @@ function renderPoints() {
 function shufflePuzzle() {
   let state = [1,2,3,4,5,6,7,0,0]; // 2 empty tiles
   // Shuffle by making random valid moves with either empty tile
-  for (let n=0; n<60; n++) {
+  for (let n=0; n<100; n++) {
     const empties = [state.indexOf(0), state.lastIndexOf(0)];
     const emptyIdx = empties[Math.floor(Math.random()*2)];
     const neighbors = getNeighbors(emptyIdx).filter(nb => state[nb] !== 0);
