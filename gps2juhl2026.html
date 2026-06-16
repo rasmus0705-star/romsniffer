@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUHL 2026 — GPS Jagt</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; background: #0d0703; font-family: 'Share Tech Mono', monospace; color: #d4a96a; overflow-x: hidden; }
+
+  /* SPLASH */
+  #splash { position: fixed; inset: 0; background: #0a0502; z-index: 20000; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; padding: 2rem; cursor: pointer; transition: opacity 0.6s; }
+  #splash.hiding { opacity: 0; pointer-events: none; }
+  .splash-ornament { color: #3d2010; font-size: 20px; letter-spacing: 10px; }
+  .splash-title { font-family: 'Playfair Display', serif; font-size: clamp(26px,8vw,46px); color: #c8922a; text-align: center; letter-spacing: 5px; text-transform: uppercase; text-shadow: 0 0 30px rgba(200,146,42,0.5); }
+  .splash-divider { width: 80px; height: 1px; background: #3d2010; }
+  .splash-msg { font-family: 'Playfair Display', serif; font-size: clamp(15px,4vw,19px); color: #8a6030; text-align: center; font-style: italic; line-height: 1.8; max-width: 340px; }
+  .splash-msg strong { color: #c8922a; font-style: normal; }
+  .splash-btn { font-family: 'Share Tech Mono', monospace; font-size: clamp(14px,4vw,17px); color: #0a0502; background: #c8922a; border: none; border-radius: 8px; padding: 18px 40px; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; animation: pulseSplash 1.5s ease-in-out infinite; box-shadow: 0 0 30px rgba(200,146,42,0.4); }
+  @keyframes pulseSplash { 0%,100%{box-shadow:0 0 20px rgba(200,146,42,0.3);transform:scale(1);}50%{box-shadow:0 0 50px rgba(200,146,42,0.8);transform:scale(1.04);} }
+  .splash-warn { font-size: 12px; color: #4a2e10; letter-spacing: 2px; text-align: center; line-height: 1.8; }
+
+  /* HEADER */
+  .header { background: #0a0502; border-bottom: 2px solid #c8922a; padding: 10px 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(200,146,42,0.2); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+  .header-left { text-align: left; }
+  .header-title { font-family: 'Playfair Display', serif; font-size: 14px; color: #c8922a; letter-spacing: 3px; text-transform: uppercase; }
+  .header-sub { font-size: 11px; color: #4a2e10; letter-spacing: 2px; }
+  .header-center { flex: 1; text-align: center; }
+  .timer-label { font-size: 10px; color: #4a2e10; letter-spacing: 3px; text-transform: uppercase; }
+  .timer-display { font-size: clamp(32px,9vw,48px); color: #c8922a; letter-spacing: 5px; text-shadow: 0 0 16px rgba(200,146,42,0.4); line-height: 1; transition: color 0.3s; }
+  .timer-display.warning { color: #cc4444; animation: timerPulse 0.5s ease-in-out infinite; }
+  @keyframes timerPulse { 0%,100%{opacity:1;}50%{opacity:0.3;} }
+  .header-right { text-align: right; }
+  .found-label { font-size: 10px; color: #4a2e10; letter-spacing: 2px; }
+  .found-count { font-size: 28px; color: #c8922a; font-weight: bold; }
+
+  /* MAP */
+  #map { width: 100%; height: 44vh; border-bottom: 2px solid #3d2a12; }
+
+  /* GPS STATUS */
+  .gps-bar { background: #0a0502; border-bottom: 1px solid #1e1008; padding: 8px 1rem; font-size: 13px; color: #4a2e10; letter-spacing: 2px; text-align: center; }
+  .gps-bar.active { color: #4a7c2f; }
+  .gps-bar.error { color: #7c2f2f; }
+
+  /* POINTS LIST */
+  .points-wrap { padding: 0.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .point-card { background: #1a0f07; border: 1px solid #2d1a08; border-radius: 10px; padding: 1.1rem 1rem; display: flex; align-items: center; gap: 0.85rem; transition: border-color 0.4s, box-shadow 0.4s, background 0.4s; position: relative; overflow: hidden; }
+  .point-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: #2d1a08; transition: background 0.4s; }
+  .point-card.near { border-color: #7a4e1e; box-shadow: 0 0 14px rgba(200,146,42,0.15); }
+  .point-card.near::before { background: #c8922a; }
+  .point-card.found { border-color: #3a6020; background: #0d1a08; box-shadow: 0 0 14px rgba(74,124,47,0.2); }
+  .point-card.found::before { background: #4a7c2f; }
+  .point-num { width: 42px; height: 42px; border-radius: 50%; background: #0a0502; border: 2px solid #3d2215; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #5a3a1a; flex-shrink: 0; transition: all 0.3s; }
+  .point-card.near .point-num { border-color: #c8922a; color: #c8922a; }
+  .point-card.found .point-num { border-color: #4a7c2f; background: #0d1a08; }
+  .point-info { flex: 1; min-width: 0; }
+  .point-name { font-size: 12px; color: #7a5030; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 3px; }
+  .point-dist { font-size: 26px; font-weight: bold; color: #3d2215; letter-spacing: 1px; transition: color 0.3s; white-space: nowrap; }
+  .point-dist.has-gps { color: #7a5030; }
+  .point-dist.near { color: #c8922a; }
+  .point-dist.found-txt { color: #4a7c2f; font-size: 14px; letter-spacing: 2px; }
+  .point-arrow { font-size: 32px; flex-shrink: 0; width: 38px; text-align: center; color: #3d2215; }
+  .point-card.near .point-arrow { color: #c8922a; }
+  .point-digit { width: 54px; height: 64px; background: #0a0502; border: 1px solid #1e1008; border-radius: 7px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 38px; color: #1e1008; flex-shrink: 0; transition: color 0.4s, border-color 0.4s, box-shadow 0.4s, transform 0.3s; }
+  .point-digit.lit { color: #c8922a; border-color: #c8922a; box-shadow: 0 0 16px rgba(200,146,42,0.4); transform: scale(1.08); }
+
+  /* CODE BAR */
+  .code-bar { background: #0a0502; border-top: 2px solid #3d2a12; padding: 0.85rem 1rem; text-align: center; position: sticky; bottom: 0; z-index: 500; box-shadow: 0 -4px 20px rgba(0,0,0,0.5); }
+  .code-bar-label { font-size: 10px; color: #3d2010; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 0.6rem; }
+  .code-digits { display: flex; justify-content: center; gap: 10px; }
+  .code-digit { width: 54px; height: 66px; background: #0a0502; border: 1px solid #1e1008; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 36px; color: #1e1008; transition: color 0.4s, border-color 0.4s, box-shadow 0.5s; }
+  .code-digit.lit { color: #c8922a; border-color: #c8922a; box-shadow: 0 0 20px rgba(200,146,42,0.4); }
+
+  /* PUZZLE OVERLAY */
+  #puzzle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 9997; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; padding: 2rem; }
+  #puzzle-overlay.show { display: flex; }
+  .puzzle-ornament { color: #3d2010; font-size: 18px; letter-spacing: 8px; }
+  .puzzle-title { font-family: 'Playfair Display', serif; font-size: 14px; color: #5a3a1a; letter-spacing: 5px; text-transform: uppercase; }
+  .puzzle-msg { font-family: 'Playfair Display', serif; font-size: 16px; color: #8a6030; font-style: italic; text-align: center; }
+  .puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    width: min(280px, 80vw);
+    height: min(280px, 80vw);
+    padding: 8px;
+    background: #0a0502;
+    border: 1px solid #3d2215;
+    border-radius: 12px;
+  }
+  .puzzle-tile {
+    background: #1a0f07;
+    border: 1px solid #c8922a;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 7vw, 36px);
+    color: #c8922a;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s, transform 0.1s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .puzzle-tile:active { transform: scale(0.94); background: #2a1a07; }
+  .puzzle-tile.empty { background: #0a0502; border-color: #2d1a08; cursor: default; }
+  .puzzle-tile.empty:active { transform: none; }
+  .puzzle-status { font-size: 13px; color: #4a2e10; letter-spacing: 2px; font-style: italic; min-height: 18px; text-align: center; }
+  .puzzle-status.ok { color: #4a7c2f; }
+  .puzzle-moves { font-size: 11px; color: #3d2010; letter-spacing: 3px; }
+
+  /* MATRIX + REVEAL */
+  #matrix-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 9999; }
+  #matrix-overlay canvas { display: block; width: 100%; height: 100%; }
+  #access-granted { display: none; position: fixed; inset: 0; z-index: 10000; align-items: center; justify-content: center; pointer-events: none; }
+  #access-granted.show { display: flex; }
+  .ag-text { font-family: 'Share Tech Mono', monospace; font-size: clamp(20px,6vw,38px); color: #00ff41; text-shadow: 0 0 20px #00ff41,0 0 40px #00ff41; letter-spacing: 6px; text-align: center; opacity: 0; transform: scale(0.8); transition: opacity 0.4s, transform 0.4s; }
+  .ag-text.show { opacity: 1; transform: scale(1); }
+  #countdown { display: none; position: fixed; inset: 0; z-index: 10001; align-items: center; justify-content: center; background: rgba(0,0,0,0.88); }
+  #countdown.show { display: flex; }
+  .cd-number { font-family: 'Playfair Display', serif; font-size: clamp(80px,25vw,140px); color: #c8922a; text-shadow: 0 0 40px rgba(200,146,42,0.6); opacity: 0; transition: opacity 0.15s; }
+  #code-reveal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 10002; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; padding: 2rem; }
+  #code-reveal.show { display: flex; }
+  .reveal-label { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #5a3a1a; letter-spacing: 6px; text-transform: uppercase; }
+  .reveal-digits { display: flex; gap: 16px; }
+  .reveal-digit { width: 72px; height: 90px; background: #050a05; border: 1px solid #0a2a0a; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 50px; color: #050a05; transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.2s; }
+  .reveal-digit.lit { color: #c8922a; border-color: #c8922a; box-shadow: 0 0 30px rgba(200,146,42,0.5); transform: scale(1.08); }
+  .unlock-badge { display: flex; align-items: center; gap: 10px; font-family: 'Share Tech Mono', monospace; font-size: 16px; letter-spacing: 4px; text-transform: uppercase; opacity: 0; transition: opacity 0.8s; }
+  .unlock-badge.show { opacity: 1; }
+  .unlock-badge.locked-state { color: #7c2f2f; }
+  .unlock-badge.unlocked-state { color: #5a9c30; text-shadow: 0 0 12px rgba(90,156,48,0.5); }
+  .reveal-msg { font-family: 'Playfair Display', serif; font-size: 15px; color: #5a3a1a; letter-spacing: 3px; text-transform: uppercase; opacity: 0; transition: opacity 1s; text-align: center; }
+  .reveal-msg.show { opacity: 1; }
+  #expired-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 10005; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+  #expired-overlay.show { display: flex; }
+  .exp-text { font-family: 'Share Tech Mono', monospace; font-size: clamp(18px,5vw,32px); color: #cc2222; text-shadow: 0 0 20px #cc2222; letter-spacing: 4px; text-align: center; animation: expBlink 0.8s steps(1) infinite; }
+  @keyframes expBlink { 0%,100%{opacity:1;}50%{opacity:0;} }
+  .exp-sub { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #4a1a1a; letter-spacing: 3px; text-align: center; }
+
+  @media (max-width: 360px) {
+    .reveal-digit { width: 62px; height: 78px; font-size: 42px; }
+    .reveal-digits { gap: 10px; }
+    .code-digit { width: 46px; height: 56px; font-size: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="splash" onclick="startGame()">
+  <div class="splash-ornament">✦ ✦ ✦</div>
+  <div class="splash-title">JUHL 2026</div>
+  <div class="splash-divider"></div>
+  <div class="splash-msg">
+    Find de <strong>4 hemmelige punkter</strong> i nærområdet.<br><br>
+    Hvert punkt afslører ét ciffer af koden.<br><br>
+    Du har <strong>20 minutter</strong> — timeren starter når du trykker.
+  </div>
+  <button class="splash-btn">▶ &nbsp; TRYK FOR AT STARTE</button>
+  <div class="splash-warn">🔊 Sørg for lyden er tændt<br>📍 Tillad GPS når browseren spørger</div>
+</div>
+
+<div class="header">
+  <div class="header-left">
+    <div class="header-title">JUHL 2026</div>
+    <div class="header-sub">GPS JAGT</div>
+  </div>
+  <div class="header-center">
+    <div class="timer-label">⏱ TID TILBAGE</div>
+    <div class="timer-display" id="timer-display">20:00</div>
+  </div>
+  <div class="header-right">
+    <div class="found-label">FUNDET</div>
+    <div class="found-count" id="found-count">0/4</div>
+  </div>
+</div>
+
+<div id="map"></div>
+<div class="gps-bar" id="gps-bar">📍 Henter din position...</div>
+<div class="points-wrap" id="points-wrap"></div>
+
+<div class="code-bar">
+  <div class="code-bar-label">Koden til låsen</div>
+  <div class="code-digits">
+    <div class="code-digit" id="cd0">—</div>
+    <div class="code-digit" id="cd1">—</div>
+    <div class="code-digit" id="cd2">—</div>
+    <div class="code-digit" id="cd3">—</div>
+  </div>
+</div>
+
+<!-- PUZZLE -->
+<div id="puzzle-overlay">
+  <div class="puzzle-ornament">✦ ✦ ✦</div>
+  <div class="puzzle-title">Sidste udfordring</div>
+  <div class="puzzle-msg">Løs puslespillet for at afsløre koden</div>
+  <div class="puzzle-grid" id="puzzle-grid"></div>
+  <div class="puzzle-moves" id="puzzle-moves">TRÆK: 0</div>
+  <div class="puzzle-status" id="puzzle-status">Flyt brikkerne til de er i den rigtige rækkefølge</div>
+</div>
+
+<div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
+<div id="access-granted"><div class="ag-text" id="ag-text">ADGANG GODKENDT</div></div>
+<div id="countdown"><div class="cd-number" id="cd-number"></div></div>
+<div id="code-reveal">
+  <div class="reveal-label">Koden er</div>
+  <div class="reveal-digits">
+    <div class="reveal-digit" id="r0"></div>
+    <div class="reveal-digit" id="r1"></div>
+    <div class="reveal-digit" id="r2"></div>
+    <div class="reveal-digit" id="r3"></div>
+  </div>
+  <div class="unlock-badge" id="unlock-badge"><span class="lock-icon">🔒</span><span id="unlock-text">LÅST</span></div>
+  <div class="reveal-msg" id="reveal-msg">✦ Åbn låsen ✦</div>
+</div>
+<div id="expired-overlay">
+  <div class="exp-text">⚠ TIDEN ER UDLØBET ⚠</div>
+  <div class="exp-sub">SYSTEM NEDLUKKET</div>
+</div>
+
+<script>
+const POINTS = [
+  {lat:56.4331829731056, lng:10.388714119558626},
+  {lat:56.43253821554862, lng:10.388135839558261},
+  {lat:56.4322924639384, lng:10.388675883845929},
+  {lat:56.43184692234445, lng:10.390288327247536},
+];
+const CODE   = ['2', '3', '7', '7'];
+const UNLOCK_RADIUS = 10;
+
+let map, userMarker, accuracyCircle, userPos = null;
+let timerSeconds = 1200, timerInterval = null, gameOver = false;
+const found = {};
+let foundCount = 0;
+const AC = new (window.AudioContext || window.webkitAudioContext)();
+let bgStarted = false;
+let pointMarkers = [];
+
+// ── PUZZLE STATE ──────────────────────────────────────────
+let puzzleState = [];
+let puzzleMoves = 0;
+const PUZZLE_GOAL = [1,2,3,4,5,6,7,8,0]; // 0 = empty
+const PUZZLE_EMOJIS = ['🔒','⚓','🍹','🗝️','🏴','💎','🔱','🌊',''];
+
+// ── SPLASH ────────────────────────────────────────────────
+function startGame() {
+  document.getElementById('splash').classList.add('hiding');
+  setTimeout(() => { document.getElementById('splash').style.display = 'none'; }, 600);
+  if (AC.state === 'suspended') AC.resume();
+  if (!bgStarted) { bgStarted = true; startBgMusic(); }
+  startTimer();
+  initMap();
+  startGPS();
+}
+
+function startBgMusic() {
+  const audio = new Audio('mi-theme.mp3');
+  audio.loop = true; audio.volume = 0.4;
+  audio.play().catch(() => {});
+}
+
+// ── TIMER ─────────────────────────────────────────────────
+function formatTime(s) { return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0'); }
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (gameOver) return;
+    timerSeconds--;
+    document.getElementById('timer-display').textContent = formatTime(timerSeconds);
+    if (timerSeconds <= 60) document.getElementById('timer-display').classList.add('warning');
+    if (timerSeconds <= 0) { clearInterval(timerInterval); gameOver = true; triggerExpired(); }
+  }, 1000);
+}
+function triggerExpired() {
+  for (let i=0;i<6;i++) setTimeout(()=>playAlarm(), i*350);
+  setTimeout(() => { document.getElementById('expired-overlay').classList.add('show'); }, 500);
+}
+
+// ── MAP ───────────────────────────────────────────────────
+function initMap() {
+  map = L.map('map', { zoomControl: false, attributionControl: false }).setView([56.433088, 10.388923], 17);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+  POINTS.forEach((pt, i) => {
+    const el = document.createElement('div');
+    el.style.cssText = `background:#e65c00;border:3px solid #fff;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-family:'Share Tech Mono',monospace;font-size:18px;font-weight:bold;color:#fff;box-shadow:0 3px 10px rgba(0,0,0,0.5);`;
+    el.textContent = (i+1);
+    const icon = L.divIcon({ className:'', html: el.outerHTML, iconSize:[48,48], iconAnchor:[24,24] });
+    const marker = L.marker([pt.lat, pt.lng], { icon }).addTo(map);
+    pointMarkers.push(marker);
+  });
+  renderPoints();
+}
+
+function updateMapMarker(i) {
+  const el = document.createElement('div');
+  el.style.cssText = `background:#2a7c1a;border:3px solid #fff;border-radius:50%;width:48px;height:48px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 3px 10px rgba(0,0,0,0.4);`;
+  el.textContent = '✓';
+  const icon = L.divIcon({ className:'', html: el.outerHTML, iconSize:[48,48], iconAnchor:[24,24] });
+  if (pointMarkers[i]) pointMarkers[i].setIcon(icon);
+}
+
+// ── GPS ───────────────────────────────────────────────────
+function startGPS() {
+  if (!navigator.geolocation) { setGPSBar('❌ GPS ikke tilgængeligt','error'); return; }
+  navigator.geolocation.watchPosition(onPosition, onGPSError, { enableHighAccuracy:true, maximumAge:2000, timeout:15000 });
+}
+function setGPSBar(msg, cls='') { const el=document.getElementById('gps-bar'); el.textContent=msg; el.className='gps-bar'+(cls?' '+cls:''); }
+function onPosition(pos) {
+  userPos = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+  setGPSBar(`📍 GPS aktiv — ±${Math.round(pos.coords.accuracy)}m`, 'active');
+  const ll = [userPos.lat, userPos.lng];
+  if (!userMarker) {
+    const ui = L.divIcon({ className:'', html:`<div style="background:#0066ff;border:3px solid #fff;border-radius:50%;width:22px;height:22px;box-shadow:0 3px 8px rgba(0,0,0,0.4)"></div>`, iconSize:[22,22], iconAnchor:[11,11] });
+    userMarker = L.marker(ll, { icon:ui, zIndexOffset:1000 }).addTo(map);
+    map.setView(ll, 17);
+  } else { userMarker.setLatLng(ll); }
+  if (accuracyCircle) { accuracyCircle.setLatLng(ll).setRadius(pos.coords.accuracy); }
+  else { accuracyCircle = L.circle(ll, { radius:pos.coords.accuracy, color:'#0066ff', fillColor:'#0066ff', fillOpacity:0.04, weight:1, opacity:0.3 }).addTo(map); }
+  checkProximity(); updateDistances();
+}
+function onGPSError() { setGPSBar('⚠ GPS fejl — tillad lokation','error'); }
+function haversine(la1,ln1,la2,ln2) { const R=6371000,dL=(la2-la1)*Math.PI/180,dN=(ln2-ln1)*Math.PI/180,a=Math.sin(dL/2)**2+Math.cos(la1*Math.PI/180)*Math.cos(la2*Math.PI/180)*Math.sin(dN/2)**2; return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a)); }
+function bearing(la1,ln1,la2,ln2) { const d=(ln2-ln1)*Math.PI/180,y=Math.sin(d)*Math.cos(la2*Math.PI/180),x=Math.cos(la1*Math.PI/180)*Math.sin(la2*Math.PI/180)-Math.sin(la1*Math.PI/180)*Math.cos(la2*Math.PI/180)*Math.cos(d); return(Math.atan2(y,x)*180/Math.PI+360)%360; }
+function bearingArrow(d) { return['↑','↗','→','↘','↓','↙','←','↖'][Math.round(d/45)%8]; }
+
+function checkProximity() {
+  if (!userPos||gameOver) return;
+  POINTS.forEach((pt,i) => { if (found[i]) return; if (haversine(userPos.lat,userPos.lng,pt.lat,pt.lng)<=UNLOCK_RADIUS) foundPoint(i); });
+}
+function updateDistances() {
+  if (!userPos) return;
+  POINTS.forEach((pt,i) => {
+    if (found[i]) return;
+    const dist=Math.round(haversine(userPos.lat,userPos.lng,pt.lat,pt.lng));
+    const bear=bearing(userPos.lat,userPos.lng,pt.lat,pt.lng);
+    const distEl=document.getElementById('dist-'+i), arrowEl=document.getElementById('arrow-'+i), card=document.getElementById('card-'+i);
+    if (distEl) { distEl.textContent=dist+'m væk'; distEl.className='point-dist has-gps'+(dist<30?' near':''); }
+    if (arrowEl) arrowEl.textContent=dist<UNLOCK_RADIUS?'✓':bearingArrow(bear);
+    if (card) card.className='point-card'+(dist<30?' near':'');
+  });
+}
+
+function foundPoint(i) {
+  found[i]=true; foundCount++;
+  updateMapMarker(i);
+  playClickSound();
+  document.getElementById('found-count').textContent=foundCount+'/4';
+  const card=document.getElementById('card-'+i); if(card) card.className='point-card found';
+  const distEl=document.getElementById('dist-'+i); if(distEl){distEl.textContent='✓ FUNDET';distEl.className='point-dist found-txt';}
+  const arrowEl=document.getElementById('arrow-'+i); if(arrowEl) arrowEl.textContent='✅';
+  const digitEl=document.getElementById('pdigit-'+i); if(digitEl){digitEl.textContent=CODE[i];digitEl.classList.add('lit');}
+  const cdEl=document.getElementById('cd'+i); if(cdEl){cdEl.textContent=CODE[i];cdEl.classList.add('lit');}
+  if (foundCount===4) setTimeout(showPuzzle, 900);
+}
+
+function renderPoints() {
+  document.getElementById('points-wrap').innerHTML = POINTS.map((pt,i) => `
+    <div class="point-card" id="card-${i}">
+      <div class="point-num">${i+1}</div>
+      <div class="point-info"><div class="point-name">Punkt ${i+1}</div><div class="point-dist" id="dist-${i}">Venter på GPS...</div></div>
+      <div class="point-arrow" id="arrow-${i}">•</div>
+      <div class="point-digit" id="pdigit-${i}">—</div>
+    </div>`).join('');
+}
+
+// ── PUZZLE ────────────────────────────────────────────────
+function shufflePuzzle() {
+  // Start fra løst tilstand og lav 50 tilfældige lovlige træk
+  let state = [1,2,3,4,5,6,7,8,0];
+  for (let n=0; n<50; n++) {
+    const empty = state.indexOf(0);
+    const neighbors = getNeighbors(empty);
+    const swap = neighbors[Math.floor(Math.random()*neighbors.length)];
+    [state[empty], state[swap]] = [state[swap], state[empty]];
+  }
+  // Sørg for at det ikke er løst fra start
+  if (isSolved(state)) state = [1,2,3,4,5,6,8,7,0];
+  return state;
+}
+
+function getNeighbors(idx) {
+  const row=Math.floor(idx/3), col=idx%3, neighbors=[];
+  if(row>0) neighbors.push(idx-3);
+  if(row<2) neighbors.push(idx+3);
+  if(col>0) neighbors.push(idx-1);
+  if(col<2) neighbors.push(idx+1);
+  return neighbors;
+}
+
+function isSolved(state) {
+  return state.every((v,i) => v===PUZZLE_GOAL[i]);
+}
+
+function showPuzzle() {
+  puzzleState = shufflePuzzle();
+  puzzleMoves = 0;
+  document.getElementById('puzzle-moves').textContent = 'TRÆK: 0';
+  document.getElementById('puzzle-status').textContent = 'Flyt brikkerne til de er i den rigtige rækkefølge';
+  document.getElementById('puzzle-status').className = 'puzzle-status';
+  renderPuzzle();
+  document.getElementById('puzzle-overlay').classList.add('show');
+}
+
+function renderPuzzle() {
+  const grid = document.getElementById('puzzle-grid');
+  grid.innerHTML = '';
+  puzzleState.forEach((val, idx) => {
+    const tile = document.createElement('div');
+    tile.className = 'puzzle-tile' + (val===0?' empty':'');
+    tile.textContent = val===0 ? '' : PUZZLE_EMOJIS[val-1];
+    if (val!==0) {
+      tile.addEventListener('click', () => moveTile(idx));
+      tile.addEventListener('touchend', (e) => { e.preventDefault(); moveTile(idx); });
+    }
+    grid.appendChild(tile);
+  });
+}
+
+function moveTile(idx) {
+  const empty = puzzleState.indexOf(0);
+  const neighbors = getNeighbors(empty);
+  if (!neighbors.includes(idx)) return;
+  playTileSound();
+  [puzzleState[empty], puzzleState[idx]] = [puzzleState[idx], puzzleState[empty]];
+  puzzleMoves++;
+  document.getElementById('puzzle-moves').textContent = 'TRÆK: '+puzzleMoves;
+  renderPuzzle();
+  if (isSolved(puzzleState)) {
+    document.getElementById('puzzle-status').textContent = '✓ Løst! Starter...';
+    document.getElementById('puzzle-status').className = 'puzzle-status ok';
+    playClickSound();
+    setTimeout(() => {
+      document.getElementById('puzzle-overlay').classList.remove('show');
+      clearInterval(timerInterval);
+      gameOver = true;
+      startSequence();
+    }, 1000);
+  }
+}
+
+// ── AUDIO ─────────────────────────────────────────────────
+function playTileSound() {
+  const o=AC.createOscillator(),g=AC.createGain();
+  o.connect(g);g.connect(AC.destination);
+  o.type='sine';o.frequency.value=400+Math.random()*200;
+  g.gain.setValueAtTime(0.08,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.08);
+  o.start(AC.currentTime);o.stop(AC.currentTime+0.1);
+}
+function playClickSound() { const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='square';o.frequency.setValueAtTime(220,AC.currentTime);o.frequency.exponentialRampToValueAtTime(55,AC.currentTime+0.08);g.gain.setValueAtTime(0.3,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.12);o.start(AC.currentTime);o.stop(AC.currentTime+0.15); }
+function playAlarm() { const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='square';o.frequency.value=440;g.gain.setValueAtTime(0.2,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.3);o.start(AC.currentTime);o.stop(AC.currentTime+0.35); }
+function playCountdownBeep(last) { const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';o.frequency.value=last?880:440;g.gain.setValueAtTime(0.25,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+(last?0.5:0.2));o.start(AC.currentTime);o.stop(AC.currentTime+(last?0.55:0.25)); }
+function playUnlockFanfare() { [261,329,392,523,659].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';const t=AC.currentTime+i*0.15;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.18,t+0.05);g.gain.exponentialRampToValueAtTime(0.001,t+0.7);o.start(t);o.stop(t+0.75);}); }
+function playHackSound() { const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sawtooth';o.frequency.setValueAtTime(80,AC.currentTime);o.frequency.exponentialRampToValueAtTime(900,AC.currentTime+4);g.gain.setValueAtTime(0,AC.currentTime);g.gain.linearRampToValueAtTime(0.1,AC.currentTime+0.3);g.gain.linearRampToValueAtTime(0,AC.currentTime+5);o.start(AC.currentTime);o.stop(AC.currentTime+5); }
+
+// ── SEQUENCE ──────────────────────────────────────────────
+function startSequence() { playHackSound(); startMatrix(); }
+
+function startMatrix() {
+  const overlay=document.getElementById('matrix-overlay'), canvas=document.getElementById('matrix-canvas');
+  overlay.style.display='block';
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=window.innerWidth*dpr;canvas.height=window.innerHeight*dpr;
+  canvas.style.width=window.innerWidth+'px';canvas.style.height=window.innerHeight+'px';
+  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  const W=window.innerWidth,H=window.innerHeight,fs=16;
+  const cols=Math.floor(W/fs);
+  const drops=Array(cols).fill(0).map(()=>Math.random()*(-(H/fs)));
+  const CHARS='0123456789アイウエオカキクケコサシスセソJUHL2026GPS';
+  let frame=0,phase='ramp',alpha=1,speed=0.3,animId;
+  setTimeout(()=>{
+    const ag=document.getElementById('access-granted');ag.style.display='flex';
+    if(window.speechSynthesis){const u=new SpeechSynthesisUtterance('Access granted');u.lang='en-US';u.pitch=0.7;u.rate=0.85;speechSynthesis.speak(u);}
+    setTimeout(()=>document.getElementById('ag-text').classList.add('show'),50);
+    setTimeout(()=>{document.getElementById('ag-text').classList.remove('show');setTimeout(()=>{ag.style.display='none';},500);},2000);
+  },2500);
+  function draw(){
+    ctx.fillStyle=phase==='fadeout'?`rgba(0,0,0,${0.06+(1-alpha)*0.1})`:'rgba(0,0,0,0.05)';
+    ctx.fillRect(0,0,W,H);ctx.font=fs+'px monospace';
+    for(let i=0;i<drops.length;i++){
+      ctx.fillStyle=phase==='fadeout'?`rgba(0,255,65,${alpha*0.9})`:Math.random()>0.97?'#fff':'#00ff41';
+      ctx.fillText(CHARS[Math.floor(Math.random()*CHARS.length)],i*fs,drops[i]*fs);
+      if(drops[i]*fs>H&&Math.random()>0.975)drops[i]=0;
+      drops[i]+=speed;
+    }
+    frame++;
+    if(phase==='ramp'&&frame<100)speed=0.3+(frame/100)*0.9;
+    if(frame===100)phase='hold';if(frame===380)phase='slow';
+    if(phase==='slow')speed=Math.max(0.15,speed-0.006);
+    if(frame===480)phase='fadeout';
+    if(phase==='fadeout'){alpha-=0.012;if(alpha<=0){cancelAnimationFrame(animId);overlay.style.display='none';startCountdown();return;}}
+    animId=requestAnimationFrame(draw);
+  }
+  animId=requestAnimationFrame(draw);
+}
+
+function startCountdown(){
+  const el=document.getElementById('countdown'),num=document.getElementById('cd-number');
+  el.classList.add('show');let count=3;
+  function tick(){
+    num.textContent=count;num.style.opacity='1';playCountdownBeep(count===1);
+    setTimeout(()=>{num.style.opacity='0';},700);
+    if(count>1){count--;setTimeout(tick,1000);}
+    else setTimeout(()=>{el.classList.remove('show');showCodeReveal();},900);
+  }
+  tick();
+}
+
+function showCodeReveal(){
+  const reveal=document.getElementById('code-reveal');reveal.classList.add('show');
+  const badge=document.getElementById('unlock-badge');
+  badge.className='unlock-badge locked-state';
+  document.getElementById('unlock-text').textContent='LÅST';
+  document.querySelector('.lock-icon').textContent='🔒';
+  setTimeout(()=>badge.classList.add('show'),200);
+  CODE.forEach((val,i)=>{
+    const el=document.getElementById('r'+i);el.textContent=val;
+    setTimeout(()=>{el.classList.add('lit');playClickSound();},800+i*600);
+  });
+  const ut=800+CODE.length*600+300;
+  setTimeout(()=>{badge.classList.remove('locked-state');badge.classList.add('unlocked-state');document.getElementById('unlock-text').textContent='OPLÅST';document.querySelector('.lock-icon').textContent='🔓';playUnlockFanfare();},ut);
+  setTimeout(()=>{document.getElementById('reveal-msg').classList.add('show');},ut+600);
+}
+</script>
+</body>
+</html>
