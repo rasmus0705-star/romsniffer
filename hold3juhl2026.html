@@ -78,12 +78,12 @@
 
   .ornament { text-align: center; color: #5a3a1a; font-size: 18px; letter-spacing: 8px; margin-bottom: 0.4rem; }
   h1 { font-family: 'Playfair Display', serif; font-size: 26px; color: #c8922a; text-align: center; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.3rem; }
-  .subtitle { text-align: center; color: #7a5830; font-size: 15px; font-style: italic; margin-bottom: 2rem; }
+  .subtitle { text-align: center; color: #a07840; font-size: 16px; font-style: italic; margin-bottom: 2rem; }
   .divider { border: none; border-top: 1px solid #2d1e0a; margin: 1.5rem 0; }
 
   .question { margin-bottom: 1.25rem; }
   .question label {
-    display: block; color: #b8864a; font-size: 17px; margin-bottom: 8px;
+    display: block; color: #e0aa60; font-size: 19px; margin-bottom: 8px;
     font-style: italic; line-height: 1.5;
     overflow: hidden; white-space: nowrap;
   }
@@ -93,7 +93,7 @@
 
   input[type="text"] {
     flex: 1; background: #0a0502; border: 1px solid #3d2215; border-radius: 8px;
-    color: #d4a96a; font-family: 'Share Tech Mono', monospace;
+    color: #f0c880; font-family: 'Share Tech Mono', monospace;
     font-size: max(16px, 1em); padding: 11px 13px; outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
     caret-color: #00ff41;
@@ -112,8 +112,8 @@
   .check-icon.show { display: block; }
 
   button {
-    background: transparent; border: 1px solid #3d2215; border-radius: 8px;
-    color: #7a5030; font-family: 'Share Tech Mono', monospace; font-size: 13px;
+    background: transparent; border: 1px solid #7a4e1e; border-radius: 8px;
+    color: #c8922a; font-family: 'Share Tech Mono', monospace; font-size: 14px;
     padding: 11px 14px; cursor: pointer; letter-spacing: 1px;
     transition: all 0.2s; white-space: nowrap; min-width: 76px; flex-shrink: 0;
   }
@@ -129,7 +129,7 @@
     background: #c8922a; transition: background 0.3s;
   }
   .attempt-dot.used { background: #3d1010; }
-  .attempts-label { font-size: 12px; color: #4a2e10; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; margin-left: 4px; }
+  .attempts-label { font-size: 12px; color: #8a6030; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; margin-left: 4px; }
 
   .locked-msg {
     display: none; text-align: center; padding: 0.75rem;
@@ -142,7 +142,7 @@
   .progress-wrap { margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 10px; }
   .progress-bar-bg { flex: 1; height: 4px; background: #1e1008; border-radius: 2px; overflow: hidden; }
   .progress-bar-fill { height: 100%; width: 0%; background: #c8922a; border-radius: 2px; transition: width 0.5s ease; }
-  .progress-label { font-size: 12px; color: #4a2e10; letter-spacing: 2px; white-space: nowrap; font-family: 'Share Tech Mono', monospace; }
+  .progress-label { font-size: 13px; color: #8a6030; letter-spacing: 2px; white-space: nowrap; font-family: 'Share Tech Mono', monospace; }
 
   /* TIMER */
   .timer-wrap { text-align: center; margin-bottom: 0.5rem; }
@@ -154,14 +154,14 @@
   }
   .timer-display.warning { color: #cc4444; animation: timerPulse 0.5s ease-in-out infinite; }
   @keyframes timerPulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
-  .timer-label { font-size: 13px; color: #7a5030; letter-spacing: 4px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; margin-bottom: 4px; }
+  .timer-label { font-size: 13px; color: #c8922a; letter-spacing: 4px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; margin-bottom: 4px; }
 
   .code-section { margin-top: 1.5rem; text-align: center; }
-  .code-label { font-size: 11px; color: #4a2e10; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; }
+  .code-label { font-size: 12px; color: #8a6030; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; }
   .code-display { display: flex; justify-content: center; gap: 12px; }
   .digit { width: 58px; height: 74px; background: #0a0502; border: 1px solid #2d1a08; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 38px; color: #2d1a08; }
 
-  .status { font-size: 14px; color: #4a2e10; text-align: center; margin-top: 1rem; min-height: 20px; font-style: italic; letter-spacing: 1px; line-height: 1.5; font-family: 'Share Tech Mono', monospace; }
+  .status { font-size: 15px; color: #8a6030; text-align: center; margin-top: 1rem; min-height: 20px; font-style: italic; letter-spacing: 1px; line-height: 1.5; font-family: 'Share Tech Mono', monospace; }
   .status.ok { color: #5a9c30; }
   .status.err { color: #9c3030; }
 
@@ -169,7 +169,7 @@
   .hint-section { text-align: center; margin-top: 1rem; }
   .hint-btn {
     background: transparent; border: 1px solid #2d1a08; border-radius: 6px;
-    color: #3d2a10; font-family: 'Share Tech Mono', monospace; font-size: 11px;
+    color: #8a6030; font-family: 'Share Tech Mono', monospace; font-size: 12px;
     padding: 6px 12px; cursor: pointer; letter-spacing: 2px; transition: all 0.3s;
   }
   .hint-btn:hover { border-color: #7a4e1e; color: #7a4e1e; }
