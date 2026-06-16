@@ -176,6 +176,130 @@
     .reveal-digits { gap: 10px; }
     .code-digit { width: 46px; height: 56px; font-size: 30px; }
   }
+  /* COMBINATION LOCK */
+  #rotlock-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.97);
+    z-index: 9998; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.2rem; padding: 2rem;
+  }
+  #rotlock-overlay.show { display: flex; }
+  .rl-title { font-family: 'Playfair Display', serif; font-size: 14px; color: #5a3a1a; letter-spacing: 5px; text-transform: uppercase; }
+  .rl-clue { font-family: 'Playfair Display', serif; font-size: clamp(14px,4vw,17px); color: #8a6030; text-align: center; font-style: italic; line-height: 1.8; max-width: 300px; }
+  .rl-clue strong { color: #c8922a; font-style: normal; }
+
+  /* Lock body */
+  .rl-lock-body {
+    background: linear-gradient(160deg, #2a1a08, #1a0f07);
+    border: 2px solid #5a3a18;
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,200,100,0.1);
+    width: min(300px, 88vw);
+  }
+
+  /* Shackle */
+  .rl-shackle {
+    width: 60px; height: 36px;
+    border: 5px solid #8a6030;
+    border-bottom: none;
+    border-radius: 30px 30px 0 0;
+    margin-bottom: -8px;
+    transition: transform 0.5s, border-color 0.3s;
+  }
+  .rl-shackle.open {
+    transform: translateY(-18px) rotate(30deg);
+    border-color: #4a7c2f;
+  }
+
+  /* Dial container */
+  .rl-dial-container {
+    position: relative;
+    width: min(220px, 70vw);
+    height: min(220px, 70vw);
+  }
+
+  /* Outer ring - fixed with numbers */
+  .rl-outer-ring {
+    position: absolute; inset: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, #2a1a08 60%, #1a0f07);
+    border: 3px solid #5a3a18;
+  }
+
+  /* Rotating dial - inner circle */
+  .rl-inner-dial {
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 40% 35%, #4a2a10, #1e1008);
+    border: 2px solid #c8922a;
+    box-shadow: 0 0 20px rgba(200,146,42,0.2), inset 0 0 15px rgba(0,0,0,0.5);
+    cursor: grab;
+    user-select: none;
+    touch-action: none;
+  }
+  .rl-inner-dial:active { cursor: grabbing; }
+  .rl-inner-dial.unlocked { border-color: #4a7c2f; box-shadow: 0 0 20px rgba(74,124,47,0.4); }
+
+  /* Numbers on inner dial */
+  .rl-dial-num {
+    position: absolute;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(8px, 2.2vw, 11px);
+    color: #c8922a;
+    transform-origin: 50% 100%;
+    text-align: center;
+    line-height: 1;
+    width: 20px;
+    margin-left: -10px;
+  }
+  .rl-dial-num.major { font-size: clamp(10px, 2.8vw, 13px); color: #e0aa60; }
+
+  /* Grip lines on dial */
+  .rl-grip {
+    position: absolute; inset: 0; border-radius: 50%;
+    background: repeating-conic-gradient(#2a1a08 0deg, #2a1a08 3deg, transparent 3deg, transparent 9deg);
+    opacity: 0.3;
+  }
+
+  /* Fixed pointer at top */
+  .rl-pointer-wrap {
+    position: absolute; top: -4px; left: 50%; transform: translateX(-50%);
+    z-index: 10;
+  }
+  .rl-pointer-tri {
+    width: 0; height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 16px solid #c8922a;
+    filter: drop-shadow(0 0 4px rgba(200,146,42,0.8));
+  }
+
+  /* Center of dial */
+  .rl-center-dot {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 28px; height: 28px; border-radius: 50%;
+    background: radial-gradient(circle, #3a2510, #1a0f07);
+    border: 2px solid #5a3a18;
+  }
+
+  .rl-current-num {
+    font-family: 'Share Tech Mono', monospace; font-size: 32px;
+    color: #c8922a; letter-spacing: 2px; text-align: center;
+    text-shadow: 0 0 8px rgba(200,146,42,0.4);
+    min-width: 60px;
+    transition: color 0.2s;
+  }
+  .rl-current-num.correct { color: #4a7c2f; text-shadow: 0 0 12px rgba(74,124,47,0.6); }
+
+  .rl-status { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #4a2e10; letter-spacing: 2px; text-align: center; min-height: 18px; }
+  .rl-status.ok { color: #4a7c2f; }
+  .rl-hint { font-family: 'Share Tech Mono', monospace; font-size: 11px; color: #3a2010; letter-spacing: 2px; text-align: center; }
+
 </style>
 </head>
 <body>
@@ -245,6 +369,29 @@
 </div>
 
 
+
+<div id="rotlock-overlay">
+  <div class="rl-title">Åbn hængelåsen</div>
+  <div class="rl-clue">Drej til: <strong>Året Vivi og Frode fik Hanne minus 1900</strong></div>
+
+  <div class="rl-lock-body">
+    <div class="rl-shackle" id="rl-shackle"></div>
+
+    <div class="rl-dial-container" id="rl-dial-container">
+      <div class="rl-outer-ring"></div>
+      <div class="rl-pointer-wrap"><div class="rl-pointer-tri"></div></div>
+      <canvas id="rl-canvas" style="position:absolute;inset:0;border-radius:50%;"></canvas>
+      <div class="rl-inner-dial" id="rl-inner-dial">
+        <div class="rl-grip"></div>
+        <div class="rl-center-dot"></div>
+      </div>
+    </div>
+
+    <div class="rl-current-num" id="rl-current-num">0</div>
+    <div class="rl-status" id="rl-status"></div>
+  </div>
+  <div class="rl-hint">Træk den indre cirkel rundt</div>
+</div>
 
 <div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
 <div id="access-granted"><div class="ag-text" id="ag-text">ADGANG GODKENDT</div></div>
@@ -420,16 +567,21 @@ function renderPoints() {
 
 // ── PUZZLE ────────────────────────────────────────────────
 function shufflePuzzle() {
-  // Start fra løst tilstand og lav 50 tilfældige lovlige træk
   let state = [1,2,3,4,5,6,7,8,0];
-  for (let n=0; n<50; n++) {
+  let lastEmpty = -1;
+  // 500 træk sikrer grundig scrambling
+  for (let n=0; n<500; n++) {
     const empty = state.indexOf(0);
-    const neighbors = getNeighbors(empty);
+    const neighbors = getNeighbors(empty).filter(n => n !== lastEmpty);
     const swap = neighbors[Math.floor(Math.random()*neighbors.length)];
+    lastEmpty = empty;
     [state[empty], state[swap]] = [state[swap], state[empty]];
   }
-  // Sørg for at det ikke er løst fra start
-  if (isSolved(state)) state = [1,2,3,4,5,6,8,7,0];
+  // Garantér at det ikke er løst
+  if (isSolved(state)) {
+    [state[0], state[1]] = [state[1], state[0]];
+    [state[3], state[4]] = [state[4], state[3]];
+  }
   return state;
 }
 
@@ -550,10 +702,7 @@ function moveTile(idx) {
     playClickSound();
     setTimeout(() => {
       document.getElementById('puzzle-overlay').classList.remove('show');
-      clearInterval(timerInterval);
-      gameOver = true;
-      revealAllDigits();
-      startSequence();
+      showRotLock();
     }, 1000);
   }
 }
@@ -571,6 +720,168 @@ function playAlarm() { const o=AC.createOscillator(),g=AC.createGain();o.connect
 function playCountdownBeep(last) { const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';o.frequency.value=last?880:440;g.gain.setValueAtTime(0.25,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+(last?0.5:0.2));o.start(AC.currentTime);o.stop(AC.currentTime+(last?0.55:0.25)); }
 function playUnlockFanfare() { [261,329,392,523,659].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';const t=AC.currentTime+i*0.15;o.frequency.value=f;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.18,t+0.05);g.gain.exponentialRampToValueAtTime(0.001,t+0.7);o.start(t);o.stop(t+0.75);}); }
 function playHackSound() { const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sawtooth';o.frequency.setValueAtTime(80,AC.currentTime);o.frequency.exponentialRampToValueAtTime(900,AC.currentTime+4);g.gain.setValueAtTime(0,AC.currentTime);g.gain.linearRampToValueAtTime(0.1,AC.currentTime+0.3);g.gain.linearRampToValueAtTime(0,AC.currentTime+5);o.start(AC.currentTime);o.stop(AC.currentTime+5); }
+
+// ── COMBINATION LOCK ──────────────────────────────────────
+const RL_TARGET = 70;
+const RL_TOTAL = 100; // 0-99
+let rlAngle = 0;        // current rotation in degrees
+let rlDragging = false;
+let rlLastAngle = null;
+let rlUnlocked = false;
+let rlOnTarget = false;
+let rlOnTargetTimer = null;
+
+function showRotLock() {
+  rlAngle = (1 / 100) * 360;  // start på 1
+  rlDragging = false;
+  rlLastAngle = null;
+  rlUnlocked = false;
+  rlOnTarget = false;
+  rlOnTargetTimer = null;
+  document.getElementById('rl-shackle').className = 'rl-shackle';
+  document.getElementById('rl-inner-dial').className = 'rl-inner-dial';
+  document.getElementById('rl-status').textContent = '';
+  document.getElementById('rl-status').className = 'rl-status';
+  document.getElementById('rotlock-overlay').classList.add('show');
+  drawDial();
+  initCombLock();
+}
+
+function getCurrentNum() {
+  // Map rotation to 0-99, pointer at top = 0, clockwise increases
+  const deg = ((rlAngle % 360) + 360) % 360;
+  return Math.round((deg / 360) * RL_TOTAL) % RL_TOTAL;
+}
+
+function drawDial() {
+  const container = document.getElementById('rl-dial-container');
+  const size = container.offsetWidth || 220;
+  const canvas = document.getElementById('rl-canvas');
+  canvas.width = size; canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const cx = size/2, cy = size/2;
+  const outerR = size/2 - 4;
+  const numR = outerR - 12;
+
+  ctx.clearRect(0,0,size,size);
+
+  // Draw numbers around the inner dial (rotate with dial)
+  for (let i = 0; i < RL_TOTAL; i++) {
+    const angleDeg = (i / RL_TOTAL) * 360 + rlAngle;
+    const angleRad = (angleDeg - 90) * Math.PI / 180;
+    const isMajor = i % 10 === 0;
+    const r = isMajor ? numR - 2 : numR + 2;
+
+    // Tick marks
+    const tickOuter = outerR - 14;
+    const tickInner = isMajor ? tickOuter - 10 : tickOuter - 5;
+    const tx1 = cx + tickOuter * Math.cos(angleRad);
+    const ty1 = cy + tickOuter * Math.sin(angleRad);
+    const tx2 = cx + tickInner * Math.cos(angleRad);
+    const ty2 = cy + tickInner * Math.sin(angleRad);
+    ctx.beginPath();
+    ctx.moveTo(tx1, ty1);
+    ctx.lineTo(tx2, ty2);
+    ctx.strokeStyle = isMajor ? '#c8922a' : '#5a3a18';
+    ctx.lineWidth = isMajor ? 2 : 1;
+    ctx.stroke();
+
+    if (isMajor) {
+      const nx = cx + r * Math.cos(angleRad);
+      const ny = cy + r * Math.sin(angleRad);
+      ctx.save();
+      ctx.translate(nx, ny);
+      ctx.rotate(angleRad + Math.PI/2);
+      ctx.font = `bold ${Math.round(size*0.055)}px 'Share Tech Mono', monospace`;
+      ctx.fillStyle = '#c8922a';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(i, 0, 0);
+      ctx.restore();
+    }
+  }
+
+  // Update inner dial transform
+  document.getElementById('rl-inner-dial').style.transform = `rotate(${rlAngle}deg)`;
+
+  const cur = getCurrentNum();
+  const numEl = document.getElementById('rl-current-num');
+  numEl.textContent = cur;
+  numEl.className = cur === RL_TARGET ? 'rl-current-num correct' : 'rl-current-num';
+}
+
+function initCombLock() {
+  const dial = document.getElementById('rl-inner-dial');
+
+  function getAngle(e) {
+    const container = document.getElementById('rl-dial-container');
+    const rect = container.getBoundingClientRect();
+    const cx = rect.left + rect.width/2;
+    const cy = rect.top + rect.height/2;
+    const touch = e.touches ? e.touches[0] : e;
+    return Math.atan2(touch.clientY - cy, touch.clientX - cx) * 180 / Math.PI;
+  }
+
+  function onStart(e) {
+    if (rlUnlocked) return;
+    e.preventDefault();
+    rlDragging = true;
+    rlLastAngle = getAngle(e);
+  }
+
+  function onMove(e) {
+    if (!rlDragging || rlLastAngle === null || rlUnlocked) return;
+    e.preventDefault();
+    const angle = getAngle(e);
+    let delta = angle - rlLastAngle;
+    if (delta > 180) delta -= 360;
+    if (delta < -180) delta += 360;
+    rlLastAngle = angle;
+    rlAngle += delta;
+    drawDial();
+
+    // Only unlock if user pauses/stops on target (not just passes through)
+    const cur = getCurrentNum();
+    if (cur === RL_TARGET) {
+      if (!rlOnTarget) {
+        rlOnTarget = true;
+        rlOnTargetTimer = setTimeout(() => {
+          if (rlOnTarget && !rlUnlocked) {
+            rlUnlocked = true;
+            document.getElementById('rl-inner-dial').className = 'rl-inner-dial unlocked';
+            document.getElementById('rl-status').textContent = '✓ KLIK! LÅSEN ER ÅBNET';
+            document.getElementById('rl-status').className = 'rl-status ok';
+            setTimeout(() => {
+              document.getElementById('rl-shackle').className = 'rl-shackle open';
+              playClickSound();
+            }, 200);
+            setTimeout(() => {
+              document.getElementById('rotlock-overlay').classList.remove('show');
+              clearInterval(timerInterval);
+              gameOver = true;
+              revealAllDigits();
+              startSequence();
+            }, 1500);
+          }
+        }, 600); // must stay on 70 for 600ms
+      }
+    } else {
+      rlOnTarget = false;
+      if (rlOnTargetTimer) { clearTimeout(rlOnTargetTimer); rlOnTargetTimer = null; }
+    }
+  }
+
+  function onEnd() { rlDragging = false; rlLastAngle = null; }
+
+  const newDial = dial.cloneNode(true);
+  dial.parentNode.replaceChild(newDial, dial);
+  newDial.addEventListener('mousedown', onStart);
+  newDial.addEventListener('touchstart', onStart, { passive: false });
+  document.addEventListener('mousemove', onMove);
+  document.addEventListener('touchmove', onMove, { passive: false });
+  document.addEventListener('mouseup', onEnd);
+  document.addEventListener('touchend', onEnd);
+}
 
 // ── SEQUENCE ──────────────────────────────────────────────
 function startSequence() { playHackSound(); startMatrix(); }
