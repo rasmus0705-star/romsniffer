@@ -6,7 +6,11 @@
 <title>JUHL 2026 — GPS Jagt</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">  document.addEventListener('DOMContentLoaded', () => {
+    const qi = document.getElementById('q-input');
+    if (qi) qi.addEventListener('keydown', e => { if (e.key==='Enter') checkQuestion(); });
+  });
+</script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { height: 100%; background: #0d0703; font-family: 'Share Tech Mono', monospace; color: #d4a96a; overflow-x: hidden; }
@@ -74,6 +78,25 @@
   .code-digit { width: 54px; height: 66px; background: #0a0502; border: 1px solid #1e1008; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 36px; color: #1e1008; transition: color 0.4s, border-color 0.4s, box-shadow 0.5s; }
   .code-digit.lit { color: #c8922a; border-color: #c8922a; box-shadow: 0 0 20px rgba(200,146,42,0.4); }
 
+
+  /* QUESTION OVERLAY */
+  #question-overlay {
+    display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96);
+    z-index: 9996; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1.5rem; padding: 2rem;
+  }
+  #question-overlay.show { display: flex; }
+  .q-ornament { color: #3d2010; font-size: 20px; letter-spacing: 8px; }
+  .q-title { font-family: 'Playfair Display', serif; font-size: 14px; color: #5a3a1a; letter-spacing: 5px; text-transform: uppercase; }
+  .q-text { font-family: 'Playfair Display', serif; font-size: clamp(18px,5vw,24px); color: #c8922a; text-align: center; line-height: 1.6; font-style: italic; max-width: 340px; }
+  .q-input { background: #0a0502; border: 1px solid #3d2215; border-radius: 8px; color: #d4a96a; font-family: 'Share Tech Mono', monospace; font-size: max(16px,1em); padding: 14px 18px; outline: none; width: 100%; max-width: 320px; text-align: center; transition: border-color 0.2s; caret-color: #00ff41; }
+  .q-input:focus { border-color: #7a4e1e; }
+  .q-input.wrong { animation: qShake 0.35s; border-color: #7c2f2f; }
+  .q-btn { background: transparent; border: 1px solid #3d2215; border-radius: 8px; color: #7a5030; font-family: 'Share Tech Mono', monospace; font-size: 14px; padding: 14px 32px; cursor: pointer; letter-spacing: 2px; transition: all 0.2s; text-transform: uppercase; }
+  .q-btn:hover { border-color: #c8922a; color: #c8922a; }
+  .q-status { font-size: 13px; color: #4a2e10; letter-spacing: 2px; font-style: italic; min-height: 18px; }
+  .q-status.err { color: #9c3030; }
+  @keyframes qShake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-6px);} 75%{transform:translateX(6px);} }
   /* PUZZLE OVERLAY */
   #puzzle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 9997; flex-direction: column; align-items: center; justify-content: center; gap: 1.25rem; padding: 2rem; }
   #puzzle-overlay.show { display: flex; }
@@ -192,6 +215,16 @@
   </div>
 </div>
 
+
+<div id="question-overlay">
+  <div class="q-ornament">✦ ✦ ✦</div>
+  <div class="q-title">Godt klaret!</div>
+  <div class="q-text">Hvilken planet kaldes den røde planet?</div>
+  <input type="text" class="q-input" id="q-input" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+  <button class="q-btn" onclick="checkQuestion()">Bekræft</button>
+  <div class="q-status" id="q-status"></div>
+</div>
+
 <!-- PUZZLE -->
 <div id="puzzle-overlay">
   <div class="puzzle-ornament">✦ ✦ ✦</div>
@@ -229,7 +262,7 @@ const POINTS = [
   {lat:56.43453587939654, lng:10.390138304663566},
 ];
 const CODE   = ['2', '3', '7', '8'];
-const UNLOCK_RADIUS = 10;
+const UNLOCK_RADIUS = 5;
 
 let map, userMarker, accuracyCircle, userPos = null;
 let timerSeconds = 1200, timerInterval = null, gameOver = false;
@@ -352,9 +385,15 @@ function foundPoint(i) {
   const card=document.getElementById('card-'+i); if(card) card.className='point-card found';
   const distEl=document.getElementById('dist-'+i); if(distEl){distEl.textContent='✓ FUNDET';distEl.className='point-dist found-txt';}
   const arrowEl=document.getElementById('arrow-'+i); if(arrowEl) arrowEl.textContent='✅';
-  const digitEl=document.getElementById('pdigit-'+i); if(digitEl){digitEl.textContent=CODE[i];digitEl.classList.add('lit');}
-  const cdEl=document.getElementById('cd'+i); if(cdEl){cdEl.textContent=CODE[i];cdEl.classList.add('lit');}
-  if (foundCount===4) setTimeout(showPuzzle, 900);
+  // No digit shown yet - revealed after puzzle
+  if (foundCount===4) setTimeout(showQuestion, 900);
+}
+
+function revealAllDigits() {
+  CODE.forEach((val,i) => {
+    const digitEl=document.getElementById('pdigit-'+i); if(digitEl){digitEl.textContent=val;digitEl.classList.add('lit');}
+    const cdEl=document.getElementById('cd'+i); if(cdEl){cdEl.textContent=val;cdEl.classList.add('lit');}
+  });
 }
 
 function renderPoints() {
@@ -393,6 +432,34 @@ function getNeighbors(idx) {
 
 function isSolved(state) {
   return state.every((v,i) => v===PUZZLE_GOAL[i]);
+}
+
+
+function showQuestion() {
+  document.getElementById('question-overlay').classList.add('show');
+  setTimeout(() => document.getElementById('q-input').focus(), 300);
+}
+
+function checkQuestion() {
+  const val = document.getElementById('q-input').value.trim().toLowerCase();
+  if (val === 'mars') {
+    document.getElementById('question-overlay').classList.remove('show');
+    setTimeout(showPuzzle, 300);
+  } else {
+    document.getElementById('q-input').classList.add('wrong');
+    document.getElementById('q-status').textContent = 'Forkert svar — prøv igen';
+    document.getElementById('q-status').className = 'q-status err';
+    const o=AC.createOscillator(),g=AC.createGain();
+    o.connect(g);g.connect(AC.destination);
+    o.type='sawtooth';o.frequency.value=120;
+    g.gain.setValueAtTime(0.15,AC.currentTime);g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.35);
+    o.start(AC.currentTime);o.stop(AC.currentTime+0.4);
+    setTimeout(() => {
+      document.getElementById('q-input').classList.remove('wrong');
+      document.getElementById('q-status').textContent='';
+      document.getElementById('q-status').className='q-status';
+    }, 1500);
+  }
 }
 
 function showPuzzle() {
@@ -437,6 +504,7 @@ function moveTile(idx) {
       document.getElementById('puzzle-overlay').classList.remove('show');
       clearInterval(timerInterval);
       gameOver = true;
+      revealAllDigits();
       startSequence();
     }, 1000);
   }
@@ -524,6 +592,10 @@ function showCodeReveal(){
   setTimeout(()=>{badge.classList.remove('locked-state');badge.classList.add('unlocked-state');document.getElementById('unlock-text').textContent='OPLÅST';document.querySelector('.lock-icon').textContent='🔓';playUnlockFanfare();},ut);
   setTimeout(()=>{document.getElementById('reveal-msg').classList.add('show');},ut+600);
 }
+  document.addEventListener('DOMContentLoaded', () => {
+    const qi = document.getElementById('q-input');
+    if (qi) qi.addEventListener('keydown', e => { if (e.key==='Enter') checkQuestion(); });
+  });
 </script>
 </body>
 </html>
