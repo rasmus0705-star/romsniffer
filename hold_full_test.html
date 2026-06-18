@@ -930,6 +930,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 
 function skipQuestions() {
+  // Resume AudioContext first (requires user gesture)
+  if (AC.state === 'suspended') AC.resume();
+  if (!bgStarted) { bgStarted = true; startBgMusic(); }
+
   // Mark all questions correct
   for (let n = 1; n <= 8; n++) {
     const input = document.getElementById('q'+n);
@@ -946,14 +950,24 @@ function skipQuestions() {
   document.getElementById('skip-mat').style.display = 'block';
   document.getElementById('status').textContent = '✦ Analyserer...';
   document.getElementById('status').className = 'status ok';
-  setTimeout(startMatrixSequence, 500);
+
+  // Start full sequence with sound
+  setTimeout(() => {
+    playHackSound();
+    startMatrixSequence();
+  }, 500);
 }
 
 function skipMatrix() {
-  document.getElementById('matrix-overlay').style.display = 'none';
-  document.getElementById('access-granted').style.display = 'none';
-  document.getElementById('countdown').classList.remove('show');
+  // Stop matrix and go straight to code reveal
+  const overlay = document.getElementById('matrix-overlay');
+  if (overlay) overlay.style.display = 'none';
+  const ag = document.getElementById('access-granted');
+  if (ag) ag.style.display = 'none';
+  const cd = document.getElementById('countdown');
+  if (cd) cd.classList.remove('show');
   document.getElementById('skip-mat').style.display = 'none';
+  playUnlockFanfare();
   showCodeReveal();
 }
 
