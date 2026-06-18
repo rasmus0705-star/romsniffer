@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JUHL 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=EB+Garamond:ital,wght@0,400;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #0d0703;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1.5rem 1rem 3rem;
+    font-family: 'EB Garamond', serif;
+    position: relative;
+  }
+
+  /* CRT scanlines overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.08) 2px,
+      rgba(0,0,0,0.08) 4px
+    );
+    pointer-events: none;
+    z-index: 5000;
+  }
+
+  /* SOUND REMINDER */
+  .sound-banner {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #0a0502;
+    border-bottom: 2px solid #c8922a;
+    color: #c8922a;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(15px, 4vw, 20px);
+    text-align: center;
+    padding: 14px 1rem;
+    letter-spacing: 3px;
+    z-index: 6000;
+    animation: pulseBanner 1.2s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(200,146,42,0.3);
+  }
+  @keyframes pulseBanner {
+    0%,100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .card {
+    background: #1a0f07;
+    max-width: 480px;
+    width: 100%;
+    border-radius: 12px;
+    border: 1px solid #3d2a12;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 58px;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #c8922a, transparent);
+  }
+
+  .ornament { text-align: center; color: #5a3a1a; font-size: 18px; letter-spacing: 8px; margin-bottom: 0.4rem; }
+  h1 { font-family: 'Playfair Display', serif; font-size: 26px; color: #c8922a; text-align: center; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 0.3rem; }
+  .subtitle { text-align: center; color: #a07840; font-size: 16px; font-style: italic; margin-bottom: 2rem; }
+  .divider { border: none; border-top: 1px solid #2d1e0a; margin: 1.5rem 0; }
+
+  .question { margin-bottom: 1.25rem; }
+  .question label {
+    display: block; color: #e0aa60; font-size: 19px; margin-bottom: 8px;
+    font-style: italic; line-height: 1.5;
+    overflow: hidden; white-space: nowrap;
+  }
+  .label-text { display: inline-block; }
+
+  .q-row { display: flex; gap: 8px; align-items: center; }
+
+  input[type="text"] {
+    flex: 1; background: #0a0502; border: 1px solid #3d2215; border-radius: 8px;
+    color: #f0c880; font-family: 'Share Tech Mono', monospace;
+    font-size: max(16px, 1em); padding: 11px 13px; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    caret-color: #00ff41;
+  }
+  input[type="text"]:focus {
+    border-color: #7a4e1e;
+    box-shadow: 0 0 8px rgba(0,255,65,0.15);
+  }
+  input[type="text"].correct { border-color: #4a7c2f; color: #7acc4a; }
+  input[type="text"].wrong { animation: shake 0.35s; border-color: #7c2f2f; box-shadow: 0 0 12px rgba(200,0,0,0.3); }
+
+  /* glitch on wrong */
+  .card.glitch { animation: cardGlitch 0.35s steps(2); }
+
+  .check-icon { font-size: 20px; color: #4a7c2f; display: none; flex-shrink: 0; width: 28px; text-align: center; }
+  .check-icon.show { display: block; }
+
+  button {
+    background: transparent; border: 1px solid #7a4e1e; border-radius: 8px;
+    color: #c8922a; font-family: 'Share Tech Mono', monospace; font-size: 14px;
+    padding: 11px 14px; cursor: pointer; letter-spacing: 1px;
+    transition: all 0.2s; white-space: nowrap; min-width: 76px; flex-shrink: 0;
+  }
+  button:hover { border-color: #c8922a; color: #c8922a; }
+  button:active { transform: scale(0.96); }
+
+  /* attempts warning */
+  .attempts-bar {
+    display: flex; gap: 6px; margin-bottom: 1rem; align-items: center;
+  }
+  .attempt-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: #c8922a; transition: background 0.3s;
+  }
+  .attempt-dot.used { background: #3d1010; }
+  .attempts-label { font-size: 12px; color: #8a6030; font-family: 'Share Tech Mono', monospace; letter-spacing: 1px; margin-left: 4px; }
+
+  .locked-msg {
+    display: none; text-align: center; padding: 0.75rem;
+    border: 1px solid #7c2f2f; border-radius: 8px; background: #1a0505;
+    color: #cc4444; font-family: 'Share Tech Mono', monospace; font-size: 14px;
+    letter-spacing: 2px; margin-bottom: 1rem;
+  }
+  .locked-msg.show { display: block; }
+
+  .progress-wrap { margin: 1.5rem 0 0.5rem; display: flex; align-items: center; gap: 10px; }
+  .progress-bar-bg { flex: 1; height: 4px; background: #1e1008; border-radius: 2px; overflow: hidden; }
+  .progress-bar-fill { height: 100%; width: 0%; background: #c8922a; border-radius: 2px; transition: width 0.5s ease; }
+  .progress-label { font-size: 13px; color: #8a6030; letter-spacing: 2px; white-space: nowrap; font-family: 'Share Tech Mono', monospace; }
+
+  /* TIMER */
+  .timer-wrap { text-align: center; margin-bottom: 0.5rem; }
+  .timer-display {
+    font-family: 'Share Tech Mono', monospace; font-size: clamp(48px, 14vw, 72px);
+    color: #c8922a; letter-spacing: 6px;
+    transition: color 0.3s;
+    text-shadow: 0 0 20px rgba(200,146,42,0.4);
+  }
+  .timer-display.warning { color: #cc4444; animation: timerPulse 0.5s ease-in-out infinite; }
+  @keyframes timerPulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
+  .timer-label { font-size: 13px; color: #c8922a; letter-spacing: 4px; text-transform: uppercase; font-family: 'Share Tech Mono', monospace; margin-bottom: 4px; }
+
+  .code-section { margin-top: 1.5rem; text-align: center; }
+  .code-label { font-size: 12px; color: #8a6030; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 1rem; font-family: 'Share Tech Mono', monospace; }
+  .code-display { display: flex; justify-content: center; gap: 12px; }
+  .digit { width: 58px; height: 74px; background: #0a0502; border: 1px solid #2d1a08; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 38px; color: #2d1a08; }
+
+  .status { font-size: 15px; color: #8a6030; text-align: center; margin-top: 1rem; min-height: 20px; font-style: italic; letter-spacing: 1px; line-height: 1.5; font-family: 'Share Tech Mono', monospace; }
+  .status.ok { color: #5a9c30; }
+  .status.err { color: #9c3030; }
+
+  /* HINT */
+  .hint-section { text-align: center; margin-top: 1rem; }
+  .hint-btn {
+    background: transparent; border: 1px solid #2d1a08; border-radius: 6px;
+    color: #8a6030; font-family: 'Share Tech Mono', monospace; font-size: 12px;
+    padding: 6px 12px; cursor: pointer; letter-spacing: 2px; transition: all 0.3s;
+  }
+  .hint-btn:hover { border-color: #7a4e1e; color: #7a4e1e; }
+  .hint-box {
+    display: none; margin-top: 0.75rem; padding: 0.75rem; border: 1px solid #3d2215;
+    border-radius: 8px; background: #0a0502; color: #8a6030;
+    font-family: 'Share Tech Mono', monospace; font-size: 13px; line-height: 1.6;
+    text-align: left;
+  }
+  .hint-box.show { display: block; }
+  .hint-cost { color: #7c2f2f; font-size: 11px; margin-bottom: 0.5rem; }
+
+  /* MATRIX */
+  #matrix-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 9999; }
+  #matrix-overlay canvas { display: block; width: 100%; height: 100%; }
+
+  /* ADGANG GODKENDT */
+  #access-granted { display: none; position: fixed; inset: 0; z-index: 10000; align-items: center; justify-content: center; pointer-events: none; }
+  #access-granted.show { display: flex; }
+  .ag-text {
+    font-family: 'Share Tech Mono', monospace; font-size: clamp(20px, 6vw, 38px);
+    color: #00ff41; text-shadow: 0 0 20px #00ff41, 0 0 40px #00ff41;
+    letter-spacing: 6px; text-align: center;
+    opacity: 0; transform: scale(0.8); transition: opacity 0.4s, transform 0.4s;
+  }
+  .ag-text.show { opacity: 1; transform: scale(1); }
+
+  /* COUNTDOWN */
+  #countdown { display: none; position: fixed; inset: 0; z-index: 10001; align-items: center; justify-content: center; background: rgba(0,0,0,0.88); }
+  #countdown.show { display: flex; }
+  .cd-number { font-family: 'Playfair Display', serif; font-size: clamp(80px, 25vw, 140px); color: #c8922a; text-shadow: 0 0 40px rgba(200,146,42,0.6); opacity: 0; transition: opacity 0.15s; }
+
+  /* CODE REVEAL */
+  #code-reveal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.96); z-index: 10002; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; padding: 2rem; }
+  #code-reveal.show { display: flex; }
+  .reveal-label { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #5a3a1a; letter-spacing: 6px; text-transform: uppercase; }
+  .reveal-digits { display: flex; gap: 16px; }
+  .reveal-digit { width: 72px; height: 90px; background: #050a05; border: 1px solid #0a2a0a; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 50px; color: #050a05; transition: color 0.3s, border-color 0.3s, box-shadow 0.3s, transform 0.2s; }
+  .reveal-digit.lit { color: #c8922a; border-color: #c8922a; box-shadow: 0 0 30px rgba(200,146,42,0.5); transform: scale(1.08); }
+  .unlock-badge { display: flex; align-items: center; gap: 10px; font-family: 'Share Tech Mono', monospace; font-size: 16px; letter-spacing: 4px; text-transform: uppercase; opacity: 0; transition: opacity 0.8s; }
+  .unlock-badge.show { opacity: 1; }
+  .lock-icon { font-size: 22px; }
+  .unlock-badge.locked-state { color: #7c2f2f; }
+  .unlock-badge.unlocked-state { color: #5a9c30; text-shadow: 0 0 12px rgba(90,156,48,0.5); }
+  .reveal-msg { font-family: 'Playfair Display', serif; font-size: 15px; color: #5a3a1a; letter-spacing: 3px; text-transform: uppercase; opacity: 0; transition: opacity 1s; text-align: center; }
+  .reveal-msg.show { opacity: 1; }
+
+  /* EXPIRED */
+  #expired-overlay { display: none; position: fixed; inset: 0; background: #000; z-index: 10005; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
+  #expired-overlay.show { display: flex; }
+  .exp-text { font-family: 'Share Tech Mono', monospace; font-size: clamp(18px,5vw,32px); color: #cc2222; text-shadow: 0 0 20px #cc2222; letter-spacing: 4px; text-align: center; animation: expBlink 0.8s steps(1) infinite; }
+  @keyframes expBlink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+  .exp-sub { font-family: 'Share Tech Mono', monospace; font-size: 13px; color: #4a1a1a; letter-spacing: 3px; text-align: center; }
+
+  @keyframes shake {
+    0%,100%{transform:translateX(0);} 20%{transform:translateX(-6px);} 40%{transform:translateX(6px);} 60%{transform:translateX(-4px);} 80%{transform:translateX(4px);}
+  }
+  @keyframes cardGlitch {
+    0%{transform:translate(0,0) skew(0deg);filter:none;}
+    25%{transform:translate(-3px,1px) skew(-1deg);filter:hue-rotate(90deg) brightness(1.3);}
+    50%{transform:translate(3px,-1px) skew(1deg);filter:hue-rotate(180deg) brightness(0.8);}
+    75%{transform:translate(-2px,2px) skew(0.5deg);filter:hue-rotate(270deg);}
+    100%{transform:translate(0,0) skew(0deg);filter:none;}
+  }
+  @keyframes screenShake {
+    0%,100%{transform:translate(0,0);}
+    20%{transform:translate(-4px,2px);}
+    40%{transform:translate(4px,-2px);}
+    60%{transform:translate(-3px,-3px);}
+    80%{transform:translate(3px,3px);}
+  }
+
+  @media (max-width: 360px) {
+    .reveal-digit{width:62px;height:78px;font-size:42px;}
+    .reveal-digits{gap:10px;}
+    .digit{width:50px;height:64px;font-size:32px;}
+    .code-display{gap:8px;}
+  }
+
+  /* SPLASH SCREEN */
+  #splash {
+    position: fixed;
+    inset: 0;
+    background: #0a0502;
+    z-index: 20000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    cursor: pointer;
+    transition: opacity 0.6s;
+  }
+  #splash.hiding { opacity: 0; pointer-events: none; }
+  .splash-ornament { color: #3d2010; font-size: 24px; letter-spacing: 10px; }
+  .splash-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 8vw, 48px);
+    color: #c8922a;
+    text-align: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    text-shadow: 0 0 30px rgba(200,146,42,0.4);
+  }
+  .splash-divider { width: 60px; height: 1px; background: #3d2010; }
+  .splash-msg {
+    font-family: 'EB Garamond', serif;
+    font-size: clamp(16px, 4vw, 20px);
+    color: #8a6030;
+    text-align: center;
+    font-style: italic;
+    line-height: 1.7;
+    max-width: 340px;
+  }
+  .splash-msg strong { color: #c8922a; font-style: normal; }
+  .splash-btn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: clamp(14px, 4vw, 18px);
+    color: #0a0502;
+    background: #c8922a;
+    border: none;
+    border-radius: 8px;
+    padding: 16px 36px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    animation: pulseSplash 1.5s ease-in-out infinite;
+    box-shadow: 0 0 30px rgba(200,146,42,0.4);
+    margin-top: 0.5rem;
+  }
+  @keyframes pulseSplash {
+    0%,100% { box-shadow: 0 0 20px rgba(200,146,42,0.3); transform: scale(1); }
+    50% { box-shadow: 0 0 40px rgba(200,146,42,0.7); transform: scale(1.04); }
+  }
+  .splash-warn {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    color: #4a2e10;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .skip-btn {
+    position: fixed; right: 16px; z-index: 8000;
+    color: #fff; border: none; border-radius: 8px;
+    font-family: 'Share Tech Mono', monospace; font-size: 12px;
+    padding: 10px 12px; cursor: pointer; letter-spacing: 1px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+  }
+  #skip-qs   { bottom: 60px; background: #cc2222; }
+  #skip-mat  { bottom: 10px; background: #007acc; display: none; }
+</style>
+</head>
+<body>
+
+
+<div id="splash" onclick="startGame()">
+  <div class="splash-ornament">✦ ✦ ✦</div>
+  <div class="splash-title">JUHL 2026</div>
+  <div class="splash-divider"></div>
+  <div class="splash-msg">
+    Du har <strong>5 minutter</strong> til at besvare alle spørgsmål og afsløre koden.<br><br>
+    Timeren starter først når du trykker.
+  </div>
+  <button class="splash-btn">▶ &nbsp; TRYK FOR AT STARTE</button>
+  <div class="splash-warn">🔊 Sørg for lyden er tændt</div>
+</div>
+
+<div class="sound-banner">🔊 &nbsp; HUSK AT TÆNDE FOR LYDEN &nbsp; 🔊</div>
+
+<div class="card" id="main-card">
+  <div class="ornament">✦ ✦ ✦</div>
+  <h1>JUHL 2026</h1>
+  <div class="subtitle">Svar på spørgsmålene for at få koden</div>
+  <hr class="divider">
+
+  <div class="timer-wrap" style="padding: 1rem 0 0.5rem; border-bottom: 1px solid #2d1e0a; margin-bottom: 1rem;">
+    <div class="timer-label">⏱ TID TILBAGE</div>
+    <div class="timer-display" id="timer-display">05:00</div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="attempts-bar">
+    <div class="attempt-dot" id="dot1"></div>
+    <div class="attempt-dot" id="dot2"></div>
+    <div class="attempt-dot" id="dot3"></div>
+    <span class="attempts-label">FORSØG TILBAGE</span>
+  </div>
+  <div class="locked-msg" id="locked-msg">⚠ SYSTEM LÅST — VENT <span id="lock-countdown">30</span>s</div>
+
+  <div class="question">
+    <label><span class="label-text" data-text="1. Hvad hedder vores kat?">1. Hvad hedder vores kat?</span></label>
+    <div class="q-row">
+      <input type="text" id="q1" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(1)">Bekræft</button>
+      <span class="check-icon" id="chk1">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="2. Hvad laver vores nabo i kælderen?">2. Hvad laver vores nabo i kælderen?</span></label>
+    <div class="q-row">
+      <input type="text" id="q2" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(2)">Bekræft</button>
+      <span class="check-icon" id="chk2">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="3. Hvor mange vinduer har vi i vores hus?">3. Hvor mange vinduer har vi i vores hus?</span></label>
+    <div class="q-row">
+      <input type="text" id="q3" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(3)">Bekræft</button>
+      <span class="check-icon" id="chk3">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="4. Hvor mange fadølshaner har vi i baren?">4. Hvor mange fadølshaner har vi i baren?</span></label>
+    <div class="q-row">
+      <input type="text" id="q4" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(4)">Bekræft</button>
+      <span class="check-icon" id="chk4">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="5. Hvad hed Vivi og Frodes første hund?">5. Hvad hed Vivi og Frodes første hund?</span></label>
+    <div class="q-row">
+      <input type="text" id="q5" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(5)">Bekræft</button>
+      <span class="check-icon" id="chk5">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="6. Hvilket år blev Hanne og Rasmus gift?">6. Hvilket år blev Hanne og Rasmus gift?</span></label>
+    <div class="q-row">
+      <input type="text" id="q6" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(6)">Bekræft</button>
+      <span class="check-icon" id="chk6">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="7. Hvilken farve har naboens træhus?">7. Hvilken farve har naboens træhus?</span></label>
+    <div class="q-row">
+      <input type="text" id="q7" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(7)">Bekræft</button>
+      <span class="check-icon" id="chk7">✓</span>
+    </div>
+  </div>
+  <div class="question">
+    <label><span class="label-text" data-text="8. Hvor var vi samlet i sommerhus sidste gang?">8. Hvor var vi samlet i sommerhus sidste gang?</span></label>
+    <div class="q-row">
+      <input type="text" id="q8" placeholder="dit svar..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+      <button onclick="check(8)">Bekræft</button>
+      <span class="check-icon" id="chk8">✓</span>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="hint-section">
+    <button class="hint-btn" onclick="toggleHint()">⚡ VIS LEDETRÅD (-30 SEK)</button>
+    <div class="hint-box" id="hint-box">
+      <div class="hint-cost">⚠ 30 sekunder er trukket fra din tid</div>
+      Tænk på hvad I laver til hverdag — svarene finder du i jeres fælles hverdag og familiehistorie.
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="progress-wrap">
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+    <div class="progress-label" id="progress-label">0 / 8</div>
+  </div>
+
+  <div class="code-section">
+    <div class="code-label">Koden til låsen</div>
+    <div class="code-display">
+      <div class="digit">—</div><div class="digit">—</div>
+      <div class="digit">—</div><div class="digit">—</div>
+    </div>
+    <div class="status" id="status">Besvar alle spørgsmål for at afsløre koden</div>
+  </div>
+</div>
+
+<div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
+<div id="access-granted"><div class="ag-text" id="ag-text">ADGANG GODKENDT</div></div>
+<div id="countdown"><div class="cd-number" id="cd-number"></div></div>
+<div id="code-reveal">
+  <div class="reveal-label">Koden er</div>
+  <div class="reveal-digits">
+    <div class="reveal-digit" id="r0"></div>
+    <div class="reveal-digit" id="r1"></div>
+    <div class="reveal-digit" id="r2"></div>
+    <div class="reveal-digit" id="r3"></div>
+  </div>
+  <div class="unlock-badge" id="unlock-badge"><span class="lock-icon">🔒</span><span id="unlock-text">LÅST</span></div>
+  <div class="reveal-msg" id="reveal-msg">✦ Åbn låsen ✦</div>
+</div>
+<div id="expired-overlay">
+  <div class="exp-text">⚠ TIDEN ER UDLØBET ⚠</div>
+  <div class="exp-sub">SYSTEM NEDLUKKET</div>
+</div>
+
+<script>
+const ANSWERS = {
+  1:['fritz','frits'], 2:['keramik'], 3:['18'], 4:['6'],
+  5:['dina'], 6:['2018'], 7:['blå','blaa','blue'],
+  8:['bønnerup','boennerup','bonnerup']
+};
+const CODE = ['8','9','6','3'];
+const solved = {};
+let solvedCount = 0;
+const TOTAL = 8;
+let wrongAttempts = 0;
+const MAX_WRONG = 3;
+let isLocked = false;
+let lockTimer = null;
+let timerSeconds = 300;
+let timerInterval = null;
+let gameOver = false;
+let hintUsed = false;
+let bgMusic = null;
+let bgStarted = false;
+
+// ── AUDIO CTX ─────────────────────────────────────────────
+const AC = new (window.AudioContext || window.webkitAudioContext)();
+
+function ensureAudio() {
+  if (AC.state === 'suspended') AC.resume();
+}
+
+// ── MISSION IMPOSSIBLE STYLE BG MUSIC ────────────────────
+function startBgMusic() {
+  const audio = new Audio('mi-theme.mp3');
+  audio.loop = true;
+  audio.volume = 0.45;
+  audio.play().catch(() => {});
+  bgMusic = audio;
+  // fallback if autoplay blocked
+  document.addEventListener('touchstart', () => audio.play(), { once: true });
+  document.addEventListener('click', () => audio.play(), { once: true });
+}
+
+// ── TYPING ANIMATION ─────────────────────────────────────
+function typeLabels() {
+  const labels = document.querySelectorAll('.label-text');
+  labels.forEach((el, idx) => {
+    const text = el.getAttribute('data-text');
+    el.textContent = '';
+    let i = 0;
+    setTimeout(() => {
+      const interval = setInterval(() => {
+        el.textContent += text[i];
+        i++;
+        if (i >= text.length) clearInterval(interval);
+      }, 28);
+    }, idx * 180);
+  });
+}
+
+// ── TIMER ─────────────────────────────────────────────────
+function formatTime(s) {
+  const m = Math.floor(s/60).toString().padStart(2,'0');
+  const sec = (s%60).toString().padStart(2,'0');
+  return m+':'+sec;
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    if (gameOver) return;
+    timerSeconds--;
+    document.getElementById('timer-display').textContent = formatTime(timerSeconds);
+    if (timerSeconds <= 30) document.getElementById('timer-display').classList.add('warning');
+    if (timerSeconds <= 0) {
+      clearInterval(timerInterval);
+      gameOver = true;
+      triggerExpired();
+    }
+  }, 1000);
+}
+
+function triggerExpired() {
+  // alarm sound
+  for (let i=0;i<6;i++) {
+    setTimeout(() => {
+      const o = AC.createOscillator();
+      const g = AC.createGain();
+      o.connect(g); g.connect(AC.destination);
+      o.type='square'; o.frequency.value = i%2===0?440:330;
+      g.gain.setValueAtTime(0.2,AC.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.3);
+      o.start(AC.currentTime); o.stop(AC.currentTime+0.35);
+    }, i*350);
+  }
+  setTimeout(() => {
+    document.getElementById('expired-overlay').classList.add('show');
+  }, 400);
+}
+
+// ── HINT ──────────────────────────────────────────────────
+function toggleHint() {
+  ensureAudio();
+  const box = document.getElementById('hint-box');
+  if (!hintUsed) {
+    hintUsed = true;
+    timerSeconds = Math.max(0, timerSeconds - 30);
+    document.getElementById('timer-display').textContent = formatTime(timerSeconds);
+  }
+  box.classList.toggle('show');
+}
+
+// ── KEY SOUNDS ────────────────────────────────────────────
+function playKeySound() {
+  const o = AC.createOscillator();
+  const g = AC.createGain();
+  o.connect(g); g.connect(AC.destination);
+  o.type='square'; o.frequency.value=800+Math.random()*400;
+  g.gain.setValueAtTime(0.04,AC.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.04);
+  o.start(AC.currentTime); o.stop(AC.currentTime+0.05);
+}
+
+// ── CLICK SOUND ───────────────────────────────────────────
+function playClickSound() {
+  const o=AC.createOscillator(),g=AC.createGain();
+  o.connect(g);g.connect(AC.destination);
+  o.type='square';o.frequency.setValueAtTime(220,AC.currentTime);
+  o.frequency.exponentialRampToValueAtTime(55,AC.currentTime+0.08);
+  g.gain.setValueAtTime(0.3,AC.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.12);
+  o.start(AC.currentTime);o.stop(AC.currentTime+0.15);
+}
+
+function playWrongSound() {
+  const o=AC.createOscillator(),g=AC.createGain();
+  o.connect(g);g.connect(AC.destination);
+  o.type='sawtooth';o.frequency.value=120;
+  g.gain.setValueAtTime(0.2,AC.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.4);
+  o.start(AC.currentTime);o.stop(AC.currentTime+0.45);
+}
+
+function playUnlockFanfare() {
+  [261,329,392,523,659].forEach((freq,i)=>{
+    const o=AC.createOscillator(),g=AC.createGain();
+    o.connect(g);g.connect(AC.destination);
+    o.type='sine'; const t=AC.currentTime+i*0.15;
+    o.frequency.setValueAtTime(freq,t);
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(0.18,t+0.05);
+    g.gain.exponentialRampToValueAtTime(0.001,t+0.7);
+    o.start(t);o.stop(t+0.75);
+  });
+}
+
+function playCountdownBeep(isLast) {
+  const o=AC.createOscillator(),g=AC.createGain();
+  o.connect(g);g.connect(AC.destination);
+  o.type='sine';o.frequency.value=isLast?880:440;
+  g.gain.setValueAtTime(0.25,AC.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+(isLast?0.5:0.2));
+  o.start(AC.currentTime);o.stop(AC.currentTime+(isLast?0.55:0.25));
+}
+
+function playHackSound() {
+  const o=AC.createOscillator(),g=AC.createGain();
+  o.connect(g);g.connect(AC.destination);
+  o.type='sawtooth';
+  o.frequency.setValueAtTime(80,AC.currentTime);
+  o.frequency.exponentialRampToValueAtTime(900,AC.currentTime+4);
+  g.gain.setValueAtTime(0,AC.currentTime);
+  g.gain.linearRampToValueAtTime(0.1,AC.currentTime+0.3);
+  g.gain.linearRampToValueAtTime(0.14,AC.currentTime+3);
+  g.gain.linearRampToValueAtTime(0,AC.currentTime+5);
+  o.start(AC.currentTime);o.stop(AC.currentTime+5);
+
+  const bufSize=AC.sampleRate*3,buf=AC.createBuffer(1,bufSize,AC.sampleRate);
+  const data=buf.getChannelData(0);
+  for(let i=0;i<bufSize;i++) data[i]=(Math.random()*2-1)*0.04;
+  const n=AC.createBufferSource(),ng=AC.createGain();
+  n.buffer=buf;n.connect(ng);ng.connect(AC.destination);
+  ng.gain.setValueAtTime(0.3,AC.currentTime);
+  ng.gain.linearRampToValueAtTime(0,AC.currentTime+3);
+  n.start(AC.currentTime);
+}
+
+// ── VOICE ─────────────────────────────────────────────────
+function speakAccessGranted() {
+  if (!window.speechSynthesis) return;
+  const u = new SpeechSynthesisUtterance('Access granted');
+  u.lang = 'en-US'; u.pitch = 0.7; u.rate = 0.85; u.volume = 0.9;
+  speechSynthesis.speak(u);
+}
+
+// ── PROGRESS ──────────────────────────────────────────────
+function updateProgress() {
+  const pct=(solvedCount/TOTAL)*100;
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-label').textContent=solvedCount+' / '+TOTAL;
+}
+
+// ── CHECK ─────────────────────────────────────────────────
+function check(n) {
+  ensureAudio();
+  if (gameOver || isLocked) return;
+  const input=document.getElementById('q'+n);
+  const val=input.value.trim().toLowerCase();
+  if (solved[n]) return;
+
+  if (ANSWERS[n].includes(val)) {
+    input.classList.remove('wrong');
+    input.classList.add('correct');
+    input.disabled=true;
+    input.blur();
+    document.getElementById('chk'+n).classList.add('show');
+    solved[n]=true;
+    solvedCount++;
+    updateProgress();
+    playClickSound();
+
+    if (solvedCount===TOTAL) {
+      clearInterval(timerInterval);
+      gameOver=true;
+      document.getElementById('status').textContent='✦ Analyserer...';
+      document.getElementById('status').className='status ok';
+      setTimeout(startSequence, 700);
+    } else {
+      document.getElementById('status').textContent=(TOTAL-solvedCount)+' spørgsmål tilbage';
+    }
+  } else {
+    input.classList.add('wrong');
+    document.getElementById('main-card').classList.add('glitch');
+    playWrongSound();
+    wrongAttempts++;
+
+    // update dots
+    for(let d=1;d<=3;d++){
+      if(d>3-wrongAttempts) document.getElementById('dot'+d).classList.add('used');
+    }
+
+    if (wrongAttempts>=MAX_WRONG) {
+      triggerLockout();
+    } else {
+      document.getElementById('status').textContent='Forkert svar — '+( MAX_WRONG-wrongAttempts)+' forsøg tilbage';
+      document.getElementById('status').className='status err';
+    }
+
+    setTimeout(()=>{
+      input.classList.remove('wrong');
+      document.getElementById('main-card').classList.remove('glitch');
+    },350);
+    setTimeout(()=>{
+      if(!gameOver&&!isLocked) {
+        document.getElementById('status').textContent=(TOTAL-solvedCount)+' spørgsmål tilbage';
+        document.getElementById('status').className='status';
+      }
+    },2500);
+  }
+}
+
+function triggerLockout() {
+  isLocked=true;
+  const msg=document.getElementById('locked-msg');
+  msg.classList.add('show');
+  let sec=30;
+  document.getElementById('lock-countdown').textContent=sec;
+
+  // alarm
+  for(let i=0;i<4;i++){
+    setTimeout(()=>{
+      const o=AC.createOscillator(),g=AC.createGain();
+      o.connect(g);g.connect(AC.destination);
+      o.type='square';o.frequency.value=i%2===0?660:440;
+      g.gain.setValueAtTime(0.18,AC.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001,AC.currentTime+0.25);
+      o.start(AC.currentTime);o.stop(AC.currentTime+0.3);
+    },i*300);
+  }
+
+  lockTimer=setInterval(()=>{
+    sec--;
+    document.getElementById('lock-countdown').textContent=sec;
+    if(sec<=0){
+      clearInterval(lockTimer);
+      isLocked=false;
+      wrongAttempts=0;
+      for(let d=1;d<=3;d++) document.getElementById('dot'+d).classList.remove('used');
+      msg.classList.remove('show');
+      document.getElementById('status').textContent=(TOTAL-solvedCount)+' spørgsmål tilbage';
+      document.getElementById('status').className='status';
+    }
+  },1000);
+}
+
+// ── FULL SEQUENCE ─────────────────────────────────────────
+function startSequence() {
+  playHackSound();
+  startMatrix();
+}
+
+// ── MATRIX ────────────────────────────────────────────────
+function startMatrix() {
+  const overlay=document.getElementById('matrix-overlay');
+  const canvas=document.getElementById('matrix-canvas');
+  overlay.style.display='block';
+
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=window.innerWidth*dpr;
+  canvas.height=window.innerHeight*dpr;
+  canvas.style.width=window.innerWidth+'px';
+  canvas.style.height=window.innerHeight+'px';
+
+  const ctx=canvas.getContext('2d');
+  ctx.scale(dpr,dpr);
+  const W=window.innerWidth,H=window.innerHeight;
+  const fontSize=16;
+  const cols=Math.floor(W/fontSize);
+  const drops=Array(cols).fill(0).map(()=>Math.random()*(-(H/fontSize)));
+  const CHARS='0123456789アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホ01001101JUHL2026';
+
+  let frame=0,phase='ramp',alpha=1,speed=0.3,animId;
+
+  setTimeout(()=>{
+    const ag=document.getElementById('access-granted');
+    ag.style.display='flex';
+    speakAccessGranted();
+    setTimeout(()=>document.getElementById('ag-text').classList.add('show'),50);
+    setTimeout(()=>{
+      document.getElementById('ag-text').classList.remove('show');
+      setTimeout(()=>{ag.style.display='none';},500);
+    },2000);
+  },2500);
+
+  function draw(){
+    ctx.fillStyle=phase==='fadeout'?`rgba(0,0,0,${0.06+(1-alpha)*0.1})`:'rgba(0,0,0,0.05)';
+    ctx.fillRect(0,0,W,H);
+    ctx.font=fontSize+'px monospace';
+
+    for(let i=0;i<drops.length;i++){
+      const ch=CHARS[Math.floor(Math.random()*CHARS.length)];
+      const x=i*fontSize,y=drops[i]*fontSize;
+      if(phase==='fadeout') ctx.fillStyle=`rgba(0,255,65,${alpha*0.9})`;
+      else if(Math.random()>0.97) ctx.fillStyle='#ffffff';
+      else if(Math.random()>0.88) ctx.fillStyle='#00ff41';
+      else ctx.fillStyle='#008820';
+      ctx.fillText(ch,x,y);
+      if(y>H&&Math.random()>0.975) drops[i]=0;
+      drops[i]+=speed;
+    }
+
+    frame++;
+    if(phase==='ramp'&&frame<100) speed=0.3+(frame/100)*0.9;
+    if(frame===100) phase='hold';
+    if(frame===380) phase='slow';
+    if(phase==='slow') speed=Math.max(0.15,speed-0.006);
+    if(frame===480) phase='fadeout';
+
+    if(phase==='fadeout'){
+      alpha-=0.012;
+      if(alpha<=0){
+        cancelAnimationFrame(animId);
+        overlay.style.display='none';
+        startCountdown();
+        return;
+      }
+    }
+
+    if(Math.random()>0.996&&phase==='hold'){
+      ctx.fillStyle='rgba(255,255,255,0.025)';
+      ctx.fillRect(0,0,W,H);
+    }
+
+    animId=requestAnimationFrame(draw);
+  }
+  animId=requestAnimationFrame(draw);
+}
+
+// ── COUNTDOWN ─────────────────────────────────────────────
+function startCountdown(){
+  const el=document.getElementById('countdown');
+  const num=document.getElementById('cd-number');
+  el.classList.add('show');
+  let count=3;
+  function tick(){
+    num.textContent=count;
+    num.style.opacity='1';
+    playCountdownBeep(count===1);
+    setTimeout(()=>{num.style.opacity='0';},700);
+    if(count>1){count--;setTimeout(tick,1000);}
+    else{
+      setTimeout(()=>{
+        el.classList.remove('show');
+        document.getElementById('main-card').style.animation='screenShake 0.4s ease';
+        setTimeout(()=>{document.getElementById('main-card').style.animation='';},400);
+        showCodeReveal();
+      },900);
+    }
+  }
+  tick();
+}
+
+// ── CODE REVEAL ───────────────────────────────────────────
+function showCodeReveal(){
+  const reveal=document.getElementById('code-reveal');
+  reveal.classList.add('show');
+  const badge=document.getElementById('unlock-badge');
+  badge.className='unlock-badge locked-state';
+  document.getElementById('unlock-text').textContent='LÅST';
+  document.querySelector('.lock-icon').textContent='🔒';
+  setTimeout(()=>badge.classList.add('show'),200);
+
+  CODE.forEach((val,i)=>{
+    const el=document.getElementById('r'+i);
+    el.textContent=val;
+    setTimeout(()=>{el.classList.add('lit');playClickSound();},800+i*600);
+  });
+
+  const unlockT=800+CODE.length*600+300;
+  setTimeout(()=>{
+    badge.classList.remove('locked-state');
+    badge.classList.add('unlocked-state');
+    document.getElementById('unlock-text').textContent='OPLÅST';
+    document.querySelector('.lock-icon').textContent='🔓';
+    playUnlockFanfare();
+  },unlockT);
+
+  setTimeout(()=>{
+    document.getElementById('reveal-msg').classList.add('show');
+  },unlockT+600);
+}
+
+// ── INIT ──────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded',()=>{
+  typeLabels();
+
+  for(let i=1;i<=8;i++){
+    const inp=document.getElementById('q'+i);
+    inp.addEventListener('keydown',(e)=>{
+      ensureAudio();
+      if(e.key==='Enter') check(i);
+      else setTimeout(playKeySound,0);
+    });
+    inp.addEventListener('focus', ensureAudio);
+  }
+
+  updateProgress();
+});
+
+  function startGame() {
+    const splash = document.getElementById('splash');
+    splash.classList.add('hiding');
+    setTimeout(() => { splash.style.display = 'none'; }, 600);
+    // start music
+    if (AC.state === 'suspended') AC.resume();
+    if (!bgStarted) { bgStarted = true; startBgMusic(); }
+    // start timer
+    startTimer();
+  }
+
+
+function skipQuestions() {
+  // Mark all questions correct
+  for (let n = 1; n <= 8; n++) {
+    const input = document.getElementById('q'+n);
+    if (input && !solved[n]) {
+      solved[n] = true;
+      solvedCount++;
+      if (input) { input.classList.add('correct'); input.disabled = true; }
+      const chk = document.getElementById('chk'+n);
+      if (chk) chk.classList.add('show');
+    }
+  }
+  updateProgress();
+  document.getElementById('skip-qs').style.display = 'none';
+  document.getElementById('skip-mat').style.display = 'block';
+  document.getElementById('status').textContent = '✦ Analyserer...';
+  document.getElementById('status').className = 'status ok';
+  setTimeout(startMatrixSequence, 500);
+}
+
+function skipMatrix() {
+  document.getElementById('matrix-overlay').style.display = 'none';
+  document.getElementById('access-granted').style.display = 'none';
+  document.getElementById('countdown').classList.remove('show');
+  document.getElementById('skip-mat').style.display = 'none';
+  showCodeReveal();
+}
+
+</script>
+
+<button class="skip-btn" id="skip-qs"  onclick="skipQuestions()">⚡ SKIP SPØRGSMÅL</button>
+<button class="skip-btn" id="skip-mat" onclick="skipMatrix()">⚡ SKIP MATRIX</button>
+
+</body>
+</html>
