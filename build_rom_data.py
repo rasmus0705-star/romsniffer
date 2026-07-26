@@ -12,6 +12,8 @@ from spitus_rom import scrape_spitus_rom
 from rombo_rom import scrape_rombo_rom
 from rom_parser import enrich_from_html
 from rom_matching import group_products
+from generate_rom_pages import main as generate_rom_pages
+from generate_sitemap import main as generate_sitemap
 
 
 def enrich_missing_data(items, max_enrich=100):
@@ -262,10 +264,16 @@ def main():
         json.dump(history, hf, ensure_ascii=False)
     print(f"   ✅ Prishistorik gemt for {len(today_data)} rom ({today})")
 
+    # ── Gener statiske rom-sider ──
+    generate_rom_pages()
+
+    # ── Gener sitemap.xml ──
+    generate_sitemap()
+
     # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
-        subprocess.run(["git", "add", "rom_data.json", "price_history.json"], check=True)
+        subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "-A", "rom/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True

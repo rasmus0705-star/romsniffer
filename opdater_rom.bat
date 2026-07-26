@@ -19,7 +19,8 @@ if errorlevel 1 (
 
 echo.
 echo [2/2] Pusher til GitHub...
-git add rom_data.json
+git add rom_data.json price_history.json sitemap.xml
+git add -A rom/
 git commit -m "Daglig rom-data opdatering %date% %time:~0,5%"
 git push
 
