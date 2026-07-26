@@ -1177,7 +1177,7 @@
         <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.8rem">
             <span style="font-size:1.2rem">🏆</span>
             <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.1em;color:var(--gold)">Dagens fund</span>
-            <span style="font-size:0.7rem;color:var(--text-dim);margin-left:auto">Stoerst besparelse mellem butikker</span>
+            <span style="font-size:0.7rem;color:var(--text-dim);margin-left:auto">Størst besparelse mellem butikker</span>
         </div>
         <div id="fund-card" style="background:linear-gradient(135deg,var(--surface2),rgba(212,168,71,0.06));border:1px solid rgba(212,168,71,0.3);border-radius:12px;padding:1rem 1.2rem;display:flex;gap:1.2rem;align-items:center">
             <img id="fund-img" src="" alt="" style="width:80px;height:100px;object-fit:contain;border-radius:8px;background:#0a0604;padding:0.4rem;flex-shrink:0" onerror="this.style.display='none'">
@@ -1190,7 +1190,7 @@
                     <span id="fund-saving" style="background:linear-gradient(135deg,rgba(61,186,111,0.15),rgba(212,168,71,0.1));border:1px solid var(--discount);color:var(--discount);padding:0.25rem 0.6rem;border-radius:6px;font-size:0.78rem;font-weight:700"></span>
                 </div>
             </div>
-            <a id="fund-cta" href="#" target="_blank" rel="noopener" style="background:linear-gradient(135deg,var(--gold),#e8c868);color:#0a0604;padding:0.55rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.82rem;white-space:nowrap;flex-shrink:0">Koeb billigst →</a>
+            <a id="fund-cta" href="#" target="_blank" rel="noopener" style="background:linear-gradient(135deg,var(--gold),#e8c868);color:#0a0604;padding:0.55rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.82rem;white-space:nowrap;flex-shrink:0">Køb billigst →</a>
         </div>
     </div>
 </div>
@@ -1820,7 +1820,7 @@ function renderTopDeals() {
 
 // ── DAGENS FUND ───────────────────────────────────────────────────
 function renderDagensFund() {
-    // Find rom med stoerst besparelse mellem butikker
+    // Find rom med størst besparelse mellem butikker
     const candidates = allRoms.filter(r => r.shop_count > 1 && r.prices && r.prices.length > 1);
     if (!candidates.length) return;
 
