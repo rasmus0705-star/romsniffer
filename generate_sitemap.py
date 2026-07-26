@@ -8,7 +8,7 @@ Inkluderer:
 import os
 from datetime import datetime
 
-SITE_URL = "https://romsniffer.dk"
+SITE_URL = "https://www.romsniffer.dk"
 ROM_DIR = "rom"
 OUTPUT_FILE = "sitemap.xml"
 

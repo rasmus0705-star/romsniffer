@@ -24,7 +24,7 @@ from slugify_rom import slugify, make_unique_slug
 # ────────────────────────────────────────────────────────────
 ROM_DATA_FILE = "rom_data.json"
 OUTPUT_DIR = "rom"
-SITE_URL = "https://romsniffer.dk"
+SITE_URL = "https://www.romsniffer.dk"
 MAX_RELATED = 6
 
 # ────────────────────────────────────────────────────────────
