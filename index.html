@@ -1674,12 +1674,12 @@ function makeCard(r, delay) {
                 onclick="toggleFav('${esc(r.name)}',this)">
                 ${isFav ? '❤️' : '🤍'}</button>`;
 
-    html += `<div class="card-img-wrap">
+    html += `<a href="/rom/${r.slug}/" class="card-img-wrap" style="display:block;text-decoration:none">
         ${r.image
             ? `<img class="card-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
             : ''}
         <div class="card-img-placeholder" ${r.image ? 'style="display:none"' : ''}>🥃</div>
-    </div>`;
+    </a>`;
 
     html += `<div class="card-body">
         <div class="card-meta">
