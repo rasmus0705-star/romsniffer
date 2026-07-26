@@ -13,6 +13,7 @@ from rombo_rom import scrape_rombo_rom
 from rom_parser import enrich_from_html
 from rom_matching import group_products
 from generate_rom_pages import main as generate_rom_pages
+from slugify_rom import make_unique_slug
 from generate_sitemap import main as generate_sitemap
 
 
@@ -200,6 +201,11 @@ def main():
         })
 
     unique_roms.sort(key=lambda x: x["min_price"])
+
+    # Tilfoej slug til hvert rom-objekt
+    seen_slugs = set()
+    for rom in unique_roms:
+        rom["slug"] = make_unique_slug(rom["name"], seen_slugs)
 
     # Statistik
     total = len(unique_roms)

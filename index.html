@@ -1690,7 +1690,7 @@ function makeCard(r, delay) {
             ${r.volume_cl ? `<span class="card-tag vol">${r.volume_cl} cl</span>` : ''}
             ${pplTag}
         </div>
-        <div class="card-name">${r.name}</div>
+        <div class="card-name"><a href="/rom/${r.slug}/" style="color:inherit;text-decoration:none">${r.name}</a></div>
         <div class="price-rows">`;
 
     // Cheapest price row
