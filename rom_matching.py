@@ -125,9 +125,9 @@ def volume_gate(a, b, max_diff=2):
     vb = b.get("volume_cl")
     
     if va is None and vb is None:
-        return True, None
+        return True, None  # Begge mangler — lad andre gates afgøre
     if va is None or vb is None:
-        return True, None  # Acceptér, men noter
+        return False, f"Volume mismatch: {va}cl vs {vb}cl (én mangler)"
     
     if abs(va - vb) > max_diff:
         return False, f"Volume mismatch: {va}cl vs {vb}cl"
