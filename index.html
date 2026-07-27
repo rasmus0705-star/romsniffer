@@ -96,6 +96,61 @@
     .nav-updated { font-size: 0.65rem; color: var(--text-dim); text-align: right; line-height: 1.4; }
     .nav-updated strong { color: var(--text-muted); }
 
+
+    /* ── EXPLORE ── */
+    .explore {
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+        padding: 2.5rem 2rem;
+        margin-top: 2rem;
+    }
+    .explore-inner { max-width: 1100px; margin: 0 auto; }
+    .explore-title {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.8rem;
+        letter-spacing: 0.04em;
+        color: var(--copper-light);
+        margin-bottom: 0.2rem;
+    }
+    .explore-sub {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        margin-bottom: 1.5rem;
+    }
+    .explore-group { margin-bottom: 1.2rem; }
+    .explore-label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        margin-bottom: 0.5rem;
+    }
+    .explore-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+    .explore-tag {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 0.3rem 0.85rem;
+        font-size: 0.78rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: all 0.15s;
+        white-space: nowrap;
+    }
+    .explore-tag:hover {
+        border-color: var(--copper);
+        color: var(--text);
+        background: var(--surface2);
+    }
+    .explore-count {
+        font-size: 0.65rem;
+        color: var(--text-dim);
+        margin-left: 0.15rem;
+    }
+
     /* ── HERO ── */
     .hero {
         padding: 1.2rem 2rem 1.2rem;
@@ -1359,7 +1414,77 @@
 
 <button class="scroll-top" id="scroll-top" aria-label="Scroll til toppen">↑</button>
 
-<footer>
+
+    <!-- ══ UDFORSK KATEGORIER ══ -->
+    <section class="explore" id="udforsk">
+        <div class="explore-inner">
+            <h2 class="explore-title">Udforsk rom</h2>
+            <p class="explore-sub">Find rom efter land, type eller alder</p>
+
+            <div class="explore-group">
+                <h3 class="explore-label">🌍 Lande</h3>
+                <div class="explore-tags">
+                <a href="/rom/land/jamaica/" class="explore-tag">Jamaica <span class="explore-count">128</span></a>
+                <a href="/rom/land/dominikansk/" class="explore-tag">Dominikansk <span class="explore-count">120</span></a>
+                <a href="/rom/land/dansk/" class="explore-tag">Dansk <span class="explore-count">96</span></a>
+                <a href="/rom/land/barbados/" class="explore-tag">Barbados <span class="explore-count">83</span></a>
+                <a href="/rom/land/panama/" class="explore-tag">Panama <span class="explore-count">77</span></a>
+                <a href="/rom/land/guyana/" class="explore-tag">Guyana <span class="explore-count">70</span></a>
+                <a href="/rom/land/venezuela/" class="explore-tag">Venezuela <span class="explore-count">45</span></a>
+                <a href="/rom/land/cuba/" class="explore-tag">Cuba <span class="explore-count">38</span></a>
+                <a href="/rom/land/guatemala/" class="explore-tag">Guatemala <span class="explore-count">34</span></a>
+                <a href="/rom/land/martinique/" class="explore-tag">Martinique <span class="explore-count">30</span></a>
+                <a href="/rom/land/trinidad/" class="explore-tag">Trinidad <span class="explore-count">27</span></a>
+                <a href="/rom/land/colombia/" class="explore-tag">Colombia <span class="explore-count">25</span></a>
+                <a href="/rom/land/peru/" class="explore-tag">Peru <span class="explore-count">16</span></a>
+                <a href="/rom/land/nicaragua/" class="explore-tag">Nicaragua <span class="explore-count">12</span></a>
+                <a href="/rom/land/brasilien/" class="explore-tag">Brasilien <span class="explore-count">11</span></a>
+                <a href="/rom/land/ostrig/" class="explore-tag">Østrig <span class="explore-count">8</span></a>
+                <a href="/rom/land/filippinerne/" class="explore-tag">Filippinerne <span class="explore-count">8</span></a>
+                <a href="/rom/land/puerto-rico/" class="explore-tag">Puerto Rico <span class="explore-count">7</span></a>
+                </div>
+            </div>
+
+            <div class="explore-group">
+                <h3 class="explore-label">🥃 Typer</h3>
+                <div class="explore-tags">
+                <a href="/rom/type/aged-rom/" class="explore-tag">Aged rom <span class="explore-count">358</span></a>
+                <a href="/rom/type/mork-rom/" class="explore-tag">Mørk rom <span class="explore-count">218</span></a>
+                <a href="/rom/type/spiced/" class="explore-tag">Spiced <span class="explore-count">160</span></a>
+                <a href="/rom/type/rhum-agricole/" class="explore-tag">Rhum Agricole <span class="explore-count">52</span></a>
+                <a href="/rom/type/hvid-rom/" class="explore-tag">Hvid rom <span class="explore-count">51</span></a>
+                <a href="/rom/type/navy-rum/" class="explore-tag">Navy Rum <span class="explore-count">36</span></a>
+                <a href="/rom/type/overproof/" class="explore-tag">Overproof <span class="explore-count">33</span></a>
+                <a href="/rom/type/cachaca/" class="explore-tag">Cachaça <span class="explore-count">7</span></a>
+                <a href="/rom/type/gylden-rom/" class="explore-tag">Gylden rom <span class="explore-count">6</span></a>
+                </div>
+            </div>
+
+            <div class="explore-group">
+                <h3 class="explore-label">🕰️ Alder</h3>
+                <div class="explore-tags">
+                <a href="/rom/alder/xo/" class="explore-tag">XO <span class="explore-count">154</span></a>
+                <a href="/rom/alder/12-ar/" class="explore-tag">12 år <span class="explore-count">75</span></a>
+                <a href="/rom/alder/15-ar/" class="explore-tag">15 år <span class="explore-count">62</span></a>
+                <a href="/rom/alder/8-ar/" class="explore-tag">8 år <span class="explore-count">54</span></a>
+                <a href="/rom/alder/5-ar/" class="explore-tag">5 år <span class="explore-count">33</span></a>
+                <a href="/rom/alder/solera/" class="explore-tag">Solera <span class="explore-count">33</span></a>
+                <a href="/rom/alder/10-ar/" class="explore-tag">10 år <span class="explore-count">33</span></a>
+                <a href="/rom/alder/20-ar/" class="explore-tag">20 år <span class="explore-count">30</span></a>
+                <a href="/rom/alder/4-ar/" class="explore-tag">4 år <span class="explore-count">24</span></a>
+                <a href="/rom/alder/7-ar/" class="explore-tag">7 år <span class="explore-count">24</span></a>
+                <a href="/rom/alder/3-ar/" class="explore-tag">3 år <span class="explore-count">23</span></a>
+                <a href="/rom/alder/reserva/" class="explore-tag">Reserva <span class="explore-count">23</span></a>
+                <a href="/rom/alder/18-ar/" class="explore-tag">18 år <span class="explore-count">20</span></a>
+                <a href="/rom/alder/25-ar/" class="explore-tag">25 år <span class="explore-count">19</span></a>
+                <a href="/rom/alder/30-ar/" class="explore-tag">30 år <span class="explore-count">17</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ══ /UDFORSK ══ -->
+
+    <footer>
     <div class="footer-main">
         <div class="footer-brand">
             <div class="footer-brand-logo">

@@ -227,16 +227,19 @@ def render_page(rom, slug, related, slug_map, updated):
     image_url = esc(rom.get("image") or "")
     canonical = f"{SITE_URL}/rom/{slug}/"
 
-    # Metadata pills
+    # Metadata pills (land, type, alder linker til kategorisider)
     pills = []
     if rom.get("brand"):
         pills.append(f'<span class="pill">{brand_esc}</span>')
     if rom.get("country"):
-        pills.append(f'<span class="pill">{country_esc}</span>')
+        c_slug = slugify(rom["country"])
+        pills.append(f'<a href="{SITE_URL}/rom/land/{c_slug}/" class="pill pill-link">{country_esc}</a>')
     if rom.get("type"):
-        pills.append(f'<span class="pill">{type_esc}</span>')
+        t_slug = slugify(rom["type"])
+        pills.append(f'<a href="{SITE_URL}/rom/type/{t_slug}/" class="pill pill-link">{type_esc}</a>')
     if rom.get("age"):
-        pills.append(f'<span class="pill">{age_esc}</span>')
+        a_slug = slugify(rom["age"])
+        pills.append(f'<a href="{SITE_URL}/rom/alder/{a_slug}/" class="pill pill-link">{age_esc}</a>')
     if rom.get("abv"):
         pills.append(f'<span class="pill">{rom["abv"]}%</span>')
     if rom.get("volume_cl"):
