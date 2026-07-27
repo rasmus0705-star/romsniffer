@@ -18,6 +18,19 @@ from generate_sitemap import main as generate_sitemap
 from generate_category_pages import main as generate_category_pages
 
 
+
+def clean_entities(text):
+    """Rens HTML-entities fra produktnavne."""
+    if not text:
+        return text
+    from html import unescape
+    import re
+    text = unescape(text)
+    text = unescape(text)  # dobbelt-escaped
+    text = re.sub(r"<[^>]+>", "", text)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
+
 def enrich_missing_data(items, max_enrich=100):
     """
     For produkter hvor ABV/volume/age mangler, hent HTML siden og prøv at finde data.
@@ -185,11 +198,11 @@ def main():
         ] if v))
 
         unique_roms.append({
-            "name": first["name"],
+            "name": clean_entities(first["name"]),
             "image": best_meta.get("image"),
             "type": best_meta.get("type"),
             "country": best_meta.get("country"),
-            "brand": best_meta.get("brand"),
+            "brand": clean_entities(best_meta.get("brand")),
             "abv": best_meta.get("abv"),
             "volume_cl": best_meta.get("volume_cl"),
             "age": best_meta.get("age"),
@@ -276,6 +289,9 @@ def main():
 
     # ── Gener kategorisider ──
     generate_category_pages()
+
+    # ── Gener sitemap.xml ──
+    generate_sitemap()
 
     # ── Gener sitemap.xml ──
     generate_sitemap()
