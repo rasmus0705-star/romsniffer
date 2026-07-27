@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RomSniffer — Sammenlign rom-priser fra danske webshops</title>
 <meta name="description" content="Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.">
+<link rel="canonical" href="https://www.romsniffer.dk/">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,59 +98,70 @@
     .nav-updated strong { color: var(--text-muted); }
 
 
-    /* ── EXPLORE ── */
-    .explore {
-        border-top: 1px solid var(--border);
+
+    /* ── CARD CLICK OVERLAY ── */
+    .card { position: relative; cursor: pointer; }
+    .card-name a::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+    .card .fav-btn,
+    .card .price-row-link,
+    .card .more-shops-toggle,
+    .card .more-shops a {
+        position: relative;
+        z-index: 2;
+    }
+
+
+    /* ── CATEGORY BAR ── */
+    .cat-bar {
+        padding: 0.7rem 2rem;
         border-bottom: 1px solid var(--border);
-        padding: 2.5rem 2rem;
-        margin-top: 2rem;
-    }
-    .explore-inner { max-width: 1100px; margin: 0 auto; }
-    .explore-title {
-        font-family: 'Bebas Neue', sans-serif;
-        font-size: 1.8rem;
-        letter-spacing: 0.04em;
-        color: var(--copper-light);
-        margin-bottom: 0.2rem;
-    }
-    .explore-sub {
-        color: var(--text-muted);
-        font-size: 0.88rem;
-        margin-bottom: 1.5rem;
-    }
-    .explore-group { margin-bottom: 1.2rem; }
-    .explore-label {
-        font-size: 0.82rem;
-        font-weight: 600;
-        color: var(--text-muted);
-        margin-bottom: 0.5rem;
-    }
-    .explore-tags {
         display: flex;
-        flex-wrap: wrap;
-        gap: 0.4rem;
+        align-items: center;
+        gap: 0.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
     }
-    .explore-tag {
+    .cat-bar::-webkit-scrollbar { display: none; }
+    .cat-bar-label {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.1em;
+        color: var(--text-dim);
+        white-space: nowrap;
+        flex-shrink: 0;
+    }
+    .cat-chip {
         background: var(--surface);
         border: 1px solid var(--border);
         border-radius: 20px;
-        padding: 0.3rem 0.85rem;
-        font-size: 0.78rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.72rem;
         color: var(--text-muted);
         text-decoration: none;
-        transition: all 0.15s;
         white-space: nowrap;
+        flex-shrink: 0;
+        transition: all 0.15s;
     }
-    .explore-tag:hover {
+    .cat-chip:hover {
         border-color: var(--copper);
         color: var(--text);
         background: var(--surface2);
     }
-    .explore-count {
-        font-size: 0.65rem;
-        color: var(--text-dim);
-        margin-left: 0.15rem;
+    .sidebar-cat-link {
+        display: block;
+        margin-top: 0.4rem;
+        font-size: 0.72rem;
+        color: var(--copper-light);
+        text-decoration: none;
+        padding: 0.2rem 0;
     }
+    .sidebar-cat-link:hover { color: var(--caramel-light); }
 
     /* ── HERO ── */
     .hero {
@@ -1174,7 +1186,7 @@
         <div class="hero-left">
             <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'" decoding="async">
             <h2 class="hero-title">Find den billigste rom — på få sekunder</h2>
-            <p class="hero-sub">Sammenlign <strong id="hero-count">500+</strong> rom fra danske webshops — opdateres dagligt</p>
+            <p class="hero-sub">Sammenlign <strong id="hero-count">1.000+</strong> rom fra danske webshops — opdateres dagligt</p>
             <div class="hero-search-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/>
@@ -1224,6 +1236,13 @@
     <div class="stat-item"><div class="stat-num" id="stat-multi">–</div><div class="stat-lbl">I flere butikker</div></div>
     <div class="stat-item"><div class="stat-num" id="stat-deals">–</div><div class="stat-lbl">Aktive tilbud</div></div>
     <div class="stat-item"><div class="stat-num" id="stat-cheapest">–</div><div class="stat-lbl">Billigste (kr)</div></div>
+</div>
+
+
+<!-- CATEGORY BAR -->
+<div class="cat-bar">
+    <span class="cat-bar-label">UDFORSK:</span>
+    <a href="/rom/land/jamaica/" class="cat-chip">Jamaica</a> <a href="/rom/land/dominikansk/" class="cat-chip">Dominikansk</a> <a href="/rom/land/dansk/" class="cat-chip">Dansk</a> <a href="/rom/land/barbados/" class="cat-chip">Barbados</a> <a href="/rom/land/panama/" class="cat-chip">Panama</a> <a href="/rom/land/guyana/" class="cat-chip">Guyana</a> <a href="/rom/type/aged-rom/" class="cat-chip">Aged rom</a> <a href="/rom/type/mork-rom/" class="cat-chip">Mørk rom</a> <a href="/rom/type/spiced/" class="cat-chip">Spiced</a> <a href="/rom/type/rhum-agricole/" class="cat-chip">Rhum Agricole</a>
 </div>
 
 <!-- DAGENS FUND -->
@@ -1300,8 +1319,8 @@
         <div class="sidebar-section">
             <div class="sidebar-title">🔢 Sortér efter</div>
             <select id="sort" class="sidebar-select" aria-label="Vælg sortering">
-                <option value="savings">Størst besparelse (butikker)</option>
                 <option value="price-asc">Pris: Lav → Høj</option>
+                <option value="savings">Størst besparelse (butikker)</option>
                 <option value="price-desc">Pris: Høj → Lav</option>
                 <option value="discount">Størst rabat</option>
                 <option value="price-per-cl">Pris pr. cl</option>
@@ -1324,6 +1343,7 @@
                 <button class="sidebar-clear-link" id="clear-countries" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="country-list" role="group" aria-label="Filtrer efter land"></div>
+            <a href="/rom/land/jamaica/" class="sidebar-cat-link">Se alle lande →</a>
         </div>
 
         <div class="sidebar-section">
@@ -1332,6 +1352,7 @@
                 <button class="sidebar-clear-link" id="clear-types" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="type-list" role="group" aria-label="Filtrer efter type"></div>
+            <a href="/rom/type/aged-rom/" class="sidebar-cat-link">Se alle typer →</a>
         </div>
 
         <div class="sidebar-section">
@@ -1340,6 +1361,7 @@
                 <button class="sidebar-clear-link" id="clear-ages" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="age-list" role="group" aria-label="Filtrer efter alder"></div>
+            <a href="/rom/alder/xo/" class="sidebar-cat-link">Se alle aldre →</a>
         </div>
 
         <div class="sidebar-section">
@@ -1392,8 +1414,8 @@
         <div class="sort-bar">
             <div class="sort-bar-count"><strong id="result-count">0</strong></div>
             <select id="sort-top" class="sort-select" aria-label="Vælg sortering">
-                <option value="savings">Størst besparelse (butikker)</option>
                 <option value="price-asc">Pris: Lav → Høj</option>
+                <option value="savings">Størst besparelse (butikker)</option>
                 <option value="price-desc">Pris: Høj → Lav</option>
                 <option value="discount">Størst rabat</option>
                 <option value="price-per-cl">Pris pr. cl</option>
@@ -1415,74 +1437,7 @@
 <button class="scroll-top" id="scroll-top" aria-label="Scroll til toppen">↑</button>
 
 
-    <!-- ══ UDFORSK KATEGORIER ══ -->
-    <section class="explore" id="udforsk">
-        <div class="explore-inner">
-            <h2 class="explore-title">Udforsk rom</h2>
-            <p class="explore-sub">Find rom efter land, type eller alder</p>
 
-            <div class="explore-group">
-                <h3 class="explore-label">🌍 Lande</h3>
-                <div class="explore-tags">
-                <a href="/rom/land/jamaica/" class="explore-tag">Jamaica <span class="explore-count">128</span></a>
-                <a href="/rom/land/dominikansk/" class="explore-tag">Dominikansk <span class="explore-count">120</span></a>
-                <a href="/rom/land/dansk/" class="explore-tag">Dansk <span class="explore-count">96</span></a>
-                <a href="/rom/land/barbados/" class="explore-tag">Barbados <span class="explore-count">83</span></a>
-                <a href="/rom/land/panama/" class="explore-tag">Panama <span class="explore-count">77</span></a>
-                <a href="/rom/land/guyana/" class="explore-tag">Guyana <span class="explore-count">70</span></a>
-                <a href="/rom/land/venezuela/" class="explore-tag">Venezuela <span class="explore-count">45</span></a>
-                <a href="/rom/land/cuba/" class="explore-tag">Cuba <span class="explore-count">38</span></a>
-                <a href="/rom/land/guatemala/" class="explore-tag">Guatemala <span class="explore-count">34</span></a>
-                <a href="/rom/land/martinique/" class="explore-tag">Martinique <span class="explore-count">30</span></a>
-                <a href="/rom/land/trinidad/" class="explore-tag">Trinidad <span class="explore-count">27</span></a>
-                <a href="/rom/land/colombia/" class="explore-tag">Colombia <span class="explore-count">25</span></a>
-                <a href="/rom/land/peru/" class="explore-tag">Peru <span class="explore-count">16</span></a>
-                <a href="/rom/land/nicaragua/" class="explore-tag">Nicaragua <span class="explore-count">12</span></a>
-                <a href="/rom/land/brasilien/" class="explore-tag">Brasilien <span class="explore-count">11</span></a>
-                <a href="/rom/land/ostrig/" class="explore-tag">Østrig <span class="explore-count">8</span></a>
-                <a href="/rom/land/filippinerne/" class="explore-tag">Filippinerne <span class="explore-count">8</span></a>
-                <a href="/rom/land/puerto-rico/" class="explore-tag">Puerto Rico <span class="explore-count">7</span></a>
-                </div>
-            </div>
-
-            <div class="explore-group">
-                <h3 class="explore-label">🥃 Typer</h3>
-                <div class="explore-tags">
-                <a href="/rom/type/aged-rom/" class="explore-tag">Aged rom <span class="explore-count">358</span></a>
-                <a href="/rom/type/mork-rom/" class="explore-tag">Mørk rom <span class="explore-count">218</span></a>
-                <a href="/rom/type/spiced/" class="explore-tag">Spiced <span class="explore-count">160</span></a>
-                <a href="/rom/type/rhum-agricole/" class="explore-tag">Rhum Agricole <span class="explore-count">52</span></a>
-                <a href="/rom/type/hvid-rom/" class="explore-tag">Hvid rom <span class="explore-count">51</span></a>
-                <a href="/rom/type/navy-rum/" class="explore-tag">Navy Rum <span class="explore-count">36</span></a>
-                <a href="/rom/type/overproof/" class="explore-tag">Overproof <span class="explore-count">33</span></a>
-                <a href="/rom/type/cachaca/" class="explore-tag">Cachaça <span class="explore-count">7</span></a>
-                <a href="/rom/type/gylden-rom/" class="explore-tag">Gylden rom <span class="explore-count">6</span></a>
-                </div>
-            </div>
-
-            <div class="explore-group">
-                <h3 class="explore-label">🕰️ Alder</h3>
-                <div class="explore-tags">
-                <a href="/rom/alder/xo/" class="explore-tag">XO <span class="explore-count">154</span></a>
-                <a href="/rom/alder/12-ar/" class="explore-tag">12 år <span class="explore-count">75</span></a>
-                <a href="/rom/alder/15-ar/" class="explore-tag">15 år <span class="explore-count">62</span></a>
-                <a href="/rom/alder/8-ar/" class="explore-tag">8 år <span class="explore-count">54</span></a>
-                <a href="/rom/alder/5-ar/" class="explore-tag">5 år <span class="explore-count">33</span></a>
-                <a href="/rom/alder/solera/" class="explore-tag">Solera <span class="explore-count">33</span></a>
-                <a href="/rom/alder/10-ar/" class="explore-tag">10 år <span class="explore-count">33</span></a>
-                <a href="/rom/alder/20-ar/" class="explore-tag">20 år <span class="explore-count">30</span></a>
-                <a href="/rom/alder/4-ar/" class="explore-tag">4 år <span class="explore-count">24</span></a>
-                <a href="/rom/alder/7-ar/" class="explore-tag">7 år <span class="explore-count">24</span></a>
-                <a href="/rom/alder/3-ar/" class="explore-tag">3 år <span class="explore-count">23</span></a>
-                <a href="/rom/alder/reserva/" class="explore-tag">Reserva <span class="explore-count">23</span></a>
-                <a href="/rom/alder/18-ar/" class="explore-tag">18 år <span class="explore-count">20</span></a>
-                <a href="/rom/alder/25-ar/" class="explore-tag">25 år <span class="explore-count">19</span></a>
-                <a href="/rom/alder/30-ar/" class="explore-tag">30 år <span class="explore-count">17</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ══ /UDFORSK ══ -->
 
     <footer>
     <div class="footer-main">
