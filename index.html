@@ -99,21 +99,8 @@
 
 
 
-    /* ── CARD CLICK OVERLAY ── */
-    .card { position: relative; cursor: pointer; }
-    .card-name a::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-    }
-    .card .fav-btn,
-    .card .price-row-link,
-    .card .more-shops-toggle,
-    .card .more-shops a {
-        position: relative;
-        z-index: 2;
-    }
+    /* ── CARD CLICK ── */
+    .card { cursor: pointer; }
 
 
     /* ── CATEGORY BAR ── */
@@ -2448,6 +2435,18 @@ function romRoulette() {
 applyUrlParams();
 updateRangeTracks();
 loadData();
+</script>
+
+<script>
+// Card click: hele kortet linker til rom-side
+document.addEventListener('click', function(e) {
+    const card = e.target.closest('.card');
+    if (!card) return;
+    // Ignorer klik på interaktive elementer
+    if (e.target.closest('a, button, .more-shops-toggle, .more-shops, .fav-btn')) return;
+    const link = card.querySelector('.card-name a');
+    if (link) link.click();
+});
 </script>
 </body>
 </html>
