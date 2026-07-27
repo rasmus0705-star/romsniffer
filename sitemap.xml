@@ -187,12 +187,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/alder/1-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/alder/10-ar/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -247,12 +241,6 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/alder/2-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/alder/20-ar/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -265,19 +253,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/alder/22-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/alder/23-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/alder/24-ar/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -355,25 +331,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/1731-fine-and-rare-guatemala-gran-reserva-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/1987-dictador-altisimo-43/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/24-x-magiske-rom-and-8211-julekalender-2025/</loc>
+    <loc>https://www.romsniffer.dk/rom/24-x-magiske-rom-julekalender-2025/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-1888-copenhagen-gold-medal-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-1888-copenhagen-gold-medal-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -391,7 +361,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-black-gem-serie-and-8211-black-coral-black-larimar-og-black-spinel/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-black-gem-serie-black-coral-black-larimar-og-black-spinel/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -433,7 +403,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-ambre-dand-8217-or-excellence-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-ambre-dor-excellence-2/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -457,13 +427,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-very-rare-and-8211-old-edition/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-old-st-croix-xo-explorer-danmark/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-very-rare-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -505,7 +469,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-royal-danish-navy-frogman-rum-and-8211-old-edition-58/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-royal-danish-navy-frogman-rum-old-edition-58/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -523,13 +487,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-royal-danish-navy-strength-55-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-royal-danish-navy-strength-55-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-royal-danish-navy-westindian-50cl-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-royal-danish-navy-westindian-50cl-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -565,19 +529,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-x-o-reserve-175-years-anniversary-rum-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-x-o-reserve-175-years-anniversary-rum-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-x-o-reserve-port-cask-rum-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-x-o-reserve-port-cask-rum-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-x-o-reserve-super-premium-single-barrel-rum-and-8211-old-version/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-x-o-reserve-super-premium-single-barrel-rum-old-version/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -601,7 +565,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-xo-ambre-dand-8217-or/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-xo-ambre-dor/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -655,7 +619,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-xo-reserve-super-premium-single-barrel-rum-35-cl-and-8211-batch-1/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-xo-reserve-super-premium-single-barrel-rum-35-cl-batch-1/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -667,7 +631,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a-h-riise-xo-royal-reserve-king-haakon-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/a-h-riise-xo-royal-reserve-king-haakon-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -685,55 +649,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/a1710-bete-a-feu-rhum-blanc-extraordinaire-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/a1710-diamond-rock-rhum-blanc-extraordinaire-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/a1710-la-perle-brute-66-millesime-2021-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/a1710-la-perle-rhum-extraordinaire-millesime-2021-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-12-ar-abuelo-xii-two-oaks-20-cl-sample/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-12-ar-gran-reserva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/abuelo-12yo-abuelo-two-oaks-rom-20-cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-5-ar-anejo-reserva-especial-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-7-ar-anejo-reserva-superior-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -751,19 +667,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-centuria-and-8216-reserva-de-la-familiaand-8217-solera-rum-30-ar-40-70cl-panama/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/abuelo-centuria-reserva-de-la-familia-30-y-o-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-centuria-reserva-de-la-familia-solera-rum-30-ar/</loc>
+    <loc>https://www.romsniffer.dk/rom/abuelo-centuria-reserva-de-la-familia-solera-rum-30-ar-40-70cl-panama/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -775,37 +685,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xii-anos-and-8216-three-angelsand-8217-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/abuelo-xii-anos-three-angels-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xii-anos-and-8220-two-oaksand-8221-20cl-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/abuelo-xii-anos-two-oaks-20cl-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xii-three-angels-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xii-two-oaks-rom-2/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xv-15-ar-oloroso-sherry-cask-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xv-15-ar-tawny-port-cask-finish-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/abuelo-xii-two-oaks-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -841,12 +733,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/abuelo-xv-finish-collection-three-pack-3-x-20cl-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/abuelo-xv-napoleon-cognac-cask-finish-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -865,7 +751,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/alfredand-8217-s-trail-edt-6-12-belize-rum/</loc>
+    <loc>https://www.romsniffer.dk/rom/alfreds-trail-edt-6-12-belize-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -889,55 +775,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-1787-super-premium-rom-15-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/angostura-1824-12-year-premium-caribbean-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-1824-premium-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-1919-premium-rom-13-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-3-ar-superior-white-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-5-ar-gold-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-7-ar-dark-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/angostura-aromatic-bitters-200-ml-44-7/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-cask-collection-no-1-oloroso-sherry-cask-rum-edition-3/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -955,61 +799,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-tamboo-spiced/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/angostura-tribute-distillers-cut-private-cask-collection-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/appleton-estate-12-ar-rare-blend-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/appleton-estate-21-ar-nassau-valley-casks-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/appleton-estate-black-river-casks-15-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/appleton-estate-reserve-8-years-jamaica-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/appleton-estate-reserve-rum-8-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/appleton-kingston-62-white-jamaica-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/appleton-signature-blend-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/arcane-rum-extraroma-rom-fra-mauritius/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1039,30 +829,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/autentico-nativo-overproof-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/autentico-nativo-rum-15-ars/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/autentico-nativo-rum-20-ars/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/autentico-nativo-xo-rum-finished-in-cognac-barrels/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/bacardi-caribbean-spiced/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1081,37 +847,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/bapt-and-clems-belize-4-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/barbados-foursquare-rum-2007-61-9-raw-cask-blackadder/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/barbancourt-rhum-5-star-8-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/barbancourt-rhum-reserve-du-domaine-rum-15-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/barcelo-imperial/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/barcelo-imperial-40-aniversario-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1124,18 +866,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/barcelo-imperial-rare-blends-porto-cask/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/barcelo-onyx-imperial-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/barcelo-organic-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1171,31 +901,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/belize-shared-single-cask-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/belizean-blue-signature-blend-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/belizean-blue-signature-blend-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/black-tot-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/black-tot-rum-finest-caribbean/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1225,42 +937,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/botran-15-ar-solera-reserva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/botran-18-ar-solera-gran-reserva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/botran-ki-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/botran-miracielo-artesenal-spirit-drink/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/botran-rare-blend-vintage-french-wine-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/botran-roaju-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/botran-ron-anejo-8-sistema-solera/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1280,48 +956,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/bristol-classic-port-morant-1999-16-ar-american-oak/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-reserve-rum-of-haiti-2004/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-rum-1988-enmore-still-30-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-rum-2009-jamaica-trelawney-county-12-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-rum-dominican-2013-madeira-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-rum-fine-cuban-rum-2003/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-rum-finest-mauritius-cane-juice-rhum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-classic-rum-old-demerara-rum-port-mourant-1990-32-ar/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1351,7 +985,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/bristol-spirits-caroni-blended-1999-trinidadandamp-tobago-43/</loc>
+    <loc>https://www.romsniffer.dk/rom/bristol-spirits-caroni-blended-1999-trinidadandtobago-43/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1387,19 +1021,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/british-royal-navy-rum-one-imperial-gallon-57-15-4-54-liter-rom-fra-caribien/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/brugal-1888-gran-reserva/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/brugal-1888-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1465,30 +1087,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/cane-island-single-estate-rum-nicaragua-12-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cane-island-single-estate-trinidad-sherry-cask-finish-8-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cane-island-single-island-blend-panama-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cane-island-thailand-5-ar-single-estate-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/cane-island-trinidad-limited-edt-sherry-finish-8-y-o-43/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1513,19 +1111,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/cargo-cult-banana-spiced-spirit-drink/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cargo-cult-navy-strength-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/caroni-and-8220-feliciteand-8221-bristol-classic-40-bottled-2019/</loc>
+    <loc>https://www.romsniffer.dk/rom/caroni-felicite-bristol-classic-40-bottled-2019/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1543,91 +1129,43 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/carupano-reserva-12-exclusiva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/carupano-reserva-18-limitada-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/carupano-reserva-21-privada-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/cashcane-saloon-cask/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/chairmanand-8217-s-reserve/</loc>
+    <loc>https://www.romsniffer.dk/rom/chairmans-reserve/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/chairmanand-8217-s-reserve-1931/</loc>
+    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-1931/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/chairmanand-8217-s-reserve-forgotten-casks/</loc>
+    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-forgotten-casks/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/chairmanand-8217-s-reserve-rum-legacy-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-rum-legacy-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/chairmanand-8217-s-reserve-spiced/</loc>
+    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-spiced/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/chairmanand-8217-s-reserve-vintage-2009/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-1931-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-original-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-rum-vintage-2011/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-spiced-original-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-the-forgotten-casks-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/chairmans-reserve-vintage-2009/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1657,24 +1195,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/cihuatan-cinabrio-12-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cihuatan-folklore-seleccion-nordica-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cihuatan-xaman-xo-rom-fra-el-salvador/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/clarenden-rum-jamaica-2007-65-8-raw-cask-blackadder/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1682,18 +1202,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/clarendon-rum-2008-56-8-adelphi/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/clement-vsop-rhum-agricole-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/clement-xo-rhum-agricole-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1717,127 +1225,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/come-hell-or-high-water-spiced-vanilla-and-cola/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/come-hell-or-high-water-xo-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-australia-beenleigh-2022-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-great-whites-ghana-overproof-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-great-whites-jamaica-overproof-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-great-whites-vietnam-overproof-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-guyana-14-ans-armagnac-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-guyana-port-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-jamaica-5-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-jamaica-9-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-jamaica-clarendon-2022-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-jamaica-navy-strength-4-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-jamaica-new-yarmouth-2022-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-latino-4-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/compagnie-des-indes-west-indies-8-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/companero-coconut/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/companero-elixir-extra/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/companero-elixir-orange/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/companero-gran-reserva/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/companero-gran-reserva-40-jamaica-trinidad/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/companero-panama-extra-anejo/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1850,12 +1238,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/companero-ron-panama-54-extra-anejo/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/cortez-blanco-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1880,18 +1262,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/deadhead-chocolate-rom-likor/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/deadhead-monkey-dark-chocolate/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/deadhead-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -1957,18 +1327,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/dictador-destillery-icon-reserve-12-ars-solera-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/dictador-destillery-icon-reserve-20-ars-solera-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/dictador-platinium-colombian-aged-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -1993,19 +1351,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-ambassador-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/diplomatico-ambassador-selection-cask-strength-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-chancellor-ron-extra-antiguo/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2035,12 +1381,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-mantuano-ron-extra-anejo-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/diplomatico-no-1-batch-kettle-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2059,13 +1399,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-planas-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-reserva-exclusiva-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/diplomatico-reserva-exclusiva-ron-antiguo/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2083,12 +1417,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-seleccion-de-familia-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/diplomatico-selection-de-familia-43/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2101,49 +1429,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-single-vintage-rum-2008-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/diplomatico-single-vintage-rum-2008/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/don-omario-belize-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/don-papa-baroko/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/don-papa-gayuma-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/don-papa-quincentennial-edition-small-batch-2025-release-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/don-papa-single-island-7-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/don-q-151-overproof-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/don-q-double-cask-port-finish-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2161,73 +1453,31 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/don-q-gran-reserva-anejo-xo-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/doorlys-5-years-old-fine-old-barbados-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/doorlyand-8217-s-5-years-old-fine-old-barbados-rum/</loc>
+    <loc>https://www.romsniffer.dk/rom/doorlys-fine-old-barbados-rum-12-y-o/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/doorlyand-8217-s-fine-old-barbados-rum-12-y-o/</loc>
+    <loc>https://www.romsniffer.dk/rom/doorlys-fine-old-rum-12-yo-barbados/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/doorlyand-8217-s-fine-old-rum-12-yo-barbados/</loc>
+    <loc>https://www.romsniffer.dk/rom/doorlys-fine-old-rum-14-yo-barbados/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/doorlyand-8217-s-fine-old-rum-14-yo-barbados/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/doorlyand-8217-s-xo-fine-old-rum-barbados/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/doorlys-12-ar-fine-old-barbados-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/doorlys-14-ar-fine-old-barbados-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/doorlys-3-ar-fine-old-barbados-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/doorlys-5-ar-fine-old-barbados-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/doorlys-xo-fine-old-barbados-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/dos-maderas-atlantic-double-aged-rum/</loc>
+    <loc>https://www.romsniffer.dk/rom/doorlys-xo-fine-old-rum-barbados/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2239,13 +1489,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/dos-maderas-caribbean-5-5-ar-and-038-2x10cl-sherry/</loc>
+    <loc>https://www.romsniffer.dk/rom/dos-maderas-caribbean-5-5-ar-and-2x10cl-sherry/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/dos-maderas-caribbean-anejo-5-3-ar-and-038-5-5-ar-and-8211-2-x-20cl/</loc>
+    <loc>https://www.romsniffer.dk/rom/dos-maderas-caribbean-anejo-5-3-ar-and-5-5-ar-2-x-20cl/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2275,12 +1525,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/dos-maderas-luxus-double-aged-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/dos-maderas-luxus-double-aged-rum-limited-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2288,12 +1532,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/dos-maderas-seleccion/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/dos-maderas-seleccion-tripple-aged-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2311,31 +1549,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-1998-the-last-casks-black-label-limited-edition-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-1998-the-last-casks-red-label-limited-edition-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-2000-the-last-casks-gold-label-limited-edition-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/el-dorado-2008-uitvlucht-enmore/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-2008-uitvlugt-enmore-blended-in-the-barrel-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2347,25 +1561,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-2010-diamond-port-mourant-blended-in-the-barrel-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/el-dorado-2010-port-mourant-uitvlucht/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-2010-port-mourant-uitvlugt-blended-in-the-barrel-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-2010-port-mourant-uitvlugt-diamond-blended-in-the-barrel-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2407,30 +1603,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-rum-15-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-rum-21-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-rum-3-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-dorado-rum-8-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/el-dorado-versailles-2002-rare-collection/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2443,19 +1615,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/el-ron-prohibido-15-ar-solera/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/el-ron-prohibido-15-y-o/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/el-ron-prohibido-reserva-22-ar-solera/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2491,79 +1651,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/english-harbour-5-ars-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/espero-caribbean-banana-and-rum-liquer-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/english-harbour-coeur-de-savalle-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/english-harbour-madeira-cask-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/english-harbour-reserve-10-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/english-harbour-sherry-cask-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/espero-caribbean-banana-and-038-rum-liquer-40/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/espero-caribbean-coconut/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/espero-caribbean-coconut-and-038-rum-40/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/espero-caribbean-orange-liqueur/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/fano-skibsrom-havfruen/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/fano-skibsrom-havmanden/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/fano-skibsrom-sohesten/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/flor-de-cana-14-ars-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/espero-caribbean-coconut-and-rum-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2587,37 +1681,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/flor-de-cana-centenario-12-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/flor-de-cana-centenario-18-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/flor-de-cana-eco-15-y-o/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/flor-de-cana-gran-reserva-7-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/forudbestilling-af-sbs-2026-romjulekalender-24-days-of-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/foursquare-12-years-and-8220-2011and-8221-exceptional-cask-selection-mark-xxiv-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/foursquare-12-years-2011-exceptional-cask-selection-mark-xxiv-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2653,18 +1723,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/foursquare-mandamus-exceptional-cask-selection-single-blended-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/foursquare-penultimus-exceptional-cask-selection-single-blended-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/foursquare-spiced/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2689,18 +1747,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/goslingand-8217-s-black-seal-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/goslingand-8217-s-black-seal-sampak/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/goslings-151-proof-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2713,7 +1759,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/goslings-black-seal-rom-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/goslings-black-seal-rum/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.romsniffer.dk/rom/goslings-black-seal-sampak/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2725,43 +1777,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/goslings-family-reserve-old-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/goslings-gold-seal/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/great-dane-15-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/great-dane-extra-sweet-spirit-drink/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/great-dane-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/great-dane-rum-5-ars/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/guyana-port-mourant-shared-single-cask-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2779,49 +1795,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/hampden-15-years-pure-single-jamaican-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hampden-estate-1753-pure-single-jamaican-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hampden-estate-8-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hampden-great-house-distillery-edition-2025/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hampden-rum-fire-white-overproof-rum-63/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/havana-club-15-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/havana-club-3-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/havana-club-7-ars-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2840,24 +1814,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/havana-club-union/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hse-rhum-blanc-agricole-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hse-rhum-extra-vieux-xo-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/hse-rhum-tres-vieux-vsop-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2899,30 +1855,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/infernal-club-sunrise/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/infernal-personal-selection-ips-barbados-rom-med-autografer/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/infernal-personal-selection-ips-jamaica-h-rom-med-autografer/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/infernal-rum-paris-to-berlin/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ips-2-barbados-rum-2025-52-infernal-personal-selection/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -2935,49 +1867,25 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/jamaica-clarendon-2007-rum-15yo-single-cask-52-bellamyand-8217-s-reserve/</loc>
+    <loc>https://www.romsniffer.dk/rom/jamaica-clarendon-2007-rum-15yo-single-cask-52-bellamys-reserve/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/jamaica-shared-single-cask-rum/</loc>
+    <loc>https://www.romsniffer.dk/rom/karukera-tres-vieux-rhum-cuvee-christophe-colomb-1493-45/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/kaniche-artisanal-rum-xo-double-wood/</loc>
+    <loc>https://www.romsniffer.dk/rom/kirk-and-sweeney-12-years/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/karukera-tres-vieux-rhum-and-8221-cuvee-christophe-colomb-1493-45/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-and-038-sweeney-12-years/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-and-038-sweeney-18-years/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-and-038-sweeney-reserva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-and-sweeney-gran-reserva-superior-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/kirk-and-sweeney-18-years/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2989,19 +1897,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-andamp-sweeney-rum-and-8211-gran-reserva/</loc>
+    <loc>https://www.romsniffer.dk/rom/kirk-and-sweeney-rum-gran-reserva/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-andamp-sweeney-rum-and-8211-gran-reserva-superior/</loc>
+    <loc>https://www.romsniffer.dk/rom/kirk-and-sweeney-rum-gran-reserva-superior/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/kirk-andamp-sweeney-rum-and-8211-reserva-dominikanske-republik/</loc>
+    <loc>https://www.romsniffer.dk/rom/kirk-and-sweeney-rum-reserva-dominikanske-republik/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3037,13 +1945,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/la-favorite-2002-la-reserve-du-chateau-43-old-version/</loc>
+    <loc>https://www.romsniffer.dk/rom/la-favorite-2002-la-reserve-du-chateau-41-2/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/la-favorite-2002-la-reserve-du-chateau-and-8211-41-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/la-favorite-2002-la-reserve-du-chateau-43-old-version/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3091,7 +1999,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/la-favorite-vieux-privilege-pour-lulu-and-8211-41-3/</loc>
+    <loc>https://www.romsniffer.dk/rom/la-favorite-vieux-privilege-pour-lulu-41-3/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3103,13 +2011,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/la-hechicera-fine-aged-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/la-maison-du-rhum-ile-maurice-2012-ex-cognac-andamp-islay-cask-batch-4/</loc>
+    <loc>https://www.romsniffer.dk/rom/la-maison-du-rhum-ile-maurice-2012-ex-cognac-and-islay-cask-batch-4/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3139,67 +2041,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/legendario-7-ar-elixir-de-cuba/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/longueteau-genesis-millesime-2017-agricole-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/luksus-julekalender-rom-2025/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnifica-bica-do-alambique-cachaca/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-companero-elixir-orange-3-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-companero-panama-extra-anejo-3-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-diplomatico-reserva-exclusiva-rum-3-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-hampden-the-younger-lrok-4-ars-rom-3-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-planteray-xo-20th-anniversary-rom-1-75-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-rammstein-rum-4-5-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/magnum-rum-nation-guatemala-gran-reserva-4-5-liter/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3223,13 +2065,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/matusalem-gran-reserva-23-y-o/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mhoba-select-reserve-french-cask-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/matusalem-gran-reserva-23-y-o-2/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3247,13 +2083,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/mini-diplomatico-reserva-exclusiva-rum-35-cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mizunara-cask-finish-48-4-bellamyand-8217-s-reserve/</loc>
+    <loc>https://www.romsniffer.dk/rom/mizunara-cask-finish-48-4-bellamys-reserve/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3283,61 +2113,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/monsters-of-rum-anansi-jamaicansk-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/monsters-of-rum-caiman-colombiansk-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/monsters-of-rum-silbon-venezuelansk-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mount-gay-1703-master-select-2020-release-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mount-gay-black-barrel-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mount-gay-eclipse-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mount-gay-single-estate-series-2024-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/mount-gay-the-port-cask-expression-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/mount-gay-xo-triple-cask/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/myerss-rum-original-dark/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3379,12 +2155,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/navy-island-navy-strength-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/navy-island-port-cask-46-4-jamaica/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -3397,19 +2167,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/navy-island-xo-reserve-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/navy-islands-sauternes-finish-46/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/nega-fulo-aguardente-de-cana-cachaca/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3445,31 +2203,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-monk-gold-reserve-12-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-monk-supreme-xxx-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-monk-very-old-vatted-7-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-pascas-carrabean-white-rum-37-5/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-1888-copenhagen/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3487,12 +2221,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-black-barrel/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-black-barrel-navy-spiced/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -3500,12 +2228,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-caramel-cream-liqueur-m-rom-og-havsalt/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-christmas-xo-reserve/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3523,12 +2245,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-danish-navy-the-frigate-jylland/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-elixir-orange-grove/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -3541,25 +2257,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-family-reserve-1838/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-frogman-conventus-ranae-60/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-julekalender-2025/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-non-plus-ultra-ambre-dand-8217-or-excellence/</loc>
+    <loc>https://www.romsniffer.dk/rom/old-st-croix-non-plus-ultra-ambre-dor-excellence/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3571,13 +2275,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-non-plus-ultra-la-galante/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-non-plus-ultra-very-rare-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/old-st-croix-non-plus-ultra-very-rare/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3595,37 +2293,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-danish-navy-strength/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-danish-navy-strength-55/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-danish-navy-the-original-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-danish-navy-the-original/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-danish-navy-the-original-and-8211-kampagnetilbud-m-5-smageflasker/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-the-thin-blue-line/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-xo-haakon-royal-reserve/</loc>
+    <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-danish-navy-the-original-kampagnetilbud-m-5-smageflasker/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3649,12 +2329,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-xo-reserve-ambre-dor/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-xo-reserve-christmas-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -3673,13 +2347,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-xo-reserve-port-cask-2/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-xo-reserve-superior-cask/</loc>
+    <loc>https://www.romsniffer.dk/rom/old-st-croix-xo-reserve-port-cask/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3691,13 +2359,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/oliverand-8217-s-maximo-solera-41/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/olivers-exquisito-soleras-1990-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/olivers-maximo-solera-41/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3739,24 +2401,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/opthimus-25-ar-solera-rom-malt-whisky-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/opthimus-25-ar-solera-rom-oporto-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/pampero-aniversario-extra-anejo-reserva-exclusiva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/panama-2009-63-2-raw-cask-blackadder/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -3764,18 +2408,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/panama-rum-silver-seal-16-years-old-2001-46/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/panamonte-12-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/paranubes-oaxaca-aguardiente-de-cana-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3799,97 +2431,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-gran-reserva/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-gran-reserva-bag-in-tube-3-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-navidad-exclusiva/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-reserva-especial/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-seleccion-exclusiva-islay-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-seleccion-exclusiva-solera-12-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/patridom-selection-excluciva-12/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-cask-65/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-cherry-wine-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-cognac-cask-finish-2022-edt/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-cognac-cask-finish-2023-edt/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-limoux-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-marsala-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-pineau-des-charentes-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/patridom-xo-limited-edition-tawny-port-finish/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3913,7 +2455,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/phantom-spirits-x-coffee-collective-x-den-klodsede-bjorn-and-8211-akmel-nuri-coffee-liqueur-and-8211-panama-6-years-old/</loc>
+    <loc>https://www.romsniffer.dk/rom/phantom-spirits-x-coffee-collective-x-den-klodsede-bjorn-akmel-nuri-coffee-liqueur-panama-6-years-old/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -3979,115 +2521,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/plantation-xo-20th-anniversary-rom-35-cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-3-stars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-belize-2008-vintage-collection-terravera-limited-edition-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-cut-and-dry-coconut-spirit-drink/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-guatemala-and-belize-gran-anejo-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-hogo-monsta-high-ester-barbados-rum-20-cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-isle-of-fiji-rum-double-aged-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-jamaica-vintage-2000-long-pond-itp-ping-16-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-mister-fogg-navy-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-original-dark-double-aged-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-overproof-oftd-69-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-paraguay-2018-rombo-single-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/planteray-rum-barbados-xo-20th-anniversary/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-stiggins-fancy-pineapple-spirit-drink/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-trinidad-2003-vintage-collection-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-xaymaca-special-dry-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/planteray-xo-20th-anniversary-px-cask-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/planteray-xo-20th-anniversary-px-sherry-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/presidente-15-ar-solera-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4117,18 +2557,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/pullimut-the-infinite-blend-2026-edition/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/puntacana-club-tesoro-whisky-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/puntacana-esplendido/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -4136,24 +2564,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/puntacana-xox/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/pusserand-8217-s-rum-british-navy-15-ars-40/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/pussers-15-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/pussers-blue-label-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4171,19 +2581,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/pussers-gunpowder-proof-54-5-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/pussers-night-watch-black-strap-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/pussers-rum-select-age-151-75-5/</loc>
+    <loc>https://www.romsniffer.dk/rom/pussers-rum-british-navy-15-ars-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4196,42 +2594,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/quorhum-16-ar-terra-nova-dominikanske-rep/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/quorhum-encanto-13-artisanal-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/quorhum-fundador-30-aniversario-artisanal-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/quorhum-origenes-24-artisanal-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/quorhum-port-cask-limited-edition-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/quorhum-terra-nova-16-artisanal-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/r-l-seales-10-ars-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4255,91 +2617,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rammstein-rum-limoux-cask-finish-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/rammstein-rum-ltd-8-limoux/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rammstein-rum-port-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/rammstein-rum-px-sherry-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rammstein-rum-px-sherry-cask-finish-limited-edition-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rammstein-rum-sauternes-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rammstein-rum-sauternes-finish-limited-edition-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/renegade-cane-rum-etudes-new-bacolet/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/renegade-cane-rum-pre-cask-dunfermline-column-still/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/renegade-cane-rum-pre-cask-dunfermline-pot-still/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/renegade-cane-rum-pre-cask-new-bacolet-pot-still/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/renegade-cane-rum-pre-cask-old-bacolet-pot-still/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/renegade-cane-rum-pre-cask-pearls-pot-still/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rhum-j-m-vsop-vieux-agricole-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rhum-j-m-xo-vieux-agricole-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4369,180 +2653,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rombo-exclusive-cask-rum-australia-klk-virgin-oak/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rombo-exclusive-cask-rum-jamaica-tecc/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rombo-exclusive-cask-rum-panama-12-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rombo-reserve-dominican-batch-iv/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-australia-handcrafted-new-make-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-collectors-series-rum-no-13-barbados-15-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-collectors-series-rum-no-8-dominican-republic/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-distillery-series-rum-no-3-australia-2007/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-dominican-republic-new-make-rom-batch-1/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-guadeloupe-red-cane-new-make-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-kong-hjarne-caribbean-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-le-galion-martinique-new-make-rom-batch-2/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-limited-batch-series-ghana-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-limited-batch-series-nicaragua-21-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-limited-batch-series-panama-21-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-no-3-white-rum-jamaica-st-catherine/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-prins-endlau-dominican-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-selected-series-rum-dominican-republic/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-trelawny-parish-tecc-new-make-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-diamond-20-ar-enmore-mee-unicorn-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-origin-no-5-guadeloupe-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-rum-no-57-jamaica-2024-magnum-150-cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-rum-no-62-barbados/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-rum-no-63-martinique/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-rum-no-64-trinidad-9-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-rum-no-65-jamaica-7-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/romdeluxe-wild-series-unicorn-coffret-set-vol-2/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-barcelo-gran-anejo-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-barcelo-imperial-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-cartavio-12-anos-solera/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -4562,24 +2672,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/ron-centenario-1985-2nd-batch-43/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-centenario-20-ar-solera-fundacion-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-centenario-25-ar-solera-gran-reserva-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-centenario-30-ar-solera-edicion-limitada-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4615,12 +2707,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-centenario-edicion-1985-cask-selection-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-centenario-fundacion-20-ar/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -4651,7 +2737,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-centenario-real-select-cask-reserve-rum-and-8211-old-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-centenario-real-select-cask-reserve-rum-old-edition/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4735,19 +2821,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-cubaney-centenario-solera-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-cueva-1501-sistema-12-panama-40/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-cueva-1501-sistema-12-solera-panama-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4795,12 +2869,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-cueva-sueno-del-chagres-25-panama-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-esclavo-12-20-cl-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -4837,19 +2905,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-espero-ultimo-tin-box/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-espero-x-o-extra-anejo/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-espero-xo-extra-anejo-limitada-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4867,25 +2923,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-magua-and-8211-old/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-malteco-reserva-aneja-10-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-malteco-reserva-maya-15-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-matusalem-gran-reserva-23-ars-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-magua-old/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4897,49 +2935,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-millonario-aniversario-cincuenta-10-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-millonario-aniversario-reserva-10-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-millonario-numero-15-reserva-especial/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-millonario-xo/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-millonario-xo-reserva-especial-rom-magnum-1-5-liter/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-millonario-xo-solera-reserva-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/ron-millonario-xo-solera-reserva-especial-2/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-mulata-de-cuba-anejo-reserva-5-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-mulata-de-cuba-gran-reserva-15-ar/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4957,19 +2965,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-quorhum-12-ar-solera-rom-fra-den-dominikanske-republik/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-quorhum-15-anos-solera/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-quorhum-15-ar-solera-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5023,12 +3019,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-relicario/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-santiago-de-cuba-20-y-o-extra-anejo/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -5041,43 +3031,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-sostenible-15-ar-la-isabela-2008-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-sostenible-15yo-46-la-isabela-2008/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-sostenible-8-ar-dom-republik-and-8220-the-conscious-choiceand-8221-40/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-sostenible-8-ar-dom-republik-the-conscious-choice-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-sostenible-8-ar-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-sostenible-8-ar-triple-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-sostenible-experimental-cask-rioja-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-sostenible-rioja-and-8221-the-conscious-choiceand-8221-40/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-sostenible-rioja-the-conscious-choice-40/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5089,25 +3055,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-tabu-and-8211-old/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-tabu-old/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-tepuy-destino-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-tepuy-monumento-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ron-zacapa-23-yo-and-8220-la-domaand-8221-heavenly-cask-collection/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-zacapa-23-yo-la-doma-heavenly-cask-collection/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5173,12 +3127,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-zacapa-solera-gran-reserva/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-zafra-master-reserve-21-ars/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -5215,49 +3163,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ruby-panama-meets-port-8yo-45-spirit-drink-bellamyand-8217-s-reserve/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-and-8211-jamaica-5-ar-sherry-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-and-8211-meticho-chocolate-and-038-toffee/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-and-8211-meticho-chocolate-andamp-toffee-4-5-liter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-and-8211-meticho-citrus/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-and-8211-meticho-coconut/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-and-8211-panama-21-ar-black-decanter/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-barbados-8-ar/</loc>
+    <loc>https://www.romsniffer.dk/rom/ruby-panama-meets-port-8yo-45-spirit-drink-bellamys-reserve/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5269,19 +3175,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-british-guyana-7-ar-cask-strength/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-dominicana-8-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-guadeloupe-blanc-rhum-agricole/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-demerara-no-14-solera/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5293,49 +3187,37 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-guatemala-xo-20th-anniversary-edition/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-guatemala-xo-20th-anniversary-edition-2/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-guatemala-xo-20th-anniversary-edition-decanter/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-jamaica-5-ar-sherry-finish/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-jamaica-5-ar-cask-strength/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-meticho-chocolate-and-toffee/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-jamaica-white-pot-still/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-meticho-chocolate-and-toffee-4-5-liter/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-mauritius-6-ar-triple-cask-rom/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-meticho-citrus/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-mauritius-8-ar-cask-strength-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-no-14-demerara/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-panama-10-ar/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-meticho-coconut/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5347,25 +3229,13 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-panama-21-ar-black-decanter/</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.romsniffer.dk/rom/rum-nation-panama-rum-18-y-o-40/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-peruano-8-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-and-8211-port-mourant-1999-2020-21-ar-50-cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-barbados-2008-foursquare-single-cask-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5377,85 +3247,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-belize-2008-cask-no-10/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-caroni-25-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-enmore-25-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-hampden-24-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-jamaica-10-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-jamaica-10-y-o-2013-2024-59-9/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-marie-galante-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-port-mourant-12-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-port-mourant-18-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-savanna-16-ar/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-venezuela-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-versailles-16-ar-peated-cask-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-versailles-18-ar-whisky-finish/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-versailles-30-ar/</loc>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-port-mourant-1999-2020-21-ar-50-cl/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5473,19 +3271,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/saint-james-12-ar-martinique-rhum-and-8211-mbws/</loc>
+    <loc>https://www.romsniffer.dk/rom/saint-james-12-ar-martinique-rhum-mbws/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/saint-james-15-ar-martinique-rhum-and-8211-mbws/</loc>
+    <loc>https://www.romsniffer.dk/rom/saint-james-15-ar-martinique-rhum-mbws/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/saint-james-xo-martinique-rhum-agricole-and-8211-mbws/</loc>
+    <loc>https://www.romsniffer.dk/rom/saint-james-xo-martinique-rhum-agricole-mbws/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5515,12 +3313,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/samaroli-over-the-world-blended-rum-2015-2nd-edition/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/san-lino-carta-blanca-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -5533,67 +3325,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/santa-teresa-1796-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santa-teresa-bicentenario-aj-vollmer-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/santa-teressa-bicentenario/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/santiago-de-cuba-20-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santiago-de-cuba-ron-anejo-8-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santiago-de-cuba-ron-extra-anejo-11-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santiago-de-cuba-ron-extra-anejo-12-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santos-dumont-heritage/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santos-dumont-heritage-hors-dand-8217-age/</loc>
+    <loc>https://www.romsniffer.dk/rom/santos-dumont-heritage-hors-dage/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/santos-dumont-rum-xo/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/santos-dumont-xo/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5629,55 +3373,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/savanna-cuvee-maison-blanche-edition-grand-millesime-10-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/savanna-rhum-vieux-traditionnel-7-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/savanna-rhum-vieux-traditionnel-vieux-5-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/savanna-the-very-rare-casks-2nd-release/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-antigua-2015-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/sbs-australien-2007-55/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-barbados-2013-bourbon-and-amontillado-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-barbados-2013-bourbon-and-port-cask-rom-bottled-for-germany-and-austria/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-belize-2005-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5689,103 +3385,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-dominican-republic-2009-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/sbs-ecuador-2016-bourbon-and-virgin-cask/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-fiji-2002-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-fiji-2004-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-fiji-2020-virgin-oak-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-guyana-1990-rum-uitvlugt-pm-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-guyana-1993-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-guyana-2012-lbi-rom-bottled-for-germany-and-austria/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2010-emb-rom-bottled-for-germany-and-austria/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2016-wpl-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2016-wpl-rom-bottled-for-belgium-france/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2020-dok-oloroso-cask-20-cl-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2020-dok-port-cask-20-cl-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2020-dok-px-cask-20-cl-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2020-ny-wk-px-cask-52/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-2020-wpe-rom-bottled-for-germany-austria/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-c-h-2021-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5803,19 +3409,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-jamaica-wpe-2020-rombo-edition-63-3-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/sbs-origin-australia-klk-57/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-australia-klk-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5827,61 +3421,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-dominican-republic-aroma-grande-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-dominican-republic-consuelo-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-ecuador-malacatos-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-french-antilles-grand-arome-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-guadeloupe-red-cane-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-guyana-pm-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-jamaica-cane-juice-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-jamaica-tecc-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/sbs-origin-jamaica-wph-57/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-origin-jamaica-wph-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5893,61 +3433,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-panama-2002-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-panama-2010-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-panama-2012-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-phillipines-2019-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/sbs-reunion-2021-gr-arome-french-oak-59/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-venezuela-2006-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-venezuela-2009-rom-bottled-for-belgium-holland-france/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-venezuela-2014-bourbon-and-oloroso-cask-bottled-for-norway/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-venezuela-2014-swedish-oak-rombo-edition/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/sbs-venezuela-2016-bourbon-and-oloroso-cask-bottled-for-sweden/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5983,25 +3469,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/skab-din-egen-rom-and-8211-private-cask/</loc>
+    <loc>https://www.romsniffer.dk/rom/skab-din-egen-rom-private-cask/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/skotlander-bunker-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/smith-and-cross-traditional-jamaica-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/smith-andamp-cross-traditional-jamaica-rum-57/</loc>
+    <loc>https://www.romsniffer.dk/rom/smith-and-cross-traditional-jamaica-rum-57/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6055,12 +3529,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/stroh-original-80/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/tabu-caribbean-white-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -6079,49 +3547,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/takamaka-extra-noir-charred-cask-rum/</loc>
+    <loc>https://www.romsniffer.dk/rom/tasting-collection-rom-12-2-5cl/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/takamaka-koko-coconut-likor/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/takamaka-kreol-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/takamaka-overproof-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/tanduay-matured-dark-10-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/tanduay-overproof-reserve-dark-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/tasting-collection-rom-12and-215-2-5cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/tasting-collection-rom-6and-215-2-5cl/</loc>
+    <loc>https://www.romsniffer.dk/rom/tasting-collection-rom-6-2-5cl/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6139,55 +3571,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-a-midsummer-spirit/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-chocolate-xos-extra-old-sweet/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-retro-xo/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-twin-cask-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-xo-cask-strength/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-xo-original/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/terra-verde-xos-extra-old-sweet-coconut/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/thailand-5-yo-rum-43-cane-island/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/the-real-mccoy-12-ars-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6241,49 +3625,25 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/tres-hombres-captainand-8217-s-choice-edition-12-18-anos-solera-la-palma-1-liter/</loc>
+    <loc>https://www.romsniffer.dk/rom/tres-hombres-captains-choice-edition-12-18-anos-solera-la-palma-1-liter/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/tres-hombres-captainand-8217-s-choice-edition-14-8-anos-55-agricole-rhum-1-liter/</loc>
+    <loc>https://www.romsniffer.dk/rom/tres-hombres-captains-choice-edition-14-8-anos-55-agricole-rhum-1-liter/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/tres-hombres-captains-choice-la-isla-bonita-2017-edition-19-and-8211-23-ars/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/tres-hombres-la-palma-2017-ron-miel-edition-16/</loc>
+    <loc>https://www.romsniffer.dk/rom/tres-hombres-captains-choice-la-isla-bonita-2017-edition-19-23-ars/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/unhiq-xo-rom-50cl/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/velier-distillerie-de-port-au-prince-white-rum/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/velier-national-rums-of-jamaica-cambridge-stc-e-2005/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/veritas-white-barbados-og-jamaica-blended-rum/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6319,55 +3679,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/warehouse-1-legendary-marques-dok-single-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/warehouse-1-legendary-marques-mlc-single-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/warehouse-1-legendary-marques-nye-wk-single-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/warehouse-1-legendary-marques-teca-single-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/warehouse-1-legendary-marques-wpe-single-cask-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/watt-rum-c-a-d-c-sa-venezuelan-rum-16-y-o-57-1/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/wild-series-rum-no-66-australia/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/wild-series-rum-no-69-jamaica/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/wild-series-rum-no-70-panama-11-ars-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6391,31 +3703,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/worthy-park-rum-bar-silver/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/worthy-park-rumbar-overproof-63/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/worthy-park-select-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/worthy-park-single-est-reserve-jamaica-rum-45/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/worthy-park-single-estate-reserve-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6433,12 +3727,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/worthy-park-special-cask-release-virgin-oak-vintage-2013-rum-bottled-for-belgium/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/worthy-park-special-cask-series-madeira-2010-jamaica/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
@@ -6446,30 +3734,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/worthy-park-special-cask-series-port-2010-jamaica/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/worthy-park-white-overproof-63/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/wray-and-nephew-white-overproof-rum-63/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ypioca-reserva-carvalho-cachaca/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/ypioca-reserva-castanheira-cachaca/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -6493,25 +3757,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/zafra-master-series-21-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/zafra-master-series-30-ars-rom/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/zafra-master-series-30-years/</loc>
-    <lastmod>2026-07-27</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/zaya-gran-reserva-rom/</loc>
     <lastmod>2026-07-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
