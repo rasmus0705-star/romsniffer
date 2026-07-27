@@ -15,6 +15,7 @@ from rom_matching import group_products
 from generate_rom_pages import main as generate_rom_pages
 from slugify_rom import make_unique_slug
 from generate_sitemap import main as generate_sitemap
+from generate_category_pages import main as generate_category_pages
 
 
 def enrich_missing_data(items, max_enrich=100):
@@ -272,6 +273,9 @@ def main():
 
     # ── Gener statiske rom-sider ──
     generate_rom_pages()
+
+    # ── Gener kategorisider ──
+    generate_category_pages()
 
     # ── Gener sitemap.xml ──
     generate_sitemap()

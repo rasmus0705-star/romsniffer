@@ -4,6 +4,7 @@ generate_sitemap.py — Generér sitemap.xml for RomSniffer.
 Inkluderer:
 - Faste sider (forside, guide, premium, om)
 - Alle /rom/{slug}/ produktsider
+- Kategorisider (/rom/land/, /rom/type/, /rom/alder/)
 """
 import os
 from datetime import datetime
@@ -11,6 +12,7 @@ from datetime import datetime
 SITE_URL = "https://www.romsniffer.dk"
 ROM_DIR = "rom"
 OUTPUT_FILE = "sitemap.xml"
+CATEGORY_TYPES = ["land", "type", "alder"]
 
 
 def main():
@@ -34,10 +36,28 @@ def main():
             "priority": priority,
         })
 
-    # Rom-sider fra /rom/ mappen
+    # Kategorisider
+    cat_count = 0
+    for cat_type in CATEGORY_TYPES:
+        cat_dir = os.path.join(ROM_DIR, cat_type)
+        if os.path.isdir(cat_dir):
+            for entry in sorted(os.listdir(cat_dir)):
+                index_path = os.path.join(cat_dir, entry, "index.html")
+                if os.path.isfile(index_path):
+                    urls.append({
+                        "loc": f"{SITE_URL}/rom/{cat_type}/{entry}/",
+                        "lastmod": today,
+                        "changefreq": "daily",
+                        "priority": "0.7",
+                    })
+                    cat_count += 1
+
+    # Rom-sider fra /rom/ mappen (kun direkte undermapper, ikke land/type/alder)
     rom_count = 0
     if os.path.isdir(ROM_DIR):
         for entry in sorted(os.listdir(ROM_DIR)):
+            if entry in CATEGORY_TYPES:
+                continue
             index_path = os.path.join(ROM_DIR, entry, "index.html")
             if os.path.isfile(index_path):
                 urls.append({
@@ -66,7 +86,7 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(xml_parts))
 
-    print(f"   ✅ sitemap.xml skrevet med {len(urls)} URL'er ({rom_count} rom-sider + {len(static_pages)} faste)")
+    print(f"   ✅ sitemap.xml skrevet med {len(urls)} URL'er ({rom_count} rom + {cat_count} kategorier + {len(static_pages)} faste)")
 
 
 if __name__ == "__main__":
