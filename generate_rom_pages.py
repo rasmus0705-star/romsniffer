@@ -769,11 +769,13 @@ def main():
         slug_map[rom["name"]] = slug
 
     # Ryd gammel output (slet mapper der ikke længere har en rom)
+    # Mapper der ikke skal slettes (kategorisider)
+    PROTECTED_DIRS = {"land", "type", "alder"}
     existing_dirs = set()
     if os.path.isdir(OUTPUT_DIR):
         for entry in os.listdir(OUTPUT_DIR):
             full = os.path.join(OUTPUT_DIR, entry)
-            if os.path.isdir(full):
+            if os.path.isdir(full) and entry not in PROTECTED_DIRS:
                 existing_dirs.add(entry)
 
     new_slugs = set(slug_map.values())
