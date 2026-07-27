@@ -1792,7 +1792,7 @@ function makeCard(r, delay) {
             </div>
             <div class="price-row-actions">
                 ${cheapest.url ? `<a class="price-row-link" href="${cheapest.url}" target="_blank" rel="noopener"
-                    aria-label="Køb ${esc(r.name)} hos ${esc(cheapest.shop_name)} for ${cheapest.price.toFixed(0)} kr">Køb →</a>` : ''}
+                    aria-label="Køb ${esc(r.name)} hos ${esc(cheapest.shop_name)} for ${cheapest.price.toFixed(0)} kr">Køb →</span>` : ''}
             </div>
         </div>
     </div>`;
@@ -1820,7 +1820,7 @@ function makeCard(r, delay) {
                     </div>
                     <div class="price-row-actions">
                         ${p.url ? `<a class="price-row-link" href="${p.url}" target="_blank" rel="noopener"
-                            aria-label="Køb ${esc(r.name)} hos ${esc(p.shop_name)} for ${p.price.toFixed(0)} kr">Køb →</a>` : ''}
+                            aria-label="Køb ${esc(r.name)} hos ${esc(p.shop_name)} for ${p.price.toFixed(0)} kr">Køb →</span>` : ''}
                     </div>
                 </div>
             </div>`;
@@ -1893,8 +1893,8 @@ function renderTopDeals() {
                     <span class="top-card-price">${(best.price || 0).toFixed(0)} kr</span>
                     ${best.old_price ? `<span class="top-card-old">${best.old_price.toFixed(0)} kr</span>` : ''}
                 </div>
-                ${best.url ? `<a class="top-card-link" href="${best.url}" target="_blank" rel="noopener"
-                    aria-label="Køb ${esc(r.name)} nu">Køb nu →</a>` : ''}
+                ${best.url ? `<span class="top-card-link" onclick="event.stopPropagation();window.open('${best.url}','_blank')"
+                    aria-label="Køb ${esc(r.name)} nu">Køb nu →</span>` : ''}
             </div>
         </a>`;
     }).join('');
