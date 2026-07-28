@@ -761,12 +761,16 @@ def main():
         print("   ❌ Ingen rom i data")
         return
 
-    # Byg slugs
-    seen_slugs = set()
+    # Læs slugs fra data (tildelt persistent i build_rom_data.py)
     slug_map = {}  # name → slug
+    _missing = [r["name"] for r in roms if not r.get("slug")]
+    if _missing:
+        print(f"   ❌ {len(_missing)} rom mangler slug i rom_data.json")
+        print(f"      Fx: {_missing[0][:60]}")
+        print("      Kør build_rom_data.py — den tildeler slugs.")
+        sys.exit(1)
     for rom in roms:
-        slug = make_unique_slug(rom["name"], seen_slugs)
-        slug_map[rom["name"]] = slug
+        slug_map[rom["name"]] = rom["slug"]
 
     # Ryd gammel output (slet mapper der ikke længere har en rom)
     # Mapper der ikke skal slettes (kategorisider)
@@ -781,9 +785,21 @@ def main():
     new_slugs = set(slug_map.values())
     stale = existing_dirs - new_slugs
     if stale:
-        print(f"   🧹 Sletter {len(stale)} forældede rom-mapper...")
-        for s in stale:
-            shutil.rmtree(os.path.join(OUTPUT_DIR, s), ignore_errors=True)
+        # Sikkerhedsgrænse: mange sletninger på én gang betyder næsten altid
+        # at noget er gået galt (scraper nede, slug-kort tabt) — ikke at
+        # butikkerne har afmeldt 500 produkter samtidig.
+        _limit = max(25, int(0.15 * len(new_slugs)))
+        if "--prune" in sys.argv:
+            _limit = 10**9
+        if len(stale) > _limit:
+            print(f"   ⛔ {len(stale)} mapper ville blive slettet (grænse: {_limit})")
+            print("      Sletning SPRINGET OVER — de gamle sider bliver liggende.")
+            print("      Tjek at rom_slugs.json findes, og at alle scrapere kørte.")
+            print("      Er sletningen reel? Kør: python generate_rom_pages.py --prune")
+        else:
+            print(f"   🧹 Sletter {len(stale)} forældede rom-mapper...")
+            for s in stale:
+                shutil.rmtree(os.path.join(OUTPUT_DIR, s), ignore_errors=True)
 
     # Generér sider
     count = 0

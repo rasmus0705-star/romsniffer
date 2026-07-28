@@ -3,6 +3,7 @@ RomSniffer — Build rom_data.json.
 Bruger smart parsing + hård gate matching + HTML enrichment.
 """
 import json
+import sys
 import time
 import subprocess
 from datetime import datetime
@@ -14,6 +15,8 @@ from rom_parser import enrich_from_html
 from rom_matching import group_products
 from generate_rom_pages import main as generate_rom_pages
 from slugify_rom import make_unique_slug
+from rom_slugs import assign_slugs
+import scrape_guard
 from generate_sitemap import main as generate_sitemap
 from generate_category_pages import main as generate_category_pages
 
@@ -107,7 +110,14 @@ def main():
 
     if not all_items:
         print("❌ Ingen produkter — afslutter")
-        return
+        sys.exit(1)
+
+    # ── Sundhedstjek: stop hvis en butik fejlede tavst ──
+    _ok, _shop_counts = scrape_guard.check(
+        all_items, force=scrape_guard.force_requested()
+    )
+    if not _ok:
+        sys.exit(1)
 
     # Filtrér åbenlyse ikke-rom
     print(f"\n🧹 Filtrerer ikke-rom væk...")
@@ -216,10 +226,8 @@ def main():
 
     unique_roms.sort(key=lambda x: x["min_price"])
 
-    # Tilfoej slug til hvert rom-objekt
-    seen_slugs = set()
-    for rom in unique_roms:
-        rom["slug"] = make_unique_slug(rom["name"], seen_slugs)
+    # Tilfoej PERSISTENTE slugs (bundet til produkt-URL, ikke navn)
+    assign_slugs(unique_roms)
 
     # Statistik
     total = len(unique_roms)
@@ -245,6 +253,7 @@ def main():
             "ages": ages,
             "cheapest": cheapest,
             "multi_shop": multi_shop_count,
+            "shop_counts": _shop_counts,
         },
         "roms": unique_roms,
     }
@@ -299,7 +308,7 @@ def main():
     # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
-        subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "-A", "rom/"], check=True)
+        subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json", "-A", "rom/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True
