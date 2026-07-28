@@ -1,5 +1,470 @@
 {
  "entries": {
+  "https://conmaz.dk/a1710-bete-a-feu-rhum-blanc-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-bete-a-feu-rhum-blanc-extraordinaire-rom"
+  },
+  "https://conmaz.dk/a1710-cheval-bondieu-rhum-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-cheval-bondieu-rhum-extraordinaire"
+  },
+  "https://conmaz.dk/a1710-diamond-rock-rhum-blanc-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-diamond-rock-rhum-blanc-extraordinaire-rom"
+  },
+  "https://conmaz.dk/a1710-la-perle-brute-rhum-blanc-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-la-perle-brute-rhum-blanc-extraordinaire"
+  },
+  "https://conmaz.dk/a1710-la-perle-fine-rhum-blanc-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-la-perle-fine-rhum-blanc-extraordinaire"
+  },
+  "https://conmaz.dk/a1710-la-perle-rhum-blanc-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-la-perle-rhum-blanc-extraordinaire"
+  },
+  "https://conmaz.dk/a1710-renaissance-rhum-blanc-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-renaissance-rhum-blanc-extraordinaire"
+  },
+  "https://conmaz.dk/a1710-soleil-de-minuit-rhum-extraordinaire/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "a1710-soleil-de-minuit-rhum-extraordinaire"
+  },
+  "https://conmaz.dk/alfreds-trail-10-6-trinidad-rum-malt-whisky-cask-finish/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alfreds-trail-10-6-trinidad-rum-malt-whisky-cask-finish"
+  },
+  "https://conmaz.dk/alfreds-trail-8-6-belize-port-finish-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alfreds-trail-8-6-belize-port-finish-rum"
+  },
+  "https://conmaz.dk/alta-gama-barbados-rum-aged-21-years/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alta-gama-barbados-rum-aged-21-years"
+  },
+  "https://conmaz.dk/alta-gama-demi-sec-guyana-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alta-gama-demi-sec-guyana-rum"
+  },
+  "https://conmaz.dk/alta-gama-el-salvador-rum-aged-11-years/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alta-gama-el-salvador-rum-aged-11-years"
+  },
+  "https://conmaz.dk/alta-gama-extra-sec-guyana-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alta-gama-extra-sec-guyana-rum"
+  },
+  "https://conmaz.dk/alta-gama-sec-guyana-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alta-gama-sec-guyana-rum"
+  },
+  "https://conmaz.dk/alta-gama-venezuela-rum-aged-15-years/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "alta-gama-venezuela-15-yo-cask-strenght-60"
+  },
+  "https://conmaz.dk/bapt-clems-agricole-guadeloupe-vintage-2009/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-agricole-guadeloupe-vintage-2009"
+  },
+  "https://conmaz.dk/bapt-clems-australia-rum-ans-6-dage-jurancon-finish/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-australia-rum-ans-6-dage-jurancon-finish"
+  },
+  "https://conmaz.dk/bapt-clems-distillerie-savanna-rhum-blanc-agricole/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-distillerie-savanna-rhum-blanc-agricole"
+  },
+  "https://conmaz.dk/bapt-clems-dominican-republic-ans-6-dage-sauternes-finish/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-dominican-republic-ans-6-dage-sauternes-finish"
+  },
+  "https://conmaz.dk/bapt-clems-guyana-ans-8-dage-jurancon-finish/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-guyana-ans-8-dage-jurancon-finish"
+  },
+  "https://conmaz.dk/bapt-clems-panama-ans-10-dage/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-panama-ans-10-dage"
+  },
+  "https://conmaz.dk/bapt-clems-trinidad-tobago-ans-4-dage-sauternes-sherry-finish/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "bapt-and-clems-trinidad-and-tobago-ans-4-dage-sauternes-and-sherry-finish"
+  },
+  "https://conmaz.dk/caribbean-bay-tropicana/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "caribbean-bay-tropicana"
+  },
+  "https://conmaz.dk/chamarel-coconut-liqueur/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-coconut-liqueur"
+  },
+  "https://conmaz.dk/chamarel-coffee-liqueur/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-coffee-liqueur"
+  },
+  "https://conmaz.dk/chamarel-double-distilled-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-double-distilled-rum"
+  },
+  "https://conmaz.dk/chamarel-gold-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-gold-rum"
+  },
+  "https://conmaz.dk/chamarel-mandarin-liqueur/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-mandarin-liqueur"
+  },
+  "https://conmaz.dk/chamarel-premium-white-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-premium-white-rum"
+  },
+  "https://conmaz.dk/chamarel-spiced-rum-spices/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chamarel-exotic-spices"
+  },
+  "https://conmaz.dk/chantal-comte-cuvee-caribaea-rhum-blanc/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "chantal-comte-cuvee-caribaea-rhum-blanc"
+  },
+  "https://conmaz.dk/don-papa-baroko/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-papa-baroko-aged-in-oak"
+  },
+  "https://conmaz.dk/don-papa-rum-quincentennial-edition-2025-release/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-papa-rum-quincentennial-edition-2025-release"
+  },
+  "https://conmaz.dk/don-papa-single-island-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-papa-single-island-7-ars-rom"
+  },
+  "https://conmaz.dk/don-q-151-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-151-overproof-rom"
+  },
+  "https://conmaz.dk/don-q-cognac-cask-finish-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-cognac-cask-finish-rum"
+  },
+  "https://conmaz.dk/don-q-cristal-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-cristal-rum"
+  },
+  "https://conmaz.dk/don-q-double-aged-sherry-cask-finish-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-double-aged-sherry-cask-finish-rum"
+  },
+  "https://conmaz.dk/don-q-double-aged-vermouth-cask-finish-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-double-aged-vermouth-cask-finish-rum"
+  },
+  "https://conmaz.dk/don-q-double-cask-finish-port-casks/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-double-cask-port-finish-rom"
+  },
+  "https://conmaz.dk/don-q-double-cask-finish-zinfandel-casks/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-double-cask-finish-zinfandel-casks"
+  },
+  "https://conmaz.dk/don-q-gold-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-gold"
+  },
+  "https://conmaz.dk/don-q-oak-barrel-spiced/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-oak-barrel-spiced"
+  },
+  "https://conmaz.dk/don-q-reserva-aged-7-years-gaveaeske/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-reserva-7-years-2-rom-glas"
+  },
+  "https://conmaz.dk/don-q-reserva-aged-7-years/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "don-q-reserva-aged-7-years"
+  },
+  "https://conmaz.dk/emperor-rum-royal-spiced/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "emperor-mauritian-rum-royal-spiced"
+  },
+  "https://conmaz.dk/est-be-thankful-monymusk-mmw-cask-13320-1998-24yo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "est-and-be-thankful-monymusk-mmw-cask-13320-1998-24yo"
+  },
+  "https://conmaz.dk/fadandel-fra-colombia-toenden-46/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "fadandel-fra-colombia-tonden-46"
+  },
+  "https://conmaz.dk/fadandel-fra-colombia-toenden-fadstyrke/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "fadandel-fra-colombia-tonden-fadstyrke"
+  },
+  "https://conmaz.dk/monsters-of-rum-anansi/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "monsters-of-rum-anansi-jamaicansk-rom"
+  },
+  "https://conmaz.dk/monsters-of-rum-caiman/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "monsters-of-rum-caiman-colombiansk-rom"
+  },
+  "https://conmaz.dk/monsters-of-rum-silbon/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "monsters-of-rum-silbon-venezuelansk-rom"
+  },
+  "https://conmaz.dk/olivers-exquisito-1990-solera/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "olivers-exquisito-1990-solera"
+  },
+  "https://conmaz.dk/presidente-rum-gran-anejo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "presidente-rum-gran-anejo"
+  },
+  "https://conmaz.dk/puntacana-club-silver-dry-375/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "puntacana-club-silver-dry-2"
+  },
+  "https://conmaz.dk/puntacana-club-silver-dry/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "puntacana-club-silver-dry"
+  },
+  "https://conmaz.dk/quorhum-encanto-13-artisanal-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "quorhum-encanto-13-artisanal-rum"
+  },
+  "https://conmaz.dk/quorhum-terra-nova-16-artisanal-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "quorhum-terra-nova-16-artisanal-rum"
+  },
+  "https://conmaz.dk/renegade-cane-rum-etudes-new-bacolet-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-cane-rum-etudes-new-bacolet-pot-still"
+  },
+  "https://conmaz.dk/renegade-cane-rum-etudes-pearls-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-cane-rum-etudes-pearls-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-dumfermline-column-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-dumfermline-column-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-hope-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-hope-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-lake-antoine-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-lake-antoine-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-lake-antoine-upper-crater-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-lake-antoine-upper-crater-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-new-bacolet-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-cane-rum-pre-cask-new-bacolet-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-nursery-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-nursery-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-old-bacolet-pot-still-2/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-cane-rum-pre-cask-old-bacolet-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-old-bacolet-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-dumfermline-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-pearls-pot-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-cane-rum-pre-cask-pearls-pot-still"
+  },
+  "https://conmaz.dk/renegade-rum-pre-cask-westerhall-column-still/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "renegade-rum-pre-cask-westerhall-column-still"
+  },
+  "https://conmaz.dk/reserve-sundown-edition-sweet-xo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "vesper-reserve-sundown-edition-sweet-xo"
+  },
+  "https://conmaz.dk/rest-be-thankful-2015-small-batch-2-pure-jamaica-single-rum-aged-7-years/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "rest-and-be-thankful-2015-small-batch-2-pure-jamaica-single-rum-aged-7-years"
+  },
+  "https://conmaz.dk/rest-be-thankful-long-pond-itp-cask-1757-1998-24yo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "rest-and-be-thankful-long-pond-itp-cask-1757-1998-24yo"
+  },
+  "https://conmaz.dk/rest-be-thankful-long-pond-lso-cask-10276-1998-24yo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "rest-and-be-thankful-long-pond-lso-cask-10276-1998-24yo"
+  },
+  "https://conmaz.dk/rest-be-thankful-monymusk-ahj-cask-26709-1998-24yo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "rest-and-be-thankful-monymusk-ahj-cask-26709-1998-24yo"
+  },
+  "https://conmaz.dk/ron-cubay-carta-blanca/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "ron-cubay-carta-blanca"
+  },
+  "https://conmaz.dk/ron-ocumare-blanco/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "ron-ocumare-blanco"
+  },
+  "https://conmaz.dk/ron-perla-del-norte-blanco/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "ron-perla-del-norte-blanco"
+  },
+  "https://conmaz.dk/ron-perla-del-norte-carta-oro/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "ron-perla-del-norte-carta-oro"
+  },
+  "https://conmaz.dk/ron-santiago-de-cuba-anejo-8-anos/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "santiago-de-cuba-ron-anejo-8-ars-rom"
+  },
+  "https://conmaz.dk/ron-santiago-de-cuba-carta-blanca/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "ron-santiago-de-cuba-carta-blanca"
+  },
+  "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-11-anos/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "santiago-de-cuba-ron-extra-anejo-11-ars-rom"
+  },
+  "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-12-anos/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "santiago-de-cuba-ron-extra-anejo-12-ars-rom"
+  },
+  "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-20-anos/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "ron-santiago-de-cuba-20-y-o-extra-anejo"
+  },
+  "https://conmaz.dk/the-real-mccoy-12-year-old-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "the-real-mccoy-12-year-old-rum"
+  },
+  "https://conmaz.dk/the-real-mccoy-3-year-old-white-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "the-real-mccoy-3-year-old-white-rum"
+  },
+  "https://conmaz.dk/the-real-mccoy-rum-2017-limited-edition-aged-10-years/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "the-real-mccoy-rum-2017-limited-edition-aged-10-years"
+  },
+  "https://conmaz.dk/vesper-reserve-blue-star-sweet-xo/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "vesper-reserve-blue-star-sweet-xo"
+  },
+  "https://conmaz.dk/wooden-moose-caramelised-banana-peanut-butter-spiced-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "wooden-moose-caramelised-banana-and-peanut-butter-spiced-rum"
+  },
+  "https://conmaz.dk/wooden-moose-caramelised-black-cherry-spiced-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "wooden-moose-caramelised-black-cherry-spiced-rum"
+  },
+  "https://conmaz.dk/wooden-moose-caramelised-pineapple-passionfruit-spiced-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "wooden-moose-caramelised-pineapple-and-passionfruit-spiced-rum"
+  },
+  "https://conmaz.dk/wooden-moose-coffee-cocoa-caramelised-chipotle-spiced-rum/": {
+   "first_seen": "2026-07-28",
+   "last_seen": "2026-07-28",
+   "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum"
+  },
   "https://rombo.dk/products/1731-fine-rare-guatemala": {
    "first_seen": "2026-07-28",
    "last_seen": "2026-07-28",
