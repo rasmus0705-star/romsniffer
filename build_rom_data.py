@@ -302,9 +302,6 @@ def main():
     # ── Gener sitemap.xml ──
     generate_sitemap()
 
-    # ── Gener sitemap.xml ──
-    generate_sitemap()
-
     # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
