@@ -5,3 +5,18 @@ venv/
 .venv/
 Add-Content .gitignore "`n*.py`n!build_rom_data.py`n!rom_parser.py`n!rom_matching.py`n!*_rom.py"
 *.log
+# Engangs patch- og diagnosescripts
+fix_*.py
+patch_*.py
+diag_*.py
+repair_*.py
+*.bak
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Miljoe
+.env
