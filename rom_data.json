@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28T10:54:20.886001",
+  "updated": "2026-07-28T16:10:49.852491",
   "stats": {
     "total": 1037,
     "deals": 93,
@@ -80,7 +80,12 @@
       "Reserva"
     ],
     "cheapest": 80.0,
-    "multi_shop": 27
+    "multi_shop": 27,
+    "shop_counts": {
+      "Kokkens Vinhus": 250,
+      "Spitus": 331,
+      "Rombo": 485
+    }
   },
   "roms": [
     {
@@ -9025,7 +9030,7 @@
       "brand": null,
       "abv": 50.0,
       "volume_cl": 20.0,
-      "age": "21 år",
+      "age": "XO",
       "category": "rom",
       "shop_count": 1,
       "min_price": 399.0,
@@ -11635,7 +11640,7 @@
       "brand": null,
       "abv": 57.0,
       "volume_cl": null,
-      "age": "21 år",
+      "age": "XO",
       "category": "rom",
       "shop_count": 1,
       "min_price": 449.0,
@@ -13398,7 +13403,7 @@
       "country": "Barbados",
       "brand": "Plantation",
       "abv": 50.0,
-      "volume_cl": null,
+      "volume_cl": 20.0,
       "age": "XO",
       "category": "rom",
       "shop_count": 1,
@@ -14648,7 +14653,7 @@
       "country": "Colombia",
       "brand": null,
       "abv": 50.0,
-      "volume_cl": 20.0,
+      "volume_cl": null,
       "age": "15 år",
       "category": "rom",
       "shop_count": 1,
@@ -17977,7 +17982,7 @@
       "brand": null,
       "abv": 50.0,
       "volume_cl": 20.0,
-      "age": "XO",
+      "age": "25 år",
       "category": "rom",
       "shop_count": 1,
       "min_price": 699.0,
@@ -20355,7 +20360,7 @@
       "brand": null,
       "abv": 50.0,
       "volume_cl": null,
-      "age": "10 år",
+      "age": "XO",
       "category": "rom",
       "shop_count": 1,
       "min_price": 849.0,
@@ -20380,7 +20385,7 @@
       "brand": null,
       "abv": 50.0,
       "volume_cl": null,
-      "age": "18 år",
+      "age": "XO",
       "category": "rom",
       "shop_count": 1,
       "min_price": 849.0,
@@ -24679,7 +24684,7 @@
       "country": "Guyana",
       "brand": "El Dorado",
       "abv": 50.0,
-      "volume_cl": 20.0,
+      "volume_cl": null,
       "age": "XO",
       "category": "rom",
       "shop_count": 1,
