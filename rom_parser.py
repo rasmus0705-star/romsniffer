@@ -127,49 +127,46 @@ def extract_abv(name, slug="", description="", short_desc=""):
 def extract_age(name, slug="", description="", short_desc=""):
     """
     Find alder: 12 år, XO, Solera, Reserva.
+
+    VIGTIGT: XO/Solera/Reserva læses KUN fra navn og slug. I marketingtekst
+    omtaler de ofte en ANDEN rom ("lavet på vores XO"), hvilket gav cream
+    liqueurs og tasting kits alderen XO. Numerisk alder har forrang over
+    ordbetegnelser, så "7 Años ... solera" giver "7 år".
     """
-    sources = [name or "", clean_html(short_desc) if short_desc else "", clean_html(description) if description else ""]
+    name = name or ""
+    slug_clean = (slug or "").lower().replace("-", " ").replace("_", " ")
+    desc = clean_html(description) if description else ""
+    short = clean_html(short_desc) if short_desc else ""
 
-    # Slug kan også indeholde alder
-    if slug:
-        slug_clean = slug.lower().replace("-", " ").replace("_", " ")
-        sources.insert(1, slug_clean)
+    age_patterns = [
+        r"(\d+)\s*år",
+        r"(\d+)\s*years?",
+        r"(\d+)\s*y\.?o\.?",
+        r"(\d+)\s*-?\s*y\.?o\.?",
+        r"(\d+)\s*ans",
+        r"(\d+)\s*años",
+        r"(\d+)\s*anos",
+        r"aged\s+(\d+)",
+    ]
 
-    for source in sources:
-        source_lower = source.lower()
-
-        # "XO" - skal stå alene
-        if re.search(r"\bxo\b", source_lower):
-            return "XO"
-
-        # "Solera" som standalone alder
-        if "solera" in source_lower:
-            # Men ikke hvis der også er et tal (så er det fx "23 år Solera")
-            year_match = re.search(r"(\d+)\s*(?:år|years?|y\.?o\.?|ans)", source_lower)
-            if year_match:
-                age = int(year_match.group(1))
-                if 1 <= age <= 50:
-                    return f"{age} år"
-            return "Solera"
-
-        # Eksplicit alder
-        age_patterns = [
-            r"(\d+)\s*år",
-            r"(\d+)\s*years?",
-            r"(\d+)\s*y\.?o\.?",
-            r"(\d+)\s*-?\s*y\.?o\.?",  # "12-Y-O" eller "12 yo"
-            r"(\d+)\s*ans",
-            r"aged\s+(\d+)",
-        ]
+    # 1. Numerisk alder har ALTID forrang. Alle kilder.
+    for source in (name, slug_clean, short, desc):
+        s = source.lower()
         for pattern in age_patterns:
-            m = re.search(pattern, source_lower)
+            m = re.search(pattern, s)
             if m:
                 age = int(m.group(1))
                 if 1 <= age <= 50:
                     return f"{age} år"
 
-        # Reserva uden specifik alder
-        if re.search(r"\breserva\b", source_lower) and "gran reserva" not in source_lower:
+    # 2. Ordbetegnelser — KUN navn og slug
+    for source in (name, slug_clean):
+        s = source.lower()
+        if re.search(r"\bxo\b", s):
+            return "XO"
+        if "solera" in s:
+            return "Solera"
+        if re.search(r"\breserva\b", s) and "gran reserva" not in s:
             return "Reserva"
 
     return None

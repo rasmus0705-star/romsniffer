@@ -10,31 +10,50 @@ Strategien (alle gates skal passere for at to rom matches):
 6. Fuzzy score: Mindst 88% navn-overlap (lavere hvis alle gates passerer)
 """
 import re
+import unicodedata
 from html import unescape
 
 
+# Alle apostrof-varianter der skal fjernes helt (ikke blive til mellemrum)
+_APOSTROPHES = dict.fromkeys(
+    map(ord, "\u2019\u2018\u02bc\u00b4`'"), None
+)
+
+# Ord der ikke identificerer produktet.
+# Aldersenheder er med, fordi alder tjekkes af age_gate — de skal ikke
+# skabe kunstig forskel mellem "12 y.o." og "12 år".
+_STOP_WORDS = {
+    "rom", "rum", "spiritus", "the", "de", "la", "el", "ron", "rhum",
+    "and", "og", "med", "fra",
+    "\u00e5r", "\u00e5rs", "ars", "aar", "years", "year", "yo",
+    "ans", "anos", "a\u00f1os", "old", "aged",
+}
+
+
 def clean_name(name):
-    """Forbered navn til matching"""
+    """Forbered navn til matching."""
     if not name:
         return ""
-    name = name.lower()
-    name = unescape(name)
-    # Fjern HTML
+
+    name = unescape(name).lower()
     name = re.sub(r"<[^>]+>", " ", name)
-    # Fjern volume/ABV (allerede tjekket separat)
+
+    # Fjern apostroffer HELT, saa "doorly's" -> "doorlys" -> token "doorlys"
+    name = name.translate(_APOSTROPHES)
+
+    # Strip accenter: "barcel\u00f3" -> "barcelo"
+    name = unicodedata.normalize("NFKD", name)
+    name = "".join(c for c in name if unicodedata.category(c) != "Mn")
+
+    # Fjern volumen og ABV (tjekkes af egne gates)
     name = re.sub(r"\d+(?:[.,]\d+)?\s*(ml|cl|l)\b", " ", name)
     name = re.sub(r"\d+(?:[.,]\d+)?\s*%", " ", name)
-    # Behold tal (årgang/alder) som standalone "ord"
-    # Fjern separatorer
-    name = re.sub(r"[,\-—\.()/\"'&]", " ", name)
-    # Fjern stop-words
-    stop_words = ["rom", "rum", "spiritus", "the", "de", "la", "el", "ron", "rhum"]
-    words = name.split()
-    words = [w for w in words if w not in stop_words and len(w) > 1]
-    name = " ".join(words)
-    # Saml whitespace
-    name = re.sub(r"\s+", " ", name).strip()
-    return name
+
+    # Separatorer -> mellemrum
+    name = re.sub(r"[,\-\u2014\.()/\"&+]", " ", name)
+
+    words = [w for w in name.split() if w not in _STOP_WORDS and len(w) > 1]
+    return re.sub(r"\s+", " ", " ".join(words)).strip()
 
 
 def fuzzy_overlap_score(a, b):
@@ -73,117 +92,151 @@ def fuzzy_overlap_score(a, b):
 
 def brand_gate(a, b):
     """
-    Brand skal være ens hvis begge har det.
-    Returns (passes, reason)
+    Brand skal vaere ens hvis begge har det.
+
+    Returns (passes, reason, neutral)
     """
     ba = (a.get("brand") or "").lower().strip()
     bb = (b.get("brand") or "").lower().strip()
-    
+
     if not ba and not bb:
-        return True, None  # Begge mangler — accepter, lad andre gates afgøre
+        return True, None, True
     if not ba or not bb:
-        return True, None  # Én mangler — accepter, lad andre gates afgøre
-    
-    # Strict equality
-    if ba == bb:
-        return True, None
-    
-    # Tillad delvis match: "Ron Zacapa" matches "Zacapa"
-    if ba in bb or bb in ba:
-        return True, None
-    
-    return False, f"Brand mismatch: '{a.get('brand')}' vs '{b.get('brand')}'"
+        return True, None, True
+
+    # Normaliser apostroffer og accenter foer sammenligning, saa
+    # "Gosling's" og "Goslings" er samme brand
+    def _n(s):
+        s = s.translate(_APOSTROPHES)
+        s = unicodedata.normalize("NFKD", s)
+        return "".join(c for c in s if unicodedata.category(c) != "Mn")
+
+    na, nb = _n(ba), _n(bb)
+    if na == nb or na in nb or nb in na:
+        return True, None, False
+
+    return False, f"Brand mismatch: '{a.get('brand')}' vs '{b.get('brand')}'", False
 
 
 def age_gate(a, b):
     """
-    Alder skal være helt ens.
-    'XO' ≠ '12 år' ≠ 'Solera' ≠ None
+    Alder skal vaere ens NAAR begge har den.
+
+    Mangler den paa én side, er det ikke en uenighed — det er manglende
+    oplysning. Returnerer neutral, og try_match kompenserer ved at kraeve
+    hoejere navne-lighed.
+
+    Returns (passes, reason, neutral)
     """
-    aa = a.get("age")
-    ab = b.get("age")
-    
+    aa, ab = a.get("age"), b.get("age")
+
     if aa is None and ab is None:
-        return True, None
-    
+        return True, None, False
     if aa is None or ab is None:
-        return False, f"Alder mismatch: '{aa}' vs '{ab}' (én mangler)"
-    
-    # Normaliser
-    aa_clean = str(aa).lower().strip()
-    ab_clean = str(ab).lower().strip()
-    
-    if aa_clean == ab_clean:
-        return True, None
-    
-    return False, f"Alder mismatch: '{aa}' vs '{ab}'"
+        return True, None, True          # neutral, ikke afvisning
+
+    if str(aa).lower().strip() == str(ab).lower().strip():
+        return True, None, False
+
+    return False, f"Alder mismatch: '{aa}' vs '{ab}'", False
+
+
+# Standardflaske. Mangler volumen paa den ene side, tillades match kun hvis
+# den kendte side er en standardflaske — saa risikoen for at en 35 cl
+# miniature matcher en helflaske er lille.
+_STANDARD_VOLUMES = {70.0, 75.0}
+
+# Stoerste tillade prisforhold naar volumen ikke kunne verificeres paa
+# begge sider. En aegte prisforskel mellem butikker er sjaeldent over 2x;
+# en 5x forskel betyder naesten altid forskellig flaskestoerrelse.
+_MAX_PRICE_RATIO = 3.0
 
 
 def volume_gate(a, b, max_diff=2):
-    """Volume skal være ~ens. Max 2cl forskel."""
-    va = a.get("volume_cl")
-    vb = b.get("volume_cl")
-    
+    """
+    Volumen skal vaere ~ens. Max 2 cl forskel.
+
+    Returns (passes, reason, neutral)
+    """
+    va, vb = a.get("volume_cl"), b.get("volume_cl")
+
     if va is None and vb is None:
-        return True, None  # Begge mangler — lad andre gates afgøre
+        return True, None, True          # ingen af dem kendes — neutral
+
     if va is None or vb is None:
-        return False, f"Volume mismatch: {va}cl vs {vb}cl (én mangler)"
-    
+        known = va if va is not None else vb
+        if float(known) not in _STANDARD_VOLUMES:
+            return (False,
+                    f"Volume: {known}cl er ikke standard, og den anden side "
+                    f"mangler volumen", False)
+
+        # Prisvaern: stor prisforskel indikerer forskellig stoerrelse
+        pa, pb = a.get("price"), b.get("price")
+        try:
+            if pa and pb:
+                lo, hi = sorted((float(pa), float(pb)))
+                if lo > 0 and hi / lo > _MAX_PRICE_RATIO:
+                    return (False,
+                            f"Volume ukendt og prisforhold {hi/lo:.1f}x "
+                            f"for stort", False)
+        except (TypeError, ValueError):
+            pass
+
+        return True, None, True          # neutral
+
     if abs(va - vb) > max_diff:
-        return False, f"Volume mismatch: {va}cl vs {vb}cl"
-    
-    return True, None
+        return False, f"Volume mismatch: {va}cl vs {vb}cl", False
+
+    return True, None, False
 
 
 def abv_gate(a, b, max_diff=1.0):
-    """ABV skal være ~ens. Max 1% forskel (din ønske)."""
-    abva = a.get("abv")
-    abvb = b.get("abv")
-    
-    if abva is None and abvb is None:
-        return True, None
-    if abva is None or abvb is None:
-        return True, None  # Acceptér
-    
-    if abs(abva - abvb) > max_diff:
-        return False, f"ABV mismatch: {abva}% vs {abvb}%"
-    
-    return True, None
+    """
+    ABV skal vaere ~ens naar begge har den.
+
+    Returns (passes, reason, neutral)
+    """
+    aa, ab = a.get("abv"), b.get("abv")
+
+    if aa is None and ab is None:
+        return True, None, True
+    if aa is None or ab is None:
+        return True, None, True
+
+    if abs(aa - ab) > max_diff:
+        return False, f"ABV mismatch: {aa}% vs {ab}%", False
+
+    return True, None, False
 
 
 def edition_gate(a, b):
     """
-    Edition keywords skal være ens.
-    Hvis A har 'edición negra' og B ikke, så er det IKKE samme produkt.
+    Edition-keywords skal vaere ens.
+
+    Returns (passes, reason, neutral)
     """
     ea = a.get("editions") or set()
     eb = b.get("editions") or set()
-    
-    # Konverter til set hvis det er liste
     if isinstance(ea, list):
         ea = set(ea)
     if isinstance(eb, list):
         eb = set(eb)
-    
-    # Hvis begge er tomme: ok
+
     if not ea and not eb:
-        return True, None
-    
-    # Hvis kun én har editions: NOT match
+        return True, None, False
+
     if not ea or not eb:
         diff = ea or eb
-        return False, f"Edition mismatch: '{list(diff)}' kun på én side"
-    
-    # Begge har editions: skal være ens (eller mindst overlap)
+        return False, f"Edition mismatch: '{list(diff)}' kun paa én side", False
+
     if ea == eb:
-        return True, None
-    
-    # Tillad delvis overlap (mindst halvdelen skal være ens)
+        return True, None, False
+
     overlap = ea & eb
     if len(overlap) >= len(ea) / 2 and len(overlap) >= len(eb) / 2:
-        return True, None
-    
-    return False, f"Edition mismatch: {list(ea)} vs {list(eb)}"
+        return True, None, False
+
+    return False, f"Edition mismatch: {list(ea)} vs {list(eb)}", False
 
 
 # ────────────────────────────────────────────────────────────
@@ -193,15 +246,10 @@ def edition_gate(a, b):
 def try_match(a, b, fuzzy_threshold=88):
     """
     Tjek om to rom-produkter er samme produkt.
-    
-    Returns dict:
-    {
-        "match": bool,
-        "score": float,
-        "reason": str (hvis ikke match) eller None,
-        "gates_passed": list,
-        "fuzzy_score": float,
-    }
+
+    Gates kan nu svare "neutral": feltet manglede paa én side, saa gaten
+    kunne hverken bekraefte eller afvise. For hvert neutralt gate haeves
+    fuzzy-taersklen, saa navnet skal baere mere af beviset.
     """
     result = {
         "match": False,
@@ -209,21 +257,17 @@ def try_match(a, b, fuzzy_threshold=88):
         "reason": None,
         "gates_passed": [],
         "fuzzy_score": 0,
+        "neutral_gates": [],
     }
-    
-    # Skal ikke matche med sig selv
+
     if a is b:
         result["reason"] = "Samme objekt"
         return result
-    
-    # Skal være forskellige butikker (vi vil have pris-sammenligning)
+
     if a.get("shop_name") == b.get("shop_name"):
-        # Tillad samme butik hvis ID er forskelligt (måske dupletter)
-        # men det er ikke pris-sammenligning
         result["reason"] = "Samme butik"
         return result
-    
-    # Kør gates i rækkefølge - stop ved første fejl
+
     gates = [
         ("brand", brand_gate),
         ("age", age_gate),
@@ -231,38 +275,49 @@ def try_match(a, b, fuzzy_threshold=88):
         ("abv", abv_gate),
         ("edition", edition_gate),
     ]
-    
+
+    neutral_count = 0
     for gate_name, gate_func in gates:
-        passes, reason = gate_func(a, b)
+        out = gate_func(a, b)
+        # Bagudkompatibel: gates kan returnere 2- eller 3-tuple
+        if len(out) == 3:
+            passes, reason, neutral = out
+        else:
+            passes, reason = out
+            neutral = False
+
         if not passes:
-            result["reason"] = f"❌ {gate_name}-gate: {reason}"
+            result["reason"] = f"\u274c {gate_name}-gate: {reason}"
             return result
-        result["gates_passed"].append(gate_name)
-    
-    # Alle gates passerede - tjek nu fuzzy navn
+
+        if neutral:
+            neutral_count += 1
+            result["neutral_gates"].append(gate_name)
+        else:
+            result["gates_passed"].append(gate_name)
+
+    # Fuzzy navne-sammenligning
     name_a = clean_name(a.get("name", ""))
     name_b = clean_name(b.get("name", ""))
-    
     fuzzy_score = fuzzy_overlap_score(name_a, name_b)
     result["fuzzy_score"] = fuzzy_score
-    
-    # Dynamisk threshold:
-    # - Hvis brand+alder+volume+abv alle matcher: 80% er nok
-    # - Hvis nogle data manglede: kræv 88%
-    has_full_data = all([
-        a.get("brand"), b.get("brand"),
-        a.get("age") is not None or (a.get("age") is None and b.get("age") is None),
-        a.get("volume_cl"), b.get("volume_cl"),
-    ])
-    
-    threshold = 75 if has_full_data else fuzzy_threshold
-    
+    result["neutral_count"] = neutral_count
+
+    # Taerskel afhaenger ALENE af hvor mange gates der bekraeftede noget.
+    # Faerre bekraeftelser -> navnet skal baere mere af beviset.
+    # (Tidligere blev manglende data straffet to gange: baade via
+    #  has_full_data og via neutral_count.)
+    threshold = min(90, 75 + 5 * neutral_count)
+
     if fuzzy_score >= threshold:
         result["match"] = True
         result["score"] = fuzzy_score
         return result
-    
-    result["reason"] = f"❌ Fuzzy score for lav: {fuzzy_score:.0f}% < {threshold}%"
+
+    result["reason"] = (
+        f"\u274c Fuzzy score for lav: {fuzzy_score:.0f}% < {threshold}%"
+        + (f" ({neutral_count} neutrale gates)" if neutral_count else "")
+    )
     return result
 
 

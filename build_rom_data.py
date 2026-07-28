@@ -164,7 +164,7 @@ def main():
 
     # HTML enrichment for manglende data
     print(f"\n🌐 HTML enrichment for produkter med manglende data...")
-    enrich_missing_data(all_items, max_enrich=80)
+    enrich_missing_data(all_items, max_enrich=0)  # SLÅET FRA: forurener data, se rom_parser.py
 
     # Coverage statistik FØR matching
     with_brand = sum(1 for it in all_items if it.get("brand"))
