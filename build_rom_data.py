@@ -19,6 +19,7 @@ from rom_slugs import assign_slugs
 import scrape_guard
 from generate_sitemap import main as generate_sitemap
 from generate_category_pages import main as generate_category_pages
+from stamp_data_version import main as stamp_data_version
 
 
 
@@ -302,10 +303,14 @@ def main():
     # ── Gener sitemap.xml ──
     generate_sitemap()
 
+    # ── Cache-version: bind ?v= til datafilens indhold ──
+    stamp_data_version()
+
     # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
-        subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json", "-A", "rom/"], check=True)
+        subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json",
+                        "index.html", "premium.html", "-A", "rom/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True
