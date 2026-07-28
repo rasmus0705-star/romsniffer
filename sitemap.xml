@@ -301,6 +301,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.romsniffer.dk/rom/alder/35-ar/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.romsniffer.dk/rom/alder/4-ar/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -2035,12 +2041,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-mantuano-ron-extra-anejo-rom/</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/diplomatico-no-1-batch-kettle-rum/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -2071,6 +2071,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.romsniffer.dk/rom/diplomatico-reserva-exclusiva-ron-antiguo/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.romsniffer.dk/rom/diplomatico-reserva-exclusiva-ron-antiguo-35cl/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -2078,12 +2084,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/diplomatico-seleccion-de-familia/</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-seleccion-de-familia-rom/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2101,7 +2101,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/diplomatico-single-vintage-rum-2008-2/</loc>
+    <loc>https://www.romsniffer.dk/rom/diplomatico-single-vintage-rum-2008/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4087,6 +4087,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.romsniffer.dk/rom/planteray-xo-20th-anniversary-rom/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.romsniffer.dk/rom/presidente-15-ar-solera-rom/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -4189,7 +4195,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/pyrat-xo-reserve/</loc>
+    <loc>https://www.romsniffer.dk/rom/pyrat-xo-reserve-2/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4639,12 +4645,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-centenario-gran-reserva-solera-25/</loc>
-    <lastmod>2026-07-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/ron-centenario-grand-reserva-25-40/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -4909,7 +4909,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/ron-millonario-numero-15-reserva-especial/</loc>
+    <loc>https://www.romsniffer.dk/rom/ron-millonario-numero-15-reserva-especial-2/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -4922,6 +4922,12 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/ron-millonario-xo-reserva-especial-rom-magnum-1-5-liter/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.romsniffer.dk/rom/ron-millonario-xo-solera-reserva-40/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -5239,6 +5245,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-demerara-no-14-solera/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.romsniffer.dk/rom/rum-nation-dominicana-8-ar/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -5456,6 +5468,12 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/rum-nation-rare-rums-versailles-30-ar/</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.romsniffer.dk/rom/rum-nation-venezuela-xo-25th-anniversary/</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
