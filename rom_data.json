@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-28T17:18:22.640819",
+  "updated": "2026-07-28T17:20:05.734077",
   "stats": {
     "total": 1078,
     "deals": 109,
@@ -47,7 +47,6 @@
       "Réunion",
       "Spanien",
       "Trinidad",
-      "Trinidad &amp; Tobago",
       "Venezuela",
       "Østrig"
     ],
@@ -15678,7 +15677,7 @@
       "name": "Bapt & Clem’s Trinidad & Tobago Ans 4 d’age Sauternes & Sherry Finish",
       "image": "https://conmaz.dk/wp-content/uploads/2022/09/BC15.jpg",
       "type": "Aged rom",
-      "country": "Trinidad &amp; Tobago",
+      "country": "Trinidad",
       "brand": null,
       "abv": 47.0,
       "volume_cl": 70.0,
@@ -20394,7 +20393,7 @@
       "name": "Alfred’s Trail 10.6 Trinidad Rum Malt Whisky Cask Finish",
       "image": "https://conmaz.dk/wp-content/uploads/2026/07/Alfreds-Trail-10.6-Trinidad-Rum-Malt-Whisky-Cask-Finish.png",
       "type": "Aged rom",
-      "country": "Trinidad &amp; Tobago",
+      "country": "Trinidad",
       "brand": null,
       "abv": 45.0,
       "volume_cl": 70.0,
