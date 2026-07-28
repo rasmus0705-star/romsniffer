@@ -482,6 +482,7 @@
         .filter-search { width: 100%; }
     }
 </style>
+<script>const DATA_VERSION = 'cc7405dfe5e4';</script>
 </head>
 <body>
 
@@ -691,7 +692,7 @@ function render(append){
 // ── Load ──
 async function loadData(){
     try{
-        const r=await fetch('rom_data.json?v='+Date.now());
+        const r=await fetch('rom_data.json?v='+DATA_VERSION);
         const data=await r.json();
         allRoms=data.roms||[];
         premRoms=allRoms.filter(isCollector).sort((a,b)=>b.min_price-a.min_price);

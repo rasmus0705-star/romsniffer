@@ -1148,6 +1148,7 @@
         .top-card { flex: 0 0 135px; min-width: 135px; }
     }
 </style>
+<script>const DATA_VERSION = 'cc7405dfe5e4';</script>
 </head>
 <body>
 
@@ -2219,7 +2220,7 @@ function resetAll() {
 // ── LOAD DATA ─────────────────────────────────────────────────────
 async function loadData() {
     try {
-        const r = await fetch('rom_data.json?v=' + Date.now());
+        const r = await fetch('rom_data.json?v=' + DATA_VERSION);
         if (!r.ok) throw new Error('Kunne ikke hente rom_data.json');
         const data = await r.json();
         allRoms = data.roms || [];
