@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-28T17:20:05.734077",
+  "updated": "2026-07-29T22:12:09.041925",
   "stats": {
-    "total": 1078,
+    "total": 1077,
     "deals": 109,
     "shops": 4,
     "shop_names": [
@@ -93,7 +93,7 @@
     "multi_shop": 76,
     "shop_counts": {
       "Kokkens Vinhus": 250,
-      "Spitus": 331,
+      "Spitus": 330,
       "Rombo": 485,
       "Con Maz": 93
     }
@@ -16056,31 +16056,6 @@
       "slug": "chairmans-reserve-vintage-2009"
     },
     {
-      "name": "Old St. Croix Julekalender 2025",
-      "image": "https://spitus.dk/wp-content/uploads/2025/09/Old-st-croix-julekalender-2025.png",
-      "type": null,
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": 40.0,
-      "volume_cl": 2.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 549.0,
-      "cheapest_price": 549.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 549.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/old-st-croix-julekalender-2025/"
-        }
-      ],
-      "slug": "old-st-croix-julekalender-2025"
-    },
-    {
       "name": "Dictador 20 Y.O",
       "image": "https://spitus.dk/wp-content/uploads/2020/12/dictador-20-yo.png",
       "type": "Aged rom",
@@ -16488,7 +16463,7 @@
       "slug": "a-h-riise-xo-founders-reserve-no-6"
     },
     {
-      "name": "A.H. Riise XO Royal Reserve King Haakon – Old Edition",
+      "name": "A.H. Riise XO Royal Reserve King Haakon – Old Rum Edition",
       "image": "https://spitus.dk/wp-content/uploads/2023/06/a-h-riise-king-haakon-old-edition-k.png",
       "type": "Aged rom",
       "country": "Dansk",
