@@ -21,4 +21,4 @@ echo.
 echo ================================
 echo   Faerdig! Siden opdateres om 1-2 min
 echo ================================
-timeout /t 5
+pause

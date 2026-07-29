@@ -20,7 +20,7 @@ from collections import Counter
 ROM_DATA_FILE = "rom_data.json"
 
 # Butikker der SKAL levere produkter
-EXPECTED_SHOPS = ["Kokkens Vinhus", "Spitus", "Rombo"]
+EXPECTED_SHOPS = ["Kokkens Vinhus", "Spitus", "Rombo", "Con Maz"]
 
 MAX_DROP_PCT = 25.0        # samlet fald der udløser stop
 MAX_SHOP_DROP_PCT = 40.0   # fald for én butik der udløser stop
