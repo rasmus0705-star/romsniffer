@@ -6,23 +6,16 @@ echo ================================
 echo.
 
 cd /d C:\Kodning\Rom-sniffer
-call .venv\Scripts\activate
+call .venv\Scripts\activate.bat
 
-echo [1/2] Korer scraper og bygger rom_data.json...
-python build_rom_data.py
+echo [1/1] Korer scraper, bygger sider og pusher til GitHub...
+python build_rom_data.py %*
 if errorlevel 1 (
     echo.
-    echo FEJL: Scraper fejlede!
+    echo FEJL: Build fejlede - se output ovenfor
     pause
     exit /b 1
 )
-
-echo.
-echo [2/2] Pusher til GitHub...
-git add rom_data.json price_history.json sitemap.xml
-git add -A rom/
-git commit -m "Daglig rom-data opdatering %date% %time:~0,5%"
-git push
 
 echo.
 echo ================================
