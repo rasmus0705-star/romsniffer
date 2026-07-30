@@ -1,8 +1,8 @@
 {
-  "updated": "2026-07-29T22:25:14.782268",
+  "updated": "2026-07-30T07:02:05.044232",
   "stats": {
-    "total": 1077,
-    "deals": 109,
+    "total": 1076,
+    "deals": 108,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -95,7 +95,7 @@
       "Kokkens Vinhus": 250,
       "Spitus": 330,
       "Rombo": 485,
-      "Con Maz": 93
+      "Con Maz": 92
     }
   },
   "roms": [
@@ -2051,31 +2051,6 @@
         }
       ],
       "slug": "stroh-jagertee-1-liter"
-    },
-    {
-      "name": "Chamarel Gold Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/03/CH05-2.jpg",
-      "type": "Spiced",
-      "country": "Mauritius",
-      "brand": null,
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 229.0,
-      "cheapest_price": 229.0,
-      "max_discount_pct": 30.4,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 229.0,
-          "old_price": 329.0,
-          "discount_pct": 30.4,
-          "url": "https://conmaz.dk/chamarel-gold-rum/"
-        }
-      ],
-      "slug": "chamarel-gold-rum"
     },
     {
       "name": "Wooden Moose Coffee, Cocoa & Caramelised Chipotle Spiced Rum",
