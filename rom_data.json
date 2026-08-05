@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-04T09:52:01.448652",
+  "updated": "2026-08-05T21:04:52.998993",
   "stats": {
     "total": 1076,
     "deals": 66,
@@ -69,6 +69,7 @@
       "16 år",
       "17 år",
       "18 år",
+      "19 år",
       "20 år",
       "21 år",
       "22 år",
@@ -93,8 +94,8 @@
     "multi_shop": 76,
     "shop_counts": {
       "Kokkens Vinhus": 250,
-      "Spitus": 330,
-      "Rombo": 485,
+      "Spitus": 332,
+      "Rombo": 483,
       "Con Maz": 92
     }
   },
@@ -1405,31 +1406,6 @@
         }
       ],
       "slug": "nega-fulo-aguardente-de-cana-cachaca"
-    },
-    {
-      "name": "SBS Jamaica 2020 DOK Oloroso Cask 20 cl. rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_46da16a9-7ff3-40df-9964-2be68be65635.png?v=1769439730",
-      "type": "Aged rom",
-      "country": "Jamaica",
-      "brand": "SBS",
-      "abv": 57.0,
-      "volume_cl": 20.0,
-      "age": "2 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 199.0,
-      "cheapest_price": 199.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 199.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/sbs-jamaica-2020-dok-oloroso-20-cl"
-        }
-      ],
-      "slug": "sbs-jamaica-2020-dok-oloroso-cask-20-cl-rom"
     },
     {
       "name": "SBS Jamaica 2020 DOK Port Cask 20 cl. rom",
@@ -4371,6 +4347,31 @@
         }
       ],
       "slug": "companero-elixir-orange"
+    },
+    {
+      "name": "Stroh 80% Original Rum",
+      "image": "https://spitus.dk/wp-content/uploads/2026/07/stroh-70cl.jpeg",
+      "type": "Spiced",
+      "country": "Østrig",
+      "brand": "Stroh",
+      "abv": 80.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 299.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/stroh-80-original-rum/"
+        }
+      ],
+      "slug": "stroh-80-original-rum"
     },
     {
       "name": "Appleton Estate Reserve 8 Years Jamaica Rum",
@@ -9115,31 +9116,6 @@
         }
       ],
       "slug": "romdeluxe-no-3-white-rum-jamaica-st-catherine"
-    },
-    {
-      "name": "Romdeluxe Prins Endlau - Dominican Rum",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_fbeae355-199d-41f7-bf03-06a510267e89.png?v=1769435513",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": "Romdeluxe",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "5 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 395.0,
-      "cheapest_price": 395.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 395.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/prins-endlau-dominican-rum"
-        }
-      ],
-      "slug": "romdeluxe-prins-endlau-dominican-rum"
     },
     {
       "name": "Romdeluxe Selected Series Rum Dominican Republic",
@@ -20422,31 +20398,6 @@
       "slug": "ron-quorhum-30-aniversario-oporto-finish-limited-edition"
     },
     {
-      "name": "SBS Venezuela 2014 Bourbon and Oloroso Cask (bottled for Norway)",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_e0f93673-d964-452c-bf5d-939285db8bdd.png?v=1769439577",
-      "type": "Aged rom",
-      "country": "Venezuela",
-      "brand": "SBS",
-      "abv": 46.0,
-      "volume_cl": 70.0,
-      "age": "10 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 775.0,
-      "cheapest_price": 775.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 775.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/sbs-venezuela-2014-norway"
-        }
-      ],
-      "slug": "sbs-venezuela-2014-bourbon-and-oloroso-cask-bottled-for-norway"
-    },
-    {
       "name": "A.H. Riise Non Plus Ultra Ambre d’Or Excellence",
       "image": "https://spitus.dk/wp-content/uploads/2023/09/ahr-non-plus-ultra-ambre-dor.png",
       "type": null,
@@ -23200,6 +23151,31 @@
       "slug": "magnum-planteray-xo-20th-anniversary-rom-1-75-liter"
     },
     {
+      "name": "Foursquare 19 Years Old EPILOGUE Exceptional Cask Selection Mark XXXI Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2026/08/foursquare-Penultimus.jpg",
+      "type": "Aged rom",
+      "country": "Barbados",
+      "brand": "Foursquare",
+      "abv": 57.0,
+      "volume_cl": 70.0,
+      "age": "19 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1045.0,
+      "cheapest_price": 1045.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 1045.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/foursquare-19-years-old-epilogue-exceptional-cask-selection-mark-xxxi-rom/"
+        }
+      ],
+      "slug": "foursquare-19-years-old-epilogue-exceptional-cask-selection-mark-xxxi-rom"
+    },
+    {
       "name": "Foursquare 15 Years Old PENULTIMUS Exceptional Cask Selection Mark XXX Rom",
       "image": "https://spitus.dk/wp-content/uploads/2026/05/foursquare-Penultimus.jpg",
       "type": "Aged rom",
@@ -23680,6 +23656,31 @@
         }
       ],
       "slug": "foursquare-14-years-old-equidem-exceptional-cask-selection-mark-xxvii-rom"
+    },
+    {
+      "name": "Foursquare Epilogue Exceptional Cask Selection Single Blended Rum",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/FoursquareEpilogueExceptionalCaskSelectionRum.png?v=1785842241",
+      "type": "Mørk rom",
+      "country": "Barbados",
+      "brand": "Foursquare Rum Distillery",
+      "abv": 57.0,
+      "volume_cl": 70.0,
+      "age": "19 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1149.0,
+      "cheapest_price": 1149.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 1149.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/foursquare-epilogue-exceptional-cask-selection-single-blended-rum"
+        }
+      ],
+      "slug": "foursquare-epilogue-exceptional-cask-selection-single-blended-rum"
     },
     {
       "name": "SBS Belize 2005 Rom",
