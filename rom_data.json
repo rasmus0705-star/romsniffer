@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-07T15:18:58.904789",
+  "updated": "2026-08-10T06:49:33.266735",
   "stats": {
     "total": 1076,
     "deals": 89,
@@ -6823,6 +6823,31 @@
       "slug": "ron-cristobal-nina"
     },
     {
+      "name": "Old St. Croix Orange Grove – kampagnetilbud m/5 forskellige smageflasker",
+      "image": "https://spitus.dk/wp-content/uploads/2026/08/Old-St.-Croix-kampagne-Orange-Grove.png",
+      "type": null,
+      "country": "Dansk",
+      "brand": "Old St. Croix",
+      "abv": null,
+      "volume_cl": 2.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 349.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/old-st-croix-orange-grove-kampagnetilbud-m-5-forskellige-smageflasker/"
+        }
+      ],
+      "slug": "old-st-croix-orange-grove-kampagnetilbud-m-5-forskellige-smageflasker"
+    },
+    {
       "name": "Stroh 80% Original Rum, 1 liter",
       "image": "https://spitus.dk/wp-content/uploads/2026/01/Stroh-80-1-liter.png",
       "type": "Spiced",
@@ -9662,31 +9687,6 @@
         }
       ],
       "slug": "planteray-rum-barbados-xo-20th-anniversary"
-    },
-    {
-      "name": "Old St. Croix Royal Danish Navy The Original – kampagnetilbud m/5 smageflasker",
-      "image": "https://spitus.dk/wp-content/uploads/2026/05/osc-danish-navy-m-smagsproever.png",
-      "type": "Navy Rum",
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": 40.0,
-      "volume_cl": 2.0,
-      "age": "20 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/old-st-croix-royal-danish-navy-the-original-kampagnetilbud-m-5-smageflasker/"
-        }
-      ],
-      "slug": "old-st-croix-royal-danish-navy-the-original-kampagnetilbud-m-5-smageflasker"
     },
     {
       "name": "Old St. Croix Royal Danish Navy The Original",
