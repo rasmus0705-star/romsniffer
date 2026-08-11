@@ -240,6 +240,25 @@ def edition_gate(a, b):
 
 
 # ────────────────────────────────────────────────────────────
+
+
+def price_gate(a, b, max_pct=0.30):
+    """Afvis hvis prisforskellen er over 30%."""
+    pa, pb = a.get("price"), b.get("price")
+    if pa is None or pb is None:
+        return True, None, True
+    try:
+        pa, pb = float(pa), float(pb)
+    except (TypeError, ValueError):
+        return True, None, True
+    if pa <= 0 or pb <= 0:
+        return True, None, True
+    lo, hi = sorted((pa, pb))
+    pct = (hi - lo) / lo
+    if pct > max_pct:
+        return (False, f"Prisforskel for stor: {lo:.0f} vs {hi:.0f} kr ({pct:.0%} > {max_pct:.0%})", False)
+    return True, None, False
+
 # HOVED MATCHING FUNKTION
 # ────────────────────────────────────────────────────────────
 
@@ -274,6 +293,7 @@ def try_match(a, b, fuzzy_threshold=88):
         ("volume", volume_gate),
         ("abv", abv_gate),
         ("edition", edition_gate),
+        ("price", price_gate),
     ]
 
     neutral_count = 0

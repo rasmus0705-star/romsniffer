@@ -20,6 +20,7 @@ from rom_slugs import assign_slugs
 import scrape_guard
 from generate_sitemap import main as generate_sitemap
 from generate_category_pages import main as generate_category_pages
+from generate_brand_pages import main as generate_brand_pages
 from stamp_data_version import main as stamp_data_version
 
 
@@ -81,6 +82,49 @@ def enrich_missing_data(items, max_enrich=100):
             enriched_count += 1
     
     print(f"   ✅ HTML enrichment tilføjede data {enriched_count} gange")
+
+
+
+def calc_price_changes(unique_roms, history_file="price_history.json"):
+    """Beregn price_change_7d for hvert rom baseret på prishistorik."""
+    try:
+        with open(history_file, "r", encoding="utf-8") as f:
+            history = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("   ⚠️  Ingen prishistorik fundet — springer over")
+        return
+
+    dates = sorted(history.keys())
+    if len(dates) < 2:
+        print("   ⚠️  Mindre end 2 dages historik — springer over")
+        return
+
+    today_key = dates[-1]
+    # Find dato ~7 dage tilbage (eller ældste tilgængelige)
+    target_idx = max(0, len(dates) - 8)
+    week_ago_key = dates[target_idx]
+    days_back = (len(dates) - 1) - target_idx
+
+    today_data = history.get(today_key, {})
+    week_ago_data = history.get(week_ago_key, {})
+
+    count = 0
+    for rom in unique_roms:
+        rom["price_change_7d"] = None
+        name = rom["name"]
+        if name in today_data and name in week_ago_data:
+            old_min = week_ago_data[name].get("min")
+            new_min = today_data[name].get("min", rom["min_price"])
+            if old_min and new_min and old_min > 0:
+                change = new_min - old_min
+                # Kun vis hvis ændring er over 5 kr (undgå støj)
+                if abs(change) > 5:
+                    rom["price_change_7d"] = round(change, 0)
+                    count += 1
+
+    drops = sum(1 for r in unique_roms if r.get("price_change_7d") and r["price_change_7d"] < 0)
+    rises = sum(1 for r in unique_roms if r.get("price_change_7d") and r["price_change_7d"] > 0)
+    print(f"   ✅ Prisændringer ({days_back}d): {drops} fald, {rises} stigninger")
 
 
 def main():
@@ -237,6 +281,10 @@ def main():
     # Tilfoej PERSISTENTE slugs (bundet til produkt-URL, ikke navn)
     assign_slugs(unique_roms)
 
+    # Beregn prisændringer fra historik
+    print("\n📊 Beregner prisændringer...")
+    calc_price_changes(unique_roms)
+
     # Statistik
     total = len(unique_roms)
     deals = sum(1 for r in unique_roms if r["max_discount_pct"] > 0)
@@ -307,6 +355,9 @@ def main():
     # ── Gener kategorisider ──
     generate_category_pages()
 
+    # ── Gener brand-sider ──
+    generate_brand_pages()
+
     # ── Gener sitemap.xml ──
     generate_sitemap()
 
@@ -317,7 +368,7 @@ def main():
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
         subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json",
-                        "index.html", "premium.html", "-A", "rom/"], check=True)
+                        "index.html", "premium.html", "404.html", "-A", "rom/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True

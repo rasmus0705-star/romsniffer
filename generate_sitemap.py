@@ -9,7 +9,7 @@ Inkluderer:
 import os
 from datetime import datetime
 
-SITE_URL = "https://www.romsniffer.dk"
+SITE_URL = "https://romsniffer.dk"
 ROM_DIR = "rom"
 OUTPUT_FILE = "sitemap.xml"
 CATEGORY_TYPES = ["land", "type", "alder"]
@@ -56,7 +56,7 @@ def main():
     rom_count = 0
     if os.path.isdir(ROM_DIR):
         for entry in sorted(os.listdir(ROM_DIR)):
-            if entry in CATEGORY_TYPES:
+            if entry in CATEGORY_TYPES or entry == "brand":
                 continue
             index_path = os.path.join(ROM_DIR, entry, "index.html")
             if os.path.isfile(index_path):
@@ -67,6 +67,22 @@ def main():
                     "priority": "0.6",
                 })
                 rom_count += 1
+
+
+    # Brand-sider fra /rom/brand/
+    brand_count = 0
+    brand_dir = os.path.join(ROM_DIR, "brand")
+    if os.path.isdir(brand_dir):
+        for entry in sorted(os.listdir(brand_dir)):
+            index_path = os.path.join(brand_dir, entry, "index.html")
+            if os.path.isfile(index_path):
+                urls.append({
+                    "loc": f"{SITE_URL}/rom/brand/{entry}/",
+                    "lastmod": today,
+                    "changefreq": "weekly",
+                    "priority": "0.6",
+                })
+                brand_count += 1
 
     # Skriv XML
     xml_parts = [
@@ -86,7 +102,7 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write("\n".join(xml_parts))
 
-    print(f"   ✅ sitemap.xml skrevet med {len(urls)} URL'er ({rom_count} rom + {cat_count} kategorier + {len(static_pages)} faste)")
+    print(f"   ✅ sitemap.xml skrevet med {len(urls)} URL'er ({rom_count} rom + {cat_count} kategorier + {len(static_pages)} faste + {brand_count} brands)")
 
 
 if __name__ == "__main__":
