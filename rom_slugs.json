@@ -178,7 +178,7 @@
   "https://conmaz.dk/don-q-151-rum/": {
    "first_seen": "2026-07-28",
    "last_seen": "2026-08-11",
-   "slug": "don-q-151-overproof-rom"
+   "slug": "don-q-151-rum"
   },
   "https://conmaz.dk/don-q-cognac-cask-finish-rum/": {
    "first_seen": "2026-07-28",
@@ -213,7 +213,7 @@
   "https://conmaz.dk/don-q-gold-rum/": {
    "first_seen": "2026-07-28",
    "last_seen": "2026-08-11",
-   "slug": "don-q-gold"
+   "slug": "don-q-gold-rum"
   },
   "https://conmaz.dk/don-q-oak-barrel-spiced/": {
    "first_seen": "2026-07-28",
@@ -423,7 +423,7 @@
   "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-20-anos/": {
    "first_seen": "2026-07-28",
    "last_seen": "2026-08-11",
-   "slug": "ron-santiago-de-cuba-20-y-o-extra-anejo"
+   "slug": "santiago-de-cuba-20-ars-rom"
   },
   "https://conmaz.dk/the-real-mccoy-12-year-old-rum/": {
    "first_seen": "2026-07-28",
@@ -3723,7 +3723,7 @@
   "https://spitus.dk/product/goslings-black-seal-rom/": {
    "first_seen": "2026-07-28",
    "last_seen": "2026-08-11",
-   "slug": "goslings-black-seal-rom"
+   "slug": "goslings-black-seal-rom-2"
   },
   "https://spitus.dk/product/goslings-family-reserve/": {
    "first_seen": "2026-07-28",
@@ -4938,7 +4938,7 @@
   "https://www.kokkensvinhus.dk/shop/goslings-black-seal-rum-2/": {
    "first_seen": "2026-07-28",
    "last_seen": "2026-08-11",
-   "slug": "goslings-black-seal-rom"
+   "slug": "goslings-black-seal-rom-2"
   },
   "https://www.kokkensvinhus.dk/shop/goslings-black-seal-sampak/": {
    "first_seen": "2026-07-28",

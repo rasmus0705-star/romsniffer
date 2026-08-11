@@ -2299,6 +2299,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://romsniffer.dk/rom/don-q-151-rum/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://romsniffer.dk/rom/don-q-cognac-cask-finish-rum/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
@@ -2342,6 +2348,12 @@
   </url>
   <url>
     <loc>https://romsniffer.dk/rom/don-q-gold/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://romsniffer.dk/rom/don-q-gold-rum/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -2900,6 +2912,12 @@
   </url>
   <url>
     <loc>https://romsniffer.dk/rom/goslings-black-seal-rom/</loc>
+    <lastmod>2026-08-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://romsniffer.dk/rom/goslings-black-seal-rom-2/</loc>
     <lastmod>2026-08-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

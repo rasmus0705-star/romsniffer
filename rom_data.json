@@ -1,7 +1,7 @@
 {
-  "updated": "2026-08-11T21:31:02.963567",
+  "updated": "2026-08-11T21:33:18.651073",
   "stats": {
-    "total": 1076,
+    "total": 1079,
     "deals": 98,
     "shops": 4,
     "shop_names": [
@@ -91,7 +91,7 @@
       "Reserva"
     ],
     "cheapest": 80.0,
-    "multi_shop": 76,
+    "multi_shop": 74,
     "shop_counts": {
       "Kokkens Vinhus": 250,
       "Spitus": 333,
@@ -1350,15 +1350,15 @@
     },
     {
       "name": "Don Q Gold",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ002-scaled.jpg",
-      "type": "Gylden rom",
+      "image": "https://spitus.dk/wp-content/uploads/2022/08/don-q-gold-k.jpg",
+      "type": "Spiced",
       "country": "Puerto Rico",
       "brand": "Don Q",
-      "abv": 40.0,
+      "abv": null,
       "volume_cl": 70.0,
-      "age": "1 år",
+      "age": null,
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 199.0,
       "cheapest_price": 199.0,
       "max_discount_pct": 0,
@@ -1369,13 +1369,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/don-q-gold/"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 289.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/don-q-gold-rum/"
         }
       ],
       "slug": "don-q-gold",
@@ -1746,46 +1739,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Gosling's Black Seal Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_291de7ef-dc09-42f5-bf48-3cab2d29c3f0.png?v=1769421052",
-      "type": "Mørk rom",
-      "country": null,
-      "brand": "Gosling's",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 3,
-      "min_price": 225.0,
-      "cheapest_price": 225.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 225.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/goslings-black-seal-80-proof-rum"
-        },
-        {
-          "shop_name": "Spitus",
-          "price": 249.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/goslings-black-seal-rom/"
-        },
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 299.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/goslings-black-seal-rum-2/"
-        }
-      ],
-      "slug": "goslings-black-seal-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Angostura 7 år Dark Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_7292964f-189b-4925-87fa-9fb3eb3a928b.png?v=1769421218",
       "type": "Mørk rom",
@@ -1894,6 +1847,32 @@
         }
       ],
       "slug": "barcelo-organic-rum",
+      "price_change_7d": null
+    },
+    {
+      "name": "Gosling's Black Seal Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_291de7ef-dc09-42f5-bf48-3cab2d29c3f0.png?v=1769421052",
+      "type": "Mørk rom",
+      "country": null,
+      "brand": "Gosling's",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 225.0,
+      "cheapest_price": 225.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 225.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/goslings-black-seal-80-proof-rum"
+        }
+      ],
+      "slug": "goslings-black-seal-rom",
       "price_change_7d": null
     },
     {
@@ -2532,6 +2511,39 @@
         }
       ],
       "slug": "ron-esclavo-xo-cask-str-20-cl-65",
+      "price_change_7d": null
+    },
+    {
+      "name": "Goslings Black Seal Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/gosling-black-Seal.png",
+      "type": null,
+      "country": null,
+      "brand": "Goslings",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 249.0,
+      "cheapest_price": 249.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 249.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/goslings-black-seal-rom/"
+        },
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 299.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/goslings-black-seal-rum-2/"
+        }
+      ],
+      "slug": "goslings-black-seal-rom-2",
       "price_change_7d": null
     },
     {
@@ -4082,6 +4094,32 @@
         }
       ],
       "slug": "plantation-gran-anejo",
+      "price_change_7d": null
+    },
+    {
+      "name": "Don Q Gold Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ002-scaled.jpg",
+      "type": "Gylden rom",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "1 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 289.0,
+      "cheapest_price": 289.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 289.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/don-q-gold-rum/"
+        }
+      ],
+      "slug": "don-q-gold-rum",
       "price_change_7d": null
     },
     {
@@ -5979,15 +6017,15 @@
     },
     {
       "name": "Don Q 151 Overproof Rom",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ003-scaled.jpg",
-      "type": "Aged rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4c64513e-5584-4afb-936c-2ae64df5af84.png?v=1769422832",
+      "type": "Overproof",
       "country": "Puerto Rico",
       "brand": "Don Q",
       "abv": 75.5,
       "volume_cl": 70.0,
-      "age": "3 år",
+      "age": null,
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 325.0,
       "cheapest_price": 325.0,
       "max_discount_pct": 0,
@@ -5998,13 +6036,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://rombo.dk/products/don-q-151-overproof-rum"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 439.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/don-q-151-rum/"
         }
       ],
       "slug": "don-q-151-overproof-rom",
@@ -12321,6 +12352,32 @@
         }
       ],
       "slug": "a-h-riise-xo-thin-blue-line",
+      "price_change_7d": null
+    },
+    {
+      "name": "Don Q 151 Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ003-scaled.jpg",
+      "type": "Aged rom",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 75.5,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 439.0,
+      "cheapest_price": 439.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 439.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/don-q-151-rum/"
+        }
+      ],
+      "slug": "don-q-151-rum",
       "price_change_7d": null
     },
     {
@@ -24762,15 +24819,15 @@
     },
     {
       "name": "Ron Santiago de Cuba 20 Y.o. Extra Anejo",
-      "image": "https://conmaz.dk/wp-content/uploads/2026/03/20.png",
-      "type": "Aged rom",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/santiago20..jpg",
+      "type": "Spiced",
       "country": "Cuba",
       "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
+      "abv": null,
+      "volume_cl": null,
       "age": "20 år",
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 1195.0,
       "cheapest_price": 1195.0,
       "max_discount_pct": 0,
@@ -24781,13 +24838,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.kokkensvinhus.dk/shop/ron-santiago-de-cuba-20-y-o-extra-anejo-2/"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 1999.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-20-anos/"
         }
       ],
       "slug": "ron-santiago-de-cuba-20-y-o-extra-anejo",
@@ -26760,7 +26810,7 @@
       "volume_cl": 70.0,
       "age": "20 år",
       "category": "rom",
-      "shop_count": 1,
+      "shop_count": 2,
       "min_price": 1995.0,
       "cheapest_price": 1995.0,
       "max_discount_pct": 0,
@@ -26771,6 +26821,13 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://rombo.dk/products/santiago-de-cuba-20-ars-rom"
+        },
+        {
+          "shop_name": "Con Maz",
+          "price": 1999.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-20-anos/"
         }
       ],
       "slug": "santiago-de-cuba-20-ars-rom",
