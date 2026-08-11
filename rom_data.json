@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-10T06:49:33.266735",
+  "updated": "2026-08-11T20:23:22.847173",
   "stats": {
     "total": 1076,
-    "deals": 89,
+    "deals": 98,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -94,8 +94,8 @@
     "multi_shop": 76,
     "shop_counts": {
       "Kokkens Vinhus": 250,
-      "Spitus": 332,
-      "Rombo": 483,
+      "Spitus": 333,
+      "Rombo": 482,
       "Con Maz": 92
     }
   },
@@ -2311,6 +2311,31 @@
       "slug": "nega-fulo-cachaca-41-5"
     },
     {
+      "name": "A.H. Riise Royal Danish Navy Westindian, 50cl – old edition",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/ahr-danish-navy-westindian-bitter-old-edi.png",
+      "type": "Navy Rum",
+      "country": "Dansk",
+      "brand": "A.H. Riise",
+      "abv": null,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 245.0,
+      "cheapest_price": 245.0,
+      "max_discount_pct": 18.1,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 245.0,
+          "old_price": 299.0,
+          "discount_pct": 18.1,
+          "url": "https://spitus.dk/product/a-h-riise-royal-danish-navy-westindian-50cl-old-edition/"
+        }
+      ],
+      "slug": "a-h-riise-royal-danish-navy-westindian-50cl-old-edition"
+    },
+    {
       "name": "Diplomatico Mantuano Ron Extra Anejo",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_405ebe3b-6b12-428f-aedb-928d70f70096.png?v=1769422693",
       "type": "Spiced",
@@ -3189,6 +3214,31 @@
       "slug": "rum-nation-meticho-citrus"
     },
     {
+      "name": "El Ron Prohibido 12 Y.O.",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/el-ron-prohibido-12-years-k.jpg",
+      "type": "Aged rom",
+      "country": null,
+      "brand": null,
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 269.0,
+      "cheapest_price": 269.0,
+      "max_discount_pct": 6.9,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 269.0,
+          "old_price": 289.0,
+          "discount_pct": 6.9,
+          "url": "https://spitus.dk/product/el-ron-prohibido-12-y-o/"
+        }
+      ],
+      "slug": "el-ron-prohibido-12-y-o"
+    },
+    {
       "name": "Dos Maderas Caribbean Ron Añejo 5+3 år",
       "image": "https://spitus.dk/wp-content/uploads/2023/12/197.png",
       "type": "Aged rom",
@@ -3835,31 +3885,6 @@
       "slug": "rum-nation-meticho-chocolate-and-toffee"
     },
     {
-      "name": "El Ron Prohibido 12 Y.O.",
-      "image": "https://spitus.dk/wp-content/uploads/2023/05/el-ron-prohibido-12-years-k.jpg",
-      "type": "Aged rom",
-      "country": null,
-      "brand": null,
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 289.0,
-      "cheapest_price": 289.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 289.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/el-ron-prohibido-12-y-o/"
-        }
-      ],
-      "slug": "el-ron-prohibido-12-y-o"
-    },
-    {
       "name": "Foursquare Spiced",
       "image": "https://spitus.dk/wp-content/uploads/2023/05/foursquare.png",
       "type": "Spiced",
@@ -4422,31 +4447,6 @@
         }
       ],
       "slug": "bayou-spiced"
-    },
-    {
-      "name": "A.H. Riise Royal Danish Navy Westindian, 50cl – old edition",
-      "image": "https://spitus.dk/wp-content/uploads/2023/05/ahr-danish-navy-westindian-bitter-old-edi.png",
-      "type": "Navy Rum",
-      "country": "Dansk",
-      "brand": "A.H. Riise",
-      "abv": null,
-      "volume_cl": 50.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 299.0,
-      "cheapest_price": 299.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 299.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/a-h-riise-royal-danish-navy-westindian-50cl-old-edition/"
-        }
-      ],
-      "slug": "a-h-riise-royal-danish-navy-westindian-50cl-old-edition"
     },
     {
       "name": "Dos Maderas Atlantic Rom",
@@ -5274,6 +5274,31 @@
       "slug": "rum-nation-peruano-8-ar"
     },
     {
+      "name": "Rum Nation Guatemala Gran Reserva",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/rum-nation-guatemala-gran-reserva.png",
+      "type": "Aged rom",
+      "country": "Guatemala",
+      "brand": "Rum Nation",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 309.0,
+      "cheapest_price": 309.0,
+      "max_discount_pct": 8.8,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 309.0,
+          "old_price": 339.0,
+          "discount_pct": 8.8,
+          "url": "https://spitus.dk/product/rum-nation-guatemala-gran-reserva/"
+        }
+      ],
+      "slug": "rum-nation-guatemala-gran-reserva"
+    },
+    {
       "name": "El Ron Prohibido 15 Y.O.",
       "image": "https://spitus.dk/wp-content/uploads/2022/11/el-ron-prohibido-15yo-gran-reserva-k.jpg",
       "type": "Aged rom",
@@ -5447,6 +5472,31 @@
         }
       ],
       "slug": "brugal-xv-gran-reserva"
+    },
+    {
+      "name": "Ron Centenario Tasting Collection 4 x 20cl",
+      "image": "https://spitus.dk/wp-content/uploads/2021/11/ron-centenario-4x20cl.jpg",
+      "type": "Aged rom",
+      "country": null,
+      "brand": null,
+      "abv": null,
+      "volume_cl": 20.0,
+      "age": "5 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 319.0,
+      "cheapest_price": 319.0,
+      "max_discount_pct": 15.8,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 319.0,
+          "old_price": 379.0,
+          "discount_pct": 15.8,
+          "url": "https://spitus.dk/product/ron-centenario-tasting-collection-4-x-20cl/"
+        }
+      ],
+      "slug": "ron-centenario-tasting-collection-4-x-20cl"
     },
     {
       "name": "Compañero Panama Extra Añejo",
@@ -6452,31 +6502,6 @@
       "slug": "bumbu-xo"
     },
     {
-      "name": "Rum Nation Guatemala Gran Reserva",
-      "image": "https://spitus.dk/wp-content/uploads/2023/05/rum-nation-guatemala-gran-reserva.png",
-      "type": "Aged rom",
-      "country": "Guatemala",
-      "brand": "Rum Nation",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 339.0,
-      "cheapest_price": 339.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 339.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/rum-nation-guatemala-gran-reserva/"
-        }
-      ],
-      "slug": "rum-nation-guatemala-gran-reserva"
-    },
-    {
       "name": "Austrian Empire Navy Reserva 1863",
       "image": "https://spitus.dk/wp-content/uploads/2023/05/austrian-empire-navy-reserva-1863-rum-based-spir.-k.jpg",
       "type": "Navy Rum",
@@ -6953,6 +6978,31 @@
         }
       ],
       "slug": "rum-nation-jamaica-5-ar-sherry-finish"
+    },
+    {
+      "name": "Flor de Cana Eco 15 Y.O.",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/flor-de-cana-eco-15.png",
+      "type": "Aged rom",
+      "country": "Nicaragua",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "15 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 10.3,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 349.0,
+          "old_price": 389.0,
+          "discount_pct": 10.3,
+          "url": "https://spitus.dk/product/flor-de-cana-eco-15-y-o/"
+        }
+      ],
+      "slug": "flor-de-cana-eco-15-y-o"
     },
     {
       "name": "Puntacana Esplendido",
@@ -8251,6 +8301,31 @@
       "slug": "ron-millonario-numero-15-reserva-especial"
     },
     {
+      "name": "Chairman’s Reserve Rum LEGACY Edition",
+      "image": "https://spitus.dk/wp-content/uploads/2021/03/chairmans-legacy.jpg",
+      "type": "Rhum Agricole",
+      "country": null,
+      "brand": "Chairman",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "5 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 375.0,
+      "cheapest_price": 375.0,
+      "max_discount_pct": 5.1,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 375.0,
+          "old_price": 395.0,
+          "discount_pct": 5.1,
+          "url": "https://spitus.dk/product/chairmans-reserve-rum-legacy-edition/"
+        }
+      ],
+      "slug": "chairmans-reserve-rum-legacy-edition"
+    },
+    {
       "name": "Clément VSOP Rhum Agricole Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Clement_VSOP_Rhum_Agricole_Rom.png?v=1786016640",
       "type": "Rhum Agricole",
@@ -8686,31 +8761,6 @@
       "slug": "mount-gay-xo-triple-cask"
     },
     {
-      "name": "Ron Centenario Tasting Collection 4 x 20cl",
-      "image": "https://spitus.dk/wp-content/uploads/2021/11/ron-centenario-4x20cl.jpg",
-      "type": "Aged rom",
-      "country": null,
-      "brand": null,
-      "abv": null,
-      "volume_cl": 20.0,
-      "age": "5 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/ron-centenario-tasting-collection-4-x-20cl/"
-        }
-      ],
-      "slug": "ron-centenario-tasting-collection-4-x-20cl"
-    },
-    {
       "name": "Emperor Mauritian Rum Heritage",
       "image": "https://spitus.dk/wp-content/uploads/2021/03/emperor-mauritian-rum-heritage-k.jpg",
       "type": "Rhum Agricole",
@@ -9018,29 +9068,36 @@
       "slug": "kraken-unknown-deep"
     },
     {
-      "name": "Flor de Cana Eco 15 Y.O.",
-      "image": "https://spitus.dk/wp-content/uploads/2023/05/flor-de-cana-eco-15.png",
-      "type": "Aged rom",
-      "country": "Nicaragua",
-      "brand": null,
-      "abv": null,
+      "name": "Ron Quorhum 15 Años Solera",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_a1f409ac-2ab1-493f-ab68-4799a925bf6d.png?v=1769421246",
+      "type": "Mørk rom",
+      "country": "Dominikansk",
+      "brand": "Quorhum",
+      "abv": 40.0,
       "volume_cl": 70.0,
       "age": "15 år",
       "category": "rom",
-      "shop_count": 1,
-      "min_price": 389.0,
-      "cheapest_price": 389.0,
-      "max_discount_pct": 0,
+      "shop_count": 2,
+      "min_price": 395.0,
+      "cheapest_price": 395.0,
+      "max_discount_pct": 7.1,
       "prices": [
         {
           "shop_name": "Spitus",
-          "price": 389.0,
+          "price": 395.0,
+          "old_price": 425.0,
+          "discount_pct": 7.1,
+          "url": "https://spitus.dk/product/ron-quorhum-15-anos-solera/"
+        },
+        {
+          "shop_name": "Rombo",
+          "price": 449.0,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://spitus.dk/product/flor-de-cana-eco-15-y-o/"
+          "url": "https://rombo.dk/products/ron-quorhum-15-qrm-rom"
         }
       ],
-      "slug": "flor-de-cana-eco-15-y-o"
+      "slug": "ron-quorhum-15-anos-solera"
     },
     {
       "name": "Black Tot Rum",
@@ -9066,31 +9123,6 @@
         }
       ],
       "slug": "black-tot-rum"
-    },
-    {
-      "name": "Chairman’s Reserve Rum LEGACY Edition",
-      "image": "https://spitus.dk/wp-content/uploads/2021/03/chairmans-legacy.jpg",
-      "type": "Rhum Agricole",
-      "country": null,
-      "brand": "Chairman",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "5 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 395.0,
-      "cheapest_price": 395.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 395.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/chairmans-reserve-rum-legacy-edition/"
-        }
-      ],
-      "slug": "chairmans-reserve-rum-legacy-edition"
     },
     {
       "name": "Fanø Skibsrom Havfruen",
@@ -10842,6 +10874,31 @@
       "slug": "a-h-riise-royal-danish-navy-fregatten-jylland-superior"
     },
     {
+      "name": "Opthimus 15 Años Solera OportO",
+      "image": "https://spitus.dk/wp-content/uploads/2021/03/opthimus-15-anos-solera-oporto.jpg",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "15 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 415.0,
+      "cheapest_price": 415.0,
+      "max_discount_pct": 7.6,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 415.0,
+          "old_price": 449.0,
+          "discount_pct": 7.6,
+          "url": "https://spitus.dk/product/opthimus-15-anos-solera-oporto/"
+        }
+      ],
+      "slug": "opthimus-15-anos-solera-oporto"
+    },
+    {
       "name": "New Grove 10 Years",
       "image": "https://spitus.dk/wp-content/uploads/2021/11/new-growe-10yo.jpg",
       "type": "Aged rom",
@@ -10986,38 +11043,6 @@
         }
       ],
       "slug": "kirk-and-sweeney-gran-reserva-superior-rom"
-    },
-    {
-      "name": "Ron Quorhum 15 Años Solera",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_a1f409ac-2ab1-493f-ab68-4799a925bf6d.png?v=1769421246",
-      "type": "Mørk rom",
-      "country": "Dominikansk",
-      "brand": "Quorhum",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "15 år",
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 425.0,
-      "cheapest_price": 425.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 425.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/ron-quorhum-15-anos-solera/"
-        },
-        {
-          "shop_name": "Rombo",
-          "price": 449.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/ron-quorhum-15-qrm-rom"
-        }
-      ],
-      "slug": "ron-quorhum-15-anos-solera"
     },
     {
       "name": "Deadhead Rom",
@@ -12314,31 +12339,6 @@
         }
       ],
       "slug": "cashcane-saloon-cask"
-    },
-    {
-      "name": "Opthimus 15 Años Solera OportO",
-      "image": "https://spitus.dk/wp-content/uploads/2021/03/opthimus-15-anos-solera-oporto.jpg",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "15 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 449.0,
-      "cheapest_price": 449.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 449.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/opthimus-15-anos-solera-oporto/"
-        }
-      ],
-      "slug": "opthimus-15-anos-solera-oporto"
     },
     {
       "name": "Angostura 1824 Premium Rom",
@@ -17717,6 +17717,31 @@
       "slug": "a1710-la-perle-brute-rhum-blanc-extraordinaire"
     },
     {
+      "name": "Rammstein Rum PX Sherry Cask Finish",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/rammstein-px-sherry-cask-finish-gb-k.png",
+      "type": "Aged rom",
+      "country": "Jamaica",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 609.0,
+      "cheapest_price": 609.0,
+      "max_discount_pct": 10.3,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 609.0,
+          "old_price": 679.0,
+          "discount_pct": 10.3,
+          "url": "https://spitus.dk/product/rammstein-rum-px-sherry-cask-finish/"
+        }
+      ],
+      "slug": "rammstein-rum-px-sherry-cask-finish"
+    },
+    {
       "name": "Ron Cihuatan Le Sahumerio Limited Edt. 45,2% El Salvador",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2022/08/Sahumerio..jpg",
       "type": "Aged rom",
@@ -18004,6 +18029,31 @@
         }
       ],
       "slug": "hse-rhum-extra-vieux-xo-rom"
+    },
+    {
+      "name": "Old St. Croix XO Tribute Reserve (FORUDBESTILLING)",
+      "image": "https://spitus.dk/wp-content/uploads/2026/08/2.png",
+      "type": "Aged rom",
+      "country": "Dansk",
+      "brand": "Old St. Croix",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 639.0,
+      "cheapest_price": 639.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 639.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/old-st-croix-xo-tribute-reserve-forudbestilling/"
+        }
+      ],
+      "slug": "old-st-croix-xo-tribute-reserve-forudbestilling"
     },
     {
       "name": "A1710 La Perle Rhum Blanc Extraordinaire",
@@ -18725,31 +18775,6 @@
         }
       ],
       "slug": "chantal-comte-cuvee-caribaea-rhum-blanc"
-    },
-    {
-      "name": "Rammstein Rum PX Sherry Cask Finish",
-      "image": "https://spitus.dk/wp-content/uploads/2023/05/rammstein-px-sherry-cask-finish-gb-k.png",
-      "type": "Aged rom",
-      "country": "Jamaica",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 679.0,
-      "cheapest_price": 679.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 679.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/rammstein-rum-px-sherry-cask-finish/"
-        }
-      ],
-      "slug": "rammstein-rum-px-sherry-cask-finish"
     },
     {
       "name": "Flor De Cana 20 Y.O. 130th Anniversary",
@@ -25063,31 +25088,6 @@
         }
       ],
       "slug": "la-favorite-2011-rhum-vieux-49-7"
-    },
-    {
-      "name": "Rum Nation Rare Rums Port Mourant 18 år",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_08ca8052-5c95-4f5d-aab1-53dd1c167cf2.png?v=1769423637",
-      "type": "Mørk rom",
-      "country": "Guyana",
-      "brand": "Rum Nation",
-      "abv": 57.6,
-      "volume_cl": 70.0,
-      "age": "18 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1475.0,
-      "cheapest_price": 1475.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 1475.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/rum-nation-rare-rums-port-mourant-18"
-        }
-      ],
-      "slug": "rum-nation-rare-rums-port-mourant-18-ar"
     },
     {
       "name": "Santos Dumont Heritage Hors D’Age",
