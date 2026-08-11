@@ -1836,9 +1836,9 @@ function makeCard(r, delay) {
             ${r.volume_cl ? `<span class="card-tag vol">${r.volume_cl} cl</span>` : ''}
             ${pplTag}
         </div>
-        ${r.price_change_7d && r.price_change_7d < -5 ? \`<div class="price-drop-badge">📉 Faldet \${Math.abs(Math.round(r.price_change_7d))} kr på 7 dage</div>\` : ''}
+        ${r.price_change_7d && r.price_change_7d < -5 ? '<div class="price-drop-badge">📉 Faldet ' + Math.abs(Math.round(r.price_change_7d)) + ' kr på 7 dage</div>' : ''}
         <div class="card-name"><a href="/rom/${r.slug}/" style="color:inherit;text-decoration:none">${r.name}</a></div>
-        ${r.brand ? \`<a class="card-brand" href="/rom/brand/\${r.brand.toLowerCase().replace(/[^a-z0-9æøåäöü]+/g,'-').replace(/^-|-$/g,'')}/">\${r.brand}</a>\` : ''}
+        ${r.brand ? '<a class="card-brand" href="/rom/brand/' + r.brand.toLowerCase().replace(/[^a-z0-9æøåäöü]+/g,'-').replace(/^-|-$/g,'') + '/">' + r.brand + '</a>' : ''}
         <div class="price-rows">`;
 
     // Cheapest price row
