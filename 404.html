@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Siden findes ikke — RomSniffer</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://romsniffer.dk/">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg: #0a0604;
+        --surface: #1a0f08;
+        --copper: #b87333;
+        --copper-light: #d99458;
+        --text: #f5e4cf;
+        --text-muted: #a08570;
+        --text-dim: #5a4838;
+        --border: #2e1d10;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+    }
+    .logo-link { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; margin-bottom: 2rem; }
+    .logo-link img { width: 48px; height: 48px; object-fit: contain; }
+    .logo-link span {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1.6rem;
+        letter-spacing: 0.06em;
+        background: linear-gradient(135deg, var(--copper-light), var(--copper));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    .bottle { font-size: 5rem; margin-bottom: 1rem; animation: wobble 3s ease-in-out infinite; }
+    @keyframes wobble {
+        0%, 100% { transform: rotate(-5deg); }
+        50% { transform: rotate(5deg); }
+    }
+    .code {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 6rem;
+        letter-spacing: 0.08em;
+        background: linear-gradient(135deg, var(--copper-light), var(--copper));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1;
+    }
+    .msg {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        color: var(--text-muted);
+        margin: 0.8rem 0 2rem;
+        max-width: 400px;
+        line-height: 1.6;
+    }
+    .actions { display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center; }
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.7rem 1.4rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 600;
+        transition: all 0.2s;
+    }
+    .btn-primary {
+        background: linear-gradient(135deg, var(--copper), var(--copper-light));
+        color: #1a0f08;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(184,115,51,0.4); }
+    .btn-secondary {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--copper-light);
+    }
+    .btn-secondary:hover { border-color: var(--copper); }
+    .suggestions {
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid var(--border);
+        max-width: 500px;
+    }
+    .suggestions h3 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.2em;
+        color: var(--text-dim);
+        margin-bottom: 0.8rem;
+    }
+    .suggestions a {
+        display: inline-block;
+        margin: 0.25rem;
+        padding: 0.35rem 0.7rem;
+        background: rgba(184,115,51,0.08);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        color: var(--copper-light);
+        text-decoration: none;
+        font-size: 0.78rem;
+        transition: all 0.15s;
+    }
+    .suggestions a:hover { border-color: var(--copper); background: rgba(184,115,51,0.15); }
+</style>
+</head>
+<body>
+    <a href="/" class="logo-link">
+        <img src="/logo.png" alt="RomSniffer" onerror="this.style.display='none'">
+        <span>RomSniffer</span>
+    </a>
+
+    <div class="bottle">🥃</div>
+    <div class="code">404</div>
+    <p class="msg">Den flaske kunne vi desværre ikke finde. Måske er den blevet drukket — eller aldrig eksisteret.</p>
+
+    <div class="actions">
+        <a href="/" class="btn btn-primary">🏠 Forsiden</a>
+        <a href="/guide.html" class="btn btn-secondary">📖 Rom-guide</a>
+        <a href="/premium.html" class="btn btn-secondary">💎 Premium</a>
+    </div>
+
+    <div class="suggestions">
+        <h3>POPULÆRE KATEGORIER</h3>
+        <a href="/rom/land/jamaica/">🇯🇲 Jamaica</a>
+        <a href="/rom/land/barbados/">🇧🇧 Barbados</a>
+        <a href="/rom/land/cuba/">🇨🇺 Cuba</a>
+        <a href="/rom/type/aged-rom/">🕰️ Aged rom</a>
+        <a href="/rom/type/spiced/">🌿 Spiced</a>
+        <a href="/rom/alder/xo/">✨ XO</a>
+    </div>
+</body>
+</html>

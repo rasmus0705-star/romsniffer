@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sammenlign rom-priser fra danske webshops | RomSniffer</title>
 <meta name="description" content="Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.">
-<link rel="canonical" href="https://www.romsniffer.dk/">
+<link rel="canonical" href="https://romsniffer.dk/">
 <link rel="icon" href="logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1147,8 +1147,96 @@
         .scroll-top { bottom: 16px; right: 16px; }
         .top-card { flex: 0 0 135px; min-width: 135px; }
     }
+
+    /* ── DAGENS FUND RESPONSIVE ── */
+    @media (max-width: 640px) {
+        #dagens-fund { padding: 0.8rem 1rem !important; }
+        #fund-card {
+            flex-direction: column !important;
+            gap: 0.8rem !important;
+            text-align: center;
+            padding: 0.8rem !important;
+        }
+        #fund-card img {
+            width: 60px !important;
+            height: 75px !important;
+            margin: 0 auto;
+        }
+        #fund-card > div:nth-child(2) { text-align: left; }
+        #fund-card > div:nth-child(2) > div:last-child {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            gap: 0.4rem !important;
+        }
+        #fund-cta {
+            width: 100% !important;
+            text-align: center !important;
+            padding: 0.6rem 1rem !important;
+        }
+    }
+
+
+    /* ── MOBIL NAV COLLAPSE ── */
+    @media (max-width: 640px) {
+        .nav-links a:nth-child(n+3) { display: none; }
+        .nav-links { gap: 0.3rem; }
+        .nav-logo span { font-size: 1.2rem; }
+    }
+
+
+    /* ── SPOTLIGHT MOBIL COMPACT ── */
+    @media (max-width: 640px) {
+        .spotlight-wrap { padding: 0.8rem; }
+        .spotlight-img-wrap { width: 80px; height: 105px; }
+        .spotlight-name { font-size: 0.82rem; -webkit-line-clamp: 2; }
+        .spotlight-price-row { padding: 0.2rem 0; font-size: 0.72rem; }
+        .spotlight-cta { padding: 0.45rem; font-size: 0.75rem; }
+        .spotlight-savings { padding: 0.3rem 0.5rem; font-size: 0.7rem; }
+        .hero { padding: 1rem 1rem 0.8rem; }
+        .hero-logo { width: 60px !important; height: 60px !important; margin-bottom: 0.3rem !important; }
+        .hero-title { font-size: 1.3rem; }
+        .hero-sub { font-size: 0.75rem; margin-bottom: 0.6rem; }
+        .hero-search-input { padding: 0.75rem 1rem 0.75rem 2.8rem; font-size: 0.9rem; }
+    }
+
+
+    /* ── PRICE DROP BADGE ── */
+    .price-drop-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.25rem;
+        background: linear-gradient(135deg, rgba(61,186,111,0.15), rgba(61,186,111,0.08));
+        border: 1px solid rgba(61,186,111,0.35);
+        color: var(--discount);
+        padding: 0.18rem 0.5rem;
+        border-radius: 5px;
+        font-size: 0.62rem;
+        font-weight: 700;
+        white-space: nowrap;
+        animation: pricePulse 2s ease-in-out 1;
+    }
+    @keyframes pricePulse {
+        0%, 100% { box-shadow: none; }
+        50% { box-shadow: 0 0 12px rgba(61,186,111,0.3); }
+    }
+
+
+    /* ── BRAND LINK ── */
+    .card-brand {
+        font-size: 0.68rem;
+        color: var(--copper);
+        text-decoration: none;
+        transition: color 0.15s;
+        display: block;
+        margin-top: 0.1rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .card-brand:hover { color: var(--copper-light); text-decoration: underline; }
+
 </style>
-<script>const DATA_VERSION = '86e438896e47';</script>
+<script>const DATA_VERSION = '1af1994cca65';</script>
 </head>
 <body>
 
@@ -1306,18 +1394,7 @@
             </div>
         </div>
 
-        <div class="sidebar-section">
-            <div class="sidebar-title">🔢 Sortér efter</div>
-            <select id="sort" class="sidebar-select" aria-label="Vælg sortering">
-                <option value="price-asc">Pris: Lav → Høj</option>
-                <option value="savings">Størst besparelse (butikker)</option>
-                <option value="price-desc">Pris: Høj → Lav</option>
-                <option value="discount">Størst rabat</option>
-                <option value="price-per-cl">Pris pr. cl</option>
-                <option value="age">Alder (ældste først)</option>
-                <option value="name">Navn A–Z</option>
-            </select>
-        </div>
+
 
         <div class="sidebar-section">
             <div class="sidebar-title">
@@ -1405,7 +1482,7 @@
             <div class="sort-bar-count"><strong id="result-count">0</strong></div>
             <select id="sort-top" class="sort-select" aria-label="Vælg sortering">
                 <option value="price-asc">Pris: Lav → Høj</option>
-                <option value="savings">Størst besparelse (butikker)</option>
+                <option value="savings" selected>Størst besparelse (butikker)</option>
                 <option value="price-desc">Pris: Høj → Lav</option>
                 <option value="discount">Størst rabat</option>
                 <option value="price-per-cl">Pris pr. cl</option>
@@ -1665,7 +1742,6 @@ function quickAge(val) {
 }
 
 function syncSortSelects(val) {
-    document.getElementById('sort').value = val;
     document.getElementById('sort-top').value = val;
     currentSort = val;
 }
@@ -1760,7 +1836,9 @@ function makeCard(r, delay) {
             ${r.volume_cl ? `<span class="card-tag vol">${r.volume_cl} cl</span>` : ''}
             ${pplTag}
         </div>
+        ${r.price_change_7d && r.price_change_7d < -5 ? \`<div class="price-drop-badge">📉 Faldet \${Math.abs(Math.round(r.price_change_7d))} kr på 7 dage</div>\` : ''}
         <div class="card-name"><a href="/rom/${r.slug}/" style="color:inherit;text-decoration:none">${r.name}</a></div>
+        ${r.brand ? \`<a class="card-brand" href="/rom/brand/\${r.brand.toLowerCase().replace(/[^a-z0-9æøåäöü]+/g,'-').replace(/^-|-$/g,'')}/">\${r.brand}</a>\` : ''}
         <div class="price-rows">`;
 
     // Cheapest price row
@@ -2323,12 +2401,10 @@ document.querySelectorAll('.sidebar-filter-btn[data-filter]').forEach(btn => {
 // Sync both sort dropdowns
 function handleSortChange(val) {
     currentSort = val;
-    document.getElementById('sort').value = val;
     document.getElementById('sort-top').value = val;
     currentPage = 1;
     render();
 }
-document.getElementById('sort').addEventListener('change', e => handleSortChange(e.target.value));
 document.getElementById('sort-top').addEventListener('change', e => handleSortChange(e.target.value));
 
 document.getElementById('volume').addEventListener('change', () => { currentPage = 1; render(); });
