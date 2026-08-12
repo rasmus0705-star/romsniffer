@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-11T21:33:18.651073",
+  "updated": "2026-08-12T16:01:59.766643",
   "stats": {
-    "total": 1079,
-    "deals": 98,
+    "total": 1080,
+    "deals": 103,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -93,10 +93,10 @@
     "cheapest": 80.0,
     "multi_shop": 74,
     "shop_counts": {
-      "Kokkens Vinhus": 250,
+      "Kokkens Vinhus": 251,
       "Spitus": 333,
-      "Rombo": 482,
-      "Con Maz": 92
+      "Rombo": 481,
+      "Con Maz": 93
     }
   },
   "roms": [
@@ -696,32 +696,6 @@
         }
       ],
       "slug": "ron-esclavo-xo-20-cl-42",
-      "price_change_7d": null
-    },
-    {
-      "name": "Cachaca Velho Barreiro, 39 %",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/08/velho-barreiro-70cl.jpg",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": "Velho Barreiro",
-      "abv": 39.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 179.0,
-      "cheapest_price": 179.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 179.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/cachaca-velho-barreiro-39/"
-        }
-      ],
-      "slug": "cachaca-velho-barreiro-39",
       "price_change_7d": null
     },
     {
@@ -2993,32 +2967,6 @@
         }
       ],
       "slug": "worthy-park-white-overproof-63",
-      "price_change_7d": null
-    },
-    {
-      "name": "Abuelo Blanco rum 40%. 1 l.",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/02/Abuelo-White-Rum-1l-e1774692481564.jpg",
-      "type": "Hvid rom",
-      "country": "Panama",
-      "brand": "Abuelo",
-      "abv": 40.0,
-      "volume_cl": 100.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 250.0,
-      "cheapest_price": 250.0,
-      "max_discount_pct": 23.1,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 250.0,
-          "old_price": 325.0,
-          "discount_pct": 23.1,
-          "url": "https://www.kokkensvinhus.dk/shop/abuelo-blanco-rum-40/"
-        }
-      ],
-      "slug": "abuelo-blanco-rum-40-1-l",
       "price_change_7d": null
     },
     {
@@ -5515,6 +5463,117 @@
       "price_change_7d": null
     },
     {
+      "name": "Ron Santiago de Cuba Extra Añejo 11 Años",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/03/11.png",
+      "type": "Aged rom",
+      "country": "Cuba",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "11 år",
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 25.1,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 299.0,
+          "old_price": 399.0,
+          "discount_pct": 25.1,
+          "url": "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-11-anos/"
+        },
+        {
+          "shop_name": "Rombo",
+          "price": 375.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/santiago-de-cuba-11-extra-anejo"
+        }
+      ],
+      "slug": "santiago-de-cuba-ron-extra-anejo-11-ars-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Don Q Oak Barrel Spiced",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ004-scaled.jpg",
+      "type": "Spiced",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 45.0,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 25.1,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 299.0,
+          "old_price": 399.0,
+          "discount_pct": 25.1,
+          "url": "https://conmaz.dk/don-q-oak-barrel-spiced/"
+        }
+      ],
+      "slug": "don-q-oak-barrel-spiced",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ron Tepuy Destino 40 %, Venezuela",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/08/Tepuy-Destino-rom.png",
+      "type": "Aged rom",
+      "country": "Venezuela",
+      "brand": "Diplomatico",
+      "abv": 40.0,
+      "volume_cl": null,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.95,
+      "cheapest_price": 299.95,
+      "max_discount_pct": 9.1,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 299.95,
+          "old_price": 329.95,
+          "discount_pct": 9.1,
+          "url": "https://www.kokkensvinhus.dk/shop/ron-tepuy-destino-venezuelansk-premium-rom/"
+        }
+      ],
+      "slug": "ron-tepuy-destino-40-venezuela",
+      "price_change_7d": null
+    },
+    {
+      "name": "Abuelo Blanco rum 40%. 1 l.",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/02/Abuelo-White-Rum-1l-e1774692481564.jpg",
+      "type": "Hvid rom",
+      "country": "Panama",
+      "brand": "Abuelo",
+      "abv": 40.0,
+      "volume_cl": 100.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.95,
+      "cheapest_price": 299.95,
+      "max_discount_pct": 7.7,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 299.95,
+          "old_price": 325.0,
+          "discount_pct": 7.7,
+          "url": "https://www.kokkensvinhus.dk/shop/abuelo-blanco-rum-40/"
+        }
+      ],
+      "slug": "abuelo-blanco-rum-40-1-l",
+      "price_change_7d": null
+    },
+    {
       "name": "Rum Nation Guatemala Gran Reserva",
       "image": "https://spitus.dk/wp-content/uploads/2023/05/rum-nation-guatemala-gran-reserva.png",
       "type": "Aged rom",
@@ -6732,6 +6791,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Don Papa Single Island Alon",
+      "image": "https://conmaz.dk/wp-content/uploads/2025/07/alon-conmaz.png",
+      "type": "Spiced",
+      "country": "Filippinerne",
+      "brand": "Don Papa",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 335.0,
+      "cheapest_price": 335.0,
+      "max_discount_pct": 25.4,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 335.0,
+          "old_price": 449.0,
+          "discount_pct": 25.4,
+          "url": "https://conmaz.dk/don-papa-single-island-alon/"
+        }
+      ],
+      "slug": "don-papa-single-island-alon",
+      "price_change_7d": null
+    },
+    {
       "name": "SeRum Mamie",
       "image": "https://spitus.dk/wp-content/uploads/2026/04/8.png",
       "type": null,
@@ -6899,6 +6984,32 @@
         }
       ],
       "slug": "ron-centenario-gran-legado-12-anos",
+      "price_change_7d": null
+    },
+    {
+      "name": "Don Papa Baroko Aged in Oak",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DPC08-scaled.jpg",
+      "type": "Aged rom",
+      "country": "Filippinerne",
+      "brand": "Don Papa",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 339.0,
+      "cheapest_price": 339.0,
+      "max_discount_pct": 24.5,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 339.0,
+          "old_price": 449.0,
+          "discount_pct": 24.5,
+          "url": "https://conmaz.dk/don-papa-baroko/"
+        }
+      ],
+      "slug": "don-papa-baroko-aged-in-oak",
       "price_change_7d": null
     },
     {
@@ -8067,32 +8178,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Rum Nation Panama Rum 18 y.o. 40%",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/08/Panama18RN.jpg",
-      "type": "Hvid rom",
-      "country": "Panama",
-      "brand": "Rum Nation",
-      "abv": 40.0,
-      "volume_cl": null,
-      "age": "18 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.0,
-      "cheapest_price": 359.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 359.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/rum-nation-panama-rum-18-y-o-40/"
-        }
-      ],
-      "slug": "rum-nation-panama-rum-18-y-o-40",
-      "price_change_7d": null
-    },
-    {
       "name": "Old St. Croix XO Reserve 1888 Copenhagen",
       "image": "https://spitus.dk/wp-content/uploads/2025/12/croix-cpoenhagen-1888-GB.png",
       "type": "Aged rom",
@@ -8931,39 +9016,6 @@
         }
       ],
       "slug": "ron-quorhum-12-ar-solera-rom-fra-den-dominikanske-republik",
-      "price_change_7d": null
-    },
-    {
-      "name": "Santiago de Cuba Ron Extra Añejo 11 års Rom",
-      "image": "https://conmaz.dk/wp-content/uploads/2026/03/11.png",
-      "type": "Aged rom",
-      "country": "Cuba",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "11 år",
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 375.0,
-      "cheapest_price": 375.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 375.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/santiago-de-cuba-11-extra-anejo"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-11-anos/"
-        }
-      ],
-      "slug": "santiago-de-cuba-ron-extra-anejo-11-ars-rom",
       "price_change_7d": null
     },
     {
@@ -11247,32 +11299,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Don Q Oak Barrel Spiced",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ004-scaled.jpg",
-      "type": "Spiced",
-      "country": "Puerto Rico",
-      "brand": "Don Q",
-      "abv": 45.0,
-      "volume_cl": 70.0,
-      "age": "3 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/don-q-oak-barrel-spiced/"
-        }
-      ],
-      "slug": "don-q-oak-barrel-spiced",
-      "price_change_7d": null
-    },
-    {
       "name": "Bapt & Clem’s Dominican Republic Ans 6 d’age Sauternes Finish",
       "image": "https://conmaz.dk/wp-content/uploads/2022/09/BC16.jpg",
       "type": "Aged rom",
@@ -12407,6 +12433,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Carupano reserva 18 limited, Venezuela",
+      "image": "",
+      "type": "Aged rom",
+      "country": "Venezuela",
+      "brand": "Diplomatico",
+      "abv": null,
+      "volume_cl": null,
+      "age": "Reserva",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 449.0,
+      "cheapest_price": 449.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 449.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/carupano-reserva-18-limited-venezuela/"
+        }
+      ],
+      "slug": "carupano-reserva-18-limited-venezuela",
+      "price_change_7d": null
+    },
+    {
       "name": "Thailand 5 yo Rum 43% Cane Island",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/02/Thailand-5yo.jpg",
       "type": "Spiced",
@@ -13364,29 +13416,29 @@
       "price_change_7d": null
     },
     {
-      "name": "Don Papa Baroko Aged in Oak",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DPC08-scaled.jpg",
-      "type": "Aged rom",
-      "country": "Filippinerne",
-      "brand": "Don Papa",
+      "name": "Ron Tepuy MONUMENTO 40%, Venezuela",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/08/Tepuy-Monumento-Rom.png",
+      "type": null,
+      "country": "Venezuela",
+      "brand": "Diplomatico",
       "abv": 40.0,
-      "volume_cl": 70.0,
+      "volume_cl": null,
       "age": null,
       "category": "rom",
       "shop_count": 1,
-      "min_price": 449.0,
-      "cheapest_price": 449.0,
+      "min_price": 449.95,
+      "cheapest_price": 449.95,
       "max_discount_pct": 0,
       "prices": [
         {
-          "shop_name": "Con Maz",
-          "price": 449.0,
+          "shop_name": "Kokkens Vinhus",
+          "price": 449.95,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://conmaz.dk/don-papa-baroko/"
+          "url": "https://www.kokkensvinhus.dk/shop/ron-tepuy-monumento-40-venezuela/"
         }
       ],
-      "slug": "don-papa-baroko-aged-in-oak",
+      "slug": "ron-tepuy-monumento-40-venezuela",
       "price_change_7d": null
     },
     {
@@ -14644,32 +14696,6 @@
         }
       ],
       "slug": "navy-island-jamaica-olorosso-limited-edition-46-3",
-      "price_change_7d": null
-    },
-    {
-      "name": "Diplomatico Selection de Familia 43%",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/edf179d62afb9f2463c0e81ed411d816.diplomatico-seleccion-de-familia.jpg",
-      "type": "Spiced",
-      "country": "Venezuela",
-      "brand": "Diplomatico",
-      "abv": 43.0,
-      "volume_cl": null,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 499.0,
-      "cheapest_price": 499.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/diplomatico-selection-de-familia-43-2/"
-        }
-      ],
-      "slug": "diplomatico-selection-de-familia-43",
       "price_change_7d": null
     },
     {
@@ -17489,6 +17515,32 @@
         }
       ],
       "slug": "voyage-9yo-collectors-release-singlecask-port-42-7",
+      "price_change_7d": null
+    },
+    {
+      "name": "Rum Nation Panama Rum 18 y.o. 40%",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/08/Panama18RN.jpg",
+      "type": "Hvid rom",
+      "country": "Panama",
+      "brand": "Rum Nation",
+      "abv": 40.0,
+      "volume_cl": null,
+      "age": "18 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.0,
+      "cheapest_price": 599.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 599.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/rum-nation-panama-rum-18-y-o-40/"
+        }
+      ],
+      "slug": "rum-nation-panama-rum-18-y-o-40",
       "price_change_7d": null
     },
     {
@@ -22941,32 +22993,6 @@
         }
       ],
       "slug": "hunter-laing-kill-devil-guyana-15-years-old-single-cask-rum-2001",
-      "price_change_7d": null
-    },
-    {
-      "name": "Bristol Classic Rum Fine Cuban Rum 2003",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Bristol_Classic_Rum_Fine_Cuban_Rum_2003.png?v=1774521382",
-      "type": "Aged rom",
-      "country": "Cuba",
-      "brand": "Bristol Classic",
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 899.0,
-      "cheapest_price": 899.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 899.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/bristol-classic-fine-cuban-2003-rum"
-        }
-      ],
-      "slug": "bristol-classic-rum-fine-cuban-rum-2003",
       "price_change_7d": null
     },
     {
