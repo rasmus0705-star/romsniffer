@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-12T16:01:59.766643",
+  "updated": "2026-08-16T07:41:31.472329",
   "stats": {
     "total": 1080,
     "deals": 103,
@@ -5519,7 +5519,7 @@
         }
       ],
       "slug": "don-q-oak-barrel-spiced",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Ron Tepuy Destino 40 %, Venezuela",
@@ -5571,7 +5571,7 @@
         }
       ],
       "slug": "abuelo-blanco-rum-40-1-l",
-      "price_change_7d": null
+      "price_change_7d": 50.0
     },
     {
       "name": "Rum Nation Guatemala Gran Reserva",
@@ -7010,7 +7010,7 @@
         }
       ],
       "slug": "don-papa-baroko-aged-in-oak",
-      "price_change_7d": null
+      "price_change_7d": -110.0
     },
     {
       "name": "Cubaney 18 Y.O. Seleceto",
@@ -17541,7 +17541,7 @@
         }
       ],
       "slug": "rum-nation-panama-rum-18-y-o-40",
-      "price_change_7d": null
+      "price_change_7d": 240.0
     },
     {
       "name": "Navy Island Port Finisk Navy Str, 62,3% Jamaica",
@@ -25338,32 +25338,6 @@
       "price_change_7d": null
     },
     {
-      "name": "A.H. Riise Signature",
-      "image": "https://spitus.dk/wp-content/uploads/2022/05/a.h.riise-signature-k.jpg",
-      "type": null,
-      "country": "Dansk",
-      "brand": "A.H. Riise",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1295.0,
-      "cheapest_price": 1295.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 1295.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/a-h-riise-signature/"
-        }
-      ],
-      "slug": "a-h-riise-signature",
-      "price_change_7d": null
-    },
-    {
       "name": "Barcelo Imperial 40 Aniversario Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Barcelo_Imperial_40_Aniversario_Rom.png?v=1774520569",
       "type": "Spiced",
@@ -25725,6 +25699,32 @@
         }
       ],
       "slug": "alta-gama-barbados-rum-aged-21-years",
+      "price_change_7d": null
+    },
+    {
+      "name": "A.H. Riise Signature",
+      "image": "https://spitus.dk/wp-content/uploads/2022/05/a.h.riise-signature-k.jpg",
+      "type": null,
+      "country": "Dansk",
+      "brand": "A.H. Riise",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1375.0,
+      "cheapest_price": 1375.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 1375.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/a-h-riise-signature/"
+        }
+      ],
+      "slug": "a-h-riise-signature",
       "price_change_7d": null
     },
     {
