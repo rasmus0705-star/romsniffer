@@ -1,8 +1,8 @@
 {
-  "updated": "2026-08-30T10:28:37.716102",
+  "updated": "2026-08-31T19:13:53.147540",
   "stats": {
-    "total": 1082,
-    "deals": 82,
+    "total": 1080,
+    "deals": 84,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -91,7 +91,7 @@
       "Reserva"
     ],
     "cheapest": 80.0,
-    "multi_shop": 73,
+    "multi_shop": 75,
     "shop_counts": {
       "Kokkens Vinhus": 254,
       "Spitus": 331,
@@ -722,7 +722,7 @@
         }
       ],
       "slug": "ron-cartavio-black-dark-rum",
-      "price_change_7d": -30.0
+      "price_change_7d": null
     },
     {
       "name": "Worthy Park Rum Bar Silver",
@@ -1272,18 +1272,18 @@
     },
     {
       "name": "Don Q Gold",
-      "image": "https://spitus.dk/wp-content/uploads/2022/08/don-q-gold-k.jpg",
-      "type": "Spiced",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ002-scaled.jpg",
+      "type": "Gylden rom",
       "country": "Puerto Rico",
       "brand": "Don Q",
-      "abv": null,
+      "abv": 40.0,
       "volume_cl": 70.0,
-      "age": null,
+      "age": "1 år",
       "category": "rom",
-      "shop_count": 1,
+      "shop_count": 2,
       "min_price": 199.0,
       "cheapest_price": 199.0,
-      "max_discount_pct": 0,
+      "max_discount_pct": 31.1,
       "prices": [
         {
           "shop_name": "Spitus",
@@ -1291,6 +1291,13 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/don-q-gold/"
+        },
+        {
+          "shop_name": "Con Maz",
+          "price": 199.0,
+          "old_price": 289.0,
+          "discount_pct": 31.1,
+          "url": "https://conmaz.dk/don-q-gold-rum/"
         }
       ],
       "slug": "don-q-gold",
@@ -1346,7 +1353,7 @@
         }
       ],
       "slug": "matusalem-10-y-o-clasico",
-      "price_change_7d": -40.0
+      "price_change_7d": null
     },
     {
       "name": "Plantation 3 Stars",
@@ -2147,7 +2154,7 @@
         }
       ],
       "slug": "chairmans-reserve",
-      "price_change_7d": null
+      "price_change_7d": -14.0
     },
     {
       "name": "Abuelo 7 år Anejo Reserva Superior Rom",
@@ -2277,7 +2284,7 @@
         }
       ],
       "slug": "a-h-riise-royal-danish-navy-35-cl",
-      "price_change_7d": -40.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Centenario 7 års",
@@ -2551,7 +2558,7 @@
         }
       ],
       "slug": "flor-de-cana-7-y-o-grand-reserve-rum",
-      "price_change_7d": -20.0
+      "price_change_7d": null
     },
     {
       "name": "Barcelo Imperial",
@@ -3130,7 +3137,7 @@
         }
       ],
       "slug": "ron-centenario-conmemorativo-9-years",
-      "price_change_7d": -20.0
+      "price_change_7d": null
     },
     {
       "name": "Botran 15 år Solera Reserva Rom",
@@ -3352,7 +3359,7 @@
         }
       ],
       "slug": "matusalem-15-y-o-gran-reserva",
-      "price_change_7d": -20.0
+      "price_change_7d": null
     },
     {
       "name": "Serum Elixir",
@@ -3378,7 +3385,7 @@
         }
       ],
       "slug": "serum-elixir",
-      "price_change_7d": null
+      "price_change_7d": -20.0
     },
     {
       "name": "Barceló Imperial Rum",
@@ -3768,7 +3775,7 @@
         }
       ],
       "slug": "plantation-xaymaca-rom",
-      "price_change_7d": -20.0
+      "price_change_7d": null
     },
     {
       "name": "Don Q Reserva 7 Years + 2 Rom-glas",
@@ -3957,7 +3964,7 @@
         }
       ],
       "slug": "el-ron-prohibido-15-y-o",
-      "price_change_7d": null
+      "price_change_7d": -26.0
     },
     {
       "name": "Rum Nation – Meticho Chocolate & Toffee",
@@ -4042,32 +4049,6 @@
         }
       ],
       "slug": "plantation-gran-anejo",
-      "price_change_7d": null
-    },
-    {
-      "name": "Don Q Gold Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ002-scaled.jpg",
-      "type": "Gylden rom",
-      "country": "Puerto Rico",
-      "brand": "Don Q",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "1 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 289.0,
-      "cheapest_price": 289.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 289.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/don-q-gold-rum/"
-        }
-      ],
-      "slug": "don-q-gold-rum",
       "price_change_7d": null
     },
     {
@@ -4224,7 +4205,7 @@
         }
       ],
       "slug": "the-rum-factory-10-y-o",
-      "price_change_7d": -20.0
+      "price_change_7d": null
     },
     {
       "name": "Mombacho 12 YO reserve especial",
@@ -4910,6 +4891,39 @@
       "price_change_7d": null
     },
     {
+      "name": "Don Q 151 Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ003-scaled.jpg",
+      "type": "Aged rom",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 75.5,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 31.9,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 299.0,
+          "old_price": 439.0,
+          "discount_pct": 31.9,
+          "url": "https://conmaz.dk/don-q-151-rum/"
+        },
+        {
+          "shop_name": "Rombo",
+          "price": 325.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/don-q-151-overproof-rum"
+        }
+      ],
+      "slug": "don-q-151-overproof-rom",
+      "price_change_7d": null
+    },
+    {
       "name": "Dos Maderas Atlantic Double Aged Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_c83a0d72-db1d-4741-b626-92c4f20583ac.png?v=1769437234",
       "type": "Aged rom",
@@ -5297,7 +5311,7 @@
         }
       ],
       "slug": "rum-nation-dominicana-8-ar",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Rum Nation Jamaica White Pot Still",
@@ -5505,7 +5519,7 @@
         }
       ],
       "slug": "ron-colon-salvadoreno-coffee-infused",
-      "price_change_7d": -40.0
+      "price_change_7d": null
     },
     {
       "name": "Kirk and Sweeney Reserva Rom",
@@ -5687,7 +5701,7 @@
         }
       ],
       "slug": "bumbu-original",
-      "price_change_7d": -24.0
+      "price_change_7d": null
     },
     {
       "name": "Goslings 151 Proof Rom",
@@ -5713,7 +5727,7 @@
         }
       ],
       "slug": "goslings-151-proof-rom",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "Espero Caribbean Coconut",
@@ -5990,32 +6004,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Don Q 151 Overproof Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4c64513e-5584-4afb-936c-2ae64df5af84.png?v=1769422832",
-      "type": "Overproof",
-      "country": "Puerto Rico",
-      "brand": "Don Q",
-      "abv": 75.5,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 325.0,
-      "cheapest_price": 325.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 325.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/don-q-151-overproof-rum"
-        }
-      ],
-      "slug": "don-q-151-overproof-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Doorly's XO Fine Old Barbados Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bd3ed833-1749-483a-9e5b-19c58ef90524.png?v=1769420695",
       "type": "Mørk rom",
@@ -6169,7 +6157,7 @@
         }
       ],
       "slug": "romdeluxe-no-3-white-rum-jamaica-st-catherine",
-      "price_change_7d": null
+      "price_change_7d": -70.0
     },
     {
       "name": "Ron Malteco Reserva Maya 15 års Rom",
@@ -6533,7 +6521,7 @@
         }
       ],
       "slug": "espero-caribbean-banana-and-rum-liquer-40",
-      "price_change_7d": null
+      "price_change_7d": 30.0
     },
     {
       "name": "Ron Flor de Caña Centenario 12 Years Old Rum",
@@ -7589,7 +7577,7 @@
         }
       ],
       "slug": "cane-island-thailand-5-ar-single-estate-rum",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Dictador Destillery Icon Reserve 12 års Solera Rom",
@@ -7771,7 +7759,7 @@
         }
       ],
       "slug": "panamonte-12-ars-rom",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Planteray Cut & Dry Coconut Spirit Drink",
@@ -8246,7 +8234,7 @@
         }
       ],
       "slug": "barcelo-imperial-onyx",
-      "price_change_7d": null
+      "price_change_7d": 30.0
     },
     {
       "name": "A.H. Riise Royal Danish Navy",
@@ -10235,7 +10223,7 @@
         }
       ],
       "slug": "deadhead-chocolate-rom-likor",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Barcelo Imperial Rare Blends Porto Cask",
@@ -10261,7 +10249,7 @@
         }
       ],
       "slug": "barcelo-imperial-rare-blends-porto-cask",
-      "price_change_7d": -30.0
+      "price_change_7d": null
     },
     {
       "name": "Dos Maderas Seleccion",
@@ -10398,7 +10386,7 @@
         }
       ],
       "slug": "serum-gorgas-gran-reserva",
-      "price_change_7d": null
+      "price_change_7d": 50.0
     },
     {
       "name": "Havana Club Seleccion de Maestros",
@@ -11367,7 +11355,7 @@
         }
       ],
       "slug": "a-h-riise-xo-ambre-dor",
-      "price_change_7d": null
+      "price_change_7d": 60.0
     },
     {
       "name": "Doorly’s Fine Old Rum 12 YO Barbados",
@@ -11473,7 +11461,7 @@
         }
       ],
       "slug": "chairmans-reserve-forgotten-casks",
-      "price_change_7d": null
+      "price_change_7d": 40.0
     },
     {
       "name": "A.H.Riise XO 175th Anniversary",
@@ -11981,7 +11969,7 @@
         }
       ],
       "slug": "infernal-club-sunrise",
-      "price_change_7d": -60.0
+      "price_change_7d": null
     },
     {
       "name": "Old St. Croix XO Reserve Port Cask",
@@ -12085,7 +12073,7 @@
         }
       ],
       "slug": "rum-nation-british-guyana-7-ar-cask-strength",
-      "price_change_7d": null
+      "price_change_7d": -64.0
     },
     {
       "name": "Pusser’s British Navy Rum Selected Aged 151 på 75,5%,",
@@ -12300,33 +12288,7 @@
         }
       ],
       "slug": "serum-ancon-10-y-o",
-      "price_change_7d": null
-    },
-    {
-      "name": "Don Q 151 Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ003-scaled.jpg",
-      "type": "Aged rom",
-      "country": "Puerto Rico",
-      "brand": "Don Q",
-      "abv": 75.5,
-      "volume_cl": 70.0,
-      "age": "3 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 439.0,
-      "cheapest_price": 439.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 439.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/don-q-151-rum/"
-        }
-      ],
-      "slug": "don-q-151-rum",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "El Dorado 15 Y.O.",
@@ -12846,7 +12808,7 @@
         }
       ],
       "slug": "a-h-riise-xo-reserve-port-cask-rum-45",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Angostura 1824 Premium Rom",
@@ -14150,7 +14112,7 @@
         }
       ],
       "slug": "rum-nation-venezuela-xo-25th-anniversary",
-      "price_change_7d": null
+      "price_change_7d": -80.0
     },
     {
       "name": "Kirk & Sweeney 12 Years",
@@ -14788,7 +14750,7 @@
         }
       ],
       "slug": "dictador-16-years-old-icon-reserve-colombian-rum",
-      "price_change_7d": -70.0
+      "price_change_7d": null
     },
     {
       "name": "Parce Rum 12 år",
@@ -15627,7 +15589,7 @@
         }
       ],
       "slug": "alta-gama-extra-sec-guyana-rum",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Vesper Reserve Oro Negro 15 Years Old",
@@ -15679,7 +15641,7 @@
         }
       ],
       "slug": "ron-centenario-reserva-de-la-familia-18-seleccion-premium",
-      "price_change_7d": -90.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise X.O. Reserve 175 Years Anniversary Rum – Old Edition",
@@ -15887,7 +15849,7 @@
         }
       ],
       "slug": "zafra-master-series-21-ars-rom",
-      "price_change_7d": -60.0
+      "price_change_7d": null
     },
     {
       "name": "Navy Island Port cask 46,4% Jamaica",
@@ -16570,7 +16532,7 @@
         }
       ],
       "slug": "dictador-20-y-o",
-      "price_change_7d": -60.0
+      "price_change_7d": null
     },
     {
       "name": "A1710 La Perle Brute 66* Millésime 2021 Rom",
@@ -16674,7 +16636,7 @@
         }
       ],
       "slug": "the-real-mccoy-12-ars-rom",
-      "price_change_7d": -150.0
+      "price_change_7d": null
     },
     {
       "name": "Fadandel fra Colombia-tønden (fadstyrke)",
@@ -17123,7 +17085,7 @@
         }
       ],
       "slug": "botran-ron-cobre-spiced-rum-edicion-limitada",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Pussers British Navy Rum 15 Y.O. Nelsons Blood",
@@ -17638,7 +17600,7 @@
         }
       ],
       "slug": "a-h-riise-julekalender-2023",
-      "price_change_7d": null
+      "price_change_7d": 10.0
     },
     {
       "name": "A.H. Riise Julekalender 2021",
@@ -17664,7 +17626,7 @@
         }
       ],
       "slug": "a-h-riise-julekalender-2021",
-      "price_change_7d": null
+      "price_change_7d": 10.0
     },
     {
       "name": "Moko Rum, 15 years",
@@ -18158,7 +18120,7 @@
         }
       ],
       "slug": "rammstein-rum-sauternes-cask-finish",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Rammstein Rum Sauternes Finish limited edition rom",
@@ -18418,7 +18380,7 @@
         }
       ],
       "slug": "rest-and-be-thankful-2015-small-batch-2-pure-jamaica-single-rum-aged-7-years",
-      "price_change_7d": null
+      "price_change_7d": 150.0
     },
     {
       "name": "A1710 La Perle Brute Rhum Blanc Extraordinaire",
@@ -19226,7 +19188,7 @@
         }
       ],
       "slug": "opthimus-21-anos-magna-cum-laude",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Barbancourt Rhum Réserve du Domaine Rum 15 år",
@@ -19611,7 +19573,7 @@
         }
       ],
       "slug": "ron-zacapa-centenario-edicion-negra-sistema-solera-gran-reserva",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Quorhum 30 Aniversario Old Vintage Rum",
@@ -21296,7 +21258,7 @@
         }
       ],
       "slug": "a-h-riise-non-plus-ultra-ambre-dor-excellence",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Alfred’s Trail Edt. 6.12 Belize Rum",
@@ -21875,7 +21837,7 @@
         }
       ],
       "slug": "guyana-port-mourant-shared-single-cask-rum",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Planteray Belize 2008 Vintage Collection Terravera Limited Edition Rom",
@@ -24262,7 +24224,7 @@
         }
       ],
       "slug": "alfreds-trail-10-6-trinidad-rum-malt-whisky-cask-finish",
-      "price_change_7d": null
+      "price_change_7d": 250.0
     },
     {
       "name": "Foursquare 19 Years Old EPILOGUE Exceptional Cask Selection Mark XXXI Rom",
@@ -25101,7 +25063,7 @@
         }
       ],
       "slug": "el-dorado-2010-port-mourant-uitvlucht",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "El Dorado 2010 Diamond Port Mourant",
@@ -25127,7 +25089,7 @@
         }
       ],
       "slug": "el-dorado-2010-diamond-port-mourant",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Foursquare Convocation 14 års Single Blended Rum 62%, Barbados",
@@ -25413,7 +25375,7 @@
         }
       ],
       "slug": "sbs-jamaica-2010-emb-rom-bottled-for-germany-and-austria",
-      "price_change_7d": -250.0
+      "price_change_7d": null
     },
     {
       "name": "Santos Dumont Heritage Hors D’Age",
@@ -25439,7 +25401,7 @@
         }
       ],
       "slug": "santos-dumont-heritage-hors-dage",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Barcelo Imperial 40 Aniversario Rom",
@@ -26037,7 +25999,7 @@
         }
       ],
       "slug": "el-dorado-2008-uitvlucht-enmore",
-      "price_change_7d": -200.0
+      "price_change_7d": null
     },
     {
       "name": "Barbados FourSquare Rum 2007, 61,9%, Raw Cask Blackadder",
@@ -26486,7 +26448,7 @@
         }
       ],
       "slug": "a1710-soleil-de-minuit-rhum-extraordinaire",
-      "price_change_7d": null
+      "price_change_7d": -500.0
     },
     {
       "name": "Alta Gama Barbados Rum Aged 21 Years",
@@ -26512,7 +26474,7 @@
         }
       ],
       "slug": "alta-gama-barbados-rum-aged-21-years",
-      "price_change_7d": null
+      "price_change_7d": 150.0
     },
     {
       "name": "La Favorite Millesime 2013 Selection de Futs",
@@ -26590,7 +26552,7 @@
         }
       ],
       "slug": "bapt-and-clems-agricole-guadeloupe-vintage-2009",
-      "price_change_7d": null
+      "price_change_7d": 320.0
     },
     {
       "name": "A.H. Riise Signature, Batch 1",
@@ -26668,7 +26630,7 @@
         }
       ],
       "slug": "magnum-rum-nation-guatemala-gran-reserva-4-5-liter",
-      "price_change_7d": null
+      "price_change_7d": -600.0
     },
     {
       "name": "Nacional rums of Jamaica 57% Cambridge STCE 2010",
