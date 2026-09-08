@@ -5,243 +5,171 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Auning Byvandring</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0d0703; min-height: 100dvh; font-family: 'Share Tech Mono', monospace; color: #d4a96a; overflow-x: hidden; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#0d0703;min-height:100dvh;font-family:'Share Tech Mono',monospace;color:#d4a96a;overflow-x:hidden}
 
-  /* ── SPLASH ── */
-  #splash {
-    position: fixed; inset: 0; background: #0a0502; z-index: 20000;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1.2rem; padding: 2rem; cursor: pointer; transition: opacity 0.6s;
-  }
-  #splash.hiding { opacity: 0; pointer-events: none; }
-  .splash-icon { font-size: 64px; }
-  .splash-title {
-    font-family: 'Playfair Display', serif; font-size: clamp(26px,7vw,42px);
-    color: #c8922a; text-align: center; letter-spacing: 4px; text-transform: uppercase;
-    text-shadow: 0 0 30px rgba(200,146,42,0.4);
-  }
-  .splash-sub {
-    font-size: 13px; color: #7a5030; letter-spacing: 3px; text-transform: uppercase;
-  }
-  .splash-team {
-    display: inline-block; padding: 8px 24px; border-radius: 6px;
-    font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700;
-    letter-spacing: 3px; text-transform: uppercase;
-  }
-  .splash-team.team-a { background: #8b1a2b; color: #f0c040; }
-  .splash-team.team-b { background: #1a3a6b; color: #f0c040; }
-  .splash-msg {
-    font-family: 'Playfair Display', serif; font-size: clamp(14px,3.5vw,17px);
-    color: #8a6030; text-align: center; font-style: italic; line-height: 1.8; max-width: 320px;
-  }
-  .splash-msg strong { color: #c8922a; font-style: normal; }
-  .splash-btn {
-    font-family: 'Share Tech Mono', monospace; font-size: clamp(14px,4vw,17px);
-    color: #0a0502; background: #c8922a; border: none; border-radius: 8px;
-    padding: 16px 40px; letter-spacing: 3px; text-transform: uppercase;
-    cursor: pointer; box-shadow: 0 0 30px rgba(200,146,42,0.4);
-    animation: pulseSplash 1.5s ease-in-out infinite;
-  }
-  @keyframes pulseSplash {
-    0%,100% { box-shadow: 0 0 20px rgba(200,146,42,0.3); transform: scale(1); }
-    50% { box-shadow: 0 0 40px rgba(200,146,42,0.7); transform: scale(1.04); }
-  }
-  .splash-hint { font-size: 11px; color: #4a2e10; letter-spacing: 2px; text-align: center; }
+  /* SPLASH */
+  #splash{position:fixed;inset:0;background:#0a0502;z-index:20000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2rem;cursor:pointer;transition:opacity .6s}
+  #splash.hiding{opacity:0;pointer-events:none}
+  .splash-icon{font-size:64px}
+  .splash-title{font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,42px);color:#c8922a;text-align:center;letter-spacing:4px;text-transform:uppercase;text-shadow:0 0 30px rgba(200,146,42,.4)}
+  .splash-sub{font-size:13px;color:#7a5030;letter-spacing:3px;text-transform:uppercase}
+  .splash-team{display:inline-block;padding:8px 24px;border-radius:6px;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+  .splash-team.team-a{background:#8b1a2b;color:#f0c040}
+  .splash-team.team-b{background:#1a3a6b;color:#f0c040}
+  .splash-msg{font-family:'Playfair Display',serif;font-size:clamp(14px,3.5vw,17px);color:#8a6030;text-align:center;font-style:italic;line-height:1.8;max-width:320px}
+  .splash-msg strong{color:#c8922a;font-style:normal}
+  .splash-btn{font-family:'Share Tech Mono',monospace;font-size:clamp(14px,4vw,17px);color:#0a0502;background:#c8922a;border:none;border-radius:8px;padding:16px 40px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;box-shadow:0 0 30px rgba(200,146,42,.4);animation:pulse 1.5s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 20px rgba(200,146,42,.3);transform:scale(1)}50%{box-shadow:0 0 40px rgba(200,146,42,.7);transform:scale(1.04)}}
+  .splash-hint{font-size:11px;color:#4a2e10;letter-spacing:2px;text-align:center}
 
-  /* ── HEADER ── */
-  .header {
-    background: #0a0502; border-bottom: 2px solid #c8922a; padding: 12px 1rem;
-    text-align: center; position: sticky; top: 0; z-index: 1000;
-    box-shadow: 0 4px 20px rgba(200,146,42,0.2);
-  }
-  .header-title {
-    font-family: 'Playfair Display', serif; font-size: 16px; color: #c8922a;
-    letter-spacing: 4px; text-transform: uppercase;
-  }
-  .header-team { font-size: 11px; color: #7a5030; letter-spacing: 2px; margin-top: 2px; }
+  /* HEADER */
+  .header{background:#0a0502;border-bottom:2px solid #c8922a;padding:10px 1rem;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 4px 20px rgba(200,146,42,.2)}
+  .header-title{font-family:'Playfair Display',serif;font-size:15px;color:#c8922a;letter-spacing:4px;text-transform:uppercase}
+  .header-team{font-size:11px;color:#7a5030;letter-spacing:2px;margin-top:2px}
 
-  /* ── PROGRESS ── */
-  .progress-strip {
-    display: flex; gap: 6px; padding: 12px 16px; justify-content: center;
-    background: #0a0502;
-  }
-  .progress-dot {
-    width: 32px; height: 6px; border-radius: 3px; background: #1a0f07;
-    border: 1px solid #2d1a08; transition: all 0.4s;
-  }
-  .progress-dot.done { background: #4a7c2f; border-color: #4a7c2f; box-shadow: 0 0 6px rgba(74,124,47,0.4); }
-  .progress-dot.active { background: #c8922a; border-color: #c8922a; box-shadow: 0 0 8px rgba(200,146,42,0.5); }
+  /* PROGRESS */
+  .progress-strip{display:flex;gap:6px;padding:10px 16px;justify-content:center;background:#0a0502}
+  .pdot{width:32px;height:6px;border-radius:3px;background:#1a0f07;border:1px solid #2d1a08;transition:all .4s}
+  .pdot.done{background:#4a7c2f;border-color:#4a7c2f;box-shadow:0 0 6px rgba(74,124,47,.4)}
+  .pdot.active{background:#c8922a;border-color:#c8922a;box-shadow:0 0 8px rgba(200,146,42,.5)}
 
-  /* ── CONTENT ── */
-  .content { padding: 16px; padding-bottom: 80px; }
+  /* MAP */
+  #map{width:100%;height:220px;border-bottom:1px solid #3d2a12}
+  .leaflet-container{background:#1a0f07}
+  .gps-status{font-size:12px;color:#4a2e10;letter-spacing:2px;text-align:center;padding:6px}
 
-  .location-card {
-    background: #1a0f07; border: 1px solid #3d2a12; border-radius: 12px;
-    padding: 20px; margin-bottom: 16px; border-left: 4px solid #c8922a;
-  }
-  .loc-num {
-    font-size: 11px; color: #c8922a; letter-spacing: 4px;
-    text-transform: uppercase; margin-bottom: 6px;
-  }
-  .loc-name {
-    font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700;
-    color: #e8c878; line-height: 1.2;
-  }
-  .loc-desc { font-size: 13px; color: #6a4a2a; margin-top: 6px; line-height: 1.4; }
+  /* DISTANCE */
+  .dist-bar{text-align:center;padding:16px;background:#0a0502}
+  .dist-num{font-family:'Playfair Display',serif;font-size:clamp(36px,10vw,52px);color:#c8922a;letter-spacing:4px;text-shadow:0 0 20px rgba(200,146,42,.3);transition:color .3s}
+  .dist-num.near{color:#4a7c2f;text-shadow:0 0 20px rgba(74,124,47,.4)}
+  .dist-label{font-size:11px;color:#5a3a1a;letter-spacing:3px;text-transform:uppercase;margin-top:2px}
+  .arrived{display:none;text-align:center;padding:8px;font-size:14px;color:#4a7c2f;letter-spacing:2px;text-transform:uppercase;animation:glow 1.5s ease-in-out infinite}
+  .arrived.visible{display:block}
+  @keyframes glow{0%,100%{text-shadow:0 0 8px rgba(74,124,47,.3)}50%{text-shadow:0 0 20px rgba(74,124,47,.7)}}
 
-  .question-card {
-    background: #1a0f07; border: 1px solid #2d1a08; border-radius: 10px;
-    padding: 18px; margin-bottom: 14px;
-  }
-  .q-badge {
-    display: inline-block; background: #0a0502; border: 1px solid #3d2a12;
-    border-radius: 4px; padding: 2px 8px; font-size: 10px; color: #7a5030;
-    letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;
-  }
-  .q-text {
-    font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 400;
-    color: #d4a96a; line-height: 1.5; margin-bottom: 14px;
-  }
-  .options { display: flex; flex-direction: column; gap: 8px; }
-  .opt-btn {
-    background: #0a0502; border: 1.5px solid #2d1a08; border-radius: 8px;
-    padding: 13px 14px; font-family: 'Share Tech Mono', monospace; font-size: 14px;
-    color: #8a6030; cursor: pointer; text-align: left; transition: all 0.15s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .opt-btn:active:not(.disabled) { transform: scale(0.98); }
-  .opt-btn.selected { border-color: #c8922a; color: #c8922a; background: rgba(200,146,42,0.08); }
-  .opt-btn.correct { border-color: #4a7c2f; color: #4a7c2f; background: rgba(74,124,47,0.1); }
-  .opt-btn.correct::after { content: ' ✓'; }
-  .opt-btn.wrong { border-color: #7c2f2f; color: #7c2f2f; background: rgba(124,47,47,0.08); opacity: 0.6; }
-  .opt-btn.wrong.chosen::after { content: ' ✗'; }
-  .opt-btn.disabled { pointer-events: none; }
+  /* CONTENT */
+  .content{padding:16px;padding-bottom:80px;display:none}
+  .content.visible{display:block}
+  .location-card{background:#1a0f07;border:1px solid #3d2a12;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid #c8922a}
+  .loc-num{font-size:11px;color:#c8922a;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px}
+  .loc-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:#e8c878;line-height:1.2}
+  .loc-desc{font-size:13px;color:#6a4a2a;margin-top:6px;line-height:1.4}
+  .question-card{background:#1a0f07;border:1px solid #2d1a08;border-radius:10px;padding:18px;margin-bottom:14px}
+  .q-badge{display:inline-block;background:#0a0502;border:1px solid #3d2a12;border-radius:4px;padding:2px 8px;font-size:10px;color:#7a5030;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  .q-text{font-family:'Playfair Display',serif;font-size:16px;color:#d4a96a;line-height:1.5;margin-bottom:14px}
+  .options{display:flex;flex-direction:column;gap:8px}
+  .opt-btn{background:#0a0502;border:1.5px solid #2d1a08;border-radius:8px;padding:13px 14px;font-family:'Share Tech Mono',monospace;font-size:14px;color:#8a6030;cursor:pointer;text-align:left;transition:all .15s;-webkit-tap-highlight-color:transparent}
+  .opt-btn:active:not(.disabled){transform:scale(.98)}
+  .opt-btn.correct{border-color:#4a7c2f;color:#4a7c2f;background:rgba(74,124,47,.1)}
+  .opt-btn.correct::after{content:' \2713'}
+  .opt-btn.wrong{border-color:#7c2f2f;color:#7c2f2f;background:rgba(124,47,47,.08);opacity:.6}
+  .opt-btn.wrong.chosen::after{content:' \2717'}
+  .opt-btn.disabled{pointer-events:none}
 
-  /* ── STOP RESULT ── */
-  .stop-result {
-    text-align: center; padding: 24px; background: #1a0f07; border: 1px solid #3d2a12;
-    border-radius: 12px; margin-top: 16px; display: none;
-  }
-  .stop-result.visible { display: block; }
-  .stop-score-big {
-    font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 900;
-    color: #c8922a; text-shadow: 0 0 20px rgba(200,146,42,0.3);
-  }
-  .stop-score-label { font-size: 12px; color: #5a3a1a; letter-spacing: 3px; text-transform: uppercase; margin-top: 4px; }
-  .next-btn {
-    background: #c8922a; color: #0a0502; border: none; border-radius: 8px;
-    padding: 16px; font-family: 'Share Tech Mono', monospace; font-size: 16px;
-    font-weight: 700; cursor: pointer; width: 100%; margin-top: 16px;
-    letter-spacing: 2px; text-transform: uppercase; display: none;
-    transition: transform 0.1s; box-shadow: 0 0 20px rgba(200,146,42,0.3);
-  }
-  .next-btn.visible { display: block; }
-  .next-btn:active { transform: scale(0.97); }
+  /* FINISH */
+  #finish{display:none;min-height:100dvh;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem}
+  #finish.active{display:flex}
+  .finish-icon{font-size:72px;margin-bottom:12px}
+  .finish-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#c8922a;letter-spacing:3px;text-transform:uppercase}
+  .finish-score{font-family:'Playfair Display',serif;font-size:64px;font-weight:900;color:#f0c040;text-shadow:0 0 30px rgba(240,192,64,.4);margin:16px 0 4px}
+  .finish-label{font-size:13px;color:#5a3a1a;letter-spacing:3px}
+  .finish-return{background:#1a0f07;border:1px solid #3d2a12;border-radius:12px;padding:20px;margin-top:28px;max-width:320px;font-size:14px;line-height:1.6}
+  .finish-return strong{color:#c8922a}
 
-  /* ── FINISH ── */
-  #finish {
-    display: none; min-height: 100dvh; flex-direction: column;
-    align-items: center; justify-content: center; text-align: center; padding: 2rem;
-  }
-  #finish.active { display: flex; }
-  .finish-icon { font-size: 72px; margin-bottom: 12px; }
-  .finish-title {
-    font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;
-    color: #c8922a; letter-spacing: 3px; text-transform: uppercase;
-  }
-  .finish-score {
-    font-family: 'Playfair Display', serif; font-size: 64px; font-weight: 900;
-    color: #f0c040; text-shadow: 0 0 30px rgba(240,192,64,0.4); margin: 16px 0 4px;
-  }
-  .finish-label { font-size: 13px; color: #5a3a1a; letter-spacing: 3px; }
-  .finish-return {
-    background: #1a0f07; border: 1px solid #3d2a12; border-radius: 12px;
-    padding: 20px; margin-top: 28px; max-width: 320px; font-size: 14px; line-height: 1.6;
-  }
-  .finish-return strong { color: #c8922a; }
+  /* STATUS BAR */
+  .status-bar{position:fixed;bottom:0;left:0;right:0;background:#0a0502;border-top:2px solid #c8922a;padding:10px 20px;display:none;justify-content:space-between;font-size:13px;z-index:10;box-shadow:0 -4px 20px rgba(200,146,42,.15)}
+  .status-bar.visible{display:flex}
+  .sb-score{color:#c8922a}.sb-loc{color:#5a3a1a}
 
-  /* ── STATUS BAR ── */
-  .status-bar {
-    position: fixed; bottom: 0; left: 0; right: 0;
-    background: #0a0502; border-top: 2px solid #c8922a; padding: 10px 20px;
-    display: none; justify-content: space-between; font-size: 13px; z-index: 10;
-    box-shadow: 0 -4px 20px rgba(200,146,42,0.15);
-  }
-  .status-bar.visible { display: flex; }
-  .sb-score { color: #c8922a; }
-  .sb-loc { color: #5a3a1a; }
+  /* MATRIX OVERLAY */
+  #matrix-overlay{display:none;position:fixed;inset:0;background:#000;z-index:9999}
+  #matrix-overlay canvas{display:block;width:100%;height:100%}
+  #access-granted{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;pointer-events:none}
+  #access-granted.show{display:flex}
+  .ag-text{font-family:'Share Tech Mono',monospace;font-size:clamp(18px,5vw,32px);color:#00ff41;text-shadow:0 0 20px #00ff41,0 0 40px #00ff41;letter-spacing:6px;text-align:center;opacity:0;transform:scale(.8);transition:opacity .4s,transform .4s}
+  .ag-text.show{opacity:1;transform:scale(1)}
 </style>
 </head>
 <body>
 
-<!-- ══════ SPLASH ══════ -->
+<!-- SPLASH -->
 <div id="splash" onclick="startGame()">
   <div class="splash-icon">🏛️</div>
   <div class="splash-title">Auning Byvandring</div>
   <div class="splash-sub">— Historisk Quiz —</div>
   <div class="splash-team" id="splash-team"></div>
   <div class="splash-msg">
-    Besøg <strong>6 steder</strong> i Auning og besvar spørgsmål om byens historie.<br><br>
-    Næste sted afsløres først når alle spørgsmål er besvaret.
+    Gå til <strong>6 historiske steder</strong> i Auning.<br><br>
+    Spørgsmålene låses op når du er tæt på.<br>
+    Besvar alle 3 for at få næste destination.
   </div>
-  <button class="splash-btn">▶ &nbsp; START TUREN</button>
-  <div class="splash-hint">📍 I samarbejde med Tommy</div>
+  <button class="splash-btn">▶   START TUREN</button>
+  <div class="splash-hint">📍 Tillad GPS når du bliver spurgt</div>
 </div>
 
-<!-- ══════ GAME ══════ -->
-<div id="game" style="display:none;">
+<!-- GAME -->
+<div id="game" style="display:none">
   <div class="header">
     <div class="header-title">Auning Byvandring</div>
     <div class="header-team" id="header-team"></div>
   </div>
   <div class="progress-strip" id="progress-strip"></div>
+  <div id="map"></div>
+  <div class="gps-status" id="gps-status">📍 Henter din position...</div>
+  <div class="dist-bar" id="dist-bar">
+    <div class="dist-num" id="dist-num">—</div>
+    <div class="dist-label">meter til næste punkt</div>
+  </div>
+  <div class="arrived" id="arrived-msg">✦ Du er fremme — besvar spørgsmålene! ✦</div>
   <div class="content" id="content"></div>
 </div>
 
-<!-- ══════ FINISH ══════ -->
+<!-- FINISH -->
 <div id="finish">
   <div class="finish-icon">🏆</div>
   <div class="finish-title">Turen er færdig!</div>
   <div class="finish-score" id="finish-score">0</div>
-  <div class="finish-label">rigtige ud af <span id="finish-total">18</span></div>
-  <div class="finish-return" id="finish-return"></div>
+  <div class="finish-label">rigtige ud af 18</div>
+  <div class="finish-return">
+    <strong>Gå nu tilbage til startstedet!</strong>
+  </div>
 </div>
 
-<!-- ══════ STATUS BAR ══════ -->
+<!-- STATUS BAR -->
 <div class="status-bar" id="status-bar">
   <span class="sb-score">⭐ <span id="sb-score">0</span> rigtige</span>
-  <span class="sb-loc">📍 <span id="sb-loc">1</span> / <span id="sb-total">6</span></span>
+  <span class="sb-loc">📍 <span id="sb-loc">1</span> / 6</span>
 </div>
 
+<!-- MATRIX -->
+<div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
+<div id="access-granted"><div class="ag-text" id="ag-text">NÆSTE PUNKT LÅST OP</div></div>
+
 <script>
-// ════════════════════════════════════════════════════════════
-//  KONFIGURATION
-// ════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════
+//  CONFIG
+// ════════════════════════════════════════════════
 const CONFIG = {
-  supabaseUrl: 'https://qmdqzdatlanyhewjwpzc.supabase.co/rest/v1/',  // Udfyld med dit Supabase projekt-URL
-  supabaseKey: 'sb_publishable_NHtkIMzpXk02rZA31usaPQ_mmHoAa0q',  // Udfyld med din anon/public key
+  supabaseUrl: '',
+  supabaseKey: '',
   eventId: 'auning-2026',
+  unlockRadius: 30, // meter
+  returnPoint: { lat: 56.43319975372264, lng: 10.388640491788069, name: 'Udgangspunktet' },
 
   teams: {
-    a: { name: 'Hold A', cls: 'team-a', order: [0,1,2,3,4,5], returnTo: 'Gå nu tilbage til startpunktet ved Møbel- & Madrasfabrikken.' },
-    b: { name: 'Hold B', cls: 'team-b', order: [5,4,3,2,1,0], returnTo: 'Gå nu tilbage til startpunktet ved Auning Station.' }
+    a: { name: 'Hold A', cls: 'team-a', order: [0,1,2,3,4,5] },
+    b: { name: 'Hold B', cls: 'team-b', order: [5,4,3,2,1,0] }
   },
 
   locations: [
     {
-      id: 1, name: 'Auning Møbel- & Madrasfabrik',
-      desc: 'Fabrikken der satte Auning på industrikortet',
-      questions: [
-        { q: 'Hvilket år blev fabrikken grundlagt?', opts: ['A) 1901','B) 1907','C) 1918'], correct: 1 },
-        { q: 'Hvor mange medarbejdere var beskæftiget, da fabrikken i Middelgade brændte i 1931?', opts: ['A) 35','B) 80','C) 150'], correct: 1 },
-        { q: 'Hvornår blev fabrikken saboteret?', opts: ['A) 23. oktober 1943','B) 5. maj 1945','C) 9. april 1940'], correct: 0 }
-      ]
-    },
-    {
-      id: 2, name: 'Det gamle Hospital (Kirkeladen)',
+      id: 1, name: 'Det gamle Hospital (Kirkeladen)',
       desc: 'Fra kirkelade til godshospital for fattige',
+      lat: 56.43337348622735, lng: 10.377203982134889,
       questions: [
         { q: 'Hvad var bygningen oprindeligt, før den blev hospital?', opts: ['A) Et bryggeri','B) En kirkelade til tiendekorn','C) Et vagthus'], correct: 1 },
         { q: 'Hvem lod huset indrette som "godshospital" for fattige?', opts: ['A) Jørgen Skeel','B) Christen Scheel','C) Frederik VII'], correct: 0 },
@@ -249,8 +177,19 @@ const CONFIG = {
       ]
     },
     {
+      id: 2, name: 'Auning Møbel- & Madrasfabrik',
+      desc: 'Fabrikken der satte Auning på industrikortet',
+      lat: 56.43184118501134, lng: 10.368120093598385,
+      questions: [
+        { q: 'Hvilket år blev fabrikken grundlagt?', opts: ['A) 1901','B) 1907','C) 1918'], correct: 1 },
+        { q: 'Hvor mange medarbejdere var beskæftiget, da fabrikken brændte i 1931?', opts: ['A) 35','B) 80','C) 150'], correct: 1 },
+        { q: 'Hvornår blev fabrikken saboteret?', opts: ['A) 23. oktober 1943','B) 5. maj 1945','C) 9. april 1940'], correct: 0 }
+      ]
+    },
+    {
       id: 3, name: 'Den grafiske industri',
       desc: 'Datagraf og de grafiske virksomheder i Auning',
+      lat: 56.42982255964975, lng: 10.374707009106126,
       questions: [
         { q: 'Hvilket år blev Datagraf grundlagt?', opts: ['A) 1976','B) 1986','C) 1996'], correct: 1 },
         { q: 'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?', opts: ['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'], correct: 0 },
@@ -258,17 +197,9 @@ const CONFIG = {
       ]
     },
     {
-      id: 4, name: 'Auning Savværk',
-      desc: 'Savværket der var en hjørnesten i byens industri',
-      questions: [
-        { q: 'Hvem etablerede savværket i 1901?', opts: ['A) Greve Jørgen Carl Scheel','B) Købmand F.C. Gerstrøm','C) Niels Chr. Jensen'], correct: 0 },
-        { q: 'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?', opts: ['A) 18','B) 30','C) 44'], correct: 2 },
-        { q: 'Hvornår lukkede savværket endeligt?', opts: ['A) 1980','B) 1990','C) 2000'], correct: 1 }
-      ]
-    },
-    {
-      id: 5, name: 'Kartoffelmelsfabrikken',
+      id: 4, name: 'Kartoffelmelsfabrikken',
       desc: 'Den gamle fabrik og dens rolle i byens dagligdag',
+      lat: 56.42735629518248, lng: 10.376317870053443,
       questions: [
         { q: 'Hvilket år stammer fabriksbygningen fra?', opts: ['A) 1901','B) 1916','C) 1930'], correct: 1 },
         { q: 'Hvad bruges den tidligere kartoffelmelsfabrik til i dag?', opts: ['A) Byggemarked','B) Magasiner for Landbrugsmuseet','C) Boliger'], correct: 1 },
@@ -276,8 +207,19 @@ const CONFIG = {
       ]
     },
     {
+      id: 5, name: 'Auning Savværk',
+      desc: 'Savværket der var en hjørnesten i byens industri',
+      lat: 56.427439813850306, lng: 10.378394535114554,
+      questions: [
+        { q: 'Hvem etablerede savværket i 1901?', opts: ['A) Greve Jørgen Carl Scheel','B) Købmand F.C. Gerstrøm','C) Niels Chr. Jensen'], correct: 0 },
+        { q: 'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?', opts: ['A) 18','B) 30','C) 44'], correct: 2 },
+        { q: 'Hvornår lukkede savværket endeligt?', opts: ['A) 1980','B) 1990','C) 2000'], correct: 1 }
+      ]
+    },
+    {
       id: 6, name: 'Auning Station',
       desc: 'Stationen på banen mellem Randers og Grenaa',
+      lat: 56.42925284166479, lng: 10.37794075687635,
       questions: [
         { q: 'Hvilket år fik Auning en station på banen mellem Randers og Grenaa?', opts: ['A) 1864','B) 1876','C) 1901'], correct: 1 },
         { q: 'Hvilken arkitekt tegnede stationsbygningen?', opts: ['A) Heinrich Wenck','B) Kaare Klint','C) Ivar Bentsen'], correct: 0 },
@@ -287,221 +229,302 @@ const CONFIG = {
   ]
 };
 
-// ════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════
 //  STATE
-// ════════════════════════════════════════════════════════════
+// ════════════════════════════════════════════════
 const params = new URLSearchParams(location.search);
 const teamId = CONFIG.teams[params.get('hold')] ? params.get('hold') : 'a';
 const team = CONFIG.teams[teamId];
 let stopIndex = 0, totalCorrect = 0, answeredThisStop = 0, correctThisStop = 0;
+let map, userMarker, destMarker, destCircle, userPos = null, unlocked = false;
 const AC = new (window.AudioContext || window.webkitAudioContext)();
 
-// ════════════════════════════════════════════════════════════
-//  INIT
-// ════════════════════════════════════════════════════════════
+// Init splash
 document.getElementById('splash-team').textContent = team.name;
 document.getElementById('splash-team').className = 'splash-team ' + team.cls;
 document.getElementById('header-team').textContent = team.name;
-document.getElementById('sb-total').textContent = CONFIG.locations.length;
-document.getElementById('finish-total').textContent = CONFIG.locations.length * 3;
 
-// ════════════════════════════════════════════════════════════
-//  AUDIO (same pattern as JUHL 2026)
-// ════════════════════════════════════════════════════════════
-function playCorrect() {
-  const t = AC.currentTime;
-  [523, 659, 784].forEach((f, i) => {
-    const o = AC.createOscillator(), g = AC.createGain();
-    o.connect(g); g.connect(AC.destination);
-    o.type = 'sine'; o.frequency.value = f;
-    g.gain.setValueAtTime(0, t + i*0.08);
-    g.gain.linearRampToValueAtTime(0.15, t + i*0.08 + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.001, t + i*0.08 + 0.3);
-    o.start(t + i*0.08); o.stop(t + i*0.08 + 0.35);
-  });
+// ════════════════════════════════════════════════
+//  AUDIO (JUHL 2026 style)
+// ════════════════════════════════════════════════
+function playCorrect(){
+  const t=AC.currentTime;
+  [523,659,784].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t+i*.08);g.gain.linearRampToValueAtTime(.15,t+i*.08+.02);g.gain.exponentialRampToValueAtTime(.001,t+i*.08+.3);o.start(t+i*.08);o.stop(t+i*.08+.35)});
 }
-function playWrong() {
-  const o = AC.createOscillator(), g = AC.createGain();
-  o.connect(g); g.connect(AC.destination);
-  o.type = 'sawtooth'; o.frequency.setValueAtTime(200, AC.currentTime);
-  o.frequency.exponentialRampToValueAtTime(100, AC.currentTime + 0.2);
-  g.gain.setValueAtTime(0.12, AC.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.001, AC.currentTime + 0.25);
-  o.start(AC.currentTime); o.stop(AC.currentTime + 0.3);
+function playWrong(){
+  const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sawtooth';o.frequency.setValueAtTime(200,AC.currentTime);o.frequency.exponentialRampToValueAtTime(100,AC.currentTime+.2);g.gain.setValueAtTime(.12,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.25);o.start(AC.currentTime);o.stop(AC.currentTime+.3);
 }
-function playFanfare() {
-  [261,329,392,523,659].forEach((f,i) => {
-    const o = AC.createOscillator(), g = AC.createGain();
-    o.connect(g); g.connect(AC.destination);
-    o.type = 'sine'; const t = AC.currentTime + i*0.15;
-    o.frequency.setValueAtTime(f, t);
-    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.18, t+0.05);
-    g.gain.exponentialRampToValueAtTime(0.001, t+0.7);
-    o.start(t); o.stop(t+0.75);
-  });
+function playUnlock(){
+  const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='square';o.frequency.setValueAtTime(220,AC.currentTime);o.frequency.exponentialRampToValueAtTime(55,AC.currentTime+.08);g.gain.setValueAtTime(.3,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.12);o.start(AC.currentTime);o.stop(AC.currentTime+.15);
+}
+function playFanfare(){
+  [261,329,392,523,659].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';const t=AC.currentTime+i*.15;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.18,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.7);o.start(t);o.stop(t+.75)});
+}
+function playHackSound(){
+  const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sawtooth';o.frequency.setValueAtTime(80,AC.currentTime);o.frequency.exponentialRampToValueAtTime(900,AC.currentTime+4);g.gain.setValueAtTime(0,AC.currentTime);g.gain.linearRampToValueAtTime(.1,AC.currentTime+.3);g.gain.linearRampToValueAtTime(0,AC.currentTime+5);o.start(AC.currentTime);o.stop(AC.currentTime+5);
 }
 
-// ════════════════════════════════════════════════════════════
-//  GAME FLOW
-// ════════════════════════════════════════════════════════════
-function startGame() {
-  if (AC.state === 'suspended') AC.resume();
-  const splash = document.getElementById('splash');
-  splash.classList.add('hiding');
-  setTimeout(() => { splash.style.display = 'none'; }, 600);
-  document.getElementById('game').style.display = 'block';
+// ════════════════════════════════════════════════
+//  HAVERSINE
+// ════════════════════════════════════════════════
+function haversine(lat1,lng1,lat2,lng2){
+  const R=6371000,dLat=(lat2-lat1)*Math.PI/180,dLng=(lng2-lng1)*Math.PI/180;
+  const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
+}
+
+// ════════════════════════════════════════════════
+//  START
+// ════════════════════════════════════════════════
+function startGame(){
+  if(AC.state==='suspended')AC.resume();
+  const s=document.getElementById('splash');s.classList.add('hiding');
+  setTimeout(()=>{s.style.display='none'},600);
+  document.getElementById('game').style.display='block';
   document.getElementById('status-bar').classList.add('visible');
-  renderProgress();
-  renderLocation();
+  initMap();
+  startGPS();
+  renderStop();
 }
 
-function renderProgress() {
-  const strip = document.getElementById('progress-strip');
-  strip.innerHTML = '';
-  for (let i = 0; i < CONFIG.locations.length; i++) {
-    const dot = document.createElement('div');
-    dot.className = 'progress-dot' + (i < stopIndex ? ' done' : i === stopIndex ? ' active' : '');
-    strip.appendChild(dot);
+// ════════════════════════════════════════════════
+//  MAP
+// ════════════════════════════════════════════════
+function initMap(){
+  const loc = getCurrentLoc();
+  map = L.map('map',{zoomControl:true,attributionControl:false}).setView([loc.lat,loc.lng],16);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
+  setDestMarker(loc);
+}
+
+function setDestMarker(loc){
+  if(destMarker){map.removeLayer(destMarker);map.removeLayer(destCircle)}
+  const icon = L.divIcon({className:'',html:'<div style="background:#1a0f07;border:3px solid #c8922a;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 0 14px rgba(200,146,42,.5)">📍</div>',iconSize:[40,40],iconAnchor:[20,20]});
+  destMarker = L.marker([loc.lat,loc.lng],{icon}).addTo(map);
+  destCircle = L.circle([loc.lat,loc.lng],{radius:CONFIG.unlockRadius,color:'#c8922a',fillColor:'#c8922a',fillOpacity:.08,weight:1}).addTo(map);
+  map.setView([loc.lat,loc.lng],16);
+}
+
+// ════════════════════════════════════════════════
+//  GPS
+// ════════════════════════════════════════════════
+function startGPS(){
+  if(!navigator.geolocation){document.getElementById('gps-status').textContent='GPS ikke tilgængeligt';return}
+  navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:2000,timeout:10000});
+}
+function onPos(pos){
+  userPos={lat:pos.coords.latitude,lng:pos.coords.longitude};
+  const acc=Math.round(pos.coords.accuracy);
+  document.getElementById('gps-status').textContent='📍 GPS aktiv — ±'+acc+'m';
+
+  if(!userMarker){
+    const ui=L.divIcon({className:'',html:'<div style="background:#00ff41;border:3px solid #fff;border-radius:50%;width:18px;height:18px;box-shadow:0 0 10px #00ff41"></div>',iconSize:[18,18],iconAnchor:[9,9]});
+    userMarker=L.marker([userPos.lat,userPos.lng],{icon:ui,zIndexOffset:1000}).addTo(map);
+  } else {
+    userMarker.setLatLng([userPos.lat,userPos.lng]);
+  }
+
+  // Fit both markers
+  if(destMarker){
+    const bounds=L.latLngBounds([userPos,destMarker.getLatLng()]);
+    map.fitBounds(bounds,{padding:[40,40],maxZoom:17});
+  }
+
+  updateDistance();
+}
+function onErr(e){document.getElementById('gps-status').textContent='⚠ GPS fejl — prøv igen'}
+
+function updateDistance(){
+  if(!userPos||unlocked)return;
+  const loc=getCurrentLoc();
+  const dist=Math.round(haversine(userPos.lat,userPos.lng,loc.lat,loc.lng));
+  const el=document.getElementById('dist-num');
+  el.textContent=dist;
+  if(dist<=CONFIG.unlockRadius){
+    el.classList.add('near');
+    if(!unlocked){
+      unlocked=true;
+      playUnlock();
+      document.getElementById('arrived-msg').classList.add('visible');
+      document.getElementById('dist-bar').style.display='none';
+      document.getElementById('content').classList.add('visible');
+    }
+  } else {
+    el.classList.remove('near');
   }
 }
 
-function renderLocation() {
-  const locIdx = team.order[stopIndex];
-  const loc = CONFIG.locations[locIdx];
-  answeredThisStop = 0;
-  correctThisStop = 0;
+// ════════════════════════════════════════════════
+//  RENDER STOP
+// ════════════════════════════════════════════════
+function getCurrentLoc(){ return CONFIG.locations[team.order[stopIndex]]; }
 
-  document.getElementById('sb-loc').textContent = stopIndex + 1;
-  document.getElementById('sb-score').textContent = totalCorrect;
+function renderStop(){
+  unlocked=false;
+  answeredThisStop=0;
+  correctThisStop=0;
+  const loc=getCurrentLoc();
 
-  const html = `
+  // Progress
+  const strip=document.getElementById('progress-strip');
+  strip.innerHTML='';
+  for(let i=0;i<CONFIG.locations.length;i++){
+    const d=document.createElement('div');
+    d.className='pdot'+(i<stopIndex?' done':i===stopIndex?' active':'');
+    strip.appendChild(d);
+  }
+
+  // Status bar
+  document.getElementById('sb-loc').textContent=stopIndex+1;
+  document.getElementById('sb-score').textContent=totalCorrect;
+
+  // Map destination
+  if(map)setDestMarker(loc);
+
+  // Reset distance
+  document.getElementById('dist-bar').style.display='';
+  document.getElementById('dist-num').textContent='—';
+  document.getElementById('dist-num').classList.remove('near');
+  document.getElementById('arrived-msg').classList.remove('visible');
+
+  // Questions (hidden until in range)
+  const c=document.getElementById('content');
+  c.classList.remove('visible');
+  c.innerHTML=`
     <div class="location-card">
-      <div class="loc-num">Punkt ${stopIndex + 1} af ${CONFIG.locations.length}</div>
+      <div class="loc-num">Punkt ${stopIndex+1} af ${CONFIG.locations.length}</div>
       <div class="loc-name">${loc.name}</div>
       <div class="loc-desc">${loc.desc}</div>
     </div>
-    ${loc.questions.map((q, qi) => `
-      <div class="question-card" id="qc-${qi}">
-        <div class="q-badge">Spørgsmål ${qi + 1}</div>
+    ${loc.questions.map((q,qi)=>`
+      <div class="question-card">
+        <div class="q-badge">Spørgsmål ${qi+1}</div>
         <div class="q-text">${q.q}</div>
         <div class="options" id="opts-${qi}">
-          ${q.opts.map((o, oi) => `
-            <button class="opt-btn" data-qi="${qi}" data-oi="${oi}"
-                    onclick="answer(${qi},${oi})">${o}</button>
-          `).join('')}
+          ${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}" onclick="answer(${qi},${oi})">${o}</button>`).join('')}
         </div>
       </div>
     `).join('')}
-    <div class="stop-result" id="stop-result">
-      <div class="stop-score-big" id="stop-score-big">0/3</div>
-      <div class="stop-score-label">rigtige dette punkt</div>
-    </div>
-    <button class="next-btn" id="next-btn" onclick="nextStop()">
-      Videre til næste punkt →
-    </button>
   `;
-  document.getElementById('content').innerHTML = html;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  // If user is already near (e.g. reloaded), check immediately
+  if(userPos)updateDistance();
 }
 
-function answer(qi, oi) {
-  const locIdx = team.order[stopIndex];
-  const loc = CONFIG.locations[locIdx];
-  const q = loc.questions[qi];
-  const isCorrect = oi === q.correct;
+// ════════════════════════════════════════════════
+//  ANSWER
+// ════════════════════════════════════════════════
+function answer(qi,oi){
+  const loc=getCurrentLoc();
+  const q=loc.questions[qi];
+  const ok=oi===q.correct;
 
-  // Disable + show result
-  const btns = document.querySelectorAll(`#opts-${qi} .opt-btn`);
-  btns.forEach(btn => {
-    btn.classList.add('disabled');
-    const boi = parseInt(btn.dataset.oi);
-    if (boi === q.correct) btn.classList.add('correct');
-    else if (boi === oi && !isCorrect) { btn.classList.add('wrong', 'chosen'); }
+  document.querySelectorAll('#opts-'+qi+' .opt-btn').forEach(b=>{
+    b.classList.add('disabled');
+    const boi=parseInt(b.dataset.oi);
+    if(boi===q.correct)b.classList.add('correct');
+    else if(boi===oi&&!ok){b.classList.add('wrong','chosen')}
   });
 
-  if (isCorrect) { totalCorrect++; correctThisStop++; playCorrect(); }
-  else { playWrong(); }
+  if(ok){totalCorrect++;correctThisStop++;playCorrect()}else{playWrong()}
   answeredThisStop++;
+  document.getElementById('sb-score').textContent=totalCorrect;
 
-  document.getElementById('sb-score').textContent = totalCorrect;
+  sendAnswer({locationId:loc.id,questionIndex:qi,selectedOption:oi,correct:ok});
 
-  // Send to Supabase
-  sendAnswer({ locationId: loc.id, questionIndex: qi, selectedOption: oi, correct: isCorrect });
-
-  // All answered?
-  if (answeredThisStop >= loc.questions.length) {
-    setTimeout(() => {
-      document.getElementById('stop-score-big').textContent = `${correctThisStop}/3`;
-      document.getElementById('stop-result').classList.add('visible');
-      if (stopIndex < CONFIG.locations.length - 1) {
-        document.getElementById('next-btn').classList.add('visible');
+  if(answeredThisStop>=loc.questions.length){
+    setTimeout(()=>{
+      if(stopIndex<CONFIG.locations.length-1){
+        startMatrixSequence();
       } else {
-        // Last stop → finish
-        setTimeout(showFinish, 1200);
+        startMatrixSequence(true);
       }
-    }, 500);
+    },800);
   }
 }
 
-function nextStop() {
-  stopIndex++;
-  renderProgress();
-  renderLocation();
+// ════════════════════════════════════════════════
+//  MATRIX RAIN (from JUHL 2026)
+// ════════════════════════════════════════════════
+function startMatrixSequence(isFinal){
+  playHackSound();
+  const overlay=document.getElementById('matrix-overlay');
+  const canvas=document.getElementById('matrix-canvas');
+  overlay.style.display='block';
+  const dpr=window.devicePixelRatio||1;
+  canvas.width=window.innerWidth*dpr;canvas.height=window.innerHeight*dpr;
+  canvas.style.width=window.innerWidth+'px';canvas.style.height=window.innerHeight+'px';
+  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
+  const W=window.innerWidth,H=window.innerHeight,fs=16;
+  const cols=Math.floor(W/fs);
+  const drops=Array(cols).fill(0).map(()=>Math.random()*(-(H/fs)));
+  const CHARS='0123456789AUNINGBYVANDRINGHISTORIE🏛️⭐';
+  let frame=0,phase='ramp',alpha=1,speed=0.3,animId;
+
+  // Access granted text
+  const agEl=document.getElementById('ag-text');
+  agEl.textContent=isFinal?'TUREN KOMPLET':'NÆSTE PUNKT LÅST OP';
+  setTimeout(()=>{
+    const ag=document.getElementById('access-granted');ag.style.display='flex';
+    if(window.speechSynthesis){const u=new SpeechSynthesisUtterance(isFinal?'Turen er færdig':'Næste punkt låst op');u.lang='da-DK';u.pitch=0.7;u.rate=0.85;speechSynthesis.speak(u)}
+    setTimeout(()=>agEl.classList.add('show'),50);
+    setTimeout(()=>{agEl.classList.remove('show');setTimeout(()=>{ag.style.display='none'},500)},2000);
+  },2000);
+
+  function draw(){
+    ctx.fillStyle=phase==='fadeout'?`rgba(0,0,0,${0.06+(1-alpha)*0.1})`:'rgba(0,0,0,0.05)';
+    ctx.fillRect(0,0,W,H);ctx.font=fs+'px monospace';
+    for(let i=0;i<drops.length;i++){
+      const ch=CHARS[Math.floor(Math.random()*CHARS.length)];
+      ctx.fillStyle=phase==='fadeout'?`rgba(0,255,65,${alpha*0.9})`:Math.random()>0.97?'#fff':'#00ff41';
+      ctx.fillText(ch,i*fs,drops[i]*fs);
+      if(drops[i]*fs>H&&Math.random()>0.975)drops[i]=0;
+      drops[i]+=speed;
+    }
+    frame++;
+    if(phase==='ramp'&&frame<80)speed=0.3+(frame/80)*0.9;
+    if(frame===80)phase='hold';
+    if(frame===280)phase='slow';
+    if(phase==='slow')speed=Math.max(0.15,speed-0.008);
+    if(frame===360)phase='fadeout';
+    if(phase==='fadeout'){alpha-=0.015;if(alpha<=0){cancelAnimationFrame(animId);overlay.style.display='none';afterMatrix(isFinal);return}}
+    animId=requestAnimationFrame(draw);
+  }
+  animId=requestAnimationFrame(draw);
 }
 
-function showFinish() {
-  document.getElementById('game').style.display = 'none';
+function afterMatrix(isFinal){
+  if(isFinal){
+    showFinish();
+  } else {
+    stopIndex++;
+    window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(renderStop,200);
+  }
+}
+
+// ════════════════════════════════════════════════
+//  FINISH
+// ════════════════════════════════════════════════
+function showFinish(){
+  document.getElementById('game').style.display='none';
   document.getElementById('status-bar').classList.remove('visible');
   document.getElementById('finish').classList.add('active');
-  document.getElementById('finish-score').textContent = totalCorrect;
-  document.getElementById('finish-return').innerHTML =
-    `<strong>${team.returnTo}</strong><br><br>Godt gået! Resultatet er registreret.`;
+  document.getElementById('finish-score').textContent=totalCorrect;
   playFanfare();
   sendCompletion();
 }
 
-// ════════════════════════════════════════════════════════════
-//  SUPABASE SYNC
-// ════════════════════════════════════════════════════════════
-async function sendAnswer(data) {
-  if (!CONFIG.supabaseUrl || !CONFIG.supabaseKey) return;
-  try {
-    await fetch(`${CONFIG.supabaseUrl}/rest/v1/answers`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': CONFIG.supabaseKey,
-        'Authorization': `Bearer ${CONFIG.supabaseKey}`,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        event_id: CONFIG.eventId, team_id: teamId, team_name: team.name,
-        location_id: data.locationId, question_index: data.questionIndex,
-        selected_option: data.selectedOption, is_correct: data.correct,
-        answered_at: new Date().toISOString()
-      })
-    });
-  } catch(e) { console.warn('Sync fejl:', e); }
+// ════════════════════════════════════════════════
+//  SUPABASE
+// ════════════════════════════════════════════════
+async function sendAnswer(d){
+  if(!CONFIG.supabaseUrl||!CONFIG.supabaseKey)return;
+  try{await fetch(CONFIG.supabaseUrl+'/rest/v1/answers',{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey,'Prefer':'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,location_id:d.locationId,question_index:d.questionIndex,selected_option:d.selectedOption,is_correct:d.correct,answered_at:new Date().toISOString()})})}catch(e){console.warn('Sync fejl:',e)}
 }
-
-async function sendCompletion() {
-  if (!CONFIG.supabaseUrl || !CONFIG.supabaseKey) return;
-  try {
-    await fetch(`${CONFIG.supabaseUrl}/rest/v1/completions`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': CONFIG.supabaseKey,
-        'Authorization': `Bearer ${CONFIG.supabaseKey}`,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({
-        event_id: CONFIG.eventId, team_id: teamId, team_name: team.name,
-        total_correct: totalCorrect, total_questions: CONFIG.locations.length * 3,
-        completed_at: new Date().toISOString()
-      })
-    });
-  } catch(e) { console.warn('Completion fejl:', e); }
+async function sendCompletion(){
+  if(!CONFIG.supabaseUrl||!CONFIG.supabaseKey)return;
+  try{await fetch(CONFIG.supabaseUrl+'/rest/v1/completions',{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey,'Prefer':'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,total_correct:totalCorrect,total_questions:CONFIG.locations.length*3,completed_at:new Date().toISOString()})})}catch(e){console.warn('Completion fejl:',e)}
 }
 </script>
 </body>
