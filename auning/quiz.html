@@ -40,6 +40,7 @@
   /* MAP */
   #map{width:100%;height:220px;border-bottom:1px solid #3d2a12}
   .leaflet-container{background:#1a0f07}
+  .leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.7) contrast(1.2)}
   .gps-status{font-size:12px;color:#4a2e10;letter-spacing:2px;text-align:center;padding:6px}
 
   /* DISTANCE */
@@ -293,7 +294,7 @@ function startGame(){
 function initMap(){
   const loc = getCurrentLoc();
   map = L.map('map',{zoomControl:true,attributionControl:false}).setView([loc.lat,loc.lng],16);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);
   setDestMarker(loc);
 }
 
