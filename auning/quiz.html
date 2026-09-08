@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
 <meta charset="UTF-8">
@@ -9,7 +9,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: #0d0703; min-height: 100dvh; font-family: 'Share Tech Mono', monospace; color: #d4a96a; overflow-x: hidden; }
 
-  /* â”€â”€ SPLASH â”€â”€ */
+  /* ── SPLASH ── */
   #splash {
     position: fixed; inset: 0; background: #0a0502; z-index: 20000;
     display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -50,7 +50,7 @@
   }
   .splash-hint { font-size: 11px; color: #4a2e10; letter-spacing: 2px; text-align: center; }
 
-  /* â”€â”€ HEADER â”€â”€ */
+  /* ── HEADER ── */
   .header {
     background: #0a0502; border-bottom: 2px solid #c8922a; padding: 12px 1rem;
     text-align: center; position: sticky; top: 0; z-index: 1000;
@@ -62,7 +62,7 @@
   }
   .header-team { font-size: 11px; color: #7a5030; letter-spacing: 2px; margin-top: 2px; }
 
-  /* â”€â”€ PROGRESS â”€â”€ */
+  /* ── PROGRESS ── */
   .progress-strip {
     display: flex; gap: 6px; padding: 12px 16px; justify-content: center;
     background: #0a0502;
@@ -74,7 +74,7 @@
   .progress-dot.done { background: #4a7c2f; border-color: #4a7c2f; box-shadow: 0 0 6px rgba(74,124,47,0.4); }
   .progress-dot.active { background: #c8922a; border-color: #c8922a; box-shadow: 0 0 8px rgba(200,146,42,0.5); }
 
-  /* â”€â”€ CONTENT â”€â”€ */
+  /* ── CONTENT ── */
   .content { padding: 16px; padding-bottom: 80px; }
 
   .location-card {
@@ -114,12 +114,12 @@
   .opt-btn:active:not(.disabled) { transform: scale(0.98); }
   .opt-btn.selected { border-color: #c8922a; color: #c8922a; background: rgba(200,146,42,0.08); }
   .opt-btn.correct { border-color: #4a7c2f; color: #4a7c2f; background: rgba(74,124,47,0.1); }
-  .opt-btn.correct::after { content: ' âœ“'; }
+  .opt-btn.correct::after { content: ' ✓'; }
   .opt-btn.wrong { border-color: #7c2f2f; color: #7c2f2f; background: rgba(124,47,47,0.08); opacity: 0.6; }
-  .opt-btn.wrong.chosen::after { content: ' âœ—'; }
+  .opt-btn.wrong.chosen::after { content: ' ✗'; }
   .opt-btn.disabled { pointer-events: none; }
 
-  /* â”€â”€ STOP RESULT â”€â”€ */
+  /* ── STOP RESULT ── */
   .stop-result {
     text-align: center; padding: 24px; background: #1a0f07; border: 1px solid #3d2a12;
     border-radius: 12px; margin-top: 16px; display: none;
@@ -140,7 +140,7 @@
   .next-btn.visible { display: block; }
   .next-btn:active { transform: scale(0.97); }
 
-  /* â”€â”€ FINISH â”€â”€ */
+  /* ── FINISH ── */
   #finish {
     display: none; min-height: 100dvh; flex-direction: column;
     align-items: center; justify-content: center; text-align: center; padding: 2rem;
@@ -162,7 +162,7 @@
   }
   .finish-return strong { color: #c8922a; }
 
-  /* â”€â”€ STATUS BAR â”€â”€ */
+  /* ── STATUS BAR ── */
   .status-bar {
     position: fixed; bottom: 0; left: 0; right: 0;
     background: #0a0502; border-top: 2px solid #c8922a; padding: 10px 20px;
@@ -176,21 +176,21 @@
 </head>
 <body>
 
-<!-- â•â•â•â•â•â• SPLASH â•â•â•â•â•â• -->
+<!-- ══════ SPLASH ══════ -->
 <div id="splash" onclick="startGame()">
-  <div class="splash-icon">ðŸ›ï¸</div>
+  <div class="splash-icon">🏛️</div>
   <div class="splash-title">Auning Byvandring</div>
-  <div class="splash-sub">â€” Historisk Quiz â€”</div>
+  <div class="splash-sub">— Historisk Quiz —</div>
   <div class="splash-team" id="splash-team"></div>
   <div class="splash-msg">
-    BesÃ¸g <strong>6 steder</strong> i Auning og besvar spÃ¸rgsmÃ¥l om byens historie.<br><br>
-    NÃ¦ste sted afslÃ¸res fÃ¸rst nÃ¥r alle spÃ¸rgsmÃ¥l er besvaret.
+    Besøg <strong>6 steder</strong> i Auning og besvar spørgsmål om byens historie.<br><br>
+    Næste sted afsløres først når alle spørgsmål er besvaret.
   </div>
-  <button class="splash-btn">â–¶ &nbsp; START TUREN</button>
-  <div class="splash-hint">ðŸ“ I samarbejde med Tommy</div>
+  <button class="splash-btn">▶ &nbsp; START TUREN</button>
+  <div class="splash-hint">📍 I samarbejde med Tommy</div>
 </div>
 
-<!-- â•â•â•â•â•â• GAME â•â•â•â•â•â• -->
+<!-- ══════ GAME ══════ -->
 <div id="game" style="display:none;">
   <div class="header">
     <div class="header-title">Auning Byvandring</div>
@@ -200,114 +200,114 @@
   <div class="content" id="content"></div>
 </div>
 
-<!-- â•â•â•â•â•â• FINISH â•â•â•â•â•â• -->
+<!-- ══════ FINISH ══════ -->
 <div id="finish">
-  <div class="finish-icon">ðŸ†</div>
-  <div class="finish-title">Turen er fÃ¦rdig!</div>
+  <div class="finish-icon">🏆</div>
+  <div class="finish-title">Turen er færdig!</div>
   <div class="finish-score" id="finish-score">0</div>
   <div class="finish-label">rigtige ud af <span id="finish-total">18</span></div>
   <div class="finish-return" id="finish-return"></div>
 </div>
 
-<!-- â•â•â•â•â•â• STATUS BAR â•â•â•â•â•â• -->
+<!-- ══════ STATUS BAR ══════ -->
 <div class="status-bar" id="status-bar">
-  <span class="sb-score">â­ <span id="sb-score">0</span> rigtige</span>
-  <span class="sb-loc">ðŸ“ <span id="sb-loc">1</span> / <span id="sb-total">6</span></span>
+  <span class="sb-score">⭐ <span id="sb-score">0</span> rigtige</span>
+  <span class="sb-loc">📍 <span id="sb-loc">1</span> / <span id="sb-total">6</span></span>
 </div>
 
 <script>
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 //  KONFIGURATION
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 const CONFIG = {
-  supabaseUrl: 'DIN_PROJECT_URL_HER',  // Udfyld med dit Supabase projekt-URL
-  supabaseKey: 'DIN_PUBLISHABLE_KEY_HER',  // Udfyld med din anon/public key
+  supabaseUrl: 'https://qmdqzdatlanyhewjwpzc.supabase.co/rest/v1/',  // Udfyld med dit Supabase projekt-URL
+  supabaseKey: 'sb_publishable_NHtkIMzpXk02rZA31usaPQ_mmHoAa0q',  // Udfyld med din anon/public key
   eventId: 'auning-2026',
 
   teams: {
-    a: { name: 'Hold A', cls: 'team-a', order: [0,1,2,3,4,5], returnTo: 'GÃ¥ nu tilbage til startpunktet ved MÃ¸bel- & Madrasfabrikken.' },
-    b: { name: 'Hold B', cls: 'team-b', order: [5,4,3,2,1,0], returnTo: 'GÃ¥ nu tilbage til startpunktet ved Auning Station.' }
+    a: { name: 'Hold A', cls: 'team-a', order: [0,1,2,3,4,5], returnTo: 'Gå nu tilbage til startpunktet ved Møbel- & Madrasfabrikken.' },
+    b: { name: 'Hold B', cls: 'team-b', order: [5,4,3,2,1,0], returnTo: 'Gå nu tilbage til startpunktet ved Auning Station.' }
   },
 
   locations: [
     {
-      id: 1, name: 'Auning MÃ¸bel- & Madrasfabrik',
-      desc: 'Fabrikken der satte Auning pÃ¥ industrikortet',
+      id: 1, name: 'Auning Møbel- & Madrasfabrik',
+      desc: 'Fabrikken der satte Auning på industrikortet',
       questions: [
-        { q: 'Hvilket Ã¥r blev fabrikken grundlagt?', opts: ['A) 1901','B) 1907','C) 1918'], correct: 1 },
-        { q: 'Hvor mange medarbejdere var beskÃ¦ftiget, da fabrikken i Middelgade brÃ¦ndte i 1931?', opts: ['A) 35','B) 80','C) 150'], correct: 1 },
-        { q: 'HvornÃ¥r blev fabrikken saboteret?', opts: ['A) 23. oktober 1943','B) 5. maj 1945','C) 9. april 1940'], correct: 0 }
+        { q: 'Hvilket år blev fabrikken grundlagt?', opts: ['A) 1901','B) 1907','C) 1918'], correct: 1 },
+        { q: 'Hvor mange medarbejdere var beskæftiget, da fabrikken i Middelgade brændte i 1931?', opts: ['A) 35','B) 80','C) 150'], correct: 1 },
+        { q: 'Hvornår blev fabrikken saboteret?', opts: ['A) 23. oktober 1943','B) 5. maj 1945','C) 9. april 1940'], correct: 0 }
       ]
     },
     {
       id: 2, name: 'Det gamle Hospital (Kirkeladen)',
       desc: 'Fra kirkelade til godshospital for fattige',
       questions: [
-        { q: 'Hvad var bygningen oprindeligt, fÃ¸r den blev hospital?', opts: ['A) Et bryggeri','B) En kirkelade til tiendekorn','C) Et vagthus'], correct: 1 },
-        { q: 'Hvem lod huset indrette som "godshospital" for fattige?', opts: ['A) JÃ¸rgen Skeel','B) Christen Scheel','C) Frederik VII'], correct: 0 },
-        { q: 'Hvor mange Ã¥r fungerede huset som hjem for "Ã¦rlige fattige"?', opts: ['A) Ca. 100 Ã¥r','B) Ca. 200 Ã¥r','C) Ca. 300 Ã¥r'], correct: 2 }
+        { q: 'Hvad var bygningen oprindeligt, før den blev hospital?', opts: ['A) Et bryggeri','B) En kirkelade til tiendekorn','C) Et vagthus'], correct: 1 },
+        { q: 'Hvem lod huset indrette som "godshospital" for fattige?', opts: ['A) Jørgen Skeel','B) Christen Scheel','C) Frederik VII'], correct: 0 },
+        { q: 'Hvor mange år fungerede huset som hjem for "ærlige fattige"?', opts: ['A) Ca. 100 år','B) Ca. 200 år','C) Ca. 300 år'], correct: 2 }
       ]
     },
     {
       id: 3, name: 'Den grafiske industri',
       desc: 'Datagraf og de grafiske virksomheder i Auning',
       questions: [
-        { q: 'Hvilket Ã¥r blev Datagraf grundlagt?', opts: ['A) 1976','B) 1986','C) 1996'], correct: 1 },
-        { q: 'Hvem besÃ¸gte Datagraf ved kongeparrets besÃ¸g i 2011?', opts: ['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'], correct: 0 },
-        { q: 'Hvilken af disse var IKKE en grafisk virksomhed i Auning?', opts: ['A) Djurs Tryk','B) Grafisk ID','C) Auning FinÃ©rvÃ¦rk'], correct: 2 }
+        { q: 'Hvilket år blev Datagraf grundlagt?', opts: ['A) 1976','B) 1986','C) 1996'], correct: 1 },
+        { q: 'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?', opts: ['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'], correct: 0 },
+        { q: 'Hvilken af disse var IKKE en grafisk virksomhed i Auning?', opts: ['A) Djurs Tryk','B) Grafisk ID','C) Auning Finérværk'], correct: 2 }
       ]
     },
     {
-      id: 4, name: 'Auning SavvÃ¦rk',
-      desc: 'SavvÃ¦rket der var en hjÃ¸rnesten i byens industri',
+      id: 4, name: 'Auning Savværk',
+      desc: 'Savværket der var en hjørnesten i byens industri',
       questions: [
-        { q: 'Hvem etablerede savvÃ¦rket i 1901?', opts: ['A) Greve JÃ¸rgen Carl Scheel','B) KÃ¸bmand F.C. GerstrÃ¸m','C) Niels Chr. Jensen'], correct: 0 },
-        { q: 'Hvor mange medarbejdere havde savvÃ¦rket ved 50-Ã¥rs jubilÃ¦et i 1980?', opts: ['A) 18','B) 30','C) 44'], correct: 2 },
-        { q: 'HvornÃ¥r lukkede savvÃ¦rket endeligt?', opts: ['A) 1980','B) 1990','C) 2000'], correct: 1 }
+        { q: 'Hvem etablerede savværket i 1901?', opts: ['A) Greve Jørgen Carl Scheel','B) Købmand F.C. Gerstrøm','C) Niels Chr. Jensen'], correct: 0 },
+        { q: 'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?', opts: ['A) 18','B) 30','C) 44'], correct: 2 },
+        { q: 'Hvornår lukkede savværket endeligt?', opts: ['A) 1980','B) 1990','C) 2000'], correct: 1 }
       ]
     },
     {
       id: 5, name: 'Kartoffelmelsfabrikken',
       desc: 'Den gamle fabrik og dens rolle i byens dagligdag',
       questions: [
-        { q: 'Hvilket Ã¥r stammer fabriksbygningen fra?', opts: ['A) 1901','B) 1916','C) 1930'], correct: 1 },
+        { q: 'Hvilket år stammer fabriksbygningen fra?', opts: ['A) 1901','B) 1916','C) 1930'], correct: 1 },
         { q: 'Hvad bruges den tidligere kartoffelmelsfabrik til i dag?', opts: ['A) Byggemarked','B) Magasiner for Landbrugsmuseet','C) Boliger'], correct: 1 },
-        { q: 'Sammen med hvilke to andre fabrikker markerede dampflÃ¸jten frokostpausen kl. 12?', opts: ['A) SavvÃ¦rket og Madratsfabrikken','B) Mejeriet og Skaftefabrikken','C) TrÃ¦drejeriet og FinÃ©rvÃ¦rket'], correct: 0 }
+        { q: 'Sammen med hvilke to andre fabrikker markerede dampfløjten frokostpausen kl. 12?', opts: ['A) Savværket og Madratsfabrikken','B) Mejeriet og Skaftefabrikken','C) Trædrejeriet og Finérværket'], correct: 0 }
       ]
     },
     {
       id: 6, name: 'Auning Station',
-      desc: 'Stationen pÃ¥ banen mellem Randers og Grenaa',
+      desc: 'Stationen på banen mellem Randers og Grenaa',
       questions: [
-        { q: 'Hvilket Ã¥r fik Auning en station pÃ¥ banen mellem Randers og Grenaa?', opts: ['A) 1864','B) 1876','C) 1901'], correct: 1 },
+        { q: 'Hvilket år fik Auning en station på banen mellem Randers og Grenaa?', opts: ['A) 1864','B) 1876','C) 1901'], correct: 1 },
         { q: 'Hvilken arkitekt tegnede stationsbygningen?', opts: ['A) Heinrich Wenck','B) Kaare Klint','C) Ivar Bentsen'], correct: 0 },
-        { q: 'HvornÃ¥r lukkede banen for godstransport?', opts: ['A) 1971','B) 1985','C) 1992'], correct: 2 }
+        { q: 'Hvornår lukkede banen for godstransport?', opts: ['A) 1971','B) 1985','C) 1992'], correct: 2 }
       ]
     }
   ]
 };
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 //  STATE
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 const params = new URLSearchParams(location.search);
 const teamId = CONFIG.teams[params.get('hold')] ? params.get('hold') : 'a';
 const team = CONFIG.teams[teamId];
 let stopIndex = 0, totalCorrect = 0, answeredThisStop = 0, correctThisStop = 0;
 const AC = new (window.AudioContext || window.webkitAudioContext)();
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 //  INIT
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 document.getElementById('splash-team').textContent = team.name;
 document.getElementById('splash-team').className = 'splash-team ' + team.cls;
 document.getElementById('header-team').textContent = team.name;
 document.getElementById('sb-total').textContent = CONFIG.locations.length;
 document.getElementById('finish-total').textContent = CONFIG.locations.length * 3;
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 //  AUDIO (same pattern as JUHL 2026)
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 function playCorrect() {
   const t = AC.currentTime;
   [523, 659, 784].forEach((f, i) => {
@@ -341,9 +341,9 @@ function playFanfare() {
   });
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 //  GAME FLOW
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 function startGame() {
   if (AC.state === 'suspended') AC.resume();
   const splash = document.getElementById('splash');
@@ -382,7 +382,7 @@ function renderLocation() {
     </div>
     ${loc.questions.map((q, qi) => `
       <div class="question-card" id="qc-${qi}">
-        <div class="q-badge">SpÃ¸rgsmÃ¥l ${qi + 1}</div>
+        <div class="q-badge">Spørgsmål ${qi + 1}</div>
         <div class="q-text">${q.q}</div>
         <div class="options" id="opts-${qi}">
           ${q.opts.map((o, oi) => `
@@ -397,7 +397,7 @@ function renderLocation() {
       <div class="stop-score-label">rigtige dette punkt</div>
     </div>
     <button class="next-btn" id="next-btn" onclick="nextStop()">
-      Videre til nÃ¦ste punkt â†’
+      Videre til næste punkt →
     </button>
   `;
   document.getElementById('content').innerHTML = html;
@@ -436,7 +436,7 @@ function answer(qi, oi) {
       if (stopIndex < CONFIG.locations.length - 1) {
         document.getElementById('next-btn').classList.add('visible');
       } else {
-        // Last stop â†’ finish
+        // Last stop → finish
         setTimeout(showFinish, 1200);
       }
     }, 500);
@@ -455,14 +455,14 @@ function showFinish() {
   document.getElementById('finish').classList.add('active');
   document.getElementById('finish-score').textContent = totalCorrect;
   document.getElementById('finish-return').innerHTML =
-    `<strong>${team.returnTo}</strong><br><br>Godt gÃ¥et! Resultatet er registreret.`;
+    `<strong>${team.returnTo}</strong><br><br>Godt gået! Resultatet er registreret.`;
   playFanfare();
   sendCompletion();
 }
 
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 //  SUPABASE SYNC
-// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+// ════════════════════════════════════════════════════════════
 async function sendAnswer(data) {
   if (!CONFIG.supabaseUrl || !CONFIG.supabaseKey) return;
   try {
@@ -506,4 +506,3 @@ async function sendCompletion() {
 </script>
 </body>
 </html>
-

@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="da">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scoreboard â€” Auning Byvandring</title>
+<title>Scoreboard — Auning Byvandring</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,7 +22,7 @@
   .update-info { font-size: 11px; color: #3d2a12; margin-top: 8px; }
   .update-info span { color: #4a7c2f; }
 
-  /* â”€â”€ WINNER â”€â”€ */
+  /* ── WINNER ── */
   .winner {
     background: linear-gradient(135deg, rgba(200,146,42,0.12), rgba(200,146,42,0.03));
     border: 2px solid #c8922a; border-radius: 12px; padding: 24px;
@@ -34,7 +34,7 @@
   .winner h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: #f0c040; margin-top: 8px; }
   .winner p { font-size: 13px; color: #7a5030; margin-top: 4px; }
 
-  /* â”€â”€ SCORE CARDS â”€â”€ */
+  /* ── SCORE CARDS ── */
   .scores { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; margin: 0 auto 28px; }
   .score-card {
     background: #1a0f07; border: 1px solid #3d2a12; border-radius: 12px;
@@ -54,7 +54,7 @@
   .badge.active { background: rgba(74,124,47,0.2); color: #4a7c2f; }
   .badge.done { background: rgba(200,146,42,0.2); color: #c8922a; }
 
-  /* â”€â”€ DETAIL â”€â”€ */
+  /* ── DETAIL ── */
   .detail { max-width: 800px; margin: 0 auto; }
   .detail h2 {
     font-family: 'Playfair Display', serif; font-size: 17px; color: #c8922a;
@@ -96,52 +96,52 @@
 <body>
 
 <header>
-  <h1>ðŸ›ï¸ Scoreboard</h1>
-  <p>Auning Byvandring â€” Live overblik</p>
-  <div class="update-info">Opdaterer hvert <span>5. sekund</span> Â· Sidst: <span id="ts">â€”</span></div>
+  <h1>🏛️ Scoreboard</h1>
+  <p>Auning Byvandring — Live overblik</p>
+  <div class="update-info">Opdaterer hvert <span>5. sekund</span> · Sidst: <span id="ts">—</span></div>
 </header>
 
 <div class="winner" id="winner">
-  <div class="trophy">ðŸ†</div>
-  <h2 id="winner-text">â€”</h2>
-  <p id="winner-sub">â€”</p>
+  <div class="trophy">🏆</div>
+  <h2 id="winner-text">—</h2>
+  <p id="winner-sub">—</p>
 </div>
 
 <div class="scores">
   <div class="score-card team-a">
     <div class="sc-name">Hold A</div>
-    <div class="sc-big" id="sa">â€”</div>
+    <div class="sc-big" id="sa">—</div>
     <div class="sc-sub">rigtige svar</div>
-    <div class="sc-progress" id="pa">Venter pÃ¥ start...</div>
+    <div class="sc-progress" id="pa">Venter på start...</div>
     <span class="badge waiting" id="ba">Venter</span>
   </div>
   <div class="score-card team-b">
     <div class="sc-name">Hold B</div>
-    <div class="sc-big" id="sb">â€”</div>
+    <div class="sc-big" id="sb">—</div>
     <div class="sc-sub">rigtige svar</div>
-    <div class="sc-progress" id="pb">Venter pÃ¥ start...</div>
+    <div class="sc-progress" id="pb">Venter på start...</div>
     <span class="badge waiting" id="bb">Venter</span>
   </div>
 </div>
 
 <div class="detail">
   <h2>Detaljer per punkt</h2>
-  <div class="col-heads"><span>SpÃ¸rgsmÃ¥l</span><span>Hold A</span><span>Hold B</span></div>
+  <div class="col-heads"><span>Spørgsmål</span><span>Hold A</span><span>Hold B</span></div>
   <div id="details"></div>
 </div>
 
 <script>
 const CONFIG = {
-  supabaseUrl: 'DIN_PROJECT_URL_HER',
-  supabaseKey: 'DIN_PUBLISHABLE_KEY_HER',
+  supabaseUrl: 'https://qmdqzdatlanyhewjwpzc.supabase.co/rest/v1/',
+  supabaseKey: 'sb_publishable_NHtkIMzpXk02rZA31usaPQ_mmHoAa0q',
   eventId: 'auning-2026',
   locations: [
-    { id:1, name:'MÃ¸bel- & Madrasfabrikken', qs:['Grundlagt?','Medarbejdere 1931?','Saboteret?'] },
-    { id:2, name:'Det gamle Hospital', qs:['Oprindelse?','Hvem indrettede?','Antal Ã¥r for fattige?'] },
+    { id:1, name:'Møbel- & Madrasfabrikken', qs:['Grundlagt?','Medarbejdere 1931?','Saboteret?'] },
+    { id:2, name:'Det gamle Hospital', qs:['Oprindelse?','Hvem indrettede?','Antal år for fattige?'] },
     { id:3, name:'Den grafiske industri', qs:['Datagraf grundlagt?','Kongeparret 2011?','IKKE grafisk?'] },
-    { id:4, name:'Auning SavvÃ¦rk', qs:['Hvem etablerede?','Medarbejdere jubilÃ¦um?','HvornÃ¥r lukket?'] },
-    { id:5, name:'Kartoffelmelsfabrikken', qs:['Ã…rstal bygning?','Bruges til i dag?','DampflÃ¸jte fabrikker?'] },
-    { id:6, name:'Auning Station', qs:['Ã…rstal station?','Arkitekt?','Godstransport lukket?'] }
+    { id:4, name:'Auning Savværk', qs:['Hvem etablerede?','Medarbejdere jubilæum?','Hvornår lukket?'] },
+    { id:5, name:'Kartoffelmelsfabrikken', qs:['Årstal bygning?','Bruges til i dag?','Dampfløjte fabrikker?'] },
+    { id:6, name:'Auning Station', qs:['Årstal station?','Arkitekt?','Godstransport lukket?'] }
   ]
 };
 
@@ -173,9 +173,9 @@ function render() {
   const w = document.getElementById('winner');
   if (tA.length >= total && tB.length >= total) {
     w.classList.add('visible');
-    if (cA > cB) { wt('ðŸŽ‰ Hold A vinder!', `${cA} mod ${cB} rigtige`); }
-    else if (cB > cA) { wt('ðŸŽ‰ Hold B vinder!', `${cB} mod ${cA} rigtige`); }
-    else { wt('ðŸ¤ Uafgjort!', `Begge: ${cA} rigtige`); }
+    if (cA > cB) { wt('🎉 Hold A vinder!', `${cA} mod ${cB} rigtige`); }
+    else if (cB > cA) { wt('🎉 Hold B vinder!', `${cB} mod ${cA} rigtige`); }
+    else { wt('🤝 Uafgjort!', `Begge: ${cA} rigtige`); }
   } else { w.classList.remove('visible'); }
 
   renderDetails(data);
@@ -186,9 +186,9 @@ function wt(t,s) { document.getElementById('winner-text').textContent=t; documen
 function setCard(t, ans, correct, total) {
   const locs = new Set(data.filter(a=>a.team_id===t).map(a=>a.location_id)).size;
   const p = document.getElementById('p'+t), b = document.getElementById('b'+t);
-  if (ans===0) { p.textContent='Venter pÃ¥ start...'; b.textContent='Venter'; b.className='badge waiting'; }
-  else if (ans>=total) { p.textContent=`FÃ¦rdig! ${locs}/6 punkter`; b.textContent='FÃ¦rdig'; b.className='badge done'; }
-  else { p.textContent=`${locs}/6 punkter besÃ¸gt`; b.textContent='I gang'; b.className='badge active'; }
+  if (ans===0) { p.textContent='Venter på start...'; b.textContent='Venter'; b.className='badge waiting'; }
+  else if (ans>=total) { p.textContent=`Færdig! ${locs}/6 punkter`; b.textContent='Færdig'; b.className='badge done'; }
+  else { p.textContent=`${locs}/6 punkter besøgt`; b.textContent='I gang'; b.className='badge active'; }
 }
 
 function renderDetails(answers) {
@@ -201,13 +201,13 @@ function renderDetails(answers) {
     const cB = [0,1,2].filter(i=>lk[`b-${loc.id}-${i}`]===true).length;
     c.innerHTML += `
       <div class="loc-block">
-        <div class="loc-head"><span>${loc.name}</span><span class="loc-scores">A: ${cA}/3 Â· B: ${cB}/3</span></div>
+        <div class="loc-head"><span>${loc.name}</span><span class="loc-scores">A: ${cA}/3 · B: ${cB}/3</span></div>
         ${loc.qs.map((q,i) => {
           const a = lk[`a-${loc.id}-${i}`], b = lk[`b-${loc.id}-${i}`];
           return `<div class="q-row">
             <span class="q-label">${q}</span>
-            <span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'âœ“':a===false?'âœ—':'â€”'}</span>
-            <span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'âœ“':b===false?'âœ—':'â€”'}</span>
+            <span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'✓':a===false?'✗':'—'}</span>
+            <span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'✓':b===false?'✗':'—'}</span>
           </div>`;
         }).join('')}
       </div>`;
@@ -219,4 +219,3 @@ if (CONFIG.supabaseUrl) { poll(); setInterval(poll, 5000); }
 </script>
 </body>
 </html>
-
