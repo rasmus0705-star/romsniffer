@@ -1,8 +1,8 @@
 {
-  "updated": "2026-09-05T07:53:37.023167",
+  "updated": "2026-09-08T07:12:19.648709",
   "stats": {
-    "total": 1081,
-    "deals": 87,
+    "total": 1090,
+    "deals": 80,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -91,12 +91,12 @@
       "Reserva"
     ],
     "cheapest": 80.0,
-    "multi_shop": 75,
+    "multi_shop": 73,
     "shop_counts": {
       "Kokkens Vinhus": 253,
       "Spitus": 331,
       "Rombo": 488,
-      "Con Maz": 89
+      "Con Maz": 96
     }
   },
   "roms": [
@@ -124,6 +124,32 @@
         }
       ],
       "slug": "cartavio-xo-5-cl",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ron Perla del Norte Carta Oro",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/03/PN02-scaled.jpg",
+      "type": "Hvid rom",
+      "country": "Cuba",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 89.0,
+      "cheapest_price": 89.0,
+      "max_discount_pct": 61.6,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 89.0,
+          "old_price": 232.0,
+          "discount_pct": 61.6,
+          "url": "https://conmaz.dk/ron-perla-del-norte-carta-oro/"
+        }
+      ],
+      "slug": "ron-perla-del-norte-carta-oro",
       "price_change_7d": null
     },
     {
@@ -933,58 +959,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Chamarel Coconut Liqueur",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/03/CH11-2-scaled.jpg",
-      "type": "Rhum Agricole",
-      "country": "Mauritius",
-      "brand": null,
-      "abv": 35.0,
-      "volume_cl": 50.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 189.0,
-      "cheapest_price": 189.0,
-      "max_discount_pct": 24.4,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 189.0,
-          "old_price": 250.0,
-          "discount_pct": 24.4,
-          "url": "https://conmaz.dk/chamarel-coconut-liqueur/"
-        }
-      ],
-      "slug": "chamarel-coconut-liqueur",
-      "price_change_7d": null
-    },
-    {
-      "name": "Chamarel Coffee Liqueur",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/03/CH09-1-scaled.jpg",
-      "type": "Rhum Agricole",
-      "country": "Mauritius",
-      "brand": null,
-      "abv": 35.0,
-      "volume_cl": 50.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 189.0,
-      "cheapest_price": 189.0,
-      "max_discount_pct": 24.4,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 189.0,
-          "old_price": 250.0,
-          "discount_pct": 24.4,
-          "url": "https://conmaz.dk/chamarel-coffee-liqueur/"
-        }
-      ],
-      "slug": "chamarel-coffee-liqueur",
-      "price_change_7d": null
-    },
-    {
       "name": "Botran Ron Añejo 8 Sistema Solera",
       "image": "https://spitus.dk/wp-content/uploads/2025/06/Botran-Ron-Anejo-8-Sistema-Solera.png",
       "type": "Aged rom",
@@ -1246,18 +1220,18 @@
     },
     {
       "name": "Don Q Gold",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ002-scaled.jpg",
-      "type": "Gylden rom",
+      "image": "https://spitus.dk/wp-content/uploads/2022/08/don-q-gold-k.jpg",
+      "type": "Spiced",
       "country": "Puerto Rico",
       "brand": "Don Q",
-      "abv": 40.0,
+      "abv": null,
       "volume_cl": 70.0,
-      "age": "1 år",
+      "age": null,
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 199.0,
       "cheapest_price": 199.0,
-      "max_discount_pct": 31.1,
+      "max_discount_pct": 0,
       "prices": [
         {
           "shop_name": "Spitus",
@@ -1265,13 +1239,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/don-q-gold/"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 199.0,
-          "old_price": 289.0,
-          "discount_pct": 31.1,
-          "url": "https://conmaz.dk/don-q-gold-rum/"
         }
       ],
       "slug": "don-q-gold",
@@ -1883,39 +1850,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Ron Santiago de Cuba Añejo 8 Años",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_722062cc-0470-47c6-b12a-7762b339a333.png?v=1769421156",
-      "type": "Mørk rom",
-      "country": "Cuba",
-      "brand": "Santiago de Cuba",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 225.0,
-      "cheapest_price": 225.0,
-      "max_discount_pct": 24.7,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 225.0,
-          "old_price": 299.0,
-          "discount_pct": 24.7,
-          "url": "https://conmaz.dk/ron-santiago-de-cuba-anejo-8-anos/"
-        },
-        {
-          "shop_name": "Rombo",
-          "price": 275.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/santiago-de-cuba-ron-anejo-8"
-        }
-      ],
-      "slug": "santiago-de-cuba-ron-anejo-8-ars-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Terra Verde Twin Cask Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/RomboTerraVerdeTwinCaskRum.png?v=1770724364",
       "type": "Aged rom",
@@ -2043,58 +1977,6 @@
         }
       ],
       "slug": "stroh-jagertee-1-liter",
-      "price_change_7d": null
-    },
-    {
-      "name": "Wooden Moose Coffee, Cocoa & Caramelised Chipotle Spiced Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/09/wood-spice.png",
-      "type": "Spiced",
-      "country": "England",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 50.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 229.0,
-      "cheapest_price": 229.0,
-      "max_discount_pct": 29.5,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 229.0,
-          "old_price": 325.0,
-          "discount_pct": 29.5,
-          "url": "https://conmaz.dk/wooden-moose-coffee-cocoa-caramelised-chipotle-spiced-rum/"
-        }
-      ],
-      "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Perla del Norte Carta Oro",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/03/PN02-scaled.jpg",
-      "type": null,
-      "country": "Cuba",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 232.0,
-      "cheapest_price": 232.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 232.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/ron-perla-del-norte-carta-oro/"
-        }
-      ],
-      "slug": "ron-perla-del-norte-carta-oro",
       "price_change_7d": null
     },
     {
@@ -2958,6 +2840,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Vesper Jamaica Reserve Single XO Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2025/04/vesper-rum-jamaica.png",
+      "type": "Spiced",
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 46.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 249.0,
+      "cheapest_price": 249.0,
+      "max_discount_pct": 44.5,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 249.0,
+          "old_price": 449.0,
+          "discount_pct": 44.5,
+          "url": "https://conmaz.dk/vesper-rum-jamaica-reserve-single-xo/"
+        }
+      ],
+      "slug": "vesper-jamaica-reserve-single-xo-rum",
+      "price_change_7d": null
+    },
+    {
       "name": "Saint Lucia Distillers Chairmans Reserve Spiced",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/santa_lucia_rum_chairmans_reserve_spiced_high.jpg",
       "type": "Spiced",
@@ -3036,6 +2944,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Chamarel Coconut Liqueur",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/03/CH11-2-scaled.jpg",
+      "type": "Rhum Agricole",
+      "country": "Mauritius",
+      "brand": null,
+      "abv": 35.0,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 250.0,
+      "cheapest_price": 250.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 250.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/chamarel-coconut-liqueur/"
+        }
+      ],
+      "slug": "chamarel-coconut-liqueur",
+      "price_change_7d": null
+    },
+    {
       "name": "Chamarel Mandarin Liqueur",
       "image": "https://conmaz.dk/wp-content/uploads/2022/03/CH10-1-scaled.jpg",
       "type": null,
@@ -3059,6 +2993,32 @@
         }
       ],
       "slug": "chamarel-mandarin-liqueur",
+      "price_change_7d": null
+    },
+    {
+      "name": "Chamarel Coffee Liqueur",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/03/CH09-1-scaled.jpg",
+      "type": "Rhum Agricole",
+      "country": "Mauritius",
+      "brand": null,
+      "abv": 35.0,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 250.0,
+      "cheapest_price": 250.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 250.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/chamarel-coffee-liqueur/"
+        }
+      ],
+      "slug": "chamarel-coffee-liqueur",
       "price_change_7d": null
     },
     {
@@ -3515,6 +3475,39 @@
         }
       ],
       "slug": "ron-malteco-reserva-aneja-10-ars-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Santiago de Cuba Ron Añejo 8 års Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_722062cc-0470-47c6-b12a-7762b339a333.png?v=1769421156",
+      "type": "Mørk rom",
+      "country": "Cuba",
+      "brand": "Santiago de Cuba",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 275.0,
+      "cheapest_price": 275.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 275.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/santiago-de-cuba-ron-anejo-8"
+        },
+        {
+          "shop_name": "Con Maz",
+          "price": 299.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/ron-santiago-de-cuba-anejo-8-anos/"
+        }
+      ],
+      "slug": "santiago-de-cuba-ron-anejo-8-ars-rom",
       "price_change_7d": null
     },
     {
@@ -4075,6 +4068,32 @@
         }
       ],
       "slug": "plantation-gran-anejo",
+      "price_change_7d": null
+    },
+    {
+      "name": "Don Q Gold Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ002-scaled.jpg",
+      "type": "Gylden rom",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "1 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 289.0,
+      "cheapest_price": 289.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 289.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/don-q-gold-rum/"
+        }
+      ],
+      "slug": "don-q-gold-rum",
       "price_change_7d": null
     },
     {
@@ -4917,39 +4936,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Don Q 151 Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ003-scaled.jpg",
-      "type": "Aged rom",
-      "country": "Puerto Rico",
-      "brand": "Don Q",
-      "abv": 75.5,
-      "volume_cl": 70.0,
-      "age": "3 år",
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 299.0,
-      "cheapest_price": 299.0,
-      "max_discount_pct": 31.9,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 299.0,
-          "old_price": 439.0,
-          "discount_pct": 31.9,
-          "url": "https://conmaz.dk/don-q-151-rum/"
-        },
-        {
-          "shop_name": "Rombo",
-          "price": 325.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/don-q-151-overproof-rum"
-        }
-      ],
-      "slug": "don-q-151-overproof-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Dos Maderas Atlantic Double Aged Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_c83a0d72-db1d-4741-b626-92c4f20583ac.png?v=1769437234",
       "type": "Aged rom",
@@ -5416,32 +5402,6 @@
       ],
       "slug": "rum-nation-peruano-8-ar",
       "price_change_7d": null
-    },
-    {
-      "name": "Don Q Oak Barrel Spiced",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ004-scaled.jpg",
-      "type": "Spiced",
-      "country": "Puerto Rico",
-      "brand": "Don Q",
-      "abv": 45.0,
-      "volume_cl": 70.0,
-      "age": "3 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 299.0,
-      "cheapest_price": 299.0,
-      "max_discount_pct": 25.1,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 299.0,
-          "old_price": 399.0,
-          "discount_pct": 25.1,
-          "url": "https://conmaz.dk/don-q-oak-barrel-spiced/"
-        }
-      ],
-      "slug": "don-q-oak-barrel-spiced",
-      "price_change_7d": -100.0
     },
     {
       "name": "Ron Tepuy Destino 40 %, Venezuela",
@@ -5978,6 +5938,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Don Q 151 Overproof Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4c64513e-5584-4afb-936c-2ae64df5af84.png?v=1769422832",
+      "type": "Overproof",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 75.5,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 325.0,
+      "cheapest_price": 325.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 325.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/don-q-151-overproof-rum"
+        }
+      ],
+      "slug": "don-q-151-overproof-rom",
+      "price_change_7d": null
+    },
+    {
       "name": "Doorly's XO Fine Old Barbados Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bd3ed833-1749-483a-9e5b-19c58ef90524.png?v=1769420695",
       "type": "Mørk rom",
@@ -6365,6 +6351,32 @@
         }
       ],
       "slug": "wooden-moose-caramelised-pineapple-and-passionfruit-spiced-rum",
+      "price_change_7d": null
+    },
+    {
+      "name": "Wooden Moose Coffee, Cocoa & Caramelised Chipotle Spiced Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/09/wood-spice.png",
+      "type": "Spiced",
+      "country": "England",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 325.0,
+      "cheapest_price": 325.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 325.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/wooden-moose-coffee-cocoa-caramelised-chipotle-spiced-rum/"
+        }
+      ],
+      "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
       "price_change_7d": null
     },
     {
@@ -11157,6 +11169,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Don Q Oak Barrel Spiced",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ004-scaled.jpg",
+      "type": "Spiced",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 45.0,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 399.0,
+      "cheapest_price": 399.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 399.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/don-q-oak-barrel-spiced/"
+        }
+      ],
+      "slug": "don-q-oak-barrel-spiced",
+      "price_change_7d": -100.0
+    },
+    {
       "name": "Kirk & Sweeney Rum – Gran Reserva",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2025/07/Kirk-Sweeney-Gran-Reserve.jpg",
       "type": "Spiced",
@@ -11207,32 +11245,6 @@
       ],
       "slug": "smugglers-treasure-barbados-white-oak-40",
       "price_change_7d": 70.0
-    },
-    {
-      "name": "Bapt & Clem’s Dominican Republic Ans 6 d’age Sauternes Finish",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/09/BC16.jpg",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": 46.5,
-      "volume_cl": 70.0,
-      "age": "6 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 405.0,
-      "cheapest_price": 405.0,
-      "max_discount_pct": 30.1,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 405.0,
-          "old_price": 579.0,
-          "discount_pct": 30.1,
-          "url": "https://conmaz.dk/bapt-clems-dominican-republic-ans-6-dage-sauternes-finish/"
-        }
-      ],
-      "slug": "bapt-and-clems-dominican-republic-ans-6-dage-sauternes-finish",
-      "price_change_7d": null
     },
     {
       "name": "A.H. Riise Royal Danish Navy Fregatten Jylland Superior",
@@ -12239,6 +12251,32 @@
       "price_change_7d": -50.0
     },
     {
+      "name": "Don Q 151 Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ003-scaled.jpg",
+      "type": "Aged rom",
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 75.5,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 439.0,
+      "cheapest_price": 439.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 439.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/don-q-151-rum/"
+        }
+      ],
+      "slug": "don-q-151-rum",
+      "price_change_7d": null
+    },
+    {
       "name": "El Dorado 15 Y.O.",
       "image": "https://spitus.dk/wp-content/uploads/2021/02/el-dorado-15-yo-k.jpg",
       "type": "Mørk rom",
@@ -13170,6 +13208,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Opthimus Rum 12 Master Selection",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/09/opthimus12-conmaz-1.png",
+      "type": null,
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 40.4,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 449.0,
+      "cheapest_price": 449.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 449.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/opthimus-rum-12-master-selection/"
+        }
+      ],
+      "slug": "opthimus-rum-12-master-selection",
+      "price_change_7d": null
+    },
+    {
       "name": "Renegade Rum Pre Cask Dumfermline Column Still",
       "image": "https://conmaz.dk/wp-content/uploads/2022/09/RGR002.png",
       "type": "Hvid rom",
@@ -14008,32 +14072,6 @@
         }
       ],
       "slug": "sbs-origin-jamaica-tecc-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Bapt & Clem’s Panama Ans 10 d’age",
-      "image": "https://conmaz.dk/wp-content/uploads/2026/06/panama-10-ans-dage.png",
-      "type": "Spiced",
-      "country": "Panama",
-      "brand": null,
-      "abv": 48.5,
-      "volume_cl": 70.0,
-      "age": "10 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 475.0,
-      "cheapest_price": 475.0,
-      "max_discount_pct": 30.0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 475.0,
-          "old_price": 679.0,
-          "discount_pct": 30.0,
-          "url": "https://conmaz.dk/bapt-clems-panama-ans-10-dage/"
-        }
-      ],
-      "slug": "bapt-and-clems-panama-ans-10-dage",
       "price_change_7d": null
     },
     {
@@ -17055,6 +17093,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Bapt & Clem’s Dominican Republic Ans 6 d’age Sauternes Finish",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/09/BC16.jpg",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 46.5,
+      "volume_cl": 70.0,
+      "age": "6 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 579.0,
+      "cheapest_price": 579.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 579.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/bapt-clems-dominican-republic-ans-6-dage-sauternes-finish/"
+        }
+      ],
+      "slug": "bapt-and-clems-dominican-republic-ans-6-dage-sauternes-finish",
+      "price_change_7d": null
+    },
+    {
       "name": "Rammstein Rum Cognac Cask Finish Limited Edition",
       "image": "https://spitus.dk/wp-content/uploads/2025/09/rammstein-rum-cognac-cask-limited-edi.png",
       "type": "Aged rom",
@@ -18357,6 +18421,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Opthimus Rum 15 Cum Laude",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/09/opthimus15-conmaz.png",
+      "type": null,
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 41.3,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.0,
+      "cheapest_price": 599.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 599.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/opthimus-rum-15-cum-laude/"
+        }
+      ],
+      "slug": "opthimus-rum-15-cum-laude",
+      "price_change_7d": null
+    },
+    {
       "name": "Rest & Be Thankful 2015 Small Batch 2 Pure Jamaica Single Rum Aged 7 Years",
       "image": "https://conmaz.dk/wp-content/uploads/2026/07/rabtbatch2.png",
       "type": "Spiced",
@@ -18416,7 +18506,7 @@
           "price": 639.0,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://rombo.dk/products/old-st-croix-xo-reserve-tribute-forudbestilling"
+          "url": "https://rombo.dk/products/old-st-croix-xo-reserve-tribute"
         }
       ],
       "slug": "old-st-croix-xo-tribute-reserve-forudbestilling",
@@ -19354,6 +19444,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Ophyum Grand Premiere Rhum Sistema 17 Solera",
+      "image": "https://conmaz.dk/wp-content/uploads/2024/06/OPH01-1.png",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 38.0,
+      "volume_cl": 70.0,
+      "age": "Solera",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 659.0,
+      "cheapest_price": 659.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 659.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/ophyum-grand-premiere-rhum-sistema-17-solera/"
+        }
+      ],
+      "slug": "ophyum-grand-premiere-rhum-sistema-17-solera",
+      "price_change_7d": null
+    },
+    {
       "name": "Bapt & Clem’s Guyana Ans 8 d’age Jurançon Finish",
       "image": "https://conmaz.dk/wp-content/uploads/2022/09/BC17.jpg",
       "type": "Aged rom",
@@ -19573,6 +19689,32 @@
         }
       ],
       "slug": "flor-de-cana-20-y-o-130th-anniversary",
+      "price_change_7d": null
+    },
+    {
+      "name": "Bapt & Clem’s Panama Ans 10 d’age",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/06/panama-10-ans-dage.png",
+      "type": "Spiced",
+      "country": "Panama",
+      "brand": null,
+      "abv": 48.5,
+      "volume_cl": 70.0,
+      "age": "10 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 679.0,
+      "cheapest_price": 679.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 679.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/bapt-clems-panama-ans-10-dage/"
+        }
+      ],
+      "slug": "bapt-and-clems-panama-ans-10-dage",
       "price_change_7d": null
     },
     {
@@ -21176,6 +21318,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Opthimus Rum 21 Magna Cum Laude",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/09/opthimus21-conmaz.png",
+      "type": null,
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 42.2,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 749.0,
+      "cheapest_price": 749.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 749.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/opthimus-rum-21-magna-cum-laude/"
+        }
+      ],
+      "slug": "opthimus-rum-21-magna-cum-laude",
+      "price_change_7d": null
+    },
+    {
       "name": "Puntacana XOX",
       "image": "https://spitus.dk/wp-content/uploads/2023/05/punta-cana-xox-gb.png",
       "type": "Aged rom",
@@ -21967,6 +22135,32 @@
         }
       ],
       "slug": "worthy-park-single-estate-12-ars-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ophyum Grand Premiere Rhum Sistema 23 Solera",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/09/ophyum23-conmaz.png",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 38.0,
+      "volume_cl": 70.0,
+      "age": "Solera",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 799.0,
+      "cheapest_price": 799.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 799.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/ophyum-grand-premiere-rhum-sistema-23-solera/"
+        }
+      ],
+      "slug": "ophyum-grand-premiere-rhum-sistema-23-solera",
       "price_change_7d": null
     },
     {
@@ -23163,6 +23357,32 @@
         }
       ],
       "slug": "worthy-park-special-cask-series-calvados-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Opthimus Rum 25 Summa Cum Laude",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/09/opthimus25-conmaz.png",
+      "type": null,
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 45.1,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 899.0,
+      "cheapest_price": 899.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 899.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/opthimus-rum-25-summa-cum-laude/"
+        }
+      ],
+      "slug": "opthimus-rum-25-summa-cum-laude",
       "price_change_7d": null
     },
     {
