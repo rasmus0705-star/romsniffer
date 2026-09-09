@@ -331,21 +331,13 @@ function startGame(){
 function initMap(){const l=getCurrentLoc();map=L.map('map',{zoomControl:true,attributionControl:false}).setView([l.lat,l.lng],16);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);setDest(l)}
 function setDest(l){if(destMarker){map.removeLayer(destMarker);map.removeLayer(destCircle)}const ic=L.divIcon({className:'',html:'<div style="background:#fff;border:3px solid #c8922a;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.2)">📍</div>',iconSize:[36,36],iconAnchor:[18,18]});destMarker=L.marker([l.lat,l.lng],{icon:ic}).addTo(map);destCircle=L.circle([l.lat,l.lng],{radius:CONFIG.unlockRadius,color:'#c8922a',fillColor:'#c8922a',fillOpacity:.06,weight:1.5}).addTo(map);map.setView([l.lat,l.lng],16)}
 
-// GPS with better error handling
+// GPS — same pattern as JUHL 2026 (watchPosition directly, works on Android)
 function startGPS(){
-  if(!navigator.geolocation){setGpsMsg('GPS ikke tilgængeligt i denne browser');return}
-  // Explicit permission request via getCurrentPosition first
-  navigator.geolocation.getCurrentPosition(
-    pos=>{onPos(pos);gpsWatchId=navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:2000,timeout:10000})},
-    err=>{
-      if(err.code===1)setGpsMsg('⚠ GPS adgang nægtet — tryk "Prøv igen" eller tillad i browserindstillinger');
-      else if(err.code===2)setGpsMsg('⚠ GPS position utilgængelig — gå udenfor');
-      else setGpsMsg('⚠ GPS timeout — prøv igen');
-    },
-    {enableHighAccuracy:true,timeout:15000}
-  );
+  if(!navigator.geolocation){setGpsMsg('GPS ikke tilgængeligt');return}
+  setGpsMsg('📍 Søger GPS-signal...');
+  gpsWatchId=navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:3000,timeout:20000});
 }
-function retryGPS(){setGpsMsg('📍 Henter position...');if(gpsWatchId)navigator.geolocation.clearWatch(gpsWatchId);startGPS()}
+function retryGPS(){setGpsMsg('📍 Søger GPS-signal...');if(gpsWatchId)navigator.geolocation.clearWatch(gpsWatchId);gpsWatchId=navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:3000,timeout:20000})}
 function setGpsMsg(t){document.getElementById('gps-status').innerHTML=t+'<button class="gps-retry" onclick="retryGPS()">Prøv igen</button>'}
 function onPos(pos){
   userPos={lat:pos.coords.latitude,lng:pos.coords.longitude};
@@ -354,7 +346,7 @@ function onPos(pos){
   if(destMarker)map.fitBounds(L.latLngBounds([userPos,destMarker.getLatLng()]),{padding:[40,40],maxZoom:17});
   updateDist();
 }
-function onErr(e){if(e.code===1)setGpsMsg('⚠ GPS nægtet — tillad placering i indstillinger');else setGpsMsg('⚠ GPS fejl')}
+function onErr(e){if(e.code===1)setGpsMsg('⚠ GPS nægtet — tillad placering i browserindstillinger');else if(e.code===3)setGpsMsg('⚠ GPS timeout — gå udenfor og prøv igen');else setGpsMsg('⚠ GPS fejl — prøv igen')}
 
 function updateDist(){
   if(!userPos||unlocked)return;const l=getCurrentLoc();
