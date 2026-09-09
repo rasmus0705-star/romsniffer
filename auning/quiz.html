@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Auning Byvandring</title>
+<title>Kulturdag 12/9-2026 — Auning Byvandring</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -12,125 +12,148 @@
   html{overflow-x:hidden;overscroll-behavior:none}
   body{background:#f5f0e6;min-height:100dvh;font-family:'Share Tech Mono',monospace;color:#3d2a12;overflow-x:hidden;touch-action:manipulation}
 
-  #splash{position:fixed;inset:0;background:linear-gradient(170deg,#f5f0e6 0%,#e8dcc8 100%);z-index:20000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2rem;cursor:pointer;transition:opacity .6s}
+  #splash{position:fixed;inset:0;background:linear-gradient(170deg,#f5f0e6,#e8dcc8);z-index:20000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2rem;cursor:pointer;transition:opacity .6s}
   #splash.hiding{opacity:0;pointer-events:none}
-  .splash-icon{font-size:64px}
-  .splash-title{font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,42px);color:#6b4c1e;text-align:center;letter-spacing:4px;text-transform:uppercase}
-  .splash-sub{font-size:13px;color:#9a7d52;letter-spacing:3px;text-transform:uppercase}
-  .splash-team{display:inline-block;padding:8px 24px;border-radius:6px;font-family:'Playfair Display',serif;font-size:20px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
+  .splash-icon{font-size:56px}
+  .splash-title{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,36px);color:#6b4c1e;text-align:center;letter-spacing:3px;text-transform:uppercase}
+  .splash-sub{font-size:12px;color:#9a7d52;letter-spacing:3px;text-transform:uppercase}
+  .splash-date{font-family:'Playfair Display',serif;font-size:16px;color:#8b6914;letter-spacing:2px;margin-top:-4px}
+  .splash-team{display:inline-block;padding:8px 24px;border-radius:6px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
   .splash-team.team-a{background:#8b1a2b;color:#fff}
   .splash-team.team-b{background:#1a3a6b;color:#fff}
-  .splash-msg{font-family:'Playfair Display',serif;font-size:clamp(14px,3.5vw,17px);color:#7a6040;text-align:center;font-style:italic;line-height:1.8;max-width:320px}
+  .splash-msg{font-family:'Playfair Display',serif;font-size:clamp(13px,3.5vw,16px);color:#7a6040;text-align:center;font-style:italic;line-height:1.8;max-width:300px}
   .splash-msg strong{color:#5a3a1a;font-style:normal}
-  .splash-btn{font-family:'Share Tech Mono',monospace;font-size:clamp(16px,4.5vw,19px);color:#fff;background:#6b4c1e;border:none;border-radius:10px;padding:18px 44px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 16px rgba(107,76,30,.3);animation:pulse 1.5s ease-in-out infinite;min-height:56px}
-  @keyframes pulse{0%,100%{box-shadow:0 4px 16px rgba(107,76,30,.3);transform:scale(1)}50%{box-shadow:0 6px 24px rgba(107,76,30,.5);transform:scale(1.03)}}
-  .splash-hint{font-size:12px;color:#9a7d52;letter-spacing:2px;text-align:center}
+  .splash-btn{font-family:'Share Tech Mono',monospace;font-size:clamp(15px,4vw,18px);color:#fff;background:#6b4c1e;border:none;border-radius:10px;padding:16px 40px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 16px rgba(107,76,30,.3);animation:pulse 1.5s ease-in-out infinite;min-height:52px}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+  .splash-hint{font-size:11px;color:#9a7d52;letter-spacing:2px}
 
-  .header{background:#fff;border-bottom:2px solid #c8a050;padding:10px 1rem;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(107,76,30,.1)}
-  .header-title{font-family:'Playfair Display',serif;font-size:16px;color:#6b4c1e;letter-spacing:4px;text-transform:uppercase}
-  .header-team{font-size:12px;color:#9a7d52;letter-spacing:2px;margin-top:2px}
+  .header{background:#fff;border-bottom:2px solid #c8a050;padding:8px 1rem;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(107,76,30,.1)}
+  .header-title{font-family:'Playfair Display',serif;font-size:14px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
+  .header-team{font-size:11px;color:#9a7d52;letter-spacing:2px}
 
-  .progress-strip{display:flex;gap:5px;padding:10px 16px;justify-content:center;background:#f5f0e6}
-  .pdot{width:30px;height:8px;border-radius:4px;background:#e0d6c4;transition:all .4s}
-  .pdot.done{background:#3a8a4a;box-shadow:0 0 4px rgba(58,138,74,.3)}
-  .pdot.active{background:#c8922a;box-shadow:0 0 6px rgba(200,146,42,.4)}
+  .progress-strip{display:flex;gap:4px;padding:8px 12px;justify-content:center;background:#f5f0e6}
+  .pdot{width:26px;height:7px;border-radius:4px;background:#e0d6c4;transition:all .4s}
+  .pdot.done{background:#3a8a4a}.pdot.active{background:#c8922a}.pdot.selfie{background:#d4a050;border:1px dashed #8b6914}
 
-  #map{width:100%;height:40dvh;min-height:220px;max-height:360px;border-bottom:2px solid #c8a050}
+  #map{width:100%;height:38dvh;min-height:200px;max-height:340px;border-bottom:2px solid #c8a050}
   .leaflet-container{background:#e8dcc8}
-  .gps-status{font-size:12px;color:#9a7d52;letter-spacing:2px;text-align:center;padding:8px;background:#fff}
+  .gps-status{font-size:11px;color:#9a7d52;letter-spacing:2px;text-align:center;padding:6px;background:#fff}
+  .gps-retry{background:#c8922a;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-family:'Share Tech Mono',monospace;font-size:12px;cursor:pointer;margin-left:8px}
 
-  .dist-bar{text-align:center;padding:20px 16px;background:#fff;border-bottom:1px solid #e8dcc8}
-  .dist-num{font-family:'Playfair Display',serif;font-size:clamp(42px,12vw,60px);color:#6b4c1e;letter-spacing:4px;transition:color .3s}
+  .dist-bar{text-align:center;padding:16px;background:#fff;border-bottom:1px solid #e8dcc8}
+  .dist-num{font-family:'Playfair Display',serif;font-size:clamp(38px,11vw,56px);color:#6b4c1e;letter-spacing:4px;transition:color .3s}
   .dist-num.near{color:#3a8a4a}
-  .dist-label{font-size:12px;color:#9a7d52;letter-spacing:3px;text-transform:uppercase;margin-top:4px}
-  .arrived{display:none;text-align:center;padding:14px;font-size:16px;color:#3a8a4a;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:rgba(58,138,74,.08);border-top:2px solid rgba(58,138,74,.2);border-bottom:2px solid rgba(58,138,74,.2)}
+  .dist-label{font-size:11px;color:#9a7d52;letter-spacing:3px;text-transform:uppercase;margin-top:2px}
+  .arrived{display:none;text-align:center;padding:12px;font-size:15px;color:#3a8a4a;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:rgba(58,138,74,.08);border-top:2px solid rgba(58,138,74,.2);border-bottom:2px solid rgba(58,138,74,.2)}
   .arrived.visible{display:block}
 
-  .loc-image-wrap{display:none;text-align:center;padding:20px 16px;background:#fff}
+  .loc-image-wrap{display:none;text-align:center;padding:16px;background:#fff}
   .loc-image-wrap.visible{display:block}
-  .loc-image{max-width:100%;max-height:220px;border-radius:10px;border:2px solid #e0d6c4;object-fit:cover}
-  .loc-image-caption{font-family:'Playfair Display',serif;font-size:14px;color:#7a6040;font-style:italic;margin-top:8px}
-  .show-questions-btn{background:#6b4c1e;color:#fff;border:none;border-radius:10px;padding:14px 32px;font-family:'Share Tech Mono',monospace;font-size:15px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-top:16px;min-height:48px}
+  .loc-image{max-width:100%;max-height:200px;border-radius:10px;border:2px solid #e0d6c4;object-fit:cover}
+  .loc-image-caption{font-family:'Playfair Display',serif;font-size:13px;color:#7a6040;font-style:italic;margin-top:6px}
+  .show-q-btn{background:#6b4c1e;color:#fff;border:none;border-radius:10px;padding:14px 28px;font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-top:14px;min-height:48px}
 
-  .content{padding:16px;padding-bottom:90px;display:none}
-  .content.visible{display:block}
-  .location-card{background:#fff;border:1px solid #e0d6c4;border-radius:12px;padding:20px;margin-bottom:16px;border-left:4px solid #c8922a;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  .loc-num{font-size:12px;color:#c8922a;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px}
-  .loc-name{font-family:'Playfair Display',serif;font-size:clamp(20px,5.5vw,26px);font-weight:700;color:#3d2a12;line-height:1.2}
-  .loc-desc{font-size:14px;color:#7a6040;margin-top:6px;line-height:1.4}
+  .content{padding:14px;padding-bottom:80px;display:none}.content.visible{display:block}
+  .location-card{background:#fff;border:1px solid #e0d6c4;border-radius:10px;padding:16px;margin-bottom:12px;border-left:4px solid #c8922a;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .loc-num{font-size:11px;color:#c8922a;letter-spacing:4px;text-transform:uppercase;margin-bottom:4px}
+  .loc-name{font-family:'Playfair Display',serif;font-size:clamp(18px,5vw,24px);font-weight:700;color:#3d2a12;line-height:1.2}
+  .loc-desc{font-size:13px;color:#7a6040;margin-top:4px}
 
-  .hint-wrap{background:#fff;border:2px dashed #c8a050;border-radius:10px;padding:16px;margin-bottom:16px;text-align:center}
-  .hint-btn{background:#f5f0e6;border:2px solid #c8a050;border-radius:10px;padding:14px 28px;font-family:'Share Tech Mono',monospace;font-size:15px;color:#8b6914;cursor:pointer;letter-spacing:1px;min-height:48px;transition:all .15s}
-  .hint-btn:active{transform:scale(.97);background:#efe8d8}
-  .hint-btn.used{background:#f0ebe0;border-color:#e0d6c4;color:#9a7d52;cursor:default;pointer-events:none}
-  .hint-texts{display:none;text-align:left;margin-top:14px}
-  .hint-texts.visible{display:block}
-  .hint-line{font-size:14px;color:#7a6040;padding:6px 0;line-height:1.5;border-bottom:1px solid #f0ebe0}
-  .hint-line:last-child{border-bottom:none}
-  .hint-line strong{color:#8b6914}
+  .hint-wrap{background:#fff;border:2px dashed #c8a050;border-radius:10px;padding:14px;margin-bottom:12px;text-align:center}
+  .hint-btn{background:#f5f0e6;border:2px solid #c8a050;border-radius:10px;padding:12px 24px;font-family:'Share Tech Mono',monospace;font-size:14px;color:#8b6914;cursor:pointer;min-height:44px}
+  .hint-btn:active{transform:scale(.97)}
+  .hint-btn.used{background:#f0ebe0;border-color:#e0d6c4;color:#9a7d52;pointer-events:none}
+  .hint-texts{display:none;text-align:left;margin-top:12px}.hint-texts.visible{display:block}
+  .hint-line{font-size:13px;color:#7a6040;padding:5px 0;line-height:1.4;border-bottom:1px solid #f0ebe0}
+  .hint-line:last-child{border-bottom:none}.hint-line strong{color:#8b6914}
 
-  .question-card{background:#fff;border:1px solid #e0d6c4;border-radius:10px;padding:18px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.03)}
-  .q-badge{display:inline-block;background:#f5f0e6;border:1px solid #e0d6c4;border-radius:4px;padding:3px 10px;font-size:11px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-  .q-text{font-family:'Playfair Display',serif;font-size:clamp(15px,4vw,18px);color:#3d2a12;line-height:1.5;margin-bottom:16px}
-  .options{display:flex;flex-direction:column;gap:10px}
-  .opt-btn{background:#f9f6f0;border:2px solid #e0d6c4;border-radius:10px;padding:16px;font-family:'Share Tech Mono',monospace;font-size:15px;color:#5a3a1a;cursor:pointer;text-align:left;transition:all .15s;min-height:52px;line-height:1.4}
-  .opt-btn:active:not(.disabled){transform:scale(.98);background:#f0ebe0}
-  .opt-btn.correct{border-color:#3a8a4a;color:#3a8a4a;background:rgba(58,138,74,.08)}
-  .opt-btn.correct::after{content:' ✓'}
-  .opt-btn.wrong{border-color:#b5342a;color:#b5342a;background:rgba(181,52,42,.05);opacity:.6}
-  .opt-btn.wrong.chosen::after{content:' ✗'}
+  .question-card{background:#fff;border:1px solid #e0d6c4;border-radius:10px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.03)}
+  .q-badge{display:inline-block;background:#f5f0e6;border:1px solid #e0d6c4;border-radius:4px;padding:2px 8px;font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+  .q-text{font-family:'Playfair Display',serif;font-size:clamp(14px,3.8vw,17px);color:#3d2a12;line-height:1.5;margin-bottom:14px}
+  .options{display:flex;flex-direction:column;gap:8px}
+  .opt-btn{background:#f9f6f0;border:2px solid #e0d6c4;border-radius:10px;padding:14px;font-family:'Share Tech Mono',monospace;font-size:14px;color:#5a3a1a;cursor:pointer;text-align:left;min-height:48px;line-height:1.3;transition:all .15s}
+  .opt-btn:active:not(.disabled){transform:scale(.98)}
+  .opt-btn.correct{border-color:#3a8a4a;color:#3a8a4a;background:rgba(58,138,74,.08)}.opt-btn.correct::after{content:' ✓'}
+  .opt-btn.wrong{border-color:#b5342a;color:#b5342a;background:rgba(181,52,42,.05);opacity:.6}.opt-btn.wrong.chosen::after{content:' ✗'}
   .opt-btn.disabled{pointer-events:none}
 
+  /* SELFIE */
+  .selfie-wrap{display:none;text-align:center;padding:24px 16px;background:#fff}
+  .selfie-wrap.visible{display:block}
+  .selfie-title{font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;margin-bottom:8px}
+  .selfie-desc{font-size:13px;color:#7a6040;margin-bottom:16px;line-height:1.4}
+  .selfie-preview{max-width:100%;max-height:240px;border-radius:10px;border:2px solid #e0d6c4;display:none;margin:12px auto}
+  .selfie-btn{background:#6b4c1e;color:#fff;border:none;border-radius:10px;padding:16px 32px;font-family:'Share Tech Mono',monospace;font-size:15px;letter-spacing:2px;cursor:pointer;min-height:52px}
+  .selfie-skip{background:none;border:1px solid #c8a050;border-radius:8px;padding:10px 20px;font-family:'Share Tech Mono',monospace;font-size:13px;color:#9a7d52;cursor:pointer;margin-top:12px}
+  #selfie-input{display:none}
+
+  /* FINISH */
   #finish{display:none;min-height:100dvh;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;background:#f5f0e6}
   #finish.active{display:flex}
-  .finish-icon{font-size:72px;margin-bottom:12px}
-  .finish-title{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,28px);font-weight:700;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
-  .finish-score{font-family:'Playfair Display',serif;font-size:clamp(56px,16vw,72px);font-weight:900;color:#c8922a;margin:16px 0 4px}
-  .finish-label{font-size:14px;color:#9a7d52;letter-spacing:3px}
-  .finish-hints{font-size:14px;color:#9a7d52;margin-top:8px}
-  .finish-return{background:#fff;border:1px solid #e0d6c4;border-radius:12px;padding:24px;margin-top:28px;max-width:320px;font-size:16px;line-height:1.6;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .finish-icon{font-size:64px;margin-bottom:8px}
+  .finish-title{font-family:'Playfair Display',serif;font-size:clamp(20px,5.5vw,26px);font-weight:700;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
+  .finish-score{font-family:'Playfair Display',serif;font-size:clamp(52px,14vw,68px);font-weight:900;color:#c8922a;margin:12px 0 4px}
+  .finish-label{font-size:13px;color:#9a7d52;letter-spacing:3px}
+  .finish-hints{font-size:13px;color:#9a7d52;margin-top:6px}
+  .finish-return{background:#fff;border:1px solid #e0d6c4;border-radius:12px;padding:20px;margin-top:24px;max-width:300px;font-size:15px;line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,.04)}
   .finish-return strong{color:#6b4c1e}
 
-  .status-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #c8a050;padding:12px 20px;display:none;justify-content:space-between;font-size:14px;z-index:10;box-shadow:0 -2px 12px rgba(107,76,30,.08)}
+  .status-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #c8a050;padding:10px 16px;display:none;justify-content:space-between;font-size:13px;z-index:10;box-shadow:0 -2px 12px rgba(107,76,30,.08)}
   .status-bar.visible{display:flex}
   .sb-score{color:#6b4c1e;font-weight:700}.sb-loc{color:#9a7d52}
 
-  #matrix-overlay{display:none;position:fixed;inset:0;background:#000;z-index:9999}
-  #matrix-overlay canvas{display:block;width:100%;height:100%}
-  #access-granted{display:none;position:fixed;inset:0;z-index:10000;align-items:center;justify-content:center;pointer-events:none}
-  .ag-text{font-family:'Share Tech Mono',monospace;font-size:clamp(18px,5vw,32px);color:#00ff41;text-shadow:0 0 20px #00ff41,0 0 40px #00ff41;letter-spacing:6px;text-align:center;opacity:0;transform:scale(.8);transition:opacity .4s,transform .4s}
-  .ag-text.show{opacity:1;transform:scale(1)}
+  /* NEWSPAPER TRANSITION */
+  #newspaper{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:20px}
+  #newspaper.show{display:flex}
+  .np-paper{background:#f4e8c8;border-radius:4px;max-width:360px;width:100%;padding:28px 24px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.5);transform:scale(.8) rotate(-2deg);opacity:0;transition:all .6s ease;position:relative;overflow:hidden}
+  .np-paper::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.7' numOctaves='4'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");pointer-events:none}
+  .np-paper.show{transform:scale(1) rotate(0);opacity:1}
+  .np-header{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,30px);font-weight:900;color:#2a1a08;letter-spacing:4px;text-transform:uppercase;border-bottom:3px double #2a1a08;padding-bottom:8px;margin-bottom:10px}
+  .np-date{font-family:'Share Tech Mono',monospace;font-size:11px;color:#6b4c1e;letter-spacing:3px;margin-bottom:14px}
+  .np-headline{font-family:'Playfair Display',serif;font-size:clamp(16px,4.5vw,22px);font-weight:700;color:#2a1a08;line-height:1.3;margin-bottom:10px}
+  .np-sub{font-family:'Playfair Display',serif;font-size:13px;color:#5a3a1a;font-style:italic;line-height:1.4}
+  .np-divider{width:60px;height:2px;background:#2a1a08;margin:12px auto}
+  .np-next{font-family:'Share Tech Mono',monospace;font-size:12px;color:#8b6914;letter-spacing:3px;text-transform:uppercase;margin-top:14px}
 </style>
 </head>
 <body>
 
 <div id="splash" onclick="startGame()">
   <div class="splash-icon">🏛️</div>
-  <div class="splash-title">Auning Byvandring</div>
-  <div class="splash-sub">— Historisk Quiz —</div>
+  <div class="splash-title">Kulturdag</div>
+  <div class="splash-date">d. 12/9-2026</div>
+  <div class="splash-sub">— Historisk Byvandring i Auning —</div>
   <div class="splash-team" id="splash-team"></div>
-  <div class="splash-msg">Gå til <strong>7 historiske steder</strong> i Auning.<br><br>Spørgsmålene låses op når du er tæt på.<br>Besvar alle spørgsmål for at få næste destination.</div>
+  <div class="splash-msg">Gå til <strong>7 historiske steder</strong> og besvar spørgsmål om byens historie.<br><br>Spørgsmålene låses op når I er tæt på.</div>
   <button class="splash-btn">▶   START TUREN</button>
-  <div class="splash-hint">📍 Tillad GPS når du bliver spurgt</div>
+  <div class="splash-hint">📍 Tillad GPS når I bliver spurgt</div>
 </div>
 
 <div id="game" style="display:none">
   <div class="header">
-    <div class="header-title">Auning Byvandring</div>
+    <div class="header-title">Kulturdag — Auning</div>
     <div class="header-team" id="header-team"></div>
   </div>
   <div class="progress-strip" id="progress-strip"></div>
   <div id="map"></div>
-  <div class="gps-status" id="gps-status">📍 Henter din position...</div>
+  <div class="gps-status" id="gps-status">📍 Henter position...<button class="gps-retry" onclick="retryGPS()">Prøv igen</button></div>
   <div class="dist-bar" id="dist-bar">
     <div class="dist-num" id="dist-num">—</div>
     <div class="dist-label">meter til næste punkt</div>
   </div>
-  <div class="arrived" id="arrived-msg">✦ Du er fremme — se herunder! ✦</div>
+  <div class="arrived" id="arrived-msg">✦ I er fremme! ✦</div>
   <div class="loc-image-wrap" id="loc-image-wrap">
     <img class="loc-image" id="loc-image" src="" alt="">
     <div class="loc-image-caption" id="loc-image-caption"></div>
-    <button class="show-questions-btn" onclick="showQuestions()">Se spørgsmålene →</button>
+    <button class="show-q-btn" onclick="showQuestions()">Se spørgsmålene →</button>
+  </div>
+  <div class="selfie-wrap" id="selfie-wrap">
+    <div class="selfie-title">📸 Holdbillede!</div>
+    <div class="selfie-desc">Tag et selfie af hele holdet — det vises på scoreboardet!</div>
+    <img class="selfie-preview" id="selfie-preview">
+    <input type="file" accept="image/*" capture="user" id="selfie-input" onchange="onSelfie(event)">
+    <button class="selfie-btn" id="selfie-btn" onclick="document.getElementById('selfie-input').click()">📷 Tag billede</button>
+    <br><button class="selfie-skip" onclick="skipSelfie()">Spring over →</button>
   </div>
   <div class="content" id="content"></div>
 </div>
@@ -139,7 +162,7 @@
   <div class="finish-icon">🏆</div>
   <div class="finish-title">Turen er færdig!</div>
   <div class="finish-score" id="finish-score">0</div>
-  <div class="finish-label" id="finish-label">rigtige ud af 21</div>
+  <div class="finish-label" id="finish-label"></div>
   <div class="finish-hints" id="finish-hints"></div>
   <div class="finish-return"><strong>Gå nu tilbage til startstedet!</strong></div>
 </div>
@@ -149,15 +172,26 @@
   <span class="sb-loc">📍 <span id="sb-loc">1</span> / 7</span>
 </div>
 
-<div id="matrix-overlay"><canvas id="matrix-canvas"></canvas></div>
-<div id="access-granted"><div class="ag-text" id="ag-text">NÆSTE PUNKT LÅST OP</div></div>
+<!-- NEWSPAPER OVERLAY -->
+<div id="newspaper">
+  <div class="np-paper" id="np-paper">
+    <div class="np-header">Auning Avis</div>
+    <div class="np-date" id="np-date">Ekstraudgave</div>
+    <div class="np-divider"></div>
+    <div class="np-headline" id="np-headline"></div>
+    <div class="np-sub" id="np-sub"></div>
+    <div class="np-divider"></div>
+    <div class="np-next" id="np-next">Næste stop...</div>
+  </div>
+</div>
 
 <script>
 const CONFIG = {
   supabaseUrl: '',
   supabaseKey: '',
   eventId: 'auning-2026',
-  unlockRadius: 30,
+  unlockRadius: 10,
+  selfieAfterStop: 3, // Selfie after stop index 3 (4th quiz stop = Kartoffelmelsfabrikken)
 
   teams: {
     a: { name: 'Hold A', cls: 'team-a', order: [0,1,2,3,4,5,6] },
@@ -166,119 +200,126 @@ const CONFIG = {
 
   locations: [
     {
-      id: 1, name: 'Skydebanen i Auning',
-      desc: 'Jagtforeningen, skytteforeningen og skydebanen',
-      lat: 56.43402321419301, lng: 10.387257014578266,
-      image: '', imageCaption: '',
-      hints: ['Det var lige inden 2. verdenskrig','Det var en forening der også brugte krudt','Tænk dans og festlige aftener'],
-      questions: [
-        { q: 'Hvornår blev Auning Jagtforening stiftet?', opts: ['A) 5. april 1929','B) 5. april 1939','C) 5. april 1949'], correct: 1 },
-        { q: 'Sammen med hvem købte jagtforeningen i 1946 et areal til skydebaner?', opts: ['A) Auning Idrætsforening','B) Auning Skytteforening','C) Hjemmeværnet'], correct: 1 },
-        { q: 'Hvad var jagtforeningens indtægtskilde i 1960\'erne og frem til 1976?', opts: ['A) Tombola på markedsdage','B) Kroballer på Auning Kro','C) Loppemarkeder i idrætshallen'], correct: 1 }
+      id:1, name:'Skydebanen i Auning', desc:'Jagtforeningen, skytteforeningen og skydebanen',
+      lat:56.43402321419301, lng:10.387257014578266, image:'', imageCaption:'',
+      year:'1939', headline:'JAGTFORENING STIFTET MED 14 MAND!', newsSub:'Nye tider for byens jægere',
+      hints:['Det var lige inden 2. verdenskrig','Det var en forening der også brugte krudt','Tænk dans og festlige aftener'],
+      questions:[
+        {q:'Hvornår blev Auning Jagtforening stiftet?',opts:['A) 5. april 1929','B) 5. april 1939','C) 5. april 1949'],correct:1},
+        {q:'Sammen med hvem købte jagtforeningen i 1946 et areal til skydebaner?',opts:['A) Auning Idrætsforening','B) Auning Skytteforening','C) Hjemmeværnet'],correct:1},
+        {q:'Hvad var jagtforeningens indtægtskilde i 1960\'erne og frem til 1976?',opts:['A) Tombola på markedsdage','B) Kroballer på Auning Kro','C) Loppemarkeder i idrætshallen'],correct:1}
       ]
     },
     {
-      id: 2, name: 'Det gamle Hospital (Kirkeladen)',
-      desc: 'Fra kirkelade til godshospital for fattige',
-      lat: 56.43337348622735, lng: 10.377203982134889,
-      image: '', imageCaption: '',
-      hints: ['Det handlede om at opbevare noget fra kirken','Det var en adelsmand — og det er ikke Christen','Det er den længste af mulighederne'],
-      questions: [
-        { q: 'Hvad var bygningen oprindeligt, før den blev hospital?', opts: ['A) Et bryggeri','B) En kirkelade til tiendekorn','C) Et vagthus'], correct: 1 },
-        { q: 'Hvem lod huset indrette som "godshospital" for fattige?', opts: ['A) Jørgen Skeel','B) Christen Scheel','C) Frederik VII'], correct: 0 },
-        { q: 'Hvor mange år fungerede huset som hjem for "ærlige fattige"?', opts: ['A) Ca. 100 år','B) Ca. 200 år','C) Ca. 300 år'], correct: 2 }
+      id:2, name:'Det gamle Hospital (Kirkeladen)', desc:'Fra kirkelade til godshospital for fattige',
+      lat:56.43337348622735, lng:10.377203982134889, image:'img/hospital.jpg', imageCaption:'Kirkeladen — det gamle hospital',
+      year:'Ca. 1700', headline:'FATTIGE FÅR NØGLEN TIL KIRKELADEN', newsSub:'Godshospitalet åbner sine døre',
+      hints:['Det handlede om at opbevare noget fra kirken','Det var en adelsmand — og det er ikke Christen','Det er den længste af mulighederne'],
+      questions:[
+        {q:'Hvad var bygningen oprindeligt, før den blev hospital?',opts:['A) Et bryggeri','B) En kirkelade til tiendekorn','C) Et vagthus'],correct:1},
+        {q:'Hvem lod huset indrette som "godshospital" for fattige?',opts:['A) Jørgen Skeel','B) Christen Scheel','C) Frederik VII'],correct:0},
+        {q:'Hvor mange år fungerede huset som hjem for "ærlige fattige"?',opts:['A) Ca. 100 år','B) Ca. 200 år','C) Ca. 300 år'],correct:2}
       ]
     },
     {
-      id: 3, name: 'Den grafiske industri',
-      desc: 'Datagraf og de grafiske virksomheder i Auning',
-      lat: 56.42982255964975, lng: 10.374707009106126,
-      image: '', imageCaption: '',
-      hints: ['Midt i 80\'erne','Det var landets statsoverhoved','Navnet afslører at det handler om træ, ikke tryk'],
-      questions: [
-        { q: 'Hvilket år blev Datagraf grundlagt?', opts: ['A) 1976','B) 1986','C) 1996'], correct: 1 },
-        { q: 'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?', opts: ['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'], correct: 0 },
-        { q: 'Hvilken af disse var IKKE en grafisk virksomhed i Auning?', opts: ['A) Djurs Tryk','B) Grafisk ID','C) Auning Finérværk'], correct: 2 }
+      id:3, name:'Den grafiske industri', desc:'Datagraf og de grafiske virksomheder i Auning',
+      lat:56.42982255964975, lng:10.374707009106126, image:'', imageCaption:'',
+      year:'1986', headline:'NY GRAFISK GIGANT SER DAGENS LYS!', newsSub:'Datagraf slår dørene op i Auning',
+      hints:['Midt i 80\'erne','Det var landets statsoverhoved','Navnet afslører at det handler om træ, ikke tryk'],
+      questions:[
+        {q:'Hvilket år blev Datagraf grundlagt?',opts:['A) 1976','B) 1986','C) 1996'],correct:1},
+        {q:'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?',opts:['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'],correct:0},
+        {q:'Hvilken af disse var IKKE en grafisk virksomhed i Auning?',opts:['A) Djurs Tryk','B) Grafisk ID','C) Auning Finérværk'],correct:2}
       ]
     },
     {
-      id: 4, name: 'Kartoffelmelsfabrikken',
-      desc: 'Den gamle fabrik og dens rolle i byens dagligdag',
-      lat: 56.42735629518248, lng: 10.376317870053443,
-      image: '', imageCaption: '',
-      hints: ['Midt under 1. verdenskrig','Gammel Estrup har brug for opbevaringsplads','Den ene fabrik lavede noget man sover på'],
-      questions: [
-        { q: 'Hvilket år stammer fabriksbygningen fra?', opts: ['A) 1901','B) 1916','C) 1930'], correct: 1 },
-        { q: 'Hvad bruges den tidligere kartoffelmelsfabrik til i dag?', opts: ['A) Byggemarked','B) Magasiner for Landbrugsmuseet','C) Boliger'], correct: 1 },
-        { q: 'Sammen med hvilke to andre fabrikker markerede dampfløjten frokostpausen kl. 12?', opts: ['A) Savværket og Madratsfabrikken','B) Mejeriet og Skaftefabrikken','C) Trædrejeriet og Finérværket'], correct: 0 }
+      id:4, name:'Kartoffelmelsfabrikken', desc:'Den gamle fabrik og dens rolle i byens dagligdag',
+      lat:56.42735629518248, lng:10.376317870053443, image:'img/kartoffelmel.jpg', imageCaption:'Kartoffelmelsfabrikken',
+      year:'1916', headline:'DAMPFLØJTEN KALDER TIL FROKOST!', newsSub:'Hele byen retter sig efter fabrikken',
+      hints:['Midt under 1. verdenskrig','Gammel Estrup har brug for opbevaringsplads','Den ene fabrik lavede noget man sover på'],
+      questions:[
+        {q:'Hvilket år stammer fabriksbygningen fra?',opts:['A) 1901','B) 1916','C) 1930'],correct:1},
+        {q:'Hvad bruges den tidligere kartoffelmelsfabrik til i dag?',opts:['A) Byggemarked','B) Magasiner for Landbrugsmuseet','C) Boliger'],correct:1},
+        {q:'Sammen med hvilke to andre fabrikker markerede dampfløjten frokostpausen kl. 12?',opts:['A) Savværket og Madratsfabrikken','B) Mejeriet og Skaftefabrikken','C) Trædrejeriet og Finérværket'],correct:0}
       ]
     },
     {
-      id: 5, name: 'Auning Savværk',
-      desc: 'Savværket der var en hjørnesten i byens industri',
-      lat: 56.427439813850306, lng: 10.378394535114554,
-      image: '', imageCaption: '',
-      hints: ['Det var en greve fra Gammel Estrup','Det er det højeste tal','Det overlevede 80\'erne — men ikke mere'],
-      questions: [
-        { q: 'Hvem etablerede savværket i 1901?', opts: ['A) Greve Jørgen Carl Scheel','B) Købmand F.C. Gerstrøm','C) Niels Chr. Jensen'], correct: 0 },
-        { q: 'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?', opts: ['A) 18','B) 30','C) 44'], correct: 2 },
-        { q: 'Hvornår lukkede savværket endeligt?', opts: ['A) 1980','B) 1990','C) 2000'], correct: 1 }
+      id:5, name:'Auning Savværk', desc:'Savværket der var en hjørnesten i byens industri',
+      lat:56.427439813850306, lng:10.378394535114554, image:'img/Savvaerk.jpg', imageCaption:'Auning Savværk',
+      year:'1901', headline:'GREVENS SAVVÆRK ÅBNER!', newsSub:'Tømmer fra Løvenholmskovene forarbejdes i Auning',
+      hints:['Det var en greve fra Gammel Estrup','Det er det højeste tal','Det overlevede 80\'erne — men ikke mere'],
+      questions:[
+        {q:'Hvem etablerede savværket i 1901?',opts:['A) Greve Jørgen Carl Scheel','B) Købmand F.C. Gerstrøm','C) Niels Chr. Jensen'],correct:0},
+        {q:'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?',opts:['A) 18','B) 30','C) 44'],correct:2},
+        {q:'Hvornår lukkede savværket endeligt?',opts:['A) 1980','B) 1990','C) 2000'],correct:1}
       ]
     },
     {
-      id: 6, name: 'Auning Station',
-      desc: 'Stationen på banen mellem Randers og Grenaa',
-      lat: 56.42925284166479, lng: 10.37794075687635,
-      image: '', imageCaption: '',
-      hints: ['Samme årti som telefonen blev opfundet','Han tegnede mange danske stationer','Samme år som Maastricht-traktaten'],
-      questions: [
-        { q: 'Hvilket år fik Auning en station på banen mellem Randers og Grenaa?', opts: ['A) 1864','B) 1876','C) 1901'], correct: 1 },
-        { q: 'Hvilken arkitekt tegnede stationsbygningen?', opts: ['A) Heinrich Wenck','B) Kaare Klint','C) Ivar Bentsen'], correct: 0 },
-        { q: 'Hvornår lukkede banen for godstransport?', opts: ['A) 1971','B) 1985','C) 1992'], correct: 2 }
+      id:6, name:'Auning Station', desc:'Stationen på banen mellem Randers og Grenaa',
+      lat:56.42925284166479, lng:10.37794075687635, image:'img/Station.jpg', imageCaption:'Auning Station',
+      year:'1876', headline:'TOGET ER ANKOMMET TIL AUNING!', newsSub:'Banen mellem Randers og Grenaa indvies',
+      hints:['Samme årti som telefonen blev opfundet','Han tegnede mange danske stationer','Samme år som Maastricht-traktaten'],
+      questions:[
+        {q:'Hvilket år fik Auning en station på banen mellem Randers og Grenaa?',opts:['A) 1864','B) 1876','C) 1901'],correct:1},
+        {q:'Hvilken arkitekt tegnede stationsbygningen?',opts:['A) Heinrich Wenck','B) Kaare Klint','C) Ivar Bentsen'],correct:0},
+        {q:'Hvornår lukkede banen for godstransport?',opts:['A) 1971','B) 1985','C) 1992'],correct:2}
       ]
     },
     {
-      id: 7, name: 'Auning Minigolfbane',
-      desc: 'Den gamle minigolfbane ved Dyrbyvej',
-      lat: 56.42879698161574, lng: 10.389834570121069,
-      image: '', imageCaption: '',
-      hints: ['Det var i 70\'erne','Samme antal som en rigtig golfbane','Tænk på hvad der lå lige ved siden af banen'],
-      questions: [
-        { q: 'Hvilket år åbnede minigolfbanen i Auning?', opts: ['A) 1963','B) 1973','C) 1983','D) 1993'], correct: 1 },
-        { q: 'Hvor mange baner skulle man igennem for en komplet runde?', opts: ['A) 9','B) 12','C) 18','D) 27'], correct: 2 },
-        { q: 'Hvor endte bolden på sidste hul?', opts: ['A) Den trillede tilbage til første hul','B) Den røg ned i en rist','C) Den landede i en vandbeholder','D) Den endte i en spand inde i kiosken'], correct: 3 }
+      id:7, name:'Auning Minigolfbane', desc:'Den gamle minigolfbane ved Dyrbyvej',
+      lat:56.42879698161574, lng:10.389834570121069, image:'', imageCaption:'',
+      year:'1973', headline:'18 HULLER KLAR TIL AUNINGS BORGERE!', newsSub:'Minigolfbanen ved Dyrbyvej slår portene op',
+      hints:['Det var i 70\'erne','Samme antal som en rigtig golfbane','Tænk på hvad der lå lige ved siden af banen'],
+      questions:[
+        {q:'Hvilket år åbnede minigolfbanen i Auning?',opts:['A) 1963','B) 1973','C) 1983','D) 1993'],correct:1},
+        {q:'Hvor mange baner skulle man igennem for en komplet runde?',opts:['A) 9','B) 12','C) 18','D) 27'],correct:2},
+        {q:'Hvor endte bolden på sidste hul?',opts:['A) Den trillede tilbage til første hul','B) Den røg ned i en rist','C) Den landede i en vandbeholder','D) Den endte i en spand inde i kiosken'],correct:3}
       ]
     }
   ]
 };
 
 // ── STATE ──
-const params = new URLSearchParams(location.search);
-const teamId = CONFIG.teams[params.get('hold')] ? params.get('hold') : 'a';
-const team = CONFIG.teams[teamId];
-const TOTAL_Q = CONFIG.locations.reduce((s,l) => s + l.questions.length, 0);
-let stopIndex = 0, totalCorrect = 0, answeredThisStop = 0, hintsUsed = 0;
-let map, userMarker, destMarker, destCircle, userPos = null, unlocked = false, hintUsedThisStop = false;
-const AC = new (window.AudioContext || window.webkitAudioContext)();
+const params=new URLSearchParams(location.search);
+const teamId=CONFIG.teams[params.get('hold')]?params.get('hold'):'a';
+const team=CONFIG.teams[teamId];
+const TOTAL_Q=CONFIG.locations.reduce((s,l)=>s+l.questions.length,0);
+const SAVE_KEY='auning_'+CONFIG.eventId+'_'+teamId;
+let stopIndex=0,totalCorrect=0,answeredThisStop=0,hintsUsed=0;
+let map,userMarker,destMarker,destCircle,userPos=null,unlocked=false,hintUsedThisStop=false;
+let answeredQuestions={},hintedLocs=[];
+let wakeLock=null,gpsWatchId=null;
+const AC=new(window.AudioContext||window.webkitAudioContext)();
 
-document.getElementById('splash-team').textContent = team.name;
-document.getElementById('splash-team').className = 'splash-team ' + team.cls;
-document.getElementById('header-team').textContent = team.name;
-document.getElementById('finish-label').textContent = 'rigtige ud af ' + TOTAL_Q;
+// Save/restore
+function saveState(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({stopIndex,totalCorrect,hintsUsed,answeredQuestions,hintedLocs}))}catch(e){}}
+function restoreState(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY));if(!s)return false;stopIndex=s.stopIndex||0;totalCorrect=s.totalCorrect||0;hintsUsed=s.hintsUsed||0;answeredQuestions=s.answeredQuestions||{};hintedLocs=s.hintedLocs||[];return stopIndex>0||Object.keys(answeredQuestions).length>0}catch(e){return false}}
+function clearSave(){localStorage.removeItem(SAVE_KEY)}
 
-// ── AUDIO ──
+// Wake lock
+async function requestWakeLock(){try{wakeLock=await navigator.wakeLock.request('screen')}catch(e){}}
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&!wakeLock)requestWakeLock()});
+
+// Init
+document.getElementById('splash-team').textContent=team.name;
+document.getElementById('splash-team').className='splash-team '+team.cls;
+document.getElementById('header-team').textContent=team.name;
+document.getElementById('finish-label').textContent='rigtige ud af '+TOTAL_Q;
+
+// Audio
 function playCorrect(){const t=AC.currentTime;[523,659,784].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';o.frequency.value=f;g.gain.setValueAtTime(0,t+i*.08);g.gain.linearRampToValueAtTime(.15,t+i*.08+.02);g.gain.exponentialRampToValueAtTime(.001,t+i*.08+.3);o.start(t+i*.08);o.stop(t+i*.08+.35)})}
 function playWrong(){const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sawtooth';o.frequency.setValueAtTime(200,AC.currentTime);o.frequency.exponentialRampToValueAtTime(100,AC.currentTime+.2);g.gain.setValueAtTime(.12,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.25);o.start(AC.currentTime);o.stop(AC.currentTime+.3)}
 function playUnlock(){const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='square';o.frequency.setValueAtTime(220,AC.currentTime);o.frequency.exponentialRampToValueAtTime(55,AC.currentTime+.08);g.gain.setValueAtTime(.3,AC.currentTime);g.gain.exponentialRampToValueAtTime(.001,AC.currentTime+.12);o.start(AC.currentTime);o.stop(AC.currentTime+.15)}
 function playFanfare(){[261,329,392,523,659].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';const t=AC.currentTime+i*.15;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.18,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.7);o.start(t);o.stop(t+.75)})}
-function playHackSound(){const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sawtooth';o.frequency.setValueAtTime(80,AC.currentTime);o.frequency.exponentialRampToValueAtTime(900,AC.currentTime+4);g.gain.setValueAtTime(0,AC.currentTime);g.gain.linearRampToValueAtTime(.1,AC.currentTime+.3);g.gain.linearRampToValueAtTime(0,AC.currentTime+5);o.start(AC.currentTime);o.stop(AC.currentTime+5)}
 
-// ── HAVERSINE ──
-function haversine(lat1,lng1,lat2,lng2){const R=6371000,dLat=(lat2-lat1)*Math.PI/180,dLng=(lng2-lng1)*Math.PI/180;const a=Math.sin(dLat/2)**2+Math.cos(lat1*Math.PI/180)*Math.cos(lat2*Math.PI/180)*Math.sin(dLng/2)**2;return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a))}
+// Haversine
+function haversine(a,b,c,d){const R=6371000,dL=(c-a)*Math.PI/180,dG=(d-b)*Math.PI/180;const x=Math.sin(dL/2)**2+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dG/2)**2;return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
 
-// ── START ──
+// Start
 function startGame(){
   if(AC.state==='suspended')AC.resume();
+  requestWakeLock();
+  restoreState();
   document.getElementById('splash').classList.add('hiding');
   setTimeout(()=>{document.getElementById('splash').style.display='none'},600);
   document.getElementById('game').style.display='block';
@@ -286,183 +327,191 @@ function startGame(){
   initMap();startGPS();renderStop();
 }
 
-// ── MAP ──
-function initMap(){
-  const loc=getCurrentLoc();
-  map=L.map('map',{zoomControl:true,attributionControl:false}).setView([loc.lat,loc.lng],16);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);
-  setDestMarker(loc);
-}
-function setDestMarker(loc){
-  if(destMarker){map.removeLayer(destMarker);map.removeLayer(destCircle)}
-  const icon=L.divIcon({className:'',html:'<div style="background:#fff;border:3px solid #c8922a;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:20px;box-shadow:0 2px 10px rgba(0,0,0,.2)">📍</div>',iconSize:[40,40],iconAnchor:[20,20]});
-  destMarker=L.marker([loc.lat,loc.lng],{icon}).addTo(map);
-  destCircle=L.circle([loc.lat,loc.lng],{radius:CONFIG.unlockRadius,color:'#c8922a',fillColor:'#c8922a',fillOpacity:.06,weight:1.5}).addTo(map);
-  map.setView([loc.lat,loc.lng],16);
-}
+// Map
+function initMap(){const l=getCurrentLoc();map=L.map('map',{zoomControl:true,attributionControl:false}).setView([l.lat,l.lng],16);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);setDest(l)}
+function setDest(l){if(destMarker){map.removeLayer(destMarker);map.removeLayer(destCircle)}const ic=L.divIcon({className:'',html:'<div style="background:#fff;border:3px solid #c8922a;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.2)">📍</div>',iconSize:[36,36],iconAnchor:[18,18]});destMarker=L.marker([l.lat,l.lng],{icon:ic}).addTo(map);destCircle=L.circle([l.lat,l.lng],{radius:CONFIG.unlockRadius,color:'#c8922a',fillColor:'#c8922a',fillOpacity:.06,weight:1.5}).addTo(map);map.setView([l.lat,l.lng],16)}
 
-// ── GPS ──
+// GPS with better error handling
 function startGPS(){
-  if(!navigator.geolocation){document.getElementById('gps-status').textContent='GPS ikke tilgængeligt';return}
-  navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:2000,timeout:10000});
+  if(!navigator.geolocation){setGpsMsg('GPS ikke tilgængeligt i denne browser');return}
+  // Explicit permission request via getCurrentPosition first
+  navigator.geolocation.getCurrentPosition(
+    pos=>{onPos(pos);gpsWatchId=navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:2000,timeout:10000})},
+    err=>{
+      if(err.code===1)setGpsMsg('⚠ GPS adgang nægtet — tryk "Prøv igen" eller tillad i browserindstillinger');
+      else if(err.code===2)setGpsMsg('⚠ GPS position utilgængelig — gå udenfor');
+      else setGpsMsg('⚠ GPS timeout — prøv igen');
+    },
+    {enableHighAccuracy:true,timeout:15000}
+  );
 }
+function retryGPS(){setGpsMsg('📍 Henter position...');if(gpsWatchId)navigator.geolocation.clearWatch(gpsWatchId);startGPS()}
+function setGpsMsg(t){document.getElementById('gps-status').innerHTML=t+'<button class="gps-retry" onclick="retryGPS()">Prøv igen</button>'}
 function onPos(pos){
   userPos={lat:pos.coords.latitude,lng:pos.coords.longitude};
-  document.getElementById('gps-status').textContent='📍 GPS aktiv — ±'+Math.round(pos.coords.accuracy)+'m';
-  if(!userMarker){
-    const ui=L.divIcon({className:'',html:'<div style="background:#3a8a4a;border:3px solid #fff;border-radius:50%;width:18px;height:18px;box-shadow:0 0 8px rgba(58,138,74,.5)"></div>',iconSize:[18,18],iconAnchor:[9,9]});
-    userMarker=L.marker([userPos.lat,userPos.lng],{icon:ui,zIndexOffset:1000}).addTo(map);
-  } else {userMarker.setLatLng([userPos.lat,userPos.lng])}
-  if(destMarker){map.fitBounds(L.latLngBounds([userPos,destMarker.getLatLng()]),{padding:[40,40],maxZoom:17})}
-  updateDistance();
+  setGpsMsg('📍 GPS aktiv — ±'+Math.round(pos.coords.accuracy)+'m');
+  if(!userMarker){const ui=L.divIcon({className:'',html:'<div style="background:#3a8a4a;border:3px solid #fff;border-radius:50%;width:16px;height:16px;box-shadow:0 0 6px rgba(58,138,74,.5)"></div>',iconSize:[16,16],iconAnchor:[8,8]});userMarker=L.marker([userPos.lat,userPos.lng],{icon:ui,zIndexOffset:1000}).addTo(map)}else{userMarker.setLatLng([userPos.lat,userPos.lng])}
+  if(destMarker)map.fitBounds(L.latLngBounds([userPos,destMarker.getLatLng()]),{padding:[40,40],maxZoom:17});
+  updateDist();
 }
-function onErr(){document.getElementById('gps-status').textContent='⚠ GPS fejl — prøv igen'}
+function onErr(e){if(e.code===1)setGpsMsg('⚠ GPS nægtet — tillad placering i indstillinger');else setGpsMsg('⚠ GPS fejl')}
 
-function updateDistance(){
-  if(!userPos||unlocked)return;
-  const loc=getCurrentLoc();
-  const dist=Math.round(haversine(userPos.lat,userPos.lng,loc.lat,loc.lng));
-  const el=document.getElementById('dist-num');el.textContent=dist;
-  if(dist<=CONFIG.unlockRadius&&!unlocked){
+function updateDist(){
+  if(!userPos||unlocked)return;const l=getCurrentLoc();
+  const d=Math.round(haversine(userPos.lat,userPos.lng,l.lat,l.lng));
+  const el=document.getElementById('dist-num');el.textContent=d;
+  if(d<=CONFIG.unlockRadius&&!unlocked){
     el.classList.add('near');unlocked=true;playUnlock();
     document.getElementById('arrived-msg').classList.add('visible');
     document.getElementById('dist-bar').style.display='none';
-    const loc=getCurrentLoc();
-    if(loc.image){
-      const wrap=document.getElementById('loc-image-wrap');
-      document.getElementById('loc-image').src=loc.image;
-      document.getElementById('loc-image-caption').textContent=loc.imageCaption||loc.name;
-      wrap.classList.add('visible');
-    } else {document.getElementById('content').classList.add('visible')}
+    if(l.image){document.getElementById('loc-image').src=l.image;document.getElementById('loc-image-caption').textContent=l.imageCaption||l.name;document.getElementById('loc-image-wrap').classList.add('visible')}
+    else{document.getElementById('content').classList.add('visible')}
   }
 }
-function showQuestions(){
-  document.getElementById('loc-image-wrap').classList.remove('visible');
-  document.getElementById('content').classList.add('visible');
-}
+function showQuestions(){document.getElementById('loc-image-wrap').classList.remove('visible');document.getElementById('content').classList.add('visible')}
 
-// ── RENDER STOP ──
+// Render stop
 function getCurrentLoc(){return CONFIG.locations[team.order[stopIndex]]}
 function renderStop(){
   unlocked=false;answeredThisStop=0;hintUsedThisStop=false;
-  const loc=getCurrentLoc();
+  const l=getCurrentLoc();
+  // Progress dots
   const strip=document.getElementById('progress-strip');strip.innerHTML='';
   for(let i=0;i<CONFIG.locations.length;i++){const d=document.createElement('div');d.className='pdot'+(i<stopIndex?' done':i===stopIndex?' active':'');strip.appendChild(d)}
   document.getElementById('sb-loc').textContent=stopIndex+1;
   document.getElementById('sb-score').textContent=totalCorrect;
-  if(map)setDestMarker(loc);
+  if(map)setDest(l);
   document.getElementById('dist-bar').style.display='';
   document.getElementById('dist-num').textContent='—';
   document.getElementById('dist-num').classList.remove('near');
   document.getElementById('arrived-msg').classList.remove('visible');
   document.getElementById('loc-image-wrap').classList.remove('visible');
+  document.getElementById('selfie-wrap').classList.remove('visible');
   const c=document.getElementById('content');c.classList.remove('visible');
+  // Check if hint was used at this location (restored state)
+  const locId=l.id;
+  hintUsedThisStop=hintedLocs.includes(locId);
   c.innerHTML=`
-    <div class="location-card">
-      <div class="loc-num">Punkt ${stopIndex+1} af ${CONFIG.locations.length}</div>
-      <div class="loc-name">${loc.name}</div>
-      <div class="loc-desc">${loc.desc}</div>
-    </div>
-    <div class="hint-wrap" id="hint-wrap">
-      <button class="hint-btn" id="hint-btn" onclick="useHint()">🔍 Brug hint (1 per sted)</button>
-      <div class="hint-texts" id="hint-texts">
-        ${loc.hints.map((h,i)=>`<div class="hint-line"><strong>Spørgsmål ${i+1}:</strong> ${h}</div>`).join('')}
-      </div>
-    </div>
-    ${loc.questions.map((q,qi)=>`
-      <div class="question-card">
-        <div class="q-badge">Spørgsmål ${qi+1}</div>
-        <div class="q-text">${q.q}</div>
-        <div class="options" id="opts-${qi}">
-          ${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}" onclick="answer(${qi},${oi})">${o}</button>`).join('')}
-        </div>
-      </div>
-    `).join('')}`;
-  if(userPos)updateDistance();
+    <div class="location-card"><div class="loc-num">Punkt ${stopIndex+1} af ${CONFIG.locations.length}</div><div class="loc-name">${l.name}</div><div class="loc-desc">${l.desc}</div></div>
+    <div class="hint-wrap"><button class="hint-btn${hintUsedThisStop?' used':''}" id="hint-btn" onclick="useHint()">${hintUsedThisStop?'🔍 Hint brugt':'🔍 Brug hint (1 per sted)'}</button><div class="hint-texts${hintUsedThisStop?' visible':''}" id="hint-texts">${l.hints.map((h,i)=>'<div class="hint-line"><strong>Spørgsmål '+(i+1)+':</strong> '+h+'</div>').join('')}</div></div>
+    ${l.questions.map((q,qi)=>`<div class="question-card"><div class="q-badge">Spørgsmål ${qi+1}</div><div class="q-text">${q.q}</div><div class="options" id="opts-${qi}">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}" onclick="answer(${qi},${oi})">${o}</button>`).join('')}</div></div>`).join('')}`;
+  // Restore already-answered questions
+  let restored=0;
+  l.questions.forEach((q,qi)=>{
+    const key=locId+'-'+qi;
+    if(answeredQuestions[key]){
+      restored++;answeredThisStop++;
+      const{oi,correct}=answeredQuestions[key];
+      document.querySelectorAll('#opts-'+qi+' .opt-btn').forEach(b=>{
+        b.classList.add('disabled');const boi=parseInt(b.dataset.oi);
+        if(boi===q.correct)b.classList.add('correct');
+        else if(boi===oi&&!correct)b.classList.add('wrong','chosen');
+      });
+    }
+  });
+  if(userPos)updateDist();
 }
 
-// ── HINT ──
+// Hint
 function useHint(){
-  if(hintUsedThisStop)return;
-  hintUsedThisStop=true;hintsUsed++;
+  if(hintUsedThisStop)return;hintUsedThisStop=true;hintsUsed++;
+  hintedLocs.push(getCurrentLoc().id);
   document.getElementById('hint-btn').textContent='🔍 Hint brugt';
   document.getElementById('hint-btn').classList.add('used');
   document.getElementById('hint-texts').classList.add('visible');
-  sendHint();
+  saveState();sendHint();
 }
 
-// ── ANSWER ──
+// Answer
 function answer(qi,oi){
-  const loc=getCurrentLoc();const q=loc.questions[qi];const ok=oi===q.correct;
-  document.querySelectorAll('#opts-'+qi+' .opt-btn').forEach(b=>{
-    b.classList.add('disabled');const boi=parseInt(b.dataset.oi);
-    if(boi===q.correct)b.classList.add('correct');
-    else if(boi===oi&&!ok)b.classList.add('wrong','chosen');
-  });
+  const l=getCurrentLoc(),q=l.questions[qi],ok=oi===q.correct;
+  const key=l.id+'-'+qi;if(answeredQuestions[key])return;
+  document.querySelectorAll('#opts-'+qi+' .opt-btn').forEach(b=>{b.classList.add('disabled');const boi=parseInt(b.dataset.oi);if(boi===q.correct)b.classList.add('correct');else if(boi===oi&&!ok)b.classList.add('wrong','chosen')});
   if(ok){totalCorrect++;playCorrect()}else{playWrong()}
-  answeredThisStop++;
+  answeredThisStop++;answeredQuestions[key]={oi,correct:ok};
   document.getElementById('sb-score').textContent=totalCorrect;
-  sendAnswer({locationId:loc.id,questionIndex:qi,selectedOption:oi,correct:ok});
-  if(answeredThisStop>=loc.questions.length){
-    setTimeout(()=>{startMatrixSequence(stopIndex>=CONFIG.locations.length-1)},800);
+  saveState();sendAnswer({locationId:l.id,questionIndex:qi,selectedOption:oi,correct:ok});
+  if(answeredThisStop>=l.questions.length){
+    setTimeout(()=>{showNewspaper(stopIndex>=CONFIG.locations.length-1)},600);
   }
 }
 
-// ── MATRIX ──
-function startMatrixSequence(isFinal){
-  playHackSound();
-  const overlay=document.getElementById('matrix-overlay'),canvas=document.getElementById('matrix-canvas');
-  overlay.style.display='block';
-  const dpr=window.devicePixelRatio||1;canvas.width=window.innerWidth*dpr;canvas.height=window.innerHeight*dpr;
-  canvas.style.width=window.innerWidth+'px';canvas.style.height=window.innerHeight+'px';
-  const ctx=canvas.getContext('2d');ctx.scale(dpr,dpr);
-  const W=window.innerWidth,H=window.innerHeight,fs=16,cols=Math.floor(W/fs);
-  const drops=Array(cols).fill(0).map(()=>Math.random()*(-(H/fs)));
-  const CHARS='0123456789AUNINGBYVANDRING';
-  let frame=0,phase='ramp',alpha=1,speed=0.3,animId;
-  const agEl=document.getElementById('ag-text');
-  agEl.textContent=isFinal?'TUREN KOMPLET':'NÆSTE PUNKT LÅST OP';
+// ── NEWSPAPER TRANSITION ──
+function showNewspaper(isFinal){
+  const l=getCurrentLoc();const np=document.getElementById('newspaper');
+  const paper=document.getElementById('np-paper');
+  document.getElementById('np-date').textContent=isFinal?'Ekstraudgave — 12. september 2026':'Ekstraudgave — Auning, '+l.year;
+  document.getElementById('np-headline').textContent=isFinal?'ALLE SPØRGSMÅL BESVARET!':l.headline;
+  document.getElementById('np-sub').textContent=isFinal?'Holdet har gennemført hele ruten!':l.newsSub;
+  document.getElementById('np-next').textContent=isFinal?'Se jeres resultat...':'Videre til næste stop...';
+  np.classList.add('show');
+  setTimeout(()=>paper.classList.add('show'),100);
   setTimeout(()=>{
-    document.getElementById('access-granted').style.display='flex';
-    setTimeout(()=>agEl.classList.add('show'),50);
-    setTimeout(()=>{agEl.classList.remove('show');setTimeout(()=>{document.getElementById('access-granted').style.display='none'},500)},2000);
-  },2000);
-  function draw(){
-    ctx.fillStyle=phase==='fadeout'?`rgba(0,0,0,${0.06+(1-alpha)*0.1})`:'rgba(0,0,0,0.05)';
-    ctx.fillRect(0,0,W,H);ctx.font=fs+'px monospace';
-    for(let i=0;i<drops.length;i++){
-      ctx.fillStyle=phase==='fadeout'?`rgba(0,255,65,${alpha*0.9})`:Math.random()>0.97?'#fff':'#00ff41';
-      ctx.fillText(CHARS[Math.floor(Math.random()*CHARS.length)],i*fs,drops[i]*fs);
-      if(drops[i]*fs>H&&Math.random()>0.975)drops[i]=0;drops[i]+=speed;
-    }
-    frame++;
-    if(phase==='ramp'&&frame<80)speed=0.3+(frame/80)*0.9;
-    if(frame===80)phase='hold';if(frame===280)phase='slow';
-    if(phase==='slow')speed=Math.max(0.15,speed-0.008);
-    if(frame===360)phase='fadeout';
-    if(phase==='fadeout'){alpha-=0.015;if(alpha<=0){cancelAnimationFrame(animId);overlay.style.display='none';afterMatrix(isFinal);return}}
-    animId=requestAnimationFrame(draw);
-  }
-  animId=requestAnimationFrame(draw);
-}
-function afterMatrix(isFinal){
-  if(isFinal){showFinish()}else{stopIndex++;window.scrollTo({top:0,behavior:'smooth'});setTimeout(renderStop,200)}
+    paper.classList.remove('show');
+    setTimeout(()=>{np.classList.remove('show');afterTransition(isFinal)},600);
+  },isFinal?4000:3500);
 }
 
-// ── FINISH ──
+function afterTransition(isFinal){
+  if(isFinal){showFinish();return}
+  stopIndex++;saveState();
+  // Check if selfie stop
+  if(stopIndex-1===CONFIG.selfieAfterStop){
+    showSelfiePause();
+  } else {
+    window.scrollTo({top:0,behavior:'smooth'});setTimeout(renderStop,200);
+  }
+}
+
+// ── SELFIE ──
+function showSelfiePause(){
+  document.getElementById('dist-bar').style.display='none';
+  document.getElementById('arrived-msg').classList.remove('visible');
+  document.getElementById('content').classList.remove('visible');
+  document.getElementById('loc-image-wrap').classList.remove('visible');
+  document.getElementById('selfie-wrap').classList.add('visible');
+}
+function onSelfie(e){
+  const file=e.target.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=function(ev){
+    // Compress via canvas
+    const img=new Image();
+    img.onload=function(){
+      const canvas=document.createElement('canvas');
+      const MAX=480;let w=img.width,h=img.height;
+      if(w>h){if(w>MAX){h*=MAX/w;w=MAX}}else{if(h>MAX){w*=MAX/h;h=MAX}}
+      canvas.width=w;canvas.height=h;
+      canvas.getContext('2d').drawImage(img,0,0,w,h);
+      const data=canvas.toDataURL('image/jpeg',0.6);
+      document.getElementById('selfie-preview').src=data;
+      document.getElementById('selfie-preview').style.display='block';
+      document.getElementById('selfie-btn').textContent='✓ Billede taget!';
+      document.getElementById('selfie-btn').style.background='#3a8a4a';
+      uploadSelfie(data);
+      setTimeout(()=>{document.getElementById('selfie-wrap').classList.remove('visible');window.scrollTo({top:0,behavior:'smooth'});setTimeout(renderStop,200)},1500);
+    };
+    img.src=ev.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+function skipSelfie(){document.getElementById('selfie-wrap').classList.remove('visible');window.scrollTo({top:0,behavior:'smooth'});setTimeout(renderStop,200)}
+
+// Finish
 function showFinish(){
   document.getElementById('game').style.display='none';
   document.getElementById('status-bar').classList.remove('visible');
   document.getElementById('finish').classList.add('active');
   document.getElementById('finish-score').textContent=totalCorrect;
   document.getElementById('finish-hints').textContent=hintsUsed>0?'🔍 '+hintsUsed+' hint brugt':'🔍 Ingen hints brugt!';
-  playFanfare();sendCompletion();
+  clearSave();playFanfare();sendCompletion();
 }
 
 // ── SUPABASE ──
-async function sendAnswer(d){if(!CONFIG.supabaseUrl||!CONFIG.supabaseKey)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/answers',{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey,'Prefer':'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,location_id:d.locationId,question_index:d.questionIndex,selected_option:d.selectedOption,is_correct:d.correct,answered_at:new Date().toISOString()})})}catch(e){}}
-async function sendHint(){if(!CONFIG.supabaseUrl||!CONFIG.supabaseKey)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/hints',{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey,'Prefer':'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,location_id:getCurrentLoc().id,used_at:new Date().toISOString()})})}catch(e){}}
-async function sendCompletion(){if(!CONFIG.supabaseUrl||!CONFIG.supabaseKey)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/completions',{method:'POST',headers:{'Content-Type':'application/json','apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey,'Prefer':'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,total_correct:totalCorrect,total_questions:TOTAL_Q,hints_used:hintsUsed,completed_at:new Date().toISOString()})})}catch(e){}}
+async function sendAnswer(d){if(!CONFIG.supabaseUrl)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/answers',{method:'POST',headers:{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,location_id:d.locationId,question_index:d.questionIndex,selected_option:d.selectedOption,is_correct:d.correct,answered_at:new Date().toISOString()})})}catch(e){}}
+async function sendHint(){if(!CONFIG.supabaseUrl)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/hints',{method:'POST',headers:{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,location_id:getCurrentLoc().id,used_at:new Date().toISOString()})})}catch(e){}}
+async function sendCompletion(){if(!CONFIG.supabaseUrl)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/completions',{method:'POST',headers:{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,total_correct:totalCorrect,total_questions:TOTAL_Q,hints_used:hintsUsed,completed_at:new Date().toISOString()})})}catch(e){}}
+async function uploadSelfie(dataUrl){if(!CONFIG.supabaseUrl)return;try{await fetch(CONFIG.supabaseUrl+'/rest/v1/selfies',{method:'POST',headers:{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'},body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,photo_data:dataUrl,taken_at:new Date().toISOString()})})}catch(e){}}
 </script>
 </body>
 </html>
