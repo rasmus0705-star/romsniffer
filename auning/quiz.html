@@ -283,6 +283,7 @@ const CONFIG = {
 
 // ── STATE ──
 const params=new URLSearchParams(location.search);
+if(params.get('reset')){localStorage.removeItem('auning_auning-2026_a');localStorage.removeItem('auning_auning-2026_b');history.replaceState(null,'',location.pathname+'?hold='+(params.get('hold')||'a'))}
 const teamId=CONFIG.teams[params.get('hold')]?params.get('hold'):'a';
 const team=CONFIG.teams[teamId];
 const TOTAL_Q=CONFIG.locations.reduce((s,l)=>s+l.questions.length,0);
