@@ -57,7 +57,11 @@
   <div class="col-heads"><span>Spørgsmål</span><span>Hold A</span><span>Hold B</span></div>
   <div id="details"></div>
 </div>
-<script src="config.js"></script>
+<div style="max-width:800px;margin:40px auto 0;padding-top:20px;border-top:2px dashed #e0d6c4;text-align:center">
+  <div style="font-family:'Playfair Display',serif;font-size:14px;color:#9a7d52;margin-bottom:12px">Admin</div>
+  <button onclick="resetSupabase()" style="background:#b5342a;color:#fff;border:none;border-radius:8px;padding:12px 24px;font-family:'Share Tech Mono',monospace;font-size:13px;cursor:pointer;letter-spacing:1px">🗑 Nulstil ALLE data i Supabase</button>
+  <div id="reset-msg" style="font-size:12px;color:#3a8a4a;margin-top:8px"></div>
+</div>
 <script>
 const C={supabaseUrl:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',supabaseKey:typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',eventId:'auning-2026',
   locs:[
@@ -106,6 +110,21 @@ function rd(answers,hints){
   });
 }
 rd([],[]);if(C.supabaseUrl){poll();setInterval(poll,5000)}
+
+async function resetSupabase(){
+  if(!confirm('Er du sikker? Dette sletter ALLE svar, hints, selfies og completions for dette event.'))return;
+  if(!C.supabaseUrl){document.getElementById('reset-msg').textContent='Supabase ikke konfigureret';return}
+  const h={'Content-Type':'application/json',apikey:C.supabaseKey,Authorization:'Bearer '+C.supabaseKey};
+  const ev='event_id=eq.'+C.eventId;
+  try{
+    await fetch(C.supabaseUrl+'/rest/v1/answers?'+ev,{method:'DELETE',headers:h});
+    await fetch(C.supabaseUrl+'/rest/v1/hints?'+ev,{method:'DELETE',headers:h});
+    await fetch(C.supabaseUrl+'/rest/v1/selfies?'+ev,{method:'DELETE',headers:h});
+    await fetch(C.supabaseUrl+'/rest/v1/completions?'+ev,{method:'DELETE',headers:h});
+    document.getElementById('reset-msg').textContent='✓ Alt data slettet! Holdene skal åbne: quiz.html?hold=a&reset=1';
+    ans=[];hnt=[];selfies=[];render();
+  }catch(e){document.getElementById('reset-msg').textContent='Fejl: '+e.message}
+}
 </script>
 </body>
 </html>
