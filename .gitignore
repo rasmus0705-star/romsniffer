@@ -20,3 +20,5 @@ __pycache__/
 
 # Miljoe
 .env
+
+auning/config.js
