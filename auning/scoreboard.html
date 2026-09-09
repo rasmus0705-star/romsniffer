@@ -11,39 +11,34 @@
   header{text-align:center;padding-bottom:20px;margin-bottom:24px;border-bottom:2px solid #c8a050}
   header h1{font-family:'Playfair Display',serif;font-size:24px;color:#6b4c1e;letter-spacing:4px;text-transform:uppercase}
   header p{font-size:12px;color:#9a7d52;letter-spacing:2px;margin-top:6px}
-  .update-info{font-size:11px;color:#9a7d52;margin-top:8px}
-  .update-info span{color:#3a8a4a}
+  .update-info{font-size:11px;color:#9a7d52;margin-top:8px}.update-info span{color:#3a8a4a}
   .winner{background:#fff;border:2px solid #c8a050;border-radius:12px;padding:24px;text-align:center;margin-bottom:24px;max-width:600px;margin-inline:auto;display:none;box-shadow:0 4px 16px rgba(107,76,30,.1)}
-  .winner.visible{display:block}
-  .winner .trophy{font-size:52px}
+  .winner.visible{display:block}.winner .trophy{font-size:52px}
   .winner h2{font-family:'Playfair Display',serif;font-size:22px;color:#6b4c1e;margin-top:8px}
   .winner p{font-size:13px;color:#7a6040;margin-top:4px}
   .scores{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:600px;margin:0 auto 28px}
   .score-card{background:#fff;border:1px solid #e0d6c4;border-radius:12px;padding:24px;text-align:center;border-top:4px solid;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-  .score-card.team-a{border-top-color:#8b1a2b}
-  .score-card.team-b{border-top-color:#1a3a6b}
+  .score-card.team-a{border-top-color:#8b1a2b}.score-card.team-b{border-top-color:#1a3a6b}
   .sc-name{font-family:'Playfair Display',serif;font-size:18px;color:#6b4c1e;font-weight:700}
   .sc-big{font-family:'Playfair Display',serif;font-size:52px;font-weight:900;color:#c8922a;line-height:1;margin:8px 0 4px}
   .sc-sub{font-size:11px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
-  .sc-progress{font-size:12px;color:#9a7d52;margin-top:12px}
+  .sc-hints{font-size:13px;color:#8b6914;margin-top:8px}
+  .sc-progress{font-size:12px;color:#9a7d52;margin-top:8px}
   .badge{display:inline-block;padding:3px 10px;border-radius:10px;font-size:11px;font-weight:600;letter-spacing:1px;margin-top:6px}
-  .badge.waiting{background:#f0ebe0;color:#9a7d52}
-  .badge.active{background:rgba(58,138,74,.1);color:#3a8a4a}
-  .badge.done{background:rgba(200,146,42,.12);color:#8b6914}
+  .badge.waiting{background:#f0ebe0;color:#9a7d52}.badge.active{background:rgba(58,138,74,.1);color:#3a8a4a}.badge.done{background:rgba(200,146,42,.12);color:#8b6914}
   .detail{max-width:800px;margin:0 auto}
   .detail h2{font-family:'Playfair Display',serif;font-size:17px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px}
   .col-heads{display:grid;grid-template-columns:1fr 80px 80px;gap:8px;padding:6px 16px;font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
   .col-heads span:not(:first-child){text-align:center}
   .loc-block{background:#fff;border:1px solid #e0d6c4;border-radius:10px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.03)}
-  .loc-head{padding:12px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#6b4c1e;border-bottom:1px solid #e0d6c4;display:flex;justify-content:space-between}
+  .loc-head{padding:12px 16px;font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:#6b4c1e;border-bottom:1px solid #e0d6c4;display:flex;justify-content:space-between;align-items:center}
   .loc-scores{font-family:'Share Tech Mono',monospace;font-size:12px;font-weight:400;color:#9a7d52}
+  .loc-hint-badge{font-size:11px;background:#f5f0e6;border:1px solid #e0d6c4;border-radius:6px;padding:2px 6px;color:#8b6914;margin-left:6px}
   .q-row{display:grid;grid-template-columns:1fr 80px 80px;gap:8px;padding:9px 16px;border-bottom:1px solid #f0ebe0;font-size:13px;align-items:center}
   .q-row:last-child{border-bottom:none}
   .q-label{color:#7a6040}
   .a-cell{text-align:center;font-weight:600}
-  .a-cell.ok{color:#3a8a4a}
-  .a-cell.fail{color:#b5342a}
-  .a-cell.wait{color:#d0c8b8;font-style:italic}
+  .a-cell.ok{color:#3a8a4a}.a-cell.fail{color:#b5342a}.a-cell.wait{color:#d0c8b8;font-style:italic}
   @media(max-width:480px){.scores{grid-template-columns:1fr}.q-row,.col-heads{grid-template-columns:1fr 60px 60px}}
 </style>
 </head>
@@ -55,8 +50,22 @@
 </header>
 <div class="winner" id="winner"><div class="trophy">🏆</div><h2 id="winner-text">—</h2><p id="winner-sub">—</p></div>
 <div class="scores">
-  <div class="score-card team-a"><div class="sc-name">Hold A</div><div class="sc-big" id="sa">—</div><div class="sc-sub">rigtige svar</div><div class="sc-progress" id="pa">Venter på start...</div><span class="badge waiting" id="ba">Venter</span></div>
-  <div class="score-card team-b"><div class="sc-name">Hold B</div><div class="sc-big" id="sb">—</div><div class="sc-sub">rigtige svar</div><div class="sc-progress" id="pb">Venter på start...</div><span class="badge waiting" id="bb">Venter</span></div>
+  <div class="score-card team-a">
+    <div class="sc-name">Hold A</div>
+    <div class="sc-big" id="sa">—</div>
+    <div class="sc-sub">rigtige svar</div>
+    <div class="sc-hints" id="ha">🔍 0 hints</div>
+    <div class="sc-progress" id="pa">Venter på start...</div>
+    <span class="badge waiting" id="ba">Venter</span>
+  </div>
+  <div class="score-card team-b">
+    <div class="sc-name">Hold B</div>
+    <div class="sc-big" id="sb_">—</div>
+    <div class="sc-sub">rigtige svar</div>
+    <div class="sc-hints" id="hb">🔍 0 hints</div>
+    <div class="sc-progress" id="pb">Venter på start...</div>
+    <span class="badge waiting" id="bb">Venter</span>
+  </div>
 </div>
 <div class="detail">
   <h2>Detaljer per punkt</h2>
@@ -76,40 +85,61 @@ const CONFIG={
     {id:7,name:'Minigolfbanen',qs:['Åbnede hvornår?','Antal baner?','Sidste hul?']}
   ]
 };
-let data=[];
-async function poll(){if(!CONFIG.supabaseUrl)return renderDetails([]);try{const r=await fetch(CONFIG.supabaseUrl+'/rest/v1/answers?event_id=eq.'+CONFIG.eventId+'&order=answered_at.asc',{headers:{'apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey}});data=await r.json();document.getElementById('ts').textContent=new Date().toLocaleTimeString('da-DK');render()}catch(e){console.warn('Poll fejl:',e)}}
+let answerData=[],hintData=[];
+
+async function poll(){
+  if(!CONFIG.supabaseUrl)return renderDetails([],[]);
+  try{
+    const [aRes,hRes]=await Promise.all([
+      fetch(CONFIG.supabaseUrl+'/rest/v1/answers?event_id=eq.'+CONFIG.eventId+'&order=answered_at.asc',{headers:{'apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey}}),
+      fetch(CONFIG.supabaseUrl+'/rest/v1/hints?event_id=eq.'+CONFIG.eventId+'&order=used_at.asc',{headers:{'apikey':CONFIG.supabaseKey,'Authorization':'Bearer '+CONFIG.supabaseKey}})
+    ]);
+    answerData=await aRes.json();hintData=await hRes.json();
+    document.getElementById('ts').textContent=new Date().toLocaleTimeString('da-DK');
+    render();
+  }catch(e){console.warn('Poll fejl:',e)}
+}
+
 function render(){
-  const tA=data.filter(a=>a.team_id==='a'),tB=data.filter(a=>a.team_id==='b');
+  const tA=answerData.filter(a=>a.team_id==='a'),tB=answerData.filter(a=>a.team_id==='b');
   const cA=tA.filter(a=>a.is_correct).length,cB=tB.filter(a=>a.is_correct).length;
-  const total=CONFIG.locations.length*3;
-  document.getElementById('sa').textContent=cA;document.getElementById('sb').textContent=cB;
+  const hA=hintData.filter(h=>h.team_id==='a').length,hB=hintData.filter(h=>h.team_id==='b').length;
+  const total=21;
+  document.getElementById('sa').textContent=cA;document.getElementById('sb_').textContent=cB;
+  document.getElementById('ha').textContent='🔍 '+hA+' hint'+(hA!==1?'s':'');
+  document.getElementById('hb').textContent='🔍 '+hB+' hint'+(hB!==1?'s':'');
   setCard('a',tA.length,cA,total);setCard('b',tB.length,cB,total);
   const w=document.getElementById('winner');
   if(tA.length>=total&&tB.length>=total){w.classList.add('visible');
-    if(cA>cB)wt('🎉 Hold A vinder!',cA+' mod '+cB+' rigtige');
-    else if(cB>cA)wt('🎉 Hold B vinder!',cB+' mod '+cA+' rigtige');
-    else wt('🤝 Uafgjort!','Begge: '+cA+' rigtige');
+    if(cA>cB)wt('🎉 Hold A vinder!',cA+' mod '+cB+' rigtige (hints: '+hA+' vs '+hB+')');
+    else if(cB>cA)wt('🎉 Hold B vinder!',cB+' mod '+cA+' rigtige (hints: '+hB+' vs '+hA+')');
+    else if(hA<hB)wt('🎉 Hold A vinder!','Uafgjort '+cA+'-'+cB+', men Hold A brugte færre hints ('+hA+' vs '+hB+')');
+    else if(hB<hA)wt('🎉 Hold B vinder!','Uafgjort '+cA+'-'+cB+', men Hold B brugte færre hints ('+hB+' vs '+hA+')');
+    else wt('🤝 Uafgjort!','Begge: '+cA+' rigtige, '+hA+' hints');
   }else{w.classList.remove('visible')}
-  renderDetails(data);
+  renderDetails(answerData,hintData);
 }
 function wt(t,s){document.getElementById('winner-text').textContent=t;document.getElementById('winner-sub').textContent=s}
 function setCard(t,ans,correct,total){
-  const locs=new Set(data.filter(a=>a.team_id===t).map(a=>a.location_id)).size;
+  const locs=new Set(answerData.filter(a=>a.team_id===t).map(a=>a.location_id)).size;
   const p=document.getElementById('p'+t),b=document.getElementById('b'+t);
   if(ans===0){p.textContent='Venter på start...';b.textContent='Venter';b.className='badge waiting'}
   else if(ans>=total){p.textContent='Færdig! '+locs+'/7 punkter';b.textContent='Færdig';b.className='badge done'}
   else{p.textContent=locs+'/7 punkter besøgt';b.textContent='I gang';b.className='badge active'}
 }
-function renderDetails(answers){
+function renderDetails(answers,hints){
   const lk={};answers.forEach(a=>{lk[a.team_id+'-'+a.location_id+'-'+a.question_index]=a.is_correct});
+  const hlk={};hints.forEach(h=>{hlk[h.team_id+'-'+h.location_id]=true});
   const c=document.getElementById('details');c.innerHTML='';
   CONFIG.locations.forEach(loc=>{
     const cA=[0,1,2].filter(i=>lk['a-'+loc.id+'-'+i]===true).length;
     const cB=[0,1,2].filter(i=>lk['b-'+loc.id+'-'+i]===true).length;
-    c.innerHTML+=`<div class="loc-block"><div class="loc-head"><span>${loc.name}</span><span class="loc-scores">A: ${cA}/3 · B: ${cB}/3</span></div>${loc.qs.map((q,i)=>{const a=lk['a-'+loc.id+'-'+i],b=lk['b-'+loc.id+'-'+i];return`<div class="q-row"><span class="q-label">${q}</span><span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'✓':a===false?'✗':'—'}</span><span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'✓':b===false?'✗':'—'}</span></div>`}).join('')}</div>`;
+    const hintA=hlk['a-'+loc.id]?'<span class="loc-hint-badge">🔍A</span>':'';
+    const hintB=hlk['b-'+loc.id]?'<span class="loc-hint-badge">🔍B</span>':'';
+    c.innerHTML+=`<div class="loc-block"><div class="loc-head"><span>${loc.name}${hintA}${hintB}</span><span class="loc-scores">A: ${cA}/3 · B: ${cB}/3</span></div>${loc.qs.map((q,i)=>{const a=lk['a-'+loc.id+'-'+i],b=lk['b-'+loc.id+'-'+i];return`<div class="q-row"><span class="q-label">${q}</span><span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'✓':a===false?'✗':'—'}</span><span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'✓':b===false?'✗':'—'}</span></div>`}).join('')}</div>`;
   });
 }
-renderDetails([]);if(CONFIG.supabaseUrl){poll();setInterval(poll,5000)}
+renderDetails([],[]);if(CONFIG.supabaseUrl){poll();setInterval(poll,5000)}
 </script>
 </body>
 </html>
