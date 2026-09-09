@@ -114,6 +114,7 @@
   .np-sub{font-family:'Playfair Display',serif;font-size:13px;color:#5a3a1a;font-style:italic;line-height:1.4}
   .np-divider{width:60px;height:2px;background:#2a1a08;margin:12px auto}
   .np-next{font-family:'Share Tech Mono',monospace;font-size:12px;color:#8b6914;letter-spacing:3px;text-transform:uppercase;margin-top:14px}
+  .np-btn{font-family:'Share Tech Mono',monospace;font-size:15px;color:#fff;background:#6b4c1e;border:none;border-radius:8px;padding:14px 32px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin-top:16px;min-height:48px;box-shadow:0 2px 8px rgba(107,76,30,.3)}
 </style>
 </head>
 <body>
@@ -181,7 +182,7 @@
     <div class="np-headline" id="np-headline"></div>
     <div class="np-sub" id="np-sub"></div>
     <div class="np-divider"></div>
-    <div class="np-next" id="np-next">Næste stop...</div>
+    <button class="np-btn" id="np-btn" onclick="dismissNewspaper()">Videre →</button>
   </div>
 </div>
 
@@ -429,19 +430,22 @@ function answer(qi,oi){
 }
 
 // ── NEWSPAPER TRANSITION ──
+let npIsFinal=false;
 function showNewspaper(isFinal){
+  npIsFinal=isFinal;
   const l=getCurrentLoc();const np=document.getElementById('newspaper');
   const paper=document.getElementById('np-paper');
   document.getElementById('np-date').textContent=isFinal?'Ekstraudgave — 12. september 2026':'Ekstraudgave — Auning, '+l.year;
   document.getElementById('np-headline').textContent=isFinal?'ALLE SPØRGSMÅL BESVARET!':l.headline;
   document.getElementById('np-sub').textContent=isFinal?'Holdet har gennemført hele ruten!':l.newsSub;
-  document.getElementById('np-next').textContent=isFinal?'Se jeres resultat...':'Videre til næste stop...';
+  document.getElementById('np-btn').textContent=isFinal?'Se resultat →':'Videre til næste stop →';
   np.classList.add('show');
   setTimeout(()=>paper.classList.add('show'),100);
-  setTimeout(()=>{
-    paper.classList.remove('show');
-    setTimeout(()=>{np.classList.remove('show');afterTransition(isFinal)},600);
-  },isFinal?4000:3500);
+}
+function dismissNewspaper(){
+  const paper=document.getElementById('np-paper');
+  paper.classList.remove('show');
+  setTimeout(()=>{document.getElementById('newspaper').classList.remove('show');afterTransition(npIsFinal)},500);
 }
 
 function afterTransition(isFinal){
