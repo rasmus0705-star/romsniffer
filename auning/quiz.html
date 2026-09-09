@@ -189,8 +189,8 @@
 <script src="config.js"></script>
 <script>
 const CONFIG = {
-  supabaseUrl: SUPABASE_URL,
-  supabaseKey: SUPABASE_KEY,
+  supabaseUrl: typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',
+  supabaseKey: typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',
   eventId: 'auning-2026',
   unlockRadius: 10,
   selfieAfterStop: 3, // Selfie after stop index 3 (4th quiz stop = Kartoffelmelsfabrikken)

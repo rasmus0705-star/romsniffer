@@ -59,7 +59,7 @@
 </div>
 <script src="config.js"></script>
 <script>
-const C={supabaseUrl:SUPABASE_URL,supabaseKey:SUPABASE_KEY,eventId:'auning-2026',
+const C={supabaseUrl:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',supabaseKey:typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',eventId:'auning-2026',
   locs:[
     {id:1,n:'Skydebanen',qs:['Jagtforening stiftet?','Areal m/ hvem?','Indtægtskilde?']},
     {id:2,n:'Det gamle Hospital',qs:['Oprindelse?','Hvem indrettede?','Antal år?']},
