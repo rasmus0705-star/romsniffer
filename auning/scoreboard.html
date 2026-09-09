@@ -12,6 +12,8 @@
   header h1{font-family:'Playfair Display',serif;font-size:22px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
   header p{font-size:11px;color:#9a7d52;letter-spacing:2px;margin-top:4px}
   .update-info{font-size:10px;color:#9a7d52;margin-top:6px}.update-info span{color:#3a8a4a}
+  .conn-status{font-size:10px;text-align:center;margin-top:4px;padding:2px}
+  .conn-status.ok{color:#3a8a4a}.conn-status.err{color:#b5342a}
   .winner{background:#fff;border:2px solid #c8a050;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;max-width:600px;margin-inline:auto;display:none;box-shadow:0 4px 16px rgba(107,76,30,.1)}
   .winner.visible{display:block}.winner .trophy{font-size:48px}
   .winner h2{font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;margin-top:6px}
@@ -22,23 +24,26 @@
   .sc-name{font-family:'Playfair Display',serif;font-size:16px;color:#6b4c1e;font-weight:700}
   .sc-big{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#c8922a;line-height:1;margin:6px 0 2px}
   .sc-sub{font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
-  .sc-hints{font-size:12px;color:#8b6914;margin-top:6px}
+  .sc-dist{font-size:12px;color:#8b6914;margin-top:6px}
   .sc-progress{font-size:11px;color:#9a7d52;margin-top:6px}
   .sc-selfie{margin-top:10px}.sc-selfie img{width:100%;max-width:200px;border-radius:8px;border:2px solid #e0d6c4}
-  .badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600;letter-spacing:1px;margin-top:4px}
+  .badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600;margin-top:4px}
   .badge.waiting{background:#f0ebe0;color:#9a7d52}.badge.active{background:rgba(58,138,74,.1);color:#3a8a4a}.badge.done{background:rgba(200,146,42,.12);color:#8b6914}
   .detail{max-width:800px;margin:0 auto}
   .detail h2{font-family:'Playfair Display',serif;font-size:15px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
   .col-heads{display:grid;grid-template-columns:1fr 70px 70px;gap:6px;padding:4px 12px;font-size:9px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
   .col-heads span:not(:first-child){text-align:center}
   .loc-block{background:#fff;border:1px solid #e0d6c4;border-radius:8px;margin-bottom:10px;overflow:hidden}
-  .loc-head{padding:10px 12px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#6b4c1e;border-bottom:1px solid #e0d6c4;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:4px}
-  .loc-scores{font-family:'Share Tech Mono',monospace;font-size:11px;font-weight:400;color:#9a7d52}
-  .loc-hint-badge{font-size:10px;background:#f5f0e6;border:1px solid #e0d6c4;border-radius:4px;padding:1px 5px;color:#8b6914}
-  .q-row{display:grid;grid-template-columns:1fr 70px 70px;gap:6px;padding:7px 12px;border-bottom:1px solid #f0ebe0;font-size:12px;align-items:center}
+  .loc-head{padding:10px 12px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#6b4c1e;border-bottom:1px solid #e0d6c4;display:flex;justify-content:space-between}
+  .loc-scores{font-family:'Share Tech Mono',monospace;font-size:11px;color:#9a7d52}
+  .q-row{display:grid;grid-template-columns:1fr 70px 70px;gap:6px;padding:7px 12px;border-bottom:1px solid #f0ebe0;font-size:12px}
   .q-row:last-child{border-bottom:none}
   .q-label{color:#7a6040}.a-cell{text-align:center;font-weight:600}
   .a-cell.ok{color:#3a8a4a}.a-cell.fail{color:#b5342a}.a-cell.wait{color:#d0c8b8}
+  .admin{max-width:800px;margin:40px auto 0;padding-top:20px;border-top:2px dashed #e0d6c4;text-align:center}
+  .admin-title{font-size:12px;color:#9a7d52;margin-bottom:10px}
+  .admin-btn{background:#b5342a;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-family:'Share Tech Mono',monospace;font-size:12px;cursor:pointer}
+  #reset-msg{font-size:11px;color:#3a8a4a;margin-top:6px}
   @media(max-width:480px){.scores{grid-template-columns:1fr}.q-row,.col-heads{grid-template-columns:1fr 55px 55px}}
 </style>
 </head>
@@ -47,23 +52,22 @@
   <h1>🏛️ Kulturdag — Scoreboard</h1>
   <p>Auning Byvandring — 12. september 2026</p>
   <div class="update-info">Opdaterer hvert <span>5 sek.</span> · <span id="ts">—</span></div>
+  <div class="conn-status" id="conn"></div>
 </header>
 <div class="winner" id="winner"><div class="trophy">🏆</div><h2 id="wt">—</h2><p id="ws">—</p></div>
 <div class="scores">
-  <div class="score-card team-a"><div class="sc-name">Hold A</div><div class="sc-big" id="sa">—</div><div class="sc-sub">rigtige svar</div><div class="sc-hints" id="ha">🔍 0 hints</div><div class="sc-progress" id="pa">Venter...</div><span class="badge waiting" id="ba">Venter</span><div class="sc-selfie" id="selfie-a"></div></div>
-  <div class="score-card team-b"><div class="sc-name">Hold B</div><div class="sc-big" id="sb2">—</div><div class="sc-sub">rigtige svar</div><div class="sc-hints" id="hb">🔍 0 hints</div><div class="sc-progress" id="pb">Venter...</div><span class="badge waiting" id="bb">Venter</span><div class="sc-selfie" id="selfie-b"></div></div>
+  <div class="score-card team-a"><div class="sc-name">Hold A</div><div class="sc-big" id="sa">—</div><div class="sc-sub">rigtige svar</div><div class="sc-dist" id="da">📍 0 m gået</div><div class="sc-progress" id="pa">Venter...</div><span class="badge waiting" id="ba">Venter</span><div class="sc-selfie" id="selfie-a"></div></div>
+  <div class="score-card team-b"><div class="sc-name">Hold B</div><div class="sc-big" id="sb2">—</div><div class="sc-sub">rigtige svar</div><div class="sc-dist" id="db">📍 0 m gået</div><div class="sc-progress" id="pb">Venter...</div><span class="badge waiting" id="bb">Venter</span><div class="sc-selfie" id="selfie-b"></div></div>
 </div>
 <div class="detail"><h2>Detaljer per punkt</h2>
   <div class="col-heads"><span>Spørgsmål</span><span>Hold A</span><span>Hold B</span></div>
   <div id="details"></div>
 </div>
-<div style="max-width:800px;margin:40px auto 0;padding-top:20px;border-top:2px dashed #e0d6c4;text-align:center">
-  <div style="font-family:'Playfair Display',serif;font-size:14px;color:#9a7d52;margin-bottom:12px">Admin</div>
-  <button onclick="resetSupabase()" style="background:#b5342a;color:#fff;border:none;border-radius:8px;padding:12px 24px;font-family:'Share Tech Mono',monospace;font-size:13px;cursor:pointer;letter-spacing:1px">🗑 Nulstil ALLE data i Supabase</button>
-  <div id="reset-msg" style="font-size:12px;color:#3a8a4a;margin-top:8px"></div>
-</div>
+<div class="admin"><div class="admin-title">Admin</div><button class="admin-btn" onclick="resetAll()">🗑 Nulstil ALLE data</button><div id="reset-msg"></div></div>
+
+<script src="config.js"></script>
 <script>
-const C={supabaseUrl:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',supabaseKey:typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',eventId:'auning-2026',
+const C={url:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',key:typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',ev:'auning-2026',
   locs:[
     {id:1,n:'Skydebanen',qs:['Jagtforening stiftet?','Areal m/ hvem?','Indtægtskilde?']},
     {id:2,n:'Det gamle Hospital',qs:['Oprindelse?','Hvem indrettede?','Antal år?']},
@@ -71,60 +75,77 @@ const C={supabaseUrl:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',supabaseK
     {id:4,n:'Kartoffelmelsfabrikken',qs:['Årstal?','Bruges til?','Dampfløjte?']},
     {id:5,n:'Auning Savværk',qs:['Hvem etablerede?','Medarbejdere?','Lukket?']},
     {id:6,n:'Auning Station',qs:['Årstal?','Arkitekt?','Godstransport?']},
-    {id:7,n:'Minigolfbanen',qs:['Åbnede?','Antal baner?','Sidste hul?']}
-  ]};
-let ans=[],hnt=[],selfies=[];
-async function poll(){if(!C.supabaseUrl)return rd([],[]);try{const h={apikey:C.supabaseKey,Authorization:'Bearer '+C.supabaseKey};const[a,b,s]=await Promise.all([fetch(C.supabaseUrl+'/rest/v1/answers?event_id=eq.'+C.eventId+'&order=answered_at.asc',{headers:h}),fetch(C.supabaseUrl+'/rest/v1/hints?event_id=eq.'+C.eventId,{headers:h}),fetch(C.supabaseUrl+'/rest/v1/selfies?event_id=eq.'+C.eventId,{headers:h})]);ans=await a.json();hnt=await b.json();selfies=await s.json();document.getElementById('ts').textContent=new Date().toLocaleTimeString('da-DK');render()}catch(e){}}
+    {id:7,n:'Minigolfbanen',qs:['Åbnede?','Antal baner?','Sidste hul?']}]};
+let ans=[],selfies=[],progress=[];
+const h=()=>({apikey:C.key,Authorization:'Bearer '+C.key});
+
+async function poll(){
+  if(!C.url){conn('Supabase ikke konfigureret','err');return rd([])}
+  try{
+    const [a,s,p]=await Promise.all([
+      fetch(C.url+'/rest/v1/answers?event_id=eq.'+C.ev+'&order=answered_at.asc',{headers:h()}),
+      fetch(C.url+'/rest/v1/selfies?event_id=eq.'+C.ev,{headers:h()}),
+      fetch(C.url+'/rest/v1/progress?event_id=eq.'+C.ev+'&order=updated_at.desc',{headers:h()})
+    ]);
+    if(!a.ok)throw new Error('HTTP '+a.status);
+    ans=await a.json();selfies=await s.json();progress=await p.json();
+    document.getElementById('ts').textContent=new Date().toLocaleTimeString('da-DK');
+    conn('Forbundet ✓','ok');render();
+  }catch(e){conn('Fejl: '+e.message,'err')}
+}
+function conn(t,c){const el=document.getElementById('conn');el.textContent=t;el.className='conn-status '+c}
+
 function render(){
   const tA=ans.filter(a=>a.team_id==='a'),tB=ans.filter(a=>a.team_id==='b');
   const cA=tA.filter(a=>a.is_correct).length,cB=tB.filter(a=>a.is_correct).length;
-  const hA=hnt.filter(h=>h.team_id==='a').length,hB=hnt.filter(h=>h.team_id==='b').length;
   const T=21;
   document.getElementById('sa').textContent=cA;document.getElementById('sb2').textContent=cB;
-  document.getElementById('ha').textContent='🔍 '+hA+' hint'+(hA!==1?'s':'');
-  document.getElementById('hb').textContent='🔍 '+hB+' hint'+(hB!==1?'s':'');
-  sc('a',tA.length,cA,T);sc('b',tB.length,cB,T);
+  // Distance
+  const pA=progress.find(p=>p.team_id==='a'),pB=progress.find(p=>p.team_id==='b');
+  const dA=pA?pA.distance_meters:0,dB=pB?pB.distance_meters:0;
+  document.getElementById('da').textContent='📍 '+(dA>=1000?(dA/1000).toFixed(1)+' km':dA+' m')+' gået';
+  document.getElementById('db').textContent='📍 '+(dB>=1000?(dB/1000).toFixed(1)+' km':dB+' m')+' gået';
+  sc('a',tA.length,cA,T,pA);sc('b',tB.length,cB,T,pB);
   // Selfies
   const sA=selfies.find(s=>s.team_id==='a'),sB=selfies.find(s=>s.team_id==='b');
-  document.getElementById('selfie-a').innerHTML=sA?'<img src="'+sA.photo_data+'" alt="Hold A">':'';
-  document.getElementById('selfie-b').innerHTML=sB?'<img src="'+sB.photo_data+'" alt="Hold B">':'';
+  document.getElementById('selfie-a').innerHTML=sA?'<img src="'+sA.photo_data+'">':'';
+  document.getElementById('selfie-b').innerHTML=sB?'<img src="'+sB.photo_data+'">':'';
   // Winner
   const w=document.getElementById('winner');
   if(tA.length>=T&&tB.length>=T){w.classList.add('visible');
-    if(cA>cB)wt('🎉 Hold A vinder!',cA+' mod '+cB+' (hints: '+hA+' vs '+hB+')');
-    else if(cB>cA)wt('🎉 Hold B vinder!',cB+' mod '+cA+' (hints: '+hB+' vs '+hA+')');
-    else if(hA<hB)wt('🎉 Hold A vinder!','Uafgjort '+cA+'-'+cB+' — færre hints ('+hA+' vs '+hB+')');
-    else if(hB<hA)wt('🎉 Hold B vinder!','Uafgjort — færre hints ('+hB+' vs '+hA+')');
-    else wt('🤝 Uafgjort!',cA+' rigtige, '+hA+' hints begge');
+    if(cA>cB)wt('🎉 Hold A vinder!',cA+' mod '+cB+' rigtige');
+    else if(cB>cA)wt('🎉 Hold B vinder!',cB+' mod '+cA+' rigtige');
+    else wt('🤝 Uafgjort!',cA+' rigtige begge');
   }else w.classList.remove('visible');
-  rd(ans,hnt);
+  rd(ans);
 }
 function wt(t,s){document.getElementById('wt').textContent=t;document.getElementById('ws').textContent=s}
-function sc(t,a,c,T){const l=new Set(ans.filter(x=>x.team_id===t).map(x=>x.location_id)).size;const p=document.getElementById('p'+t),b=document.getElementById('b'+t);if(a===0){p.textContent='Venter...';b.textContent='Venter';b.className='badge waiting'}else if(a>=T){p.textContent='Færdig! '+l+'/7';b.textContent='Færdig';b.className='badge done'}else{p.textContent=l+'/7 besøgt';b.textContent='I gang';b.className='badge active'}}
-function rd(answers,hints){
-  const lk={},hlk={};answers.forEach(a=>lk[a.team_id+'-'+a.location_id+'-'+a.question_index]=a.is_correct);hints.forEach(h=>hlk[h.team_id+'-'+h.location_id]=true);
+function sc(t,a,c,T,prog){
+  const locs=new Set(ans.filter(x=>x.team_id===t).map(x=>x.location_id)).size;
+  const stopNum=prog?prog.current_stop:0;
+  const p=document.getElementById('p'+t),b=document.getElementById('b'+t);
+  if(a===0){p.textContent='Venter...';b.textContent='Venter';b.className='badge waiting'}
+  else if(a>=T){p.textContent='Færdig! Alle 7 punkter';b.textContent='Færdig';b.className='badge done'}
+  else{p.textContent='Ved punkt '+(stopNum+1)+' ('+locs+'/7 besvaret)';b.textContent='I gang';b.className='badge active'}
+}
+function rd(answers){
+  const lk={};answers.forEach(a=>lk[a.team_id+'-'+a.location_id+'-'+a.question_index]=a.is_correct);
   const d=document.getElementById('details');d.innerHTML='';
   C.locs.forEach(l=>{const cA=[0,1,2].filter(i=>lk['a-'+l.id+'-'+i]===true).length,cB=[0,1,2].filter(i=>lk['b-'+l.id+'-'+i]===true).length;
-    const bA=hlk['a-'+l.id]?'<span class="loc-hint-badge">🔍A</span>':'',bB=hlk['b-'+l.id]?'<span class="loc-hint-badge">🔍B</span>':'';
-    d.innerHTML+=`<div class="loc-block"><div class="loc-head"><span>${l.n} ${bA}${bB}</span><span class="loc-scores">A:${cA}/3 B:${cB}/3</span></div>${l.qs.map((q,i)=>{const a=lk['a-'+l.id+'-'+i],b=lk['b-'+l.id+'-'+i];return`<div class="q-row"><span class="q-label">${q}</span><span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'✓':a===false?'✗':'—'}</span><span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'✓':b===false?'✗':'—'}</span></div>`}).join('')}</div>`;
-  });
+    d.innerHTML+=`<div class="loc-block"><div class="loc-head"><span>${l.n}</span><span class="loc-scores">A:${cA}/3 B:${cB}/3</span></div>${l.qs.map((q,i)=>{const a=lk['a-'+l.id+'-'+i],b=lk['b-'+l.id+'-'+i];return`<div class="q-row"><span class="q-label">${q}</span><span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'✓':a===false?'✗':'—'}</span><span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'✓':b===false?'✗':'—'}</span></div>`}).join('')}</div>`});
 }
-rd([],[]);if(C.supabaseUrl){poll();setInterval(poll,5000)}
 
-async function resetSupabase(){
-  if(!confirm('Er du sikker? Dette sletter ALLE svar, hints, selfies og completions for dette event.'))return;
-  if(!C.supabaseUrl){document.getElementById('reset-msg').textContent='Supabase ikke konfigureret';return}
-  const h={'Content-Type':'application/json',apikey:C.supabaseKey,Authorization:'Bearer '+C.supabaseKey};
-  const ev='event_id=eq.'+C.eventId;
+async function resetAll(){
+  if(!confirm('Slet ALLE data for dette event?'))return;
+  const hd={'Content-Type':'application/json',...h()};const q='event_id=eq.'+C.ev;
   try{
-    await fetch(C.supabaseUrl+'/rest/v1/answers?'+ev,{method:'DELETE',headers:h});
-    await fetch(C.supabaseUrl+'/rest/v1/hints?'+ev,{method:'DELETE',headers:h});
-    await fetch(C.supabaseUrl+'/rest/v1/selfies?'+ev,{method:'DELETE',headers:h});
-    await fetch(C.supabaseUrl+'/rest/v1/completions?'+ev,{method:'DELETE',headers:h});
-    document.getElementById('reset-msg').textContent='✓ Alt data slettet! Holdene skal åbne: quiz.html?hold=a&reset=1';
-    ans=[];hnt=[];selfies=[];render();
+    await Promise.all(['answers','selfies','completions','progress'].map(t=>fetch(C.url+'/rest/v1/'+t+'?'+q,{method:'DELETE',headers:hd})));
+    document.getElementById('reset-msg').textContent='✓ Slettet! Holdene nulstiller med ?reset=1';
+    ans=[];selfies=[];progress=[];render();
   }catch(e){document.getElementById('reset-msg').textContent='Fejl: '+e.message}
 }
+
+rd([]);if(C.url){poll();setInterval(poll,5000)}
 </script>
 </body>
 </html>
