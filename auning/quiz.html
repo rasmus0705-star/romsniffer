@@ -277,6 +277,8 @@ function onPos(pos){
   if(!userMarker){const ui=L.divIcon({className:'',html:'<div style="background:#3a8a4a;border:3px solid #fff;border-radius:50%;width:16px;height:16px;box-shadow:0 0 6px rgba(58,138,74,.5)"></div>',iconSize:[16,16],iconAnchor:[8,8]});userMarker=L.marker([userPos.lat,userPos.lng],{icon:ui,zIndexOffset:1000}).addTo(map)}else{userMarker.setLatLng([userPos.lat,userPos.lng])}
   if(destMarker)map.fitBounds(L.latLngBounds([userPos,destMarker.getLatLng()]),{padding:[40,40],maxZoom:17});
   updateDist();
+  // Log position every 10 sec
+  const now=Date.now();if(!onPos._last||now-onPos._last>10000){onPos._last=now;sendPosition()}
 }
 function onErr(e){if(e.code===1)setGps('⚠ GPS nægtet — tillad placering');else if(e.code===3)setGps('⚠ GPS timeout — gå udenfor');else setGps('⚠ GPS fejl')}
 
@@ -373,6 +375,7 @@ const SB=()=>({url:CONFIG.supabaseUrl,key:CONFIG.supabaseKey,ok:!!CONFIG.supabas
 function sbHeaders(){return{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'}}
 async function sendAnswer(d){const s=SB();if(!s.ok)return;try{const r=await fetch(s.url+'/rest/v1/answers',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,location_id:d.locationId,question_index:d.questionIndex,selected_option:d.selectedOption,is_correct:d.correct,answered_at:new Date().toISOString()})});if(!r.ok)showSbErr('Svar ikke sendt: '+r.status)}catch(e){showSbErr('Netværksfejl ved svar')}}
 async function sendProgress(){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/progress',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,current_stop:stopIndex,distance_meters:Math.round(distanceWalked),updated_at:new Date().toISOString()})})}catch(e){}}
+async function sendPosition(){if(!userPos)return;const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/positions',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,lat:userPos.lat,lng:userPos.lng,distance_meters:Math.round(distanceWalked),recorded_at:new Date().toISOString()})})}catch(e){}}
 async function sendCompletion(){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/completions',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,total_correct:totalCorrect,total_questions:TOTAL_Q,distance_meters:Math.round(distanceWalked),completed_at:new Date().toISOString()})})}catch(e){}}
 async function uploadSelfie(dataUrl){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/selfies',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,photo_data:dataUrl,taken_at:new Date().toISOString()})})}catch(e){}}
 function showSbErr(msg){const el=document.getElementById('sb-status');el.textContent='⚠ '+msg;el.className='supabase-status error';setTimeout(()=>{el.className='supabase-status'},5000)}
