@@ -119,6 +119,15 @@
 </head>
 <body>
 
+<!-- IN-APP BROWSER WARNING -->
+<div id="inapp-warn" style="display:none;position:fixed;inset:0;background:#f5f0e6;z-index:30000;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:1rem">
+  <div style="font-size:48px">⚠️</div>
+  <div style="font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;font-weight:700">Åbn i din browser</div>
+  <div style="font-size:14px;color:#7a6040;line-height:1.6;max-width:300px">GPS virker ikke i Messenger/Facebook-browseren.<br><br>Tryk på de <strong>tre prikker ⋯</strong> øverst til højre og vælg <strong>"Åbn i browser"</strong> eller <strong>"Åbn i Chrome/Safari"</strong>.</div>
+  <div style="font-size:13px;color:#9a7d52;margin-top:8px">Eller kopiér linket og åbn det selv:</div>
+  <input id="copy-url" readonly style="width:100%;max-width:300px;padding:10px;border:2px solid #c8a050;border-radius:8px;font-family:'Share Tech Mono',monospace;font-size:11px;color:#5a3a1a;background:#fff;text-align:center" onclick="this.select();document.execCommand('copy')">
+</div>
+
 <div id="splash" onclick="startGame()">
   <div class="splash-icon">🏛️</div>
   <div class="splash-title">Kulturdag</div>
@@ -188,6 +197,17 @@
 
 <script src="config.js"></script>
 <script>
+// Detect in-app browsers (Messenger, Facebook, Instagram)
+(function(){
+  const ua=navigator.userAgent||'';
+  if(/FBAN|FBAV|Instagram|Messenger|FB_IAB|FBIOS/i.test(ua)){
+    document.getElementById('inapp-warn').style.display='flex';
+    document.getElementById('copy-url').value=location.href;
+    document.getElementById('splash').style.display='none';
+    return;
+  }
+})();
+
 const CONFIG = {
   supabaseUrl: typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',
   supabaseKey: typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',
