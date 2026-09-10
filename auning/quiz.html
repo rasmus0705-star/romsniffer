@@ -12,7 +12,10 @@
   html{overflow-x:hidden;overscroll-behavior:none}
   body{background:#f5f0e6;min-height:100dvh;font-family:'Share Tech Mono',monospace;color:#3d2a12;overflow-x:hidden;touch-action:manipulation}
 
+  /* ── INAPP WARNING ── */
   #inapp-warn{display:none;position:fixed;inset:0;background:#f5f0e6;z-index:30000;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:1rem}
+
+  /* ── SPLASH ── */
   #splash{position:fixed;inset:0;background:linear-gradient(170deg,#f5f0e6,#e8dcc8);z-index:20000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;padding:2rem;transition:opacity .6s}
   #splash.hiding{opacity:0;pointer-events:none}
   .splash-icon{font-size:56px}
@@ -20,20 +23,25 @@
   .splash-date{font-family:'Playfair Display',serif;font-size:16px;color:#8b6914;letter-spacing:2px}
   .splash-sub{font-size:12px;color:#9a7d52;letter-spacing:3px;text-transform:uppercase}
   .splash-team{display:inline-block;padding:8px 24px;border-radius:6px;font-family:'Playfair Display',serif;font-size:18px;font-weight:700;letter-spacing:3px;text-transform:uppercase}
-  .splash-team.team-a{background:#8b1a2b;color:#fff}.splash-team.team-b{background:#1a3a6b;color:#fff}
+  .splash-team.team-a{background:#8b1a2b;color:#fff}
+  .splash-team.team-b{background:#1a3a6b;color:#fff}
   .splash-msg{font-family:'Playfair Display',serif;font-size:clamp(13px,3.5vw,16px);color:#7a6040;text-align:center;font-style:italic;line-height:1.8;max-width:300px}
   .splash-msg strong{color:#5a3a1a;font-style:normal}
   .splash-btn{font-family:'Share Tech Mono',monospace;font-size:clamp(15px,4vw,18px);color:#fff;background:#6b4c1e;border:none;border-radius:10px;padding:16px 40px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;box-shadow:0 4px 16px rgba(107,76,30,.3);animation:pulse 1.5s ease-in-out infinite;min-height:52px}
   @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
 
+  /* ── HEADER ── */
   .header{background:#fff;border-bottom:2px solid #c8a050;padding:8px 1rem;text-align:center;position:sticky;top:0;z-index:1000;box-shadow:0 2px 12px rgba(107,76,30,.1)}
   .header-title{font-family:'Playfair Display',serif;font-size:14px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
   .header-team{font-size:11px;color:#9a7d52;letter-spacing:2px}
 
-  .progress-strip{display:flex;gap:4px;padding:8px 12px;justify-content:center;background:#f5f0e6}
-  .pdot{width:24px;height:7px;border-radius:4px;background:#e0d6c4;transition:all .4s}
-  .pdot.done{background:#3a8a4a}.pdot.active{background:#c8922a}
+  /* ── PROGRESS ── */
+  .progress-strip{display:flex;gap:3px;padding:8px 10px;justify-content:center;background:#f5f0e6}
+  .pdot{width:20px;height:7px;border-radius:4px;background:#e0d6c4;transition:all .4s}
+  .pdot.done{background:#3a8a4a}
+  .pdot.active{background:#c8922a}
 
+  /* ── MAP ── */
   #map{width:100%;height:38dvh;min-height:200px;max-height:340px;border-bottom:2px solid #c8a050}
   .leaflet-container{background:#e8dcc8}
   .gps-status{font-size:11px;color:#9a7d52;letter-spacing:2px;text-align:center;padding:6px;background:#fff}
@@ -41,6 +49,7 @@
   .supabase-status{font-size:10px;text-align:center;padding:2px;display:none}
   .supabase-status.error{display:block;color:#b5342a;background:rgba(181,52,42,.06)}
 
+  /* ── DISTANCE ── */
   .dist-bar{text-align:center;padding:16px;background:#fff;border-bottom:1px solid #e8dcc8}
   .dist-num{font-family:'Playfair Display',serif;font-size:clamp(38px,11vw,56px);color:#6b4c1e;letter-spacing:4px;transition:color .3s}
   .dist-num.near{color:#3a8a4a}
@@ -48,29 +57,38 @@
   .arrived{display:none;text-align:center;padding:12px;font-size:15px;color:#3a8a4a;font-weight:700;letter-spacing:2px;text-transform:uppercase;background:rgba(58,138,74,.08);border-top:2px solid rgba(58,138,74,.2);border-bottom:2px solid rgba(58,138,74,.2)}
   .arrived.visible{display:block}
 
+  /* ── IMAGES ── */
   .loc-image-wrap{display:none;text-align:center;padding:16px 16px 0;background:#fff}
   .loc-image-wrap.visible{display:block}
+  .loc-images{display:flex;flex-direction:column;gap:10px;align-items:center}
   .loc-image{max-width:100%;max-height:200px;border-radius:10px;border:2px solid #e0d6c4;object-fit:cover}
-  .loc-image-caption{font-family:'Playfair Display',serif;font-size:13px;color:#7a6040;font-style:italic;margin-top:6px}
+  .loc-image-caption{font-family:'Playfair Display',serif;font-size:12px;color:#7a6040;font-style:italic;margin-top:2px}
   .show-q-btn{background:#6b4c1e;color:#fff;border:none;border-radius:10px;padding:14px 28px;font-family:'Share Tech Mono',monospace;font-size:14px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;margin:16px 0 40px;min-height:48px;display:inline-block}
 
-  .content{padding:14px;padding-bottom:80px;display:none}.content.visible{display:block}
+  /* ── CONTENT ── */
+  .content{padding:14px;padding-bottom:80px;display:none}
+  .content.visible{display:block}
   .location-card{background:#fff;border:1px solid #e0d6c4;border-radius:10px;padding:16px;margin-bottom:12px;border-left:4px solid #c8922a;box-shadow:0 2px 8px rgba(0,0,0,.04)}
   .loc-num{font-size:11px;color:#c8922a;letter-spacing:4px;text-transform:uppercase;margin-bottom:4px}
   .loc-name{font-family:'Playfair Display',serif;font-size:clamp(18px,5vw,24px);font-weight:700;color:#3d2a12;line-height:1.2}
   .loc-desc{font-size:13px;color:#7a6040;margin-top:4px}
 
+  /* ── QUESTIONS ── */
   .question-card{background:#fff;border:1px solid #e0d6c4;border-radius:10px;padding:16px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,.03)}
   .q-badge{display:inline-block;background:#f5f0e6;border:1px solid #e0d6c4;border-radius:4px;padding:2px 8px;font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
   .q-text{font-family:'Playfair Display',serif;font-size:clamp(14px,3.8vw,17px);color:#3d2a12;line-height:1.5;margin-bottom:14px}
   .options{display:flex;flex-direction:column;gap:8px}
   .opt-btn{background:#f9f6f0;border:2px solid #e0d6c4;border-radius:10px;padding:14px;font-family:'Share Tech Mono',monospace;font-size:14px;color:#5a3a1a;cursor:pointer;text-align:left;min-height:48px;line-height:1.3;transition:all .15s}
   .opt-btn:active:not(.disabled){transform:scale(.98)}
-  .opt-btn.correct{border-color:#3a8a4a;color:#3a8a4a;background:rgba(58,138,74,.08)}.opt-btn.correct::after{content:' ✓'}
-  .opt-btn.wrong{border-color:#b5342a;color:#b5342a;background:rgba(181,52,42,.05);opacity:.6}.opt-btn.wrong.chosen::after{content:' ✗'}
+  .opt-btn.correct{border-color:#3a8a4a;color:#3a8a4a;background:rgba(58,138,74,.08)}
+  .opt-btn.correct::after{content:' ✓'}
+  .opt-btn.wrong{border-color:#b5342a;color:#b5342a;background:rgba(181,52,42,.05);opacity:.6}
+  .opt-btn.wrong.chosen::after{content:' ✗'}
   .opt-btn.disabled{pointer-events:none}
 
-  .selfie-wrap{display:none;text-align:center;padding:24px 16px;background:#fff}.selfie-wrap.visible{display:block}
+  /* ── SELFIE ── */
+  .selfie-wrap{display:none;text-align:center;padding:24px 16px;background:#fff}
+  .selfie-wrap.visible{display:block}
   .selfie-title{font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;margin-bottom:8px}
   .selfie-desc{font-size:13px;color:#7a6040;margin-bottom:16px}
   .selfie-preview{max-width:100%;max-height:240px;border-radius:10px;border:2px solid #e0d6c4;display:none;margin:12px auto}
@@ -78,6 +96,7 @@
   .selfie-skip{background:none;border:1px solid #c8a050;border-radius:8px;padding:10px 20px;font-family:'Share Tech Mono',monospace;font-size:13px;color:#9a7d52;cursor:pointer;margin-top:12px}
   #selfie-input{display:none}
 
+  /* ── FINISH ── */
   #finish{display:none;min-height:100dvh;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;background:#f5f0e6}
   #finish.active{display:flex}
   .finish-icon{font-size:64px;margin-bottom:8px}
@@ -87,10 +106,13 @@
   .finish-return{background:#fff;border:1px solid #e0d6c4;border-radius:12px;padding:20px;margin-top:24px;max-width:300px;font-size:15px;line-height:1.5}
   .finish-return strong{color:#6b4c1e}
 
+  /* ── STATUS BAR ── */
   .status-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #c8a050;padding:10px 16px;display:none;justify-content:space-between;font-size:13px;z-index:10;box-shadow:0 -2px 12px rgba(107,76,30,.08)}
   .status-bar.visible{display:flex}
-  .sb-score{color:#6b4c1e;font-weight:700}.sb-loc{color:#9a7d52}
+  .sb-score{color:#6b4c1e;font-weight:700}
+  .sb-loc{color:#9a7d52}
 
+  /* ── NEWSPAPER ── */
   #newspaper{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);align-items:center;justify-content:center;padding:20px}
   #newspaper.show{display:flex}
   .np-paper{background:#f4e8c8;border-radius:4px;max-width:360px;width:100%;padding:28px 24px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,.5);transform:scale(.8) rotate(-2deg);opacity:0;transition:all .6s;position:relative;overflow:hidden}
@@ -106,7 +128,7 @@
 </head>
 <body>
 
-<div id="inapp-warn" style="display:none;position:fixed;inset:0;background:#f5f0e6;z-index:30000;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;gap:1rem">
+<div id="inapp-warn">
   <div style="font-size:48px">⚠️</div>
   <div style="font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;font-weight:700">Åbn i din browser</div>
   <div style="font-size:14px;color:#7a6040;line-height:1.6;max-width:300px">GPS virker ikke i Messenger.<br><br>Tryk <strong>⋯</strong> øverst og vælg <strong>"Åbn i browser"</strong>.</div>
@@ -119,7 +141,7 @@
   <div class="splash-date">d. 12/9-2026</div>
   <div class="splash-sub">— Historisk Byvandring i Auning —</div>
   <div class="splash-team" id="splash-team"></div>
-  <div class="splash-msg">Gå til <strong>7 historiske steder</strong> og besvar spørgsmål om byens historie.<br><br>Spørgsmålene låses op når I er tæt på.</div>
+  <div class="splash-msg">Gå til <strong>9 historiske steder</strong> og besvar spørgsmål om byens historie.<br><br>Spørgsmålene låses op når I er tæt på.</div>
   <button class="splash-btn" onclick="startGame()">▶   START TUREN</button>
 </div>
 
@@ -132,8 +154,7 @@
   <div class="dist-bar" id="dist-bar"><div class="dist-num" id="dist-num">—</div><div class="dist-label">meter til næste punkt</div></div>
   <div class="arrived" id="arrived-msg">✦ I er fremme! ✦</div>
   <div class="loc-image-wrap" id="loc-image-wrap">
-    <img class="loc-image" id="loc-image" src="" alt="">
-    <div class="loc-image-caption" id="loc-image-caption"></div>
+    <div class="loc-images" id="loc-images"></div>
     <button class="show-q-btn" onclick="showQuestions()">Se spørgsmålene →</button>
   </div>
   <div class="selfie-wrap" id="selfie-wrap">
@@ -148,71 +169,108 @@
 </div>
 
 <div id="finish"><div class="finish-icon">🏆</div><div class="finish-title">Turen er færdig!</div><div class="finish-score" id="finish-score">0</div><div class="finish-label" id="finish-label"></div><div class="finish-return"><strong>Godt gået!</strong><br>Resultatet er registreret.</div></div>
-
-<div class="status-bar" id="status-bar"><span class="sb-score">⭐ <span id="sb-score">0</span> rigtige</span><span class="sb-loc">📍 <span id="sb-loc">1</span> / <span id="sb-total">8</span></span></div>
-
+<div class="status-bar" id="status-bar"><span class="sb-score">⭐ <span id="sb-score">0</span> rigtige</span><span class="sb-loc">📍 <span id="sb-loc">1</span> / <span id="sb-total">10</span></span></div>
 <div id="newspaper"><div class="np-paper" id="np-paper"><div class="np-header">Auning Avis</div><div class="np-date" id="np-date"></div><div class="np-divider"></div><div class="np-headline" id="np-headline"></div><div class="np-sub" id="np-sub"></div><div class="np-divider"></div><button class="np-btn" id="np-btn" onclick="dismissNewspaper()">Videre →</button></div></div>
 
 <script src="config.js"></script>
 <script>
-// In-app browser detect
+// In-app detect
 (function(){const u=navigator.userAgent||'';if(/FBAN|FBAV|Instagram|Messenger|FB_IAB/i.test(u)){document.getElementById('inapp-warn').style.display='flex';document.getElementById('copy-url').value=location.href;document.getElementById('splash').style.display='none'}})();
-// Reset param
 const params=new URLSearchParams(location.search);
-if(params.get('reset')){localStorage.removeItem('auning_auning-2026_a');localStorage.removeItem('auning_auning-2026_b');history.replaceState(null,'',location.pathname+'?hold='+(params.get('hold')||'a'))}
+if(params.get('reset')){localStorage.removeItem('auning_auning-2026_a');localStorage.removeItem('auning_auning-2026_b');localStorage.removeItem('auning_auning-2026_a_selfie');localStorage.removeItem('auning_auning-2026_b_selfie');history.replaceState(null,'',location.pathname+'?hold='+(params.get('hold')||'a'))}
 
 const CONFIG={
   supabaseUrl:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',
   supabaseKey:typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',
-  eventId:'auning-2026',unlockRadius:10,selfieAfterStop:3,
+  eventId:'auning-2026', unlockRadius:10, selfieAfterStop:4,
   teams:{
-    a:{name:'Hold A',cls:'team-a',order:[0,1,2,3,4,5,6,7]},
-    b:{name:'Hold B',cls:'team-b',order:[6,5,4,3,2,1,0,7]}
+    a:{name:'Hold A',cls:'team-a',order:[0,1,2,3,4,5,6,7,8,9]},
+    b:{name:'Hold B',cls:'team-b',order:[8,7,6,5,4,3,2,1,0,9]}
   },
   locations:[
-    {id:1,type:'quiz',name:'Skydebanen i Auning',desc:'Jagtforeningen og skydebanen',lat:56.43402321419301,lng:10.387257014578266,image:'',imageCaption:'',
+    // 0: Skydebanen
+    {id:1,type:'quiz',name:'Skydebanen i Auning',desc:'Jagtforeningen og skydebanen',
+      lat:56.43402321419301,lng:10.387257014578266,images:[],
       year:'1939',headline:'JAGTFORENING STIFTET MED 14 MAND!',newsSub:'Nye tider for byens jægere',
       questions:[
         {q:'Hvornår blev Auning Jagtforening stiftet?',opts:['A) 5. april 1929','B) 5. april 1939','C) 5. april 1949'],correct:1},
         {q:'Sammen med hvem købte jagtforeningen i 1946 et areal til skydebaner?',opts:['A) Auning Idrætsforening','B) Auning Skytteforening','C) Hjemmeværnet'],correct:1},
         {q:'Hvad var jagtforeningens indtægtskilde i 1960\'erne og frem til 1976?',opts:['A) Tombola på markedsdage','B) Kroballer på Auning Kro','C) Loppemarkeder i idrætshallen'],correct:1}]},
-    {id:2,type:'quiz',name:'Det gamle Hospital (Kirkeladen)',desc:'Fra kirkelade til godshospital for fattige',lat:56.43337348622735,lng:10.377203982134889,image:'img/hospital.jpg',imageCaption:'Kirkeladen — det gamle hospital',
+    // 1: Pølsekrigen (NY)
+    {id:9,type:'quiz',name:'Pølsevognskrigen i Auning',desc:'I 1992 opstod der en større strid om Aunings pølsevogn',
+      lat:56.43330381777415,lng:10.382110632311788,
+      images:[{src:'img/poelse.jpg',caption:'Aunings pølsevogn er tilbage igen'}],
+      year:'1992',headline:'PØLSEKRIG I AUNING!',newsSub:'Strid om byens pølsevogn trækker overskrifter',
+      questions:[
+        {q:'Hvorfor opstod der i 1992 konflikt omkring pølsevognen i Auning?',opts:['A) Bente Hansen nægtede at sælge pølser','B) Kommunen forbød salg af Cocio','C) Handelsudvalget ville drive pølsevognen uden at betale leje','D) Auning Cafeteria ville købe pølsevognen'],correct:2},
+        {q:'Hvad var Mogens blevet døbt i ungdomskredse, fordi hans familie drev pølsevogn?',opts:['A) Mogens Remoulade','B) Mogens Pølsekonge','C) Mogens Grillkongen','D) Mogens Pølsemester'],correct:1},
+        {q:'Hvorfor måtte pølsevognen, efter den var flyttet til Assentoft, til sidst lukke?',opts:['A) Der var ikke længere kunder nok','B) Kommunen krævede den flyttet igen','C) Ejeren solgte den til en anden pølsemand','D) En tandlæge fik friturerøg ind gennem sin udluftning'],correct:3}]},
+    // 2: Hospital
+    {id:2,type:'quiz',name:'Det gamle Hospital (Kirkeladen)',desc:'Fra kirkelade til godshospital for fattige',
+      lat:56.43337348622735,lng:10.377203982134889,
+      images:[{src:'img/hospital.jpg',caption:'Kirkeladen — det gamle hospital'}],
       year:'Ca. 1700',headline:'FATTIGE FÅR NØGLEN TIL KIRKELADEN',newsSub:'Godshospitalet åbner sine døre',
       questions:[
         {q:'Hvad var bygningen oprindeligt, før den blev hospital?',opts:['A) Et bryggeri','B) En kirkelade til tiendekorn','C) Et vagthus'],correct:1},
         {q:'Hvem lod huset indrette som "godshospital" for fattige?',opts:['A) Jørgen Skeel','B) Christen Scheel','C) Frederik VII'],correct:0},
         {q:'Hvor mange år fungerede huset som hjem for "ærlige fattige"?',opts:['A) Ca. 100 år','B) Ca. 200 år','C) Ca. 300 år'],correct:2}]},
-    {id:3,type:'quiz',name:'Den grafiske industri',desc:'Datagraf og de grafiske virksomheder i Auning',lat:56.42982255964975,lng:10.374707009106126,image:'img/bogbinder.jpg',imageCaption:'Den grafiske industri i Auning',
+    // 3: Grafisk
+    {id:3,type:'quiz',name:'Den grafiske industri',desc:'Datagraf og de grafiske virksomheder i Auning',
+      lat:56.42982255964975,lng:10.374707009106126,
+      images:[{src:'img/bogbinder.jpg',caption:'Den grafiske industri i Auning'}],
       year:'1986',headline:'NY GRAFISK GIGANT SER DAGENS LYS!',newsSub:'Datagraf slår dørene op i Auning',
       questions:[
         {q:'Hvilket år blev Datagraf grundlagt?',opts:['A) 1976','B) 1986','C) 1996'],correct:1},
         {q:'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?',opts:['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'],correct:0},
         {q:'Hvilken af disse var IKKE en grafisk virksomhed i Auning?',opts:['A) Djurs Tryk','B) Grafisk ID','C) Auning Finérværk'],correct:2}]},
-    {id:4,type:'quiz',name:'Kartoffelmelsfabrikken',desc:'Den gamle fabrik og dens rolle i byens dagligdag',lat:56.42735629518248,lng:10.376317870053443,image:'img/kartoffelmel.jpg',imageCaption:'Kartoffelmelsfabrikken',
+    // 4: Kartoffelmel
+    {id:4,type:'quiz',name:'Kartoffelmelsfabrikken',desc:'Den gamle fabrik og dens rolle i byens dagligdag',
+      lat:56.42735629518248,lng:10.376317870053443,
+      images:[{src:'img/kartoffelmel.jpg',caption:'Kartoffelmelsfabrikken'}],
       year:'1916',headline:'DAMPFLØJTEN KALDER TIL FROKOST!',newsSub:'Hele byen retter sig efter fabrikken',
       questions:[
         {q:'Hvilket år stammer fabriksbygningen fra?',opts:['A) 1901','B) 1916','C) 1930'],correct:1},
         {q:'Hvad bruges den tidligere kartoffelmelsfabrik til i dag?',opts:['A) Byggemarked','B) Magasiner for Landbrugsmuseet','C) Boliger'],correct:1},
         {q:'Sammen med hvilke to andre fabrikker markerede dampfløjten frokostpausen kl. 12?',opts:['A) Savværket og Madratsfabrikken','B) Mejeriet og Skaftefabrikken','C) Trædrejeriet og Finérværket'],correct:0}]},
-    {id:5,type:'quiz',name:'Auning Savværk',desc:'Savværket der var en hjørnesten i byens industri',lat:56.427439813850306,lng:10.378394535114554,image:'img/Savvaerk.jpg',imageCaption:'Auning Savværk',
+    // 5: Savværk
+    {id:5,type:'quiz',name:'Auning Savværk',desc:'Savværket der var en hjørnesten i byens industri',
+      lat:56.427439813850306,lng:10.378394535114554,
+      images:[{src:'img/savvaerk1.jpg',caption:'A/S Auning Savværk'},{src:'img/Savvaerk.jpg',caption:'Savværket'}],
       year:'1901',headline:'GREVENS SAVVÆRK ÅBNER!',newsSub:'Tømmer fra Løvenholmskovene forarbejdes i Auning',
       questions:[
         {q:'Hvem etablerede savværket i 1901?',opts:['A) Greve Jørgen Carl Scheel','B) Købmand F.C. Gerstrøm','C) Niels Chr. Jensen'],correct:0},
         {q:'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?',opts:['A) 18','B) 30','C) 44'],correct:2},
         {q:'Hvornår lukkede savværket endeligt?',opts:['A) 1980','B) 1990','C) 2000'],correct:1}]},
-    {id:6,type:'quiz',name:'Auning Station',desc:'Stationen på banen mellem Randers og Grenaa',lat:56.42925284166479,lng:10.37794075687635,image:'img/Station.jpg',imageCaption:'Auning Station',
+    // 6: Station
+    {id:6,type:'quiz',name:'Auning Station',desc:'Stationen på banen mellem Randers og Grenaa',
+      lat:56.42925284166479,lng:10.37794075687635,
+      images:[{src:'img/Station.jpg',caption:'Auning Station'}],
       year:'1876',headline:'TOGET ER ANKOMMET TIL AUNING!',newsSub:'Banen mellem Randers og Grenaa indvies',
       questions:[
         {q:'Hvilket år fik Auning en station på banen mellem Randers og Grenaa?',opts:['A) 1864','B) 1876','C) 1901'],correct:1},
         {q:'Hvilken arkitekt tegnede stationsbygningen?',opts:['A) Heinrich Wenck','B) Kaare Klint','C) Ivar Bentsen'],correct:0},
         {q:'Hvornår lukkede banen for godstransport?',opts:['A) 1971','B) 1985','C) 1992'],correct:2}]},
-    {id:7,type:'quiz',name:'Auning Minigolfbane',desc:'Den gamle minigolfbane ved Dyrbyvej',lat:56.42879698161574,lng:10.389834570121069,image:'',imageCaption:'',
+    // 7: Mejeri (NY)
+    {id:10,type:'quiz',name:'Auning Andelsmejeri',desc:'Mejeriet var mere end bare mælk og smør',
+      lat:56.42992486084601,lng:10.379351232858621,
+      images:[{src:'img/mejeri.jpg',caption:'Auning Andelsmejeri har sidste arbejdsdag'},{src:'img/mejeri1.jpg',caption:'Mejeribygningen'}],
+      year:'1904',headline:'BADEANSTALT ÅBNER PÅ MEJERIET!',newsSub:'Aunings borgere kan nu bade varmt',
+      questions:[
+        {q:'Hvad blev der oprettet på Auning Mejeri i 1904 efter ønske fra byens beboere?',opts:['A) En biograf','B) En badeanstalt','C) Et bibliotek','D) En frisørsalon'],correct:1},
+        {q:'Hvad producerede Auning Mejeri IKKE?',opts:['A) Smør','B) Kærnemælk','C) Flødeis','D) Ost'],correct:3},
+        {q:'Hvad kostede en almindelig vaniljeispind fra Auning Mejeri?',opts:['A) 5 øre','B) 10 øre','C) 15 øre','D) 25 øre'],correct:1}]},
+    // 8: Minigolf
+    {id:7,type:'quiz',name:'Auning Minigolfbane',desc:'Den gamle minigolfbane ved Dyrbyvej',
+      lat:56.42879698161574,lng:10.389834570121069,images:[],
       year:'1973',headline:'18 HULLER KLAR TIL AUNINGS BORGERE!',newsSub:'Minigolfbanen ved Dyrbyvej slår portene op',
       questions:[
         {q:'Hvilket år åbnede minigolfbanen i Auning?',opts:['A) 1963','B) 1973','C) 1983','D) 1993'],correct:1},
         {q:'Hvor mange baner skulle man igennem for en komplet runde?',opts:['A) 9','B) 12','C) 18','D) 27'],correct:2},
         {q:'Hvor endte bolden på sidste hul?',opts:['A) Den trillede tilbage til første hul','B) Den røg ned i en rist','C) Den landede i en vandbeholder','D) Den endte i en spand inde i kiosken'],correct:3}]},
-    {id:8,type:'finish',name:'Mål — Startstedet',desc:'I er fremme!',lat:56.43319975372264,lng:10.388640491788069,image:'',imageCaption:'',year:'2026',headline:'HOLDENE ER I MÅL!',newsSub:'Kulturdag 2026 — en historisk tur er fuldført',questions:[]}
+    // 9: MÅL
+    {id:99,type:'finish',name:'Mål — Startstedet',desc:'I er fremme!',
+      lat:56.43319975372264,lng:10.388640491788069,images:[],
+      year:'2026',headline:'HOLDENE ER I MÅL!',newsSub:'Kulturdag 2026 — en historisk tur er fuldført',questions:[]}
   ]
 };
 
@@ -230,9 +288,8 @@ const AC=new(window.AudioContext||window.webkitAudioContext)();
 
 function saveState(){try{localStorage.setItem(SAVE_KEY,JSON.stringify({stopIndex,totalCorrect,answeredQuestions,distanceWalked}))}catch(e){}}
 function restoreState(){try{const s=JSON.parse(localStorage.getItem(SAVE_KEY));if(!s)return;stopIndex=s.stopIndex||0;totalCorrect=s.totalCorrect||0;answeredQuestions=s.answeredQuestions||{};distanceWalked=s.distanceWalked||0}catch(e){}}
-function clearSave(){localStorage.removeItem(SAVE_KEY)}
+function clearSave(){localStorage.removeItem(SAVE_KEY);localStorage.removeItem(SAVE_KEY+'_selfie')}
 
-// Wake lock — re-acquire on release
 async function requestWakeLock(){try{wakeLock=await navigator.wakeLock.request('screen');wakeLock.addEventListener('release',()=>{wakeLock=null;requestWakeLock()})}catch(e){}}
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')requestWakeLock()});
 
@@ -249,7 +306,6 @@ function playUnlock(){const o=AC.createOscillator(),g=AC.createGain();o.connect(
 function playFanfare(){[261,329,392,523,659].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.connect(g);g.connect(AC.destination);o.type='sine';const t=AC.currentTime+i*.15;o.frequency.setValueAtTime(f,t);g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.18,t+.05);g.gain.exponentialRampToValueAtTime(.001,t+.7);o.start(t);o.stop(t+.75)})}
 function haversine(a,b,c,d){const R=6371000,dL=(c-a)*Math.PI/180,dG=(d-b)*Math.PI/180;const x=Math.sin(dL/2)**2+Math.cos(a*Math.PI/180)*Math.cos(c*Math.PI/180)*Math.sin(dG/2)**2;return R*2*Math.atan2(Math.sqrt(x),Math.sqrt(1-x))}
 
-// Start
 function startGame(){
   if(AC.state==='suspended')AC.resume();
   requestWakeLock();restoreState();
@@ -257,27 +313,27 @@ function startGame(){
   setTimeout(()=>{document.getElementById('splash').style.display='none'},600);
   document.getElementById('game').style.display='block';
   document.getElementById('status-bar').classList.add('visible');
-  initMap();startGPS();renderStop();
+  initMap();startGPS();
+  // Selfie first, unless already taken or resuming past stop 0
+  const selfieDone=localStorage.getItem(SAVE_KEY+'_selfie');
+  if(!selfieDone&&stopIndex===0){showSelfiePause()}
+  else{renderStop()}
 }
 
-// Map
 function initMap(){const l=getLoc();map=L.map('map',{zoomControl:true,attributionControl:false}).setView([l.lat,l.lng],16);L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(map);setDest(l)}
 function setDest(l){if(destMarker){map.removeLayer(destMarker);map.removeLayer(destCircle)}const ic=L.divIcon({className:'',html:'<div style="background:#fff;border:3px solid #c8922a;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:0 2px 8px rgba(0,0,0,.2)">'+(l.type==='finish'?'🏁':'📍')+'</div>',iconSize:[36,36],iconAnchor:[18,18]});destMarker=L.marker([l.lat,l.lng],{icon:ic}).addTo(map);destCircle=L.circle([l.lat,l.lng],{radius:CONFIG.unlockRadius,color:'#c8922a',fillColor:'#c8922a',fillOpacity:.06,weight:1.5}).addTo(map);map.setView([l.lat,l.lng],16)}
 
-// GPS
 function startGPS(){if(!navigator.geolocation){setGps('GPS ikke tilgængeligt');return}setGps('📍 Søger GPS-signal...');gpsWatchId=navigator.geolocation.watchPosition(onPos,onErr,{enableHighAccuracy:true,maximumAge:3000,timeout:20000})}
 function retryGPS(){if(gpsWatchId)navigator.geolocation.clearWatch(gpsWatchId);startGPS()}
 function setGps(t){document.getElementById('gps-status').innerHTML=t+'<button class="gps-retry" onclick="retryGPS()">Prøv igen</button>'}
 function onPos(pos){
   userPos={lat:pos.coords.latitude,lng:pos.coords.longitude};
-  // Track distance
   if(prevPos){const d=haversine(prevPos.lat,prevPos.lng,userPos.lat,userPos.lng);if(d>2&&d<100)distanceWalked+=d}
   prevPos={...userPos};
   setGps('📍 GPS aktiv — ±'+Math.round(pos.coords.accuracy)+'m');
   if(!userMarker){const ui=L.divIcon({className:'',html:'<div style="background:#3a8a4a;border:3px solid #fff;border-radius:50%;width:16px;height:16px;box-shadow:0 0 6px rgba(58,138,74,.5)"></div>',iconSize:[16,16],iconAnchor:[8,8]});userMarker=L.marker([userPos.lat,userPos.lng],{icon:ui,zIndexOffset:1000}).addTo(map)}else{userMarker.setLatLng([userPos.lat,userPos.lng])}
   if(destMarker)map.fitBounds(L.latLngBounds([userPos,destMarker.getLatLng()]),{padding:[40,40],maxZoom:17});
   updateDist();
-  // Log position every 10 sec
   const now=Date.now();if(!onPos._last||now-onPos._last>10000){onPos._last=now;sendPosition()}
 }
 function onErr(e){if(e.code===1)setGps('⚠ GPS nægtet — tillad placering');else if(e.code===3)setGps('⚠ GPS timeout — gå udenfor');else setGps('⚠ GPS fejl')}
@@ -285,20 +341,24 @@ function onErr(e){if(e.code===1)setGps('⚠ GPS nægtet — tillad placering');e
 function updateDist(){
   if(!userPos||unlocked)return;const l=getLoc();
   const d=Math.round(haversine(userPos.lat,userPos.lng,l.lat,l.lng));
-  const el=document.getElementById('dist-num');el.textContent=d;
+  document.getElementById('dist-num').textContent=d;
   if(d<=CONFIG.unlockRadius&&!unlocked){
-    el.classList.add('near');unlocked=true;playUnlock();
+    document.getElementById('dist-num').classList.add('near');unlocked=true;playUnlock();
     document.getElementById('arrived-msg').classList.add('visible');
     document.getElementById('dist-bar').style.display='none';
-    // Finish point?
     if(l.type==='finish'){setTimeout(showFinish,800);return}
-    if(l.image){document.getElementById('loc-image').src=l.image;document.getElementById('loc-image-caption').textContent=l.imageCaption||l.name;document.getElementById('loc-image-wrap').classList.add('visible')}
+    if(l.images&&l.images.length>0){showImages(l)}
     else{document.getElementById('content').classList.add('visible')}
   }
 }
+
+function showImages(l){
+  const wrap=document.getElementById('loc-images');
+  wrap.innerHTML=l.images.map(img=>'<div><img class="loc-image" src="'+img.src+'" alt=""><div class="loc-image-caption">'+img.caption+'</div></div>').join('');
+  document.getElementById('loc-image-wrap').classList.add('visible');
+}
 function showQuestions(){document.getElementById('loc-image-wrap').classList.remove('visible');document.getElementById('content').classList.add('visible')}
 
-// Render
 function getLoc(){return CONFIG.locations[team.order[stopIndex]]}
 function renderStop(){
   unlocked=false;answeredThisStop=0;const l=getLoc();
@@ -317,13 +377,10 @@ function renderStop(){
   if(l.type==='finish'){c.innerHTML='';if(userPos)updateDist();return}
   c.innerHTML=`<div class="location-card"><div class="loc-num">Punkt ${stopIndex+1} af ${team.order.length}</div><div class="loc-name">${l.name}</div><div class="loc-desc">${l.desc}</div></div>
     ${l.questions.map((q,qi)=>`<div class="question-card"><div class="q-badge">Spørgsmål ${qi+1}</div><div class="q-text">${q.q}</div><div class="options" id="opts-${qi}">${q.opts.map((o,oi)=>`<button class="opt-btn" data-qi="${qi}" data-oi="${oi}" onclick="answer(${qi},${oi})">${o}</button>`).join('')}</div></div>`).join('')}`;
-  // Restore answered
   l.questions.forEach((q,qi)=>{const k=l.id+'-'+qi;if(answeredQuestions[k]){answeredThisStop++;const{oi,correct}=answeredQuestions[k];document.querySelectorAll('#opts-'+qi+' .opt-btn').forEach(b=>{b.classList.add('disabled');const boi=parseInt(b.dataset.oi);if(boi===q.correct)b.classList.add('correct');else if(boi===oi&&!correct)b.classList.add('wrong','chosen')})}});
-  if(userPos)updateDist();
-  sendProgress();
+  if(userPos)updateDist();sendProgress();
 }
 
-// Answer
 function answer(qi,oi){
   const l=getLoc(),q=l.questions[qi],ok=oi===q.correct;
   const k=l.id+'-'+qi;if(answeredQuestions[k])return;
@@ -335,7 +392,6 @@ function answer(qi,oi){
   if(answeredThisStop>=l.questions.length){setTimeout(()=>{showNewspaper(false)},600)}
 }
 
-// Newspaper
 let npIsFinal=false;
 function showNewspaper(isFinal){
   npIsFinal=isFinal;const l=getLoc();
@@ -352,16 +408,13 @@ function dismissNewspaper(){
 }
 function afterTransition(){
   stopIndex++;saveState();
-  if(stopIndex>0&&stopIndex-1===CONFIG.selfieAfterStop){showSelfiePause()}
-  else{window.scrollTo({top:0});setTimeout(renderStop,200)}
+  window.scrollTo({top:0});setTimeout(renderStop,200);
 }
 
-// Selfie
 function showSelfiePause(){document.getElementById('dist-bar').style.display='none';document.getElementById('arrived-msg').classList.remove('visible');document.getElementById('content').classList.remove('visible');document.getElementById('selfie-wrap').classList.add('visible')}
-function onSelfie(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=function(ev){const img=new Image();img.onload=function(){const cv=document.createElement('canvas');const M=480;let w=img.width,h=img.height;if(w>h){if(w>M){h*=M/w;w=M}}else{if(h>M){w*=M/h;h=M}}cv.width=w;cv.height=h;cv.getContext('2d').drawImage(img,0,0,w,h);const d=cv.toDataURL('image/jpeg',0.6);document.getElementById('selfie-preview').src=d;document.getElementById('selfie-preview').style.display='block';document.getElementById('selfie-btn').textContent='✓ Billede taget!';document.getElementById('selfie-btn').style.background='#3a8a4a';uploadSelfie(d);setTimeout(()=>{document.getElementById('selfie-wrap').classList.remove('visible');window.scrollTo({top:0});setTimeout(renderStop,200)},1500)};img.src=ev.target.result};r.readAsDataURL(f)}
-function skipSelfie(){document.getElementById('selfie-wrap').classList.remove('visible');window.scrollTo({top:0});setTimeout(renderStop,200)}
+function onSelfie(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=function(ev){const img=new Image();img.onload=function(){const cv=document.createElement('canvas');const M=480;let w=img.width,h=img.height;if(w>h){if(w>M){h*=M/w;w=M}}else{if(h>M){w*=M/h;h=M}}cv.width=w;cv.height=h;cv.getContext('2d').drawImage(img,0,0,w,h);const d=cv.toDataURL('image/jpeg',0.6);document.getElementById('selfie-preview').src=d;document.getElementById('selfie-preview').style.display='block';document.getElementById('selfie-btn').textContent='✓ Billede taget!';document.getElementById('selfie-btn').style.background='#3a8a4a';localStorage.setItem(SAVE_KEY+'_selfie','1');uploadSelfie(d);setTimeout(()=>{document.getElementById('selfie-wrap').classList.remove('visible');window.scrollTo({top:0});setTimeout(renderStop,200)},1500)};img.src=ev.target.result};r.readAsDataURL(f)}
+function skipSelfie(){localStorage.setItem(SAVE_KEY+'_selfie','1');document.getElementById('selfie-wrap').classList.remove('visible');window.scrollTo({top:0});setTimeout(renderStop,200)}
 
-// Finish
 function showFinish(){
   document.getElementById('game').style.display='none';
   document.getElementById('status-bar').classList.remove('visible');
@@ -372,12 +425,12 @@ function showFinish(){
 
 // Supabase
 const SB=()=>({url:CONFIG.supabaseUrl,key:CONFIG.supabaseKey,ok:!!CONFIG.supabaseUrl&&!!CONFIG.supabaseKey});
-function sbHeaders(){return{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'}}
-async function sendAnswer(d){const s=SB();if(!s.ok)return;try{const r=await fetch(s.url+'/rest/v1/answers',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,location_id:d.locationId,question_index:d.questionIndex,selected_option:d.selectedOption,is_correct:d.correct,answered_at:new Date().toISOString()})});if(!r.ok)showSbErr('Svar ikke sendt: '+r.status)}catch(e){showSbErr('Netværksfejl ved svar')}}
-async function sendProgress(){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/progress',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,current_stop:stopIndex,distance_meters:Math.round(distanceWalked),updated_at:new Date().toISOString()})})}catch(e){}}
-async function sendPosition(){if(!userPos)return;const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/positions',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,lat:userPos.lat,lng:userPos.lng,distance_meters:Math.round(distanceWalked),recorded_at:new Date().toISOString()})})}catch(e){}}
-async function sendCompletion(){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/completions',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,total_correct:totalCorrect,total_questions:TOTAL_Q,distance_meters:Math.round(distanceWalked),completed_at:new Date().toISOString()})})}catch(e){}}
-async function uploadSelfie(dataUrl){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/selfies',{method:'POST',headers:sbHeaders(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,photo_data:dataUrl,taken_at:new Date().toISOString()})})}catch(e){}}
+function sbH(){return{'Content-Type':'application/json',apikey:CONFIG.supabaseKey,Authorization:'Bearer '+CONFIG.supabaseKey,Prefer:'return=minimal'}}
+async function sendAnswer(d){const s=SB();if(!s.ok)return;try{const r=await fetch(s.url+'/rest/v1/answers',{method:'POST',headers:sbH(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,location_id:d.locationId,question_index:d.questionIndex,selected_option:d.selectedOption,is_correct:d.correct,answered_at:new Date().toISOString()})});if(!r.ok)showSbErr('Svar: '+r.status)}catch(e){showSbErr('Net fejl')}}
+async function sendProgress(){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/progress',{method:'POST',headers:sbH(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,current_stop:stopIndex,distance_meters:Math.round(distanceWalked),updated_at:new Date().toISOString()})})}catch(e){}}
+async function sendPosition(){if(!userPos)return;const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/positions',{method:'POST',headers:sbH(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,lat:userPos.lat,lng:userPos.lng,distance_meters:Math.round(distanceWalked),recorded_at:new Date().toISOString()})})}catch(e){}}
+async function sendCompletion(){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/completions',{method:'POST',headers:sbH(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,total_correct:totalCorrect,total_questions:TOTAL_Q,distance_meters:Math.round(distanceWalked),completed_at:new Date().toISOString()})})}catch(e){}}
+async function uploadSelfie(dataUrl){const s=SB();if(!s.ok)return;try{await fetch(s.url+'/rest/v1/selfies',{method:'POST',headers:sbH(),body:JSON.stringify({event_id:CONFIG.eventId,team_id:teamId,team_name:team.name,photo_data:dataUrl,taken_at:new Date().toISOString()})})}catch(e){}}
 function showSbErr(msg){const el=document.getElementById('sb-status');el.textContent='⚠ '+msg;el.className='supabase-status error';setTimeout(()=>{el.className='supabase-status'},5000)}
 </script>
 </body>

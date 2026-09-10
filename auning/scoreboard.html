@@ -39,7 +39,8 @@
   .sc-sub{font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
   .sc-dist{font-size:12px;color:#8b6914;margin-top:6px}
   .sc-progress{font-size:11px;color:#9a7d52;margin-top:6px}
-  .sc-selfie{margin-top:10px}.sc-selfie img{width:100%;max-width:200px;border-radius:8px;border:2px solid #e0d6c4}
+  .sc-selfie{margin-top:12px}
+  .sc-selfie img{width:100%;max-width:280px;border-radius:12px;border:3px solid #c8a050;box-shadow:0 4px 16px rgba(107,76,30,.15)}
   .badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600;margin-top:4px}
   .badge.waiting{background:#f0ebe0;color:#9a7d52}.badge.active{background:rgba(58,138,74,.1);color:#3a8a4a}.badge.done{background:rgba(200,146,42,.12);color:#8b6914}
 
@@ -103,21 +104,25 @@ const C = {
   // Quiz stop locations for map markers
   stops: [
     {id:1, name:'Skydebanen', lat:56.43402, lng:10.38726},
+    {id:9, name:'Pølsekrigen', lat:56.43330, lng:10.38211},
     {id:2, name:'Hospitalet', lat:56.43337, lng:10.37720},
     {id:3, name:'Grafisk', lat:56.42982, lng:10.37471},
     {id:4, name:'Kartoffelmel', lat:56.42736, lng:10.37632},
     {id:5, name:'Savværket', lat:56.42744, lng:10.37839},
     {id:6, name:'Stationen', lat:56.42925, lng:10.37794},
+    {id:10, name:'Mejeriet', lat:56.42992, lng:10.37935},
     {id:7, name:'Minigolf', lat:56.42880, lng:10.38983},
-    {id:8, name:'Mål', lat:56.43320, lng:10.38864, finish:true}
+    {id:99, name:'Mål', lat:56.43320, lng:10.38864, finish:true}
   ],
   locs: [
     {id:1, n:'Skydebanen', qs:['Jagtforening stiftet?','Areal m/ hvem?','Indtægtskilde?']},
+    {id:9, n:'Pølsekrigen', qs:['Hvorfor konflikt?','Mogens kaldenavn?','Hvorfor lukke?']},
     {id:2, n:'Det gamle Hospital', qs:['Oprindelse?','Hvem indrettede?','Antal år?']},
     {id:3, n:'Grafisk industri', qs:['Datagraf grundlagt?','Kongeparret?','IKKE grafisk?']},
     {id:4, n:'Kartoffelmelsfabrikken', qs:['Årstal?','Bruges til?','Dampfløjte?']},
     {id:5, n:'Auning Savværk', qs:['Hvem etablerede?','Medarbejdere?','Lukket?']},
     {id:6, n:'Auning Station', qs:['Årstal?','Arkitekt?','Godstransport?']},
+    {id:10, n:'Auning Mejeri', qs:['Oprettet 1904?','IKKE produceret?','Ispind pris?']},
     {id:7, n:'Minigolfbanen', qs:['Åbnede?','Antal baner?','Sidste hul?']}
   ]
 };
@@ -201,7 +206,7 @@ function conn(t,c) { const el=document.getElementById('conn'); el.textContent=t;
 function render() {
   const tA=ans.filter(a=>a.team_id==='a'), tB=ans.filter(a=>a.team_id==='b');
   const cA=tA.filter(a=>a.is_correct).length, cB=tB.filter(a=>a.is_correct).length;
-  const T = 21;
+  const T = 27;
   document.getElementById('sa').textContent = cA;
   document.getElementById('sb2').textContent = cB;
 
