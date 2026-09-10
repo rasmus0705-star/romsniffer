@@ -12,55 +12,55 @@
   body{background:#f5f0e6;min-height:100vh;font-family:'Share Tech Mono',monospace;color:#3d2a12;padding:16px}
 
   header{text-align:center;padding-bottom:16px;margin-bottom:20px;border-bottom:2px solid #c8a050}
-  header h1{font-family:'Playfair Display',serif;font-size:22px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
-  header p{font-size:11px;color:#9a7d52;letter-spacing:2px;margin-top:4px}
-  .update-info{font-size:10px;color:#9a7d52;margin-top:6px}
-  .update-info span{color:#3a8a4a}
-  .conn-status{font-size:10px;text-align:center;margin-top:4px}
-  .conn-status.ok{color:#3a8a4a}.conn-status.err{color:#b5342a}
+  header h1{font-family:'Playfair Display',serif;font-size:24px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase}
+  header p{font-size:12px;color:#9a7d52;letter-spacing:2px;margin-top:4px}
+  .update-info{font-size:11px;color:#9a7d52;margin-top:6px}.update-info span{color:#3a8a4a}
+  .conn-status{font-size:10px;text-align:center;margin-top:4px}.conn-status.ok{color:#3a8a4a}.conn-status.err{color:#b5342a}
 
-  /* LIVE MAP */
-  #live-map{width:100%;height:340px;border-radius:10px;border:2px solid #c8a050;margin-bottom:20px;max-width:800px;margin-left:auto;margin-right:auto}
-  .map-legend{display:flex;gap:16px;justify-content:center;font-size:11px;color:#7a6040;margin:-12px 0 16px;flex-wrap:wrap}
+  #live-map{width:100%;height:380px;border-radius:10px;border:2px solid #c8a050;margin-bottom:16px}
+  .map-legend{display:flex;gap:16px;justify-content:center;font-size:11px;color:#7a6040;margin:-8px 0 16px;flex-wrap:wrap}
   .legend-item{display:flex;align-items:center;gap:4px}
   .legend-dot{width:12px;height:12px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 4px rgba(0,0,0,.2)}
 
-  .winner{background:#fff;border:2px solid #c8a050;border-radius:12px;padding:20px;text-align:center;margin-bottom:20px;max-width:600px;margin-inline:auto;display:none;box-shadow:0 4px 16px rgba(107,76,30,.1)}
-  .winner.visible{display:block}
-  .winner .trophy{font-size:48px}
-  .winner h2{font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;margin-top:6px}
-  .winner p{font-size:12px;color:#7a6040;margin-top:4px}
+  .winner{background:#fff;border:2px solid #c8a050;border-radius:12px;padding:24px;text-align:center;margin-bottom:20px;display:none;box-shadow:0 4px 16px rgba(107,76,30,.1)}
+  .winner.visible{display:block}.winner .trophy{font-size:52px}
+  .winner h2{font-family:'Playfair Display',serif;font-size:24px;color:#6b4c1e;margin-top:6px}
+  .winner p{font-size:14px;color:#7a6040;margin-top:4px}
 
-  .scores{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:600px;margin:0 auto 24px}
-  .score-card{background:#fff;border:1px solid #e0d6c4;border-radius:10px;padding:20px;text-align:center;border-top:4px solid;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+  .scores{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+  .score-card{background:#fff;border:1px solid #e0d6c4;border-radius:12px;padding:24px;text-align:center;border-top:4px solid;box-shadow:0 2px 8px rgba(0,0,0,.04)}
   .score-card.team-a{border-top-color:#8b1a2b}.score-card.team-b{border-top-color:#1a3a6b}
-  .sc-name{font-family:'Playfair Display',serif;font-size:16px;color:#6b4c1e;font-weight:700}
-  .sc-big{font-family:'Playfair Display',serif;font-size:48px;font-weight:900;color:#c8922a;line-height:1;margin:6px 0 2px}
-  .sc-sub{font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
-  .sc-dist{font-size:12px;color:#8b6914;margin-top:6px}
-  .sc-progress{font-size:11px;color:#9a7d52;margin-top:6px}
-  .sc-selfie{margin-top:12px}
-  .sc-selfie img{width:100%;max-width:280px;border-radius:12px;border:3px solid #c8a050;box-shadow:0 4px 16px rgba(107,76,30,.15)}
-  .badge{display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:600;margin-top:4px}
+  .sc-name{font-family:'Playfair Display',serif;font-size:20px;color:#6b4c1e;font-weight:700}
+  .sc-big{font-family:'Playfair Display',serif;font-size:56px;font-weight:900;color:#c8922a;line-height:1;margin:8px 0 4px}
+  .sc-sub{font-size:11px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
+  .sc-dist{font-size:13px;color:#8b6914;margin-top:8px}
+  .sc-progress{font-size:12px;color:#9a7d52;margin-top:8px}
+  .sc-selfie{margin-top:14px}.sc-selfie img{width:100%;max-width:320px;border-radius:12px;border:3px solid #c8a050;box-shadow:0 4px 16px rgba(107,76,30,.15)}
+  .badge{display:inline-block;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:600;margin-top:6px}
   .badge.waiting{background:#f0ebe0;color:#9a7d52}.badge.active{background:rgba(58,138,74,.1);color:#3a8a4a}.badge.done{background:rgba(200,146,42,.12);color:#8b6914}
 
-  .detail{max-width:800px;margin:0 auto}
-  .detail h2{font-family:'Playfair Display',serif;font-size:15px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
-  .col-heads{display:grid;grid-template-columns:1fr 70px 70px;gap:6px;padding:4px 12px;font-size:9px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
+  .detail h2{font-family:'Playfair Display',serif;font-size:18px;color:#6b4c1e;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px}
+  .col-heads{display:grid;grid-template-columns:1fr 140px 140px;gap:8px;padding:6px 16px;font-size:10px;color:#9a7d52;letter-spacing:2px;text-transform:uppercase}
   .col-heads span:not(:first-child){text-align:center}
-  .loc-block{background:#fff;border:1px solid #e0d6c4;border-radius:8px;margin-bottom:10px;overflow:hidden}
-  .loc-head{padding:10px 12px;font-family:'Playfair Display',serif;font-size:13px;font-weight:700;color:#6b4c1e;border-bottom:1px solid #e0d6c4;display:flex;justify-content:space-between}
-  .loc-scores{font-family:'Share Tech Mono',monospace;font-size:11px;color:#9a7d52}
-  .q-row{display:grid;grid-template-columns:1fr 70px 70px;gap:6px;padding:7px 12px;border-bottom:1px solid #f0ebe0;font-size:12px}
+  .loc-block{background:#fff;border:1px solid #e0d6c4;border-radius:10px;margin-bottom:14px;overflow:hidden}
+  .loc-head{padding:12px 16px;font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:#6b4c1e;border-bottom:1px solid #e0d6c4;display:flex;justify-content:space-between}
+  .loc-scores{font-family:'Share Tech Mono',monospace;font-size:12px;color:#9a7d52}
+  .q-row{display:grid;grid-template-columns:1fr 140px 140px;gap:8px;padding:10px 16px;border-bottom:1px solid #f0ebe0;font-size:12px;align-items:start}
   .q-row:last-child{border-bottom:none}
-  .q-label{color:#7a6040}.a-cell{text-align:center;font-weight:600}
+  .q-label{color:#5a3a1a;line-height:1.4}
+  .a-cell{text-align:center;font-weight:600;font-size:12px;line-height:1.4}
   .a-cell.ok{color:#3a8a4a}.a-cell.fail{color:#b5342a}.a-cell.wait{color:#d0c8b8}
+  .a-cell .correct-hint{font-size:10px;color:#9a7d52;font-weight:400;display:block}
 
-  .admin{max-width:800px;margin:40px auto 0;padding-top:20px;border-top:2px dashed #e0d6c4;text-align:center}
-  .admin-btn{background:#b5342a;color:#fff;border:none;border-radius:8px;padding:10px 20px;font-family:'Share Tech Mono',monospace;font-size:12px;cursor:pointer}
-  #reset-msg{font-size:11px;color:#3a8a4a;margin-top:6px}
+  .admin{margin:40px 0 0;padding-top:20px;border-top:2px dashed #e0d6c4;text-align:center}
+  .admin-btn{background:#b5342a;color:#fff;border:none;border-radius:8px;padding:12px 24px;font-family:'Share Tech Mono',monospace;font-size:13px;cursor:pointer}
+  #reset-msg{font-size:12px;color:#3a8a4a;margin-top:8px}
 
-  @media(max-width:480px){.scores{grid-template-columns:1fr}.q-row,.col-heads{grid-template-columns:1fr 55px 55px}}
+  @media(max-width:600px){
+    .scores{grid-template-columns:1fr}
+    .q-row,.col-heads{grid-template-columns:1fr 90px 90px}
+    .q-label{font-size:11px}
+  }
 </style>
 </head>
 <body>
@@ -72,7 +72,6 @@
   <div class="conn-status" id="conn"></div>
 </header>
 
-<!-- LIVE MAP -->
 <div id="live-map"></div>
 <div class="map-legend">
   <div class="legend-item"><div class="legend-dot" style="background:#8b1a2b"></div> Hold A</div>
@@ -98,192 +97,203 @@
 <script src="config.js"></script>
 <script>
 const C = {
-  url: typeof SUPABASE_URL !== 'undefined' ? SUPABASE_URL : '',
-  key: typeof SUPABASE_KEY !== 'undefined' ? SUPABASE_KEY : '',
+  url: typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',
+  key: typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',
   ev: 'auning-2026',
-  // Quiz stop locations for map markers
-  stops: [
-    {id:1, name:'Skydebanen', lat:56.43402, lng:10.38726},
-    {id:9, name:'Pølsekrigen', lat:56.43330, lng:10.38211},
-    {id:2, name:'Hospitalet', lat:56.43337, lng:10.37720},
-    {id:3, name:'Grafisk', lat:56.42982, lng:10.37471},
-    {id:4, name:'Kartoffelmel', lat:56.42736, lng:10.37632},
-    {id:5, name:'Savværket', lat:56.42744, lng:10.37839},
-    {id:6, name:'Stationen', lat:56.42925, lng:10.37794},
-    {id:10, name:'Mejeriet', lat:56.42992, lng:10.37935},
-    {id:7, name:'Minigolf', lat:56.42880, lng:10.38983},
-    {id:99, name:'Mål', lat:56.43320, lng:10.38864, finish:true}
+  stops:[
+    {id:1,name:'Skydebanen',lat:56.43402,lng:10.38726},
+    {id:9,name:'Pølsekrigen',lat:56.43330,lng:10.38211},
+    {id:2,name:'Hospitalet',lat:56.43337,lng:10.37720},
+    {id:3,name:'Grafisk',lat:56.42982,lng:10.37471},
+    {id:4,name:'Kartoffelmel',lat:56.42736,lng:10.37632},
+    {id:5,name:'Savværket',lat:56.42744,lng:10.37839},
+    {id:6,name:'Stationen',lat:56.42925,lng:10.37794},
+    {id:10,name:'Mejeriet',lat:56.42992,lng:10.37935},
+    {id:7,name:'Minigolf',lat:56.42880,lng:10.38983},
+    {id:99,name:'Mål',lat:56.43320,lng:10.38864,finish:true}
   ],
-  locs: [
-    {id:1, n:'Skydebanen', qs:['Jagtforening stiftet?','Areal m/ hvem?','Indtægtskilde?']},
-    {id:9, n:'Pølsekrigen', qs:['Hvorfor konflikt?','Mogens kaldenavn?','Hvorfor lukke?']},
-    {id:2, n:'Det gamle Hospital', qs:['Oprindelse?','Hvem indrettede?','Antal år?']},
-    {id:3, n:'Grafisk industri', qs:['Datagraf grundlagt?','Kongeparret?','IKKE grafisk?']},
-    {id:4, n:'Kartoffelmelsfabrikken', qs:['Årstal?','Bruges til?','Dampfløjte?']},
-    {id:5, n:'Auning Savværk', qs:['Hvem etablerede?','Medarbejdere?','Lukket?']},
-    {id:6, n:'Auning Station', qs:['Årstal?','Arkitekt?','Godstransport?']},
-    {id:10, n:'Auning Mejeri', qs:['Oprettet 1904?','IKKE produceret?','Ispind pris?']},
-    {id:7, n:'Minigolfbanen', qs:['Åbnede?','Antal baner?','Sidste hul?']}
+  locs:[
+    {id:1, n:'Skydebanen i Auning', qs:[
+      {q:'Hvornår blev Auning Jagtforening stiftet?', opts:['5. april 1929','5. april 1939','5. april 1949'], correct:1},
+      {q:'Sammen med hvem købte jagtforeningen areal i 1946?', opts:['Auning Idrætsforening','Auning Skytteforening','Hjemmeværnet'], correct:1},
+      {q:'Hvad var jagtforeningens indtægtskilde i 1960\'erne?', opts:['Tombola på markedsdage','Kroballer på Auning Kro','Loppemarkeder'], correct:1}
+    ]},
+    {id:9, n:'Pølsevognskrigen', qs:[
+      {q:'Hvorfor opstod der i 1992 konflikt om pølsevognen?', opts:['Bente nægtede at sælge','Kommunen forbød Cocio','Handelsudvalget ville drive uden leje','Cafeteriet ville købe'], correct:2},
+      {q:'Hvad var Mogens kaldenavn i ungdomskredse?', opts:['Mogens Remoulade','Mogens Pølsekonge','Mogens Grillkongen','Mogens Pølsemester'], correct:1},
+      {q:'Hvorfor måtte pølsevognen i Assentoft lukke?', opts:['Ikke nok kunder','Kommunen krævede flytning','Solgt til anden pølsemand','Tandlæge fik friturerøg'], correct:3}
+    ]},
+    {id:2, n:'Det gamle Hospital', qs:[
+      {q:'Hvad var bygningen oprindeligt?', opts:['Et bryggeri','En kirkelade til tiendekorn','Et vagthus'], correct:1},
+      {q:'Hvem lod huset indrette som godshospital?', opts:['Jørgen Skeel','Christen Scheel','Frederik VII'], correct:0},
+      {q:'Hvor mange år fungerede det som hjem for fattige?', opts:['Ca. 100 år','Ca. 200 år','Ca. 300 år'], correct:2}
+    ]},
+    {id:3, n:'Den grafiske industri', qs:[
+      {q:'Hvilket år blev Datagraf grundlagt?', opts:['1976','1986','1996'], correct:1},
+      {q:'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?', opts:['Dronning Margrethe','Kronprins Frederik','Prins Henrik'], correct:0},
+      {q:'Hvilken var IKKE en grafisk virksomhed i Auning?', opts:['Djurs Tryk','Grafisk ID','Auning Finérværk'], correct:2}
+    ]},
+    {id:4, n:'Kartoffelmelsfabrikken', qs:[
+      {q:'Hvilket år stammer fabriksbygningen fra?', opts:['1901','1916','1930'], correct:1},
+      {q:'Hvad bruges fabrikken til i dag?', opts:['Byggemarked','Magasiner for Landbrugsmuseet','Boliger'], correct:1},
+      {q:'Hvilke fabrikker markerede dampfløjten frokostpausen?', opts:['Savværket og Madratsfabrikken','Mejeriet og Skaftefabrikken','Trædrejeriet og Finérværket'], correct:0}
+    ]},
+    {id:5, n:'Auning Savværk', qs:[
+      {q:'Hvem etablerede savværket i 1901?', opts:['Greve Jørgen Carl Scheel','Købmand F.C. Gerstrøm','Niels Chr. Jensen'], correct:0},
+      {q:'Hvor mange medarbejdere ved 50-års jubilæet?', opts:['18','30','44'], correct:2},
+      {q:'Hvornår lukkede savværket?', opts:['1980','1990','2000'], correct:1}
+    ]},
+    {id:6, n:'Auning Station', qs:[
+      {q:'Hvilket år fik Auning station?', opts:['1864','1876','1901'], correct:1},
+      {q:'Hvilken arkitekt tegnede stationsbygningen?', opts:['Heinrich Wenck','Kaare Klint','Ivar Bentsen'], correct:0},
+      {q:'Hvornår lukkede banen for godstransport?', opts:['1971','1985','1992'], correct:2}
+    ]},
+    {id:10, n:'Auning Andelsmejeri', qs:[
+      {q:'Hvad blev oprettet på mejeriet i 1904?', opts:['En biograf','En badeanstalt','Et bibliotek','En frisørsalon'], correct:1},
+      {q:'Hvad producerede mejeriet IKKE?', opts:['Smør','Kærnemælk','Flødeis','Ost'], correct:3},
+      {q:'Hvad kostede en vaniljeispind?', opts:['5 øre','10 øre','15 øre','25 øre'], correct:1}
+    ]},
+    {id:7, n:'Auning Minigolfbane', qs:[
+      {q:'Hvilket år åbnede minigolfbanen?', opts:['1963','1973','1983','1993'], correct:1},
+      {q:'Hvor mange baner for en komplet runde?', opts:['9','12','18','27'], correct:2},
+      {q:'Hvor endte bolden på sidste hul?', opts:['Trillede tilbage','Ned i en rist','I en vandbeholder','I en spand i kiosken'], correct:3}
+    ]}
   ]
 };
 
-const hdr = () => ({apikey:C.key, Authorization:'Bearer '+C.key});
-let ans=[], selfies=[], progress=[], positions=[];
-let liveMap, markerA, markerB, lineA, lineB;
+const hdr=()=>({apikey:C.key,Authorization:'Bearer '+C.key});
+const LETTERS='ABCDEFGH';
+let ans=[],selfies=[],progress=[],positions=[];
+let liveMap,markerA,markerB,lineA,lineB;
 
-// ── INIT MAP ──
-function initMap() {
-  liveMap = L.map('live-map', {attributionControl:false}).setView([56.4300, 10.3800], 15);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom:19}).addTo(liveMap);
-
-  // Quiz stop markers
-  C.stops.forEach(s => {
-    const color = s.finish ? '#3a8a4a' : '#c8922a';
-    const icon = L.divIcon({className:'', html:`<div style="background:${color};border:2px solid #fff;border-radius:50%;width:14px;height:14px;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`, iconSize:[14,14], iconAnchor:[7,7]});
-    L.marker([s.lat, s.lng], {icon}).addTo(liveMap).bindTooltip(s.name, {direction:'top', offset:[0,-8]});
+function initMap(){
+  liveMap=L.map('live-map',{attributionControl:false}).setView([56.4300,10.3800],15);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19}).addTo(liveMap);
+  C.stops.forEach(s=>{
+    const col=s.finish?'#3a8a4a':'#c8922a';
+    const ic=L.divIcon({className:'',html:`<div style="background:${col};border:2px solid #fff;border-radius:50%;width:14px;height:14px;box-shadow:0 1px 4px rgba(0,0,0,.3)"></div>`,iconSize:[14,14],iconAnchor:[7,7]});
+    L.marker([s.lat,s.lng],{icon:ic}).addTo(liveMap).bindTooltip(s.name,{direction:'top',offset:[0,-8]});
   });
-
-  // Team route polylines
-  lineA = L.polyline([], {color:'#8b1a2b', weight:3, opacity:0.7}).addTo(liveMap);
-  lineB = L.polyline([], {color:'#1a3a6b', weight:3, opacity:0.7}).addTo(liveMap);
+  lineA=L.polyline([],{color:'#8b1a2b',weight:3,opacity:.7}).addTo(liveMap);
+  lineB=L.polyline([],{color:'#1a3a6b',weight:3,opacity:.7}).addTo(liveMap);
 }
 
-function updateMap() {
-  const posA = positions.filter(p => p.team_id === 'a').map(p => [p.lat, p.lng]);
-  const posB = positions.filter(p => p.team_id === 'b').map(p => [p.lat, p.lng]);
-
-  // Routes
-  lineA.setLatLngs(posA);
-  lineB.setLatLngs(posB);
-
-  // Current position markers
-  if (posA.length) {
-    const last = posA[posA.length - 1];
-    if (!markerA) {
-      const ic = L.divIcon({className:'', html:'<div style="background:#8b1a2b;border:3px solid #fff;border-radius:50%;width:18px;height:18px;box-shadow:0 0 8px rgba(139,26,43,.5)"></div>', iconSize:[18,18], iconAnchor:[9,9]});
-      markerA = L.marker(last, {icon:ic, zIndexOffset:1000}).addTo(liveMap).bindTooltip('Hold A', {permanent:true, direction:'top', offset:[0,-12], className:''});
-    } else { markerA.setLatLng(last); }
+function updateMap(){
+  const posA=positions.filter(p=>p.team_id==='a').map(p=>[p.lat,p.lng]);
+  const posB=positions.filter(p=>p.team_id==='b').map(p=>[p.lat,p.lng]);
+  lineA.setLatLngs(posA);lineB.setLatLngs(posB);
+  if(posA.length){
+    const last=posA[posA.length-1];
+    if(!markerA){const ic=L.divIcon({className:'',html:'<div style="background:#8b1a2b;border:3px solid #fff;border-radius:50%;width:18px;height:18px;box-shadow:0 0 8px rgba(139,26,43,.5)"></div>',iconSize:[18,18],iconAnchor:[9,9]});markerA=L.marker(last,{icon:ic,zIndexOffset:1000}).addTo(liveMap).bindTooltip('Hold A',{permanent:true,direction:'top',offset:[0,-12]})}else{markerA.setLatLng(last)}
   }
-  if (posB.length) {
-    const last = posB[posB.length - 1];
-    if (!markerB) {
-      const ic = L.divIcon({className:'', html:'<div style="background:#1a3a6b;border:3px solid #fff;border-radius:50%;width:18px;height:18px;box-shadow:0 0 8px rgba(26,58,107,.5)"></div>', iconSize:[18,18], iconAnchor:[9,9]});
-      markerB = L.marker(last, {icon:ic, zIndexOffset:1000}).addTo(liveMap).bindTooltip('Hold B', {permanent:true, direction:'top', offset:[0,-12], className:''});
-    } else { markerB.setLatLng(last); }
+  if(posB.length){
+    const last=posB[posB.length-1];
+    if(!markerB){const ic=L.divIcon({className:'',html:'<div style="background:#1a3a6b;border:3px solid #fff;border-radius:50%;width:18px;height:18px;box-shadow:0 0 8px rgba(26,58,107,.5)"></div>',iconSize:[18,18],iconAnchor:[9,9]});markerB=L.marker(last,{icon:ic,zIndexOffset:1000}).addTo(liveMap).bindTooltip('Hold B',{permanent:true,direction:'top',offset:[0,-12]})}else{markerB.setLatLng(last)}
   }
-
-  // Fit bounds if we have positions
-  const all = [...posA, ...posB];
-  if (all.length > 1) {
-    liveMap.fitBounds(L.latLngBounds(all), {padding:[30,30], maxZoom:16});
-  }
+  const all=[...posA,...posB];
+  if(all.length>1)liveMap.fitBounds(L.latLngBounds(all),{padding:[30,30],maxZoom:16});
 }
 
-// ── POLLING ──
-async function poll() {
-  if (!C.url) { conn('Supabase ikke konfigureret','err'); return rd([]); }
-  try {
-    const [a, s, p, pos] = await Promise.all([
-      fetch(C.url+'/rest/v1/answers?event_id=eq.'+C.ev+'&order=answered_at.asc', {headers:hdr()}),
-      fetch(C.url+'/rest/v1/selfies?event_id=eq.'+C.ev, {headers:hdr()}),
-      fetch(C.url+'/rest/v1/progress?event_id=eq.'+C.ev+'&order=updated_at.desc', {headers:hdr()}),
-      fetch(C.url+'/rest/v1/positions?event_id=eq.'+C.ev+'&order=recorded_at.asc', {headers:hdr()})
+async function poll(){
+  if(!C.url){conn('Supabase ikke konfigureret','err');return rd([])}
+  try{
+    const[a,s,p,pos]=await Promise.all([
+      fetch(C.url+'/rest/v1/answers?event_id=eq.'+C.ev+'&order=answered_at.asc',{headers:hdr()}),
+      fetch(C.url+'/rest/v1/selfies?event_id=eq.'+C.ev,{headers:hdr()}),
+      fetch(C.url+'/rest/v1/progress?event_id=eq.'+C.ev+'&order=updated_at.desc',{headers:hdr()}),
+      fetch(C.url+'/rest/v1/positions?event_id=eq.'+C.ev+'&order=recorded_at.asc',{headers:hdr()})
     ]);
-    if (!a.ok) throw new Error('HTTP ' + a.status);
-    ans = await a.json();
-    selfies = await s.json();
-    progress = await p.json();
-    positions = await pos.json();
-    document.getElementById('ts').textContent = new Date().toLocaleTimeString('da-DK');
-    conn('Forbundet ✓','ok');
-    render();
-    updateMap();
-  } catch(e) { conn('Fejl: '+e.message,'err'); }
+    if(!a.ok)throw new Error('HTTP '+a.status);
+    ans=await a.json();selfies=await s.json();progress=await p.json();positions=await pos.json();
+    document.getElementById('ts').textContent=new Date().toLocaleTimeString('da-DK');
+    conn('Forbundet ✓','ok');render();updateMap();
+  }catch(e){conn('Fejl: '+e.message,'err')}
 }
-function conn(t,c) { const el=document.getElementById('conn'); el.textContent=t; el.className='conn-status '+c; }
+function conn(t,c){document.getElementById('conn').textContent=t;document.getElementById('conn').className='conn-status '+c}
 
-// ── RENDER ──
-function render() {
-  const tA=ans.filter(a=>a.team_id==='a'), tB=ans.filter(a=>a.team_id==='b');
-  const cA=tA.filter(a=>a.is_correct).length, cB=tB.filter(a=>a.is_correct).length;
-  const T = 27;
-  document.getElementById('sa').textContent = cA;
-  document.getElementById('sb2').textContent = cB;
+function render(){
+  const tA=ans.filter(a=>a.team_id==='a'),tB=ans.filter(a=>a.team_id==='b');
+  const cA=tA.filter(a=>a.is_correct).length,cB=tB.filter(a=>a.is_correct).length;
+  const T=27;
+  document.getElementById('sa').textContent=cA;document.getElementById('sb2').textContent=cB;
 
-  // Distance from latest position
-  const lastPosA = positions.filter(p=>p.team_id==='a').slice(-1)[0];
-  const lastPosB = positions.filter(p=>p.team_id==='b').slice(-1)[0];
-  const dA = lastPosA ? lastPosA.distance_meters : 0;
-  const dB = lastPosB ? lastPosB.distance_meters : 0;
-  document.getElementById('da').textContent = '📍 ' + (dA>=1000 ? (dA/1000).toFixed(1)+' km' : dA+' m') + ' gået';
-  document.getElementById('db').textContent = '📍 ' + (dB>=1000 ? (dB/1000).toFixed(1)+' km' : dB+' m') + ' gået';
+  const lastPosA=positions.filter(p=>p.team_id==='a').slice(-1)[0];
+  const lastPosB=positions.filter(p=>p.team_id==='b').slice(-1)[0];
+  const dA=lastPosA?lastPosA.distance_meters:0,dB=lastPosB?lastPosB.distance_meters:0;
+  document.getElementById('da').textContent='📍 '+(dA>=1000?(dA/1000).toFixed(1)+' km':dA+' m')+' gået';
+  document.getElementById('db').textContent='📍 '+(dB>=1000?(dB/1000).toFixed(1)+' km':dB+' m')+' gået';
 
-  sc('a', tA.length, cA, T);
-  sc('b', tB.length, cB, T);
+  sc('a',tA.length,cA,T);sc('b',tB.length,cB,T);
 
-  // Selfies
-  const sA=selfies.find(s=>s.team_id==='a'), sB=selfies.find(s=>s.team_id==='b');
-  document.getElementById('selfie-a').innerHTML = sA ? '<img src="'+sA.photo_data+'">' : '';
-  document.getElementById('selfie-b').innerHTML = sB ? '<img src="'+sB.photo_data+'">' : '';
+  const sA=selfies.find(s=>s.team_id==='a'),sB=selfies.find(s=>s.team_id==='b');
+  document.getElementById('selfie-a').innerHTML=sA?'<img src="'+sA.photo_data+'">':'';
+  document.getElementById('selfie-b').innerHTML=sB?'<img src="'+sB.photo_data+'">':'';
 
-  // Winner
-  const w = document.getElementById('winner');
-  if (tA.length>=T && tB.length>=T) {
-    w.classList.add('visible');
-    if (cA>cB) wt('🎉 Hold A vinder!', cA+' mod '+cB+' rigtige');
-    else if (cB>cA) wt('🎉 Hold B vinder!', cB+' mod '+cA+' rigtige');
-    else wt('🤝 Uafgjort!', cA+' rigtige begge');
-  } else { w.classList.remove('visible'); }
-
+  const w=document.getElementById('winner');
+  if(tA.length>=T&&tB.length>=T){w.classList.add('visible');
+    if(cA>cB)wt('🎉 Hold A vinder!',cA+' mod '+cB+' rigtige');
+    else if(cB>cA)wt('🎉 Hold B vinder!',cB+' mod '+cA+' rigtige');
+    else wt('🤝 Uafgjort!',cA+' rigtige begge');
+  }else w.classList.remove('visible');
   rd(ans);
 }
-
-function wt(t,s) { document.getElementById('wt').textContent=t; document.getElementById('ws').textContent=s; }
-
-function sc(t, a, c, T) {
-  const locs = new Set(ans.filter(x=>x.team_id===t).map(x=>x.location_id)).size;
-  const prog = progress.find(p=>p.team_id===t);
-  const stopNum = prog ? prog.current_stop : 0;
-  const p = document.getElementById('p'+t), b = document.getElementById('b'+t);
-  if (a===0) { p.textContent='Venter...'; b.textContent='Venter'; b.className='badge waiting'; }
-  else if (a>=T) { p.textContent='Færdig! Alle 7 punkter'; b.textContent='Færdig'; b.className='badge done'; }
-  else { p.textContent='Ved punkt '+(stopNum+1)+' ('+locs+'/7 besvaret)'; b.textContent='I gang'; b.className='badge active'; }
+function wt(t,s){document.getElementById('wt').textContent=t;document.getElementById('ws').textContent=s}
+function sc(t,a,c,T){
+  const locs=new Set(ans.filter(x=>x.team_id===t).map(x=>x.location_id)).size;
+  const prog=progress.find(p=>p.team_id===t);
+  const p=document.getElementById('p'+t),b=document.getElementById('b'+t);
+  if(a===0){p.textContent='Venter...';b.textContent='Venter';b.className='badge waiting'}
+  else if(a>=T){p.textContent='Færdig! Alle 9 punkter';b.textContent='Færdig';b.className='badge done'}
+  else{p.textContent=locs+'/9 punkter besvaret';b.textContent='I gang';b.className='badge active'}
 }
 
-function rd(answers) {
-  const lk = {};
-  answers.forEach(a => lk[a.team_id+'-'+a.location_id+'-'+a.question_index] = a.is_correct);
-  const d = document.getElementById('details');
-  d.innerHTML = '';
-  C.locs.forEach(l => {
-    const cA=[0,1,2].filter(i=>lk['a-'+l.id+'-'+i]===true).length;
-    const cB=[0,1,2].filter(i=>lk['b-'+l.id+'-'+i]===true).length;
-    d.innerHTML += `<div class="loc-block"><div class="loc-head"><span>${l.n}</span><span class="loc-scores">A:${cA}/3 B:${cB}/3</span></div>${l.qs.map((q,i) => {
-      const a=lk['a-'+l.id+'-'+i], b=lk['b-'+l.id+'-'+i];
-      return `<div class="q-row"><span class="q-label">${q}</span><span class="a-cell ${a===true?'ok':a===false?'fail':'wait'}">${a===true?'✓':a===false?'✗':'—'}</span><span class="a-cell ${b===true?'ok':b===false?'fail':'wait'}">${b===true?'✓':b===false?'✗':'—'}</span></div>`;
-    }).join('')}</div>`;
+function rd(answers){
+  // Build lookup: "teamId-locId-qi" → { selected_option, is_correct }
+  const lk={};
+  answers.forEach(a=>{lk[a.team_id+'-'+a.location_id+'-'+a.question_index]={sel:a.selected_option,ok:a.is_correct}});
+
+  const d=document.getElementById('details');d.innerHTML='';
+  C.locs.forEach(loc=>{
+    const cA=[0,1,2].filter(i=>{const r=lk['a-'+loc.id+'-'+i];return r&&r.ok}).length;
+    const cB=[0,1,2].filter(i=>{const r=lk['b-'+loc.id+'-'+i];return r&&r.ok}).length;
+
+    d.innerHTML+=`<div class="loc-block"><div class="loc-head"><span>${loc.n}</span><span class="loc-scores">A: ${cA}/3 · B: ${cB}/3</span></div>
+      ${loc.qs.map((q,i)=>{
+        const rA=lk['a-'+loc.id+'-'+i];
+        const rB=lk['b-'+loc.id+'-'+i];
+        return`<div class="q-row">
+          <span class="q-label">${q.q}</span>
+          <span class="a-cell ${rA?(rA.ok?'ok':'fail'):'wait'}">${rA?formatAnswer(rA,q):'—'}</span>
+          <span class="a-cell ${rB?(rB.ok?'ok':'fail'):'wait'}">${rB?formatAnswer(rB,q):'—'}</span>
+        </div>`;
+      }).join('')}
+    </div>`;
   });
 }
 
-// ── ADMIN RESET ──
-async function resetAll() {
-  if (!confirm('Slet ALLE data for dette event?')) return;
-  const hd = {'Content-Type':'application/json', ...hdr()};
-  const q = 'event_id=eq.' + C.ev;
-  try {
-    await Promise.all(['answers','selfies','completions','progress','positions'].map(
-      t => fetch(C.url+'/rest/v1/'+t+'?'+q, {method:'DELETE', headers:hd})
-    ));
-    document.getElementById('reset-msg').textContent = '✓ Slettet! Holdene nulstiller med ?reset=1';
-    ans=[]; selfies=[]; progress=[]; positions=[];
-    render(); updateMap();
-  } catch(e) { document.getElementById('reset-msg').textContent = 'Fejl: '+e.message; }
+function formatAnswer(result, question){
+  const letter=LETTERS[result.sel];
+  const ansText=question.opts[result.sel];
+  if(result.ok){
+    return letter+') '+ansText+' ✓';
+  } else {
+    const correctLetter=LETTERS[question.correct];
+    const correctText=question.opts[question.correct];
+    return letter+') '+ansText+' ✗<span class="correct-hint">Rigtigt: '+correctLetter+') '+correctText+'</span>';
+  }
 }
 
-// ── INIT ──
-initMap();
-rd([]);
-if (C.url) { poll(); setInterval(poll, 5000); }
+async function resetAll(){
+  if(!confirm('Slet ALLE data for dette event?'))return;
+  const hd={'Content-Type':'application/json',...hdr()};const q='event_id=eq.'+C.ev;
+  try{
+    await Promise.all(['answers','selfies','completions','progress','positions'].map(t=>fetch(C.url+'/rest/v1/'+t+'?'+q,{method:'DELETE',headers:hd})));
+    document.getElementById('reset-msg').textContent='✓ Slettet! Holdene nulstiller med ?reset=1';
+    ans=[];selfies=[];progress=[];positions=[];render();updateMap();
+  }catch(e){document.getElementById('reset-msg').textContent='Fejl: '+e.message}
+}
+
+initMap();rd([]);if(C.url){poll();setInterval(poll,5000)}
 </script>
 </body>
 </html>
