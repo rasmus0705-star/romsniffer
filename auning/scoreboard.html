@@ -109,7 +109,8 @@ const C = {
     {id:5,name:'Savværket',lat:56.42744,lng:10.37839},
     {id:6,name:'Stationen',lat:56.42925,lng:10.37794},
     {id:10,name:'Mejeriet',lat:56.42992,lng:10.37935},
-    {id:7,name:'Minigolf',lat:56.42880,lng:10.38983},
+    {id:11,name:'Cementstøberiet',lat:56.43133,lng:10.38012},
+    {id:7,name:'Minigolf',lat:56.43025,lng:10.38702},
     {id:99,name:'Mål',lat:56.43320,lng:10.38864,finish:true}
   ],
   locs:[
@@ -120,7 +121,7 @@ const C = {
     ]},
     {id:9, n:'Pølsevognskrigen', qs:[
       {q:'Hvorfor opstod der i 1992 konflikt om pølsevognen?', opts:['Bente nægtede at sælge','Kommunen forbød Cocio','Handelsudvalget ville drive uden leje','Cafeteriet ville købe'], correct:2},
-      {q:'Hvad var Mogens kaldenavn i ungdomskredse?', opts:['Mogens Remoulade','Mogens Pølsekonge','Mogens Grillkongen','Mogens Pølsemester'], correct:1},
+      {q:'Mogens voksede op i pølsevognsfamilien. Hvad blev han kaldt?', opts:['Mogens Remoulade','Mogens Pølsekonge','Mogens Grillkongen','Mogens Pølsemester'], correct:1},
       {q:'Hvorfor måtte pølsevognen i Assentoft lukke?', opts:['Ikke nok kunder','Kommunen krævede flytning','Solgt til anden pølsemand','Tandlæge fik friturerøg'], correct:3}
     ]},
     {id:2, n:'Det gamle Hospital', qs:[
@@ -152,6 +153,11 @@ const C = {
       {q:'Hvad blev oprettet på mejeriet i 1904?', opts:['En biograf','En badeanstalt','Et bibliotek','En frisørsalon'], correct:1},
       {q:'Hvad producerede mejeriet IKKE?', opts:['Smør','Kærnemælk','Flødeis','Ost'], correct:3},
       {q:'Hvad kostede en vaniljeispind?', opts:['5 øre','10 øre','15 øre','25 øre'], correct:1}
+    ]},
+    {id:11, n:'Det gamle Cementstøberi', qs:[
+      {q:'Hvilket år blev cementstøberiet revet ned?', opts:['1984','1994','2004','2014'], correct:2},
+      {q:'Hvad skete der på cementstøberiet under besættelsen?', opts:['Tyskerne overtog','Produktionen lukket','Sabotageaktion','Brugt som våbenlager'], correct:2},
+      {q:'Hvor mange boliger blev opført efter cementstøberiets tid?', opts:['15','16','17','18'], correct:2}
     ]},
     {id:7, n:'Auning Minigolfbane', qs:[
       {q:'Hvilket år åbnede minigolfbanen?', opts:['1963','1973','1983','1993'], correct:1},
@@ -214,7 +220,7 @@ function conn(t,c){document.getElementById('conn').textContent=t;document.getEle
 function render(){
   const tA=ans.filter(a=>a.team_id==='a'),tB=ans.filter(a=>a.team_id==='b');
   const cA=tA.filter(a=>a.is_correct).length,cB=tB.filter(a=>a.is_correct).length;
-  const T=27;
+  const T=30;
   document.getElementById('sa').textContent=cA;document.getElementById('sb2').textContent=cB;
 
   const lastPosA=positions.filter(p=>p.team_id==='a').slice(-1)[0];
@@ -243,8 +249,8 @@ function sc(t,a,c,T){
   const prog=progress.find(p=>p.team_id===t);
   const p=document.getElementById('p'+t),b=document.getElementById('b'+t);
   if(a===0){p.textContent='Venter...';b.textContent='Venter';b.className='badge waiting'}
-  else if(a>=T){p.textContent='Færdig! Alle 9 punkter';b.textContent='Færdig';b.className='badge done'}
-  else{p.textContent=locs+'/9 punkter besvaret';b.textContent='I gang';b.className='badge active'}
+  else if(a>=T){p.textContent='Færdig! Alle 10 punkter';b.textContent='Færdig';b.className='badge done'}
+  else{p.textContent=locs+'/10 punkter besvaret';b.textContent='I gang';b.className='badge active'}
 }
 
 function rd(answers){

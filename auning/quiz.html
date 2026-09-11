@@ -141,7 +141,7 @@
   <div class="splash-date">d. 12/9-2026</div>
   <div class="splash-sub">— Historisk Byvandring i Auning —</div>
   <div class="splash-team" id="splash-team"></div>
-  <div class="splash-msg">Gå til <strong>9 historiske steder</strong> og besvar spørgsmål om byens historie.<br><br>Spørgsmålene låses op når I er tæt på.</div>
+  <div class="splash-msg">Gå til <strong>10 historiske steder</strong> og besvar spørgsmål om byens historie.<br><br>Spørgsmålene låses op når I er tæt på.</div>
   <button class="splash-btn" onclick="startGame()">▶   START TUREN</button>
 </div>
 
@@ -181,31 +181,34 @@ if(params.get('reset')){localStorage.removeItem('auning_auning-2026_a');localSto
 const CONFIG={
   supabaseUrl:typeof SUPABASE_URL!=='undefined'?SUPABASE_URL:'',
   supabaseKey:typeof SUPABASE_KEY!=='undefined'?SUPABASE_KEY:'',
-  eventId:'auning-2026', unlockRadius:10, selfieAfterStop:4,
+  eventId:'auning-2026', unlockRadius:10, selfieAfterStop:5,
   teams:{
-    a:{name:'Hold A',cls:'team-a',order:[0,1,2,3,4,5,6,7,8,9]},
-    b:{name:'Hold B',cls:'team-b',order:[8,7,6,5,4,3,2,1,0,9]}
+    a:{name:'Hold A',cls:'team-a',order:[0,1,2,3,4,5,6,7,8,9,10]},
+    b:{name:'Hold B',cls:'team-b',order:[9,8,7,6,5,4,3,2,1,0,10]}
   },
   locations:[
     // 0: Skydebanen
-    {id:1,type:'quiz',name:'Skydebanen i Auning',desc:'Jagtforeningen og skydebanen',
+    {id:1,type:'quiz',name:'Skydebanen i Auning',
+      desc:'Skydebanen lå i Porsbakkerne, hvor jægere og skytter mødtes i årtier. Her skød man lerdue, riffel og festede til kroballer.',
       lat:56.43402321419301,lng:10.387257014578266,images:[],
       year:'1939',headline:'JAGTFORENING STIFTET MED 14 MAND!',newsSub:'Nye tider for byens jægere',
       questions:[
         {q:'Hvornår blev Auning Jagtforening stiftet?',opts:['A) 5. april 1929','B) 5. april 1939','C) 5. april 1949'],correct:1},
         {q:'Sammen med hvem købte jagtforeningen i 1946 et areal til skydebaner?',opts:['A) Auning Idrætsforening','B) Auning Skytteforening','C) Hjemmeværnet'],correct:1},
         {q:'Hvad var jagtforeningens indtægtskilde i 1960\'erne og frem til 1976?',opts:['A) Tombola på markedsdage','B) Kroballer på Auning Kro','C) Loppemarkeder i idrætshallen'],correct:1}]},
-    // 1: Pølsekrigen (NY)
-    {id:9,type:'quiz',name:'Pølsevognskrigen i Auning',desc:'I 1992 opstod der en større strid om Aunings pølsevogn',
+    // 1: Pølsekrigen
+    {id:9,type:'quiz',name:'Pølsevognskrigen i Auning',
+      desc:'I 1992 blussede en bitter strid op om Aunings populære pølsevogn. Familien bag vognen — herunder sønnen Mogens — var velkendt i byen.',
       lat:56.43330381777415,lng:10.382110632311788,
       images:[{src:'img/poelse.jpg',caption:'Aunings pølsevogn er tilbage igen'}],
       year:'1992',headline:'PØLSEKRIG I AUNING!',newsSub:'Strid om byens pølsevogn trækker overskrifter',
       questions:[
         {q:'Hvorfor opstod der i 1992 konflikt omkring pølsevognen i Auning?',opts:['A) Bente Hansen nægtede at sælge pølser','B) Kommunen forbød salg af Cocio','C) Handelsudvalget ville drive pølsevognen uden at betale leje','D) Auning Cafeteria ville købe pølsevognen'],correct:2},
-        {q:'Hvad var Mogens blevet døbt i ungdomskredse, fordi hans familie drev pølsevogn?',opts:['A) Mogens Remoulade','B) Mogens Pølsekonge','C) Mogens Grillkongen','D) Mogens Pølsemester'],correct:1},
+        {q:'Mogens voksede op i pølsevognsfamilien og fik et kaldenavn i ungdomskredse. Hvad blev han kaldt?',opts:['A) Mogens Remoulade','B) Mogens Pølsekonge','C) Mogens Grillkongen','D) Mogens Pølsemester'],correct:1},
         {q:'Hvorfor måtte pølsevognen, efter den var flyttet til Assentoft, til sidst lukke?',opts:['A) Der var ikke længere kunder nok','B) Kommunen krævede den flyttet igen','C) Ejeren solgte den til en anden pølsemand','D) En tandlæge fik friturerøg ind gennem sin udluftning'],correct:3}]},
     // 2: Hospital
-    {id:2,type:'quiz',name:'Det gamle Hospital (Kirkeladen)',desc:'Fra kirkelade til godshospital for fattige',
+    {id:2,type:'quiz',name:'Det gamle Hospital (Kirkeladen)',
+      desc:'Den gamle Kirkelade ved kirken rummer århundreders historie — fra opbevaring af tiendekorn til hjem for byens fattigste.',
       lat:56.43337348622735,lng:10.377203982134889,
       images:[{src:'img/hospital.jpg',caption:'Kirkeladen — det gamle hospital'}],
       year:'Ca. 1700',headline:'FATTIGE FÅR NØGLEN TIL KIRKELADEN',newsSub:'Godshospitalet åbner sine døre',
@@ -214,7 +217,8 @@ const CONFIG={
         {q:'Hvem lod huset indrette som "godshospital" for fattige?',opts:['A) Jørgen Skeel','B) Christen Scheel','C) Frederik VII'],correct:0},
         {q:'Hvor mange år fungerede huset som hjem for "ærlige fattige"?',opts:['A) Ca. 100 år','B) Ca. 200 år','C) Ca. 300 år'],correct:2}]},
     // 3: Grafisk
-    {id:3,type:'quiz',name:'Den grafiske industri',desc:'Datagraf og de grafiske virksomheder i Auning',
+    {id:3,type:'quiz',name:'Den grafiske industri',
+      desc:'Auning var hjemsted for flere grafiske virksomheder. Datagraf blev den største og fik endda kongeligt besøg.',
       lat:56.42982255964975,lng:10.374707009106126,
       images:[{src:'img/bogbinder.jpg',caption:'Den grafiske industri i Auning'}],
       year:'1986',headline:'NY GRAFISK GIGANT SER DAGENS LYS!',newsSub:'Datagraf slår dørene op i Auning',
@@ -223,7 +227,8 @@ const CONFIG={
         {q:'Hvem besøgte Datagraf ved kongeparrets besøg i 2011?',opts:['A) Dronning Margrethe','B) Kronprins Frederik','C) Prins Henrik'],correct:0},
         {q:'Hvilken af disse var IKKE en grafisk virksomhed i Auning?',opts:['A) Djurs Tryk','B) Grafisk ID','C) Auning Finérværk'],correct:2}]},
     // 4: Kartoffelmel
-    {id:4,type:'quiz',name:'Kartoffelmelsfabrikken',desc:'Den gamle fabrik og dens rolle i byens dagligdag',
+    {id:4,type:'quiz',name:'Kartoffelmelsfabrikken',
+      desc:'Kartoffelmelsfabrikken var en af byens store arbejdspladser. Når dampfløjten lød, vidste hele Auning at klokken var 12.',
       lat:56.42735629518248,lng:10.376317870053443,
       images:[{src:'img/kartoffelmel.jpg',caption:'Kartoffelmelsfabrikken'}],
       year:'1916',headline:'DAMPFLØJTEN KALDER TIL FROKOST!',newsSub:'Hele byen retter sig efter fabrikken',
@@ -232,7 +237,8 @@ const CONFIG={
         {q:'Hvad bruges den tidligere kartoffelmelsfabrik til i dag?',opts:['A) Byggemarked','B) Magasiner for Landbrugsmuseet','C) Boliger'],correct:1},
         {q:'Sammen med hvilke to andre fabrikker markerede dampfløjten frokostpausen kl. 12?',opts:['A) Savværket og Madratsfabrikken','B) Mejeriet og Skaftefabrikken','C) Trædrejeriet og Finérværket'],correct:0}]},
     // 5: Savværk
-    {id:5,type:'quiz',name:'Auning Savværk',desc:'Savværket der var en hjørnesten i byens industri',
+    {id:5,type:'quiz',name:'Auning Savværk',
+      desc:'Savværket forarbejdede tømmer fra Løvenholmskovene og var en hjørnesten i byens erhvervsliv i næsten 100 år.',
       lat:56.427439813850306,lng:10.378394535114554,
       images:[{src:'img/savvaerk1.jpg',caption:'A/S Auning Savværk'},{src:'img/Savvaerk.jpg',caption:'Savværket'}],
       year:'1901',headline:'GREVENS SAVVÆRK ÅBNER!',newsSub:'Tømmer fra Løvenholmskovene forarbejdes i Auning',
@@ -241,7 +247,8 @@ const CONFIG={
         {q:'Hvor mange medarbejdere havde savværket ved 50-års jubilæet i 1980?',opts:['A) 18','B) 30','C) 44'],correct:2},
         {q:'Hvornår lukkede savværket endeligt?',opts:['A) 1980','B) 1990','C) 2000'],correct:1}]},
     // 6: Station
-    {id:6,type:'quiz',name:'Auning Station',desc:'Stationen på banen mellem Randers og Grenaa',
+    {id:6,type:'quiz',name:'Auning Station',
+      desc:'Stationen forvandlede Auning fra landsby til stationsby. Området omkring perronerne blev kaldt "Ny Auning".',
       lat:56.42925284166479,lng:10.37794075687635,
       images:[{src:'img/Station.jpg',caption:'Auning Station'}],
       year:'1876',headline:'TOGET ER ANKOMMET TIL AUNING!',newsSub:'Banen mellem Randers og Grenaa indvies',
@@ -249,8 +256,9 @@ const CONFIG={
         {q:'Hvilket år fik Auning en station på banen mellem Randers og Grenaa?',opts:['A) 1864','B) 1876','C) 1901'],correct:1},
         {q:'Hvilken arkitekt tegnede stationsbygningen?',opts:['A) Heinrich Wenck','B) Kaare Klint','C) Ivar Bentsen'],correct:0},
         {q:'Hvornår lukkede banen for godstransport?',opts:['A) 1971','B) 1985','C) 1992'],correct:2}]},
-    // 7: Mejeri (NY)
-    {id:10,type:'quiz',name:'Auning Andelsmejeri',desc:'Mejeriet var mere end bare mælk og smør',
+    // 7: Mejeri
+    {id:10,type:'quiz',name:'Auning Andelsmejeri',
+      desc:'Auning Andelsmejeri var mere end bare mælk — borgerne nød godt af mange af stedets tilbud, og børnene elskede ispindene.',
       lat:56.42992486084601,lng:10.379351232858621,
       images:[{src:'img/mejeri.jpg',caption:'Auning Andelsmejeri har sidste arbejdsdag'},{src:'img/mejeri1.jpg',caption:'Mejeribygningen'}],
       year:'1904',headline:'BADEANSTALT ÅBNER PÅ MEJERIET!',newsSub:'Aunings borgere kan nu bade varmt',
@@ -258,15 +266,26 @@ const CONFIG={
         {q:'Hvad blev der oprettet på Auning Mejeri i 1904 efter ønske fra byens beboere?',opts:['A) En biograf','B) En badeanstalt','C) Et bibliotek','D) En frisørsalon'],correct:1},
         {q:'Hvad producerede Auning Mejeri IKKE?',opts:['A) Smør','B) Kærnemælk','C) Flødeis','D) Ost'],correct:3},
         {q:'Hvad kostede en almindelig vaniljeispind fra Auning Mejeri?',opts:['A) 5 øre','B) 10 øre','C) 15 øre','D) 25 øre'],correct:1}]},
-    // 8: Minigolf
-    {id:7,type:'quiz',name:'Auning Minigolfbane',desc:'Den gamle minigolfbane ved Dyrbyvej',
-      lat:56.42879698161574,lng:10.389834570121069,images:[],
+    // 8: Cementstøberiet (NY)
+    {id:11,type:'quiz',name:'Det gamle Cementstøberi',
+      desc:'Her lå tidligere Aunings cementstøberi, som var en del af byens industri i mange år. Under besættelsen i 1944 satte dramatiske begivenheder deres spor.',
+      lat:56.43133477664162,lng:10.380115573164742,
+      images:[{src:'img/cement.jpg',caption:'Det gamle cementstøberi i Auning'}],
+      year:'1944',headline:'SABOTAGE PÅ CEMENTSTØBERIET!',newsSub:'Dramatiske begivenheder under besættelsen',
+      questions:[
+        {q:'Hvilket år blev det gamle cementstøberi revet ned?',opts:['A) 1984','B) 1994','C) 2004','D) 2014'],correct:2},
+        {q:'Hvad skete der på cementstøberiet under besættelsen?',opts:['A) Tyskerne overtog fabrikken','B) Produktionen blev lukket','C) Der blev gennemført en sabotageaktion','D) Fabrikken blev brugt som våbenlager'],correct:2},
+        {q:'Hvor mange boliger blev opført på området efter cementstøberiets tid?',opts:['A) 15','B) 16','C) 17','D) 18'],correct:2}]},
+    // 9: Minigolf
+    {id:7,type:'quiz',name:'Auning Minigolfbane',
+      desc:'For enden af Dyrbyvej lå Aunings minigolfbane, hvor familier mødtes til hyggelige kampe — med kiosk og forfriskninger lige ved siden af.',
+      lat:56.43024704048354,lng:10.387024524821289,images:[],
       year:'1973',headline:'18 HULLER KLAR TIL AUNINGS BORGERE!',newsSub:'Minigolfbanen ved Dyrbyvej slår portene op',
       questions:[
         {q:'Hvilket år åbnede minigolfbanen i Auning?',opts:['A) 1963','B) 1973','C) 1983','D) 1993'],correct:1},
         {q:'Hvor mange baner skulle man igennem for en komplet runde?',opts:['A) 9','B) 12','C) 18','D) 27'],correct:2},
         {q:'Hvor endte bolden på sidste hul?',opts:['A) Den trillede tilbage til første hul','B) Den røg ned i en rist','C) Den landede i en vandbeholder','D) Den endte i en spand inde i kiosken'],correct:3}]},
-    // 9: MÅL
+    // 10: MÅL
     {id:99,type:'finish',name:'Mål — Startstedet',desc:'I er fremme!',
       lat:56.43319975372264,lng:10.388640491788069,images:[],
       year:'2026',headline:'HOLDENE ER I MÅL!',newsSub:'Kulturdag 2026 — en historisk tur er fuldført',questions:[]}
