@@ -1,8 +1,8 @@
 {
-  "updated": "2026-09-15T14:31:21.559304",
+  "updated": "2026-09-18T21:42:43.595215",
   "stats": {
-    "total": 1095,
-    "deals": 125,
+    "total": 1092,
+    "deals": 124,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -91,11 +91,11 @@
       "Reserva"
     ],
     "cheapest": 80.0,
-    "multi_shop": 72,
+    "multi_shop": 74,
     "shop_counts": {
-      "Kokkens Vinhus": 251,
+      "Kokkens Vinhus": 254,
       "Spitus": 329,
-      "Rombo": 494,
+      "Rombo": 490,
       "Con Maz": 98
     }
   },
@@ -150,7 +150,7 @@
         }
       ],
       "slug": "ron-magua-35-cl",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "Puntacana Club Silver Dry",
@@ -254,7 +254,7 @@
         }
       ],
       "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
-      "price_change_7d": 96.0
+      "price_change_7d": -80.0
     },
     {
       "name": "Cachaca 51 Pirassungo 40%",
@@ -829,6 +829,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Terra Verde Twin Cask Rum",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/RomboTerraVerdeTwinCaskRum.png?v=1770724364",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": "A Clean Spirit",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "4 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 185.0,
+      "cheapest_price": 185.0,
+      "max_discount_pct": 17.8,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 185.0,
+          "old_price": 225.0,
+          "discount_pct": 17.8,
+          "url": "https://rombo.dk/products/terra-verde-twin-cask-rum"
+        }
+      ],
+      "slug": "terra-verde-twin-cask-rum",
+      "price_change_7d": null
+    },
+    {
       "name": "Old St. Croix Caramel Cream Liqueur m/rom og havsalt",
       "image": "https://spitus.dk/wp-content/uploads/2025/07/old-st.-croix-cream-likoer-karamel-og-havsalt.png",
       "type": null,
@@ -1008,7 +1034,7 @@
         }
       ],
       "slug": "bumbu-cream",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Diplomatico Reserva Exclusiva Ron Antiguo 35cl",
@@ -1583,32 +1609,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Angostura Tamboo Spiced",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Angostura_Tamboo_Spiced.png?v=1774517161",
-      "type": "Spiced",
-      "country": "Trinidad",
-      "brand": "Angostura",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 215.0,
-      "cheapest_price": 215.0,
-      "max_discount_pct": 13.7,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 215.0,
-          "old_price": 249.0,
-          "discount_pct": 13.7,
-          "url": "https://rombo.dk/products/angostura-tamboo-spiced"
-        }
-      ],
-      "slug": "angostura-tamboo-spiced",
-      "price_change_7d": -34.0
-    },
-    {
       "name": "Come Hell or High Water Spiced Vanilla & Cola",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/ComeHellorHighWaterSpicedVanillaCola.png?v=1776956101",
       "type": "Spiced",
@@ -1873,32 +1873,6 @@
         }
       ],
       "slug": "pussers-blue-label-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Terra Verde Twin Cask Rum",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/RomboTerraVerdeTwinCaskRum.png?v=1770724364",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": "A Clean Spirit",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "4 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 225.0,
-      "cheapest_price": 225.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 225.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/terra-verde-twin-cask-rum"
-        }
-      ],
-      "slug": "terra-verde-twin-cask-rum",
       "price_change_7d": null
     },
     {
@@ -2580,6 +2554,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Angostura Tamboo Spiced",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Angostura_Tamboo_Spiced.png?v=1774517161",
+      "type": "Spiced",
+      "country": "Trinidad",
+      "brand": "Angostura",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 249.0,
+      "cheapest_price": 249.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 249.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/angostura-tamboo-spiced"
+        }
+      ],
+      "slug": "angostura-tamboo-spiced",
+      "price_change_7d": -34.0
+    },
+    {
       "name": "Chairman's Reserve Original Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_ea2a3f37-6762-41a6-a558-89f0d04c197f.png?v=1769422181",
       "type": "Mørk rom",
@@ -2659,7 +2659,7 @@
     },
     {
       "name": "Flor de Caña Gran Reserva 7 års Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_0e289c73-6c18-4d93-a997-16854f81af1b.png?v=1769421103",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/FlordeCanaGranReserva7arsRom.png?v=1789644425",
       "type": "Mørk rom",
       "country": "Nicaragua",
       "brand": "Flor de Caña",
@@ -3097,7 +3097,7 @@
         }
       ],
       "slug": "plantation-xaymaca-rom",
-      "price_change_7d": 20.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Centenario Conmemorativo 9 Years",
@@ -3286,7 +3286,7 @@
         }
       ],
       "slug": "emperor-mauritian-rum-royal-spiced",
-      "price_change_7d": null
+      "price_change_7d": -70.0
     },
     {
       "name": "Dos Maderas Caribbean Ron Añejo 5+3 år",
@@ -3452,6 +3452,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Kirk and Sweeney Reserva Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_8d7c49f1-e092-4aec-97d8-7595601e3c17.png?v=1769439300",
+      "type": "Mørk rom",
+      "country": "Dominikansk",
+      "brand": "Kirk & Sweeney",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 275.0,
+      "cheapest_price": 275.0,
+      "max_discount_pct": 12.7,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 275.0,
+          "old_price": 315.0,
+          "discount_pct": 12.7,
+          "url": "https://rombo.dk/products/kirk-and-sweeney-reserva"
+        }
+      ],
+      "slug": "kirk-and-sweeney-reserva-rom",
+      "price_change_7d": null
+    },
+    {
       "name": "Old St. Croix Black Barrel",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Old_St._Croix_Black_Barrel.png?v=1787044762",
       "type": "Spiced",
@@ -3613,32 +3639,6 @@
       ],
       "slug": "smith-and-cross-traditional-jamaica-rum",
       "price_change_7d": null
-    },
-    {
-      "name": "Tanduay Matured Dark 10 års rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Tanduay_Matured_Dark_10_ars_rom.png?v=1770818085",
-      "type": "Mørk rom",
-      "country": "Filippinerne",
-      "brand": "Tanduay",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "10 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 275.0,
-      "cheapest_price": 275.0,
-      "max_discount_pct": 15.4,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 275.0,
-          "old_price": 325.0,
-          "discount_pct": 15.4,
-          "url": "https://rombo.dk/products/tanduay-matured-dark-10-ars-rom"
-        }
-      ],
-      "slug": "tanduay-matured-dark-10-ars-rom",
-      "price_change_7d": -50.0
     },
     {
       "name": "Veritas White Barbados og Jamaica Blended Rum",
@@ -4224,7 +4224,7 @@
         }
       ],
       "slug": "puntacana-esplendido",
-      "price_change_7d": null
+      "price_change_7d": -54.0
     },
     {
       "name": "Bumbu Original",
@@ -4250,7 +4250,7 @@
         }
       ],
       "slug": "bumbu-original",
-      "price_change_7d": 24.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise Black Barrel Navy Spiced",
@@ -4510,7 +4510,7 @@
         },
         {
           "shop_name": "Kokkens Vinhus",
-          "price": 369.0,
+          "price": 349.95,
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.kokkensvinhus.dk/shop/companero-ron-elixir-orange-40/"
@@ -4569,7 +4569,7 @@
         }
       ],
       "slug": "serum-mamie",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "Appleton Estate Reserve 8 Years Jamaica Rum",
@@ -4777,7 +4777,7 @@
         }
       ],
       "slug": "emperor-mauritian-rum-heritage",
-      "price_change_7d": null
+      "price_change_7d": -80.0
     },
     {
       "name": "Ron Centenario Gran Legado 12 Años",
@@ -4803,7 +4803,7 @@
         }
       ],
       "slug": "ron-centenario-gran-legado-12-anos",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "Angostura 1919 Premium Rom 13 år",
@@ -5092,6 +5092,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Great Dane Rum",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4cd88826-110a-46e4-80b1-8b4e4a164fdb.png?v=1769423472",
+      "type": "Mørk rom",
+      "country": "Jamaica",
+      "brand": "Great Dane",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 14.3,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 299.0,
+          "old_price": 349.0,
+          "discount_pct": 14.3,
+          "url": "https://rombo.dk/products/great-dane-rum"
+        }
+      ],
+      "slug": "great-dane-rum",
+      "price_change_7d": null
+    },
+    {
       "name": "Old Monk Supreme XXX Rum",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_5e4e3412-e0c2-49e0-86c0-3d64c5317946.png?v=1769422158",
       "type": "Spiced",
@@ -5352,32 +5378,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Renegade Cane Rum Pre Cask Dunfermline Column Still",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Renegade_Cane_Rum_Pre_Cask_Dunfermline_Column_Still.png?v=1770199572",
-      "type": "Aged rom",
-      "country": null,
-      "brand": "Renegade",
-      "abv": 50.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 299.0,
-      "cheapest_price": 299.0,
-      "max_discount_pct": 35.7,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 299.0,
-          "old_price": 465.0,
-          "discount_pct": 35.7,
-          "url": "https://rombo.dk/products/renegade-rum-pre-cask-dunfermline-column-still"
-        }
-      ],
-      "slug": "renegade-cane-rum-pre-cask-dunfermline-column-still",
-      "price_change_7d": -166.0
-    },
-    {
       "name": "Ron Relicario",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_b6087355-0f6d-4eb1-b5b5-f673ef80fea8.png?v=1769422590",
       "type": "Aged rom",
@@ -5583,7 +5583,7 @@
         }
       ],
       "slug": "brugal-1888-gran-reserva",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "Ron Colon Salvadoreno Coffee Infused",
@@ -5612,32 +5612,6 @@
       "price_change_7d": 40.0
     },
     {
-      "name": "Kirk and Sweeney Reserva Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_8d7c49f1-e092-4aec-97d8-7595601e3c17.png?v=1769439300",
-      "type": "Mørk rom",
-      "country": "Dominikansk",
-      "brand": "Kirk & Sweeney",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 315.0,
-      "cheapest_price": 315.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 315.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/kirk-and-sweeney-reserva"
-        }
-      ],
-      "slug": "kirk-and-sweeney-reserva-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Cubaney 18 Y.O. Seleceto",
       "image": "https://spitus.dk/wp-content/uploads/2023/05/cubaney-18-yo-gb.png",
       "type": "Spiced",
@@ -5661,7 +5635,7 @@
         }
       ],
       "slug": "cubaney-18-y-o-seleceto",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "A.H. Riise Tasting Kit, Valdemar",
@@ -5850,7 +5824,7 @@
         },
         {
           "shop_name": "Kokkens Vinhus",
-          "price": 399.0,
+          "price": 399.95,
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.kokkensvinhus.dk/shop/companero-ron-panama-54-extra-anejo-2/"
@@ -6378,6 +6352,32 @@
       ],
       "slug": "takamaka-overproof-rum",
       "price_change_7d": null
+    },
+    {
+      "name": "Tanduay Matured Dark 10 års rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Tanduay_Matured_Dark_10_ars_rom.png?v=1770818085",
+      "type": "Mørk rom",
+      "country": "Filippinerne",
+      "brand": "Tanduay",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "10 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 325.0,
+      "cheapest_price": 325.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 325.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/tanduay-matured-dark-10-ars-rom"
+        }
+      ],
+      "slug": "tanduay-matured-dark-10-ars-rom",
+      "price_change_7d": -50.0
     },
     {
       "name": "Terra Verde XO Original",
@@ -7204,7 +7204,7 @@
         }
       ],
       "slug": "kraken-unknown-deep",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "A.H. Riise XO 1888 Copenhagen m/2cl NPU Very Rare",
@@ -7507,32 +7507,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Great Dane Rum",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4cd88826-110a-46e4-80b1-8b4e4a164fdb.png?v=1769423472",
-      "type": "Mørk rom",
-      "country": "Jamaica",
-      "brand": "Great Dane",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 349.0,
-      "cheapest_price": 349.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 349.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/great-dane-rum"
-        }
-      ],
-      "slug": "great-dane-rum",
-      "price_change_7d": null
-    },
-    {
       "name": "Navy Island XO Reserve Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_ed039ec8-2c49-440c-bbdc-7d421594ef1b.png?v=1769422729",
       "type": "Overproof",
@@ -7712,6 +7686,32 @@
         }
       ],
       "slug": "rum-nation-dominicana-8-ar",
+      "price_change_7d": null
+    },
+    {
+      "name": "Rum Nation Mauritius 6 år Triple Cask rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bbedcec3-aa40-4a96-af5a-6333b2ec2cc4.png?v=1769439798",
+      "type": "Mørk rom",
+      "country": null,
+      "brand": "Rum Nation",
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "6 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 12.5,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 349.0,
+          "old_price": 399.0,
+          "discount_pct": 12.5,
+          "url": "https://rombo.dk/products/rum-nation-mauritius-triple-cask"
+        }
+      ],
+      "slug": "rum-nation-mauritius-6-ar-triple-cask-rom",
       "price_change_7d": null
     },
     {
@@ -7897,6 +7897,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Companero Gran Reserva 40% Jamaica/ Trinidad",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/companero-rom.jpg",
+      "type": "Aged rom",
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": null,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.95,
+      "cheapest_price": 349.95,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 349.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/companero-gran-reserva-40-jamaica-trinidad-2/"
+        }
+      ],
+      "slug": "companero-gran-reserva-40-jamaica-trinidad",
+      "price_change_7d": null
+    },
+    {
       "name": "SBS Belize 2011, Bourbon and Cognac Cask",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/09/SBS-Belize-2011-e1765027842708.jpg",
       "type": "Aged rom",
@@ -7998,7 +8024,7 @@
         }
       ],
       "slug": "botran-ron-solera-1893-anejo-decanter",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "Parce Rum 3 year",
@@ -8161,7 +8187,7 @@
         }
       ],
       "slug": "presidente-rum-gran-anejo",
-      "price_change_7d": null
+      "price_change_7d": 134.0
     },
     {
       "name": "Don Q Reserva Aged 7 Years",
@@ -8294,32 +8320,6 @@
       "price_change_7d": null
     },
     {
-      "name": "English Harbour Reserve 10 års Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_8d1ca535-c7db-4182-84d2-d53c78a3d4c6.png?v=1769420636",
-      "type": "Mørk rom",
-      "country": null,
-      "brand": "English Harbour",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "10 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 365.0,
-      "cheapest_price": 365.0,
-      "max_discount_pct": 14.1,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 365.0,
-          "old_price": 425.0,
-          "discount_pct": 14.1,
-          "url": "https://rombo.dk/products/english-harbour-reserve-rum-10-ar-40-70cl-rom-fra-antigua"
-        }
-      ],
-      "slug": "english-harbour-reserve-10-ars-rom",
-      "price_change_7d": -60.0
-    },
-    {
       "name": "Plantation Sealander",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_a7fb515d-3134-42dc-9c8d-b918a0f2372a.png?v=1769436454",
       "type": "Mørk rom",
@@ -8350,32 +8350,6 @@
         }
       ],
       "slug": "plantation-sealander",
-      "price_change_7d": null
-    },
-    {
-      "name": "Companero Gran Reserva 40% Jamaica/ Trinidad",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/companero-rom.jpg",
-      "type": "Aged rom",
-      "country": "Jamaica",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 369.0,
-      "cheapest_price": 369.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 369.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/companero-gran-reserva-40-jamaica-trinidad-2/"
-        }
-      ],
-      "slug": "companero-gran-reserva-40-jamaica-trinidad",
       "price_change_7d": null
     },
     {
@@ -8976,7 +8950,7 @@
         }
       ],
       "slug": "the-rum-factory-15-y-o",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "Parce Rum 8 år",
@@ -10084,7 +10058,7 @@
         }
       ],
       "slug": "the-rum-factory-8-y-o-oloroso-cask",
-      "price_change_7d": null
+      "price_change_7d": -76.0
     },
     {
       "name": "Old St. Croix Royal Danish Navy Naval Cadet",
@@ -10236,32 +10210,6 @@
       ],
       "slug": "barcelo-imperial-rare-blends-porto-cask",
       "price_change_7d": 30.0
-    },
-    {
-      "name": "Dos Maderas Seleccion",
-      "image": "https://spitus.dk/wp-content/uploads/2023/05/dos-maderad-seleccion.png",
-      "type": null,
-      "country": "Barbados",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/dos-maderas-seleccion/"
-        }
-      ],
-      "slug": "dos-maderas-seleccion",
-      "price_change_7d": null
     },
     {
       "name": "Austrian Empire Navy Rum 18 Y.O.",
@@ -11006,6 +10954,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Ron Sostenible Experimental Cask Rioja rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_c1a71d4d-5fc0-4416-9f8c-ca1b3a4e90c1.png?v=1769438357",
+      "type": "Mørk rom",
+      "country": "Dominikansk",
+      "brand": "A Clean Spirit",
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 399.0,
+      "cheapest_price": 399.0,
+      "max_discount_pct": 20.0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 399.0,
+          "old_price": 499.0,
+          "discount_pct": 20.0,
+          "url": "https://rombo.dk/products/ron-sostenible-experimental-cask-rioja-rom"
+        }
+      ],
+      "slug": "ron-sostenible-experimental-cask-rioja-rom",
+      "price_change_7d": null
+    },
+    {
       "name": "Ron Tepuy Monumento rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Ron_Tepuy_Monumento_rom.png?v=1781176567",
       "type": "Mørk rom",
@@ -11029,32 +11003,6 @@
         }
       ],
       "slug": "ron-tepuy-monumento-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Rum Nation Mauritius 6 år Triple Cask rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bbedcec3-aa40-4a96-af5a-6333b2ec2cc4.png?v=1769439798",
-      "type": "Mørk rom",
-      "country": null,
-      "brand": "Rum Nation",
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "6 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/rum-nation-mauritius-triple-cask"
-        }
-      ],
-      "slug": "rum-nation-mauritius-6-ar-triple-cask-rom",
       "price_change_7d": null
     },
     {
@@ -11393,7 +11341,7 @@
         }
       ],
       "slug": "new-grove-double-cask-acacia-rom",
-      "price_change_7d": null
+      "price_change_7d": -130.0
     },
     {
       "name": "A.H. Riise XO Ambre d’Or",
@@ -11625,6 +11573,32 @@
       "price_change_7d": null
     },
     {
+      "name": "English Harbour Reserve 10 års Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_8d1ca535-c7db-4182-84d2-d53c78a3d4c6.png?v=1769420636",
+      "type": "Mørk rom",
+      "country": null,
+      "brand": "English Harbour",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "10 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 425.0,
+      "cheapest_price": 425.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 425.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/english-harbour-reserve-rum-10-ar-40-70cl-rom-fra-antigua"
+        }
+      ],
+      "slug": "english-harbour-reserve-10-ars-rom",
+      "price_change_7d": -60.0
+    },
+    {
       "name": "Flor de Caña 14 års rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_fa917b74-13a1-454f-9384-796072c8bda6.png?v=1769438349",
       "type": "Mørk rom",
@@ -11830,7 +11804,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-18-years",
-      "price_change_7d": null
+      "price_change_7d": -70.0
     },
     {
       "name": "SBS Origin Australia KLK Rom",
@@ -12371,7 +12345,7 @@
         }
       ],
       "slug": "opthimus-18-anos-cum-laude",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "El Ron Prohibido Reserva 22 Y.O",
@@ -12397,7 +12371,7 @@
         }
       ],
       "slug": "el-ron-prohibido-reserva-22-y-o",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "El Dorado 15 Y.O.",
@@ -12865,6 +12839,32 @@
         }
       ],
       "slug": "cashcane-saloon-cask",
+      "price_change_7d": null
+    },
+    {
+      "name": "Dos Maderas Seleccion",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/dos-maderad-seleccion.png",
+      "type": null,
+      "country": "Barbados",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 449.0,
+      "cheapest_price": 449.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 449.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/dos-maderas-seleccion/"
+        }
+      ],
+      "slug": "dos-maderas-seleccion",
       "price_change_7d": null
     },
     {
@@ -13610,6 +13610,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Renegade Cane Rum Pre Cask Dunfermline Column Still",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Renegade_Cane_Rum_Pre_Cask_Dunfermline_Column_Still.png?v=1770199572",
+      "type": "Aged rom",
+      "country": null,
+      "brand": "Renegade",
+      "abv": 50.0,
+      "volume_cl": null,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 465.0,
+      "cheapest_price": 465.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 465.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/renegade-rum-pre-cask-dunfermline-column-still"
+        }
+      ],
+      "slug": "renegade-cane-rum-pre-cask-dunfermline-column-still",
+      "price_change_7d": -166.0
+    },
+    {
       "name": "Renegade Cane Rum Pre Cask Dunfermline Pot Still",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Renegade_Cane_Rum_Pre_Cask_Dunfermline_Pot_Still.png?v=1770199673",
       "type": "Aged rom",
@@ -13718,7 +13744,7 @@
         }
       ],
       "slug": "a-h-riise-xo-royal-reserve-kong-haakon",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "Matusalem Gran Reserva 23 Y.O",
@@ -14061,6 +14087,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Rum Nation Mauritius 8 år Cask Strength rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Rum_Nation_Mauritius_8_ar_Cask_Strength_rom.png?v=1770120113",
+      "type": "Mørk rom",
+      "country": null,
+      "brand": "Rum Nation",
+      "abv": 54.9,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 475.0,
+      "cheapest_price": 475.0,
+      "max_discount_pct": 13.5,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 475.0,
+          "old_price": 549.0,
+          "discount_pct": 13.5,
+          "url": "https://rombo.dk/products/rum-nation-mauritius-cask-strength"
+        }
+      ],
+      "slug": "rum-nation-mauritius-8-ar-cask-strength-rom",
+      "price_change_7d": null
+    },
+    {
       "name": "Santa Teresa 1796 Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_79e60caf-f8c9-424b-988c-dda6a234e316.png?v=1769436726",
       "type": "Spiced",
@@ -14188,7 +14240,7 @@
         }
       ],
       "slug": "professor-cornelius-rumbullion-navy-strength-rom",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Ron Quorhum 23 Años Solera",
@@ -14214,7 +14266,7 @@
         }
       ],
       "slug": "ron-quorhum-23-anos-solera",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Bally 12 Y.O",
@@ -14240,7 +14292,7 @@
         }
       ],
       "slug": "bally-12-y-o",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Kirk & Sweeney 12 Years",
@@ -14396,6 +14448,32 @@
         }
       ],
       "slug": "diplomatico-distillery-collection-n-1-batch-kettle",
+      "price_change_7d": null
+    },
+    {
+      "name": "Romdeluxe Guadeloupe Red Cane New Make Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bab7027c-4456-47e9-8cca-66a92474915e.png?v=1769436283",
+      "type": "Hvid rom",
+      "country": null,
+      "brand": "Romdeluxe",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 495.0,
+      "cheapest_price": 495.0,
+      "max_discount_pct": 16.8,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 495.0,
+          "old_price": 595.0,
+          "discount_pct": 16.8,
+          "url": "https://rombo.dk/products/guadeloupe-red-cane-new-make-romdeluxe"
+        }
+      ],
+      "slug": "romdeluxe-guadeloupe-red-cane-new-make-rom",
       "price_change_7d": null
     },
     {
@@ -14878,7 +14956,7 @@
         }
       ],
       "slug": "chairmans-reserve-vintage-2009",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "A.H. Riise Royal Danish Navy Strength 55%",
@@ -15226,32 +15304,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Rammstein Rum PX Sherry Cask Finish limited edition rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/RammsteinRumPXCaskSherryFinishrom.png?v=1772635602",
-      "type": "Mørk rom",
-      "country": "Guyana",
-      "brand": "Rammstein",
-      "abv": null,
-      "volume_cl": null,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 499.0,
-      "cheapest_price": 499.0,
-      "max_discount_pct": 16.7,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 499.0,
-          "old_price": 599.0,
-          "discount_pct": 16.7,
-          "url": "https://rombo.dk/products/rammstein-rum-sauternes-finish-limited-edition-rom-copy"
-        }
-      ],
-      "slug": "rammstein-rum-px-sherry-cask-finish-limited-edition-rom",
-      "price_change_7d": -100.0
-    },
-    {
       "name": "Rombo Exclusive Cask Rum Australia KLK Virgin Oak",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Rombo_Exclusive_Cask_Rum_Australia_KLK_Virgin_Oak.png?v=1772185852",
       "type": "Mørk rom",
@@ -15379,32 +15431,6 @@
         }
       ],
       "slug": "ron-sostenible-8-ar-triple-cask-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Sostenible Experimental Cask Rioja rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_c1a71d4d-5fc0-4416-9f8c-ca1b3a4e90c1.png?v=1769438357",
-      "type": "Mørk rom",
-      "country": "Dominikansk",
-      "brand": "A Clean Spirit",
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 499.0,
-      "cheapest_price": 499.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/ron-sostenible-experimental-cask-rioja-rom"
-        }
-      ],
-      "slug": "ron-sostenible-experimental-cask-rioja-rom",
       "price_change_7d": null
     },
     {
@@ -15821,7 +15847,7 @@
         }
       ],
       "slug": "a-h-riise-xo-founders-reserve-no-4",
-      "price_change_7d": null
+      "price_change_7d": -90.0
     },
     {
       "name": "Ron Centenario Reserva de la Familia 18 Selección Premium",
@@ -16637,32 +16663,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Rum Nation Mauritius 8 år Cask Strength rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Rum_Nation_Mauritius_8_ar_Cask_Strength_rom.png?v=1770120113",
-      "type": "Mørk rom",
-      "country": null,
-      "brand": "Rum Nation",
-      "abv": 54.9,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 549.0,
-      "cheapest_price": 549.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 549.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/rum-nation-mauritius-cask-strength"
-        }
-      ],
-      "slug": "rum-nation-mauritius-8-ar-cask-strength-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "The Real McCoy 12 års rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_35996960-ce92-487c-b3a9-c2179e023c90.png?v=1769438174",
       "type": "Mørk rom",
@@ -17223,32 +17223,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Romdeluxe Guadeloupe Red Cane New Make Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bab7027c-4456-47e9-8cca-66a92474915e.png?v=1769436283",
-      "type": "Hvid rom",
-      "country": null,
-      "brand": "Romdeluxe",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 595.0,
-      "cheapest_price": 595.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 595.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/guadeloupe-red-cane-new-make-romdeluxe"
-        }
-      ],
-      "slug": "romdeluxe-guadeloupe-red-cane-new-make-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Romdeluxe Le Galion Martinique New Make Rom Batch 2",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_b790cb31-c9a8-4f28-8b25-dcb8976d98bd.png?v=1769436279",
       "type": "Rhum Agricole",
@@ -17273,32 +17247,6 @@
       ],
       "slug": "romdeluxe-le-galion-martinique-new-make-rom-batch-2",
       "price_change_7d": null
-    },
-    {
-      "name": "SBS Panama 2012 Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_6e9dcf45-efc7-4e70-8e71-7213aaba0a9e.png?v=1769437004",
-      "type": null,
-      "country": "Panama",
-      "brand": "SBS",
-      "abv": 55.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 595.0,
-      "cheapest_price": 595.0,
-      "max_discount_pct": 14.4,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 595.0,
-          "old_price": 695.0,
-          "discount_pct": 14.4,
-          "url": "https://rombo.dk/products/sbs-panana-2012"
-        }
-      ],
-      "slug": "sbs-panama-2012-rom",
-      "price_change_7d": -100.0
     },
     {
       "name": "Goslings Family Reserve",
@@ -17702,7 +17650,7 @@
         }
       ],
       "slug": "ron-cueva-1501-solera-18",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "A.H. Riise Old St. Croix XO Explorer Danmark",
@@ -18119,6 +18067,32 @@
       ],
       "slug": "rammstein-rum-port-cask-finish",
       "price_change_7d": null
+    },
+    {
+      "name": "Rammstein Rum PX Sherry Cask Finish limited edition rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/RammsteinRumPXCaskSherryFinishrom.png?v=1772635602",
+      "type": "Mørk rom",
+      "country": "Guyana",
+      "brand": "Rammstein",
+      "abv": null,
+      "volume_cl": null,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.0,
+      "cheapest_price": 599.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 599.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/rammstein-rum-sauternes-finish-limited-edition-rom-copy"
+        }
+      ],
+      "slug": "rammstein-rum-px-sherry-cask-finish-limited-edition-rom",
+      "price_change_7d": -100.0
     },
     {
       "name": "Rammstein Rum Sauternes Cask Finish",
@@ -18756,7 +18730,7 @@
         }
       ],
       "slug": "zacapa-23-y-o-la-pasion-heavenly-cask-collection",
-      "price_change_7d": null
+      "price_change_7d": -76.0
     },
     {
       "name": "Renegade Cane Rum Études Pearls Pot Still",
@@ -18952,7 +18926,7 @@
         }
       ],
       "slug": "chairmans-reserve-1931",
-      "price_change_7d": null
+      "price_change_7d": -70.0
     },
     {
       "name": "Flor De Cana 20 Y.O. 130th Anniversary",
@@ -18978,7 +18952,7 @@
         }
       ],
       "slug": "flor-de-cana-20-y-o-130th-anniversary",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Opthimus 25 Años Summa Cum Laude",
@@ -19609,7 +19583,7 @@
         }
       ],
       "slug": "the-real-mccoy-12-year-old-rum",
-      "price_change_7d": null
+      "price_change_7d": 150.0
     },
     {
       "name": "Dictador XO Perpetual",
@@ -19635,7 +19609,7 @@
         }
       ],
       "slug": "dictador-xo-perpetual",
-      "price_change_7d": null
+      "price_change_7d": -90.0
     },
     {
       "name": "Dictador XO Insolent",
@@ -19661,7 +19635,7 @@
         }
       ],
       "slug": "dictador-xo-insolent",
-      "price_change_7d": null
+      "price_change_7d": -90.0
     },
     {
       "name": "Bapt & Clem’s Guyana Ans 8 d’age Jurançon Finish",
@@ -20042,6 +20016,32 @@
       "price_change_7d": null
     },
     {
+      "name": "SBS Panama 2012 Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_6e9dcf45-efc7-4e70-8e71-7213aaba0a9e.png?v=1769437004",
+      "type": null,
+      "country": "Panama",
+      "brand": "SBS",
+      "abv": 55.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 695.0,
+      "cheapest_price": 695.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 695.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/sbs-panana-2012"
+        }
+      ],
+      "slug": "sbs-panama-2012-rom",
+      "price_change_7d": -100.0
+    },
+    {
       "name": "Alfred’s Trail 8.6 Belize Port Finish Rum",
       "image": "https://conmaz.dk/wp-content/uploads/2022/03/AT04-2-scaled.jpg",
       "type": "Aged rom",
@@ -20377,7 +20377,7 @@
         }
       ],
       "slug": "puntacana-xox",
-      "price_change_7d": null
+      "price_change_7d": -60.0
     },
     {
       "name": "Professor Cornelius Rumbullion XO 15 YO",
@@ -20430,32 +20430,6 @@
       ],
       "slug": "abuelo-xv-finish-collection-three-pack-3-x-20cl-rom",
       "price_change_7d": null
-    },
-    {
-      "name": "Botran Rare Blend Vintage French Wine Cask Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_faea9adc-895b-4db3-a095-6f7af5675505.png?v=1769434242",
-      "type": "Mørk rom",
-      "country": "Guatemala",
-      "brand": "Botran",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "25 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 699.0,
-      "cheapest_price": 699.0,
-      "max_discount_pct": 12.5,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 699.0,
-          "old_price": 799.0,
-          "discount_pct": 12.5,
-          "url": "https://rombo.dk/products/botran-rare-blend-french-wine-cask-rom"
-        }
-      ],
-      "slug": "botran-rare-blend-vintage-french-wine-cask-rom",
-      "price_change_7d": -100.0
     },
     {
       "name": "Chairman's Reserve 1931 Rom",
@@ -20924,32 +20898,6 @@
       ],
       "slug": "warehouse-1-legendary-marques-wpe-single-cask-rom",
       "price_change_7d": null
-    },
-    {
-      "name": "Worthy Park Special Cask Release Virgin Oak Vintage 2013 Rum (bottled for Belgium)",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4f3330d3-f262-49ea-91b7-690fbedc70d6.png?v=1769439579",
-      "type": "Mørk rom",
-      "country": "Jamaica",
-      "brand": "Worthy Park",
-      "abv": 55.0,
-      "volume_cl": 70.0,
-      "age": "4 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 699.0,
-      "cheapest_price": 699.0,
-      "max_discount_pct": 12.5,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 699.0,
-          "old_price": 799.0,
-          "discount_pct": 12.5,
-          "url": "https://rombo.dk/products/worthy-park-virgin-oak-vintage-2013"
-        }
-      ],
-      "slug": "worthy-park-special-cask-release-virgin-oak-vintage-2013-rum-bottled-for-belgium",
-      "price_change_7d": -100.0
     },
     {
       "name": "Old St. Croix Non Plus Ultra Very Rare",
@@ -21568,7 +21516,7 @@
         }
       ],
       "slug": "a-h-riise-non-plus-ultra-old-st-croix-la-galante",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Old St. Croix Non Plus Ultra Black Edition",
@@ -21627,7 +21575,7 @@
         }
       ],
       "slug": "dictador-platinium-colombian-aged-rum",
-      "price_change_7d": null
+      "price_change_7d": -180.0
     },
     {
       "name": "Romdeluxe Limited Batch Series Ghana Rom",
@@ -21939,7 +21887,7 @@
         }
       ],
       "slug": "glenfiddich-18-y-o-small-batch-reserve",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Hunter Laing Kill Devil Guyana 8 Years Old Single Cask Rum 2008",
@@ -22070,6 +22018,32 @@
       ],
       "slug": "belize-shared-single-cask-rum",
       "price_change_7d": null
+    },
+    {
+      "name": "Botran Rare Blend Vintage French Wine Cask Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_faea9adc-895b-4db3-a095-6f7af5675505.png?v=1769434242",
+      "type": "Mørk rom",
+      "country": "Guatemala",
+      "brand": "Botran",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "25 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 799.0,
+      "cheapest_price": 799.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 799.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/botran-rare-blend-french-wine-cask-rom"
+        }
+      ],
+      "slug": "botran-rare-blend-vintage-french-wine-cask-rom",
+      "price_change_7d": -100.0
     },
     {
       "name": "Compagnie des Indes Australia Beenleigh 2022 Rom",
@@ -22382,6 +22356,32 @@
       ],
       "slug": "worthy-park-single-estate-12-ars-rom",
       "price_change_7d": null
+    },
+    {
+      "name": "Worthy Park Special Cask Release Virgin Oak Vintage 2013 Rum (bottled for Belgium)",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_4f3330d3-f262-49ea-91b7-690fbedc70d6.png?v=1769439579",
+      "type": "Mørk rom",
+      "country": "Jamaica",
+      "brand": "Worthy Park",
+      "abv": 55.0,
+      "volume_cl": 70.0,
+      "age": "4 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 799.0,
+      "cheapest_price": 799.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 799.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/worthy-park-virgin-oak-vintage-2013"
+        }
+      ],
+      "slug": "worthy-park-special-cask-release-virgin-oak-vintage-2013-rum-bottled-for-belgium",
+      "price_change_7d": -100.0
     },
     {
       "name": "Ophyum Grand Premiere Rhum Sistema 23 Solera",
@@ -22719,32 +22719,6 @@
         }
       ],
       "slug": "sbs-antigua-2015-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "SBS Panama 2002 Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_ab681cfa-239c-4c68-8bca-f2a3c5651265.png?v=1769437929",
-      "type": null,
-      "country": "Panama",
-      "brand": "SBS",
-      "abv": 59.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 849.0,
-      "cheapest_price": 849.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 849.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/sbs-panama-2002-rom"
-        }
-      ],
-      "slug": "sbs-panama-2002-rom",
       "price_change_7d": null
     },
     {
@@ -23856,7 +23830,7 @@
       "volume_cl": 70.0,
       "age": "15 år",
       "category": "rom",
-      "shop_count": 1,
+      "shop_count": 2,
       "min_price": 985.0,
       "cheapest_price": 985.0,
       "max_discount_pct": 5.7,
@@ -23867,10 +23841,17 @@
           "old_price": 1045.0,
           "discount_pct": 5.7,
           "url": "https://spitus.dk/product/foursquare-15-years-old-penultimus-exceptional-cask-selection-mark-xxx-rom/"
+        },
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 1099.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/foursquare-penultimus-15-yo-exceptional-cask-selection-mark-xxx-57-bottled-2025/"
         }
       ],
       "slug": "foursquare-15-years-old-penultimus-exceptional-cask-selection-mark-xxx-rom",
-      "price_change_7d": null
+      "price_change_7d": -60.0
     },
     {
       "name": "Ron Cihuatan Xaman XO Rum 40% El Salvador",
@@ -24631,7 +24612,7 @@
       "volume_cl": 70.0,
       "age": "19 år",
       "category": "rom",
-      "shop_count": 1,
+      "shop_count": 2,
       "min_price": 1045.0,
       "cheapest_price": 1045.0,
       "max_discount_pct": 0,
@@ -24642,6 +24623,13 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/foursquare-19-years-old-epilogue-exceptional-cask-selection-mark-xxxi-rom/"
+        },
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 1099.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/foursquare-epilogue-19-yo-exceptional-cask-selection-mark-xxxi-57-v/"
         }
       ],
       "slug": "foursquare-19-years-old-epilogue-exceptional-cask-selection-mark-xxxi-rom",
@@ -25016,7 +25004,7 @@
         }
       ],
       "slug": "ron-centenario-30-sistema-solera-seleccion-premium-edicion-limitada",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Hunter Laing Kill Devil Guyana 12 Years Old Single Cask Rum 2004",
@@ -25120,32 +25108,6 @@
         }
       ],
       "slug": "foursquare-epilogue-exceptional-cask-selection-single-blended-rum",
-      "price_change_7d": null
-    },
-    {
-      "name": "SBS Belize 2005 Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_10318bca-8ad0-4ec9-97cc-24971295def1.png?v=1769434487",
-      "type": "Mørk rom",
-      "country": "Venezuela",
-      "brand": "SBS",
-      "abv": 58.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1149.0,
-      "cheapest_price": 1149.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 1149.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/sbs-belize-2005-rom"
-        }
-      ],
-      "slug": "sbs-belize-2005-rom",
       "price_change_7d": null
     },
     {
@@ -25851,32 +25813,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Mount Gay The Port Cask Expression Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_5a42b540-84b1-414e-9a13-34fab2551466.png?v=1769424688",
-      "type": "Aged rom",
-      "country": "Barbados",
-      "brand": "Mount Gay",
-      "abv": 55.0,
-      "volume_cl": 70.0,
-      "age": "5 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1295.0,
-      "cheapest_price": 1295.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 1295.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/mount-gay-rum-the-port-cask-expression"
-        }
-      ],
-      "slug": "mount-gay-the-port-cask-expression-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Romdeluxe Distillery Series Rum No. 3 Australia 2007",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_817098b2-5cd7-4b2a-86f9-51d0111b5364.png?v=1769437272",
       "type": "Spiced",
@@ -26059,32 +25995,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Mount Gay 1703 Master Select 2020 Release Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_97fecfdb-016a-4302-8d49-535c52740d4a.png?v=1769423719",
-      "type": null,
-      "country": "Barbados",
-      "brand": "Mount Gay",
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1349.0,
-      "cheapest_price": 1349.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 1349.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/mount-gay-rum-1703-master-select"
-        }
-      ],
-      "slug": "mount-gay-1703-master-select-2020-release-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "A.H. Riise Signature",
       "image": "https://spitus.dk/wp-content/uploads/2022/05/a.h.riise-signature-k.jpg",
       "type": null,
@@ -26108,7 +26018,7 @@
         }
       ],
       "slug": "a-h-riise-signature",
-      "price_change_7d": 80.0
+      "price_change_7d": null
     },
     {
       "name": "Compagnie des Indes Jamaica Clarendon 2022 Rom",
@@ -26609,6 +26519,32 @@
         }
       ],
       "slug": "bristol-spirits-jamaica-trelawney-2009-2021-47-5",
+      "price_change_7d": null
+    },
+    {
+      "name": "Foursquare Shibboleth 16 y.o. Fine Barbados Rum",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/08/4square_shibboleth.jpg",
+      "type": "Aged rom",
+      "country": "Barbados",
+      "brand": "Foursquare",
+      "abv": 56.0,
+      "volume_cl": null,
+      "age": "16 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1499.0,
+      "cheapest_price": 1499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 1499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/foursquare-shibboleth-16-y-o-fine-barbados-rum/"
+        }
+      ],
+      "slug": "foursquare-shibboleth-16-y-o-fine-barbados-rum",
       "price_change_7d": null
     },
     {
@@ -27474,7 +27410,7 @@
         }
       ],
       "slug": "el-dorado-port-mourant-demerara-rum-rare-collection-1999",
-      "price_change_7d": null
+      "price_change_7d": -250.0
     },
     {
       "name": "Zacapa Royal",
@@ -27500,7 +27436,7 @@
         }
       ],
       "slug": "zacapa-royal",
-      "price_change_7d": null
+      "price_change_7d": -130.0
     },
     {
       "name": "Magnum Rammstein Rum - 4,5 liter",
@@ -27552,7 +27488,7 @@
         }
       ],
       "slug": "a-h-riise-black-coral",
-      "price_change_7d": null
+      "price_change_7d": -800.0
     },
     {
       "name": "Ron Millonario XO Reserva Especial Rom Magnum 1,5 liter",
@@ -29015,7 +28951,7 @@
         }
       ],
       "slug": "dictador-2-masters-glenfarclas-1972",
-      "price_change_7d": null
+      "price_change_7d": -500.0
     },
     {
       "name": "Diplomatico Chancellor Ron Extra Antiguo",
