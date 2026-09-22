@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-21T20:13:13.755430",
+  "updated": "2026-09-22T15:02:11.647935",
   "stats": {
-    "total": 1093,
+    "total": 1094,
     "deals": 126,
     "shops": 4,
     "shop_names": [
@@ -95,7 +95,7 @@
     "shop_counts": {
       "Kokkens Vinhus": 254,
       "Spitus": 329,
-      "Rombo": 491,
+      "Rombo": 492,
       "Con Maz": 98
     }
   },
@@ -7894,7 +7894,7 @@
         }
       ],
       "slug": "alta-gama-demi-sec-guyana-rum",
-      "price_change_7d": null
+      "price_change_7d": -150.0
     },
     {
       "name": "Vesper Reserve Blue Star Sweet XO",
@@ -12371,7 +12371,7 @@
         }
       ],
       "slug": "don-q-151-rum",
-      "price_change_7d": null
+      "price_change_7d": 140.0
     },
     {
       "name": "Opthimus 18 Años Cum Laude",
@@ -16686,6 +16686,32 @@
         }
       ],
       "slug": "quorhum-terra-nova-16-artisanal-rum",
+      "price_change_7d": null
+    },
+    {
+      "name": "Savanna Lontan Straight Rhum Grand Arome",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/SavannaLontanStraightRhumGrandArome.png?v=1790000124",
+      "type": "Hvid rom",
+      "country": null,
+      "brand": "Savanna",
+      "abv": 74.9,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 549.0,
+      "cheapest_price": 549.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 549.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/savanna-lontan-straight-rhum-grand-arome"
+        }
+      ],
+      "slug": "savanna-lontan-straight-rhum-grand-arome",
       "price_change_7d": null
     },
     {
