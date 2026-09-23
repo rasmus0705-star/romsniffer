@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-22T15:02:11.647935",
+  "updated": "2026-09-23T18:09:00.765248",
   "stats": {
-    "total": 1094,
+    "total": 1098,
     "deals": 126,
     "shops": 4,
     "shop_names": [
@@ -94,9 +94,9 @@
     "multi_shop": 74,
     "shop_counts": {
       "Kokkens Vinhus": 254,
-      "Spitus": 329,
-      "Rombo": 492,
-      "Con Maz": 98
+      "Spitus": 330,
+      "Rombo": 494,
+      "Con Maz": 99
     }
   },
   "roms": [
@@ -255,32 +255,6 @@
       ],
       "slug": "ron-esclavo-12-20-cl-40",
       "price_change_7d": null
-    },
-    {
-      "name": "Wooden Moose Coffee, Cocoa & Caramelised Chipotle Spiced Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/09/wood-spice.png",
-      "type": "Spiced",
-      "country": "England",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 50.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 149.0,
-      "cheapest_price": 149.0,
-      "max_discount_pct": 54.2,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 149.0,
-          "old_price": 325.0,
-          "discount_pct": 54.2,
-          "url": "https://conmaz.dk/wooden-moose-coffee-cocoa-caramelised-chipotle-spiced-rum/"
-        }
-      ],
-      "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
-      "price_change_7d": -80.0
     },
     {
       "name": "Cachaca 51 Pirassungo 40%",
@@ -2247,6 +2221,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Doorly’s 3 Years Old Fine Old Barbados White Rum",
+      "image": "https://spitus.dk/wp-content/uploads/2026/09/doorly3.jpg",
+      "type": "Hvid rom",
+      "country": "Barbados",
+      "brand": "Doorly",
+      "abv": 47.0,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 245.0,
+      "cheapest_price": 245.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 245.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/doorlys-3-years-old-fine-old-barbados-white-rum/"
+        }
+      ],
+      "slug": "doorlys-3-years-old-fine-old-barbados-white-rum",
+      "price_change_7d": null
+    },
+    {
       "name": "Diplomatico Mantuano Ron Extra Anejo",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_405ebe3b-6b12-428f-aedb-928d70f70096.png?v=1769422693",
       "type": "Spiced",
@@ -2440,7 +2440,7 @@
         }
       ],
       "slug": "ron-tabu-old",
-      "price_change_7d": 70.0
+      "price_change_7d": null
     },
     {
       "name": "Barcelo Imperial",
@@ -2577,7 +2577,7 @@
         }
       ],
       "slug": "angostura-tamboo-spiced",
-      "price_change_7d": null
+      "price_change_7d": 34.0
     },
     {
       "name": "Chairman's Reserve Original Rom",
@@ -2863,32 +2863,6 @@
         }
       ],
       "slug": "worthy-park-white-overproof-63",
-      "price_change_7d": null
-    },
-    {
-      "name": "Vesper Venezuela Reserve Single XO Rum",
-      "image": "https://conmaz.dk/wp-content/uploads/2025/04/vesper-rum-venezuela.png",
-      "type": "Aged rom",
-      "country": "Venezuela",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "XO",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 249.0,
-      "cheapest_price": 249.0,
-      "max_discount_pct": 44.5,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 249.0,
-          "old_price": 449.0,
-          "discount_pct": 44.5,
-          "url": "https://conmaz.dk/vesper-rum-venezuela-reserve-single-xo/"
-        }
-      ],
-      "slug": "vesper-venezuela-reserve-single-xo-rum",
       "price_change_7d": null
     },
     {
@@ -3872,7 +3846,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-rum-reserva-dominikanske-republik",
-      "price_change_7d": -69.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Millonario Aniversario Reserva 10 års Rom",
@@ -4068,7 +4042,7 @@
         }
       ],
       "slug": "el-ron-prohibido-12-y-o",
-      "price_change_7d": 20.0
+      "price_change_7d": null
     },
     {
       "name": "Foursquare Spiced",
@@ -4673,7 +4647,7 @@
         }
       ],
       "slug": "a-h-riise-royal-danish-navy-westindian-50cl-old-edition",
-      "price_change_7d": 54.0
+      "price_change_7d": null
     },
     {
       "name": "Dos Maderas Atlantic Rom",
@@ -6377,7 +6351,7 @@
         }
       ],
       "slug": "tanduay-matured-dark-10-ars-rom",
-      "price_change_7d": null
+      "price_change_7d": 50.0
     },
     {
       "name": "Terra Verde XO Original",
@@ -6482,6 +6456,32 @@
       ],
       "slug": "wooden-moose-caramelised-pineapple-and-passionfruit-spiced-rum",
       "price_change_7d": null
+    },
+    {
+      "name": "Wooden Moose Coffee, Cocoa & Caramelised Chipotle Spiced Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/09/wood-spice.png",
+      "type": "Spiced",
+      "country": "England",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 325.0,
+      "cheapest_price": 325.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 325.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/wooden-moose-coffee-cocoa-caramelised-chipotle-spiced-rum/"
+        }
+      ],
+      "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
+      "price_change_7d": -80.0
     },
     {
       "name": "Espero Liquer CREOLE ELIXIR Dom. Republic 34%",
@@ -6774,7 +6774,7 @@
         }
       ],
       "slug": "rum-nation-guatemala-gran-reserva",
-      "price_change_7d": 30.0
+      "price_change_7d": null
     },
     {
       "name": "Austrian Empire Navy Reserva 1863",
@@ -7126,7 +7126,7 @@
         }
       ],
       "slug": "bayou-single-barrel-rum",
-      "price_change_7d": 50.0
+      "price_change_7d": null
     },
     {
       "name": "Stroh 80% Original Rum, 1 liter",
@@ -7712,7 +7712,7 @@
         }
       ],
       "slug": "rum-nation-dominicana-8-ar",
-      "price_change_7d": 50.0
+      "price_change_7d": null
     },
     {
       "name": "Rum Nation Mauritius 6 år Triple Cask rom",
@@ -7739,6 +7739,39 @@
       ],
       "slug": "rum-nation-mauritius-6-ar-triple-cask-rom",
       "price_change_7d": -50.0
+    },
+    {
+      "name": "Ron Santiago de Cuba Extra Añejo 12 Años",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_40aaa7b2-1c96-474b-a780-29e5476534d3.png?v=1769420724",
+      "type": "Spiced",
+      "country": "Cuba",
+      "brand": "Santiago de Cuba",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 30.1,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 349.0,
+          "old_price": 499.0,
+          "discount_pct": 30.1,
+          "url": "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-12-anos/"
+        },
+        {
+          "shop_name": "Rombo",
+          "price": 449.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/santiago-de-cuba-12-extra-anejo"
+        }
+      ],
+      "slug": "santiago-de-cuba-ron-extra-anejo-12-ars-rom",
+      "price_change_7d": null
     },
     {
       "name": "Stroh Original 80%",
@@ -7793,6 +7826,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Terra Verde A Christmas Spirit",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_9f68179c-600a-4edc-898a-d0289f476758.png?v=1769438066",
+      "type": null,
+      "country": "Dominikansk",
+      "brand": "A Clean Spirit",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 349.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/terra-verde-a-christmas-spirit"
+        }
+      ],
+      "slug": "terra-verde-a-christmas-spirit",
+      "price_change_7d": null
+    },
+    {
       "name": "Terra Verde A Midsummer Spirit",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_f046d4cf-b2a4-4bb9-86e7-698159fd93c6.png?v=1769437335",
       "type": "Mørk rom",
@@ -7819,32 +7878,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Terra Verde Chocolate XOS Extra Old Sweet",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_60ec1da8-694a-4350-bb09-16ab1164401e.png?v=1769439614",
-      "type": "Mørk rom",
-      "country": "Dominikansk",
-      "brand": "A Clean Spirit",
-      "abv": 38.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 349.0,
-      "cheapest_price": 349.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 349.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/terra-verde-chocolate-xos"
-        }
-      ],
-      "slug": "terra-verde-chocolate-xos-extra-old-sweet",
-      "price_change_7d": null
-    },
-    {
       "name": "Terra Verde XO Cask Strength",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_f45ee111-60e5-479c-9c3c-71ec947f984b.png?v=1769435620",
       "type": "Mørk rom",
@@ -7868,6 +7901,32 @@
         }
       ],
       "slug": "terra-verde-xo-cask-strength",
+      "price_change_7d": null
+    },
+    {
+      "name": "Terra Verde XOS Chocolate Extra Old Sweet",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_60ec1da8-694a-4350-bb09-16ab1164401e.png?v=1769439614",
+      "type": "Mørk rom",
+      "country": "Dominikansk",
+      "brand": "A Clean Spirit",
+      "abv": 38.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 349.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/terra-verde-chocolate-xos"
+        }
+      ],
+      "slug": "terra-verde-chocolate-xos-extra-old-sweet",
       "price_change_7d": null
     },
     {
@@ -8927,6 +8986,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Rest & Be Thankful Small Batch Rum #1 Monymusk 2012",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/09/monymusk2012.jpg",
+      "type": "Aged rom",
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 46.0,
+      "volume_cl": 70.0,
+      "age": "9 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 375.0,
+      "cheapest_price": 375.0,
+      "max_discount_pct": 37.4,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 375.0,
+          "old_price": 599.0,
+          "discount_pct": 37.4,
+          "url": "https://conmaz.dk/rest-be-thankful-small-batch-rum-1-monymusk-2012/"
+        }
+      ],
+      "slug": "rest-and-be-thankful-small-batch-rum-1-monymusk-2012",
+      "price_change_7d": null
+    },
+    {
       "name": "Smith & Cross Traditional Jamaica Rum -57%",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/02/Smith-Cross-Traditional-Jamaica-Rum.jpg",
       "type": "Overproof",
@@ -9087,7 +9172,7 @@
         }
       ],
       "slug": "ron-centenario-tasting-collection-4-x-20cl",
-      "price_change_7d": 60.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise XO Reserve Superior Cask",
@@ -9321,7 +9406,7 @@
         }
       ],
       "slug": "flor-de-cana-eco-15-y-o",
-      "price_change_7d": 40.0
+      "price_change_7d": null
     },
     {
       "name": "Black Tot Rum",
@@ -9373,7 +9458,7 @@
         }
       ],
       "slug": "chairmans-reserve-rum-legacy-edition",
-      "price_change_7d": 20.0
+      "price_change_7d": null
     },
     {
       "name": "Fanø Skibsrom Havfruen",
@@ -9503,7 +9588,7 @@
         }
       ],
       "slug": "romdeluxe-no-3-white-rum-jamaica-st-catherine",
-      "price_change_7d": 70.0
+      "price_change_7d": null
     },
     {
       "name": "Romdeluxe Selected Series Rum Dominican Republic",
@@ -10554,7 +10639,7 @@
         }
       ],
       "slug": "cane-island-thailand-5-ar-single-estate-rum",
-      "price_change_7d": 50.0
+      "price_change_7d": null
     },
     {
       "name": "Carupano Reserva 18 Limitada Rom",
@@ -11315,7 +11400,7 @@
         }
       ],
       "slug": "smugglers-treasure-barbados-white-oak-40",
-      "price_change_7d": 70.0
+      "price_change_7d": null
     },
     {
       "name": "New Grove 10 Years",
@@ -11485,7 +11570,7 @@
         }
       ],
       "slug": "ron-quorhum-15-anos-solera",
-      "price_change_7d": 30.0
+      "price_change_7d": null
     },
     {
       "name": "Chairman’s Reserve Forgotten Casks",
@@ -11648,7 +11733,7 @@
         }
       ],
       "slug": "english-harbour-reserve-10-ars-rom",
-      "price_change_7d": null
+      "price_change_7d": 60.0
     },
     {
       "name": "Flor de Caña 14 års rom",
@@ -12943,7 +13028,7 @@
         }
       ],
       "slug": "opthimus-15-anos-solera-oporto",
-      "price_change_7d": 34.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise XO Reserve Port Cask Rum 45%",
@@ -13265,39 +13350,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Santiago de Cuba Ron Extra Añejo 12 års Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_40aaa7b2-1c96-474b-a780-29e5476534d3.png?v=1769420724",
-      "type": "Spiced",
-      "country": "Cuba",
-      "brand": "Santiago de Cuba",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 449.0,
-      "cheapest_price": 449.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 449.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/santiago-de-cuba-12-extra-anejo"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/ron-santiago-de-cuba-extra-anejo-12-anos/"
-        }
-      ],
-      "slug": "santiago-de-cuba-ron-extra-anejo-12-ars-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "SBS Origin Guadeloupe Red Cane Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_90b26de7-3a75-4b17-a34a-dfb9aee8d491.png?v=1769439703",
       "type": "Hvid rom",
@@ -13347,6 +13399,32 @@
         }
       ],
       "slug": "opthimus-rum-12-master-selection",
+      "price_change_7d": null
+    },
+    {
+      "name": "Vesper Venezuela Reserve Single XO Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2025/04/vesper-rum-venezuela.png",
+      "type": "Aged rom",
+      "country": "Venezuela",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 449.0,
+      "cheapest_price": 449.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 449.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://conmaz.dk/vesper-rum-venezuela-reserve-single-xo/"
+        }
+      ],
+      "slug": "vesper-venezuela-reserve-single-xo-rum",
       "price_change_7d": null
     },
     {
@@ -13503,7 +13581,7 @@
         }
       ],
       "slug": "planteray-xo-20th-anniversary-px-sherry-finish",
-      "price_change_7d": -49.0
+      "price_change_7d": null
     },
     {
       "name": "Laubade 7 år, Finished in Agricole Cask, 41%, 50 cl",
@@ -13685,7 +13763,7 @@
         }
       ],
       "slug": "renegade-cane-rum-pre-cask-dunfermline-column-still",
-      "price_change_7d": null
+      "price_change_7d": 166.0
     },
     {
       "name": "Renegade Cane Rum Pre Cask Dunfermline Pot Still",
@@ -14240,7 +14318,7 @@
         }
       ],
       "slug": "socializar-rom-dominikansk-rep-8-yo",
-      "price_change_7d": 80.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise Royal Danish Navy 55% Spirit Drink",
@@ -15509,7 +15587,7 @@
         }
       ],
       "slug": "rum-nation-british-guyana-7-ar-cask-strength",
-      "price_change_7d": 64.0
+      "price_change_7d": null
     },
     {
       "name": "SBS Origin French Antilles Grand Arome Rom",
@@ -15795,7 +15873,7 @@
         }
       ],
       "slug": "voyage-9yo-collectors-release-singlecask-port-42-7",
-      "price_change_7d": -99.0
+      "price_change_7d": null
     },
     {
       "name": "Venezuela XO 25th Anniversary – Rum Nation",
@@ -15847,7 +15925,7 @@
         }
       ],
       "slug": "ruby-panama-meets-port-8yo-45-spirit-drink-bellamys-reserve",
-      "price_change_7d": -69.0
+      "price_change_7d": null
     },
     {
       "name": "A.H.Riise XO Founders Reserve No 4",
@@ -16920,7 +16998,7 @@
         }
       ],
       "slug": "rum-nation-venezuela-xo-25th-anniversary",
-      "price_change_7d": 80.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise XO Founders Reserve No 5",
@@ -17731,32 +17809,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Bristol Classic Rum Dominican 2013 Madeira Finish",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_38f52dcb-5fbf-432f-ab22-e1555ef40e81.png?v=1769426099",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": "Bristol Classic",
-      "abv": 47.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 599.0,
-      "cheapest_price": 599.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 599.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/bristol-classic-rum-dominican-2013-rom-madeira-finish"
-        }
-      ],
-      "slug": "bristol-classic-rum-dominican-2013-madeira-finish",
-      "price_change_7d": null
-    },
-    {
       "name": "Chairman's Reserve Rum Vintage 2011",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Chairman_sReserveRumVintage2011rom.png?v=1777385251",
       "type": "Mørk rom",
@@ -17858,6 +17910,32 @@
         }
       ],
       "slug": "hampden-estate-8-ars-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Old St. Croix Julekalender 2026",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/OldStCroixJulekalender2026.png?v=1790087683",
+      "type": "Mørk rom",
+      "country": "Dansk",
+      "brand": "Old St. Croix",
+      "abv": 40.0,
+      "volume_cl": 2.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.0,
+      "cheapest_price": 599.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 599.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/old-st-croix-julekalender-2026"
+        }
+      ],
+      "slug": "old-st-croix-julekalender-2026-2",
       "price_change_7d": null
     },
     {
@@ -18144,7 +18222,7 @@
         }
       ],
       "slug": "rammstein-rum-px-sherry-cask-finish-limited-edition-rom",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Rammstein Rum Sauternes Cask Finish",
@@ -18522,7 +18600,7 @@
         }
       ],
       "slug": "cristobal-santa-maria-calvados-finish-42",
-      "price_change_7d": -40.0
+      "price_change_7d": null
     },
     {
       "name": "24 x Magiske Rom – julekalender",
@@ -18600,7 +18678,7 @@
         }
       ],
       "slug": "ron-cristobal-santa-maria-2009-px-sherry-cask-42",
-      "price_change_7d": -40.0
+      "price_change_7d": 50.0
     },
     {
       "name": "Oliver’s Maximo Solera 41 %",
@@ -18626,7 +18704,7 @@
         }
       ],
       "slug": "olivers-maximo-solera-41",
-      "price_change_7d": -169.0
+      "price_change_7d": null
     },
     {
       "name": "Cartavio XO extra old 18 Peru Rom 40%",
@@ -18652,7 +18730,7 @@
         }
       ],
       "slug": "cartavio-xo-extra-old-18-peru-rom-40",
-      "price_change_7d": -99.0
+      "price_change_7d": null
     },
     {
       "name": "Hackelton Rooster 1st Edition., Barbados Rum Limited Edition",
@@ -18678,7 +18756,7 @@
         }
       ],
       "slug": "hackelton-rooster-1st-edition-barbados-rum-limited-edition",
-      "price_change_7d": -195.0
+      "price_change_7d": null
     },
     {
       "name": "A1710 La Perle Brute Rhum Blanc Extraordinaire",
@@ -19456,6 +19534,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Rom Julekalender 2026",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Julekalender2026Rom.png?v=1790161046",
+      "type": "Navy Rum",
+      "country": "Barbados",
+      "brand": "Mac Y",
+      "abv": 42.37,
+      "volume_cl": 2.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/rom-julekalender-2026"
+        }
+      ],
+      "slug": "rom-julekalender-2026",
+      "price_change_7d": null
+    },
+    {
       "name": "Romdeluxe Wild Series Origin No. 5 Guadeloupe Rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_2fef082b-b26d-4d1d-9912-5dc8604e1c00.png?v=1769436039",
       "type": "Rhum Agricole",
@@ -19883,7 +19987,7 @@
         }
       ],
       "slug": "rammstein-rum-px-sherry-cask-finish",
-      "price_change_7d": 70.0
+      "price_change_7d": null
     },
     {
       "name": "Bapt & Clem’s Panama Ans 10 d’age",
@@ -20091,7 +20195,7 @@
         }
       ],
       "slug": "sbs-panama-2012-rom",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Alfred’s Trail 8.6 Belize Port Finish Rum",
@@ -21164,7 +21268,7 @@
         }
       ],
       "slug": "ron-zacapa-23-yo-la-doma-heavenly-cask-collection",
-      "price_change_7d": 50.0
+      "price_change_7d": null
     },
     {
       "name": "Richland Rum batch 95- Old Georgia Rum",
@@ -22095,7 +22199,7 @@
         }
       ],
       "slug": "botran-rare-blend-vintage-french-wine-cask-rom",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Compagnie des Indes Australia Beenleigh 2022 Rom",
@@ -22433,7 +22537,7 @@
         }
       ],
       "slug": "worthy-park-special-cask-release-virgin-oak-vintage-2013-rum-bottled-for-belgium",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Ophyum Grand Premiere Rhum Sistema 23 Solera",
@@ -24626,7 +24730,7 @@
         }
       ],
       "slug": "jamaica-clarendon-2007-rum-15yo-single-cask-52-bellamys-reserve",
-      "price_change_7d": -249.0
+      "price_change_7d": null
     },
     {
       "name": "Mizunara Cask Finish 48,4%, Bellamy’s Reserve",
@@ -24652,7 +24756,7 @@
         }
       ],
       "slug": "mizunara-cask-finish-48-4-bellamys-reserve",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Foursquare 19 Years Old EPILOGUE Exceptional Cask Selection Mark XXXI Rom",
@@ -25524,7 +25628,7 @@
         }
       ],
       "slug": "rum-nation-rare-rums-belize-2008-2025-bourbon-cask-53-2",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Coloma Single Cask 61% Vintage 2010",
@@ -27696,7 +27800,7 @@
         }
       ],
       "slug": "magnum-rum-nation-guatemala-gran-reserva-4-5-liter",
-      "price_change_7d": 600.0
+      "price_change_7d": null
     },
     {
       "name": "Volbeat 20 Years Old Single Estate Rum",
@@ -28509,7 +28613,7 @@
         }
       ],
       "slug": "bristol-spirits-port-mourant-1990-2022-46-7",
-      "price_change_7d": -499.0
+      "price_change_7d": null
     },
     {
       "name": "Bristol Classic Rum Old Demerara Rum Port Mourant 1990 32 år",
