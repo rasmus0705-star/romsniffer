@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-23T18:09:00.765248",
+  "updated": "2026-09-24T14:36:56.860273",
   "stats": {
     "total": 1098,
     "deals": 126,
@@ -6481,7 +6481,7 @@
         }
       ],
       "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
-      "price_change_7d": -80.0
+      "price_change_7d": 96.0
     },
     {
       "name": "Espero Liquer CREOLE ELIXIR Dom. Republic 34%",
@@ -11573,6 +11573,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Old St. Croix XO Reserve 175 Years Anniversary",
+      "image": "https://spitus.dk/wp-content/uploads/2025/10/old-st.-croix-175-anni.png",
+      "type": "Aged rom",
+      "country": "Dansk",
+      "brand": "Old St. Croix",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "21 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 425.0,
+      "cheapest_price": 425.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 425.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/old-st-croix-xo-reserve-175-years-anniversary/"
+        }
+      ],
+      "slug": "old-st-croix-xo-reserve-175-years-anniversary",
+      "price_change_7d": null
+    },
+    {
       "name": "Chairman’s Reserve Forgotten Casks",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_ca33f7c6-842e-406e-b57e-a0a511e37c67.png?v=1769422187",
       "type": "Mørk rom",
@@ -11863,32 +11889,6 @@
         }
       ],
       "slug": "angostura-1824-12-year-premium-caribbean-rum",
-      "price_change_7d": null
-    },
-    {
-      "name": "Old St. Croix XO Reserve 175 Years Anniversary",
-      "image": "https://spitus.dk/wp-content/uploads/2025/10/old-st.-croix-175-anni.png",
-      "type": "Aged rom",
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": "21 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 429.0,
-      "cheapest_price": 429.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 429.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/old-st-croix-xo-reserve-175-years-anniversary/"
-        }
-      ],
-      "slug": "old-st-croix-xo-reserve-175-years-anniversary",
       "price_change_7d": null
     },
     {
@@ -18678,7 +18678,7 @@
         }
       ],
       "slug": "ron-cristobal-santa-maria-2009-px-sherry-cask-42",
-      "price_change_7d": 50.0
+      "price_change_7d": null
     },
     {
       "name": "Oliver’s Maximo Solera 41 %",
