@@ -1,7 +1,7 @@
 {
-  "updated": "2026-09-24T14:36:56.860273",
+  "updated": "2026-09-26T07:44:40.732892",
   "stats": {
-    "total": 1098,
+    "total": 1100,
     "deals": 126,
     "shops": 4,
     "shop_names": [
@@ -93,8 +93,8 @@
     "cheapest": 79.0,
     "multi_shop": 74,
     "shop_counts": {
-      "Kokkens Vinhus": 254,
-      "Spitus": 330,
+      "Kokkens Vinhus": 255,
+      "Spitus": 331,
       "Rombo": 494,
       "Con Maz": 99
     }
@@ -2967,7 +2967,7 @@
         }
       ],
       "slug": "chamarel-coconut-liqueur",
-      "price_change_7d": 61.0
+      "price_change_7d": null
     },
     {
       "name": "Chamarel Mandarin Liqueur",
@@ -3019,7 +3019,7 @@
         }
       ],
       "slug": "chamarel-coffee-liqueur",
-      "price_change_7d": 61.0
+      "price_change_7d": null
     },
     {
       "name": "Chamarel Exotic Spices",
@@ -6481,7 +6481,7 @@
         }
       ],
       "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
-      "price_change_7d": 96.0
+      "price_change_7d": null
     },
     {
       "name": "Espero Liquer CREOLE ELIXIR Dom. Republic 34%",
@@ -11322,7 +11322,7 @@
         }
       ],
       "slug": "don-q-oak-barrel-spiced",
-      "price_change_7d": 100.0
+      "price_change_7d": null
     },
     {
       "name": "Carupano reserva 18 limited, Venezuela",
@@ -11537,6 +11537,32 @@
         }
       ],
       "slug": "kirk-and-sweeney-gran-reserva-superior-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Old St. Croix Royal XO Reserve 175 Years Anniversary – kampagnetilbud m/5 smageflasker",
+      "image": "https://spitus.dk/wp-content/uploads/2026/09/175YA-Samples-1-1.jpg",
+      "type": "Aged rom",
+      "country": "Dansk",
+      "brand": "Old St. Croix",
+      "abv": null,
+      "volume_cl": 2.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 425.0,
+      "cheapest_price": 425.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 425.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/old-st-croix-royal-xo-reserve-175-years-anniversary-kampagnetilbud-m-5-smageflasker/"
+        }
+      ],
+      "slug": "old-st-croix-royal-xo-reserve-175-years-anniversary-kampagnetilbud-m-5-smageflasker",
       "price_change_7d": null
     },
     {
@@ -12456,7 +12482,7 @@
         }
       ],
       "slug": "don-q-151-rum",
-      "price_change_7d": 140.0
+      "price_change_7d": null
     },
     {
       "name": "Opthimus 18 Años Cum Laude",
@@ -15743,7 +15769,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-17-solera",
-      "price_change_7d": null
+      "price_change_7d": -160.0
     },
     {
       "name": "Bapt & Clem’s Distillerie Savanna Rhum Blanc Agricole",
@@ -17206,7 +17232,7 @@
         }
       ],
       "slug": "bapt-and-clems-dominican-republic-ans-6-dage-sauternes-finish",
-      "price_change_7d": 174.0
+      "price_change_7d": null
     },
     {
       "name": "Rammstein Rum Cognac Cask Finish Limited Edition",
@@ -20013,7 +20039,7 @@
         }
       ],
       "slug": "bapt-and-clems-panama-ans-10-dage",
-      "price_change_7d": 204.0
+      "price_change_7d": null
     },
     {
       "name": "2026 – Julekalender Rom",
@@ -25212,6 +25238,32 @@
         }
       ],
       "slug": "wild-series-rum-no-66-australia",
+      "price_change_7d": null
+    },
+    {
+      "name": "24 Days of Rum Calendar, SBS Edition",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/09/Product-billede-3-1.png",
+      "type": null,
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 50.7,
+      "volume_cl": null,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1099.95,
+      "cheapest_price": 1099.95,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 1099.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/24-days-of-rum-calendar-sbs-edition/"
+        }
+      ],
+      "slug": "24-days-of-rum-calendar-sbs-edition",
       "price_change_7d": null
     },
     {
