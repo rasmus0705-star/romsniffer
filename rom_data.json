@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-26T07:44:40.732892",
+  "updated": "2026-09-27T09:21:19.604521",
   "stats": {
     "total": 1100,
     "deals": 126,
@@ -9035,7 +9035,7 @@
         }
       ],
       "slug": "smith-and-cross-traditional-jamaica-rum-57",
-      "price_change_7d": -460.0
+      "price_change_7d": null
     },
     {
       "name": "Emperor Mauritian Rum Aged Blend Sherry Finish",
@@ -11348,7 +11348,7 @@
         }
       ],
       "slug": "carupano-reserva-18-limited-venezuela",
-      "price_change_7d": -49.0
+      "price_change_7d": null
     },
     {
       "name": "Kirk & Sweeney Rum – Gran Reserva",
@@ -18678,7 +18678,7 @@
         }
       ],
       "slug": "ron-cristobal-amarone-finish-lim-edt-rom-43",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Cristobal Santa Maria 2009 PX-Sherry Cask 42%",
@@ -25758,7 +25758,7 @@
         }
       ],
       "slug": "chasing-casks-panama-13-yo-malaga-finish-54",
-      "price_change_7d": 200.0
+      "price_change_7d": null
     },
     {
       "name": "Saint James 15 år Martinique Rhum – MBWS",
