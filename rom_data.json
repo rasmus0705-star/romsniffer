@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-01T21:33:37.673192",
+  "updated": "2026-10-03T09:31:23.399026",
   "stats": {
-    "total": 1098,
+    "total": 1099,
     "deals": 126,
     "shops": 4,
     "shop_names": [
@@ -95,7 +95,7 @@
     "shop_counts": {
       "Kokkens Vinhus": 255,
       "Spitus": 330,
-      "Rombo": 492,
+      "Rombo": 493,
       "Con Maz": 99
     }
   },
@@ -1847,7 +1847,7 @@
         }
       ],
       "slug": "terra-verde-twin-cask-rum",
-      "price_change_7d": null
+      "price_change_7d": 40.0
     },
     {
       "name": "Takamaka Blanc Rum 40,2 %",
@@ -5557,7 +5557,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-reserva-rom",
-      "price_change_7d": null
+      "price_change_7d": 40.0
     },
     {
       "name": "Cubaney 18 Y.O. Seleceto",
@@ -6169,7 +6169,7 @@
         }
       ],
       "slug": "renegade-cane-rum-pre-cask-dunfermline-pot-still",
-      "price_change_7d": null
+      "price_change_7d": -140.0
     },
     {
       "name": "Ron Malteco Reserva Maya 15 års Rom",
@@ -6306,7 +6306,7 @@
         }
       ],
       "slug": "santiago-de-cuba-ron-extra-anejo-11-ars-rom",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Takamaka Extra Noir Charred Cask Rum",
@@ -7563,7 +7563,7 @@
         }
       ],
       "slug": "great-dane-rum",
-      "price_change_7d": null
+      "price_change_7d": 50.0
     },
     {
       "name": "Navy Island XO Reserve Rom",
@@ -7960,7 +7960,7 @@
         }
       ],
       "slug": "alta-gama-demi-sec-guyana-rum",
-      "price_change_7d": -150.0
+      "price_change_7d": null
     },
     {
       "name": "Vesper Reserve Blue Star Sweet XO",
@@ -11107,7 +11107,7 @@
         }
       ],
       "slug": "rum-nation-mauritius-6-ar-triple-cask-rom",
-      "price_change_7d": null
+      "price_change_7d": 50.0
     },
     {
       "name": "Savanna Rhum Vieux Traditionnel Vieux 5 års Rom",
@@ -15242,7 +15242,7 @@
         }
       ],
       "slug": "chairmans-reserve-rum-vintage-2011",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Clément XO Rhum Agricole Rom",
@@ -15424,7 +15424,7 @@
         }
       ],
       "slug": "rammstein-rum-sauternes-finish-limited-edition-rom",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Rombo Exclusive Cask Rum Australia KLK Virgin Oak",
@@ -15580,7 +15580,7 @@
         }
       ],
       "slug": "ron-sostenible-experimental-cask-rioja-rom",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Rum Nation British Guyana 7 år Cask Strength",
@@ -15684,7 +15684,7 @@
         }
       ],
       "slug": "tres-hombres-la-palma-2013-edition-04-rom",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Worthy Park Single Estate Reserve Rom",
@@ -16835,7 +16835,7 @@
         }
       ],
       "slug": "rum-nation-mauritius-8-ar-cask-strength-rom",
-      "price_change_7d": null
+      "price_change_7d": 74.0
     },
     {
       "name": "Savanna Lontan Straight Rhum Grand Arome",
@@ -17447,7 +17447,7 @@
         }
       ],
       "slug": "romdeluxe-guadeloupe-red-cane-new-make-rom",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Romdeluxe Le Galion Martinique New Make Rom Batch 2",
@@ -20708,7 +20708,7 @@
         }
       ],
       "slug": "guyana-port-mourant-shared-single-cask-rum",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Jamaica Shared Single Cask Rum",
@@ -22270,6 +22270,32 @@
         }
       ],
       "slug": "compagnie-des-indes-australia-beenleigh-2022-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Hampden Estate HLCF Classic Rum",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/HampdenEstateHLCFClassicRum.png?v=1790940950",
+      "type": null,
+      "country": "Jamaica",
+      "brand": "Hampden",
+      "abv": 60.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 799.0,
+      "cheapest_price": 799.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 799.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/hampden-estate-hlcf-classic-coffret"
+        }
+      ],
+      "slug": "hampden-estate-hlcf-classic-rum",
       "price_change_7d": null
     },
     {
@@ -24541,7 +24567,7 @@
         }
       ],
       "slug": "sbs-jamaica-2010-emb-rom-bottled-for-germany-and-austria",
-      "price_change_7d": null
+      "price_change_7d": -250.0
     },
     {
       "name": "Tres Hombres Gran Anejo 2010 Edition 001 rom",
