@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-07T19:32:43.624805",
+  "updated": "2026-10-09T15:27:39.338338",
   "stats": {
-    "total": 1102,
+    "total": 1103,
     "deals": 146,
     "shops": 4,
     "shop_names": [
@@ -93,7 +93,7 @@
     "cheapest": 79.0,
     "multi_shop": 74,
     "shop_counts": {
-      "Kokkens Vinhus": 258,
+      "Kokkens Vinhus": 259,
       "Spitus": 328,
       "Rombo": 497,
       "Con Maz": 98
@@ -280,7 +280,7 @@
         }
       ],
       "slug": "ron-cartavio-black-dark-rum",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "Cachaca 51 Pirassungo 40%",
@@ -1717,7 +1717,7 @@
         }
       ],
       "slug": "chairmans-reserve-spiced",
-      "price_change_7d": null
+      "price_change_7d": -20.0
     },
     {
       "name": "Appleton Signature Blend Rom",
@@ -2440,7 +2440,7 @@
         }
       ],
       "slug": "bayou-spiced",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Ron Tabú – Old",
@@ -3338,7 +3338,7 @@
         }
       ],
       "slug": "ron-colon-salvadoreno-coffee-infused",
-      "price_change_7d": null
+      "price_change_7d": -40.0
     },
     {
       "name": "Matusalem 15 Y.O. Gran Reserva",
@@ -6540,7 +6540,7 @@
         }
       ],
       "slug": "wooden-moose-coffee-cocoa-and-caramelised-chipotle-spiced-rum",
-      "price_change_7d": 176.0
+      "price_change_7d": null
     },
     {
       "name": "Espero Liquer CREOLE ELIXIR Dom. Republic 34%",
@@ -6736,7 +6736,7 @@
         }
       ],
       "slug": "barcelo-imperial-onyx",
-      "price_change_7d": null
+      "price_change_7d": -30.0
     },
     {
       "name": "Dictador 12 Y.O.",
@@ -6866,7 +6866,7 @@
         }
       ],
       "slug": "flor-de-cana-eco-15-y-o",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Rum Nation Guatemala Gran Reserva",
@@ -7459,7 +7459,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-reserva-rom-2",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "El Dorado 12 Y.O.",
@@ -8071,7 +8071,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-12-solera",
-      "price_change_7d": null
+      "price_change_7d": -150.0
     },
     {
       "name": "Alta Gama Demi-Sec Guyana Rum",
@@ -8735,7 +8735,7 @@
         }
       ],
       "slug": "chairmans-reserve-rum-legacy-edition",
-      "price_change_7d": null
+      "price_change_7d": -20.0
     },
     {
       "name": "Clément VSOP Rhum Agricole Rom",
@@ -11908,7 +11908,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-12-years",
-      "price_change_7d": null
+      "price_change_7d": -60.0
     },
     {
       "name": "Kirk & Sweeney 18 Years",
@@ -13444,7 +13444,7 @@
         }
       ],
       "slug": "vesper-venezuela-reserve-single-xo-rum",
-      "price_change_7d": 200.0
+      "price_change_7d": null
     },
     {
       "name": "Renegade Rum Pre Cask Dumfermline Column Still",
@@ -13704,7 +13704,7 @@
         }
       ],
       "slug": "new-grove-double-cask-moscatel",
-      "price_change_7d": null
+      "price_change_7d": -90.0
     },
     {
       "name": "Santos Dumont XO Super Premium",
@@ -14519,7 +14519,7 @@
         }
       ],
       "slug": "flor-de-cana-18-y-o-rom-1-liter",
-      "price_change_7d": null
+      "price_change_7d": -54.0
     },
     {
       "name": "Diplomatico Distillery Collection N°2 Barbet",
@@ -16308,7 +16308,7 @@
         }
       ],
       "slug": "pussers-british-navy-rum-15-y-o-nelsons-blood",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Bapt & Clem’s Trinidad & Tobago Ans 4 d’age Sauternes & Sherry Finish",
@@ -17199,7 +17199,7 @@
         }
       ],
       "slug": "opthimus-21-anos-magna-cum-laude",
-      "price_change_7d": null
+      "price_change_7d": -70.0
     },
     {
       "name": "Bapt & Clem’s Dominican Republic Ans 6 d’age Sauternes Finish",
@@ -17825,7 +17825,7 @@
         }
       ],
       "slug": "professor-cornelius-rumbullion-xo-15-yo",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Opthimus 25 Años Summa Cum Laude",
@@ -17851,7 +17851,7 @@
         }
       ],
       "slug": "opthimus-25-anos-summa-cum-laude",
-      "price_change_7d": null
+      "price_change_7d": -36.0
     },
     {
       "name": "A.H. Riise Old St. Croix XO Explorer Danmark",
@@ -18501,7 +18501,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-23-solera",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Rest & Be Thankful 2015 Small Batch 2 Pure Jamaica Single Rum Aged 7 Years",
@@ -19157,13 +19157,13 @@
     },
     {
       "name": "SBS Scotland 2022 DS/TS Rom - Virgin Oak Cask",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/SBS-247_scotland-ds-ts-2022.png?v=1788954078",
-      "type": "Mørk rom",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/10/SBS-Scotland.png",
+      "type": "Spiced",
       "country": null,
-      "brand": "SBS",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
+      "brand": null,
+      "abv": 48.0,
+      "volume_cl": null,
+      "age": "4 år",
       "category": "rom",
       "shop_count": 2,
       "min_price": 649.0,
@@ -19765,7 +19765,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-17-solera",
-      "price_change_7d": null
+      "price_change_7d": 160.0
     },
     {
       "name": "Bapt & Clem’s Guyana Ans 8 d’age Jurançon Finish",
@@ -21109,7 +21109,7 @@
     },
     {
       "name": "SBS Venezuela 2010 – 50%",
-      "image": "",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2024/12/Venezuela-2010.png",
       "type": "Aged rom",
       "country": "Venezuela",
       "brand": "Diplomatico",
@@ -23640,7 +23640,7 @@
     },
     {
       "name": "SBS India 2016, 55%",
-      "image": "",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/10/SBS-INDIA.png",
       "type": null,
       "country": null,
       "brand": null,
@@ -23740,7 +23740,7 @@
         }
       ],
       "slug": "ron-zacapa-centenario-xo-solera-gran-reserva-especial",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Emperor Mauritian Rum Private Collection Château Pape Clément Finish",
@@ -24652,6 +24652,32 @@
         }
       ],
       "slug": "alfreds-trail-10-6-trinidad-rum-malt-whisky-cask-finish",
+      "price_change_7d": null
+    },
+    {
+      "name": "SBS Ghana ARC 2019 50%",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/10/Product-billede-4.png",
+      "type": null,
+      "country": null,
+      "brand": null,
+      "abv": 50.0,
+      "volume_cl": null,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 999.95,
+      "cheapest_price": 999.95,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 999.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/sbs-ghana-arc-2019-50/"
+        }
+      ],
+      "slug": "sbs-ghana-arc-2019-50",
       "price_change_7d": null
     },
     {
@@ -25654,7 +25680,7 @@
         }
       ],
       "slug": "el-dorado-2008-uitvlucht-enmore",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Foursquare Convocation 14 års Single Blended Rum 62%, Barbados",
@@ -27117,7 +27143,7 @@
         }
       ],
       "slug": "diplomatico-ambassador-selection-cask-strength-rom",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "Karukera Tres Vieux Rhum ” Cuveé Christophe Colomb 1493, 45%",
