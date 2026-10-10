@@ -7,10 +7,19 @@
 <title>Premium &amp; Sjældne Rom — Eksklusive samlerflasker | RomSniffer</title>
 <meta name="description" content="Kurateret udvalg af premium og sjældne rom. Foursquare ECS, Hampden Estate, Velier, Caroni og andre eftertragtede flasker — sammenlign priser fra danske webshops.">
 <link rel="canonical" href="https://www.romsniffer.dk/premium.html">
-<link rel="icon" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomSniffer">
+<meta property="og:title" content="Premium &amp; Sjældne Rom — Eksklusive samlerflasker | RomSniffer">
+<meta property="og:description" content="Kurateret udvalg af premium og sjældne rom. Foursquare ECS, Hampden Estate, Velier, Caroni og andre eftertragtede flasker — sammenlign priser fra danske webshops.">
+<meta property="og:url" content="https://www.romsniffer.dk/premium.html">
+<meta property="og:image" content="https://www.romsniffer.dk/og-image.png">
+<meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
     :root {
         --bg: #060408;
@@ -483,16 +492,15 @@
     }
 </style>
 <script>const DATA_VERSION = 'a04ac11dd9cd';</script>
+<link rel="stylesheet" href="/theme.css">
+<script src="/theme.js"></script>
 </head>
-<body>
+<body data-cat="rom">
 
 <nav>
-    <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'">
-        <span>RomSniffer</span>
-    </a>
+    <a href="/" class="nav-logo" aria-label="RomSniffer — forside"><span>RomSniffer</span></a>
     <div class="nav-links">
-        <a href="index.html">Alle rom</a>
+        <a href="/">Alle rom</a>
         <a href="premium.html" class="active">Premium</a>
         <span class="nav-sep"></span>
         <a href="guide.html">Guide</a>
@@ -544,7 +552,7 @@
 
 <footer>
     <div class="footer-links">
-        <a href="index.html">Alle rom &amp; priser</a>
+        <a href="/">Alle rom &amp; priser</a>
         <a href="premium.html">Premium &amp; Sjældne</a>
         <a href="guide.html">Rom-guiden</a>
         <a href="om.html">Om RomSniffer</a>
@@ -619,7 +627,7 @@ function makeCard(r){
     if(r.country) dets.push(`${flag(r.country)}<strong>${r.country}</strong>`);
     if(r.type) dets.push(r.type);
     if(r.age) dets.push(r.age);
-    if(r.abv) dets.push(r.abv+'%');
+    if(RS.plausibleAbv(r)) dets.push(RS.fmtAbv(RS.plausibleAbv(r)));
     if(r.volume_cl) dets.push(r.volume_cl+' cl');
     if(r.volume_cl&&r.volume_cl>0) dets.push((r.min_price/r.volume_cl).toFixed(1)+' kr/cl');
 
@@ -634,7 +642,7 @@ function makeCard(r){
             <div class="p-price-right">
                 ${p.old_price?`<span class="p-old">${p.old_price.toFixed(0)} kr</span>`:''}
                 <span class="p-amount">${p.price.toFixed(0)} kr</span>
-                ${p.url?`<a class="p-buy" href="${p.url}" target="_blank" rel="noopener">Køb</a>`:''}
+                ${p.url?`<a class="p-buy" href="${p.url}" target="_blank" rel="sponsored nofollow noopener">Køb</a>`:''}
             </div>
         </div>`).join('');
 
@@ -644,12 +652,12 @@ function makeCard(r){
     return `<div class="p-card">
         <div class="p-img-wrap">
             ${badge}
-            ${r.image?`<img class="p-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
-            <span class="p-img-ph" ${r.image?'style="display:none"':''}>🥃</span>
+            ${r.image?`<img class="p-img" src="${RS.thumb(r.image,500)}" alt="${esc(RS.clean(r.name))}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:''}
+            <span class="p-img-ph" ${r.image?'style="display:none"':''}>${RS.GLASS_SVG}</span>
         </div>
         <div class="p-info">
-            ${r.brand?`<div class="p-brand">${r.brand}</div>`:''}
-            <div class="p-name">${r.name}</div>
+            ${r.brand?`<div class="p-brand">${RS.fix(r.brand)}</div>`:''}
+            <div class="p-name">${RS.fix(r.name)}</div>
             <div class="p-details">${dets.map((d,i)=>(i>0?'<span class="p-det-sep">·</span>':'')+`<span class="p-det">${d}</span>`).join('')}</div>
             ${tags.length?`<div class="p-tags">${tags.join('')}</div>`:''}
         </div>
