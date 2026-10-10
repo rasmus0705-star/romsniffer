@@ -22,3 +22,12 @@ __pycache__/
 .env
 
 auning/config.js
+
+# sikkerhedskopier og hjælpefiler (må ikke udgives)
+*.bak*
+opdater_design.py
+originals.sha256.json
+samle_til_claude.py
+samle2.py
+til_claude*
+*MIG*.txt
