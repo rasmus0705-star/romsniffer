@@ -15,8 +15,6 @@ Kør fra pipeline:    fra build_rom_data.py → generate_brand_pages()
 """
 
 import json
-from html import escape
-from rom_text import esc, clean_text, plausible_abv, fmt_abv, dk_date, filter_category, GLASS_SVG, CATEGORY
 import os
 import re
 import shutil
@@ -49,14 +47,25 @@ def brand_slug(name):
 
 
 def flag_svg(country):
-    """Landet vises som tekst (flag-emojis vises som bogstaver på Windows)."""
-    return ''
+    """Returner inline flag-emoji for et land."""
+    flags = {
+        'Jamaica': '🇯🇲', 'Cuba': '🇨🇺', 'Barbados': '🇧🇧',
+        'Guyana': '🇬🇾', 'Guatemala': '🇬🇹', 'Panama': '🇵🇦',
+        'Nicaragua': '🇳🇮', 'Dominikansk': '🇩🇴', 'Trinidad': '🇹🇹',
+        'Martinique': '🇲🇶', 'Haiti': '🇭🇹', 'Puerto Rico': '🇵🇷',
+        'Brasilien': '🇧🇷', 'Colombia': '🇨🇴', 'Venezuela': '🇻🇪',
+        'Peru': '🇵🇪', 'Mauritius': '🇲🇺', 'Filippinerne': '🇵🇭',
+        'Dansk': '🇩🇰', 'Danmark': '🇩🇰', 'England': '🏴\u200d☠️',
+        'Australien': '🇦🇺', 'Frankrig': '🇫🇷', 'Østrig': '🇦🇹',
+        'El Salvador': '🇸🇻', 'Belize': '🇧🇿', 'Grenada': '🇬🇩',
+        'Spanien': '🇪🇸', 'Guadeloupe': '🇬🇵', 'Réunion': '🇷🇪',
+    }
+    return flags.get(country, '🌍')
 
 
 def build_brand_page(brand_name, roms, updated, all_brands):
     """Byg HTML for én brand-side."""
     slug = brand_slug(brand_name)
-    brand_name = esc(brand_name)   # afkodet + escapet (efter slug er lavet)
     roms_sorted = sorted(roms, key=lambda r: r.get('min_price', 9999))
 
     # Nøgletal
@@ -72,7 +81,7 @@ def build_brand_page(brand_name, roms, updated, all_brands):
     # Meta
     title = f"{brand_name} rom — sammenlign priser | RomSniffer"
     desc = f"Find den billigste {brand_name} rom. {count} produkter fra {cheapest:.0f} kr. Sammenlign priser fra danske webshops."
-    canonical = f"https://www.romsniffer.dk/rom/brand/{slug}/"
+    canonical = f"https://romsniffer.dk/rom/brand/{slug}/"
 
     # Produktkort
     cards_html = ""
@@ -91,9 +100,9 @@ def build_brand_page(brand_name, roms, updated, all_brands):
         if r.get('type'):
             tags.append(f'<span class="bp-tag">{r["type"]}</span>')
         if r.get('age'):
-            tags.append(f'<span class="bp-tag">{esc(r["age"])}</span>')
-        if plausible_abv(r):
-            tags.append(f'<span class="bp-tag">{fmt_abv(plausible_abv(r))}</span>')
+            tags.append(f'<span class="bp-tag">🕰️ {r["age"]}</span>')
+        if r.get('abv'):
+            tags.append(f'<span class="bp-tag">{r["abv"]}%</span>')
         if r.get('volume_cl'):
             tags.append(f'<span class="bp-tag">{r["volume_cl"]} cl</span>')
 
@@ -101,11 +110,11 @@ def build_brand_page(brand_name, roms, updated, all_brands):
             {f'<div class="bp-badge">−{disc}%</div>' if disc > 0 else ''}
             <div class="bp-img-wrap">
                 {f'<img src="{r["image"]}" alt="{brand_name}" loading="lazy" decoding="async" onerror="this.style.display=&apos;none&apos;;this.nextElementSibling.style.display=&apos;flex&apos;">' if r.get('image') else ''}
-                <div class="bp-placeholder" {"style=display:none" if r.get("image") else ""}>{GLASS_SVG}</div>
+                <div class="bp-placeholder" {"style=display:none" if r.get("image") else ""}>🥃</div>
             </div>
             <div class="bp-body">
                 <div class="bp-tags">{''.join(tags)}</div>
-                <div class="bp-name">{esc(r["name"])}</div>
+                <div class="bp-name">{r["name"]}</div>
                 <div class="bp-price-row">
                     <span class="bp-shop">✓ {shop}</span>
                     <span class="bp-price">{price:.0f} kr</span>
@@ -131,17 +140,10 @@ def build_brand_page(brand_name, roms, updated, all_brands):
 <title>{title}</title>
 <meta name="description" content="{desc}">
 <link rel="canonical" href="{canonical}">
-<meta property="og:type" content="website">
-<meta property="og:title" content="{title}">
-<meta property="og:description" content="{desc}">
-<meta property="og:url" content="{canonical}">
-<meta property="og:image" content="https://www.romsniffer.dk/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="/favicon.png">
-<link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="icon" href="/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {{
   "@context": "https://schema.org",
@@ -153,7 +155,7 @@ def build_brand_page(brand_name, roms, updated, all_brands):
   "provider": {{
     "@type": "Organization",
     "name": "RomSniffer",
-    "url": "https://www.romsniffer.dk"
+    "url": "https://romsniffer.dk"
   }}
 }}
 </script>
@@ -215,12 +217,11 @@ footer p {{ font-size: 0.65rem; color: var(--text-dim); margin-top: 0.5rem; lett
     .stats-row {{ gap: 1rem; }}
 }}
 </style>
-<link rel="stylesheet" href="/theme.css">
-<script src="/theme.js"></script>
 </head>
-<body data-cat="{CATEGORY}">
+<body>
 <nav>
     <a href="/" class="nav-logo">
+        <img src="/logo.png" alt="RomSniffer" onerror="this.style.display='none'" decoding="async">
         <span>RomSniffer</span>
     </a>
     <div class="nav-links">
@@ -263,8 +264,7 @@ footer p {{ font-size: 0.65rem; color: var(--text-dim); margin-top: 0.5rem; lett
         <a href="/guide.html">Rom-guide</a>
         <a href="/om.html">Om RomSniffer</a>
     </div>
-    <p><strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision via links. Det koster dig intet ekstra.</p>
-    <p>RomSniffer © 2026 — Kun for personer over 18 år</p>
+    <p>🥃 RomSniffer © 2026</p>
 </footer>
 </body>
 </html>'''
@@ -282,13 +282,13 @@ def main():
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    roms = filter_category(data.get("roms", []))
+    roms = data.get("roms", [])
     updated_raw = data.get("updated", "")
     try:
-        updated = dk_date(datetime.fromisoformat(updated_raw))
+        updated = datetime.fromisoformat(updated_raw).strftime("%-d. %b %Y")
     except Exception:
         try:
-            updated = dk_date(datetime.fromisoformat(updated_raw))
+            updated = datetime.fromisoformat(updated_raw).strftime("%d. %b %Y")
         except Exception:
             updated = updated_raw[:10]
 

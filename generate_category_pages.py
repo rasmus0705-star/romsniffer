@@ -20,7 +20,6 @@ import shutil
 import sys
 from datetime import datetime
 from html import escape
-from rom_text import esc, clean_text, plausible_abv, fmt_abv, dk_date, filter_category, GLASS_SVG, CATEGORY
 
 from slugify_rom import slugify
 
@@ -71,6 +70,10 @@ COUNTRY_DESCRIPTIONS = {
 }
 
 
+def esc(text):
+    return escape(str(text)) if text else ""
+
+
 def category_slug(name):
     """Slug for kategorinavne."""
     return slugify(name)
@@ -87,15 +90,15 @@ def render_product_card(rom):
     price_str = f'{rom["min_price"]:.0f} kr'
     image = rom.get("image") or ""
 
-    img_html = f'<img src="{esc(image)}" alt="{name_esc}" loading="lazy">' if image else '<div class="card-ph">' + GLASS_SVG + '</div>'
+    img_html = f'<img src="{esc(image)}" alt="{name_esc}" loading="lazy">' if image else '<div class="card-ph">🥃</div>'
 
     pills = []
     if rom.get("brand"):
         pills.append(esc(rom["brand"]))
     if rom.get("age"):
         pills.append(esc(rom["age"]))
-    if plausible_abv(rom):
-        pills.append(fmt_abv(plausible_abv(rom)))
+    if rom.get("abv"):
+        pills.append(f'{rom["abv"]}%')
     pills_html = " · ".join(pills)
 
     shop_badge = ""
@@ -170,17 +173,15 @@ def render_category_page(title, description, breadcrumb_label, breadcrumb_path,
 <title>{title_esc} | RomSniffer</title>
 <meta name="description" content="{desc_esc}">
 <link rel="canonical" href="{canonical}">
-<link rel="icon" type="image/png" href="{SITE_URL}/favicon.png">
-<link rel="apple-touch-icon" href="{SITE_URL}/apple-touch-icon.png">
+<link rel="icon" href="{SITE_URL}/logo.png">
 <meta property="og:title" content="{title_esc}">
 <meta property="og:description" content="{desc_esc}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:type" content="website">
-<meta property="og:image" content="{SITE_URL}/og-image.png">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {json_ld}
 </script>
@@ -355,12 +356,11 @@ footer {{
 }}
 footer a {{ color: var(--copper-light); }}
 </style>
-<link rel="stylesheet" href="/theme.css">
-<script src="/theme.js"></script>
 </head>
-<body data-cat="{CATEGORY}">
+<body>
     <nav>
         <a href="{SITE_URL}/" class="nav-logo">
+            <img src="{SITE_URL}/logo.png" alt="RomSniffer">
             <span>RomSniffer</span>
         </a>
         <div class="nav-links">
@@ -392,8 +392,7 @@ footer a {{ color: var(--copper-light); }}
 
     <footer>
         <a href="{SITE_URL}/">← Alle rom og priser</a><br>
-        <strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision via links. Det koster dig intet ekstra.<br>
-        RomSniffer © 2026 — Kun for personer over 18 år
+        🥃 RomSniffer © 2026 — Kun for personer over 18 år
     </footer>
 </body>
 </html>'''
@@ -583,10 +582,10 @@ def main():
     with open(ROM_DATA_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    roms = filter_category(data.get("roms", []))
+    roms = data.get("roms", [])
     updated_raw = data.get("updated", "")
     try:
-        updated = dk_date(datetime.fromisoformat(updated_raw))
+        updated = datetime.fromisoformat(updated_raw).strftime("%d. %b %Y")
     except Exception:
         updated = updated_raw[:10]
 

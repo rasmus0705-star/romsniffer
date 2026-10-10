@@ -16,7 +16,6 @@ import shutil
 import sys
 from datetime import datetime
 from html import escape
-from rom_text import esc, clean_text, plausible_abv, fmt_abv, dk_date, filter_category, GLASS_SVG, CATEGORY
 
 from slugify_rom import slugify, make_unique_slug
 
@@ -24,13 +23,18 @@ from slugify_rom import slugify, make_unique_slug
 # CONFIG
 # ────────────────────────────────────────────────────────────
 ROM_DATA_FILE = "rom_data.json"
-OUTPUT_DIR = CATEGORY
+OUTPUT_DIR = "rom"
 SITE_URL = "https://www.romsniffer.dk"
 MAX_RELATED = 6
 
 # ────────────────────────────────────────────────────────────
 # HELPERS
 # ────────────────────────────────────────────────────────────
+
+def esc(text):
+    """HTML-escape med fallback for None."""
+    return escape(str(text)) if text else ""
+
 
 def generate_description(rom):
     """Auto-generér en naturlig dansk beskrivelse fra metadata."""
@@ -59,7 +63,7 @@ def generate_description(rom):
         "Aged rom": "Det er en lagret rom, modnet på egetræsfade for ekstra dybde og kompleksitet.",
         "Spiced": "Det er en spiced rom, tilsat krydderier som vanilje, kanel og muskatnød for en aromatisk smagsprofil.",
         "Hvid rom": "Det er en hvid rom — let, frisk og ideel som cocktailbase i drinks som Mojito og Daiquiri.",
-        "Mørk rom": "Mørk rom er typisk fyldigere og mere intens i smagen end lys rom.",
+        "Mørk rom": "Det er en mørk rom med fyldig karakter og noter af melasse, tørrede frugter og karamel.",
         "Overproof": "Det er en overproof rom med høj alkoholstyrke — intens i smag og velegnet til tiki-cocktails.",
         "Rhum Agricole": "Det er en rhum agricole, fremstillet af frisk presset sukkerrørsjuice, som giver en frisk og floral karakter.",
         "Cachaça": "Det er en cachaça — Brasiliens nationaldrik, lavet af frisk sukkerrørsjuice og uundværlig i en Caipirinha.",
@@ -76,13 +80,13 @@ def generate_description(rom):
         elif age == "Solera":
             sentences.append("Den er produceret med solera-metoden, hvor rom af forskellige aldre blandes løbende for en kompleks og afrundet smag.")
         elif "år" in str(age):
-            sentences.append(f"Lagringstiden er opgivet til {age}.")
+            sentences.append(f"Med en lagring på {age} har denne rom haft tid til at udvikle dybere smagsnoter fra fadet.")
 
     # Tekniske detaljer
     details = []
-    _abv = plausible_abv(rom)
-    if _abv:
-        details.append(f"en alkoholprocent på {fmt_abv(_abv)}")
+    if abv:
+        abv_str = f"{abv:.0f}" if abv == int(abv) else f"{abv}"
+        details.append(f"en alkoholprocent på {abv_str}%")
     if volume:
         details.append(f"en flaskestørrelse på {volume:.0f} cl")
     if details:
@@ -92,7 +96,7 @@ def generate_description(rom):
     if rom["shop_count"] > 1:
         sentences.append(f"Sammenlign priser fra {rom['shop_count']} danske butikker her på RomSniffer og find den billigste pris.")
     else:
-        sentences.append(f"Prisen er hentet fra {rom['prices'][0]['shop_name']} og opdateres dagdagligt — du køber hos butikken, ikke hos RomSniffer.".replace("dagdagligt", "dagligt"))
+        sentences.append("Se den aktuelle pris og køb direkte via RomSniffer.")
 
     return " ".join(sentences)
 
@@ -150,7 +154,7 @@ def json_ld(rom, slug):
     data = {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": clean_text(rom["name"]),
+        "name": rom["name"],
         "url": f"{SITE_URL}/rom/{slug}/",
         "category": "Rom",
     }
@@ -158,10 +162,10 @@ def json_ld(rom, slug):
     if rom.get("image"):
         data["image"] = rom["image"]
     if rom.get("brand"):
-        data["brand"] = {"@type": "Brand", "name": clean_text(rom["brand"])}
-    if plausible_abv(rom):
+        data["brand"] = {"@type": "Brand", "name": rom["brand"]}
+    if rom.get("abv"):
         data["additionalProperty"] = [
-            {"@type": "PropertyValue", "name": "ABV", "value": fmt_abv(plausible_abv(rom))}
+            {"@type": "PropertyValue", "name": "ABV", "value": f"{rom['abv']}%"}
         ]
 
     if offers:
@@ -236,8 +240,8 @@ def render_page(rom, slug, related, slug_map, updated):
     if rom.get("age"):
         a_slug = slugify(rom["age"])
         pills.append(f'<a href="{SITE_URL}/rom/alder/{a_slug}/" class="pill pill-link">{age_esc}</a>')
-    if plausible_abv(rom):
-        pills.append(f'<span class="pill">{fmt_abv(plausible_abv(rom))}</span>')
+    if rom.get("abv"):
+        pills.append(f'<span class="pill">{rom["abv"]}%</span>')
     if rom.get("volume_cl"):
         pills.append(f'<span class="pill">{rom["volume_cl"]:.0f} cl</span>')
     pills_html = "\n            ".join(pills)
@@ -263,7 +267,7 @@ def render_page(rom, slug, related, slug_map, updated):
                     <span class="current-price">{price_str}</span>
                     {discount_html}
                 </td>
-                <td class="buy-cell"><a href="{esc(p['url'])}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="buy-btn">Køb →</a></td>
+                <td class="buy-cell"><a href="{esc(p['url'])}" target="_blank" rel="noopener noreferrer nofollow" class="buy-btn">Køb →</a></td>
             </tr>""")
     prices_html = "\n".join(prices_rows)
 
@@ -288,7 +292,7 @@ def render_page(rom, slug, related, slug_map, updated):
         r_badge = ""
         if r["shop_count"] > 1:
             r_badge = f'<span class="rel-shops">{r["shop_count"]} butikker</span>'
-        img_tag = f'<img src="{r_img}" alt="{r_name}" loading="lazy">' if r_img else '<div class="no-img">' + GLASS_SVG + '</div>'
+        img_tag = f'<img src="{r_img}" alt="{r_name}" loading="lazy">' if r_img else '<div class="no-img">🥃</div>'
         related_cards.append(f"""        <a href="{SITE_URL}/rom/{r_slug}/" class="rel-card">
             <div class="rel-img">{img_tag}</div>
             <div class="rel-info">
@@ -312,7 +316,7 @@ def render_page(rom, slug, related, slug_map, updated):
     if image_url:
         img_section = f'<img src="{image_url}" alt="{name_esc}" class="product-img">'
     else:
-        img_section = '<div class="product-img no-img-hero">' + GLASS_SVG + '</div>'
+        img_section = '<div class="product-img no-img-hero">🥃</div>'
 
     return f"""<!DOCTYPE html>
 <html lang="da">
@@ -322,17 +326,16 @@ def render_page(rom, slug, related, slug_map, updated):
 <title>{name_esc} — Sammenlign priser | RomSniffer</title>
 <meta name="description" content="{desc_esc}">
 <link rel="canonical" href="{canonical}">
-<link rel="icon" type="image/png" href="{SITE_URL}/favicon.png">
-<link rel="apple-touch-icon" href="{SITE_URL}/apple-touch-icon.png">
+<link rel="icon" href="{SITE_URL}/logo.png">
 <meta property="og:title" content="{name_esc} — RomSniffer">
 <meta property="og:description" content="{desc_esc}">
 <meta property="og:url" content="{canonical}">
 <meta property="og:type" content="product">
-<meta property="og:image" content="{image_url or SITE_URL + '/og-image.png'}">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/fonts/fonts.css">
+{f'<meta property="og:image" content="{image_url}">' if image_url else ''}
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {json_ld(rom, slug)}
 </script>
@@ -672,12 +675,11 @@ footer {{
 }}
 footer a {{ color: var(--copper-light); }}
 </style>
-<link rel="stylesheet" href="/theme.css">
-<script src="/theme.js"></script>
 </head>
-<body data-cat="{CATEGORY}">
+<body>
     <nav>
         <a href="{SITE_URL}/" class="nav-logo">
+            <img src="{SITE_URL}/logo.png" alt="RomSniffer">
             <span>RomSniffer</span>
         </a>
         <div class="nav-links">
@@ -703,7 +705,7 @@ footer a {{ color: var(--copper-light); }}
             </div>
             <div class="hero-price">{rom["min_price"]:.0f} kr</div>
             <p class="hero-price-sub">Billigste pris fra {esc(rom["prices"][0]["shop_name"])}</p>
-            <a href="{esc(rom["prices"][0]["url"])}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="hero-buy">Køb billigst →</a>
+            <a href="{esc(rom["prices"][0]["url"])}" target="_blank" rel="noopener noreferrer nofollow" class="hero-buy">Køb billigst →</a>
         </div>
     </div>
 
@@ -727,7 +729,7 @@ footer a {{ color: var(--copper-light); }}
     <footer>
         <a href="{SITE_URL}/">← Alle rom og priser</a><br>
         <strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision via links. Det koster dig intet ekstra.<br>
-        RomSniffer © 2026 — Kun for personer over 18 år
+        🥃 RomSniffer © 2026 — Kun for personer over 18 år
     </footer>
 </body>
 </html>"""
@@ -748,10 +750,10 @@ def main():
     with open(ROM_DATA_FILE, "r", encoding="utf-8") as f:
         data = json.load(f)
 
-    roms = filter_category(data.get("roms", []))
+    roms = data.get("roms", [])
     updated_raw = data.get("updated", "")
     try:
-        updated = dk_date(datetime.fromisoformat(updated_raw))
+        updated = datetime.fromisoformat(updated_raw).strftime("%d. %b %Y")
     except Exception:
         updated = updated_raw[:10] if updated_raw else "ukendt"
 
@@ -772,7 +774,7 @@ def main():
 
     # Ryd gammel output (slet mapper der ikke længere har en rom)
     # Mapper der ikke skal slettes (kategorisider)
-    PROTECTED_DIRS = {"land", "type", "alder", "brand"}
+    PROTECTED_DIRS = {"land", "type", "alder"}
     existing_dirs = set()
     if os.path.isdir(OUTPUT_DIR):
         for entry in os.listdir(OUTPUT_DIR):
