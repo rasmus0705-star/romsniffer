@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Siden findes ikke — RomSniffer</title>
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://romsniffer.dk/">
-<link rel="icon" href="/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.romsniffer.dk/">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
     :root {
         --bg: #0a0604;
@@ -118,31 +118,30 @@
     }
     .suggestions a:hover { border-color: var(--copper); background: rgba(184,115,51,0.15); }
 </style>
+<link rel="stylesheet" href="/theme.css">
+<script src="/theme.js"></script>
 </head>
-<body>
-    <a href="/" class="logo-link">
-        <img src="/logo.png" alt="RomSniffer" onerror="this.style.display='none'">
-        <span>RomSniffer</span>
-    </a>
+<body data-cat="rom">
+    <a href="/" class="logo-link"><span>RomSniffer</span></a>
 
-    <div class="bottle">🥃</div>
+    <img class="mascot" src="/logo-256.png" alt="" width="112" height="112" decoding="async">
     <div class="code">404</div>
     <p class="msg">Den flaske kunne vi desværre ikke finde. Måske er den blevet drukket — eller aldrig eksisteret.</p>
 
     <div class="actions">
-        <a href="/" class="btn btn-primary">🏠 Forsiden</a>
-        <a href="/guide.html" class="btn btn-secondary">📖 Rom-guide</a>
-        <a href="/premium.html" class="btn btn-secondary">💎 Premium</a>
+        <a href="/" class="btn btn-primary">Forsiden</a>
+        <a href="/guide.html" class="btn btn-secondary">Rom-guide</a>
+        <a href="/premium.html" class="btn btn-secondary">Premium</a>
     </div>
 
     <div class="suggestions">
         <h3>POPULÆRE KATEGORIER</h3>
-        <a href="/rom/land/jamaica/">🇯🇲 Jamaica</a>
-        <a href="/rom/land/barbados/">🇧🇧 Barbados</a>
-        <a href="/rom/land/cuba/">🇨🇺 Cuba</a>
-        <a href="/rom/type/aged-rom/">🕰️ Aged rom</a>
-        <a href="/rom/type/spiced/">🌿 Spiced</a>
-        <a href="/rom/alder/xo/">✨ XO</a>
+        <a href="/rom/land/jamaica/">Jamaica</a>
+        <a href="/rom/land/barbados/">Barbados</a>
+        <a href="/rom/land/cuba/">Cuba</a>
+        <a href="/rom/type/aged-rom/">Aged rom</a>
+        <a href="/rom/type/spiced/">Spiced</a>
+        <a href="/rom/alder/xo/">XO</a>
     </div>
 </body>
 </html>

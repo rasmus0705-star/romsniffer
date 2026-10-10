@@ -1,0 +1,6 @@
+/* Selvhostede skrifter (ingen forbindelse til Google). Latin-delmængden dækker æ, ø, å. */
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;font-display:swap;src:url('/fonts/playfair-display-latin-wght-normal.woff2') format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;font-display:swap;src:url('/fonts/playfair-display-latin-wght-italic.woff2') format('woff2')}
+@font-face{font-family:'DM Sans';font-style:normal;font-weight:100 1000;font-display:swap;src:url('/fonts/dm-sans-latin-wght-normal.woff2') format('woff2')}
+/* Bebas Neue er udfaset. Navnet peger nu på Playfair, så de ældre CSS-regler (der stadig nævner 'Bebas Neue') får serif uden at skulle omskrives. */
+@font-face{font-family:'Bebas Neue';font-style:normal;font-weight:400;font-display:swap;src:url('/fonts/playfair-display-latin-wght-normal.woff2') format('woff2')}

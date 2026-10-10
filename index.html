@@ -8,11 +8,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sammenlign rom-priser fra danske webshops | RomSniffer</title>
 <meta name="description" content="Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.">
-<link rel="canonical" href="https://romsniffer.dk/">
-<link rel="icon" href="logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://www.romsniffer.dk/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RomSniffer">
+<meta property="og:title" content="Sammenlign rom-priser fra danske webshops | RomSniffer">
+<meta property="og:description" content="Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.">
+<meta property="og:url" content="https://www.romsniffer.dk/">
+<meta property="og:image" content="https://www.romsniffer.dk/og-image.png">
+<meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/fonts/fonts.css">
 <style>
     :root {
         --bg: #0a0604;
@@ -410,7 +419,6 @@
         align-items: center;
         gap: 0.5rem;
     }
-    .top-deals-title::before { content: '🔥'; font-size: 1rem; }
     .top-deals-see-all { font-size: 0.75rem; color: var(--copper); cursor: pointer; text-decoration: none; transition: color 0.2s; }
     .top-deals-see-all:hover { color: var(--copper-light); }
     .top-deals-scroll {
@@ -1148,32 +1156,6 @@
         .top-card { flex: 0 0 135px; min-width: 135px; }
     }
 
-    /* ── DAGENS FUND RESPONSIVE ── */
-    @media (max-width: 640px) {
-        #dagens-fund { padding: 0.8rem 1rem !important; }
-        #fund-card {
-            flex-direction: column !important;
-            gap: 0.8rem !important;
-            text-align: center;
-            padding: 0.8rem !important;
-        }
-        #fund-card img {
-            width: 60px !important;
-            height: 75px !important;
-            margin: 0 auto;
-        }
-        #fund-card > div:nth-child(2) { text-align: left; }
-        #fund-card > div:nth-child(2) > div:last-child {
-            flex-direction: column !important;
-            align-items: flex-start !important;
-            gap: 0.4rem !important;
-        }
-        #fund-cta {
-            width: 100% !important;
-            text-align: center !important;
-            padding: 0.6rem 1rem !important;
-        }
-    }
 
 
     /* ── MOBIL NAV COLLAPSE ── */
@@ -1237,19 +1219,18 @@
 
 </style>
 <script>const DATA_VERSION = 'a04ac11dd9cd';</script>
+<link rel="stylesheet" href="/theme.css">
+<script src="/theme.js"></script>
 </head>
-<body>
+<body data-cat="rom">
 
 <!-- SEO: skjult H1 -->
 <h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;">Find de bedste rom-priser i Danmark — RomSniffer</h1>
 
 <nav>
-    <a href="index.html" class="nav-logo">
-        <img src="logo.png" alt="RomSniffer" onerror="this.style.display='none'" decoding="async">
-        <span>RomSniffer</span>
-    </a>
+    <a href="/" class="nav-logo" aria-label="RomSniffer — forside"><span>RomSniffer</span></a>
     <div class="nav-links">
-        <a href="index.html">Alle rom</a>
+        <a href="/">Alle rom</a>
         <a href="premium.html">Premium</a>
         <a href="guide.html">Guide</a>
         <a href="om.html">Om</a>
@@ -1262,8 +1243,7 @@
     <div class="hero-inner">
         <!-- VENSTRE: Logo + søgning + quick-bar -->
         <div class="hero-left">
-            <img src="logo.png" alt="RomSniffer logo" class="hero-logo" onerror="this.style.display='none'" decoding="async">
-            <h2 class="hero-title">Find den billigste rom — på få sekunder</h2>
+            <h2 class="hero-title">Samme flaske.<br><em>Laveste pris.</em></h2>
             <p class="hero-sub">Sammenlign <strong id="hero-count">1.000+</strong> rom fra danske webshops — opdateres dagligt</p>
             <div class="hero-search-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -1274,37 +1254,20 @@
                     aria-label="Søg efter rom, brand eller land">
             </div>
             <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
-                <button class="qbtn" data-qtype="filter" data-val="deals"       onclick="quickFilter('deals')">🔥 Tilbud</button>
-                <button class="qbtn" data-qtype="filter" data-val="multi"       onclick="quickFilter('multi')">🔄 Billigst på tværs</button>
+                <button class="qbtn" data-qtype="filter" data-val="deals"       onclick="quickFilter('deals')">Tilbud</button>
+                <button class="qbtn" data-qtype="filter" data-val="multi"       onclick="quickFilter('multi')">Billigst på tværs</button>
                 <button class="qbtn" data-qtype="country" data-val="Cuba"       onclick="quickCountry('Cuba')"><span style="display:inline-block;vertical-align:middle;margin-right:4px;border-radius:2px;overflow:hidden;line-height:0"><svg viewBox="0 0 9 6" width="18" height="12"><rect width="9" height="6" fill="#002a8f"/><rect y="1.2" width="9" height="1.2" fill="#fff"/><rect y="3.6" width="9" height="1.2" fill="#fff"/><path d="M0 0L4 3 0 6Z" fill="#cb1515"/><path d="M1.1 2.4l.5 1.4-1.2-.9h1.5l-1.2.9z" fill="#fff"/></svg></span> Cuba</button>
                 <button class="qbtn" data-qtype="country" data-val="Jamaica"    onclick="quickCountry('Jamaica')"><span style="display:inline-block;vertical-align:middle;margin-right:4px;border-radius:2px;overflow:hidden;line-height:0"><svg viewBox="0 0 12 6" width="18" height="9"><rect width="12" height="6" fill="#009b3a"/><path d="M0 0L12 6M12 0L0 6" stroke="#fed100" stroke-width="1.3"/><path d="M0 0L5 3 0 6Z M12 0L7 3 12 6Z" fill="#000"/><path d="M0 0L6 2.2 12 0Z M0 6L6 3.8 12 6Z" fill="#009b3a"/></svg></span> Jamaica</button>
                 <button class="qbtn" data-qtype="country" data-val="Barbados"   onclick="quickCountry('Barbados')"><span style="display:inline-block;vertical-align:middle;margin-right:4px;border-radius:2px;overflow:hidden;line-height:0"><svg viewBox="0 0 9 6" width="18" height="12"><rect width="3" height="6" fill="#00267f"/><rect x="3" width="3" height="6" fill="#ffc726"/><rect x="6" width="3" height="6" fill="#00267f"/><path d="M4.5 1.8c-.3.5-.3 1.5 0 2.4.3-.9.3-1.9 0-2.4z" fill="#000"/></svg></span> Barbados</button>
-                <button class="qbtn" data-qtype="type" data-val="Aged rom"      onclick="quickType('Aged rom')">🕰️ Aged</button>
-                <button class="qbtn" data-qtype="type" data-val="Spiced"        onclick="quickType('Spiced')">🌿 Spiced</button>
-                <button class="qbtn" data-qtype="age" data-val="XO"             onclick="quickAge('XO')">✨ XO</button>
-                <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">💰 Under 500 kr</button>
-                <button class="qbtn" data-qtype="filter" data-val="premium"     onclick="quickFilter('premium')">💎 Premium</button>
-                <button class="qbtn" onclick="romRoulette()" style="background:linear-gradient(135deg,#6b2c0e,#b87333);color:#f5e4cf;border:none">🎲 Overrask mig</button>
+                <button class="qbtn" data-qtype="type" data-val="Aged rom"      onclick="quickType('Aged rom')">Aged</button>
+                <button class="qbtn" data-qtype="type" data-val="Spiced"        onclick="quickType('Spiced')">Spiced</button>
+                <button class="qbtn" data-qtype="age" data-val="XO"             onclick="quickAge('XO')">XO</button>
+                <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">Under 500 kr</button>
+                <button class="qbtn" data-qtype="filter" data-val="premium"     onclick="quickFilter('premium')">Premium</button>
+                <button class="qbtn" onclick="romRoulette()" style="background:linear-gradient(135deg,#6b2c0e,#b87333);color:#f5e4cf;border:none">Overrask mig</button>
             </div>
         </div>
 
-        <!-- HØJRE: Roterende pris-spotlight -->
-        <div class="spotlight-wrap" id="spotlight" style="display:none" aria-label="Bedste pris-sammenligninger">
-            <div class="spotlight-label">Pris-spotlight — skifter automatisk</div>
-            <div class="spotlight-content">
-                <div class="spotlight-img-wrap">
-                    <img class="spotlight-img" id="spotlight-img" src="" alt="" onerror="this.style.display='none'">
-                </div>
-                <div class="spotlight-info" id="spotlight-info">
-                    <div class="spotlight-name" id="spotlight-name">–</div>
-                    <div class="spotlight-meta" id="spotlight-meta"></div>
-                    <div id="spotlight-prices"></div>
-                    <div class="spotlight-savings" id="spotlight-savings" style="display:none"></div>
-                    <a class="spotlight-cta" id="spotlight-cta" href="#" target="_blank" rel="noopener">Køb billigst →</a>
-                </div>
-            </div>
-            <div class="spotlight-dots" id="spotlight-dots"></div>
-        </div>
     </div>
 </div>
 
@@ -1324,28 +1287,27 @@
 </div>
 
 <!-- DAGENS FUND -->
-<div id="dagens-fund" style="display:none;padding:1rem 2rem;border-bottom:1px solid var(--border);background:linear-gradient(180deg,var(--surface) 0%,var(--bg) 100%)">
-    <div style="max-width:700px;margin:0 auto">
-        <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.8rem">
-            <span style="font-size:1.2rem">🏆</span>
-            <span style="font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.1em;color:var(--gold)">Dagens fund</span>
-            <span style="font-size:0.7rem;color:var(--text-dim);margin-left:auto">Størst besparelse mellem butikker</span>
+<section id="dagens-fund" class="fund" style="display:none" aria-label="Dagens fund">
+    <div class="fund-inner">
+        <div class="fund-head">
+            <span class="fund-title">Dagens fund</span>
+            <span class="fund-sub">Størst besparelse mellem butikker</span>
         </div>
-        <div id="fund-card" style="background:linear-gradient(135deg,var(--surface2),rgba(212,168,71,0.06));border:1px solid rgba(212,168,71,0.3);border-radius:12px;padding:1rem 1.2rem;display:flex;gap:1.2rem;align-items:center">
-            <img id="fund-img" src="" alt="" style="width:80px;height:100px;object-fit:contain;border-radius:8px;background:#0a0604;padding:0.4rem;flex-shrink:0" onerror="this.style.display='none'">
-            <div style="flex:1;min-width:0">
-                <div id="fund-name" style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--text);margin-bottom:0.3rem"></div>
-                <div id="fund-meta" style="font-size:0.72rem;color:var(--text-muted);margin-bottom:0.5rem"></div>
-                <div style="display:flex;align-items:baseline;gap:0.8rem;flex-wrap:wrap">
-                    <span id="fund-price" style="font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--gold);line-height:1"></span>
-                    <span id="fund-expensive" style="font-size:0.78rem;color:var(--text-dim);text-decoration:line-through"></span>
-                    <span id="fund-saving" style="background:linear-gradient(135deg,rgba(61,186,111,0.15),rgba(212,168,71,0.1));border:1px solid var(--discount);color:var(--discount);padding:0.25rem 0.6rem;border-radius:6px;font-size:0.78rem;font-weight:700"></span>
+        <div id="fund-card" class="fund-card">
+            <div class="fund-photo"><img id="fund-img" src="" alt="" onerror="this.style.display='none'"></div>
+            <div class="fund-info">
+                <div id="fund-name" class="fund-name"></div>
+                <div id="fund-meta" class="fund-meta"></div>
+                <div class="fund-prices">
+                    <span id="fund-price" class="fund-price"></span>
+                    <span id="fund-expensive" class="fund-old"></span>
+                    <span id="fund-saving" class="fund-saving"></span>
                 </div>
             </div>
-            <a id="fund-cta" href="#" target="_blank" rel="noopener" style="background:linear-gradient(135deg,var(--gold),#e8c868);color:#0a0604;padding:0.55rem 1.2rem;border-radius:8px;text-decoration:none;font-weight:700;font-size:0.82rem;white-space:nowrap;flex-shrink:0">Køb billigst →</a>
+            <a id="fund-cta" class="fund-cta" href="#" target="_blank" rel="sponsored nofollow noopener">Køb billigst →</a>
         </div>
     </div>
-</div>
+</section>
 
 <!-- TOP DEALS CAROUSEL -->
 <div class="top-deals-section" id="top-deals-section" style="display:none" role="region" aria-label="Bedste tilbud lige nu">
@@ -1360,7 +1322,7 @@
 <div class="mobile-filter-toggle">
     <button class="mobile-filter-btn" id="mobile-filter-open"
         aria-label="Åbn filtre" aria-expanded="false" aria-controls="sidebar">
-        🎛️ Filtrér <span class="mobile-filter-count" id="mobile-filter-count" style="display:none">0</span>
+        Filtrér <span class="mobile-filter-count" id="mobile-filter-count" style="display:none">0</span>
     </button>
 </div>
 
@@ -1376,21 +1338,21 @@
 
         <div class="sidebar-section" id="active-filters-section" style="display:none">
             <div class="sidebar-title">
-                <span>✨ Aktive filtre</span>
+                <span>Aktive filtre</span>
                 <button class="sidebar-clear-link" id="clear-all">Ryd alle</button>
             </div>
             <div class="sidebar-chips" id="active-chips"></div>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">⚡ Hurtige filtre</div>
+            <div class="sidebar-title">Hurtige filtre</div>
             <div class="sidebar-filter-btns">
-                <button class="sidebar-filter-btn active" data-filter="all">🥃 Alle rom</button>
-                <button class="sidebar-filter-btn" data-filter="multi">🔄 I flere butikker</button>
-                <button class="sidebar-filter-btn" data-filter="deals">🔥 Tilbud</button>
-                <button class="sidebar-filter-btn" data-filter="favs">❤️ Favoritter <span id="fav-count"></span></button>
-                <button class="sidebar-filter-btn" data-filter="hverdagsrom">💰 Hverdagsrom (under 500 kr)</button>
-                <button class="sidebar-filter-btn" data-filter="premium">💎 Premium (over 1.500 kr)</button>
+                <button class="sidebar-filter-btn active" data-filter="all">Alle rom</button>
+                <button class="sidebar-filter-btn" data-filter="multi">I flere butikker</button>
+                <button class="sidebar-filter-btn" data-filter="deals">Tilbud</button>
+                <button class="sidebar-filter-btn" data-filter="favs">Favoritter <span id="fav-count"></span></button>
+                <button class="sidebar-filter-btn" data-filter="hverdagsrom">Hverdagsrom (under 500 kr)</button>
+                <button class="sidebar-filter-btn" data-filter="premium">Premium (over 1.500 kr)</button>
             </div>
         </div>
 
@@ -1398,7 +1360,7 @@
 
         <div class="sidebar-section">
             <div class="sidebar-title">
-                <span>🏪 Butikker <span id="shop-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <span>Butikker <span id="shop-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
                 <button class="sidebar-clear-link" id="clear-shops" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="shop-list" role="group" aria-label="Filtrer efter butik"></div>
@@ -1406,7 +1368,7 @@
 
         <div class="sidebar-section">
             <div class="sidebar-title">
-                <span>🌍 Lande <span id="country-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <span>Lande <span id="country-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
                 <button class="sidebar-clear-link" id="clear-countries" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="country-list" role="group" aria-label="Filtrer efter land"></div>
@@ -1415,7 +1377,7 @@
 
         <div class="sidebar-section">
             <div class="sidebar-title">
-                <span>🥃 Typer <span id="type-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <span>Typer <span id="type-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
                 <button class="sidebar-clear-link" id="clear-types" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="type-list" role="group" aria-label="Filtrer efter type"></div>
@@ -1424,7 +1386,7 @@
 
         <div class="sidebar-section">
             <div class="sidebar-title">
-                <span>🕰️ Alder <span id="age-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
+                <span>Alder <span id="age-count-badge" style="display:none;background:var(--copper);color:#000;border-radius:10px;padding:1px 7px;font-size:0.65rem;font-family:'DM Sans',sans-serif;">0</span></span>
                 <button class="sidebar-clear-link" id="clear-ages" style="display:none">Ryd</button>
             </div>
             <div class="sidebar-checkbox-list" id="age-list" role="group" aria-label="Filtrer efter alder"></div>
@@ -1432,7 +1394,7 @@
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">💰 Pris</div>
+            <div class="sidebar-title">Pris</div>
             <div class="range-slider">
                 <div class="range-values">
                     <span><strong id="price-min-val">0</strong> kr</span>
@@ -1447,7 +1409,7 @@
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">🍻 Alkohol (ABV)</div>
+            <div class="sidebar-title">Alkohol (ABV)</div>
             <div class="range-slider">
                 <div class="range-values">
                     <span><strong id="abv-min-val">30</strong>%</span>
@@ -1462,7 +1424,7 @@
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">📦 Volumen</div>
+            <div class="sidebar-title">Volumen</div>
             <select id="volume" class="sidebar-select" aria-label="Filtrer efter volumen">
                 <option value="">Alle størrelser</option>
                 <option value="small">Mini (under 35 cl)</option>
@@ -1472,7 +1434,7 @@
         </div>
 
         <div class="sidebar-section">
-            <button class="sidebar-reset" id="reset-btn">🔄 Nulstil alle filtre</button>
+            <button class="sidebar-reset" id="reset-btn">Nulstil alle filtre</button>
         </div>
     </aside>
 
@@ -1518,7 +1480,7 @@
         <div class="footer-col">
             <h4>RomSniffer</h4>
             <ul>
-                <li><a href="index.html">Forsiden</a></li>
+                <li><a href="/">Forsiden</a></li>
                 <li><a href="om.html">Om RomSniffer</a></li>
                 <li><a href="om.html#kontakt">Kontakt</a></li>
             </ul>
@@ -1543,7 +1505,7 @@
     <div class="footer-disclaimer">
         <strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision når du køber via vores links. Det koster dig ingenting ekstra og påvirker ikke vores prissammenligning — vi viser altid den billigste pris først.
     </div>
-    <div class="footer-bottom">🥃 RomSniffer &copy; 2026 &mdash; Kun for personer over 18 år &mdash; Nyd med omtanke</div>
+    <div class="footer-bottom">RomSniffer &copy; 2026 &mdash; Kun for personer over 18 år &mdash; Nyd med omtanke</div>
 </footer>
 
 <script>
@@ -1801,7 +1763,7 @@ function makeCard(r, delay) {
     // flag variabel fjernet
     const typeDesc = r.type && TYPE_DESCRIPTIONS[r.type];
     const typeTag = r.type ? `
-        <span class="card-tag type-tooltip-wrap">
+        <span class="card-tag type-tooltip-wrap"${typeDesc ? ` title="${typeDesc}"` : ''}>
             ${r.type}
             ${typeDesc ? `<span class="type-tooltip-icon" title="${typeDesc}">i</span>
             <div class="type-tooltip"><strong>${r.type}</strong>${typeDesc}</div>` : ''}
@@ -1816,29 +1778,28 @@ function makeCard(r, delay) {
     let html = `<div class="${cardClasses}" style="animation-delay:${delay}s" role="listitem">`;
     if (hasDeal) html += `<div class="discount-badge">−${r.max_discount_pct}%</div>`;
     html += `<button class="fav-btn ${isFav ? 'active' : ''}"
-                aria-label="${isFav ? 'Fjern fra favoritter' : 'Tilføj til favoritter'}: ${esc(r.name)}"
+                aria-label="${isFav ? 'Fjern fra favoritter' : 'Tilføj til favoritter'}: ${esc(RS.clean(r.name))}"
                 onclick="toggleFav('${esc(r.name)}',this)">
-                ${isFav ? '❤️' : '🤍'}</button>`;
+                ${RS.HEART_SVG}</button>`;
 
     html += `<a href="/rom/${r.slug}/" class="card-img-wrap" style="display:block;text-decoration:none">
         ${r.image
-            ? `<img class="card-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
+            ? `<img class="card-img" src="${RS.thumb(r.image, 500)}" width="300" height="300" alt="${esc(RS.clean(r.name))}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
             : ''}
-        <div class="card-img-placeholder" ${r.image ? 'style="display:none"' : ''}>🥃</div>
+        <div class="card-img-placeholder" ${r.image ? 'style="display:none"' : ''}>${RS.GLASS_SVG}</div>
     </a>`;
 
     html += `<div class="card-body">
         <div class="card-meta">
             ${r.country ? `<span class="card-tag country">${flagImg(r.country, 'sm')} ${r.country}</span>` : ''}
             ${typeTag}
-            ${r.age ? `<span class="card-tag age">🕰️ ${r.age}</span>` : ''}
-            ${r.abv ? `<span class="card-tag abv">${r.abv}%</span>` : ''}
+            ${r.age ? `<span class="card-tag age">${r.age}</span>` : ''}
+            ${RS.plausibleAbv(r) ? `<span class="card-tag abv">${RS.fmtAbv(RS.plausibleAbv(r))}</span>` : ''}
             ${r.volume_cl ? `<span class="card-tag vol">${r.volume_cl} cl</span>` : ''}
-            ${pplTag}
         </div>
-        ${r.price_change_7d && r.price_change_7d < -5 ? '<div class="price-drop-badge">📉 Faldet ' + Math.abs(Math.round(r.price_change_7d)) + ' kr på 7 dage</div>' : ''}
-        <div class="card-name"><a href="/rom/${r.slug}/" style="color:inherit;text-decoration:none">${r.name}</a></div>
-        ${r.brand ? '<a class="card-brand" href="/rom/brand/' + r.brand.toLowerCase().replace(/[^a-z0-9æøåäöü]+/g,'-').replace(/^-|-$/g,'') + '/">' + r.brand + '</a>' : ''}
+        ${r.price_change_7d && r.price_change_7d < -5 ? '<div class="price-drop-badge">Faldet ' + Math.abs(Math.round(r.price_change_7d)) + ' kr på 7 dage</div>' : ''}
+        <div class="card-name"><a href="/rom/${r.slug}/" style="color:inherit;text-decoration:none">${RS.fix(r.name)}</a></div>
+        ${r.brand ? '<a class="card-brand" href="/rom/brand/' + r.brand.toLowerCase().replace(/[^a-z0-9æøåäöü]+/g,'-').replace(/^-|-$/g,'') + '/">' + RS.fix(r.brand) + '</a>' : ''}
         <div class="price-rows">`;
 
     // Cheapest price row
@@ -1853,12 +1814,12 @@ function makeCard(r, delay) {
                     <span class="price-row-amount">${cheapest.price.toFixed(0)} kr</span>
                     ${cheapest.old_price ? `<span class="price-row-old">${cheapest.old_price.toFixed(0)} kr</span>` : ''}
                 </div>
-                ${cheapest.old_price ? `<span class="price-row-save">💰 Spar ${(cheapest.old_price - cheapest.price).toFixed(0)} kr</span>` : ''}
+                ${cheapest.old_price ? `<span class="price-row-save">Spar ${(cheapest.old_price - cheapest.price).toFixed(0)} kr</span>` : ''}
                 ${r.volume_cl && r.volume_cl > 0 ? `<span class="price-row-ppl">${(cheapest.price / r.volume_cl).toFixed(2)} kr/cl</span>` : ''}
             </div>
             <div class="price-row-actions">
-                ${cheapest.url ? `<a class="price-row-link" href="${cheapest.url}" target="_blank" rel="noopener"
-                    aria-label="Køb ${esc(r.name)} hos ${esc(cheapest.shop_name)} for ${cheapest.price.toFixed(0)} kr">Køb →</a>` : ''}
+                ${cheapest.url ? `<a class="price-row-link" href="${cheapest.url}" target="_blank" rel="sponsored nofollow noopener"
+                    aria-label="Køb ${esc(RS.clean(r.name))} hos ${esc(cheapest.shop_name)} for ${cheapest.price.toFixed(0)} kr">Køb →</a>` : ''}
             </div>
         </div>
     </div>`;
@@ -1885,8 +1846,8 @@ function makeCard(r, delay) {
                         </div>
                     </div>
                     <div class="price-row-actions">
-                        ${p.url ? `<a class="price-row-link" href="${p.url}" target="_blank" rel="noopener"
-                            aria-label="Køb ${esc(r.name)} hos ${esc(p.shop_name)} for ${p.price.toFixed(0)} kr">Køb →</a>` : ''}
+                        ${p.url ? `<a class="price-row-link" href="${p.url}" target="_blank" rel="sponsored nofollow noopener"
+                            aria-label="Køb ${esc(RS.clean(r.name))} hos ${esc(p.shop_name)} for ${p.price.toFixed(0)} kr">Køb →</a>` : ''}
                     </div>
                 </div>
             </div>`;
@@ -1912,7 +1873,7 @@ function render(append) {
     renderActiveChips();
 
     if (!filtered.length) {
-        grid.innerHTML = `<div class="empty"><div class="empty-icon">${currentFilter === 'favs' ? '❤️' : '🔍'}</div><p>${currentFilter === 'favs' ? 'Ingen favoritter — klik 🤍 på et kort' : 'Ingen rom matchede dine filtre'}</p></div>`;
+        grid.innerHTML = `<div class="empty"><div class="empty-icon">${currentFilter === 'favs' ? RS.HEART_SVG : RS.SEARCH_SVG}</div><p>${currentFilter === 'favs' ? 'Ingen favoritter — tryk på hjertet på et kort' : 'Ingen rom matchede dine filtre'}</p></div>`;
         document.getElementById('load-more').style.display = 'none';
         return;
     }
@@ -1948,19 +1909,18 @@ function renderTopDeals() {
         const best = [...r.prices].sort((a, b) => (b.discount_pct || 0) - (a.discount_pct || 0))[0] || {};
         return `<a href="/rom/${r.slug}/" class="top-card" style="text-decoration:none;color:inherit">
             <div class="top-card-pct">−${r.max_discount_pct}%</div>
-            ${r.image
-                ? `<img class="top-card-img" src="${r.image}" alt="${esc(r.name)}" loading="lazy" decoding="async" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-                : ''}
-            <div class="top-card-img-placeholder" ${r.image ? 'style="display:none"' : ''} aria-hidden="true">🥃</div>
+            <div class="top-card-photo">${r.image
+                ? `<img class="top-card-img" src="${RS.thumb(r.image, 300)}" width="120" height="120" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`
+                : RS.GLASS_SVG}</div>
             <div class="top-card-body">
                 <div class="top-card-shop">${best.shop_name || ''}</div>
-                <div class="top-card-name">${r.name}</div>
+                <div class="top-card-name">${RS.fix(r.name)}</div>
                 <div class="top-card-prices">
                     <span class="top-card-price">${(best.price || 0).toFixed(0)} kr</span>
                     ${best.old_price ? `<span class="top-card-old">${best.old_price.toFixed(0)} kr</span>` : ''}
                 </div>
-                ${best.url ? `<span class="top-card-link" onclick="event.stopPropagation();window.open('${best.url}','_blank')"
-                    aria-label="Køb ${esc(r.name)} nu">Køb nu →</span>` : ''}
+                ${best.url ? `<span class="top-card-link" onclick="event.stopPropagation();window.open('${best.url}','_blank','noopener')"
+                    aria-label="Køb ${esc(RS.clean(r.name))} nu">Køb nu →</span>` : ''}
             </div>
         </a>`;
     }).join('');
@@ -1986,11 +1946,11 @@ function renderDagensFund() {
     document.getElementById('dagens-fund').style.display = 'block';
     if (best.image) {
         const img = document.getElementById('fund-img');
-        img.src = best.image;
+        img.src = RS.thumb(best.image, 300);
         img.style.display = 'block';
     }
-    document.getElementById('fund-name').textContent = best.name;
-    document.getElementById('fund-meta').textContent = [best.country, best.type, best.age, best.abv ? best.abv + '%' : ''].filter(Boolean).join(' · ');
+    document.getElementById('fund-name').textContent = RS.clean(best.name);
+    document.getElementById('fund-meta').textContent = [best.country, best.type, best.age, RS.plausibleAbv(best) ? RS.fmtAbv(RS.plausibleAbv(best)) : ''].filter(Boolean).join(' · ');
     document.getElementById('fund-price').textContent = cheapest.price.toFixed(0) + ' kr';
     document.getElementById('fund-expensive').textContent = expensive.price.toFixed(0) + ' kr hos ' + expensive.shop_name;
     document.getElementById('fund-saving').textContent = 'Spar ' + savings.toFixed(0) + ' kr hos ' + cheapest.shop_name;
@@ -2003,6 +1963,7 @@ let spotlightIndex = 0;
 let spotlightInterval = null;
 
 function setupSpotlight() {
+    return; // Pris-spotlight er fjernet i designopdateringen (se "Dagens fund")
     // Prioriter rom med prissammenligning, dernæst tilbud
     spotlightRoms = allRoms
         .filter(r => r.shop_count > 1)
@@ -2060,7 +2021,7 @@ function showSpotlight() {
         const meta = [];
         if (rom.country) meta.push(`<span class="spotlight-tag">${flagImg(rom.country, 'sm')} ${rom.country}</span>`);
         if (rom.type) meta.push(`<span class="spotlight-tag">${rom.type}</span>`);
-        if (rom.age) meta.push(`<span class="spotlight-tag">🕰️ ${rom.age}</span>`);
+        if (rom.age) meta.push(`<span class="spotlight-tag">${rom.age}</span>`);
         document.getElementById('spotlight-meta').innerHTML = meta.join('');
 
         // Priser
@@ -2076,10 +2037,10 @@ function showSpotlight() {
         const savings = getSavings(rom);
         if (savings > 5) {
             const pct = Math.round((savings / sorted[sorted.length - 1].price) * 100);
-            savingsEl.innerHTML = `💰 Spar <strong>${savings.toFixed(0)} kr</strong> (${pct}%) vs dyreste`;
+            savingsEl.innerHTML = `Spar <strong>${savings.toFixed(0)} kr</strong> (${pct}%) vs dyreste`;
             savingsEl.style.display = 'block';
         } else if (rom.max_discount_pct > 0) {
-            savingsEl.innerHTML = `🔥 <strong>−${rom.max_discount_pct}%</strong> rabat`;
+            savingsEl.innerHTML = `<strong>−${rom.max_discount_pct}%</strong> rabat`;
             savingsEl.style.display = 'block';
         } else {
             savingsEl.style.display = 'none';
@@ -2114,44 +2075,44 @@ function renderActiveChips() {
     const chips = [], sc = [];
 
     if (currentFilter !== 'all') {
-        const labels = { 'multi': '🔄 I flere butikker', 'deals': '🔥 Tilbud', 'favs': '❤️ Favoritter', 'hverdagsrom': '💰 Under 500 kr', 'premium': '💎 Premium' };
+        const labels = { 'multi': 'I flere butikker', 'deals': 'Tilbud', 'favs': 'Favoritter', 'hverdagsrom': 'Under 500 kr', 'premium': 'Premium' };
         const l = labels[currentFilter] || currentFilter;
         chips.push(`<span class="filter-chip">${l}<span class="x" onclick="quickFilter('all')">✕</span></span>`);
         sc.push(`<span class="sidebar-chip" onclick="quickFilter('all')">${l}<span class="x">✕</span></span>`);
     }
     selectedShops.forEach(s => {
-        chips.push(`<span class="filter-chip">🏪 ${s}<span class="x" onclick="removeShop('${esc(s)}')">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="removeShop('${esc(s)}')">🏪 ${s}<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">${s}<span class="x" onclick="removeShop('${esc(s)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeShop('${esc(s)}')">${s}<span class="x">✕</span></span>`);
     });
     selectedCountries.forEach(c => {
         chips.push(`<span class="filter-chip">${flagImg(c, 'sm')} ${c}<span class="x" onclick="removeCountry('${esc(c)}')">✕</span></span>`);
         sc.push(`<span class="sidebar-chip" onclick="removeCountry('${esc(c)}')">${flagImg(c, 'sm')} ${c}<span class="x">✕</span></span>`);
     });
     selectedTypes.forEach(t => {
-        chips.push(`<span class="filter-chip">🥃 ${t}<span class="x" onclick="removeType('${esc(t)}')">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="removeType('${esc(t)}')">🥃 ${t}<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">${t}<span class="x" onclick="removeType('${esc(t)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeType('${esc(t)}')">${t}<span class="x">✕</span></span>`);
     });
     selectedAges.forEach(a => {
-        chips.push(`<span class="filter-chip">🕰️ ${a}<span class="x" onclick="removeAge('${esc(a)}')">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="removeAge('${esc(a)}')" >🕰️ ${a}<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">${a}<span class="x" onclick="removeAge('${esc(a)}')">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="removeAge('${esc(a)}')" >${a}<span class="x">✕</span></span>`);
     });
     const sv = document.getElementById('search').value.trim();
     if (sv) {
-        chips.push(`<span class="filter-chip">🔍 "${sv}"<span class="x" onclick="clearSearch()">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="clearSearch()">🔍 "${sv}"<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">"${sv}"<span class="x" onclick="clearSearch()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearSearch()">"${sv}"<span class="x">✕</span></span>`);
     }
     const priceMaxEl = parseInt(document.getElementById('price-max').max);
     if (priceMin > 0 || priceMax < priceMaxEl) {
-        chips.push(`<span class="filter-chip">💰 ${priceMin}–${priceMax} kr<span class="x" onclick="clearPrice()">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="clearPrice()">💰 ${priceMin}–${priceMax} kr<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">${priceMin}–${priceMax} kr<span class="x" onclick="clearPrice()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearPrice()">${priceMin}–${priceMax} kr<span class="x">✕</span></span>`);
     }
     if (abvMin > 30 || abvMax < 80) {
-        chips.push(`<span class="filter-chip">🍻 ${abvMin}–${abvMax}%<span class="x" onclick="clearAbv()">✕</span></span>`);
-        sc.push(`<span class="sidebar-chip" onclick="clearAbv()">🍻 ${abvMin}–${abvMax}%<span class="x">✕</span></span>`);
+        chips.push(`<span class="filter-chip">${abvMin}–${abvMax}%<span class="x" onclick="clearAbv()">✕</span></span>`);
+        sc.push(`<span class="sidebar-chip" onclick="clearAbv()">${abvMin}–${abvMax}%<span class="x">✕</span></span>`);
     }
     const vol = document.getElementById('volume').value;
     if (vol) {
-        const vl = { small: '📦 Mini', medium: '📦 Normal', large: '📦 Stor' };
+        const vl = { small: 'Mini', medium: 'Normal', large: 'Stor' };
         chips.push(`<span class="filter-chip">${vl[vol]}<span class="x" onclick="clearVolume()">✕</span></span>`);
         sc.push(`<span class="sidebar-chip" onclick="clearVolume()">${vl[vol]}<span class="x">✕</span></span>`);
     }
@@ -2242,8 +2203,8 @@ function updateAgeCheckboxes() {
 
 // ── FAVORITES ─────────────────────────────────────────────────────
 function toggleFav(name, btn) {
-    if (favorites.has(name)) { favorites.delete(name); btn.classList.remove('active'); btn.textContent = '🤍'; }
-    else { favorites.add(name); btn.classList.add('active'); btn.textContent = '❤️'; }
+    if (favorites.has(name)) { favorites.delete(name); btn.classList.remove('active'); }
+    else { favorites.add(name); btn.classList.add('active'); }
     localStorage.setItem('rom_favs', JSON.stringify([...favorites]));
     document.getElementById('fav-count').textContent = favorites.size > 0 ? `(${favorites.size})` : '';
     if (currentFilter === 'favs') render();
@@ -2372,7 +2333,7 @@ async function loadData() {
 
     } catch (e) {
         console.error(e);
-        document.getElementById('grid').innerHTML = '<div class="empty"><div class="empty-icon">😢</div><p>Kunne ikke hente rom-data — tjek at rom_data.json findes</p></div>';
+        document.getElementById('grid').innerHTML = '<div class="empty"><div class="empty-icon"></div><p>Kunne ikke hente rom-data — tjek at rom_data.json findes</p></div>';
     }
 }
 
