@@ -264,3 +264,24 @@ select, input[type=text], input[type=search] { border-radius: 2px !important; }
 .suggestions h3 { font-family: var(--sans) !important; letter-spacing: .22em; color: var(--text-dim) !important; font-size: .64rem !important; }
 .suggestions a { color: var(--text-muted) !important; }
 .suggestions a:hover { color: var(--gold-light) !important; }
+
+
+/* ── 18+-bekræftelse (vises kun, hvis RS.ageGate.enabled er true i theme.js) ─────────── */
+.age-lock { overflow: hidden; }
+.age-gate { position: fixed; inset: 0; z-index: 9999000; display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+  background: radial-gradient(ellipse 60% 70% at 50% 30%, rgba(201,168,76,.12), transparent 70%), rgba(7,6,10,.97); }
+.age-box { width: 100%; max-width: 460px; text-align: center; padding: 2.6rem 2rem; background: var(--surface); border: 1px solid var(--border-light); border-radius: 4px; }
+.age-mark { font-family: var(--serif); font-size: .95rem; letter-spacing: .34em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.6rem; }
+.age-box h2 { font-family: var(--serif); font-weight: 500; font-size: 1.9rem; margin: 0 0 .8rem; color: var(--text); }
+.age-box p { color: var(--text-muted); line-height: 1.6; margin: 0 0 1.6rem; }
+.age-actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+.age-yes, .age-no { padding: .8rem 1.4rem; border-radius: 2px; letter-spacing: .14em; text-transform: uppercase; font-size: .72rem; font-weight: 600; cursor: pointer; font-family: var(--sans); }
+.age-yes { background: var(--gold); color: #0a0806; border: 1px solid var(--gold); }
+.age-yes:hover { background: var(--gold-light); }
+.age-no { background: transparent; color: var(--gold-light); border: 1px solid var(--border-light); }
+.age-box .age-note { font-size: .68rem; letter-spacing: .18em; text-transform: uppercase; color: var(--text-dim); margin: 1.6rem 0 0; }
+
+/* ── Cookie-ikonet (CookieYes): dæmpet i sidens farver, og sidebaren kan scrolle fri af det ───────────── */
+.cky-btn-revisit-wrapper { background-color: var(--surface2) !important; border: 1px solid var(--border-light) !important; box-shadow: none !important; }
+.cky-btn-revisit-wrapper:hover { border-color: var(--gold) !important; }
+.sidebar { padding-bottom: 4.6rem !important; }
