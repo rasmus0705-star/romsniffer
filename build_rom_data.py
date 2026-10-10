@@ -3,6 +3,7 @@ RomSniffer — Build rom_data.json.
 Bruger smart parsing + hård gate matching + HTML enrichment.
 """
 import json
+import os
 import sys
 import time
 import subprocess
@@ -230,9 +231,33 @@ def main():
     print(f"   Alder:    {with_age}/{len(all_items)} ({100*with_age//len(all_items)}%)")
     print(f"   Land:     {with_country}/{len(all_items)} ({100*with_country//len(all_items)}%)")
 
+    # Valgfrit: gem de rå butiksdata før matching (til match_report.py). ROM_DUMP_ITEMS=1 python build_rom_data.py
+    # ROM_DUMP_ONLY=1 stopper bagefter UDEN at matche, bygge sider eller pushe.
+    if os.environ.get("ROM_DUMP_ITEMS") or os.environ.get("ROM_DUMP_ONLY"):
+        def _plain(o):
+            return sorted(o) if isinstance(o, set) else str(o)
+        with open("scraped_items.json", "w", encoding="utf-8") as _f:
+            json.dump(all_items, _f, ensure_ascii=False, default=_plain)
+        print(f"   💾 scraped_items.json gemt ({len(all_items)} produkter)")
+        if os.environ.get("ROM_DUMP_ONLY"):
+            print("   (ROM_DUMP_ONLY: stopper her — intet er matchet, bygget eller pushet)")
+            return
+
+    # Facitliste (fejlliste.xlsx): dine rettelser, sæt og par-beslutninger. Rettes med start_Fejlrettelse.bat
+    import rom_matching
+    from rom_overrides import load_fejlliste, apply_overrides, write_snapshot
+    _facit = load_fejlliste("fejlliste.xlsx")
+    for _it in all_items:
+        apply_overrides(_it, _facit)
+    _skip = [it for it in all_items if it.get("_skip")]
+    all_items = [it for it in all_items if not it.get("_skip")]
+    rom_matching.set_manual_pairs(_facit["pairs"])
+    print(f"📘 Facitliste: {len(_facit['items'])} rettede varer, {len(_facit['pairs'])} par-beslutninger, {len(_skip)} ignoreret")
+
     # Gruppér med hård gate matching
     print(f"\n🔗 Matcher rom på tværs af butikker (hård gate)...")
     groups, match_stats = group_products(all_items, verbose=True)
+    write_snapshot(all_items, groups, _facit, "fejl_snapshot.json")
 
     # Byg final rom-objekter
     unique_roms = []
@@ -363,6 +388,10 @@ def main():
 
     # ── Cache-version: bind ?v= til datafilens indhold ──
     stamp_data_version()
+
+    if os.environ.get("ROM_NO_PUSH"):
+        print("\n⏸  ROM_NO_PUSH: bygget lokalt, men pusher ikke til GitHub")
+        return
 
     # ── Git push til GitHub (GitHub Pages serverer rom_data.json) ──
     print("\n📤 Pusher rom_data.json til GitHub...")

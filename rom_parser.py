@@ -78,45 +78,77 @@ def extract_volume(name, slug="", description="", short_desc=""):
 # ────────────────────────────────────────────────────────────
 # ABV EXTRACTION
 # ────────────────────────────────────────────────────────────
+def _pct_values(text):
+    """Alle 'X %' i en tekst som (værdi, start, slut)."""
+    out = []
+    for m in re.finditer(r"(?<!\d)(?<!\d[.,])(\d{1,3}(?:[.,]\d{1,2})?)\s*%", text):
+        out.append((float(m.group(1).replace(",", ".")), m.start(), m.end()))
+    return out
+
+
+_ABV_CONTEXT = re.compile(r"alkohol|procent|\babv\b|\balc\b|\balc\.|\bvol\b|\bvol\.|volumen|styrke|strength|proof|fadstyrke|cask strength", re.I)
+# "76,2% - 70 cl": butikkerne skriver ofte styrken lige foran flaskestørrelsen, og det tæller som en tydelig angivelse
+_VOL_AFTER = re.compile(r"\s*[-\u2013\u2014]?\s*\d+(?:[.,]\d+)?\s*(?:cl|ml|l)\b", re.I)
+_ABV_STRONG = re.compile(r"proof|\b151\b|overproof|navy strength|cask strength|fadstyrke|brut de (?:colonne|fut)", re.I)
+_AGE_WORDS = {"ar", "aar", "yo", "y", "years", "year", "anos", "ans", "old", "ars"}
+_UNIT_WORDS = {"cl", "ml", "l", "ltr", "liter", "dl"}
+_NUMBER_WORDS = {"no", "nr", "nummer", "number", "batch", "cask", "vol", "release", "edition", "nr.", "lot", "bottle", "series"}
+# Adressen er det svageste signal: kun almindelige butiksstyrker accepteres derfra (aldrig 50-65, som ofte er serie-numre)
+_SLUG_ABV = {37, 38, 40, 41, 42, 43, 45, 46, 47, 48}
+
+
 def extract_abv(name, slug="", description="", short_desc=""):
     """
-    Find ABV. Rom er typisk 35-75%.
+    Find alkoholprocent. Rækkefølge efter pålidelighed:
+      1. Navnet: et eksplicit 'X%' (30-80 %), fx 'Stroh 80%' eller 'Smith & Cross -57%'.
+      2. Tekst, kilde for kilde (den korte beskrivelse før den lange): 'alkoholprocent på X' eller et 'X%'
+         med alkohol-ord tæt på (alkohol, procent, ABV, vol, proof, styrke) - ellers første 'X%' mellem 30 og
+         69,9 %. Op til 80 % kun, hvis produktet tydeligt er en høj styrke (proof, 151, overproof, navy/cask
+         strength). Hedder produktet 'cask strength' o.l., ignoreres alt under 45 %.
+      4. Adressen (slug): kun et frittstående tal fra _SLUG_ABV, aldrig en flaskestørrelse ('70-cl'),
+         en alder ('12-ar') eller et nummer ('no-66').
+    Rettet: den gamle slug-regel tog 70/75 fra '...-70-cl' som alkoholprocent (Plantation 3 Stars 70 %,
+    Hampden 15 75 % m.fl.) og '35' fra '35 cl'.
     """
     name = name or ""
-    slug = slug or ""
-    desc = clean_html(description) if description else ""
     short = clean_html(short_desc) if short_desc else ""
+    desc = clean_html(description) if description else ""
+    strong = bool(_ABV_STRONG.search(" ".join((name, short, desc))))
 
-    sources = [name, short, desc]
+    # 1) navnet
+    for val, _s, _e in _pct_values(name):
+        if 30 <= val <= 80:
+            return val
 
-    for source in sources:
-        # "alkoholprocent på X" - dansk forklarende
-        m = re.search(r"alkoholprocent\s+(?:på|:)\s*(\d+(?:[.,]\d+)?)", source, re.IGNORECASE)
+    floor = 45 if re.search(r"cask strength|fadstyrke|navy strength|overproof|\bproof\b", name, re.I) else 0
+
+    # 2+3) tekst, kilde for kilde (den korte før den lange): først et tal med alkohol-ord, ellers første tal
+    top = 80 if strong else 69.99
+    for source in (short, desc):
+        m = re.search(r"alkoholprocent\s*(?:på|:)?\s*(\d+(?:[.,]\d+)?)", source, re.IGNORECASE)
         if m:
             val = float(m.group(1).replace(",", "."))
-            if 30 <= val <= 80:
+            if 30 <= val <= 80 and val >= floor:
+                return val
+        found = _pct_values(source)
+        for val, s, e in found:
+            if 30 <= val <= 80 and val >= floor and (_ABV_CONTEXT.search(source[max(0, s - 25): e + 25]) or _VOL_AFTER.match(source[e:e + 25])):
+                return val
+        for val, _s, _e in found:
+            if 30 <= val <= top and val >= floor:
                 return val
 
-        # Standard "X%" mønster
-        matches = re.findall(r"(\d+(?:[.,]\d+)?)\s*%", source)
-        for match in matches:
-            val = float(match.replace(",", "."))
-            if 30 <= val <= 80:
-                return val
-
-    # Slug fallback - "armonia-40" eller "rum-57" mønster (sidste tal i slug)
+    # 4) adressen
     if slug:
-        # Match tal i slug der kunne være ABV (40, 43, 46, 57 osv.)
-        slug_clean = slug.lower().replace("-", " ")
-        # Find tal der står alene (ikke som del af alder som "23")
-        # Vi leder efter typiske ABV-tal: 35-75
-        nums = re.findall(r"\b(\d{2})\b", slug_clean)
-        for num in nums:
-            val = int(num)
-            if 35 <= val <= 75:
-                # Skip hvis det også kunne være alder (12, 15, 18, 20-25)
-                if val not in [12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]:
-                    return float(val)
+        toks = [t for t in re.split(r"[-\s]+", slug.lower()) if t]
+        for i, t in enumerate(toks):
+            if not re.fullmatch(r"\d{2}", t) or int(t) not in _SLUG_ABV:
+                continue
+            nxt = toks[i + 1] if i + 1 < len(toks) else ""
+            prv = toks[i - 1] if i > 0 else ""
+            if nxt in _UNIT_WORDS or nxt in _AGE_WORDS or prv in _NUMBER_WORDS:
+                continue
+            return float(t)
 
     return None
 
@@ -124,51 +156,69 @@ def extract_abv(name, slug="", description="", short_desc=""):
 # ────────────────────────────────────────────────────────────
 # AGE EXTRACTION
 # ────────────────────────────────────────────────────────────
+_AGE_PATTERNS = [
+    r"(\d+)\s*år",
+    r"(\d+)\s*years?",
+    r"(\d+)\s*y\.?o\.?",
+    r"(\d+)\s*-?\s*y\.?o\.?",
+    r"(\d+)\s*ans",
+    r"(\d+)\s*años",
+    r"(\d+)\s*anos",
+    r"aged\s+(\d+)",
+]
+# I beskrivelser tæller et tal kun som alder, hvis et alder-ord står lige ved siden af
+_AGE_CONTEXT = re.compile(r"lagret|lagring|modnet|gammel|aged|aging|ageing|alder|year old|years old|y\.o\.", re.I)
+
+
+def _numeric_age(source, need_context=False):
+    s = source.lower()
+    for pattern in _AGE_PATTERNS:
+        for m in re.finditer(pattern, s):
+            age = int(m.group(1))
+            if not 1 <= age <= 50:
+                continue
+            if need_context and not _AGE_CONTEXT.search(s[max(0, m.start() - 30): m.end() + 30]):
+                continue
+            return f"{age} år"
+    return None
+
+
+def _word_age(source):
+    s = source.lower()
+    if re.search(r"\bxo\b", s):
+        return "XO"
+    if "solera" in s:
+        return "Solera"
+    if re.search(r"\breserva\b", s) and "gran reserva" not in s:
+        return "Reserva"
+    return None
+
+
 def extract_age(name, slug="", description="", short_desc=""):
     """
     Find alder: 12 år, XO, Solera, Reserva.
 
-    VIGTIGT: XO/Solera/Reserva læses KUN fra navn og slug. I marketingtekst
-    omtaler de ofte en ANDEN rom ("lavet på vores XO"), hvilket gav cream
-    liqueurs og tasting kits alderen XO. Numerisk alder har forrang over
-    ordbetegnelser, så "7 Años ... solera" giver "7 år".
+    Rækkefølge (navnet er det, butikkerne sammenlignes på, så det vejer tungest):
+      1. navnet: tal ('12 år'), derefter ordbetegnelse (XO / Solera / Reserva)
+      2. adressen (slug): tal, derefter ordbetegnelse
+      3. beskrivelsen: KUN et tal med et alder-ord lige ved siden af ('lagret i 23 år', 'aged 12 years')
+    Rettet: den gamle regel tog et hvilket som helst "N år/years" fra beskrivelsen, så "Plantation XO 20th
+    Anniversary" fik 20 år, "Venezuela XO 25th Anniversary" 6 år og "Don Q Gold" 1 år. Samme flaske fik så
+    forskellig alder i to butikker, og alder-porten afviste den.
     """
     name = name or ""
     slug_clean = (slug or "").lower().replace("-", " ").replace("_", " ")
     desc = clean_html(description) if description else ""
     short = clean_html(short_desc) if short_desc else ""
 
-    age_patterns = [
-        r"(\d+)\s*år",
-        r"(\d+)\s*years?",
-        r"(\d+)\s*y\.?o\.?",
-        r"(\d+)\s*-?\s*y\.?o\.?",
-        r"(\d+)\s*ans",
-        r"(\d+)\s*años",
-        r"(\d+)\s*anos",
-        r"aged\s+(\d+)",
-    ]
-
-    # 1. Numerisk alder har ALTID forrang. Alle kilder.
-    for source in (name, slug_clean, short, desc):
-        s = source.lower()
-        for pattern in age_patterns:
-            m = re.search(pattern, s)
-            if m:
-                age = int(m.group(1))
-                if 1 <= age <= 50:
-                    return f"{age} år"
-
-    # 2. Ordbetegnelser — KUN navn og slug
     for source in (name, slug_clean):
-        s = source.lower()
-        if re.search(r"\bxo\b", s):
-            return "XO"
-        if "solera" in s:
-            return "Solera"
-        if re.search(r"\breserva\b", s) and "gran reserva" not in s:
-            return "Reserva"
-
+        age = _numeric_age(source) or _word_age(source)
+        if age:
+            return age
+    for source in (short, desc):
+        age = _numeric_age(source, need_context=True)
+        if age:
+            return age
     return None
 
 
@@ -428,12 +478,24 @@ EDITION_KEYWORDS = [
 ]
 
 
+# Butikkerne staver fadlagrings-finish forskelligt: "Port Finish", "Port Casks", "Oloroso Cask", "Sherry Cask Finish".
+# De samles til ét nøgleord pr. type, så det ikke afviser den samme flaske som to forskellige udgaver.
+_FINISH_PATTERNS = [
+    ("port cask", r"\bport\s+(?:wine\s+)?(?:casks?|finish|fad)\b|\b(?:casks?|finish)\s+port\b"),
+    ("sherry cask", r"\bsherry\s+(?:casks?|finish|fad)\b|\boloroso\b|\bpedro\s+ximenez\b|\bpx\s+(?:sherry|casks?|finish)\b|\b(?:casks?|finish)\s+sherry\b"),
+    ("cognac cask", r"\bcognac\s+(?:casks?|finish|fad)\b|\b(?:casks?|finish)\s+cognac\b"),
+    ("wine cask", r"\b(?:red\s+|white\s+)?wine\s+(?:casks?|finish|fad)\b"),
+]
+
+
 def extract_editions(name, description="", short_desc=""):
     """
     Find edition keywords i navnet/beskrivelsen.
     Returner et set af keywords der findes.
     """
-    text = (name or "") + " " + clean_html(short_desc) + " " + clean_html(description)
+    # Kun NAVNET: beskrivelser nævner ofte andre udgaver ("anniversary", "limited edition"), og så afviste
+    # udgave-porten identiske flasker fra to butikker som forskellige produkter.
+    text = name or ""
     text_lower = text.lower()
     
     found = set()
@@ -441,6 +503,10 @@ def extract_editions(name, description="", short_desc=""):
         if kw in text_lower:
             found.add(kw)
     
+    for canonical, pattern in _FINISH_PATTERNS:
+        if re.search(pattern, text_lower):
+            found.add(canonical)
+
     return found
 
 

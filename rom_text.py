@@ -41,18 +41,19 @@ def esc(text):
 def plausible_abv(rom):
     """
     Returnerer alkoholprocenten som float, hvis den er troværdig, ellers None.
-    - under 20 %: ikke en spiritus-styrke -> None
-    - 70 % og derover er næsten altid en fejl (70/75 cl læst som procent). De accepteres kun,
-      hvis navnet selv nævner styrken (fx "75,5%") eller siger "proof"/"151".
-    Den rigtige rettelse hører til ved kilden (build_rom_data.py); det her er sikkerhedsnettet.
+    - under 20 % eller over 85 %: ikke en spiritus-styrke -> None
+    - 70, 75 og 80 % er næsten altid en fejl (flaskestørrelsen 70/75 cl eller en afrunding). De accepteres kun,
+      hvis navnet selv nævner styrken (fx "75,5%", "80 %") eller siger "proof"/"151".
+    - andre tal over 70 (72,0 / 73,6 / 74,9) kommer fra tekst med procent og accepteres.
+    Den rigtige rettelse ligger i rom_parser.extract_abv; det her er sikkerhedsnettet for allerede gemte data.
     """
     try:
         v = float(rom.get("abv"))
     except (TypeError, ValueError):
         return None
-    if v < 20:
+    if v < 20 or v > 85:
         return None
-    if v >= 70:
+    if v >= 70 and abs(v / 5 - round(v / 5)) < 1e-9:
         name = clean_text(rom.get("name")).lower().replace(",", ".")
         mentioned = re.search(r"(?<!\d)%d(\.\d+)?\s*%%" % int(v), name)
         if not (mentioned or "proof" in name or "151" in name):

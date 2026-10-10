@@ -34,8 +34,8 @@
   };
   RS.plausibleAbv = function (r) {     // samme regler som rom_text.plausible_abv i generatorerne
     var v = Number(r && r.abv);
-    if (!v || v < 20) return null;
-    if (v >= 70) {
+    if (!v || v < 20 || v > 85) return null;
+    if (v >= 70 && Math.abs(v / 5 - Math.round(v / 5)) < 1e-9) {   // 70/75/80 kræver, at navnet nævner dem
       var n = RS.clean(r.name).toLowerCase().replace(',', '.');
       var re = new RegExp('(^|[^0-9])' + Math.floor(v) + '(\\.[0-9]+)?\\s*%');
       if (!(re.test(n) || n.indexOf('proof') > -1 || n.indexOf('151') > -1)) return null;

@@ -3,7 +3,6 @@ __pycache__/
 .env
 venv/
 .venv/
-Add-Content .gitignore "`n*.py`n!build_rom_data.py`n!rom_parser.py`n!rom_matching.py`n!*_rom.py"
 *.log
 # Engangs patch- og diagnosescripts
 fix_*.py
@@ -23,7 +22,7 @@ __pycache__/
 
 auning/config.js
 
-# sikkerhedskopier og hj�lpefiler (m� ikke udgives)
+# sikkerhedskopier og hjælpefiler (må ikke udgives)
 *.bak*
 opdater_design.py
 originals.sha256.json
@@ -31,3 +30,19 @@ samle_til_claude.py
 samle2.py
 til_claude*
 *MIG*.txt
+
+# kildeopdatering: lokale værktøjer og tilstand (må ikke udgives)
+sitemap_state.json
+scraped_items*.json
+match_report.txt
+*_old.py
+dump_items.py
+match_report.py
+test_kilde.py
+opdater_kilde.py
+samle*.py
+
+# kildeopdatering: lokale værktøjer og tilstand (må ikke udgives)
+scraped_raw*.json
+fejl_snapshot.json
+~$*
