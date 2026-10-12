@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RomSniffer — Fejloversigt</title>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0c0a07; color: #e0d4c0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.5; }
+
+/* ── Header ── */
+.header {
+    background: #110e08; border-bottom: 1px solid #2a2010;
+    padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center;
+}
+.header h1 { font-size: 1.15rem; color: #f0b832; font-weight: 700; letter-spacing: -0.01em; }
+.header-right { display: flex; align-items: center; gap: 0.8rem; }
+.header .meta { font-size: 0.72rem; color: #5e5445; }
+
+/* ── Progress ── */
+.progress-wrap {
+    height: 3px; background: #1a1408; overflow: hidden;
+}
+.progress-bar {
+    height: 100%; background: linear-gradient(90deg, #f0b832, #3dba6f);
+    transition: width 0.6s ease;
+}
+
+/* ── Tabs ── */
+.tabs { display: flex; background: #0f0d07; border-bottom: 1px solid #2a2010; padding: 0 1.5rem; }
+.tab {
+    padding: 0.65rem 1.2rem; cursor: pointer; font-size: 0.8rem; font-weight: 600;
+    color: #5e5445; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.15s;
+    user-select: none;
+}
+.tab:hover { color: #c8920e; }
+.tab.active { color: #f0b832; border-bottom-color: #f0b832; }
+.tab .badge {
+    display: inline-block; background: #1e1a10; color: #9a8560;
+    font-size: 0.65rem; padding: 0.05rem 0.45rem; border-radius: 99px;
+    margin-left: 0.35rem; font-weight: 700; min-width: 1.5em; text-align: center;
+}
+.tab.active .badge { background: #f0b832; color: #0c0a07; }
+
+/* ── Content ── */
+.content { padding: 1.2rem 1.5rem; }
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── Filters ── */
+.filters { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; align-items: center; }
+.filters label { font-size: 0.72rem; color: #5e5445; }
+.filters select, .filters input[type=text] {
+    background: #161208; border: 1px solid #252010; color: #e0d4c0;
+    padding: 0.35rem 0.6rem; border-radius: 5px; font-size: 0.78rem;
+}
+.filters select:focus, .filters input:focus { outline: none; border-color: #c8920e; }
+.filters input[type=text] { width: 200px; }
+
+/* ── Stats row ── */
+.stats { display: flex; gap: 1rem; margin-bottom: 1rem; }
+.stat {
+    background: #141008; border: 1px solid #201c10; border-radius: 7px;
+    padding: 0.5rem 0.9rem; text-align: center; min-width: 80px;
+}
+.stat .num { font-size: 1.2rem; font-weight: 800; color: #f0b832; }
+.stat .label { font-size: 0.65rem; color: #5e5445; margin-top: 0.1rem; }
+
+/* ── Table ── */
+table { width: 100%; border-collapse: collapse; font-size: 0.78rem; line-height: 1.35; table-layout: fixed; }
+thead th {
+    text-align: left; padding: 0.35rem 0.3rem;
+    border-bottom: 1px solid #252010; color: #9a8560;
+    font-size: 0.68rem; font-weight: 600; letter-spacing: 0.03em;
+    position: sticky; top: 0; background: #0c0a07; z-index: 2;
+    white-space: nowrap; overflow: hidden;
+}
+tbody td {
+    padding: 0.3rem 0.3rem; border-bottom: 1px solid #151008;
+    vertical-align: middle; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap;
+}
+tbody td.wrap-ok { white-space: normal; overflow: visible; }
+tbody tr { transition: background 0.3s, opacity 0.4s; }
+tbody tr:hover { background: #14110a; }
+
+/* ── Row states ── */
+tbody tr.saving { background: #0d1a0a; }
+tbody tr.saved {
+    animation: flash-green 0.8s ease;
+}
+tbody tr.removing {
+    opacity: 0; transform: translateX(30px);
+    transition: opacity 0.4s, transform 0.4s;
+}
+tbody tr.done {
+    background: #0d1a0a; opacity: 0.55;
+}
+tbody tr.done td:first-child span {
+    color: #3dba6f !important;
+}
+tbody tr.done .edit-input {
+    opacity: 0.5;
+}
+@keyframes flash-green {
+    0% { background: #1a3a10; }
+    100% { background: transparent; }
+}
+
+/* ── Status + tags ── */
+.status-mangler { color: #e85a5a; font-weight: 700; font-size: 0.7rem; }
+.status-ikke-set { color: #5e5445; font-weight: 600; font-size: 0.7rem; }
+.sikkerhed-hoej { color: #3dba6f; font-weight: 700; }
+.sikkerhed-lav { color: #e8a840; font-weight: 700; }
+.alvor-hoj { color: #e85a5a; font-weight: 700; }
+.alvor-mellem { color: #e8a840; font-weight: 700; }
+.tag {
+    display: inline-block; font-size: 0.64rem; padding: 0.08rem 0.35rem;
+    border-radius: 3px; font-weight: 600; margin: 0.05rem;
+}
+.tag-bryggeri { background: #251a08; color: #d4a030; }
+.tag-abv { background: #081a28; color: #40a0d8; }
+.tag-volumen { background: #082818; color: #40d0a0; }
+
+/* ── Buttons ── */
+.btn {
+    display: inline-flex; align-items: center; padding: 0.2rem 0.5rem;
+    background: #f0b832; color: #0c0a07; font-weight: 700; font-size: 0.7rem;
+    border-radius: 4px; text-decoration: none; white-space: nowrap;
+    cursor: pointer; border: none; transition: filter 0.1s;
+}
+.btn:hover { filter: brightness(1.1); }
+.btn-dim { background: #201c10; color: #9a8560; }
+.btn-dim:hover { background: #2a2515; color: #c8920e; }
+.btn-stop { background: #1a1408; color: #5e5445; padding: 0.35rem 0.7rem; font-size: 0.72rem; border: 1px solid #252010; }
+.btn-stop:hover { color: #e85a5a; border-color: #e85a5a40; }
+.btn-sm { font-size: 0.6rem; padding: 0.1rem 0.2rem; min-width: 0; }
+.btn-smagekasse { background: #201c10; color: #d4a030; }
+.btn-smagekasse:hover { background: #2a2515; }
+.btn-ignorer { background: #201c10; color: #5e5445; }
+.btn-ignorer:hover { background: #2a2515; color: #e85a5a; }
+.btn-group { display: flex; gap: 0.15rem; align-items: center; flex-shrink: 0; }
+.btn-approve { background: #1a3020; color: #3dba6f; }
+.btn-approve:hover { background: #204028; }
+.btn-batch { background: #101a28; color: #40a0d8; font-size: 0.62rem; padding: 0.12rem 0.35rem; margin-left: 0.2rem; }
+.btn-batch:hover { background: #182838; }
+.btn-save-header {
+    background: #1a3020; color: #3dba6f; padding: 0.35rem 0.8rem;
+    font-size: 0.75rem; border: 1px solid #3dba6f40;
+}
+.btn-save-header:hover { background: #204028; }
+.btn-save-header:disabled { opacity: 0.3; cursor: default; filter: none; }
+.btn-danger { background: #2a1510; color: #e85a5a; border: 1px solid #e85a5a30; padding: 0.3rem 0.7rem; font-size: 0.7rem; }
+.btn-danger:hover { background: #351a15; }
+
+/* ── Inputs ── */
+.edit-input {
+    background: #141008; border: 1px solid #201c10; color: #e0d4c0;
+    padding: 0.2rem 0.35rem; border-radius: 4px; font-size: 0.76rem;
+    width: 100%; font-family: inherit; transition: border-color 0.15s, background 0.15s;
+}
+.edit-input:focus { outline: none; border-color: #f0b832; background: #1a1408; }
+.edit-input.dirty { border-color: #3dba6f; background: #0d1a0a; }
+.edit-input-sm { width: 100%; text-align: center; }
+
+/* ── Autocomplete ── */
+.ac-wrap { position: relative; }
+.ac-list {
+    position: absolute; top: 100%; left: 0; right: 0; z-index: 9999;
+    background: #161208; border: 1px solid #c8920e; border-top: none;
+    border-radius: 0 0 5px 5px; max-height: 160px; overflow-y: auto;
+    display: none; box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+.ac-list.open { display: block; }
+.ac-item { padding: 0.3rem 0.5rem; font-size: 0.76rem; cursor: pointer; color: #e0d4c0; }
+.ac-item:hover, .ac-item.sel { background: #201c10; color: #f0b832; }
+.ac-match { color: #f0b832; font-weight: 700; }
+
+/* ── Guess hint ── */
+.guess-hint {
+    font-size: 0.62rem; color: #5e5445; cursor: pointer;
+    margin-top: 0.1rem; display: block; transition: color 0.1s;
+}
+.guess-hint:hover { color: #f0b832; }
+.guess-hint span { color: #9a8560; font-weight: 600; }
+
+/* ── Misc ── */
+.count-bar { font-size: 0.75rem; color: #5e5445; margin-bottom: 0.6rem; }
+.count-bar strong { color: #e0d4c0; }
+.change-count { font-size: 0.78rem; color: #3dba6f; font-weight: 700; }
+.empty { text-align: center; padding: 2.5rem; color: #5e5445; font-size: 0.85rem; }
+.navn-cell { font-weight: 600; color: #e0d4c0; }
+.forslag-cell { color: #5e5445; font-style: italic; font-size: 0.72rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Toast ── */
+.toast {
+    position: fixed; bottom: 1.5rem; right: 1.5rem;
+    padding: 0.6rem 1.2rem; border-radius: 6px;
+    font-weight: 600; font-size: 0.82rem;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 999; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.ok { background: #1a3020; color: #3dba6f; border: 1px solid #3dba6f40; }
+.toast.err { background: #2a1510; color: #e85a5a; border: 1px solid #e85a5a40; }
+
+/* ── Scroll area ── */
+.table-scroll { max-height: 72vh; overflow-y: auto; }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>🥃 RomSniffer — Fejloversigt</h1>
+    <div class="header-right">
+        <span id="change-indicator" class="change-count"></span>
+        <button id="save-btn" class="btn btn-save-header" onclick="saveAll()" disabled>💾 Gem alle</button>
+        <div class="meta">%%TIDSPUNKT%%</div>
+        <button class="btn btn-stop" onclick="fetch('/stop').then(()=>{document.title='Stoppet';showToast('Server stoppet','ok')})">⏹ Stop</button>
+    </div>
+</div>
+
+<div class="progress-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+
+<div class="tabs">
+    <div class="tab active" onclick="switchTab('fejl')">Mangler <span class="badge" id="badge-fejl">%%N_TOTAL%%</span></div>
+    <div class="tab" onclick="switchTab('forslag')">Brand-forslag <span class="badge">%%N_FORSLAG%%</span></div>
+    <div class="tab" onclick="switchTab('match')">Match-problemer <span class="badge">%%N_MATCH%%</span></div>
+    <div class="tab" onclick="switchTab('ok')">Rettet <span class="badge" id="badge-ok">%%N_OK%%</span></div>
+</div>
+
+<div class="content">
+
+<!-- ══ FEJL PANEL ══ -->
+<div id="panel-fejl" class="panel active">
+    <div class="stats">
+        <div class="stat"><div class="num" id="stat-mangler">%%N_MANGLER%%</div><div class="label">Mangler</div></div>
+        <div class="stat"><div class="num" id="stat-ikke-set">%%N_IKKE_SET%%</div><div class="label">Ikke set</div></div>
+        <div class="stat"><div class="num" id="stat-total">%%N_TOTAL%%</div><div class="label">Total</div></div>
+    </div>
+    <div class="filters">
+        <label>Butik:</label>
+        <select id="f-butik" onchange="renderFejl()"><option value="">Alle</option></select>
+        <label>Status:</label>
+        <select id="f-status" onchange="renderFejl()"><option value="">Alle</option><option value="MANGLER">Mangler</option><option value="IKKE SET">Ikke set</option></select>
+        <label>Mangel:</label>
+        <select id="f-mangel" onchange="renderFejl()"><option value="">Alle</option><option value="bryggeri">Brand</option><option value="abv">ABV</option><option value="volumen">Volumen</option></select>
+        <input id="f-soeg" type="text" placeholder="Søg i navn..." oninput="renderFejl()">
+        
+    </div>
+    <div id="fejl-count" class="count-bar"></div>
+    <div class="table-scroll">
+        <table>
+            <colgroup>
+                <col style="width:58px"><!-- Status -->
+                <col style="width:72px"><!-- Butik -->
+                <col><!-- Navn (flex) -->
+                <col style="width:62px"><!-- Mangler -->
+                <col style="width:155px"><!-- Bryggeri -->
+                <col style="width:42px"><!-- Vol -->
+                <col style="width:42px"><!-- ABV -->
+                <col style="width:115px"><!-- Forslag -->
+                <col style="width:82px"><!-- Actions -->
+            </colgroup>
+            <thead><tr>
+                <th>Status</th><th>Butik</th><th>Navn</th><th>Mangler</th>
+                <th>Brand</th><th>Vol</th><th>ABV</th>
+                <th>Forslag</th><th></th>
+            </tr></thead>
+            <tbody id="fejl-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ══ FORSLAG PANEL ══ -->
+<div id="panel-forslag" class="panel">
+    <div class="stats">
+        <div class="stat"><div class="num">%%N_FORSLAG_HOJ%%</div><div class="label">Høj sikkerhed</div></div>
+        <div class="stat"><div class="num">%%N_FORSLAG_LAV%%</div><div class="label">Lav sikkerhed</div></div>
+        <div class="stat"><div class="num">%%N_FORSLAG%%</div><div class="label">Total</div></div>
+    </div>
+    <div class="filters">
+        <label>Sikkerhed:</label>
+        <select id="bf-sikkerhed" onchange="renderForslag()"><option value="">Alle</option><option value="HOEJ">Høj</option><option value="LAV">Lav</option></select>
+        <input id="bf-soeg" type="text" placeholder="Søg..." oninput="renderForslag()">
+        <button class="btn btn-approve" onclick="approveAllHigh()" style="margin-left:auto;font-size:0.72rem;padding:0.3rem 0.8rem;">✅ Godkend alle Høj</button>
+    </div>
+    <div id="forslag-count" class="count-bar"></div>
+    <div class="table-scroll">
+        <table><thead><tr><th>Sikkerhed</th><th>Navn</th><th>Nuv. brand</th><th>Forslag</th><th></th></tr></thead><tbody id="forslag-body"></tbody></table>
+    </div>
+</div>
+
+<!-- ══ MATCH PANEL ══ -->
+<div id="panel-match" class="panel">
+    <div class="stats">
+        <div class="stat"><div class="num">%%N_IKKE_OL%%</div><div class="label">Ikke-rom</div></div>
+        <div class="stat"><div class="num">%%N_PRIS%%</div><div class="label">Prisspredning</div></div>
+        <div class="stat"><div class="num">%%N_OPSPLIT%%</div><div class="label">Opsplittet</div></div>
+    </div>
+    <div class="filters">
+        <label>Type:</label>
+        <select id="mf-type" onchange="renderMatch()"><option value="">Alle</option><option value="IKKE-ROM?">Ikke-rom</option><option value="PRIS-SPREDNING">Prisspredning</option><option value="OPSPLITTET">Opsplittet</option></select>
+    </div>
+    <div id="match-count" class="count-bar"></div>
+    <div class="table-scroll">
+        <table><thead><tr><th>Type</th><th>Alvor</th><th>Vare A</th><th>Butik A</th><th></th><th>Vare B</th><th>Butik B</th><th></th><th>Detaljer</th><th></th></tr></thead><tbody id="match-body"></tbody></table>
+    </div>
+</div>
+
+<!-- ══ OK PANEL ══ -->
+<div id="panel-ok" class="panel">
+    <div class="stats">
+        <div class="stat"><div class="num" id="stat-ok">%%N_OK%%</div><div class="label">Rettet</div></div>
+    </div>
+    <div class="filters">
+        <label>Butik:</label>
+        <select id="ok-butik" onchange="renderOK()"><option value="">Alle</option></select>
+        <input id="ok-soeg" type="text" placeholder="Søg i navn..." oninput="renderOK()">
+        <span id="ok-change-count" class="change-count" style="margin-left:auto;"></span>
+        <button id="ok-save-btn" class="btn btn-save-header" onclick="saveOK()" disabled style="font-size:0.72rem;padding:0.3rem 0.7rem;">💾 Gem</button>
+    </div>
+    <div id="ok-count" class="count-bar"></div>
+    <div class="table-scroll">
+        <table><thead><tr><th>Butik</th><th>Navn</th><th>Brand</th><th>Vol</th><th>ABV</th><th></th></tr></thead><tbody id="ok-body"></tbody></table>
+    </div>
+</div>
+
+</div><!-- /content -->
+
+<div id="toast" class="toast"></div>
+
+<script>
+// ── Data ──
+const fejlData = %%FEJL_JSON%%;
+const forslagData = %%FORSLAG_JSON%%;
+const matchData = %%MATCH_JSON%%;
+const butikker = %%BUTIKKER_JSON%%;
+const knownBreweries = %%BREWERIES_JSON%%;
+const okData = %%OK_JSON%%;
+const okChanges = {};
+const changes = {};
+let saving = false;
+const pendingRemoval = [];
+
+// When user focuses any input, flush completed rows
+document.addEventListener('focusin', (e) => {
+    if (!e.target.classList || !e.target.classList.contains('edit-input')) return;
+    if (!pendingRemoval.length) return;
+    // Don't flush if focus is in a done row itself
+    const tr = e.target.closest('tr');
+    if (tr && tr.classList.contains('done')) return;
+    flushDoneRows();
+});
+
+function flushDoneRows() {
+    if (!pendingRemoval.length) return;
+    for (const item of pendingRemoval) {
+        if (item.trEl) {
+            item.trEl.classList.add('removing');
+        }
+    }
+    setTimeout(() => {
+        for (const item of pendingRemoval) {
+            const idx = fejlData.indexOf(item.row);
+            if (idx >= 0) fejlData.splice(idx, 1);
+            okData.push(item.row);
+        }
+        pendingRemoval.length = 0;
+        updateStats(); renderFejl();
+        document.getElementById('badge-ok').textContent = okData.length;
+        document.getElementById('stat-ok').textContent = okData.length;
+    }, 350);
+}
+
+// ── Populate dropdowns ──
+const bSel = document.getElementById('f-butik');
+butikker.forEach(b => { const o = document.createElement('option'); o.value = b; o.textContent = b; bSel.appendChild(o); });
+const okBSel = document.getElementById('ok-butik');
+[...new Set(okData.map(r=>r.butik).filter(Boolean))].sort().forEach(b => {
+    const o = document.createElement('option'); o.value = b; o.textContent = b; okBSel.appendChild(o);
+});
+
+// ── Helpers ──
+function esc(s) { const d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+function mangelTags(m) {
+    if (!m) return '';
+    return m.split(',').map(t => { t = t.trim(); const cls = t==='bryggeri'?'tag-bryggeri':t==='abv'?'tag-abv':'tag-volumen'; return `<span class="tag ${cls}">${t==='bryggeri'?'brand':t}</span>`; }).join(' ');
+}
+function switchTab(id) {
+    document.querySelectorAll('.tab').forEach((t,i) => { const p=['fejl','forslag','match','ok']; t.classList.toggle('active', p[i]===id); });
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-'+id).classList.add('active');
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg, type) {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.className = 'toast ' + type;
+    requestAnimationFrame(() => t.classList.add('show'));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ── Stats + progress ──
+function updateStats() {
+    const nM = fejlData.filter(r => r.status==='MANGLER').length;
+    const nI = fejlData.filter(r => r.status==='IKKE SET').length;
+    document.getElementById('stat-mangler').textContent = nM;
+    document.getElementById('stat-ikke-set').textContent = nI;
+    document.getElementById('stat-total').textContent = nM + nI;
+    document.getElementById('badge-fejl').textContent = nM + nI;
+    // Progress: rough estimate based on original total
+    const total = nM + nI + okData.length;
+    const pct = total > 0 ? Math.round((okData.length / total) * 100) : 0;
+    document.getElementById('progress-bar').style.width = pct + '%';
+}
+
+// ── Change tracking ──
+function onEdit(url, field, value) {
+    if (!changes[url]) changes[url] = {};
+    const orig = fejlData.find(r => r.url === url);
+    if (!orig) return;
+    const origVal = field==='bryggeri' ? (orig.bryggeri||'') :
+                    field==='volume' ? (orig.volume!=null ? String(orig.volume) : '') :
+                    (orig.abv!=null ? String(orig.abv) : '');
+    if (value.trim() !== origVal.trim()) {
+        changes[url][field] = value.trim();
+    } else {
+        delete changes[url][field];
+        if (!Object.keys(changes[url]).length) delete changes[url];
+    }
+    updateSaveBtn();
+    // Mark input dirty
+    const input = event && event.target;
+    if (input) input.classList.toggle('dirty', changes[url] && changes[url][field] !== undefined);
+}
+
+function updateSaveBtn() {
+    const n = Object.keys(changes).length;
+    document.getElementById('change-indicator').textContent = n > 0 ? `${n} usaved` : '';
+    document.getElementById('save-btn').disabled = n === 0;
+}
+
+// ══════════════════════════════════════════════════
+// ── AUTOSAVE: gemmer én række når du forlader felt ──
+// ══════════════════════════════════════════════════
+async function autoSave(url) {
+    if (!changes[url] || saving) return;
+    const ch = changes[url];
+    if (!Object.keys(ch).length) return;
+
+    saving = true;
+    const row = fejlData.find(r => r.url === url);
+    const trEl = document.querySelector(`tr[data-url="${CSS.escape(url)}"]`);
+    if (trEl) trEl.classList.add('saving');
+
+    try {
+        const corr = { url, bryggeri: ch.bryggeri || '', volume: ch.volume || '', abv: ch.abv || '' };
+        const resp = await fetch('/save', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify([corr]) });
+        const data = await resp.json();
+
+        if (data.status === 'ok' && data.applied > 0) {
+            // Update local data
+            if (ch.bryggeri) row.bryggeri = ch.bryggeri;
+            if (ch.volume) row.volume = parseFloat(ch.volume.replace(',','.')) || ch.volume;
+            if (ch.abv) row.abv = parseFloat(ch.abv.replace(',','.')) || ch.abv;
+
+            // Check what's still missing
+            const still = [];
+            if (!row.bryggeri) still.push('bryggeri');
+            if (row.volume == null || row.volume === '') still.push('volumen');
+            if (row.abv == null || row.abv === '') still.push('abv');
+
+            delete changes[url];
+            updateSaveBtn();
+
+            if (still.length === 0) {
+                // Done — mark as complete, but don't remove yet
+                row.status = 'OK';
+                row.mangler = '';
+                if (trEl) {
+                    trEl.classList.remove('saving');
+                    trEl.classList.add('done');
+                    // Disable inputs in this row
+                    trEl.querySelectorAll('.edit-input').forEach(inp => { inp.disabled = true; });
+                }
+                // Queue for removal when user starts on next row
+                pendingRemoval.push({ url, row, trEl });
+                showToast(`✓ ${row.navn.slice(0,35)} — færdig`, 'ok');
+            } else {
+                // Partially done — update tags
+                row.mangler = still.join(', ');
+                row.status = 'MANGLER';
+                if (trEl) {
+                    trEl.classList.remove('saving');
+                    trEl.classList.add('saved');
+                    setTimeout(() => trEl.classList.remove('saved'), 800);
+                    // Update the mangler cell in place
+                    const cells = trEl.querySelectorAll('td');
+                    if (cells[3]) cells[3].innerHTML = mangelTags(row.mangler);
+                }
+                showToast(`✓ ${row.navn.slice(0,35)} — mangler stadig ${still.join(', ')}`, 'ok');
+            }
+            updateStats();
+        } else if (data.error) {
+            showToast(data.error, 'err');
+            if (trEl) trEl.classList.remove('saving');
+        }
+    } catch(e) {
+        showToast('Serverfejl', 'err');
+        if (trEl) trEl.classList.remove('saving');
+    }
+    saving = false;
+}
+
+// Blur handler: auto-save when leaving a field
+function onBlurSave(url) {
+    if (changes[url] && Object.keys(changes[url]).length) {
+        autoSave(url);
+    }
+}
+
+// Enter handler: save + jump to next empty field
+function handleKey(e, url) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        // Trigger autosave
+        if (changes[url] && Object.keys(changes[url]).length) {
+            autoSave(url);
+        }
+        // Jump to next row's first empty field
+        const row = e.target.closest('tr');
+        const next = row && row.nextElementSibling;
+        if (next) {
+            const inputs = next.querySelectorAll('.edit-input');
+            for (const inp of inputs) {
+                if (!inp.value || inp.value.trim() === '') { inp.focus(); return; }
+            }
+            if (inputs.length) inputs[0].focus();
+        }
+    }
+}
+
+// Batch save all pending (backup button)
+async function saveAll() {
+    const urls = Object.keys(changes);
+    if (!urls.length) return;
+    for (const url of urls) {
+        await autoSave(url);
+    }
+}
+
+// ── Autocomplete ──
+function showAC(input) {
+    const val = input.value.toLowerCase().trim();
+    const list = input.parentElement.querySelector('.ac-list');
+    if (val.length < 1) { list.classList.remove('open'); return; }
+    const matches = knownBreweries.filter(b => b.toLowerCase().includes(val)).slice(0, 10);
+    if (!matches.length) { list.classList.remove('open'); return; }
+    list.innerHTML = matches.map(m => {
+        const idx = m.toLowerCase().indexOf(val);
+        const hi = idx >= 0 ? esc(m.slice(0,idx))+'<span class="ac-match">'+esc(m.slice(idx,idx+val.length))+'</span>'+esc(m.slice(idx+val.length)) : esc(m);
+        return `<div class="ac-item" data-val="${esc(m)}" onmousedown="pickAC(this)">${hi}</div>`;
+    }).join('');
+    list.classList.add('open');
+    list._sel = -1;
+}
+function hideAC(input) { input.parentElement.querySelector('.ac-list').classList.remove('open'); }
+function pickAC(item) {
+    const input = item.closest('.ac-wrap').querySelector('input');
+    input.value = item.dataset.val;
+    input.dispatchEvent(new Event('input', {bubbles:true}));
+    hideAC(input);
+}
+function acKey(e, input) {
+    const list = input.parentElement.querySelector('.ac-list');
+    const items = list.querySelectorAll('.ac-item');
+    if (!items.length || !list.classList.contains('open')) return;
+    if (e.key === 'ArrowDown') { e.preventDefault(); list._sel = Math.min((list._sel||-1)+1, items.length-1); items.forEach((it,i) => it.classList.toggle('sel', i===list._sel)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); list._sel = Math.max((list._sel||0)-1, 0); items.forEach((it,i) => it.classList.toggle('sel', i===list._sel)); }
+    else if (e.key === 'Enter' && list._sel >= 0) { e.preventDefault(); e.stopPropagation(); pickAC(items[list._sel]); }
+    else if (e.key === 'Escape') { hideAC(input); }
+}
+
+// ── Guess brewery from beer name ──
+function guessBrew(name) {
+    if (!name) return null;
+    const lower = name.toLowerCase();
+    const sorted = knownBreweries.slice().sort((a,b) => b.length - a.length);
+    for (const brew of sorted) {
+        const bl = brew.toLowerCase();
+        if (lower.startsWith(bl+' ') || lower.startsWith(bl+' - ') || lower.startsWith(bl+' – ') || lower.startsWith(bl+' | ') || lower.startsWith(bl+' -') || lower.startsWith(bl+' –')) {
+            return brew;
+        }
+    }
+    return null;
+}
+function acceptGuess(url, brewery) {
+    onEdit(url, 'bryggeri', brewery);
+    autoSave(url);
+}
+
+// ── Batch apply ──
+function batchApply(bryggeri, field, value) {
+    let count = 0;
+    fejlData.forEach(r => {
+        if (r.bryggeri !== bryggeri) return;
+        const cur = field === 'volume' ? r.volume : r.abv;
+        if (cur != null && cur !== '') return;
+        if (!changes[r.url]) changes[r.url] = {};
+        changes[r.url][field] = value;
+        count++;
+    });
+    updateSaveBtn();
+    renderFejl();
+    showToast(`${field} udfyldt for ${count} ${bryggeri}-rom — tryk Gem alle`, 'ok');
+}
+
+// ── Mark status (smagekasse / ignoreret) ──
+async function markStatus(url, status) {
+    try {
+        const r = await fetch('/set_status', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url, status})});
+        const data = await r.json();
+        if (data.status === 'ok') {
+            const trEl = document.querySelector(`tr[data-url="${CSS.escape(url)}"]`);
+            if (trEl) {
+                trEl.classList.add('removing');
+                setTimeout(() => {
+                    const idx = fejlData.findIndex(r => r.url === url);
+                    if (idx >= 0) fejlData.splice(idx, 1);
+                    delete changes[url]; updateSaveBtn(); updateStats(); renderFejl();
+                }, 400);
+            } else {
+                const idx = fejlData.findIndex(r => r.url === url);
+                if (idx >= 0) fejlData.splice(idx, 1);
+                delete changes[url]; updateSaveBtn(); updateStats(); renderFejl();
+            }
+            showToast(`Markeret som ${status}`, 'ok');
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+
+// ── Remove IKKE SET ──
+async function removeIkkeSet() {
+    const count = fejlData.filter(r => r.status === 'IKKE SET').length;
+    if (!count || !confirm(`Slet alle ${count} IKKE SET rækker fra fejlliste.xlsx?\nKan ikke fortrydes.`)) return;
+    try {
+        const r = await fetch('/remove_ikke_set', {method:'POST'});
+        const data = await r.json();
+        if (data.status === 'ok') {
+            showToast(`${data.removed} rækker slettet`, 'ok');
+            for (let i = fejlData.length-1; i >= 0; i--) { if (fejlData[i].status === 'IKKE SET') fejlData.splice(i, 1); }
+            updateStats(); renderFejl();
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+
+// ══════════════════════════
+// ── RENDER: Fejl-tabel ──
+// ══════════════════════════
+function renderFejl() {
+    const butik = document.getElementById('f-butik').value;
+    const status = document.getElementById('f-status').value;
+    const mangel = document.getElementById('f-mangel').value;
+    const soeg = document.getElementById('f-soeg').value.toLowerCase();
+    const filtered = fejlData.filter(r => {
+        if (butik && r.butik !== butik) return false;
+        if (status && r.status !== status) return false;
+        if (mangel && !r.mangler.includes(mangel)) return false;
+        if (soeg && !r.navn.toLowerCase().includes(soeg)) return false;
+        return true;
+    });
+    document.getElementById('fejl-count').innerHTML = `Viser <strong>${filtered.length}</strong> af ${fejlData.length}`;
+    const tbody = document.getElementById('fejl-body');
+    if (!filtered.length) { tbody.innerHTML = '<tr><td colspan="9" class="empty">Ingen resultater</td></tr>'; return; }
+
+    tbody.innerHTML = filtered.slice(0, 500).map(r => {
+        const ch = changes[r.url] || {};
+        const bVal = ch.bryggeri !== undefined ? ch.bryggeri : (r.bryggeri || '');
+        const vVal = ch.volume !== undefined ? ch.volume : (r.volume != null ? r.volume : '');
+        const aVal = ch.abv !== undefined ? ch.abv : (r.abv != null ? r.abv : '');
+        const u = r.url.replace(/'/g, "\\'");
+        const uAttr = esc(r.url);
+
+        // Guess hint
+        let guessHtml = '';
+        if (!bVal) {
+            const g = guessBrew(r.navn);
+            if (g) guessHtml = `<span class="guess-hint" onclick="acceptGuess('${u}','${esc(g)}')">→ <span>${esc(g)}</span>?</span>`;
+        }
+
+        // Batch hint
+        let batchHtml = '';
+        if (r.bryggeri && !vVal && ch.volume) {
+            batchHtml = `<button class="btn btn-batch" onclick="batchApply('${esc(r.bryggeri)}','volume','${esc(String(ch.volume||vVal))}')">Alle ${esc(r.bryggeri)}</button>`;
+        }
+
+        return `<tr data-url="${uAttr}">
+            <td><span class="${r.status==='MANGLER'?'status-mangler':'status-ikke-set'}">${r.status==='MANGLER'?'MANGLER':'IKKE SET'}</span></td>
+            <td>${esc(r.butik)}</td>
+            <td class="navn-cell" title="${esc(r.navn)}">${esc(r.navn)}</td>
+            <td>${mangelTags(r.mangler)}</td>
+            <td class="wrap-ok"><div class="ac-wrap"><input class="edit-input ${ch.bryggeri?'dirty':''}" value="${esc(bVal)}"
+                oninput="onEdit('${u}','bryggeri',this.value);showAC(this)"
+                onfocus="showAC(this)"
+                onblur="setTimeout(()=>{hideAC(this);onBlurSave('${u}')},180)"
+                onkeydown="acKey(event,this);handleKey(event,'${u}')"
+                placeholder="Brand" autocomplete="off"><div class="ac-list"></div>${guessHtml}</div></td>
+            <td class="wrap-ok"><input class="edit-input edit-input-sm ${ch.volume?'dirty':''}" value="${esc(String(vVal))}"
+                oninput="onEdit('${u}','volume',this.value)"
+                onblur="onBlurSave('${u}')"
+                onkeydown="handleKey(event,'${u}')"
+                placeholder="cl">${batchHtml}</td>
+            <td class="wrap-ok"><input class="edit-input edit-input-sm ${ch.abv?'dirty':''}" value="${esc(String(aVal))}"
+                oninput="onEdit('${u}','abv',this.value)"
+                onblur="onBlurSave('${u}')"
+                onkeydown="handleKey(event,'${u}')"
+                placeholder="%"></td>
+            <td class="forslag-cell" title="${esc(r.forslag)}">${esc(r.forslag)}</td>
+            <td><div class="btn-group">
+                ${r.url ? `<a class="btn" href="${esc(r.url)}" target="_blank">Åbn</a>` : ''}
+                <button class="btn btn-sm btn-smagekasse" title="Sæt / kalender / sampak: slås ikke sammen med andre" onclick="markStatus('${u}','SAET')">📦</button>
+                <button class="btn btn-sm btn-ignorer" title="Ignorér: fjernes helt fra RomSniffer" onclick="markStatus('${u}','IGNORERET')">🚫</button>
+            </div></td>
+        </tr>`;
+    }).join('');
+}
+
+// ══════════════════════════════
+// ── RENDER: Bryggeri-forslag ──
+// ══════════════════════════════
+async function approveBrew(idx) {
+    const r = forslagData[idx];
+    const input = document.getElementById('bf-input-'+idx);
+    const val = input ? input.value.trim() : r.forslag;
+    if (!val) { showToast('Tomt bryggeri', 'err'); return; }
+    try {
+        const resp = await fetch('/approve_brewery', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url:r.url, navn:r.navn, bryggeri:val})});
+        const data = await resp.json();
+        if (data.status === 'ok') {
+            showToast(`${val} godkendt`, 'ok');
+            forslagData.splice(idx, 1);
+            renderForslag();
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+async function approveAllHigh() {
+    const high = forslagData.filter(r => r.sikkerhed === 'HOEJ');
+    if (!high.length) { showToast('Ingen høj-sikkerhed forslag', 'err'); return; }
+    try {
+        const resp = await fetch('/approve_all_high', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(high)});
+        const data = await resp.json();
+        if (data.status === 'ok') {
+            showToast(`${data.updated} bryggerier godkendt`, 'ok');
+            for (let i = forslagData.length-1; i >= 0; i--) { if (forslagData[i].sikkerhed === 'HOEJ') forslagData.splice(i, 1); }
+            renderForslag();
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+function renderForslag() {
+    const sikkerhed = document.getElementById('bf-sikkerhed').value;
+    const soeg = document.getElementById('bf-soeg').value.toLowerCase();
+    const filtered = forslagData.filter(r => {
+        if (sikkerhed && r.sikkerhed !== sikkerhed) return false;
+        if (soeg && !r.navn.toLowerCase().includes(soeg)) return false;
+        return true;
+    });
+    document.getElementById('forslag-count').innerHTML = `Viser <strong>${filtered.length}</strong> af ${forslagData.length}`;
+    const tbody = document.getElementById('forslag-body');
+    if (!filtered.length) { tbody.innerHTML = '<tr><td colspan="5" class="empty">Ingen resultater</td></tr>'; return; }
+    tbody.innerHTML = filtered.map(r => {
+        const realIdx = forslagData.indexOf(r);
+        return `<tr>
+            <td><span class="${r.sikkerhed==='HOEJ'?'sikkerhed-hoej':'sikkerhed-lav'}">${r.sikkerhed==='HOEJ'?'Høj':'Lav'}</span></td>
+            <td class="navn-cell">${esc(r.navn)}</td>
+            <td style="color:#5e5445;">${esc(r.gammelt)}</td>
+            <td><div class="ac-wrap"><input id="bf-input-${realIdx}" class="edit-input" value="${esc(r.forslag)}"
+                oninput="showAC(this)" onfocus="showAC(this)" onblur="setTimeout(()=>hideAC(this),150)"
+                onkeydown="acKey(event,this);if(event.key==='Enter'){event.preventDefault();approveBrew(${realIdx});}"
+                placeholder="Brand" autocomplete="off"><div class="ac-list"></div></div></td>
+            <td><button class="btn btn-approve btn-sm" onclick="approveBrew(${realIdx})">✓ Godkend</button></td>
+        </tr>`;
+    }).join('');
+}
+
+// ══════════════════════════
+// ── RENDER: Match-panel ──
+// ══════════════════════════
+async function matchMarkStatus(idx, status) {
+    const r = matchData[idx];
+    if (!r.url_a) { showToast('Ingen URL', 'err'); return; }
+    try {
+        const resp = await fetch('/set_status', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({url:r.url_a, status})});
+        const data = await resp.json();
+        if (data.status === 'ok') {
+            showToast(`Markeret som ${status}`, 'ok');
+            matchData.splice(idx, 1);
+            renderMatch();
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+// Par-beslutning (gemmes i fejlliste.xlsx, arket "Par"): sammen = samme flaske, adskilt = forskellige flasker
+async function matchPar(idx, beslutning) {
+    const r = matchData[idx];
+    try {
+        const resp = await fetch('/set_par', {method:'POST', headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({url_a:r.url_a, url_b:r.url_b, navn_a:r.ol_a, butik_a:r.butik_a, navn_b:r.ol_b, butik_b:r.butik_b, beslutning, type:r.type})});
+        const data = await resp.json();
+        if (data.status === 'ok') {
+            showToast(beslutning === 'sammen' ? '🔗 Samme flaske' : '↔ Forskellige flasker', 'ok');
+            matchData.splice(idx, 1); renderMatch();
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+function matchButtons(r, idx) {
+    if (r.type === 'IKKE-ROM?') {
+        return `<div class="btn-group"><button class="btn btn-sm btn-ignorer" title="Ikke rom: fjernes helt" onclick="matchMarkStatus(${idx},'IGNORERET')">🚫 Ignorér</button><button class="btn btn-sm btn-dim" title="Det er rom: fjern fra listen" onclick="matchPar(${idx},'rom')">✓ Rom</button></div>`;
+    }
+    if (r.type === 'PRIS-SPREDNING') {
+        return `<div class="btn-group"><button class="btn btn-sm btn-approve" title="Samme flaske: behold samlet" onclick="matchPar(${idx},'sammen')">✓ Samme</button><button class="btn btn-sm btn-smagekasse" title="Forskellige flasker: skil ad" onclick="matchPar(${idx},'adskilt')">↔ Adskil</button></div>`;
+    }
+    return `<div class="btn-group"><button class="btn btn-sm btn-approve" title="Samme flaske: slå sammen" onclick="matchPar(${idx},'sammen')">🔗 Sammen</button><button class="btn btn-sm btn-smagekasse" title="Forskellige flasker" onclick="matchPar(${idx},'adskilt')">↔ Adskilt</button></div>`;
+}
+function renderMatch() {
+    const type = document.getElementById('mf-type').value;
+    const filtered = matchData.filter(r => !type || r.type === type);
+    document.getElementById('match-count').innerHTML = `Viser <strong>${filtered.length}</strong> af ${matchData.length}`;
+    const tbody = document.getElementById('match-body');
+    if (!filtered.length) { tbody.innerHTML = '<tr><td colspan="10" class="empty">Ingen resultater</td></tr>'; return; }
+    tbody.innerHTML = filtered.map(r => {
+        const realIdx = matchData.indexOf(r);
+        return `<tr>
+            <td style="font-weight:700;">${esc(r.type)}</td>
+            <td><span class="${r.alvor==='HØJ'?'alvor-hoj':'alvor-mellem'}">${esc(r.alvor)}</span></td>
+            <td class="navn-cell" title="${esc(r.ol_a)}">${esc(r.ol_a)}</td><td>${esc(r.butik_a)}</td>
+            <td>${r.url_a?`<a class="btn btn-dim" href="${esc(r.url_a)}" target="_blank">Åbn</a>`:''}</td>
+            <td class="navn-cell" title="${esc(r.ol_b||'')}">${esc(r.ol_b||'')}</td><td>${esc(r.butik_b||'')}</td>
+            <td>${r.url_b?`<a class="btn btn-dim" href="${esc(r.url_b)}" target="_blank">Åbn</a>`:''}</td>
+            <td class="wrap-ok" title="${esc(r.detaljer)}" style="font-size:0.7rem;color:#9a8c72;white-space:normal;min-width:260px;">${esc(r.detaljer)}</td>
+            <td>${matchButtons(r, realIdx)}</td>
+        </tr>`;
+    }).join('');
+}
+
+// ══════════════════════
+// ── RENDER: OK-panel ──
+// ══════════════════════
+function onEditOK(url, field, value) {
+    if (!okChanges[url]) okChanges[url] = {};
+    const orig = okData.find(r => r.url === url);
+    const origVal = field==='bryggeri'?(orig.bryggeri||''):field==='volume'?(orig.volume!=null?String(orig.volume):''):(orig.abv!=null?String(orig.abv):'');
+    if (value.trim() !== origVal.trim()) { okChanges[url][field] = value.trim(); }
+    else { delete okChanges[url][field]; if (!Object.keys(okChanges[url]).length) delete okChanges[url]; }
+    const n = Object.keys(okChanges).length;
+    document.getElementById('ok-save-btn').disabled = n === 0;
+    document.getElementById('ok-change-count').textContent = n > 0 ? `${n} rettelse${n>1?'r':''}` : '';
+}
+async function saveOK() {
+    const corrections = Object.entries(okChanges).map(([url, fields]) => ({url, bryggeri:fields.bryggeri||'', volume:fields.volume||'', abv:fields.abv||''}));
+    try {
+        const r = await fetch('/save_ok', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(corrections)});
+        const data = await r.json();
+        if (data.status === 'ok') {
+            showToast(`Rettet ${data.applied} rom`, 'ok');
+            for (const url of Object.keys(okChanges)) {
+                const orig = okData.find(r => r.url === url);
+                if (orig) {
+                    const ch = okChanges[url];
+                    if (ch.bryggeri) orig.bryggeri = ch.bryggeri;
+                    if (ch.volume) orig.volume = parseFloat(ch.volume.replace(',','.'))||ch.volume;
+                    if (ch.abv) orig.abv = parseFloat(ch.abv.replace(',','.'))||ch.abv;
+                }
+            }
+            Object.keys(okChanges).forEach(k => delete okChanges[k]);
+            document.getElementById('ok-save-btn').disabled = true;
+            document.getElementById('ok-change-count').textContent = '';
+            renderOK();
+        } else { showToast(data.error || 'Fejl', 'err'); }
+    } catch(e) { showToast('Serverfejl', 'err'); }
+}
+function renderOK() {
+    const butik = document.getElementById('ok-butik').value;
+    const soeg = document.getElementById('ok-soeg').value.toLowerCase();
+    const filtered = okData.filter(r => {
+        if (butik && r.butik !== butik) return false;
+        if (soeg && !r.navn.toLowerCase().includes(soeg)) return false;
+        return true;
+    });
+    document.getElementById('ok-count').innerHTML = `Viser <strong>${filtered.length}</strong> af ${okData.length}`;
+    const tbody = document.getElementById('ok-body');
+    if (!filtered.length) { tbody.innerHTML = '<tr><td colspan="6" class="empty">Ingen resultater</td></tr>'; return; }
+    tbody.innerHTML = filtered.slice(0, 500).map(r => {
+        const ch = okChanges[r.url] || {};
+        const bVal = ch.bryggeri !== undefined ? ch.bryggeri : (r.bryggeri || '');
+        const vVal = ch.volume !== undefined ? ch.volume : (r.volume != null ? r.volume : '');
+        const aVal = ch.abv !== undefined ? ch.abv : (r.abv != null ? r.abv : '');
+        const rowCls = Object.keys(ch).length ? 'changed' : '';
+        const u = r.url.replace(/'/g, "\\'");
+        return `<tr class="${rowCls}">
+            <td>${esc(r.butik)}</td>
+            <td class="navn-cell">${esc(r.navn)}</td>
+            <td><div class="ac-wrap"><input class="edit-input ${ch.bryggeri?'dirty':''}" value="${esc(bVal)}" oninput="onEditOK('${u}','bryggeri',this.value);showAC(this)" onfocus="showAC(this)" onblur="setTimeout(()=>hideAC(this),150)" onkeydown="acKey(event,this)" placeholder="Brand" autocomplete="off"><div class="ac-list"></div></div></td>
+            <td><input class="edit-input edit-input-sm ${ch.volume?'dirty':''}" value="${esc(String(vVal))}" oninput="onEditOK('${u}','volume',this.value)" placeholder="cl"></td>
+            <td><input class="edit-input edit-input-sm ${ch.abv?'dirty':''}" value="${esc(String(aVal))}" oninput="onEditOK('${u}','abv',this.value)" placeholder="%"></td>
+            <td>${r.url?`<a class="btn btn-dim" href="${esc(r.url)}" target="_blank">Åbn</a>`:''}</td>
+        </tr>`;
+    }).join('');
+}
+
+// ── Init ──
+renderFejl(); renderForslag(); renderMatch(); renderOK(); updateStats();
+</script>
+</body>
+</html>

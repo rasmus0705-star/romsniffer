@@ -1,36 +1,29 @@
 @echo off
+setlocal
 title RomSniffer - Opdaterer rom-priser
-echo ================================
-echo   RomSniffer - Opdaterer data
-echo ================================
-echo.
-
-cd /d C:\Kodning\Rom-sniffer
-call .venv\Scripts\activate.bat
-
-echo [1/2] Korer scraper, bygger sider og pusher til GitHub...
-python build_rom_data.py %*
+cd /d "%~dp0"
+set "PY="
+if exist ".venv\Scripts\python.exe" set "PY=.venv\Scripts\python.exe"
+if not defined PY if exist "venv\Scripts\python.exe" set "PY=venv\Scripts\python.exe"
+if not defined PY if exist "C:\Kodning\beer-sniffer\venv\Scripts\python.exe" set "PY=C:\Kodning\beer-sniffer\venv\Scripts\python.exe"
+if not defined PY if exist "C:\Kodning\beer-sniffer\.venv\Scripts\python.exe" set "PY=C:\Kodning\beer-sniffer\.venv\Scripts\python.exe"
+if not defined PY (
+    echo FEJL: Fandt ingen Python.
+    pause
+    exit /b 1
+)
+echo Python: %PY%
+if defined ROM_NO_PUSH echo OBS: ROM_NO_PUSH er sat - pusher IKKE.
+"%PY%" build_rom_data.py %*
 if errorlevel 1 (
-    echo.
-    echo ⚠  Forste forsog fejlede - venter 60 sek og prover igen...
+    echo Forsoeg 1 fejlede - venter 60 sek...
     timeout /t 60 /nobreak >nul
-    echo [2/2] Andet forsog...
-    python build_rom_data.py %*
+    "%PY%" build_rom_data.py %*
     if errorlevel 1 (
-        echo.
-        echo ================================
-        echo   FEJL: Build fejlede to gange
-        echo ================================
-        echo.
-        echo Proev manuelt med: python build_rom_data.py --force
-        echo.
+        echo FEJL: Build fejlede to gange
         pause
         exit /b 1
     )
 )
-
-echo.
-echo ================================
-echo   Faerdig! Siden opdateres om 1-2 min
-echo ================================
+echo Faerdig - siden opdateres om 1-2 min
 timeout /t 5
