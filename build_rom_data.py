@@ -13,6 +13,10 @@ from kokkensvinhus_rom import scrape_kokkensvinhus_rom
 from spitus_rom import scrape_spitus_rom
 from rombo_rom import scrape_rombo_rom
 from conmaz_rom import scrape_conmaz_rom
+from whiskydk_rom import scrape_whiskydk_rom
+from vaultofspirits_rom import scrape_vaultofspirits_rom
+from juuls_rom import scrape_juuls_rom
+from country_norm import normalize_items as normalize_countries
 from rom_parser import enrich_from_html
 from rom_matching import group_products
 from generate_rom_pages import main as generate_rom_pages
@@ -137,29 +141,30 @@ def main():
     start = time.time()
     all_items = []
 
-    # Kokkens Vinhus
-    print("\n🥃 Kører Kokkens Vinhus...")
-    kokkens_items = scrape_kokkensvinhus_rom()
-    all_items.extend(kokkens_items)
-    print(f"   ✅ {len(kokkens_items)} produkter")
+    # Butikker: (visningsnavn, scraper-funktion)
+    # En butik der crasher giver 0 produkter, og scrape_guard stopper så buildet
+    # i stedet for at hele kørslen dør med en traceback.
+    SHOPS = [
+        ("Kokkens Vinhus",   scrape_kokkensvinhus_rom),
+        ("Spitus",           scrape_spitus_rom),
+        ("Rombo",            scrape_rombo_rom),
+        ("Con Maz",          scrape_conmaz_rom),
+        ("Whisky.dk",        scrape_whiskydk_rom),
+        ("Vault of Spirits", scrape_vaultofspirits_rom),
+        ("Juuls",            scrape_juuls_rom),
+    ]
 
-    # Spitus
-    print("\n🥃 Kører Spitus...")
-    spitus_items = scrape_spitus_rom()
-    all_items.extend(spitus_items)
-    print(f"   ✅ {len(spitus_items)} produkter")
-
-    # Rombo
-    print("\n🥃 Kører Rombo...")
-    rombo_items = scrape_rombo_rom()
-    all_items.extend(rombo_items)
-    print(f"   ✅ {len(rombo_items)} produkter")
-
-    # Con Maz
-    print("\n🥃 Kører Con Maz...")
-    conmaz_items = scrape_conmaz_rom()
-    all_items.extend(conmaz_items)
-    print(f"   ✅ {len(conmaz_items)} produkter")
+    for shop_label, scraper in SHOPS:
+        print(f"\n🥃 Kører {shop_label}...")
+        try:
+            shop_items = scraper()
+        except Exception as e:
+            import traceback
+            print(f"   ❌ {shop_label} fejlede: {e}")
+            traceback.print_exc()
+            shop_items = []
+        all_items.extend(shop_items)
+        print(f"   ✅ {len(shop_items)} produkter")
 
     if not all_items:
         print("❌ Ingen produkter — afslutter")
@@ -213,6 +218,10 @@ def main():
         filtered.append(item)
     all_items = filtered
     print(f"   Filtreret {before - len(all_items)} produkter væk")
+
+    # Ensret landefeltet paa tvaers af butikker (ellers bliver hver stavemaade sin egen landeside)
+    print(f"\n🌍 Normaliserer lande...")
+    normalize_countries(all_items)
 
     # HTML enrichment for manglende data
     print(f"\n🌐 HTML enrichment for produkter med manglende data...")

@@ -20,7 +20,10 @@ from collections import Counter
 ROM_DATA_FILE = "rom_data.json"
 
 # Butikker der SKAL levere produkter
-EXPECTED_SHOPS = ["Kokkens Vinhus", "Spitus", "Rombo", "Con Maz"]
+EXPECTED_SHOPS = [
+    "Kokkens Vinhus", "Spitus", "Rombo", "Con Maz",
+    "Whisky.dk", "Vault of Spirits", "Juuls",
+]
 
 MAX_DROP_PCT = 25.0        # samlet fald der udløser stop
 MAX_SHOP_DROP_PCT = 40.0   # fald for én butik der udløser stop
@@ -99,6 +102,10 @@ def check(all_items, force=False, path=ROM_DATA_FILE):
                 f"grænse er {MAX_SHOP_DROP_PCT:.0f}%"
             )
 
+    ukendte = sorted(set(shop_counts) - set(EXPECTED_SHOPS))
+    if ukendte:
+        print(f"   ⚠️  Ikke overvåget (tilføj til EXPECTED_SHOPS): {', '.join(ukendte)}")
+
     # ── Rapport ──
     for shop in EXPECTED_SHOPS:
         now_n = shop_counts.get(shop, 0)
@@ -145,19 +152,14 @@ def force_requested(argv=None):
 if __name__ == "__main__":
     # Selvtest
     print("── Test: normal drift ──")
-    items = (
-        [{"shop_name": "Kokkens Vinhus"}] * 250
-        + [{"shop_name": "Spitus"}] * 331
-        + [{"shop_name": "Rombo"}] * 485
-    )
+    items = []
+    for _shop in EXPECTED_SHOPS:
+        items += [{"shop_name": _shop}] * 200
     ok, counts = check(items, path="/nonexistent.json")
     assert ok
 
     print("\n── Test: Rombo nede (0 produkter) ──")
-    items_bad = (
-        [{"shop_name": "Kokkens Vinhus"}] * 250
-        + [{"shop_name": "Spitus"}] * 331
-    )
+    items_bad = [it for it in items if it["shop_name"] != "Rombo"]
     ok, _ = check(items_bad, path="/nonexistent.json")
     assert not ok, "burde have stoppet buildet"
 
