@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-11T10:43:47.897635",
+  "updated": "2026-10-12T19:29:29.622472",
   "stats": {
     "total": 1060,
-    "deals": 146,
+    "deals": 147,
     "shops": 4,
     "shop_names": [
       "Con Maz",
@@ -2420,6 +2420,32 @@
       ],
       "slug": "bayou-spiced",
       "price_change_7d": -50.0
+    },
+    {
+      "name": "Parce Rum 3 year",
+      "image": "https://spitus.dk/wp-content/uploads/2024/04/Parce-Rum-3-year.png",
+      "type": "Gylden rom",
+      "country": "Colombia",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "3 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 249.0,
+      "cheapest_price": 249.0,
+      "max_discount_pct": 30.6,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 249.0,
+          "old_price": 359.0,
+          "discount_pct": 30.6,
+          "url": "https://spitus.dk/product/parce-rum-3-year/"
+        }
+      ],
+      "slug": "parce-rum-3-year",
+      "price_change_7d": null
     },
     {
       "name": "Ron Tabú – Old",
@@ -8075,32 +8101,6 @@
         }
       ],
       "slug": "botran-ron-solera-1893-anejo-decanter",
-      "price_change_7d": null
-    },
-    {
-      "name": "Parce Rum 3 year",
-      "image": "https://spitus.dk/wp-content/uploads/2024/04/Parce-Rum-3-year.png",
-      "type": "Gylden rom",
-      "country": "Colombia",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "3 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.0,
-      "cheapest_price": 359.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 359.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/parce-rum-3-year/"
-        }
-      ],
-      "slug": "parce-rum-3-year",
       "price_change_7d": null
     },
     {
