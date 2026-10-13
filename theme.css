@@ -285,3 +285,6 @@ select, input[type=text], input[type=search] { border-radius: 2px !important; }
 .cky-btn-revisit-wrapper { background-color: var(--surface2) !important; border: 1px solid var(--border-light) !important; box-shadow: none !important; }
 .cky-btn-revisit-wrapper:hover { border-color: var(--gold) !important; }
 .sidebar { padding-bottom: 4.6rem !important; }
+
+/* mobil: filter-skuffen skal vaere ugennemsigtig (den ligger oven paa indholdet) */
+@media (max-width:1100px){ .sidebar{background:var(--surface)!important} }
