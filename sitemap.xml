@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.romsniffer.dk/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/premium.html</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -146,7 +146,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/frankrig/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -212,7 +212,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/martinique/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -272,7 +272,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/puerto-rico/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -302,7 +302,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/spanien/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -362,7 +362,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/type/aged-rom/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -404,7 +404,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/type/rhum-agricole/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -590,7 +590,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/alder/xo/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -4149,6 +4149,12 @@
   <url>
     <loc>https://www.romsniffer.dk/rom/don-q-151-rum/</loc>
     <lastmod>2026-10-10</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.romsniffer.dk/rom/don-q-blenders-reserve-rum/</loc>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -8461,12 +8467,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/rhum-jm-atelier-epices-creoles/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/rhum-jm-atelier-fumee-volcanique/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
@@ -8540,12 +8540,6 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/rhum-jm-vo-rhum-agricole-martinique-rom-43/</loc>
-    <lastmod>2026-10-12</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.romsniffer.dk/rom/rhum-rhum-pmg/</loc>
     <lastmod>2026-10-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -12469,6 +12463,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://www.romsniffer.dk/rom/vesper-rum-gran-anejo-prestige-xo/</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.romsniffer.dk/rom/vesper-venezuela-reserve-single-xo-rum/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
@@ -13088,7 +13088,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/brand/don-q/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13358,7 +13358,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/brand/rhum-jm/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

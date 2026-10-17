@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-15T18:15:46.828098",
+  "updated": "2026-10-17T08:21:12.768972",
   "stats": {
     "total": 2052,
-    "deals": 170,
+    "deals": 172,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -127,10 +127,10 @@
       "Kokkens Vinhus": 259,
       "Spitus": 330,
       "Rombo": 499,
-      "Con Maz": 98,
+      "Con Maz": 100,
       "Whisky.dk": 683,
       "Vault of Spirits": 195,
-      "Juuls": 376
+      "Juuls": 374
     }
   },
   "roms": [
@@ -990,7 +990,7 @@
         }
       ],
       "slug": "ron-cartavio-black-dark-rum",
-      "price_change_7d": -30.0
+      "price_change_7d": null
     },
     {
       "name": "Captain Morgan Original Spiced Gold Spirit Drink Rom 70 cl 35%",
@@ -4403,7 +4403,7 @@
         }
       ],
       "slug": "chairmans-reserve-spiced",
-      "price_change_7d": -20.0
+      "price_change_7d": null
     },
     {
       "name": "Appleton Signature Blend Rom",
@@ -5189,7 +5189,7 @@
         }
       ],
       "slug": "a-h-riise-royal-danish-navy-westindian-50cl-old-edition",
-      "price_change_7d": null
+      "price_change_7d": -60.0
     },
     {
       "name": "A.H. Riise Royal Danish Navy, 35 cl",
@@ -5614,7 +5614,7 @@
         }
       ],
       "slug": "bayou-spiced",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Parce Rum 3 year",
@@ -7614,7 +7614,7 @@
         }
       ],
       "slug": "ron-colon-salvadoreno-coffee-infused",
-      "price_change_7d": -40.0
+      "price_change_7d": null
     },
     {
       "name": "Matusalem 15 Y.O. Gran Reserva",
@@ -10430,6 +10430,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Vesper Rum Gran Añejo Prestige XO",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/10/vesper-anejo.png",
+      "type": "Aged rom",
+      "country": "Spanien",
+      "brand": null,
+      "abv": 42.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 25.1,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 299.0,
+          "old_price": 399.0,
+          "discount_pct": 25.1,
+          "url": "https://conmaz.dk/vesper-rum-gran-anejo-prestige-xo/"
+        }
+      ],
+      "slug": "vesper-rum-gran-anejo-prestige-xo",
+      "price_change_7d": null
+    },
+    {
       "name": "The Duppy Share Legacy Edition XO Spiced Rom 70 cl 40%",
       "image": "https://whisky.gumlet.io/images/The Duppy Share 10 years Aged Caribbean Rom 70 cl 40-alc-t.webp",
       "type": "Spiced",
@@ -11500,32 +11526,6 @@
         }
       ],
       "slug": "compagnie-des-indes-compass-white-overproof-rum-from-cane-juice-dominican-republic",
-      "price_change_7d": null
-    },
-    {
-      "name": "Rhum Rhum PMG",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50615876.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50615876-Rhum-Rhum-PMG.jpg",
-      "type": "Rhum Agricole",
-      "country": "Frankrig",
-      "brand": null,
-      "abv": 56.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 314.5,
-      "cheapest_price": 314.5,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 314.5,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/rhum-rhum-pmg"
-        }
-      ],
-      "slug": "rhum-rhum-pmg",
       "price_change_7d": null
     },
     {
@@ -13289,7 +13289,7 @@
         }
       ],
       "slug": "barcelo-imperial-onyx",
-      "price_change_7d": -30.0
+      "price_change_7d": null
     },
     {
       "name": "Dictador 12 Y.O.",
@@ -13811,7 +13811,7 @@
         }
       ],
       "slug": "flor-de-cana-eco-15-y-o",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Rum Nation Guatemala Gran Reserva",
@@ -15246,7 +15246,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-12-solera",
-      "price_change_7d": -150.0
+      "price_change_7d": null
     },
     {
       "name": "Alta Gama Demi-Sec Guyana Rum",
@@ -21132,6 +21132,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Don Q Blender’s Reserve Rum",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/10/blendersdonq.png",
+      "type": null,
+      "country": "Puerto Rico",
+      "brand": "Don Q",
+      "abv": 40.7,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 399.0,
+      "cheapest_price": 399.0,
+      "max_discount_pct": 33.4,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 399.0,
+          "old_price": 599.0,
+          "discount_pct": 33.4,
+          "url": "https://conmaz.dk/don-q-blenders-reserve-rum/"
+        }
+      ],
+      "slug": "don-q-blenders-reserve-rum",
+      "price_change_7d": null
+    },
+    {
       "name": "Fadandel fra Colombia-tønden, 46 %",
       "image": "https://conmaz.dk/wp-content/uploads/2025/09/IMG_9674-scaled.jpg",
       "type": null,
@@ -23133,7 +23159,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-12-years",
-      "price_change_7d": -60.0
+      "price_change_7d": null
     },
     {
       "name": "Kirk & Sweeney 18 Years",
@@ -25989,7 +26015,7 @@
         }
       ],
       "slug": "new-grove-double-cask-moscatel",
-      "price_change_7d": -90.0
+      "price_change_7d": null
     },
     {
       "name": "Santos Dumont XO Super Premium",
@@ -26960,32 +26986,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Rhum JM Atelier Epices Créoles",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50614090.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50614090-Rhum-JM-Atelier-Epices-Créoles.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": "Rhum JM",
-      "abv": 46.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 479.0,
-      "cheapest_price": 479.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 479.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/rhum-jm-atelier-epices-creoles"
-        }
-      ],
-      "slug": "rhum-jm-atelier-epices-creoles",
-      "price_change_7d": null
-    },
-    {
       "name": "Savanna Creol Blanc 52",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50615448.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50615448-Savanna-Creol-Blanc-52.jpg",
       "type": "Rhum Agricole",
@@ -27295,7 +27295,7 @@
         }
       ],
       "slug": "flor-de-cana-18-y-o-rom-1-liter",
-      "price_change_7d": -54.0
+      "price_change_7d": null
     },
     {
       "name": "Diplomatico Distillery Collection N°2 Barbet",
@@ -30340,7 +30340,7 @@
         }
       ],
       "slug": "pussers-british-navy-rum-15-y-o-nelsons-blood",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Bapt & Clem’s Trinidad & Tobago Ans 4 d’age Sauternes & Sherry Finish",
@@ -32086,7 +32086,7 @@
         }
       ],
       "slug": "opthimus-21-anos-magna-cum-laude",
-      "price_change_7d": -70.0
+      "price_change_7d": null
     },
     {
       "name": "Bapt & Clem’s Dominican Republic Ans 6 d’age Sauternes Finish",
@@ -33148,7 +33148,7 @@
         }
       ],
       "slug": "professor-cornelius-rumbullion-xo-15-yo",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Opthimus 25 Años Summa Cum Laude",
@@ -33181,7 +33181,7 @@
         }
       ],
       "slug": "opthimus-25-anos-summa-cum-laude",
-      "price_change_7d": -36.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise Old St. Croix XO Explorer Danmark",
@@ -33852,7 +33852,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-23-solera",
-      "price_change_7d": -200.0
+      "price_change_7d": null
     },
     {
       "name": "Rest & Be Thankful 2015 Small Batch 2 Pure Jamaica Single Rum Aged 7 Years",
@@ -36678,7 +36678,7 @@
         }
       ],
       "slug": "sbs-venezuela-2010-50",
-      "price_change_7d": null
+      "price_change_7d": -80.0
     },
     {
       "name": "Dictador XO Perpetual",
@@ -36763,7 +36763,7 @@
         }
       ],
       "slug": "ophyum-grand-premiere-rhum-sistema-17-solera",
-      "price_change_7d": 160.0
+      "price_change_7d": null
     },
     {
       "name": "Bapt & Clem’s Guyana Ans 8 d’age Jurançon Finish",
@@ -41420,7 +41420,7 @@
         }
       ],
       "slug": "sbs-india-2016-55",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "A1710 La Perle Fine Rhum Blanc Extraordinaire",
@@ -42214,7 +42214,7 @@
         }
       ],
       "slug": "sbs-mauritius-2009-46-single-cask-rom",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "A1710 Renaissance Rhum Blanc Extraordinaire",
@@ -43880,7 +43880,7 @@
         }
       ],
       "slug": "ron-zacapa-centenario-xo-solera-gran-reserva-especial",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Emperor Mauritian Rum Private Collection Château Pape Clément Finish",
@@ -47211,7 +47211,7 @@
         }
       ],
       "slug": "el-dorado-2008-uitvlucht-enmore",
-      "price_change_7d": -200.0
+      "price_change_7d": null
     },
     {
       "name": "Foursquare Convocation 14 års Single Blended Rum 62%, Barbados",
@@ -50727,7 +50727,7 @@
         }
       ],
       "slug": "diplomatico-ambassador-selection-cask-strength-rom",
-      "price_change_7d": -200.0
+      "price_change_7d": null
     },
     {
       "name": "RomDeLuxe Wild Series Rum Diamond 20 år MEE Guyana Single Cask Rom 70 cl 59,8%",
