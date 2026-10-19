@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-17T08:21:12.768972",
+  "updated": "2026-10-19T17:52:21.328765",
   "stats": {
-    "total": 2052,
-    "deals": 172,
+    "total": 2046,
+    "deals": 173,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -122,15 +122,15 @@
       "Reserva"
     ],
     "cheapest": 29.0,
-    "multi_shop": 285,
+    "multi_shop": 284,
     "shop_counts": {
       "Kokkens Vinhus": 259,
       "Spitus": 330,
-      "Rombo": 499,
+      "Rombo": 492,
       "Con Maz": 100,
       "Whisky.dk": 683,
       "Vault of Spirits": 195,
-      "Juuls": 374
+      "Juuls": 373
     }
   },
   "roms": [
@@ -3251,58 +3251,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Ypióca Reserva Carvalho Cachaca",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Ypi_ca_Reserva_Carvalho_Cachaca.png?v=1787063628",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": "Ypióca",
-      "abv": 38.0,
-      "volume_cl": 70.0,
-      "age": "Reserva",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 199.0,
-      "cheapest_price": 199.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 199.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/cachaca-ypioca-carvalho"
-        }
-      ],
-      "slug": "ypioca-reserva-carvalho-cachaca",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ypióca Reserva Castanheira Cachaca",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Ypi_ca_Reserva_Castanheira_Cachaca.png?v=1787054377",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": "Ypióca",
-      "abv": 38.0,
-      "volume_cl": 70.0,
-      "age": "Reserva",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 199.0,
-      "cheapest_price": 199.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 199.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/cachaca-ypioca-prata"
-        }
-      ],
-      "slug": "ypioca-reserva-castanheira-cachaca",
-      "price_change_7d": null
-    },
-    {
       "name": "Ron Ocumare Blanco",
       "image": "https://conmaz.dk/wp-content/uploads/2025/12/ron-ocumare-blanco.png",
       "type": "Hvid rom",
@@ -3797,32 +3745,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Sepé Ron Blanco ØKO",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643468.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643468-Sepé-Ron-Blanco-ØKO.jpg",
-      "type": "Hvid rom",
-      "country": "Paraguay",
-      "brand": null,
-      "abv": 41.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 199.0,
-      "cheapest_price": 199.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 199.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/sepe-ron-blanco-oeko"
-        }
-      ],
-      "slug": "sepe-ron-blanco-oko",
-      "price_change_7d": null
-    },
-    {
       "name": "Sepé Ron Anejo ØKO",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643469.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643469-Sepé-Ron-Anejo-ØKO.jpg",
       "type": null,
@@ -3846,6 +3768,32 @@
         }
       ],
       "slug": "sepe-ron-anejo-oko",
+      "price_change_7d": null
+    },
+    {
+      "name": "Sepé Ron Blanco ØKO",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643468.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643468-Sepé-Ron-Blanco-ØKO.jpg",
+      "type": "Hvid rom",
+      "country": "Paraguay",
+      "brand": null,
+      "abv": 41.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 199.0,
+      "cheapest_price": 199.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 199.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/sepe-ron-blanco-oeko"
+        }
+      ],
+      "slug": "sepe-ron-blanco-oko",
       "price_change_7d": null
     },
     {
@@ -6070,32 +6018,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Worthy Park White Overproof 63%",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_5e7ba071-2e25-475d-8729-e31c5847b128.png?v=1769422605",
-      "type": "Overproof",
-      "country": "Jamaica",
-      "brand": "Worthy Park",
-      "abv": 63.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 249.0,
-      "cheapest_price": 249.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 249.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/worthy-park-white-overproof"
-        }
-      ],
-      "slug": "worthy-park-white-overproof-63",
-      "price_change_7d": null
-    },
-    {
       "name": "SBS Jamaica 2021 WPE American Virgin Oak Miniature Single Barrel Selection Jamaica Rom 20 cl 61,2%",
       "image": "https://whisky.gumlet.io/images/SBS-Jamaica-2021-WPE-American-Virgin-Oak-Miniature-Single-Barrel-Selection-Jamaica-Rom-20-cl-61-2-abv-t.webp",
       "type": "Spiced",
@@ -6994,39 +6916,6 @@
       "price_change_7d": null
     },
     {
-      "name": "J Wray and Nephew White Overproof",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_9ede63c6-15d8-4eaa-9443-1211b3fdcc74.png?v=1769422538",
-      "type": "Overproof",
-      "country": "Jamaica",
-      "brand": "Wray & Nephew",
-      "abv": 63.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 259.0,
-      "cheapest_price": 259.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 259.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/j-wray-and-nephew-white-overproof"
-        },
-        {
-          "shop_name": "Rombo",
-          "price": 275.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/wray-nephew-overproof-rum"
-        }
-      ],
-      "slug": "wray-and-nephew-white-overproof-rum-63",
-      "price_change_7d": null
-    },
-    {
       "name": "Puntacana Club Muy Viejo Dominikanske Republik Rom 70 cl 37,5%",
       "image": "https://whisky.gumlet.io/images/Puntacana-Club-Muy-Viejo-Dominikanske-Republik-Rom-70-cl-37_5-alc-t.webp",
       "type": "Spiced",
@@ -7050,6 +6939,32 @@
         }
       ],
       "slug": "puntacana-club-muy-viejo-dominikanske-republik-rom-70-cl-37-5",
+      "price_change_7d": null
+    },
+    {
+      "name": "J Wray and Nephew White Overproof",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50642400.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50642400-J-Wray-and-Nephew-White-Overproof.jpg",
+      "type": "Overproof",
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 63.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 259.0,
+      "cheapest_price": 259.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 259.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/j-wray-and-nephew-white-overproof"
+        }
+      ],
+      "slug": "wray-and-nephew-white-overproof-rum-63",
       "price_change_7d": null
     },
     {
@@ -11396,6 +11311,32 @@
         }
       ],
       "slug": "abuelo-blanco-rum-40-1-l",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ron Cristobal PINTA",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/ron-christobal-pinta-2.jpg",
+      "type": "Spiced",
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": null,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.95,
+      "cheapest_price": 299.95,
+      "max_discount_pct": 16.7,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 299.95,
+          "old_price": 359.95,
+          "discount_pct": 16.7,
+          "url": "https://www.kokkensvinhus.dk/shop/ron-cristobal-pinta-2/"
+        }
+      ],
+      "slug": "ron-cristobal-pinta",
       "price_change_7d": null
     },
     {
@@ -17307,6 +17248,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Planteray Gran Anejo Guatemala Belize No Giftbox",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641073.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641073-Planteray-Gran-Anejo-Guatemala-Belize-No-Giftbox.jpg",
+      "type": null,
+      "country": "Flere lande",
+      "brand": null,
+      "abv": 42.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 359.0,
+      "cheapest_price": 359.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 359.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-gran-anejo-guatemala-belize-no-giftbox"
+        }
+      ],
+      "slug": "planteray-gran-anejo-guatemala-belize-no-giftbox",
+      "price_change_7d": null
+    },
+    {
       "name": "Appleton Estate Reserve Blend 8yo",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644355.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644355-Appleton-Estate-Reserve-Blend-8yo.jpg",
       "type": null,
@@ -17359,32 +17326,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Planteray Gran Anejo Guatemala Belize No Giftbox",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641073.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641073-Planteray-Gran-Anejo-Guatemala-Belize-No-Giftbox.jpg",
-      "type": null,
-      "country": "Flere lande",
-      "brand": null,
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.0,
-      "cheapest_price": 359.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 359.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/planteray-gran-anejo-guatemala-belize-no-giftbox"
-        }
-      ],
-      "slug": "planteray-gran-anejo-guatemala-belize-no-giftbox",
-      "price_change_7d": null
-    },
-    {
       "name": "Eminente Ambar Claro",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643953.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643953-Eminente-Ambar-Claro.jpg",
       "type": null,
@@ -17434,32 +17375,6 @@
         }
       ],
       "slug": "planteray-gran-anejo-guatemala-belize-giftbox",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Cristobal PINTA",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/ron-christobal-pinta-2.jpg",
-      "type": "Spiced",
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": null,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.95,
-      "cheapest_price": 359.95,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 359.95,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/ron-cristobal-pinta-2/"
-        }
-      ],
-      "slug": "ron-cristobal-pinta",
       "price_change_7d": null
     },
     {
@@ -18835,32 +18750,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Planteray Black Cask 2025 Barbados & Trinidad",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641028.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641028-Planteray-Black-Cask-2025-Barbados-&-Trinidad.jpg",
-      "type": null,
-      "country": "Flere lande",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/planteray-black-cask-2025-barbados-trinidad"
-        }
-      ],
-      "slug": "planteray-black-cask-2025-barbados-and-trinidad",
-      "price_change_7d": null
-    },
-    {
       "name": "Planteray Black Cask 2024 Barbados & Paraguay",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641027.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641027-Planteray-Black-Cask-2024-Barbados-&-Paraguay.jpg",
       "type": null,
@@ -18884,6 +18773,32 @@
         }
       ],
       "slug": "planteray-black-cask-2024-barbados-and-paraguay",
+      "price_change_7d": null
+    },
+    {
+      "name": "Planteray Black Cask 2025 Barbados & Trinidad",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641028.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641028-Planteray-Black-Cask-2025-Barbados-&-Trinidad.jpg",
+      "type": null,
+      "country": "Flere lande",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 379.0,
+      "cheapest_price": 379.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 379.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-black-cask-2025-barbados-trinidad"
+        }
+      ],
+      "slug": "planteray-black-cask-2025-barbados-and-trinidad",
       "price_change_7d": null
     },
     {
@@ -26986,6 +26901,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Rhum JM Atelier Epices Créoles",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50614090.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50614090-Rhum-JM-Atelier-Epices-Créoles.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": "Rhum JM",
+      "abv": 46.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 479.0,
+      "cheapest_price": 479.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 479.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/rhum-jm-atelier-epices-creoles"
+        }
+      ],
+      "slug": "rhum-jm-atelier-epices-creoles",
+      "price_change_7d": null
+    },
+    {
       "name": "Savanna Creol Blanc 52",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50615448.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50615448-Savanna-Creol-Blanc-52.jpg",
       "type": "Rhum Agricole",
@@ -28398,32 +28339,6 @@
         }
       ],
       "slug": "skotlander-bunker-rum",
-      "price_change_7d": null
-    },
-    {
-      "name": "Zaya Gran Reserva Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_c5caa37d-962a-4920-b798-9343b0516e24.png?v=1769423412",
-      "type": "Mørk rom",
-      "country": "Trinidad",
-      "brand": "Zaya",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 499.0,
-      "cheapest_price": 499.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/zaya-gran-reserva-16"
-        }
-      ],
-      "slug": "zaya-gran-reserva-rom",
       "price_change_7d": null
     },
     {
@@ -29917,32 +29832,6 @@
         }
       ],
       "slug": "damoiseau-rhum-millesime-2008-subprime-cuvee",
-      "price_change_7d": null
-    },
-    {
-      "name": "Zafra Master Series 21 års Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_66213fed-ec6d-440f-b04b-2938ca8fba70.png?v=1769421496",
-      "type": "Mørk rom",
-      "country": "Panama",
-      "brand": "Zafra",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "21 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 525.0,
-      "cheapest_price": 525.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 525.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/zafra-rum-21-master-reserve"
-        }
-      ],
-      "slug": "zafra-master-series-21-ars-rom",
       "price_change_7d": null
     },
     {
@@ -37889,7 +37778,7 @@
     },
     {
       "name": "Planteray El Salvador 2017 Rombo Single Cask rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/PlanterayElSalvador2017RomboSingleCaskrom.png?v=1791882618",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Planteray_El_Salvador_2017_Rombo_Single_Cask_rom.png?v=1792229307",
       "type": "Mørk rom",
       "country": null,
       "brand": "Planteray",
@@ -38828,32 +38717,6 @@
         }
       ],
       "slug": "planteray-3-stars-white-rum-eco-pouch",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Zacapa Heavenly Cask La Pasion 2023",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644753.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644753-Ron-Zacapa-Heavenly-Cask-La-Pasion-2023.jpg",
-      "type": null,
-      "country": "Guatemala",
-      "brand": "Zacapa",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 709.0,
-      "cheapest_price": 709.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 709.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/ron-zacapa-heavenly-cask-la-pasion-2023"
-        }
-      ],
-      "slug": "ron-zacapa-heavenly-cask-la-pasion-2023",
       "price_change_7d": null
     },
     {
@@ -49506,46 +49369,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Zafra Master Series 30 års Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_f141791d-faf0-409e-873d-e17a79c1848e.png?v=1769433961",
-      "type": "Mørk rom",
-      "country": "Panama",
-      "brand": "Zafra",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "30 år",
-      "category": "rom",
-      "shop_count": 3,
-      "min_price": 1495.0,
-      "cheapest_price": 1495.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 1495.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/zafra-30-ar-master-reserve-rum"
-        },
-        {
-          "shop_name": "Spitus",
-          "price": 1499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/zafra-master-series-30-years/"
-        },
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 1499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/moerk/zafra-30-yo-master-series-40/"
-        }
-      ],
-      "slug": "zafra-master-series-30-ars-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Romdeluxe Wild Series Diamond 20 år Enmore MEE Unicorn rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_51339434-1df3-4172-8e1b-ce181f0eeb54.png?v=1769438140",
       "type": "Aged rom",
@@ -49777,6 +49600,39 @@
         }
       ],
       "slug": "el-dorado-plinth-12-15-21-years",
+      "price_change_7d": null
+    },
+    {
+      "name": "Zafra Master Series 30 Years",
+      "image": "https://spitus.dk/wp-content/uploads/2021/11/zafra-master-30yo.jpg",
+      "type": "Aged rom",
+      "country": "Panama",
+      "brand": "Zafra",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": "30 år",
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 1499.0,
+      "cheapest_price": 1499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 1499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/zafra-master-series-30-years/"
+        },
+        {
+          "shop_name": "Vault of Spirits",
+          "price": 1499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/moerk/zafra-30-yo-master-series-40/"
+        }
+      ],
+      "slug": "zafra-master-series-30-ars-rom",
       "price_change_7d": null
     },
     {
@@ -55834,32 +55690,6 @@
         }
       ],
       "slug": "velier-foursquare-principia",
-      "price_change_7d": null
-    },
-    {
-      "name": "Montebello Rhum Vieux Cuvee Prestige 1982",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50620770.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50620770-Montebello-Rhum-Vieux-Cuvee-Prestige-1982.jpg",
-      "type": null,
-      "country": "Guadeloupe",
-      "brand": null,
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 9029.0,
-      "cheapest_price": 9029.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 9029.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/montebello-rhum-vieux-cuvee-prestige-1982"
-        }
-      ],
-      "slug": "montebello-rhum-vieux-cuvee-prestige-1982",
       "price_change_7d": null
     },
     {
