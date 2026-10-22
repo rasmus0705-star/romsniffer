@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-20T13:49:37.037106",
+  "updated": "2026-10-22T15:51:48.751586",
   "stats": {
-    "total": 2051,
-    "deals": 173,
+    "total": 2045,
+    "deals": 174,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -122,15 +122,15 @@
       "Reserva"
     ],
     "cheapest": 29.0,
-    "multi_shop": 285,
+    "multi_shop": 283,
     "shop_counts": {
       "Kokkens Vinhus": 259,
-      "Spitus": 330,
-      "Rombo": 499,
+      "Spitus": 329,
+      "Rombo": 495,
       "Con Maz": 100,
-      "Whisky.dk": 683,
+      "Whisky.dk": 682,
       "Vault of Spirits": 195,
-      "Juuls": 373
+      "Juuls": 372
     }
   },
   "roms": [
@@ -3986,32 +3986,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Ypioca Cachaca Ouro Bast",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646910.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646910-Ypioca-Cachaca-Ouro-Bast.jpg",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": null,
-      "abv": 38.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 209.0,
-      "cheapest_price": 209.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 209.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/ypioca-cachaca-ouro-bast"
-        }
-      ],
-      "slug": "ypioca-cachaca-ouro-bast",
-      "price_change_7d": null
-    },
-    {
       "name": "Ypioca Cachaca Prata",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646900.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646900-Ypioca-Cachaca-Prata.jpg",
       "type": "Cachaça",
@@ -4035,6 +4009,32 @@
         }
       ],
       "slug": "ypioca-cachaca-prata",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ypioca Cachaca Ouro Bast",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646910.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646910-Ypioca-Cachaca-Ouro-Bast.jpg",
+      "type": "Cachaça",
+      "country": "Brasilien",
+      "brand": null,
+      "abv": 38.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 209.0,
+      "cheapest_price": 209.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 209.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/ypioca-cachaca-ouro-bast"
+        }
+      ],
+      "slug": "ypioca-cachaca-ouro-bast",
       "price_change_7d": null
     },
     {
@@ -12202,32 +12202,6 @@
       "price_change_7d": null
     },
     {
-      "name": "East London Liquor Company Rum",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644580.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644580-East-London-Liquor-Company-Rum.jpg",
-      "type": null,
-      "country": "Caribien",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 319.0,
-      "cheapest_price": 319.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 319.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/east-london-liquor-company-rum"
-        }
-      ],
-      "slug": "east-london-liquor-company-rum",
-      "price_change_7d": null
-    },
-    {
       "name": "Merser Reserve Rum Aged for up to 8 Years",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50642200.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50642200-Merser-Reserve-Rum-Aged-for-up-to-8-Years.jpg",
       "type": "Aged rom",
@@ -12251,6 +12225,32 @@
         }
       ],
       "slug": "merser-reserve-rum-aged-for-up-to-8-years",
+      "price_change_7d": null
+    },
+    {
+      "name": "East London Liquor Company Rum",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644580.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644580-East-London-Liquor-Company-Rum.jpg",
+      "type": null,
+      "country": "Caribien",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 319.0,
+      "cheapest_price": 319.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 319.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/east-london-liquor-company-rum"
+        }
+      ],
+      "slug": "east-london-liquor-company-rum",
       "price_change_7d": null
     },
     {
@@ -14368,6 +14368,32 @@
         }
       ],
       "slug": "ron-cristobal-nina",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ron Centenario Luxus Tasting Set (12 Years + 20 Years + 25 Years + 30 Years), 4 x 5 cl",
+      "image": "https://spitus.dk/wp-content/uploads/2026/10/ron-centenario-tasting-set-4x5cl.webp",
+      "type": "Aged rom",
+      "country": null,
+      "brand": null,
+      "abv": null,
+      "volume_cl": 5.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.0,
+      "cheapest_price": 349.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 349.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/ron-centenario-luxus-tasting-set-12-years-20-years-25-years-30-years-4-x-5-cl/"
+        }
+      ],
+      "slug": "ron-centenario-luxus-tasting-set-12-years-20-years-25-years-30-years-4-x-5-cl",
       "price_change_7d": null
     },
     {
@@ -16688,6 +16714,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Kirk & Sweeney Rum – Gran Reserva",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2025/07/Kirk-Sweeney-Gran-Reserve.jpg",
+      "type": "Spiced",
+      "country": "Dominikansk",
+      "brand": "Kirk & Sweeney",
+      "abv": null,
+      "volume_cl": null,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 349.95,
+      "cheapest_price": 349.95,
+      "max_discount_pct": 12.5,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 349.95,
+          "old_price": 399.95,
+          "discount_pct": 12.5,
+          "url": "https://www.kokkensvinhus.dk/shop/kirk-sweeney-rum-gran-reserva/"
+        }
+      ],
+      "slug": "kirk-and-sweeney-rum-gran-reserva",
+      "price_change_7d": null
+    },
+    {
       "name": "Companero Gran Reserva 40% Jamaica/ Trinidad",
       "image": "https://whisky.gumlet.io/images/the-companero-grand-reserva-rom-1423-700-t.jpg",
       "type": "Spiced",
@@ -17307,32 +17359,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Planteray Gran Anejo Guatemala Belize No Giftbox",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641073.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641073-Planteray-Gran-Anejo-Guatemala-Belize-No-Giftbox.jpg",
-      "type": null,
-      "country": "Flere lande",
-      "brand": null,
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.0,
-      "cheapest_price": 359.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 359.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/planteray-gran-anejo-guatemala-belize-no-giftbox"
-        }
-      ],
-      "slug": "planteray-gran-anejo-guatemala-belize-no-giftbox",
-      "price_change_7d": null
-    },
-    {
       "name": "Appleton Estate Reserve Blend 8yo",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644355.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644355-Appleton-Estate-Reserve-Blend-8yo.jpg",
       "type": null,
@@ -17382,6 +17408,32 @@
         }
       ],
       "slug": "magnifica-tradicional-ipe-cachaca",
+      "price_change_7d": null
+    },
+    {
+      "name": "Planteray Gran Anejo Guatemala Belize No Giftbox",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641073.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641073-Planteray-Gran-Anejo-Guatemala-Belize-No-Giftbox.jpg",
+      "type": null,
+      "country": "Flere lande",
+      "brand": null,
+      "abv": 42.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 359.0,
+      "cheapest_price": 359.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 359.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-gran-anejo-guatemala-belize-no-giftbox"
+        }
+      ],
+      "slug": "planteray-gran-anejo-guatemala-belize-no-giftbox",
       "price_change_7d": null
     },
     {
@@ -19151,32 +19203,6 @@
         }
       ],
       "slug": "planteray-oftd",
-      "price_change_7d": null
-    },
-    {
-      "name": "Damoiseau Rhum Vieux 10 ans",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50616440.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50616440-Damoiseau-Rhum-Vieux-10-ans.jpg",
-      "type": "Rhum Agricole",
-      "country": "Guadeloupe",
-      "brand": null,
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": "10 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 394.5,
-      "cheapest_price": 394.5,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 394.5,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/damoiseau-rhum-vieux-10-ans"
-        }
-      ],
-      "slug": "damoiseau-rhum-vieux-10-ans",
       "price_change_7d": null
     },
     {
@@ -21080,29 +21106,29 @@
       "price_change_7d": null
     },
     {
-      "name": "The Real McCoy 4 x 10 cl. adventskalender / smagesæt på rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/TheRealMcCoyGavekasse3.png?v=1791556049",
-      "type": "Mørk rom",
+      "name": "The Real McCoy Rum Tasting Kit",
+      "image": "https://conmaz.dk/wp-content/uploads/2026/10/mccoy-gift-box-scaled.png",
+      "type": "Aged rom",
       "country": "Barbados",
-      "brand": "The Real McCoy",
-      "abv": 42.5,
-      "volume_cl": 10.0,
-      "age": null,
+      "brand": "Real McCoy",
+      "abv": 40.0,
+      "volume_cl": 40.0,
+      "age": "12 år",
       "category": "rom",
       "shop_count": 1,
       "min_price": 399.0,
       "cheapest_price": 399.0,
-      "max_discount_pct": 0,
+      "max_discount_pct": 20.0,
       "prices": [
         {
-          "shop_name": "Rombo",
+          "shop_name": "Con Maz",
           "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/the-real-mccoy-4-x-10-cl-adventskalender-smagesaet-pa-rom"
+          "old_price": 499.0,
+          "discount_pct": 20.0,
+          "url": "https://conmaz.dk/the-real-mccoy-rum-tasting-kit/"
         }
       ],
-      "slug": "the-real-mccoy-4-x-10-cl-adventskalender-smagesaet-pa-rom",
+      "slug": "the-real-mccoy-rum-tasting-kit",
       "price_change_7d": null
     },
     {
@@ -22429,32 +22455,6 @@
         }
       ],
       "slug": "carupano-reserva-18-limited-venezuela",
-      "price_change_7d": null
-    },
-    {
-      "name": "Kirk & Sweeney Rum – Gran Reserva",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2025/07/Kirk-Sweeney-Gran-Reserve.jpg",
-      "type": "Spiced",
-      "country": "Dominikansk",
-      "brand": "Kirk & Sweeney",
-      "abv": null,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.95,
-      "cheapest_price": 399.95,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 399.95,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/kirk-sweeney-rum-gran-reserva/"
-        }
-      ],
-      "slug": "kirk-and-sweeney-rum-gran-reserva",
       "price_change_7d": null
     },
     {
@@ -25042,32 +25042,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Oliver’s Exquisito 1990 Solera",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/03/EX02-1-scaled.jpg",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "Solera",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 449.0,
-      "cheapest_price": 449.0,
-      "max_discount_pct": 25.0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 449.0,
-          "old_price": 599.0,
-          "discount_pct": 25.0,
-          "url": "https://conmaz.dk/olivers-exquisito-1990-solera/"
-        }
-      ],
-      "slug": "olivers-exquisito-1990-solera",
-      "price_change_7d": null
-    },
-    {
       "name": "Infernal ClubSunrise Spirit Drink Infernal Rom 40%",
       "image": "https://whisky.gumlet.io/images/Infernal ClubSunrise Spirit Drink Infernal Rom 40_abv-t.webp",
       "type": "Spiced",
@@ -25692,32 +25666,6 @@
       "price_change_7d": null
     },
     {
-      "name": "CDI Jamaica - Rum from Molasses - Jamaica Navy Strength",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640559.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640559-CDI-Jamaica---Rum-from-Molasses---Jamaica-Navy-Strength.jpg",
-      "type": "Overproof",
-      "country": "Jamaica",
-      "brand": "CDI",
-      "abv": 57.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 449.0,
-      "cheapest_price": 449.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 449.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/cdi-jamaica-rum-from-molasses-jamaica-navy-strength"
-        }
-      ],
-      "slug": "cdi-jamaica-rum-from-molasses-jamaica-navy-strength",
-      "price_change_7d": null
-    },
-    {
       "name": "Clement VO",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50610351.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50610351-Clement-VO.jpg",
       "type": "Rhum Agricole",
@@ -25741,6 +25689,32 @@
         }
       ],
       "slug": "clement-vo",
+      "price_change_7d": null
+    },
+    {
+      "name": "CDI Jamaica - Rum from Molasses - Jamaica Navy Strength",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640559.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640559-CDI-Jamaica---Rum-from-Molasses---Jamaica-Navy-Strength.jpg",
+      "type": "Overproof",
+      "country": "Jamaica",
+      "brand": "CDI",
+      "abv": 57.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 449.0,
+      "cheapest_price": 449.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 449.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/cdi-jamaica-rum-from-molasses-jamaica-navy-strength"
+        }
+      ],
+      "slug": "cdi-jamaica-rum-from-molasses-jamaica-navy-strength",
       "price_change_7d": null
     },
     {
@@ -26816,32 +26790,6 @@
       "price_change_7d": null
     },
     {
-      "name": "A.H. Riise Royal Danish Navy 55% Spirit Drink",
-      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/A.H.-Riise-Royal-Danish-Navy-55-Spirit-Drink.jpg",
-      "type": "Navy Rum",
-      "country": "Dansk",
-      "brand": "A.H. Riise",
-      "abv": 55.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 479.0,
-      "cheapest_price": 479.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 479.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/a-h-riise-royal-danish-navy-55-spirit-drink/"
-        }
-      ],
-      "slug": "a-h-riise-royal-danish-navy-55-spirit-drink",
-      "price_change_7d": null
-    },
-    {
       "name": "Professor Cornelius Rumbullion! Navy-Strength Rom",
       "image": "https://spitus.dk/wp-content/uploads/2020/12/professor-cornelius-rumbullion-navy-strength.jpg",
       "type": "Overproof",
@@ -27269,6 +27217,32 @@
         }
       ],
       "slug": "saint-lucia-distillers-admiral-rodney-40",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ron Centenario 1985 Cask Selection Rum, Batch 2",
+      "image": "https://spitus.dk/wp-content/uploads/2026/10/centenario-1985output_6cb97f0f-d230-4aa9-b517-23d3c38dcfe9.webp",
+      "type": "Aged rom",
+      "country": null,
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "20 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 495.0,
+      "cheapest_price": 495.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 495.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/ron-centenario-1985-cask-selection-rum-batch-2/"
+        }
+      ],
+      "slug": "ron-centenario-1985-cask-selection-rum-batch-2",
       "price_change_7d": null
     },
     {
@@ -33907,6 +33881,32 @@
       "price_change_7d": null
     },
     {
+      "name": "The Real McCoy Rum 2017 Limited Edition Aged 10 Years",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/03/TRM05-scaled.jpg",
+      "type": "Aged rom",
+      "country": "Barbados",
+      "brand": "Real McCoy",
+      "abv": 46.0,
+      "volume_cl": 70.0,
+      "age": "10 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.0,
+      "cheapest_price": 599.0,
+      "max_discount_pct": 28.6,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 599.0,
+          "old_price": 839.0,
+          "discount_pct": 28.6,
+          "url": "https://conmaz.dk/the-real-mccoy-rum-2017-limited-edition-aged-10-years/"
+        }
+      ],
+      "slug": "the-real-mccoy-rum-2017-limited-edition-aged-10-years",
+      "price_change_7d": null
+    },
+    {
       "name": "Bombarda Falconet Dark 8 år MED SORT STATIV Sort Flaske Blended Dark Caribbean Rom 70 cl 43%",
       "image": "https://whisky.gumlet.io/images/Bombarda-Falconet-Dark-8-years-old-Sort-Flaske-MED-SORT-STATIV-Blended-Dark-Caribbean-Rom-70-cl-43-alc-t.webp",
       "type": "Spiced",
@@ -34750,6 +34750,32 @@
         }
       ],
       "slug": "paranubes-anejo-lot-a-05-06-21",
+      "price_change_7d": null
+    },
+    {
+      "name": "Patridom XO Cognac Finish 43 %",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/09/PAT-XO-COG.png",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": "Patridom",
+      "abv": 43.0,
+      "volume_cl": null,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.95,
+      "cheapest_price": 599.95,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 599.95,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/patridom-xo-cognac-finish-43/"
+        }
+      ],
+      "slug": "patridom-xo-cognac-finish-43",
       "price_change_7d": null
     },
     {
@@ -37949,7 +37975,7 @@
       "volume_cl": 70.0,
       "age": "22 år",
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 699.0,
       "cheapest_price": 699.0,
       "max_discount_pct": 0,
@@ -37960,13 +37986,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://rombo.dk/products/planteray-trinidad-2003-vintage-collection"
-        },
-        {
-          "shop_name": "Juuls",
-          "price": 739.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/planteray-trinidad-vintage-2003"
         }
       ],
       "slug": "planteray-trinidad-2003-vintage-collection-rom",
@@ -38152,32 +38171,6 @@
         }
       ],
       "slug": "sbs-venezuela-2014-swedish-oak-rombo-edition",
-      "price_change_7d": null
-    },
-    {
-      "name": "Warehouse #1 Legendary Marques DOK single cask rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Warehouse_1LegendaryMarquesDOKrom_bc0ac2e8-406f-4a95-91d0-2178e2f34017.png?v=1780411418",
-      "type": "Mørk rom",
-      "country": "Jamaica",
-      "brand": "Warehouse #1",
-      "abv": 52.0,
-      "volume_cl": 70.0,
-      "age": "4 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 699.0,
-      "cheapest_price": 699.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 699.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/warehouse-1-legendary-marques-dok-rom"
-        }
-      ],
-      "slug": "warehouse-1-legendary-marques-dok-single-cask-rom",
       "price_change_7d": null
     },
     {
@@ -38880,7 +38873,7 @@
         },
         {
           "shop_name": "Spitus",
-          "price": 798.0,
+          "price": 795.0,
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/old-st-croix-non-plus-ultra-very-rare/"
@@ -39880,39 +39873,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Old St. Croix Non Plus Ultra Ambre d’Or Excellence",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/OldSt.CroixNonPlusUltraAmbred_OrExcellence.png?v=1770215423",
-      "type": null,
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 765.0,
-      "cheapest_price": 765.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 765.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/old-st-croix-non-plus-ultra-ambre-dor-excellence/"
-        },
-        {
-          "shop_name": "Rombo",
-          "price": 799.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/old-st-croix-non-plus-ultra-ambre-d-or-excellence"
-        }
-      ],
-      "slug": "old-st-croix-non-plus-ultra-ambre-dor-excellence",
-      "price_change_7d": null
-    },
-    {
       "name": "Ron Quorhum 30 Aniversario Oporto Finish Limited Edition",
       "image": "https://spitus.dk/wp-content/uploads/2023/11/ron-quorhum-30-anniversary-oporto-finish-k.png",
       "type": null,
@@ -40014,32 +39974,6 @@
         }
       ],
       "slug": "isautier-7-ans",
-      "price_change_7d": null
-    },
-    {
-      "name": "A.H. Riise Old St. Croix Non Plus Ultra Ambre d’Or Excellence",
-      "image": "https://spitus.dk/wp-content/uploads/2023/09/ahr-non-plus-ultra-ambre-dor.png",
-      "type": null,
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 779.0,
-      "cheapest_price": 779.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 779.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/a-h-riise-non-plus-ultra-ambre-dor-excellence/"
-        }
-      ],
-      "slug": "a-h-riise-non-plus-ultra-ambre-dor-excellence",
       "price_change_7d": null
     },
     {
@@ -40225,6 +40159,39 @@
       "price_change_7d": null
     },
     {
+      "name": "Old St. Croix Non Plus Ultra Ambre d’Or Excellence",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/OldSt.CroixNonPlusUltraAmbred_OrExcellence.png?v=1770215423",
+      "type": null,
+      "country": "Dansk",
+      "brand": "Old St. Croix",
+      "abv": 42.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 795.0,
+      "cheapest_price": 795.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 795.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/old-st-croix-non-plus-ultra-ambre-dor-excellence/"
+        },
+        {
+          "shop_name": "Rombo",
+          "price": 799.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/old-st-croix-non-plus-ultra-ambre-d-or-excellence"
+        }
+      ],
+      "slug": "old-st-croix-non-plus-ultra-ambre-dor-excellence",
+      "price_change_7d": null
+    },
+    {
       "name": "Old St. Croix Non Plus Ultra Black Edition",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Old_St._Croix_Non_Plus_Ultra_Black_Edition.png?v=1787057155",
       "type": null,
@@ -40255,39 +40222,6 @@
         }
       ],
       "slug": "old-st-croix-non-plus-ultra-black-edition",
-      "price_change_7d": null
-    },
-    {
-      "name": "A.H. Riise Non Plus Ultra Old St. Croix La Galante",
-      "image": "https://spitus.dk/wp-content/uploads/2022/11/a-h-riise-non-plus-ultra-la-galante-k.jpg",
-      "type": "Spiced",
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 795.0,
-      "cheapest_price": 795.0,
-      "max_discount_pct": 20.1,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 795.0,
-          "old_price": 995.0,
-          "discount_pct": 20.1,
-          "url": "https://spitus.dk/product/a-h-riise-non-plus-ultra-old-st-croix-la-galante/"
-        },
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 899.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/rombaseret/a-h-riise-old-st-croix-non-plus-ultra-la-galante-434/"
-        }
-      ],
-      "slug": "a-h-riise-non-plus-ultra-old-st-croix-la-galante",
       "price_change_7d": null
     },
     {
@@ -40392,32 +40326,6 @@
         }
       ],
       "slug": "a-h-riise-non-plus-ultra-very-rare",
-      "price_change_7d": null
-    },
-    {
-      "name": "A.H. Riise Non Plus Ultra Black Edition",
-      "image": "https://spitus.dk/wp-content/uploads/2020/12/ahr-non-plus-ultra-black-k.png",
-      "type": "Spiced",
-      "country": "Dansk",
-      "brand": "A.H. Riise",
-      "abv": null,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 798.0,
-      "cheapest_price": 798.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 798.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/a-h-riise-non-plus-ultra-black-edition-rum/"
-        }
-      ],
-      "slug": "a-h-riise-non-plus-ultra-black-edition",
       "price_change_7d": null
     },
     {
@@ -41631,32 +41539,6 @@
       "price_change_7d": null
     },
     {
-      "name": "The Real McCoy Rum 2017 Limited Edition Aged 10 Years",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/03/TRM05-scaled.jpg",
-      "type": "Aged rom",
-      "country": "Barbados",
-      "brand": "Real McCoy",
-      "abv": 46.0,
-      "volume_cl": 70.0,
-      "age": "10 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 839.0,
-      "cheapest_price": 839.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 839.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/the-real-mccoy-rum-2017-limited-edition-aged-10-years/"
-        }
-      ],
-      "slug": "the-real-mccoy-rum-2017-limited-edition-aged-10-years",
-      "price_change_7d": null
-    },
-    {
       "name": "Ærø Single cask Rum cask no.2 2021",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50647140-Ærø-Single-cask-Rum-cask-no.2-2021.jpg",
       "type": null,
@@ -42370,32 +42252,6 @@
         }
       ],
       "slug": "sbs-barbados-2013-bourbon-and-port-cask-rom-bottled-for-germany-and-austria",
-      "price_change_7d": null
-    },
-    {
-      "name": "CDI Panama DK 13 years PS99",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640899.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640899-CDI-Panama-DK--13-years-PS99.jpg",
-      "type": null,
-      "country": "Panama",
-      "brand": "CDI",
-      "abv": 56.9,
-      "volume_cl": 70.0,
-      "age": "13 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 889.0,
-      "cheapest_price": 889.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 889.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/cdi-panama-dk-13-years-ps99"
-        }
-      ],
-      "slug": "cdi-panama-dk-13-years-ps99",
       "price_change_7d": null
     },
     {
@@ -43221,7 +43077,7 @@
       "volume_cl": 70.0,
       "age": null,
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 3,
       "min_price": 899.0,
       "cheapest_price": 899.0,
       "max_discount_pct": 0,
@@ -43232,6 +43088,13 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://rombo.dk/products/ah-riise-non-plus-ultra-la-galante"
+        },
+        {
+          "shop_name": "Vault of Spirits",
+          "price": 899.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/rombaseret/a-h-riise-old-st-croix-non-plus-ultra-la-galante-434/"
         },
         {
           "shop_name": "Spitus",
@@ -43294,32 +43157,6 @@
         }
       ],
       "slug": "compagnie-des-indes-guyana-14-ans-armagnac-finish-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Compagnie des Indes Guyana Port Cask Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_b7cd3aa4-4a7e-47ab-85e2-509d22acba6d.png?v=1769425571",
-      "type": "Aged rom",
-      "country": "Guyana",
-      "brand": "Compagnie Des Indes",
-      "abv": 62.4,
-      "volume_cl": 70.0,
-      "age": "14 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 899.0,
-      "cheapest_price": 899.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 899.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/compagnie-des-indes-guyana-port-cask"
-        }
-      ],
-      "slug": "compagnie-des-indes-guyana-port-cask-rom",
       "price_change_7d": null
     },
     {
@@ -44981,32 +44818,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Tres Hombres Gran Anejo 2010 Edition 001 rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_09fa0bf5-3446-430c-9b3f-03137db10241.png?v=1769439585",
-      "type": "Mørk rom",
-      "country": "Dominikansk",
-      "brand": "Tres Hombres",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 999.0,
-      "cheapest_price": 999.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 999.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/tres-hombres-2010"
-        }
-      ],
-      "slug": "tres-hombres-gran-anejo-2010-edition-001-rom",
-      "price_change_7d": null
-    },
-    {
       "name": "Velier Clairin 2020 Vieux Sajous 5 års rom",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/VelierClairin2020VieuxSajous5arsrom.png?v=1788264489",
       "type": "Mørk rom",
@@ -45860,6 +45671,32 @@
       "price_change_7d": null
     },
     {
+      "name": "CDI Barbados Foursquare FBD14 Btld for DK 2022",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640936.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640936-CDI-Barbados-Foursquare-FBD14-Btld-for-DK-2022.jpg",
+      "type": null,
+      "country": "Barbados",
+      "brand": "Foursquare",
+      "abv": 57.2,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1049.0,
+      "cheapest_price": 1049.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 1049.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/cdi-barbados-foursquare-fbd14-btld-for-dk-2022"
+        }
+      ],
+      "slug": "cdi-barbados-foursquare-fbd14-btld-for-dk-2022",
+      "price_change_7d": null
+    },
+    {
       "name": "Neisson L´Esprit Bio ØKO",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50615167.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50615167-Neisson-L´Esprit-Bio-ØKO.jpg",
       "type": "Rhum Agricole",
@@ -45961,32 +45798,6 @@
         }
       ],
       "slug": "cdi-barbados-foursquare-fbd15-btld-for-dk-2022",
-      "price_change_7d": null
-    },
-    {
-      "name": "CDI Barbados Foursquare FBD14 Btld for DK 2022",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640936.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640936-CDI-Barbados-Foursquare-FBD14-Btld-for-DK-2022.jpg",
-      "type": null,
-      "country": "Barbados",
-      "brand": "Foursquare",
-      "abv": 57.2,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1049.0,
-      "cheapest_price": 1049.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 1049.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/cdi-barbados-foursquare-fbd14-btld-for-dk-2022"
-        }
-      ],
-      "slug": "cdi-barbados-foursquare-fbd14-btld-for-dk-2022",
       "price_change_7d": null
     },
     {
@@ -46495,32 +46306,6 @@
         }
       ],
       "slug": "wild-series-rum-no-66-australia",
-      "price_change_7d": null
-    },
-    {
-      "name": "Barbados FS 2006 Single Cask 16 år Nobilis Batch 23 Cask Strength Rom 70 cl 65,4%",
-      "image": "https://whisky.gumlet.io/images/Barbados-FS-2006-Single-Cask-16-years-old-Nobilis-Batch-23-Cask-Strength-Rom-70-cl-65_4-alc-t.jpg",
-      "type": "Spiced",
-      "country": "Barbados",
-      "brand": null,
-      "abv": 65.4,
-      "volume_cl": 70.0,
-      "age": "16 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1099.0,
-      "cheapest_price": 1099.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 1099.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/barbados-fs-2006-17574p.html"
-        }
-      ],
-      "slug": "barbados-fs-2006-single-cask-16-ar-nobilis-batch-23-cask-strength-rom-70-cl-65-4",
       "price_change_7d": null
     },
     {
@@ -50066,6 +49851,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Magnifica Cristal Cachaca BiB",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646838.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646838-Magnifica-Cristal-Cachaca-BiB.jpg",
+      "type": "Cachaça",
+      "country": "Brasilien",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 500.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1549.0,
+      "cheapest_price": 1549.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 1549.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/magnifica-cristal-cachaca-bib"
+        }
+      ],
+      "slug": "magnifica-cristal-cachaca-bib",
+      "price_change_7d": null
+    },
+    {
       "name": "Planteray Grenada Distillers Ping 17",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/90404483.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=90404483-Planteray-Grenada-Distillers-Ping-17.jpg",
       "type": null,
@@ -50486,6 +50297,32 @@
         }
       ],
       "slug": "a-h-riise-signature-batch-1",
+      "price_change_7d": null
+    },
+    {
+      "name": "Reisetbauer Rum 4x50 R.N.P.",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640000.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640000-Reisetbauer-Rum-4x50-R.N.P..jpg",
+      "type": null,
+      "country": "Østrig",
+      "brand": null,
+      "abv": 40.5,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1659.0,
+      "cheapest_price": 1659.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 1659.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/reisetbauer-rum-4x50-r-n-p"
+        }
+      ],
+      "slug": "reisetbauer-rum-4x50-r-n-p",
       "price_change_7d": null
     },
     {
@@ -51247,6 +51084,32 @@
         }
       ],
       "slug": "el-dorado-versailles-2002-guyana-rom-63",
+      "price_change_7d": null
+    },
+    {
+      "name": "Bielle Single Cask 268 Juuls Rhum",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50622500.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50622500-Bielle-Single-Cask-268-Juuls-Rhum.jpg",
+      "type": "Rhum Agricole",
+      "country": "Guadeloupe",
+      "brand": null,
+      "abv": 46.7,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1804.5,
+      "cheapest_price": 1804.5,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 1804.5,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/bielle-single-cask-268-juuls-rhum"
+        }
+      ],
+      "slug": "bielle-single-cask-268-juuls-rhum",
       "price_change_7d": null
     },
     {
@@ -54260,32 +54123,6 @@
         }
       ],
       "slug": "carupano-xo",
-      "price_change_7d": null
-    },
-    {
-      "name": "Bielle Single Cask 268 Juuls Rhum",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50622500.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50622500-Bielle-Single-Cask-268-Juuls-Rhum.jpg",
-      "type": "Rhum Agricole",
-      "country": "Guadeloupe",
-      "brand": null,
-      "abv": 46.7,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 3609.0,
-      "cheapest_price": 3609.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 3609.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/bielle-single-cask-268-juuls-rhum"
-        }
-      ],
-      "slug": "bielle-single-cask-268-juuls-rhum",
       "price_change_7d": null
     },
     {
