@@ -1,7 +1,7 @@
 {
-  "updated": "2026-10-22T15:51:48.751586",
+  "updated": "2026-10-23T10:59:44.298419",
   "stats": {
-    "total": 2045,
+    "total": 2046,
     "deals": 174,
     "shops": 7,
     "shop_names": [
@@ -125,12 +125,12 @@
     "multi_shop": 283,
     "shop_counts": {
       "Kokkens Vinhus": 259,
-      "Spitus": 329,
+      "Spitus": 328,
       "Rombo": 495,
       "Con Maz": 100,
-      "Whisky.dk": 682,
+      "Whisky.dk": 683,
       "Vault of Spirits": 195,
-      "Juuls": 372
+      "Juuls": 373
     }
   },
   "roms": [
@@ -5614,7 +5614,7 @@
         }
       ],
       "slug": "parce-rum-3-year",
-      "price_change_7d": -110.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Tabú – Old",
@@ -16737,7 +16737,7 @@
         }
       ],
       "slug": "kirk-and-sweeney-rum-gran-reserva",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Companero Gran Reserva 40% Jamaica/ Trinidad",
@@ -19229,7 +19229,7 @@
         }
       ],
       "slug": "montebello-rhum-vieux-8-ans-winch",
-      "price_change_7d": null
+      "price_change_7d": -394.0
     },
     {
       "name": "Black Tot Rum",
@@ -22748,32 +22748,6 @@
         }
       ],
       "slug": "savanna-lontan-blanc-57",
-      "price_change_7d": null
-    },
-    {
-      "name": "Old St. Croix Royal XO Reserve 175 Years Anniversary – kampagnetilbud m/5 smageflasker",
-      "image": "https://spitus.dk/wp-content/uploads/2026/09/175YA-Samples-1-1.jpg",
-      "type": "Aged rom",
-      "country": "Dansk",
-      "brand": "Old St. Croix",
-      "abv": null,
-      "volume_cl": 2.0,
-      "age": "XO",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 425.0,
-      "cheapest_price": 425.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Spitus",
-          "price": 425.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://spitus.dk/product/old-st-croix-royal-xo-reserve-175-years-anniversary-kampagnetilbud-m-5-smageflasker/"
-        }
-      ],
-      "slug": "old-st-croix-royal-xo-reserve-175-years-anniversary-kampagnetilbud-m-5-smageflasker",
       "price_change_7d": null
     },
     {
@@ -28611,6 +28585,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Mezclado Prestige Edition Romlikør 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Mezclado-Prestige-Edition-Romlikoer-70-cl-40-alc-t.webp",
+      "type": "Spiced",
+      "country": "Dominikansk",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/mezclado-prestige-edition-23858p.html"
+        }
+      ],
+      "slug": "mezclado-prestige-edition-romlikor-70-cl-40-2",
+      "price_change_7d": null
+    },
+    {
       "name": "Clement Rhum Vieux Agricole VSOP Old Version Martinique Rom 70 cl 40%",
       "image": "https://whisky.gumlet.io/images/Clement-Rhum-Vieux-Agricole-VSOP-Old-Version-Martinique-Rom-70-cl-40-abv-t.webp",
       "type": "Rhum Agricole",
@@ -33904,7 +33904,7 @@
         }
       ],
       "slug": "the-real-mccoy-rum-2017-limited-edition-aged-10-years",
-      "price_change_7d": null
+      "price_change_7d": -240.0
     },
     {
       "name": "Bombarda Falconet Dark 8 år MED SORT STATIV Sort Flaske Blended Dark Caribbean Rom 70 cl 43%",
@@ -35168,6 +35168,32 @@
         }
       ],
       "slug": "british-royal-navy-miniature-m-certifikat-imperial-rom-5-cl-54",
+      "price_change_7d": null
+    },
+    {
+      "name": "Plantation Peru 2010 White Pineau Denmark 2019",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=90404679-Plantation-Peru-2010-White-Pineau-Denmark-2019.jpg",
+      "type": null,
+      "country": "Peru",
+      "brand": "Plantation",
+      "abv": 43.6,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 619.0,
+      "cheapest_price": 619.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 619.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/plantation-peru-2010-white-pineau-denmark-2019"
+        }
+      ],
+      "slug": "plantation-peru-2010-white-pineau-denmark-2019",
       "price_change_7d": null
     },
     {
@@ -40189,7 +40215,7 @@
         }
       ],
       "slug": "old-st-croix-non-plus-ultra-ambre-dor-excellence",
-      "price_change_7d": null
+      "price_change_7d": 30.0
     },
     {
       "name": "Old St. Croix Non Plus Ultra Black Edition",
@@ -46703,7 +46729,7 @@
         }
       ],
       "slug": "hampden-great-house-distillery-edition-2025-2",
-      "price_change_7d": 14.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Santiago de Cuba 20 Y.o. Extra Anejo",
@@ -51110,7 +51136,7 @@
         }
       ],
       "slug": "bielle-single-cask-268-juuls-rhum",
-      "price_change_7d": null
+      "price_change_7d": -1804.0
     },
     {
       "name": "CDI Clarendon Jamaica DJC16 Btld for Denmark 2022",

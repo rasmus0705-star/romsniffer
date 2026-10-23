@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.romsniffer.dk/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -14,7 +14,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/premium.html</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -98,13 +98,13 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/dansk/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/dominikansk/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -260,7 +260,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/land/peru/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -362,7 +362,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/type/aged-rom/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -410,7 +410,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/type/spiced/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -590,7 +590,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/alder/xo/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -6895,12 +6895,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.romsniffer.dk/rom/old-st-croix-royal-xo-reserve-175-years-anniversary-kampagnetilbud-m-5-smageflasker/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.romsniffer.dk/rom/old-st-croix-the-thin-blue-line/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>daily</changefreq>
@@ -7503,6 +7497,12 @@
   <url>
     <loc>https://www.romsniffer.dk/rom/plantation-miniature-gavesaet-experience-rom-6x10-cl-40-43-5/</loc>
     <lastmod>2026-10-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.romsniffer.dk/rom/plantation-peru-2010-white-pineau-denmark-2019/</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13238,7 +13238,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/brand/old-st-croix/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -13262,7 +13262,7 @@
   </url>
   <url>
     <loc>https://www.romsniffer.dk/rom/brand/plantation/</loc>
-    <lastmod>2026-10-22</lastmod>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
