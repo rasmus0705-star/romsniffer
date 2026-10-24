@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-23T10:59:44.298419",
+  "updated": "2026-10-24T11:01:56.898451",
   "stats": {
     "total": 2046,
-    "deals": 174,
+    "deals": 175,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -130,7 +130,7 @@
       "Con Maz": 100,
       "Whisky.dk": 683,
       "Vault of Spirits": 195,
-      "Juuls": 373
+      "Juuls": 372
     }
   },
   "roms": [
@@ -3986,32 +3986,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Ypioca Cachaca Prata",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646900.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646900-Ypioca-Cachaca-Prata.jpg",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": null,
-      "abv": 38.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 209.0,
-      "cheapest_price": 209.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 209.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/ypioca-cachaca-prata"
-        }
-      ],
-      "slug": "ypioca-cachaca-prata",
-      "price_change_7d": null
-    },
-    {
       "name": "Ypioca Cachaca Ouro Bast",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646910.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646910-Ypioca-Cachaca-Ouro-Bast.jpg",
       "type": "Cachaça",
@@ -4035,6 +4009,32 @@
         }
       ],
       "slug": "ypioca-cachaca-ouro-bast",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ypioca Cachaca Prata",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646900.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646900-Ypioca-Cachaca-Prata.jpg",
+      "type": "Cachaça",
+      "country": "Brasilien",
+      "brand": null,
+      "abv": 38.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 209.0,
+      "cheapest_price": 209.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 209.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/ypioca-cachaca-prata"
+        }
+      ],
+      "slug": "ypioca-cachaca-prata",
       "price_change_7d": null
     },
     {
@@ -5083,7 +5083,7 @@
       "volume_cl": 70.0,
       "age": "7 år",
       "category": "rom",
-      "shop_count": 3,
+      "shop_count": 2,
       "min_price": 235.0,
       "cheapest_price": 235.0,
       "max_discount_pct": 0,
@@ -5101,13 +5101,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.whisky.dk/shop/legendario-elixir-de-1496p.html"
-        },
-        {
-          "shop_name": "Juuls",
-          "price": 289.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/legendario-elixir-de-cuba"
         }
       ],
       "slug": "legendario-7-ar-elixir-de-cuba",
@@ -13715,6 +13708,39 @@
       "price_change_7d": null
     },
     {
+      "name": "Don Papa Single Island Alon",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_1793e44c-d774-42fa-9992-00b672edecef.png?v=1769435522",
+      "type": "Mørk rom",
+      "country": "Filippinerne",
+      "brand": "Don Papa",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "7 år",
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 335.0,
+      "cheapest_price": 335.0,
+      "max_discount_pct": 25.4,
+      "prices": [
+        {
+          "shop_name": "Con Maz",
+          "price": 335.0,
+          "old_price": 449.0,
+          "discount_pct": 25.4,
+          "url": "https://conmaz.dk/don-papa-single-island-alon/"
+        },
+        {
+          "shop_name": "Rombo",
+          "price": 399.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/don-papa-single-island-rum"
+        }
+      ],
+      "slug": "don-papa-single-island-7-ars-rom",
+      "price_change_7d": null
+    },
+    {
       "name": "Hampden Rum Fire White Overproof Rum 63%",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_74d06098-7eab-4109-9522-c4433b9102eb.png?v=1769422702",
       "type": "Overproof",
@@ -17359,32 +17385,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Appleton Estate Reserve Blend 8yo",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644355.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644355-Appleton-Estate-Reserve-Blend-8yo.jpg",
-      "type": null,
-      "country": "Jamaica",
-      "brand": "Appleton Estate",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.0,
-      "cheapest_price": 359.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 359.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/appleton-estate-reserve-blend-8yo"
-        }
-      ],
-      "slug": "appleton-estate-reserve-blend-8yo",
-      "price_change_7d": null
-    },
-    {
       "name": "Magnifica Tradicional Ipe Cachaca",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646849.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646849-Magnifica-Tradicional-Ipe-Cachaca.jpg",
       "type": "Cachaça",
@@ -17460,6 +17460,32 @@
         }
       ],
       "slug": "eminente-ambar-claro",
+      "price_change_7d": null
+    },
+    {
+      "name": "Appleton Estate Reserve Blend 8yo",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644355.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644355-Appleton-Estate-Reserve-Blend-8yo.jpg",
+      "type": null,
+      "country": "Jamaica",
+      "brand": "Appleton Estate",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 359.0,
+      "cheapest_price": 359.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 359.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/appleton-estate-reserve-blend-8yo"
+        }
+      ],
+      "slug": "appleton-estate-reserve-blend-8yo",
       "price_change_7d": null
     },
     {
@@ -18835,32 +18861,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Magnifica XP Dupla Maturaçao Cachaca",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646842.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646842-Magnifica-XP-Dupla-Maturaçao-Cachaca.jpg",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/magnifica-xp-dupla-maturacao-cachaca"
-        }
-      ],
-      "slug": "magnifica-xp-dupla-maturacao-cachaca",
-      "price_change_7d": null
-    },
-    {
       "name": "Planteray Black Cask 2024 Barbados & Paraguay",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641027.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641027-Planteray-Black-Cask-2024-Barbados-&-Paraguay.jpg",
       "type": null,
@@ -18910,6 +18910,32 @@
         }
       ],
       "slug": "planteray-black-cask-2025-barbados-and-trinidad",
+      "price_change_7d": null
+    },
+    {
+      "name": "Magnifica XP Dupla Maturaçao Cachaca",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646842.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646842-Magnifica-XP-Dupla-Maturaçao-Cachaca.jpg",
+      "type": "Cachaça",
+      "country": "Brasilien",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 379.0,
+      "cheapest_price": 379.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 379.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/magnifica-xp-dupla-maturacao-cachaca"
+        }
+      ],
+      "slug": "magnifica-xp-dupla-maturacao-cachaca",
       "price_change_7d": null
     },
     {
@@ -20605,39 +20631,6 @@
         }
       ],
       "slug": "compagnie-des-indes-west-indies-8-ars-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Don Papa Single Island 7 års Rom",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_1793e44c-d774-42fa-9992-00b672edecef.png?v=1769435522",
-      "type": "Mørk rom",
-      "country": "Filippinerne",
-      "brand": "Don Papa",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "7 år",
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Rombo",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/don-papa-single-island-rum"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 449.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/don-papa-single-island-alon/"
-        }
-      ],
-      "slug": "don-papa-single-island-7-ars-rom",
       "price_change_7d": null
     },
     {
@@ -32610,7 +32603,7 @@
         }
       ],
       "slug": "voyage-9yo-collectors-release-singlecask-port-42-7",
-      "price_change_7d": 99.0
+      "price_change_7d": null
     },
     {
       "name": "Rum Nation Panama Rum 18 y.o. 40%",
@@ -35728,7 +35721,7 @@
         }
       ],
       "slug": "ron-cristobal-santa-maria-2009-px-sherry-cask-42",
-      "price_change_7d": 40.0
+      "price_change_7d": null
     },
     {
       "name": "La Maison du Rhum Paraguay 2009 sherry Finish Batch 4",
@@ -36756,7 +36749,7 @@
         }
       ],
       "slug": "sbs-venezuela-2010-50",
-      "price_change_7d": -80.0
+      "price_change_7d": null
     },
     {
       "name": "Dictador XO Perpetual",
@@ -41354,7 +41347,7 @@
         }
       ],
       "slug": "sbs-india-2016-55",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "A1710 La Perle Fine Rhum Blanc Extraordinaire",
@@ -42122,7 +42115,7 @@
         }
       ],
       "slug": "sbs-mauritius-2009-46-single-cask-rom",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "A1710 Renaissance Rhum Blanc Extraordinaire",
@@ -46491,39 +46484,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Hampden Great House Distillery Edition 2024",
-      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_d9221749-ad9a-4b3c-b6db-222dd6e82f1f.png?v=1769439628",
-      "type": "Mørk rom",
-      "country": "Jamaica",
-      "brand": "Hampden",
-      "abv": 57.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 1139.0,
-      "cheapest_price": 1139.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 1139.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/hampden-great-house-distillery-edition-2024"
-        },
-        {
-          "shop_name": "Rombo",
-          "price": 1175.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://rombo.dk/products/hampden-great-house-2025"
-        }
-      ],
-      "slug": "hampden-great-house-distillery-edition-2025",
-      "price_change_7d": null
-    },
-    {
       "name": "Habitation Velier Forsyths WPM 2006",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643718.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643718-Habitation-Velier-Forsyths-WPM-2006.jpg",
       "type": null,
@@ -46573,6 +46533,32 @@
         }
       ],
       "slug": "diamond-of-frederiksberg-demerara-no-34",
+      "price_change_7d": null
+    },
+    {
+      "name": "Hampden Great House Distillery Edition 2024",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643808.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643808-Hampden-Great-House-Distillery-Edition-2024.jpg",
+      "type": null,
+      "country": "Jamaica",
+      "brand": "Hampden",
+      "abv": 57.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1139.0,
+      "cheapest_price": 1139.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 1139.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/hampden-great-house-distillery-edition-2024"
+        }
+      ],
+      "slug": "hampden-great-house-distillery-edition-2025",
       "price_change_7d": null
     },
     {
@@ -46680,6 +46666,39 @@
       "price_change_7d": null
     },
     {
+      "name": "Hampden Great House Distillery Edition 2025",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_d9221749-ad9a-4b3c-b6db-222dd6e82f1f.png?v=1769439628",
+      "type": "Mørk rom",
+      "country": "Jamaica",
+      "brand": "Hampden",
+      "abv": 57.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 1175.0,
+      "cheapest_price": 1175.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Rombo",
+          "price": 1175.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://rombo.dk/products/hampden-great-house-2025"
+        },
+        {
+          "shop_name": "Juuls",
+          "price": 1189.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/hampden-great-house-distillery-edition-2025"
+        }
+      ],
+      "slug": "hampden-great-house-distillery-edition-2025-2",
+      "price_change_7d": null
+    },
+    {
       "name": "Samaroli Over the World Blended Rum 2015 2nd Edition",
       "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_f7d38368-afea-4812-a85d-c4e33495767b.png?v=1769422657",
       "type": null,
@@ -46703,32 +46722,6 @@
         }
       ],
       "slug": "samaroli-over-the-world-blended-rum-2015-2nd-edition",
-      "price_change_7d": null
-    },
-    {
-      "name": "Hampden Great House Distillery Edition 2025",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643821.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643821-Hampden-Great-House-Distillery-Edition-2025.jpg",
-      "type": null,
-      "country": "Jamaica",
-      "brand": "Hampden",
-      "abv": 57.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1189.0,
-      "cheapest_price": 1189.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 1189.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/hampden-great-house-distillery-edition-2025"
-        }
-      ],
-      "slug": "hampden-great-house-distillery-edition-2025-2",
       "price_change_7d": null
     },
     {
