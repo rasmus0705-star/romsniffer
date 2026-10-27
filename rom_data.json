@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-24T11:01:56.898451",
+  "updated": "2026-10-27T09:53:53.442133",
   "stats": {
-    "total": 2046,
-    "deals": 175,
+    "total": 2041,
+    "deals": 165,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -122,13 +122,13 @@
       "Reserva"
     ],
     "cheapest": 29.0,
-    "multi_shop": 283,
+    "multi_shop": 284,
     "shop_counts": {
       "Kokkens Vinhus": 259,
-      "Spitus": 328,
+      "Spitus": 330,
       "Rombo": 495,
       "Con Maz": 100,
-      "Whisky.dk": 683,
+      "Whisky.dk": 677,
       "Vault of Spirits": 195,
       "Juuls": 372
     }
@@ -707,32 +707,6 @@
       "price_change_7d": null
     },
     {
-      "name": "SAMPLE 3 cl Volbeat XXV Rum Limited Edition med Rom fra Jamaica og Guyana 43%",
-      "image": "https://whisky.gumlet.io/images/Sample_309796145-t.webp",
-      "type": null,
-      "country": null,
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 3.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 80.1,
-      "cheapest_price": 80.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 80.1,
-          "old_price": 89.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/sample-3-cl-23509p.html"
-        }
-      ],
-      "slug": "sample-3-cl-volbeat-xxv-rum-limited-edition-med-rom-fra-jamaica-og-guyana-43",
-      "price_change_7d": null
-    },
-    {
       "name": "Ron Maguá, 35 cl",
       "image": "https://spitus.dk/wp-content/uploads/2025/09/ron-magua-35cl.png",
       "type": null,
@@ -756,6 +730,32 @@
         }
       ],
       "slug": "ron-magua-35-cl",
+      "price_change_7d": null
+    },
+    {
+      "name": "SAMPLE 3 cl Volbeat XXV Rum Limited Edition med Rom fra Jamaica og Guyana 43%",
+      "image": "https://whisky.gumlet.io/images/Sample_309796145-t.webp",
+      "type": null,
+      "country": null,
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 3.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 89.0,
+      "cheapest_price": 89.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 89.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/sample-3-cl-23509p.html"
+        }
+      ],
+      "slug": "sample-3-cl-volbeat-xxv-rum-limited-edition-med-rom-fra-jamaica-og-guyana-43",
       "price_change_7d": null
     },
     {
@@ -990,32 +990,6 @@
         }
       ],
       "slug": "ron-cartavio-black-dark-rum",
-      "price_change_7d": null
-    },
-    {
-      "name": "Captain Morgan Original Spiced Gold Spirit Drink Rom 70 cl 35%",
-      "image": "https://whisky.gumlet.io/images/Captain-Morgan-Original-Spiced-Gold-Spirit-Drink-Rom-70-cl-35-alc-t.webp",
-      "type": "Spiced",
-      "country": null,
-      "brand": "Captain Morgan",
-      "abv": 35.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 149.0,
-      "cheapest_price": 149.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 149.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/captain-morgan-original-20981p.html"
-        }
-      ],
-      "slug": "captain-morgan-original-spiced-gold-spirit-drink-rom-70-cl-35",
       "price_change_7d": null
     },
     {
@@ -1694,32 +1668,6 @@
         }
       ],
       "slug": "ron-esclavo-xo-dominikanske-republik-rom-20-cl-42",
-      "price_change_7d": null
-    },
-    {
-      "name": "Saint James Straw Pale Agricole Martinique Rom 40%",
-      "image": "https://whisky.gumlet.io/images/Saint-James-Straw-Pale-Rom-Agricole-Martinique-Rhum-40_alc-t.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 169.0,
-      "cheapest_price": 169.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 169.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/saint-james-straw-8100p.html"
-        }
-      ],
-      "slug": "saint-james-straw-pale-agricole-martinique-rom-40",
       "price_change_7d": null
     },
     {
@@ -2573,6 +2521,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Captain Morgan Original Spiced Gold Spirit Drink Rom 70 cl 35%",
+      "image": "https://whisky.gumlet.io/images/Captain-Morgan-Original-Spiced-Gold-Spirit-Drink-Rom-70-cl-35-alc-t.webp",
+      "type": "Spiced",
+      "country": null,
+      "brand": "Captain Morgan",
+      "abv": 35.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 189.0,
+      "cheapest_price": 189.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 189.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/captain-morgan-original-20981p.html"
+        }
+      ],
+      "slug": "captain-morgan-original-spiced-gold-spirit-drink-rom-70-cl-35",
+      "price_change_7d": null
+    },
+    {
       "name": "New Grove Silver Mauritius Hvid Rom 37,5%",
       "image": "https://whisky.gumlet.io/images/New-Grove-Silver-rum-hvid-rom-t.jpg",
       "type": "Rhum Agricole",
@@ -2596,6 +2570,32 @@
         }
       ],
       "slug": "new-grove-silver-mauritius-hvid-rom-37-5",
+      "price_change_7d": null
+    },
+    {
+      "name": "Saint James Straw Pale Agricole Martinique Rom 40%",
+      "image": "https://whisky.gumlet.io/images/Saint-James-Straw-Pale-Rom-Agricole-Martinique-Rhum-40_alc-t.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 189.0,
+      "cheapest_price": 189.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 189.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/saint-james-straw-8100p.html"
+        }
+      ],
+      "slug": "saint-james-straw-pale-agricole-martinique-rom-40",
       "price_change_7d": null
     },
     {
@@ -2811,32 +2811,6 @@
         }
       ],
       "slug": "mini-diplomatico-reserva-exclusiva-rum-35-cl",
-      "price_change_7d": null
-    },
-    {
-      "name": "Organic Spirits Rom Premium Organic Nordic Rum 40%",
-      "image": "https://whisky.gumlet.io/images/Organic-Spirits-Rom-Premium-Organic-Nordic-Rum-700-t.jpg",
-      "type": null,
-      "country": null,
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 197.1,
-      "cheapest_price": 197.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 197.1,
-          "old_price": 219.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/organic-spirits-rom-13160p.html"
-        }
-      ],
-      "slug": "organic-spirits-rom-premium-organic-nordic-rum-40",
       "price_change_7d": null
     },
     {
@@ -4198,6 +4172,32 @@
         }
       ],
       "slug": "ron-botran-reserva-blanca-guatemala-rom-40",
+      "price_change_7d": null
+    },
+    {
+      "name": "Organic Spirits Rom Premium Organic Nordic Rum 40%",
+      "image": "https://whisky.gumlet.io/images/Organic-Spirits-Rom-Premium-Organic-Nordic-Rum-700-t.jpg",
+      "type": null,
+      "country": null,
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 219.0,
+      "cheapest_price": 219.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 219.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/organic-spirits-rom-13160p.html"
+        }
+      ],
+      "slug": "organic-spirits-rom-premium-organic-nordic-rum-40",
       "price_change_7d": null
     },
     {
@@ -7452,32 +7452,6 @@
       "price_change_7d": null
     },
     {
-      "name": "East London Liquor Co Jamaican Blend Hvid Rom 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/East-London-Liquor-Co-Jamaican-Blend-Hvid-Rom-70-cl-40-alc-t.webp",
-      "type": "Hvid rom",
-      "country": "Jamaica",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 269.1,
-      "cheapest_price": 269.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 269.1,
-          "old_price": 299.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/east-london-liquor-18830p.html"
-        }
-      ],
-      "slug": "east-london-liquor-co-jamaican-blend-hvid-rom-70-cl-40",
-      "price_change_7d": null
-    },
-    {
       "name": "Dos Maderas Caribbean Ron Añejo 5+3 år",
       "image": "https://spitus.dk/wp-content/uploads/2023/12/197.png",
       "type": "Aged rom",
@@ -10579,6 +10553,32 @@
       "price_change_7d": null
     },
     {
+      "name": "East London Liquor Co Jamaican Blend Hvid Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/East-London-Liquor-Co-Jamaican-Blend-Hvid-Rom-70-cl-40-alc-t.webp",
+      "type": "Hvid rom",
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 299.0,
+      "cheapest_price": 299.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 299.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/east-london-liquor-18830p.html"
+        }
+      ],
+      "slug": "east-london-liquor-co-jamaican-blend-hvid-rom-70-cl-40",
+      "price_change_7d": null
+    },
+    {
       "name": "Cane Island Barbados Single Island Blends Rom 70 cl 40%",
       "image": "https://whisky.gumlet.io/images/Cane Island Barbados Single Island Blends Rom 70 cl 40-alc-t.jpg",
       "type": "Spiced",
@@ -10732,32 +10732,6 @@
         }
       ],
       "slug": "cane-island-cuba-blends-gran-anejo-rom-70-cl-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Clement Rhum Vieux Agricole Select Barrel Martinique Rom 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/Clement-Select-Barrel-Rhum-Agricole-NytImg-700x880-t.webp",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": "Clement",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 299.0,
-      "cheapest_price": 299.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 299.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/clement-rhum-vieux-11225p.html"
-        }
-      ],
-      "slug": "clement-rhum-vieux-agricole-select-barrel-martinique-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -12784,7 +12758,7 @@
         }
       ],
       "slug": "romdeluxe-no-3-white-rum-jamaica-st-catherine",
-      "price_change_7d": -70.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Malteco Reserva Maya 15 års Rom",
@@ -13360,32 +13334,6 @@
         }
       ],
       "slug": "a-michler-ron-espero-caribbean-banana-rum-70-cl-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Patridom Reserva Especial Dominikanske Republik Spirit Drink Rom 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/Patridom Reserva Especial-t.webp",
-      "type": "Spiced",
-      "country": "Dominikansk",
-      "brand": "Patridom",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "Reserva",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 329.0,
-      "cheapest_price": 329.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 329.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/patridom-reserva-especial-23117p.html"
-        }
-      ],
-      "slug": "patridom-reserva-especial-dominikanske-republik-spirit-drink-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -14028,32 +13976,6 @@
         }
       ],
       "slug": "takamaka-extra-noir-seychellerne-mork-rom-70-cl-43",
-      "price_change_7d": null
-    },
-    {
-      "name": "Mates XO Mørk Rom 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/Mates-XO-Moerk-Rom-70-cl-40-alc-t.webp",
-      "type": "Spiced",
-      "country": "Nicaragua",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "XO",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 339.0,
-      "cheapest_price": 339.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 339.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/mates-xo-moerk-20571p.html"
-        }
-      ],
-      "slug": "mates-xo-mork-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -15003,7 +14925,7 @@
         }
       ],
       "slug": "ron-cueva-1501-sistema-12-panama-40",
-      "price_change_7d": -50.0
+      "price_change_7d": null
     },
     {
       "name": "Ron Mulata de Cuba Gran Reserva 15 år",
@@ -15471,14 +15393,14 @@
       "price_change_7d": null
     },
     {
-      "name": "A. Michler Ron Espero Caribbean Banana Rum Giftbox med 2 glas 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/A Michler Ron Espero Caribbean Banana Rum Giftbox med 2 glas 70 cl 40_abv-t.webp",
-      "type": null,
-      "country": null,
-      "brand": null,
+      "name": "Patridom Reserva Especial Dominikanske Republik Spirit Drink Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Patridom Reserva Especial-t.webp",
+      "type": "Spiced",
+      "country": "Dominikansk",
+      "brand": "Patridom",
       "abv": 40.0,
       "volume_cl": 70.0,
-      "age": null,
+      "age": "Reserva",
       "category": "rom",
       "shop_count": 1,
       "min_price": 349.0,
@@ -15490,10 +15412,10 @@
           "price": 349.0,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/a-michler-ron-23522p.html"
+          "url": "https://www.whisky.dk/shop/patridom-reserva-especial-23117p.html"
         }
       ],
-      "slug": "a-michler-ron-espero-caribbean-banana-rum-giftbox-med-2-glas-70-cl-40",
+      "slug": "patridom-reserva-especial-dominikanske-republik-spirit-drink-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -16298,32 +16220,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Jule Rom 2024 Approved by Santa Claus And Whisky.dk Caribbean Premium Julerom 40%",
-      "image": "https://whisky.gumlet.io/images/Jule-Rom-2023-Approved-by-Santa-Claus-And-Whisky_dk-Caribbean-Premium-Julerom-40-alc-t.webp",
-      "type": "Spiced",
-      "country": "Barbados",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 349.0,
-      "cheapest_price": 349.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 349.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/jule-rom-2024-15125p.html"
-        }
-      ],
-      "slug": "jule-rom-2024-approved-by-santa-claus-and-whisky-dk-caribbean-premium-julerom-40",
-      "price_change_7d": null
-    },
-    {
       "name": "Rum Nation Panama 10 år Solera Rom Limited Edition 40%",
       "image": "https://whisky.gumlet.io/images/rum_nation_panama_10_years_old_rum_700-t.jpg",
       "type": "Aged rom",
@@ -16347,32 +16243,6 @@
         }
       ],
       "slug": "rum-nation-panama-10-ar-solera-rom-limited-edition-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Rum Nation Ilha da Madeira 2019 Release 3 år Agricole Rom 70 cl 42%",
-      "image": "https://whisky.gumlet.io/images/Rum Nation Ilha da Madeira 2019 Release 3 %C3%A5r Agricole Rom 42-alc-t.jpg",
-      "type": "Rhum Agricole",
-      "country": null,
-      "brand": "Rum Nation",
-      "abv": 42.0,
-      "volume_cl": 70.0,
-      "age": "3 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 349.0,
-      "cheapest_price": 349.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 349.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/rum-nation-ilha-13662p.html"
-        }
-      ],
-      "slug": "rum-nation-ilha-da-madeira-2019-release-3-ar-agricole-rom-70-cl-42",
       "price_change_7d": null
     },
     {
@@ -17711,6 +17581,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Mates XO Mørk Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Mates-XO-Moerk-Rom-70-cl-40-alc-t.webp",
+      "type": "Spiced",
+      "country": "Nicaragua",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 369.0,
+      "cheapest_price": 369.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 369.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/mates-xo-moerk-20571p.html"
+        }
+      ],
+      "slug": "mates-xo-mork-rom-70-cl-40",
+      "price_change_7d": null
+    },
+    {
       "name": "Burning Barn Smoked Rom 70 cl 40%",
       "image": "https://whisky.gumlet.io/images/Burning-Barn-Smoked-Rom-70-cl-40-alc-t.webp",
       "type": null,
@@ -18258,7 +18154,7 @@
         }
       ],
       "slug": "santiago-de-cuba-ron-extra-anejo-11-ars-rom",
-      "price_change_7d": 50.0
+      "price_change_7d": null
     },
     {
       "name": "SBS Origin Dominican Republic Aroma Grande Rom",
@@ -18546,32 +18442,6 @@
         }
       ],
       "slug": "mezclado-dark-c-romlikor-70-cl-35",
-      "price_change_7d": null
-    },
-    {
-      "name": "Patridom 12 år Seleccion Exclusiva Spirit Drink Caribbean Rom 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/Patridom-Seleccion-Exclusiva-Caribbean-Rom-70-cl-40-alc-t.webp",
-      "type": "Aged rom",
-      "country": "Dominikansk",
-      "brand": "Patridom",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "12 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/patridom-12-aar-18614p.html"
-        }
-      ],
-      "slug": "patridom-12-ar-seleccion-exclusiva-spirit-drink-caribbean-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -18887,32 +18757,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Planteray Black Cask 2025 Barbados & Trinidad",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641028.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641028-Planteray-Black-Cask-2025-Barbados-&-Trinidad.jpg",
-      "type": null,
-      "country": "Flere lande",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/planteray-black-cask-2025-barbados-trinidad"
-        }
-      ],
-      "slug": "planteray-black-cask-2025-barbados-and-trinidad",
-      "price_change_7d": null
-    },
-    {
       "name": "Magnifica XP Dupla Maturaçao Cachaca",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646842.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646842-Magnifica-XP-Dupla-Maturaçao-Cachaca.jpg",
       "type": "Cachaça",
@@ -18939,11 +18783,11 @@
       "price_change_7d": null
     },
     {
-      "name": "Plantation Black Cask 2023 Barbados & Venezuela",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641026.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641026-Plantation-Black-Cask-2023-Barbados-&-Venezuela.jpg",
+      "name": "Planteray Black Cask 2025 Barbados & Trinidad",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641028.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641028-Planteray-Black-Cask-2025-Barbados-&-Trinidad.jpg",
       "type": null,
       "country": "Flere lande",
-      "brand": "Plantation",
+      "brand": null,
       "abv": 40.0,
       "volume_cl": 70.0,
       "age": null,
@@ -18958,10 +18802,10 @@
           "price": 379.0,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/plantation-black-cask-2023-barbados-venezuela"
+          "url": "https://www.juuls.dk/rom/varekort/planteray-black-cask-2025-barbados-trinidad"
         }
       ],
-      "slug": "plantation-black-cask-2023-barbados-and-venezuela",
+      "slug": "planteray-black-cask-2025-barbados-and-trinidad",
       "price_change_7d": null
     },
     {
@@ -19255,7 +19099,7 @@
         }
       ],
       "slug": "montebello-rhum-vieux-8-ans-winch",
-      "price_change_7d": -394.0
+      "price_change_7d": null
     },
     {
       "name": "Black Tot Rum",
@@ -19975,7 +19819,7 @@
         },
         {
           "shop_name": "Whisky.dk",
-          "price": 399.0,
+          "price": 449.0,
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.whisky.dk/shop/planteray-xo-20th-2025p.html"
@@ -21723,6 +21567,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Patridom 12 år Seleccion Exclusiva Spirit Drink Caribbean Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Patridom-Seleccion-Exclusiva-Caribbean-Rom-70-cl-40-alc-t.webp",
+      "type": "Aged rom",
+      "country": "Dominikansk",
+      "brand": "Patridom",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "12 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 399.0,
+      "cheapest_price": 399.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 399.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/patridom-12-aar-18614p.html"
+        }
+      ],
+      "slug": "patridom-12-ar-seleccion-exclusiva-spirit-drink-caribbean-rom-70-cl-40",
+      "price_change_7d": null
+    },
+    {
       "name": "Volbeat Seal The Deal Premium Solera Caribbean Rom 40%",
       "image": "https://whisky.gumlet.io/images/Volbeat-Seal-The-Deal-Premium-Solera-Caribbean-Rom-40-alc-t.webp",
       "type": "Aged rom",
@@ -22006,6 +21876,39 @@
         }
       ],
       "slug": "mhoba-american-oak-aged-pure-single-sydafrika-rom-70-cl-43",
+      "price_change_7d": null
+    },
+    {
+      "name": "Clement Rhum Vieux Agricole Select Barrel Martinique Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Clement-Select-Barrel-Rhum-Agricole-NytImg-700x880-t.webp",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": "Clement",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 2,
+      "min_price": 399.0,
+      "cheapest_price": 399.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 399.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/clement-rhum-vieux-11225p.html"
+        },
+        {
+          "shop_name": "Juuls",
+          "price": 399.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/clement-rhum-vieux-agricole-select-barrel"
+        }
+      ],
+      "slug": "clement-rhum-vieux-agricole-select-barrel",
       "price_change_7d": null
     },
     {
@@ -22396,32 +22299,6 @@
         }
       ],
       "slug": "london-dock-x-o-trinidad-sauternes-cask-finish-rum-42",
-      "price_change_7d": null
-    },
-    {
-      "name": "Clement Rhum Vieux Agricole Select Barrel",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50610350.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50610350-Clement-Rhum-Vieux-Agricole-Select-Barrel.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": "Clement",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/clement-rhum-vieux-agricole-select-barrel"
-        }
-      ],
-      "slug": "clement-rhum-vieux-agricole-select-barrel",
       "price_change_7d": null
     },
     {
@@ -24213,46 +24090,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Saint James XO Rhum Agricole Martinique Rom 43%",
-      "image": "https://whisky.gumlet.io/images/Saint-James-XO-Rhum-Agricole-Martinique--43-alc-t.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "XO",
-      "category": "rom",
-      "shop_count": 3,
-      "min_price": 449.0,
-      "cheapest_price": 449.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 449.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/saint-james-xo-11010p.html"
-        },
-        {
-          "shop_name": "Kokkens Vinhus",
-          "price": 499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.kokkensvinhus.dk/shop/saint-james-xo-martinique-rhum-agricole-mbws/"
-        },
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 499.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/moerk/saint-james-xo-martinique-rhum-43/"
-        }
-      ],
-      "slug": "saint-james-xo-martinique-rhum-agricole-mbws",
-      "price_change_7d": null
-    },
-    {
       "name": "Ron Cihuatan 12y.o. Cinabrio 40% El Salvador",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2022/08/Cinabrio..jpg",
       "type": "Aged rom",
@@ -25685,84 +25522,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Hvid Rom Premium Dominikansk Rom til fadlagring Råsprit 100 cl 65%",
-      "image": "https://whisky.gumlet.io/images/Hvid-Rom-Premium-Dominikansk-Rom-til-fadlagring-Raasprit-100-cl-65-abv-t.webp",
-      "type": "Hvid rom",
-      "country": null,
-      "brand": null,
-      "abv": 65.0,
-      "volume_cl": 100.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 449.1,
-      "cheapest_price": 449.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 449.1,
-          "old_price": 499.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/hvid-rom-premium-23623p.html"
-        }
-      ],
-      "slug": "hvid-rom-premium-dominikansk-rom-til-fadlagring-rasprit-100-cl-65",
-      "price_change_7d": null
-    },
-    {
-      "name": "East London Rarer Rum Demerara East London Liquor Co 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/East-London-Rarer-Rum-Demerara-East-London-Liquor-Co-700-t.webp",
-      "type": null,
-      "country": "Guyana",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 449.1,
-      "cheapest_price": 449.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 449.1,
-          "old_price": 499.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/east-london-rarer-18829p.html"
-        }
-      ],
-      "slug": "east-london-rarer-rum-demerara-east-london-liquor-co-70-cl-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Å Æ Cykel XO Blended Caribbean Rom 60%",
-      "image": "https://whisky.gumlet.io/images/AA-AE-Cykel-XO-Blended-Caribbean-Rom-40-alc-t.jpg",
-      "type": "Spiced",
-      "country": "Caribien",
-      "brand": null,
-      "abv": 60.0,
-      "volume_cl": 70.0,
-      "age": "XO",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 449.1,
-      "cheapest_price": 449.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 449.1,
-          "old_price": 499.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/aa-ae-cykel-17250p.html"
-        }
-      ],
-      "slug": "a-ae-cykel-xo-blended-caribbean-rom-60",
-      "price_change_7d": null
-    },
-    {
       "name": "Ron Tepuy MONUMENTO 40%, Venezuela",
       "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2026/08/Tepuy-Monumento-Rom.png",
       "type": null,
@@ -26216,7 +25975,7 @@
         }
       ],
       "slug": "renegade-cane-rum-pre-cask-dunfermline-pot-still",
-      "price_change_7d": 140.0
+      "price_change_7d": null
     },
     {
       "name": "Renegade Cane Rum Pre Cask Pearls Pot Still",
@@ -26489,18 +26248,18 @@
     },
     {
       "name": "Admiral Rodney HMS Royal Oak",
-      "image": "https://whisky.gumlet.io/images/Admiral-Rodney-HMS-Royal-Oak-St-Lucia-Rom-70-cl-40-alc-t.jpg",
+      "image": "https://spitus.dk/wp-content/uploads/2023/11/admiral-rodney.png",
       "type": "Spiced",
-      "country": "Saint Lucia",
+      "country": null,
       "brand": null,
-      "abv": 40.0,
+      "abv": null,
       "volume_cl": 70.0,
       "age": null,
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 475.0,
       "cheapest_price": 475.0,
-      "max_discount_pct": 10.0,
+      "max_discount_pct": 0,
       "prices": [
         {
           "shop_name": "Spitus",
@@ -26508,13 +26267,6 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://spitus.dk/product/admiral-rodney-hms-royal-oak/"
-        },
-        {
-          "shop_name": "Whisky.dk",
-          "price": 584.1,
-          "old_price": 649.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/admiral-rodney-hms-17744p.html"
         }
       ],
       "slug": "admiral-rodney-hms-royal-oak",
@@ -27340,7 +27092,7 @@
         }
       ],
       "slug": "romdeluxe-dominican-republic-new-make-rom-batch-1",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Rum Nation Jamaica 5 år Cask Strength",
@@ -27418,6 +27170,46 @@
         }
       ],
       "slug": "cane-island-trinidad-limited-edt-sherry-finish-8-y-o-43",
+      "price_change_7d": null
+    },
+    {
+      "name": "Saint James XO Martinique Rhum Agricole – MBWS",
+      "image": "https://whisky.gumlet.io/images/Saint-James-XO-Rhum-Agricole-Martinique--43-alc-t.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 3,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Kokkens Vinhus",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.kokkensvinhus.dk/shop/saint-james-xo-martinique-rhum-agricole-mbws/"
+        },
+        {
+          "shop_name": "Whisky.dk",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/saint-james-xo-11010p.html"
+        },
+        {
+          "shop_name": "Vault of Spirits",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/moerk/saint-james-xo-martinique-rhum-43/"
+        }
+      ],
+      "slug": "saint-james-xo-martinique-rhum-agricole-mbws",
       "price_change_7d": null
     },
     {
@@ -28578,10 +28370,10 @@
       "price_change_7d": null
     },
     {
-      "name": "Mezclado Prestige Edition Romlikør 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/Mezclado-Prestige-Edition-Romlikoer-70-cl-40-alc-t.webp",
-      "type": "Spiced",
-      "country": "Dominikansk",
+      "name": "Mezclado Nyt År Edition Blended Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Mezclado_Nyt_aar_rom-t.webp",
+      "type": null,
+      "country": "Dansk",
       "brand": null,
       "abv": 40.0,
       "volume_cl": 70.0,
@@ -28597,10 +28389,10 @@
           "price": 499.0,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/mezclado-prestige-edition-23858p.html"
+          "url": "https://www.whisky.dk/shop/mezclado-nyt-aar-23858p.html"
         }
       ],
-      "slug": "mezclado-prestige-edition-romlikor-70-cl-40-2",
+      "slug": "mezclado-nyt-ar-edition-blended-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -28627,6 +28419,32 @@
         }
       ],
       "slug": "clement-rhum-vieux-agricole-vsop-old-version-martinique-rom-70-cl-40",
+      "price_change_7d": null
+    },
+    {
+      "name": "Hvid Rom Premium Dominikansk Rom til fadlagring Råsprit 100 cl 65%",
+      "image": "https://whisky.gumlet.io/images/Hvid-Rom-Premium-Dominikansk-Rom-til-fadlagring-Raasprit-100-cl-65-abv-t.webp",
+      "type": "Hvid rom",
+      "country": null,
+      "brand": null,
+      "abv": 65.0,
+      "volume_cl": 100.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/hvid-rom-premium-23623p.html"
+        }
+      ],
+      "slug": "hvid-rom-premium-dominikansk-rom-til-fadlagring-rasprit-100-cl-65",
       "price_change_7d": null
     },
     {
@@ -28786,6 +28604,32 @@
       "price_change_7d": null
     },
     {
+      "name": "East London Rarer Rum Demerara East London Liquor Co 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/East-London-Rarer-Rum-Demerara-East-London-Liquor-Co-700-t.webp",
+      "type": null,
+      "country": "Guyana",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/east-london-rarer-18829p.html"
+        }
+      ],
+      "slug": "east-london-rarer-rum-demerara-east-london-liquor-co-70-cl-40",
+      "price_change_7d": null
+    },
+    {
       "name": "Islay Rum Inaugural Release 2022 The Original Port Ellen Geal Pure Single Rom 45%",
       "image": "https://whisky.gumlet.io/images/Islay-The-Original-Port-Ellen-Geal-Pure-Single-Scotch-Rom-70-cl-45-alc-t.jpg",
       "type": "Spiced",
@@ -28835,6 +28679,32 @@
         }
       ],
       "slug": "eminente-rom-7-ar-cuba-rom-40",
+      "price_change_7d": null
+    },
+    {
+      "name": "Å Æ Cykel XO Blended Caribbean Rom 60%",
+      "image": "https://whisky.gumlet.io/images/AA-AE-Cykel-XO-Blended-Caribbean-Rom-40-alc-t.jpg",
+      "type": "Spiced",
+      "country": "Caribien",
+      "brand": null,
+      "abv": 60.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/aa-ae-cykel-17250p.html"
+        }
+      ],
+      "slug": "a-ae-cykel-xo-blended-caribbean-rom-60",
       "price_change_7d": null
     },
     {
@@ -30723,6 +30593,32 @@
         }
       ],
       "slug": "diplomatico-no-1-batch-kettle-rum",
+      "price_change_7d": null
+    },
+    {
+      "name": "Hampden Estate Rum 8-Year-Old Pure Single Jamaican Rum 46%",
+      "image": "https://spitus.dk/wp-content/uploads/2026/10/59-1.png",
+      "type": "Spiced",
+      "country": "Jamaica",
+      "brand": "Hampden",
+      "abv": 46.0,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 549.0,
+      "cheapest_price": 549.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 549.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/hampden-estate-rum-8-year-old-pure-single-jamaican-rum-46/"
+        }
+      ],
+      "slug": "hampden-estate-rum-8-year-old-pure-single-jamaican-rum-46",
       "price_change_7d": null
     },
     {
@@ -33233,7 +33129,7 @@
         }
       ],
       "slug": "chairmans-reserve-rum-vintage-2011",
-      "price_change_7d": 100.0
+      "price_change_7d": null
     },
     {
       "name": "Don Q Gran Reserva Anejo XO Rom",
@@ -33637,7 +33533,7 @@
         }
       ],
       "slug": "rammstein-rum-sauternes-finish-limited-edition-rom",
-      "price_change_7d": 100.0
+      "price_change_7d": null
     },
     {
       "name": "Rhum J.M XO Vieux Agricole Rom",
@@ -33793,7 +33689,7 @@
         }
       ],
       "slug": "tres-hombres-la-palma-2013-edition-04-rom",
-      "price_change_7d": 100.0
+      "price_change_7d": null
     },
     {
       "name": "Opthimus Rum 15 Cum Laude",
@@ -34242,32 +34138,6 @@
         }
       ],
       "slug": "patridom-xo-cognac-cask-finish-2023-spirit-drink-caribbean-rom-70-cl-43",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Izalco 15 år Cask Strength Rom 70 cl 55,3%",
-      "image": "https://whisky.gumlet.io/images/Ron-Izalco-15-years-old-Cask-Strength-Rum-70-cl-55_3-alc-t.webp",
-      "type": "Spiced",
-      "country": "Mellemamerika",
-      "brand": null,
-      "abv": 55.3,
-      "volume_cl": 70.0,
-      "age": "15 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 599.0,
-      "cheapest_price": 599.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 599.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/ron-izalco-15-19848p.html"
-        }
-      ],
-      "slug": "ron-izalco-15-ar-cask-strength-rom-70-cl-55-3",
       "price_change_7d": null
     },
     {
@@ -34743,6 +34613,32 @@
         }
       ],
       "slug": "paranubes-anejo-lot-a-05-06-21",
+      "price_change_7d": null
+    },
+    {
+      "name": "Planteray Fiji Vintage 2012 Oceana Series",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641200.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641200-Planteray-Fiji-Vintage-2012-Oceana-Series.jpg",
+      "type": null,
+      "country": "Fiji",
+      "brand": null,
+      "abv": 45.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 599.0,
+      "cheapest_price": 599.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 599.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-fiji-vintage-2012-oceana-series"
+        }
+      ],
+      "slug": "planteray-fiji-vintage-2012-oceana-series",
       "price_change_7d": null
     },
     {
@@ -36414,6 +36310,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Admiral Rodney HMS Royal Oak St. Lucia Rom 70 cl 40%",
+      "image": "https://whisky.gumlet.io/images/Admiral-Rodney-HMS-Royal-Oak-St-Lucia-Rom-70-cl-40-alc-t.jpg",
+      "type": "Spiced",
+      "country": "Saint Lucia",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/admiral-rodney-hms-17744p.html"
+        }
+      ],
+      "slug": "admiral-rodney-hms-royal-oak-st-lucia-rom-70-cl-40",
+      "price_change_7d": null
+    },
+    {
       "name": "Compagnie des Indes Boulet de Canon No. 6 Ex-peated Whisky Barrels Rom 70 cl 46%",
       "image": "https://whisky.gumlet.io/images/Compagnie-des-Indes-Boulet-de-Canon-No.-6-Ex-peated-Whisky-Barrels-Rom-46-alc-t.jpg",
       "type": "Spiced",
@@ -36723,6 +36645,32 @@
         }
       ],
       "slug": "cdi-boulet-de-canon-no-13",
+      "price_change_7d": null
+    },
+    {
+      "name": "Planteray Mauritius Vintage 2014 Oceana Series",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641202.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641202-Planteray-Mauritius-Vintage-2014-Oceana-Series.jpg",
+      "type": null,
+      "country": "Australien",
+      "brand": null,
+      "abv": 50.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-mauritius-vintage-2014-oceana-series"
+        }
+      ],
+      "slug": "planteray-mauritius-vintage-2014-oceana-series",
       "price_change_7d": null
     },
     {
@@ -37089,7 +37037,7 @@
         }
       ],
       "slug": "opthimus-25-ar-solera-rom-oporto-finish",
-      "price_change_7d": -74.0
+      "price_change_7d": null
     },
     {
       "name": "Chantal Comte Cuvée Caribaea Rhum Blanc",
@@ -37222,6 +37170,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Planteray Australia Vintage 2016 Oceana Series",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641201.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641201-Planteray-Australia-Vintage-2016-Oceana-Series.jpg",
+      "type": null,
+      "country": "Australien",
+      "brand": null,
+      "abv": 52.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 679.0,
+      "cheapest_price": 679.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 679.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-australia-vintage-2016-oceana-series"
+        }
+      ],
+      "slug": "planteray-australia-vintage-2016-oceana-series",
+      "price_change_7d": null
+    },
+    {
       "name": "2026 – Julekalender Rom",
       "image": "https://spitus.dk/wp-content/uploads/2026/09/julekalender-rom-2026.jpg",
       "type": "Rhum Agricole",
@@ -37245,32 +37219,6 @@
         }
       ],
       "slug": "2026-julekalender-rom",
-      "price_change_7d": null
-    },
-    {
-      "name": "Habitation St. Etienne Martinique Rhum Agricole Extra Vieux XO Rom 70 cl 43%",
-      "image": "https://whisky.gumlet.io/images/HSE-XO-Grande-reserve-rom-abv43-t.webp",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "XO",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 688.5,
-      "cheapest_price": 688.5,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 688.5,
-          "old_price": 765.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/habitation-st-etienne-22288p.html"
-        }
-      ],
-      "slug": "habitation-st-etienne-martinique-rhum-agricole-extra-vieux-xo-rom-70-cl-43",
       "price_change_7d": null
     },
     {
@@ -38060,7 +38008,7 @@
         }
       ],
       "slug": "ron-cueva-sueno-del-chagres-25-panama-rom",
-      "price_change_7d": -100.0
+      "price_change_7d": null
     },
     {
       "name": "Savanna Cuvee Maison Blanche Edition Grand Millesime 10 års Rom",
@@ -38297,6 +38245,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Old St. Croix 24 Treasures 2026 Edition - Romjulekalender fyldt med 24 stk x 2cl",
+      "image": "https://whisky.gumlet.io/images/Old St Croix Julekalender 2026-t.webp",
+      "type": "Navy Rum",
+      "country": "Mellemamerika",
+      "brand": "Old St. Croix",
+      "abv": null,
+      "volume_cl": 2.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 699.0,
+      "cheapest_price": 699.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 699.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/old-st-croix-23861p.html"
+        }
+      ],
+      "slug": "old-st-croix-24-treasures-2026-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
+      "price_change_7d": null
+    },
+    {
       "name": "SBS Jamaica WPL 2016/2025 Single Barrel Selection 9 år Bourbon og Marsala Cask Rom 52%",
       "image": "https://whisky.gumlet.io/images/SBS-Jamaica-WPL-2016-2025-Single-Barrel-Selection-9-yr-Bourbon-og-Marsala-Cask-Rom-52-abv-t.webp",
       "type": "Spiced",
@@ -38398,32 +38372,6 @@
         }
       ],
       "slug": "sbs-panama-2010-2023-single-barrel-selection-13-ar-bourbon-og-virgin-oak-cask-rom-70-cl-55",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Zacapa 23 Gift Box Limited Edition med 2 glas Guatemala Solera Rom 70 cl 40%",
-      "image": "https://whisky.gumlet.io/images/Ron_Zacapa_23_rum_Giftbox_with_2_glasses-t.webp",
-      "type": "Aged rom",
-      "country": "Guatemala",
-      "brand": "Zacapa",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "Solera",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 699.0,
-      "cheapest_price": 699.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 699.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/ron-zacapa-23-23798p.html"
-        }
-      ],
-      "slug": "ron-zacapa-23-gift-box-limited-edition-med-2-glas-guatemala-solera-rom-70-cl-40",
       "price_change_7d": null
     },
     {
@@ -39039,32 +38987,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Planteray Jamaica Vintage 2017 Denmark",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/90404835.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=90404835-Planteray-Jamaica-Vintage-2017-Denmark.jpg",
-      "type": null,
-      "country": "Jamaica",
-      "brand": null,
-      "abv": 51.8,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 739.0,
-      "cheapest_price": 739.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 739.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/planteray-jamaica-vintage-2017-denmark"
-        }
-      ],
-      "slug": "planteray-jamaica-vintage-2017-denmark",
-      "price_change_7d": null
-    },
-    {
       "name": "Planteray Mauritius Vintage 2013",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641198.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641198-Planteray-Mauritius-Vintage-2013.jpg",
       "type": null,
@@ -39114,6 +39036,32 @@
         }
       ],
       "slug": "planteray-land-selection-12-years-juuls-vin-and-spir",
+      "price_change_7d": null
+    },
+    {
+      "name": "Planteray Jamaica Vintage 2017 Denmark",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/90404835.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=90404835-Planteray-Jamaica-Vintage-2017-Denmark.jpg",
+      "type": null,
+      "country": "Jamaica",
+      "brand": null,
+      "abv": 51.8,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 739.0,
+      "cheapest_price": 739.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 739.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-jamaica-vintage-2017-denmark"
+        }
+      ],
+      "slug": "planteray-jamaica-vintage-2017-denmark",
       "price_change_7d": null
     },
     {
@@ -39892,6 +39840,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Habitation St. Etienne Martinique Rhum Agricole Extra Vieux XO Rom 70 cl 43%",
+      "image": "https://whisky.gumlet.io/images/HSE-XO-Grande-reserve-rom-abv43-t.webp",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "XO",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 765.0,
+      "cheapest_price": 765.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 765.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/habitation-st-etienne-22288p.html"
+        }
+      ],
+      "slug": "habitation-st-etienne-martinique-rhum-agricole-extra-vieux-xo-rom-70-cl-43",
+      "price_change_7d": null
+    },
+    {
       "name": "Ron Quorhum 30 Aniversario Oporto Finish Limited Edition",
       "image": "https://spitus.dk/wp-content/uploads/2023/11/ron-quorhum-30-anniversary-oporto-finish-k.png",
       "type": null,
@@ -39915,32 +39889,6 @@
         }
       ],
       "slug": "ron-quorhum-30-aniversario-oporto-finish-limited-edition",
-      "price_change_7d": null
-    },
-    {
-      "name": "Saint James 15 år Agricole Martinique Rom 43%",
-      "image": "https://whisky.gumlet.io/images/Saint-James-15-years-old-Agricole-Martinique-Rhum-43-t.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "15 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 769.0,
-      "cheapest_price": 769.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 769.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/saint-james-15-8105p.html"
-        }
-      ],
-      "slug": "saint-james-15-ar-agricole-martinique-rom-43",
       "price_change_7d": null
     },
     {
@@ -40048,32 +39996,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Clement Rhum Single Cask Joie de Vivre 16 Ans",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50611834.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50611834-Clement-Rhum-Single-Cask-Joie-de-Vivre-16-Ans.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": "Clement",
-      "abv": 44.0,
-      "volume_cl": 50.0,
-      "age": "16 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 789.0,
-      "cheapest_price": 789.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 789.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/clement-rhum-single-cask-joie-de-vivre-16-ans"
-        }
-      ],
-      "slug": "clement-rhum-single-cask-joie-de-vivre-16-ans",
-      "price_change_7d": null
-    },
-    {
       "name": "Rhum JM Tres Vieux Rhum Agricole XO",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50614400.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50614400-Rhum-JM-Tres-Vieux-Rhum-Agricole-XO.jpg",
       "type": "Rhum Agricole",
@@ -40097,6 +40019,32 @@
         }
       ],
       "slug": "rhum-jm-tres-vieux-rhum-agricole-xo",
+      "price_change_7d": null
+    },
+    {
+      "name": "Clement Rhum Single Cask Joie de Vivre 16 Ans",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50611834.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50611834-Clement-Rhum-Single-Cask-Joie-de-Vivre-16-Ans.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": "Clement",
+      "abv": 44.0,
+      "volume_cl": 50.0,
+      "age": "16 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 789.0,
+      "cheapest_price": 789.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 789.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/clement-rhum-single-cask-joie-de-vivre-16-ans"
+        }
+      ],
+      "slug": "clement-rhum-single-cask-joie-de-vivre-16-ans",
       "price_change_7d": null
     },
     {
@@ -40319,7 +40267,7 @@
         }
       ],
       "slug": "romdeluxe-wild-series-rum-no-62-barbados",
-      "price_change_7d": -150.0
+      "price_change_7d": null
     },
     {
       "name": "A.H. Riise Non Plus Ultra Very Rare",
@@ -40735,7 +40683,7 @@
         }
       ],
       "slug": "guyana-port-mourant-shared-single-cask-rum",
-      "price_change_7d": 100.0
+      "price_change_7d": null
     },
     {
       "name": "Hampden Estate HLCF Classic Rum",
@@ -40764,7 +40712,7 @@
           "price": 889.0,
           "old_price": null,
           "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/hampden-estate-hlcf-classic"
+          "url": "https://www.juuls.dk/rom/varekort/hampden-estate-hlcf-classic-3"
         }
       ],
       "slug": "hampden-estate-hlcf-classic-rum",
@@ -41113,6 +41061,32 @@
         }
       ],
       "slug": "romdeluxe-imperial-navy-rom-10-11-ar-collectors-series-rum-70-cl-57-18",
+      "price_change_7d": null
+    },
+    {
+      "name": "Saint James 15 år Agricole Martinique Rom 43%",
+      "image": "https://whisky.gumlet.io/images/Saint-James-15-years-old-Agricole-Martinique-Rhum-43-t.jpg",
+      "type": "Rhum Agricole",
+      "country": "Martinique",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "15 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 799.0,
+      "cheapest_price": 799.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 799.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/saint-james-15-8105p.html"
+        }
+      ],
+      "slug": "saint-james-15-ar-agricole-martinique-rom-43",
       "price_change_7d": null
     },
     {
@@ -42775,32 +42749,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Opthimus 25 år barricas de Malt Whisky Finish Dominikanske Republik 2022 Rom 43%",
-      "image": "https://whisky.gumlet.io/images/Opthimus-Rum-25-years-barricas-de-Malt-Whisky-Finish-Dominikanske-Republik-rom-43-t.jpg",
-      "type": "Spiced",
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "25 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 895.0,
-      "cheapest_price": 895.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 895.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/opthimus-25-aar-8715p.html"
-        }
-      ],
-      "slug": "opthimus-25-ar-barricas-de-malt-whisky-finish-dominikanske-republik-2022-rom-43",
-      "price_change_7d": null
-    },
-    {
       "name": "Guyana Diamond 14 år Blackadder Raw Cask Rom 63%",
       "image": "https://whisky.gumlet.io/images/Finest-Guyana-Diamond-Rum-14-years-old-Blackadder-Raw-Cask-63-alc-t.jpg",
       "type": "Spiced",
@@ -44374,6 +44322,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Ron Quorhum 30th Anniversary FUNDADOR Founder’s Cask Strength Limited Edition 54.3%",
+      "image": "https://spitus.dk/wp-content/uploads/2026/10/quorhum-fundador-cask.webp",
+      "type": "Aged rom",
+      "country": "Cuba",
+      "brand": null,
+      "abv": 54.3,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 995.0,
+      "cheapest_price": 995.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 995.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://spitus.dk/product/ron-quorhum-30th-anniversary-fundador-founders-cask-strength-limited-edition-54-3/"
+        }
+      ],
+      "slug": "ron-quorhum-30th-anniversary-fundador-founders-cask-strength-limited-edition-54-3",
+      "price_change_7d": null
+    },
+    {
       "name": "Foursquare 14 Years Old CONVOCATION Exceptional Cask Selection Mark XXVIII Rum",
       "image": "https://spitus.dk/wp-content/uploads/2026/02/2-1.png",
       "type": "Spiced",
@@ -45257,32 +45231,6 @@
         }
       ],
       "slug": "alta-gama-el-salvador-11-ar-essentia-1-single-cask-rom-70-cl-66",
-      "price_change_7d": null
-    },
-    {
-      "name": "Clement Rare Cask Collection Homage to Phillip Single Cask Martinique Rom 50 cl 52,9%",
-      "image": "https://whisky.gumlet.io/images/Clement-Rare-Cask-Collection-Homage-to-Phillip-Single-Cask-Martinique-Rom-52,9-alc-t.jpg",
-      "type": "Rhum Agricole",
-      "country": "Martinique",
-      "brand": "Clement",
-      "abv": 52.9,
-      "volume_cl": 50.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 999.0,
-      "cheapest_price": 999.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 999.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/clement-rare-cask-8917p.html"
-        }
-      ],
-      "slug": "clement-rare-cask-collection-homage-to-phillip-single-cask-martinique-rom-50-cl-52-9",
       "price_change_7d": null
     },
     {
@@ -46696,7 +46644,7 @@
         }
       ],
       "slug": "hampden-great-house-distillery-edition-2025-2",
-      "price_change_7d": null
+      "price_change_7d": -14.0
     },
     {
       "name": "Samaroli Over the World Blended Rum 2015 2nd Edition",
@@ -47783,7 +47731,7 @@
         }
       ],
       "slug": "sbs-jamaica-2010-emb-rom-bottled-for-germany-and-austria",
-      "price_change_7d": 250.0
+      "price_change_7d": null
     },
     {
       "name": "Brugal Maestro Reserva, 41.2%",
@@ -47809,32 +47757,6 @@
         }
       ],
       "slug": "brugal-maestro-reserva-41-2",
-      "price_change_7d": null
-    },
-    {
-      "name": "Volbeat XXV Rum Limited Edition med Rom fra Jamaica og Guyana 43%",
-      "image": "https://whisky.gumlet.io/images/Volbeat XXV Rum Limited Edition Single Estate Guyana Premium Rom-t.webp",
-      "type": "Spiced",
-      "country": "Flere lande",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1259.1,
-      "cheapest_price": 1259.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 1259.1,
-          "old_price": 1399.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/volbeat-xxv-rum-23475p.html"
-        }
-      ],
-      "slug": "volbeat-xxv-rum-limited-edition-med-rom-fra-jamaica-og-guyana-43",
       "price_change_7d": null
     },
     {
@@ -48015,16 +47937,16 @@
       "price_change_7d": null
     },
     {
-      "name": "Rum Nation Rare Rums Fouresquare 2008/2024 Barbados Rom 70 cl 56%",
+      "name": "Rum Nation Rare Rums Foursquare 2008/2024 Barbados Rom 70 cl 56%",
       "image": "https://whisky.gumlet.io/images/Run-Nation-Small-Batch-Barbados-cask-no-9-abv56-t.webp",
       "type": "Spiced",
       "country": "Barbados",
-      "brand": "Rum Nation",
+      "brand": "Foursquare",
       "abv": 56.0,
       "volume_cl": 70.0,
       "age": null,
       "category": "rom",
-      "shop_count": 1,
+      "shop_count": 2,
       "min_price": 1295.0,
       "cheapest_price": 1295.0,
       "max_discount_pct": 0,
@@ -48035,9 +47957,16 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.whisky.dk/shop/rum-nation-rare-22435p.html"
+        },
+        {
+          "shop_name": "Vault of Spirits",
+          "price": 1299.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/moerk/barbados-foursquare-2008-bottled-2024-rum-nation-rare-rums-56/"
         }
       ],
-      "slug": "rum-nation-rare-rums-fouresquare-2008-2024-barbados-rom-70-cl-56",
+      "slug": "barbados-foursquare-2008-bottled-2024-rum-nation-rare-rums-56",
       "price_change_7d": null
     },
     {
@@ -48298,32 +48227,6 @@
         }
       ],
       "slug": "appleton-estate-21-ar-single-estate-nassau-valley-cask-jamaica-rom-70-cl-43",
-      "price_change_7d": null
-    },
-    {
-      "name": "Barbados (Foursquare) 2008 (bottled 2024), Rum Nation – Rare Rums, 56%",
-      "image": "https://www.vaultofspirits.dk/wp-content/uploads/barbados-foursquare-2008-bottled-2024-rum-nation-rare-rums-56-1.jpg",
-      "type": null,
-      "country": "Barbados",
-      "brand": "Foursquare",
-      "abv": 56.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1299.0,
-      "cheapest_price": 1299.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 1299.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/moerk/barbados-foursquare-2008-bottled-2024-rum-nation-rare-rums-56/"
-        }
-      ],
-      "slug": "barbados-foursquare-2008-bottled-2024-rum-nation-rare-rums-56",
       "price_change_7d": null
     },
     {
@@ -48920,6 +48823,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Volbeat XXV Rum Limited Edition med Rom fra Jamaica og Guyana 43%",
+      "image": "https://whisky.gumlet.io/images/Volbeat XXV Rum Limited Edition Single Estate Guyana Premium Rom-t.webp",
+      "type": "Spiced",
+      "country": "Flere lande",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1399.0,
+      "cheapest_price": 1399.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 1399.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/volbeat-xxv-rum-23475p.html"
+        }
+      ],
+      "slug": "volbeat-xxv-rum-limited-edition-med-rom-fra-jamaica-og-guyana-43",
+      "price_change_7d": null
+    },
+    {
       "name": "Ron Dos Mares 2002 Vintage Limited Edition 22 år Panama Rom 70 cl 46,5%",
       "image": "https://whisky.gumlet.io/images/Ron Dos Mares 2002 Vintage Limited Edition 22 yr Panama Rom 70 cl 46_5_alc-t.webp",
       "type": "Spiced",
@@ -49151,32 +49080,6 @@
         }
       ],
       "slug": "habitation-velier-hampden-owh-7-ans-2016",
-      "price_change_7d": null
-    },
-    {
-      "name": "Woodrows of Edinburgh 1993/2026 A Cuban Distillery 32 år Denmark Exclusive Caribbean Rum 58,8%",
-      "image": "https://whisky.gumlet.io/images/woodrows-of-edinburgh-cuban-rum3_317904192-t.webp",
-      "type": "Spiced",
-      "country": "Cuba",
-      "brand": null,
-      "abv": 58.8,
-      "volume_cl": 70.0,
-      "age": "32 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1439.1,
-      "cheapest_price": 1439.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 1439.1,
-          "old_price": 1599.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/woodrows-of-edinburgh-23732p.html"
-        }
-      ],
-      "slug": "woodrows-of-edinburgh-1993-2026-a-cuban-distillery-32-ar-denmark-exclusive-caribbean-rum-58-8",
       "price_change_7d": null
     },
     {
@@ -50635,6 +50538,32 @@
         }
       ],
       "slug": "romdeluxe-wild-series-rum-diamond-18-ar-mdxc-guyana-single-cask-rom-70-cl-54-9",
+      "price_change_7d": null
+    },
+    {
+      "name": "Woodrows of Edinburgh 1993/2026 A Cuban Distillery 32 år Denmark Exclusive Caribbean Rum 58,8%",
+      "image": "https://whisky.gumlet.io/images/woodrows-of-edinburgh-cuban-rum3_317904192-t.webp",
+      "type": "Spiced",
+      "country": "Cuba",
+      "brand": null,
+      "abv": 58.8,
+      "volume_cl": 70.0,
+      "age": "32 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1699.0,
+      "cheapest_price": 1699.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 1699.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/woodrows-of-edinburgh-23732p.html"
+        }
+      ],
+      "slug": "woodrows-of-edinburgh-1993-2026-a-cuban-distillery-32-ar-denmark-exclusive-caribbean-rum-58-8",
       "price_change_7d": null
     },
     {
@@ -52530,32 +52459,6 @@
         }
       ],
       "slug": "rum-nation-magnum-meticho-chocolate-infusion-and-toffee-golden-barrel-rom-450-cl-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Nine Leaves Rum Single Cask# 51 Spanish oak",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646679-Nine-Leaves-Rum-Single-Cask#-51-Spanish-oak.jpg",
-      "type": null,
-      "country": "Japan",
-      "brand": null,
-      "abv": 59.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 2450.0,
-      "cheapest_price": 2450.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 2450.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/nine-leaves-rum-single-cask-51-spanish-oak"
-        }
-      ],
-      "slug": "nine-leaves-rum-single-cask-51-spanish-oak",
       "price_change_7d": null
     },
     {
@@ -55690,32 +55593,6 @@
         }
       ],
       "slug": "velier-foursquare-principia",
-      "price_change_7d": null
-    },
-    {
-      "name": "Plantation Extreme no 01 Trinidad Ping XIII",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=90404470-Plantation-Extreme-no-01-Trinidad-Ping-XIII.jpg",
-      "type": null,
-      "country": "Caribien",
-      "brand": "Plantation",
-      "abv": 56.8,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 12889.0,
-      "cheapest_price": 12889.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 12889.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/plantation-extreme-no-01-trinidad-ping-xiii"
-        }
-      ],
-      "slug": "plantation-extreme-no-01-trinidad-ping-xiii",
       "price_change_7d": null
     },
     {
