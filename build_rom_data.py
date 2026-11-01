@@ -64,27 +64,34 @@ def enrich_missing_data(items, max_enrich=100):
         x.get("abv"), x.get("volume_cl"), x.get("age")
     ] if v is None), reverse=True)
     
-    to_enrich = needs_enrich[:max_enrich]
-    print(f"   🌐 Henter HTML for {len(to_enrich)} produkter (max {max_enrich})...")
+    # Begræns efter unikke URL'er, så dubletter ikke bruger enrichment-kvoten.
+    items_by_url = {}
+    for item in needs_enrich:
+        items_by_url.setdefault(item["url"], []).append(item)
+    to_enrich = list(items_by_url.items())[:max_enrich]
+    print(f"   🌐 Henter HTML for {len(to_enrich)} unikke produktsider (max {max_enrich})...")
     
     cache = {}
     enriched_count = 0
     
-    for i, item in enumerate(to_enrich, 1):
+    for i, (url, targets) in enumerate(to_enrich, 1):
         if i % 20 == 0:
             print(f"      {i}/{len(to_enrich)}...")
         
-        extra = enrich_from_html(item["url"], cache=cache)
-        
-        if extra.get("abv") and item.get("abv") is None:
-            item["abv"] = extra["abv"]
-            enriched_count += 1
-        if extra.get("volume_cl") and item.get("volume_cl") is None:
-            item["volume_cl"] = extra["volume_cl"]
-            enriched_count += 1
-        if extra.get("age") and item.get("age") is None:
-            item["age"] = extra["age"]
-            enriched_count += 1
+        extra = enrich_from_html(url, cache=cache)
+
+        # Samme URL gav før samme cachede resultat til hver vare; behold den
+        # adfærd også når udvælgelsen nu tæller unikke produktsider.
+        for target in targets:
+            if extra.get("abv") and target.get("abv") is None:
+                target["abv"] = extra["abv"]
+                enriched_count += 1
+            if extra.get("volume_cl") and target.get("volume_cl") is None:
+                target["volume_cl"] = extra["volume_cl"]
+                enriched_count += 1
+            if extra.get("age") and target.get("age") is None:
+                target["age"] = extra["age"]
+                enriched_count += 1
     
     print(f"   ✅ HTML enrichment tilføjede data {enriched_count} gange")
 

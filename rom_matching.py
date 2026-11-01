@@ -409,6 +409,11 @@ def _manual_decision(a, b):
     return _MANUAL_PAIRS.get(tuple(sorted((ua, ub))))
 
 
+def _candidate_tokens(product):
+    """Tokens, der er nødvendige for at navnescoren kan nå sin mindste tærskel."""
+    return set(clean_name(product.get("name", "")).split())
+
+
 # HOVED MATCHING FUNKTION
 # ────────────────────────────────────────────────────────────
 
@@ -519,16 +524,51 @@ def group_products(products, verbose=True):
     groups = []
     successful_matches = []
     rejected_matches = []
+    candidate_groups_by_token = {}
+    candidate_groups_by_url = {}
+    candidate_group_checks = 0
+
+    # Manuel sammen/adskilt skal stadig undersøges, også når navnet ikke deler ord.
+    manual_url_neighbors = {}
+    for (url_a, url_b), _decision in _MANUAL_PAIRS.items():
+        if url_a and url_b:
+            manual_url_neighbors.setdefault(url_a, set()).add(url_b)
+            manual_url_neighbors.setdefault(url_b, set()).add(url_a)
+
+    def add_to_candidate_index(group_id, product, tokens=None):
+        if product.get("_solo"):
+            return
+        if tokens is None:
+            tokens = _candidate_tokens(product)
+        for token in tokens:
+            candidate_groups_by_token.setdefault(token, set()).add(group_id)
+        url = product.get("url")
+        if url:
+            candidate_groups_by_url.setdefault(url, set()).add(group_id)
     
     for product in products:
         matched_group = None
+        matched_group_id = None
         best_score = 0
 
         if product.get("_solo"):           # sæt/kalendere: aldrig slået sammen med andre
             groups.append([product])
             continue
-        
-        for group in groups:
+
+        tokens = _candidate_tokens(product)
+        candidate_ids = set()
+        for token in tokens:
+            candidate_ids.update(candidate_groups_by_token.get(token, ()))
+        url = product.get("url")
+        if url:
+            for paired_url in manual_url_neighbors.get(url, ()):
+                candidate_ids.update(candidate_groups_by_url.get(paired_url, ()))
+
+        # Et fuzzy-match kræver mindst ét fælles token. Manuel parring er
+        # tilføjet særskilt ovenfor, så indeks og gamle regler finder samme grupper.
+        for group_id in sorted(candidate_ids):
+            group = groups[group_id]
+            candidate_group_checks += 1
             # Én butik pr. gruppe
             if group[0].get("_solo"):
                 continue
@@ -568,6 +608,7 @@ def group_products(products, verbose=True):
 
             if best_here is not None and best_here["score"] > best_score:
                 matched_group = group
+                matched_group_id = group_id
                 best_score = best_here["score"]
                 successful_matches.append({
                     "a": best_member.get("name"), "shop_a": best_member.get("shop_name"),
@@ -577,8 +618,10 @@ def group_products(products, verbose=True):
 
         if matched_group is not None:
             matched_group.append(product)
+            add_to_candidate_index(matched_group_id, product, tokens)
         else:
             groups.append([product])
+            add_to_candidate_index(len(groups) - 1, product, tokens)
     
     if verbose:
         print(f"\n{'='*70}")
@@ -587,8 +630,9 @@ def group_products(products, verbose=True):
         print(f"   Total produkter: {len(products)}")
         print(f"   Total grupper:   {len(groups)}")
         print(f"   Multi-shop grupper: {sum(1 for g in groups if len(set(p.get('shop_name') for p in g)) > 1)}")
+        print(f"   Kandidatgrupper undersøgt: {candidate_group_checks}")
         print(f"   Vellykkede matches: {len(successful_matches)}")
-        print(f"   Afviste matches (samme brand): {len(rejected_matches)}")
+        print(f"   Afviste kandidatmatches: {len(rejected_matches)}")
         
         if successful_matches:
             print(f"\n✅ VELLYKKEDE MATCHES (top 10):")
@@ -608,6 +652,7 @@ def group_products(products, verbose=True):
         "total_products": len(products),
         "total_groups": len(groups),
         "multi_shop_groups": sum(1 for g in groups if len(set(p.get("shop_name") for p in g)) > 1),
+        "candidate_group_checks": candidate_group_checks,
         "successful_matches": successful_matches,
         "rejected_matches": rejected_matches,
     }

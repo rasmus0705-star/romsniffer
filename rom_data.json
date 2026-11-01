@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-01T16:29:55.080507",
+  "updated": "2026-11-01T18:41:32.720259",
   "stats": {
     "total": 2035,
     "deals": 160,
@@ -122,14 +122,14 @@
       "Reserva"
     ],
     "cheapest": 29.0,
-    "multi_shop": 282,
+    "multi_shop": 281,
     "shop_counts": {
       "Kokkens Vinhus": 259,
       "Spitus": 330,
       "Rombo": 489,
       "Con Maz": 96,
       "Whisky.dk": 676,
-      "Vault of Spirits": 196,
+      "Vault of Spirits": 195,
       "Juuls": 372
     }
   },
@@ -9590,39 +9590,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Chairman’s Reserve Legacy Rum, 43%",
-      "image": "https://www.vaultofspirits.dk/wp-content/uploads/chairmans-reserve-legacy-rum-43-1.avif",
-      "type": null,
-      "country": "Saint Lucia",
-      "brand": "Chairman",
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 2,
-      "min_price": 299.0,
-      "cheapest_price": 299.0,
-      "max_discount_pct": 5.1,
-      "prices": [
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 299.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/moerk/chairmans-reserve-legacy-rum-43/"
-        },
-        {
-          "shop_name": "Spitus",
-          "price": 375.0,
-          "old_price": 395.0,
-          "discount_pct": 5.1,
-          "url": "https://spitus.dk/product/chairmans-reserve-rum-legacy-edition/"
-        }
-      ],
-      "slug": "chairmans-reserve-rum-legacy-edition",
-      "price_change_7d": null
-    },
-    {
       "name": "Emperor Mauritian Rum Heritage",
       "image": "https://spitus.dk/wp-content/uploads/2021/03/emperor-mauritian-rum-heritage-k.jpg",
       "type": "Rhum Agricole",
@@ -11382,7 +11349,7 @@
         }
       ],
       "slug": "ron-cristobal-pinta",
-      "price_change_7d": -60.0
+      "price_change_7d": null
     },
     {
       "name": "Den Gamle Ørn - Extra fin og Gammel",
@@ -17859,6 +17826,32 @@
         }
       ],
       "slug": "ron-millonario-numero-15-reserva-especial",
+      "price_change_7d": null
+    },
+    {
+      "name": "Chairman’s Reserve Rum LEGACY Edition",
+      "image": "https://spitus.dk/wp-content/uploads/2021/03/chairmans-legacy.jpg",
+      "type": "Rhum Agricole",
+      "country": null,
+      "brand": "Chairman",
+      "abv": null,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 375.0,
+      "cheapest_price": 375.0,
+      "max_discount_pct": 5.1,
+      "prices": [
+        {
+          "shop_name": "Spitus",
+          "price": 375.0,
+          "old_price": 395.0,
+          "discount_pct": 5.1,
+          "url": "https://spitus.dk/product/chairmans-reserve-rum-legacy-edition/"
+        }
+      ],
+      "slug": "chairmans-reserve-rum-legacy-edition",
       "price_change_7d": null
     },
     {
@@ -29308,7 +29301,7 @@
         }
       ],
       "slug": "cdi-secrete-jamaica-9-years-old-jwsp1",
-      "price_change_7d": null
+      "price_change_7d": -290.0
     },
     {
       "name": "Chalong Bay Rum",
@@ -29360,7 +29353,7 @@
         }
       ],
       "slug": "ron-don-gustavo-limited-edition-extra-anejo",
-      "price_change_7d": null
+      "price_change_7d": -550.0
     },
     {
       "name": "Venezuela XO 25th Anniversary – Rum Nation",
@@ -36052,7 +36045,7 @@
         }
       ],
       "slug": "24-days-of-rum-green-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
+      "price_change_7d": 65.0
     },
     {
       "name": "24 Days of Rum Blue Edition - Romjulekalender fyldt med 24 stk x 2cl",
@@ -36078,7 +36071,7 @@
         }
       ],
       "slug": "24-days-of-rum-blue-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
+      "price_change_7d": 65.0
     },
     {
       "name": "24 Days of Rum Mocha Edition - Romjulekalender fyldt med 24 stk x 2cl",
@@ -36104,7 +36097,7 @@
         }
       ],
       "slug": "24-days-of-rum-mocha-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
+      "price_change_7d": 65.0
     },
     {
       "name": "Bellamys Reserve Rum Oloroso Cask Finish Barbados Rom 70 cl 44,3%",
@@ -36260,7 +36253,7 @@
         }
       ],
       "slug": "24-days-of-rum-black-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
+      "price_change_7d": 65.0
     },
     {
       "name": "Ron Sostenible 15 år La Isabella Vintage Collection 2008 Dominikanske Republik Rom 46%",
@@ -44775,7 +44768,7 @@
         }
       ],
       "slug": "24-days-of-rum-sbs-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
+      "price_change_7d": 104.0
     },
     {
       "name": "Velier 2024 Rainforest Philippines Pure Single Rom 58%",
@@ -51500,7 +51493,7 @@
         }
       ],
       "slug": "savanna-origine-1870",
-      "price_change_7d": null
+      "price_change_7d": -2030.0
     },
     {
       "name": "Velier SVM Rum 2 bottles MMW Wedderburn 11 years",
