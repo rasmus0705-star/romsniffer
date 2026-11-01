@@ -1,8 +1,8 @@
 {
-  "updated": "2026-10-28T17:54:00.712404",
+  "updated": "2026-11-01T16:29:55.080507",
   "stats": {
-    "total": 2037,
-    "deals": 166,
+    "total": 2035,
+    "deals": 160,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -122,15 +122,15 @@
       "Reserva"
     ],
     "cheapest": 29.0,
-    "multi_shop": 284,
+    "multi_shop": 282,
     "shop_counts": {
       "Kokkens Vinhus": 259,
       "Spitus": 330,
       "Rombo": 489,
-      "Con Maz": 100,
-      "Whisky.dk": 677,
+      "Con Maz": 96,
+      "Whisky.dk": 676,
       "Vault of Spirits": 196,
-      "Juuls": 371
+      "Juuls": 372
     }
   },
   "roms": [
@@ -1160,6 +1160,32 @@
         }
       ],
       "slug": "calados-white-rom",
+      "price_change_7d": null
+    },
+    {
+      "name": "Xaymaca Milk Punch by Kester Thomas",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641383-Xaymaca-Milk-Punch-by-Kester-Thomas.jpg",
+      "type": null,
+      "country": "Dansk",
+      "brand": null,
+      "abv": 21.0,
+      "volume_cl": 50.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 149.0,
+      "cheapest_price": 149.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 149.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/xaymaca-milk-punch-by-kester-thomas"
+        }
+      ],
+      "slug": "plantation-xaymaca-milk-punch-by-kester-thomas-cocktail-50-cl-21",
       "price_change_7d": null
     },
     {
@@ -3163,7 +3189,7 @@
         }
       ],
       "slug": "angostura-tamboo-spiced",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Magnifica Bica do Alambique Cachaca",
@@ -7772,7 +7798,7 @@
         }
       ],
       "slug": "tanduay-matured-dark-10-ars-rom",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Veritas White Barbados og Jamaica Blended Rum",
@@ -8060,7 +8086,7 @@
       "volume_cl": 50.0,
       "age": null,
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 279.0,
       "cheapest_price": 279.0,
       "max_discount_pct": 0,
@@ -8071,16 +8097,9 @@
           "old_price": null,
           "discount_pct": null,
           "url": "https://www.whisky.dk/shop/plantation-xaymaca-milk-21583p.html"
-        },
-        {
-          "shop_name": "Juuls",
-          "price": 319.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/xaymaca-milk-punch-by-kester-thomas"
         }
       ],
-      "slug": "plantation-xaymaca-milk-punch-by-kester-thomas-cocktail-50-cl-21",
+      "slug": "plantation-xaymaca-milk-punch-by-kester-thomas-cocktail-50-cl-21-2",
       "price_change_7d": null
     },
     {
@@ -9024,7 +9043,7 @@
       "type": "Hvid rom",
       "country": "Mauritius",
       "brand": null,
-      "abv": 42.0,
+      "abv": 44.0,
       "volume_cl": 70.0,
       "age": null,
       "category": "rom",
@@ -17255,32 +17274,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Appleton Estate Reserve Blend 8yo",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644355.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644355-Appleton-Estate-Reserve-Blend-8yo.jpg",
-      "type": null,
-      "country": "Jamaica",
-      "brand": "Appleton Estate",
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": "8 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 359.0,
-      "cheapest_price": 359.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 359.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/appleton-estate-reserve-blend-8yo"
-        }
-      ],
-      "slug": "appleton-estate-reserve-blend-8yo",
-      "price_change_7d": null
-    },
-    {
       "name": "Planteray Gran Anejo Guatemala Belize Giftbox",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641072-Planteray-Gran-Anejo-Guatemala-Belize-Giftbox.jpg",
       "type": null,
@@ -17304,6 +17297,32 @@
         }
       ],
       "slug": "planteray-gran-anejo-guatemala-belize-giftbox",
+      "price_change_7d": null
+    },
+    {
+      "name": "Appleton Estate Reserve Blend 8yo",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50644355.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50644355-Appleton-Estate-Reserve-Blend-8yo.jpg",
+      "type": null,
+      "country": "Jamaica",
+      "brand": "Appleton Estate",
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": "8 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 359.0,
+      "cheapest_price": 359.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 359.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/appleton-estate-reserve-blend-8yo"
+        }
+      ],
+      "slug": "appleton-estate-reserve-blend-8yo",
       "price_change_7d": null
     },
     {
@@ -17866,7 +17885,7 @@
         }
       ],
       "slug": "autentico-nativo-overproof-rum",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Clément VSOP Rhum Agricole Rom",
@@ -18965,6 +18984,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Planteray OFTD",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50641024.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50641024-Planteray-OFTD.jpg",
+      "type": null,
+      "country": "Caribien",
+      "brand": null,
+      "abv": 69.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 389.0,
+      "cheapest_price": 389.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 389.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/planteray-oftd"
+        }
+      ],
+      "slug": "planteray-oftd",
+      "price_change_7d": null
+    },
+    {
       "name": "Montebello Rhum Vieux 8 ans Winch",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50620740.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50620740-Montebello-Rhum-Vieux-8-ans-Winch.jpg",
       "type": "Rhum Agricole",
@@ -19170,7 +19215,7 @@
         }
       ],
       "slug": "romdeluxe-no-3-white-rum-jamaica-st-catherine",
-      "price_change_7d": null
+      "price_change_7d": 70.0
     },
     {
       "name": "Romdeluxe Selected Series Rum Dominican Republic",
@@ -20638,7 +20683,7 @@
         }
       ],
       "slug": "ron-cueva-1501-sistema-12-panama-40",
-      "price_change_7d": null
+      "price_change_7d": 50.0
     },
     {
       "name": "Ron Espero XO Extra Anejo Limitada Rom",
@@ -20893,58 +20938,6 @@
         }
       ],
       "slug": "don-q-blenders-reserve-rum",
-      "price_change_7d": null
-    },
-    {
-      "name": "Fadandel fra Colombia-tønden, 46 %",
-      "image": "https://conmaz.dk/wp-content/uploads/2025/09/IMG_9674-scaled.jpg",
-      "type": null,
-      "country": "Venezuela",
-      "brand": null,
-      "abv": 46.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 399.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/fadandel-fra-colombia-toenden-46/"
-        }
-      ],
-      "slug": "fadandel-fra-colombia-tonden-46",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Puntacana Club Esplendido",
-      "image": "https://conmaz.dk/wp-content/uploads/2022/12/PC04-1-scaled.jpg",
-      "type": "Spiced",
-      "country": "Dominikansk",
-      "brand": null,
-      "abv": 38.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 20.0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 399.0,
-          "old_price": 499.0,
-          "discount_pct": 20.0,
-          "url": "https://conmaz.dk/puntacana-club-esplendido-v-s-38/"
-        }
-      ],
-      "slug": "ron-puntacana-club-esplendido",
       "price_change_7d": null
     },
     {
@@ -24333,7 +24326,7 @@
         }
       ],
       "slug": "a1710-la-perle-brute-66-millesime-2021-rom",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Angostura 1824 Premium Rom",
@@ -26322,7 +26315,7 @@
         }
       ],
       "slug": "hampden-estate-1753-pure-single-jamaican-rum",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Kaniche Artisanal Rum XO Double Wood",
@@ -27862,7 +27855,7 @@
         }
       ],
       "slug": "rammstein-rum-sauternes-cask-finish",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Rombo Exclusive Cask Rum Australia KLK Virgin Oak",
@@ -29292,6 +29285,32 @@
       "price_change_7d": null
     },
     {
+      "name": "CDI Secrete Jamaica 9 Years Old JWSP1",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640912.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640912-CDI-Secrete-Jamaica-9-Years-Old-JWSP1.jpg",
+      "type": null,
+      "country": "Jamaica",
+      "brand": "CDI",
+      "abv": 53.5,
+      "volume_cl": 70.0,
+      "age": "9 år",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/cdi-secrete-jamaica-9-years-old-jwsp1"
+        }
+      ],
+      "slug": "cdi-secrete-jamaica-9-years-old-jwsp1",
+      "price_change_7d": null
+    },
+    {
       "name": "Chalong Bay Rum",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643180.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643180-Chalong-Bay-Rum.jpg",
       "type": null,
@@ -29315,6 +29334,32 @@
         }
       ],
       "slug": "chalong-bay-rum",
+      "price_change_7d": null
+    },
+    {
+      "name": "Ron Don Gustavo Limited Edition Extra Anejo",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643462.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643462-Ron-Don-Gustavo-Limited-Edition-Extra-Anejo.jpg",
+      "type": null,
+      "country": "Paraguay",
+      "brand": null,
+      "abv": 40.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 499.0,
+      "cheapest_price": 499.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 499.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/ron-don-gustavo-limited-edition-extra-anejo"
+        }
+      ],
+      "slug": "ron-don-gustavo-limited-edition-extra-anejo",
       "price_change_7d": null
     },
     {
@@ -29977,32 +30022,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Clairin SonSon Haiti",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50625342.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50625342-Clairin-SonSon-Haiti.jpg",
-      "type": null,
-      "country": "Haiti",
-      "brand": null,
-      "abv": 49.4,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 529.0,
-      "cheapest_price": 529.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 529.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/clairin-sonson-haiti-4"
-        }
-      ],
-      "slug": "clairin-sonson-haiti",
-      "price_change_7d": null
-    },
-    {
       "name": "Clairin Vaval Haiti Batch #10",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50625230.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50625230-Clairin-Vaval-Haiti-Batch-#10.jpg",
       "type": null,
@@ -30078,6 +30097,32 @@
         }
       ],
       "slug": "clairin-sonson-haiti-2",
+      "price_change_7d": null
+    },
+    {
+      "name": "Clairin SonSon Haiti",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50625342.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50625342-Clairin-SonSon-Haiti.jpg",
+      "type": null,
+      "country": "Haiti",
+      "brand": null,
+      "abv": 49.4,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 529.0,
+      "cheapest_price": 529.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 529.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/clairin-sonson-haiti-4"
+        }
+      ],
+      "slug": "clairin-sonson-haiti",
       "price_change_7d": null
     },
     {
@@ -30811,32 +30856,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Fadandel fra Colombia-tønden (fadstyrke)",
-      "image": "https://conmaz.dk/wp-content/uploads/2025/09/IMG_9674-scaled.jpg",
-      "type": null,
-      "country": "Venezuela",
-      "brand": null,
-      "abv": 46.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 549.0,
-      "cheapest_price": 549.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Con Maz",
-          "price": 549.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/fadandel-fra-colombia-toenden-fadstyrke/"
-        }
-      ],
-      "slug": "fadandel-fra-colombia-tonden-fadstyrke",
-      "price_change_7d": null
-    },
-    {
       "name": "Spirits of Christmas Calendar fra A Clean Spirit - Romjulekalender fyldt med 24 stk x 2cl",
       "image": "https://whisky.gumlet.io/images/Spirit of Christmas fra A Clean Spirit-t.webp",
       "type": "Spiced",
@@ -31458,7 +31477,7 @@
         }
       ],
       "slug": "24-x-magiske-rom-julekalender",
-      "price_change_7d": null
+      "price_change_7d": -50.0
     },
     {
       "name": "Pusser’s Rum British Navy 15 års 40%",
@@ -31907,7 +31926,7 @@
       "volume_cl": 70.0,
       "age": "21 år",
       "category": "rom",
-      "shop_count": 2,
+      "shop_count": 1,
       "min_price": 579.0,
       "cheapest_price": 579.0,
       "max_discount_pct": 10.8,
@@ -31918,13 +31937,6 @@
           "old_price": 649.0,
           "discount_pct": 10.8,
           "url": "https://spitus.dk/product/opthimus-21-anos-magna-cum-laude/"
-        },
-        {
-          "shop_name": "Con Maz",
-          "price": 749.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://conmaz.dk/opthimus-rum-21-magna-cum-laude/"
         }
       ],
       "slug": "opthimus-21-anos-magna-cum-laude",
@@ -32032,110 +32044,6 @@
         }
       ],
       "slug": "el-amparo-ron-equatorial",
-      "price_change_7d": null
-    },
-    {
-      "name": "24 Days of Rum Green Edition - Romjulekalender fyldt med 24 stk x 2cl",
-      "image": "https://whisky.gumlet.io/images/24-Days-of-Rum_Green-edition-t.webp",
-      "type": "Rhum Agricole",
-      "country": "Dansk",
-      "brand": null,
-      "abv": 43.7,
-      "volume_cl": 48.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 584.1,
-      "cheapest_price": 584.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 584.1,
-          "old_price": 649.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/24-days-of-23735p.html"
-        }
-      ],
-      "slug": "24-days-of-rum-green-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
-    },
-    {
-      "name": "24 Days of Rum Blue Edition - Romjulekalender fyldt med 24 stk x 2cl",
-      "image": "https://whisky.gumlet.io/images/24 Days of Rum Blue Edition - Romjulekalender fyldt med 24 stk x 2cl-t.webp",
-      "type": "Spiced",
-      "country": "Dansk",
-      "brand": null,
-      "abv": 42.5,
-      "volume_cl": 48.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 584.1,
-      "cheapest_price": 584.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 584.1,
-          "old_price": 649.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/24-days-of-23719p.html"
-        }
-      ],
-      "slug": "24-days-of-rum-blue-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
-    },
-    {
-      "name": "24 Days of Rum Mocha Edition - Romjulekalender fyldt med 24 stk x 2cl",
-      "image": "https://whisky.gumlet.io/images/24_days_of_rum_julekalender_mocha_edition-t.webp",
-      "type": "Spiced",
-      "country": "Flere lande",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 2.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 584.1,
-      "cheapest_price": 584.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 584.1,
-          "old_price": 649.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/24-days-of-22651p.html"
-        }
-      ],
-      "slug": "24-days-of-rum-mocha-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
-      "price_change_7d": null
-    },
-    {
-      "name": "24 Days of Rum Black Edition - Romjulekalender fyldt med 24 stk x 2cl",
-      "image": "https://whisky.gumlet.io/images/24-Days-of-Rum_Black-edition-t.webp",
-      "type": "Rhum Agricole",
-      "country": "Flere lande",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 2.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 584.1,
-      "cheapest_price": 584.1,
-      "max_discount_pct": 10.0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 584.1,
-          "old_price": 649.0,
-          "discount_pct": 10.0,
-          "url": "https://www.whisky.dk/shop/24-days-of-21365p.html"
-        }
-      ],
-      "slug": "24-days-of-rum-black-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
       "price_change_7d": null
     },
     {
@@ -32360,7 +32268,7 @@
         }
       ],
       "slug": "romdeluxe-dominican-republic-new-make-rom-batch-1",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "Romdeluxe Guadeloupe Red Cane New Make Rom",
@@ -36121,6 +36029,84 @@
       "price_change_7d": null
     },
     {
+      "name": "24 Days of Rum Green Edition - Romjulekalender fyldt med 24 stk x 2cl",
+      "image": "https://whisky.gumlet.io/images/24-Days-of-Rum_Green-edition-t.webp",
+      "type": "Rhum Agricole",
+      "country": "Dansk",
+      "brand": null,
+      "abv": 43.7,
+      "volume_cl": 48.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/24-days-of-23735p.html"
+        }
+      ],
+      "slug": "24-days-of-rum-green-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
+      "price_change_7d": null
+    },
+    {
+      "name": "24 Days of Rum Blue Edition - Romjulekalender fyldt med 24 stk x 2cl",
+      "image": "https://whisky.gumlet.io/images/24 Days of Rum Blue Edition - Romjulekalender fyldt med 24 stk x 2cl-t.webp",
+      "type": "Spiced",
+      "country": "Dansk",
+      "brand": null,
+      "abv": 42.5,
+      "volume_cl": 48.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/24-days-of-23719p.html"
+        }
+      ],
+      "slug": "24-days-of-rum-blue-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
+      "price_change_7d": null
+    },
+    {
+      "name": "24 Days of Rum Mocha Edition - Romjulekalender fyldt med 24 stk x 2cl",
+      "image": "https://whisky.gumlet.io/images/24_days_of_rum_julekalender_mocha_edition-t.webp",
+      "type": "Spiced",
+      "country": "Flere lande",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 2.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/24-days-of-22651p.html"
+        }
+      ],
+      "slug": "24-days-of-rum-mocha-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
+      "price_change_7d": null
+    },
+    {
       "name": "Bellamys Reserve Rum Oloroso Cask Finish Barbados Rom 70 cl 44,3%",
       "image": "https://whisky.gumlet.io/images/Bellamys Reserve Rum Oloroso Cask Finish Barbados Rom 70 cl 44_3_abv-t.webp",
       "type": null,
@@ -36248,6 +36234,32 @@
         }
       ],
       "slug": "ron-dos-mares-2008-vintage-limited-edition-16-ar-panama-rom-70-cl-44-7",
+      "price_change_7d": null
+    },
+    {
+      "name": "24 Days of Rum Black Edition - Romjulekalender fyldt med 24 stk x 2cl",
+      "image": "https://whisky.gumlet.io/images/24-Days-of-Rum_Black-edition-t.webp",
+      "type": "Rhum Agricole",
+      "country": "Flere lande",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 2.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 649.0,
+      "cheapest_price": 649.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 649.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/24-days-of-21365p.html"
+        }
+      ],
+      "slug": "24-days-of-rum-black-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
       "price_change_7d": null
     },
     {
@@ -39369,7 +39381,7 @@
         }
       ],
       "slug": "opthimus-25-ar-solera-rom-oporto-finish",
-      "price_change_7d": null
+      "price_change_7d": 74.0
     },
     {
       "name": "SBS Jamaica 2016 WPL rom (bottled for Belgium/France)",
@@ -39710,32 +39722,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Magnifica Reserva Soleira Cachaca",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646843.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646843-Magnifica-Reserva-Soleira-Cachaca.jpg",
-      "type": "Cachaça",
-      "country": "Brasilien",
-      "brand": null,
-      "abv": 43.0,
-      "volume_cl": 70.0,
-      "age": "Reserva",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 759.0,
-      "cheapest_price": 759.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 759.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/magnifica-reserva-soleira-cachaca"
-        }
-      ],
-      "slug": "magnifica-reserva-soleira-cachaca",
-      "price_change_7d": null
-    },
-    {
       "name": "Black Tot Historic Solera Rum",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50642253.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50642253-Black-Tot-Historic-Solera-Rum.jpg",
       "type": "Aged rom",
@@ -39759,6 +39745,32 @@
         }
       ],
       "slug": "black-tot-historic-solera-rum",
+      "price_change_7d": null
+    },
+    {
+      "name": "Magnifica Reserva Soleira Cachaca",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50646843.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50646843-Magnifica-Reserva-Soleira-Cachaca.jpg",
+      "type": "Cachaça",
+      "country": "Brasilien",
+      "brand": null,
+      "abv": 43.0,
+      "volume_cl": 70.0,
+      "age": "Reserva",
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 759.0,
+      "cheapest_price": 759.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 759.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/magnifica-reserva-soleira-cachaca"
+        }
+      ],
+      "slug": "magnifica-reserva-soleira-cachaca",
       "price_change_7d": null
     },
     {
@@ -39967,32 +39979,6 @@
         }
       ],
       "slug": "rhum-jm-tres-vieux-rhum-agricole-xo",
-      "price_change_7d": null
-    },
-    {
-      "name": "CDI Secrete Jamaica 9 Years Old JWSP1",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50640912.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50640912-CDI-Secrete-Jamaica-9-Years-Old-JWSP1.jpg",
-      "type": null,
-      "country": "Jamaica",
-      "brand": "CDI",
-      "abv": 53.5,
-      "volume_cl": 70.0,
-      "age": "9 år",
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 789.0,
-      "cheapest_price": 789.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 789.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/cdi-secrete-jamaica-9-years-old-jwsp1"
-        }
-      ],
-      "slug": "cdi-secrete-jamaica-9-years-old-jwsp1",
       "price_change_7d": null
     },
     {
@@ -40664,7 +40650,7 @@
         }
       ],
       "slug": "ron-cueva-sueno-del-chagres-25-panama-rom",
-      "price_change_7d": null
+      "price_change_7d": 100.0
     },
     {
       "name": "SBS Barbados 2013 Bourbon & Amontillado rom",
@@ -41454,6 +41440,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Gelas Panama Old Ron 18y",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50631100.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50631100-Gelas-Panama-Old-Ron-18y.jpg",
+      "type": null,
+      "country": "Panama",
+      "brand": null,
+      "abv": 46.3,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 839.0,
+      "cheapest_price": 839.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 839.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/gelas-panama-old-ron-18y"
+        }
+      ],
+      "slug": "gelas-panama-old-ron-18y",
+      "price_change_7d": null
+    },
+    {
       "name": "Ærø Single cask Rum cask no.2 2021",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Images/juuls/defaultbottle.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50647140-Ærø-Single-cask-Rum-cask-no.2-2021.jpg",
       "type": null,
@@ -41503,32 +41515,6 @@
         }
       ],
       "slug": "cdi-port-mourant-guyana-9-years-old-gddd34",
-      "price_change_7d": null
-    },
-    {
-      "name": "Gelas Panama Old Ron 18y",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50631100.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50631100-Gelas-Panama-Old-Ron-18y.jpg",
-      "type": null,
-      "country": "Panama",
-      "brand": null,
-      "abv": 46.3,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 839.0,
-      "cheapest_price": 839.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 839.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/gelas-panama-old-ron-18y"
-        }
-      ],
-      "slug": "gelas-panama-old-ron-18y",
       "price_change_7d": null
     },
     {
@@ -42382,32 +42368,6 @@
         }
       ],
       "slug": "sbs-barbados-2013-2025-single-barrel-selection-12-ar-bourbon-og-moscatel-cask-rom-70-cl-52",
-      "price_change_7d": null
-    },
-    {
-      "name": "24 Days of Rum SBS Edition - Romjulekalender fyldt med 24 stk x 2cl",
-      "image": "https://whisky.gumlet.io/images/24-Days-of-Rum_SBS-edition-t.webp",
-      "type": "Spiced",
-      "country": "Flere lande",
-      "brand": null,
-      "abv": null,
-      "volume_cl": 2.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 895.0,
-      "cheapest_price": 895.0,
-      "max_discount_pct": 10.4,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 895.0,
-          "old_price": 999.0,
-          "discount_pct": 10.4,
-          "url": "https://www.whisky.dk/shop/24-days-of-23720p.html"
-        }
-      ],
-      "slug": "24-days-of-rum-sbs-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
       "price_change_7d": null
     },
     {
@@ -43606,7 +43566,7 @@
         }
       ],
       "slug": "romdeluxe-wild-series-rum-no-62-barbados",
-      "price_change_7d": null
+      "price_change_7d": 150.0
     },
     {
       "name": "Romdeluxe Wild Series Rum No. 63 Martinique",
@@ -44359,7 +44319,7 @@
         }
       ],
       "slug": "brugal-maestro-reserva-rom",
-      "price_change_7d": null
+      "price_change_7d": -200.0
     },
     {
       "name": "SBS 2026 Romjulekalender 24 Days of Rum",
@@ -44789,6 +44749,32 @@
         }
       ],
       "slug": "alfreds-trail-10-6-trinidad-rum-malt-whisky-cask-finish",
+      "price_change_7d": null
+    },
+    {
+      "name": "24 Days of Rum SBS Edition - Romjulekalender fyldt med 24 stk x 2cl",
+      "image": "https://whisky.gumlet.io/images/24-Days-of-Rum_SBS-edition-t.webp",
+      "type": "Spiced",
+      "country": "Flere lande",
+      "brand": null,
+      "abv": null,
+      "volume_cl": 2.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 999.0,
+      "cheapest_price": 999.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Whisky.dk",
+          "price": 999.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.whisky.dk/shop/24-days-of-23720p.html"
+        }
+      ],
+      "slug": "24-days-of-rum-sbs-edition-romjulekalender-fyldt-med-24-stk-x-2cl",
       "price_change_7d": null
     },
     {
@@ -45283,7 +45269,7 @@
         }
       ],
       "slug": "24-days-of-rum-calendar-sbs-edition",
-      "price_change_7d": null
+      "price_change_7d": -100.0
     },
     {
       "name": "Belize 2007 Rum 15yo Single Cask 55%,Bellamy’s Reserve",
@@ -45661,32 +45647,6 @@
         }
       ],
       "slug": "savanna-romhatten-single-cask",
-      "price_change_7d": null
-    },
-    {
-      "name": "Ron Don Gustavo Limited Edition Extra Anejo",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643462.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643462-Ron-Don-Gustavo-Limited-Edition-Extra-Anejo.jpg",
-      "type": null,
-      "country": "Paraguay",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 1049.0,
-      "cheapest_price": 1049.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 1049.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/ron-don-gustavo-limited-edition-extra-anejo"
-        }
-      ],
-      "slug": "ron-don-gustavo-limited-edition-extra-anejo",
       "price_change_7d": null
     },
     {
@@ -51517,6 +51477,32 @@
       "price_change_7d": null
     },
     {
+      "name": "Savanna ORIGINE 1870",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50615484.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50615484-Savanna-ORIGINE-1870.jpg",
+      "type": null,
+      "country": "Réunion",
+      "brand": null,
+      "abv": 50.0,
+      "volume_cl": 70.0,
+      "age": null,
+      "category": "rom",
+      "shop_count": 1,
+      "min_price": 1999.0,
+      "cheapest_price": 1999.0,
+      "max_discount_pct": 0,
+      "prices": [
+        {
+          "shop_name": "Juuls",
+          "price": 1999.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.juuls.dk/rom/varekort/savanna-origine-1870"
+        }
+      ],
+      "slug": "savanna-origine-1870",
+      "price_change_7d": null
+    },
+    {
       "name": "Velier SVM Rum 2 bottles MMW Wedderburn 11 years",
       "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50643704.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50643704-Velier-SVM-Rum-2-bottles-MMW-Wedderburn-11-years.jpg",
       "type": null,
@@ -53306,32 +53292,6 @@
       "price_change_7d": null
     },
     {
-      "name": "RomDeLuxe Wild Series Rum #34 Diamond MEE Magnum Single Cask Rom 150 cl 59,8%",
-      "image": "https://whisky.gumlet.io/images/RomDeLuxe-Wild-Series-Rum-34-Diamond-MEE-Magnum-Single-Cask-Rom-150-cl-59_8-alc-t.webp",
-      "type": null,
-      "country": "Guyana",
-      "brand": null,
-      "abv": 59.8,
-      "volume_cl": 150.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 2999.0,
-      "cheapest_price": 2999.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Whisky.dk",
-          "price": 2999.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.whisky.dk/shop/romdeluxe-wild-series-20487p.html"
-        }
-      ],
-      "slug": "romdeluxe-wild-series-rum-34-diamond-mee-magnum-single-cask-rom-150-cl-59-8",
-      "price_change_7d": null
-    },
-    {
       "name": "RomDeLuxe Wild Series Rum #30 Trinidad Single Cask Rom 70 cl 59,9%",
       "image": "https://whisky.gumlet.io/images/RomDeLuxe Wild Series Rum No. 30 Trinidad 70 cl Rum 59,9-alc-t.jpg",
       "type": null,
@@ -54558,32 +54518,6 @@
         }
       ],
       "slug": "tdsc-colombian-rum-30yo-juuls-single-cask-2017",
-      "price_change_7d": null
-    },
-    {
-      "name": "Savanna ORIGINE 1870",
-      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50615484.jpg&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50615484-Savanna-ORIGINE-1870.jpg",
-      "type": null,
-      "country": "Réunion",
-      "brand": null,
-      "abv": 50.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 4029.0,
-      "cheapest_price": 4029.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Juuls",
-          "price": 4029.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.juuls.dk/rom/varekort/savanna-origine-1870"
-        }
-      ],
-      "slug": "savanna-origine-1870",
       "price_change_7d": null
     },
     {
