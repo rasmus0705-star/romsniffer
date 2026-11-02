@@ -20,6 +20,10 @@ def _type(name):
                           ("blended", "Blended whisky")):
         if needle in n:
             return label
+    # These names are single-malt distilleries/brands even when retailers omit
+    # the style from the product title.
+    if re.search(r"\b(?:balvenie|port askaig|macallan|glenfiddich|glenlivet|laphroaig|lagavulin|ardbeg|talisker|highland park|oban|bunnahabhain|bowmore|caol ila|dalmore|glenmorangie|arran|jura|benriach|glenallachie|kilchoman|springbank)\b", n):
+        return "Single malt"
     bourbon_cask = re.search(r"\b(?:ex[- ]?)?bourbon\s+(?:cask|barrel|wood|finish|matured|maturation)\b", n)
     if "bourbon" in n and not bourbon_cask:
         return "Bourbon"
@@ -101,11 +105,6 @@ def _render(source, catalog):
     }
     for old, new in replacements.items():
         html = html.replace(old, new)
-
-    html = html.replace(
-        '<a href="/rom/" class="active" aria-current="page">Rom</a>',
-        '<a href="/whisky/" class="active" aria-current="page">Whisky</a>',
-    )
 
     # Every relative link in the root navigation must remain rooted from /whisky/.
     for page in ("premium.html", "guide.html", "om.html"):

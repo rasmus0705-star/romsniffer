@@ -307,3 +307,28 @@ select, input[type=text], input[type=search] { border-radius: 2px !important; }
   body.sidebar-open { touch-action: auto; }
 }
 /* laesbarhed: kraftigere tekstfarver og lidt stoerre smaaskrift (samme udtryk, ingen layoutaendringer) */ :root{--text-muted:#cfc6b6;--text-dim:#b3a898} .price-row-old,.top-card-old,.fund-old{opacity:1!important;color:var(--text-dim)!important;text-decoration-color:#d7cfc0!important;text-decoration-thickness:1.5px} .price-row-old{font-size:.88rem!important} .top-card-old{font-size:.8rem!important} .transparency-badge{opacity:1!important;color:var(--text-muted)!important;font-size:.7rem!important;letter-spacing:.06em!important} .price-row-ppl{font-size:.72rem!important} .price-row-shop,.card-brand,.top-card-shop,.cat-bar-label{font-size:.7rem!important} .price-row-link,.top-card-link,.more-shops-toggle,.cat-chip,.qbtn,.stat-lbl{font-size:.7rem!important} .price-row-disc,.price-row-save,.price-drop-badge,.discount-badge,.top-card-pct,.fund-saving{font-size:.74rem!important} .nav-updated,.nav-links a,.fund-sub,.top-deals-see-all,footer a,.footer-copy,footer p{font-size:.76rem!important} .card-tag{font-size:.74rem!important}
+
+/* Compact category listings: keep the hero in normal flow, independent of the
+   much larger chooser hero, and make selected quick filters unambiguous. */
+body[data-cat="rom"] .hero,
+body[data-cat="whisky"] .hero { position: relative !important; top: auto !important; z-index: 2 !important; }
+body[data-cat="rom"] .hero-inner,
+body[data-cat="whisky"] .hero-inner { max-width: 1120px !important; padding: .8rem 1.2rem .7rem !important; }
+body[data-cat="rom"] .hero-title,
+body[data-cat="whisky"] .hero-title { font-size: clamp(1.45rem, 3vw, 2.2rem) !important; line-height: 1.12 !important; }
+body[data-cat="rom"] .hero-sub,
+body[data-cat="whisky"] .hero-sub { margin-top: .35rem !important; margin-bottom: .55rem !important; }
+body[data-cat="rom"] .hero-search-wrap,
+body[data-cat="whisky"] .hero-search-wrap { margin-bottom: .45rem !important; }
+body[data-cat="rom"] .qbtn:hover,
+body[data-cat="whisky"] .qbtn:hover { background: rgba(201,168,76,.08) !important; color: var(--gold-light) !important; transform: none !important; }
+body[data-cat="rom"] .qbtn.active,
+body[data-cat="whisky"] .qbtn.active { background: var(--gold) !important; border-color: var(--gold) !important; color: #0a0806 !important; box-shadow: 0 0 0 2px rgba(201,168,76,.2) !important; font-weight: 700 !important; }
+@media (max-width: 640px) {
+  body[data-cat="rom"] .hero-inner,
+  body[data-cat="whisky"] .hero-inner { padding: .7rem .8rem .6rem !important; }
+  body[data-cat="rom"] .hero-title,
+  body[data-cat="whisky"] .hero-title { font-size: 1.45rem !important; }
+  body[data-cat="rom"] .hero-sub,
+  body[data-cat="whisky"] .hero-sub { margin-top: .25rem !important; margin-bottom: .4rem !important; }
+}

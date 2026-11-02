@@ -25,7 +25,7 @@
 <style>
     :root {
         --nav-sticky-height: 68px;
-        --hero-sticky-height: 180px;
+        --hero-sticky-height: 0px;
         --mobile-filter-sticky-height: 0px;
         --bg: #0a0604;
         --surface: #1a0f08;
@@ -165,9 +165,8 @@
 
     /* ── HERO ── */
     .hero {
-        position: sticky;
-        top: var(--nav-sticky-height);
-        z-index: 150;
+        position: relative;
+        z-index: 2;
         padding: 0.55rem 2rem 0.6rem;
         border-bottom: 1px solid var(--border);
         background: rgba(10,6,4,0.97);
@@ -1151,7 +1150,7 @@
         }
         .mobile-filter-count { background: rgba(0,0,0,0.35); padding: 1px 8px; border-radius: 10px; font-size: 0.7rem; }
         .footer-main { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-        :root { --nav-sticky-height: 68px; --hero-sticky-height: 180px; --mobile-filter-sticky-height: 52px; }
+        :root { --nav-sticky-height: 68px; --hero-sticky-height: 0px; --mobile-filter-sticky-height: 52px; }
         .hero { padding: 0.5rem 0.8rem 0.55rem; }
         .hero-inner { grid-template-columns: 1fr; gap: 0; }
         .hero-left { text-align: center; }
@@ -1198,7 +1197,7 @@
         .spotlight-price-row { padding: 0.2rem 0; font-size: 0.72rem; }
         .spotlight-cta { padding: 0.45rem; font-size: 0.75rem; }
         .spotlight-savings { padding: 0.3rem 0.5rem; font-size: 0.7rem; }
-        :root { --nav-sticky-height: 61px; --hero-sticky-height: 158px; --mobile-filter-sticky-height: 52px; }
+        :root { --nav-sticky-height: 61px; --hero-sticky-height: 0px; --mobile-filter-sticky-height: 52px; }
         .hero { padding: 0.42rem 0.7rem 0.48rem; }
         .hero-title { font-size: 1.15rem; }
         .hero-sub { font-size: 0.68rem; margin-bottom: 0.35rem; }
@@ -1206,7 +1205,7 @@
         .hero-search-input { padding: 0.48rem 0.85rem 0.48rem 2.8rem; font-size: 0.82rem; }
         .quick-bar { padding-bottom: 0; gap: 0.28rem; }
         .qbtn { padding: 0.25rem 0.58rem; min-height: 27px; font-size: 0.67rem; }
-        .mobile-filter-toggle { top: calc(var(--nav-sticky-height) + var(--hero-sticky-height)); }
+        .mobile-filter-toggle { top: var(--nav-sticky-height); }
         .sort-bar { top: calc(var(--nav-sticky-height) + var(--hero-sticky-height) + var(--mobile-filter-sticky-height)); scroll-margin-top: calc(var(--nav-sticky-height) + var(--hero-sticky-height) + var(--mobile-filter-sticky-height) + 8px); }
     }
 
@@ -1247,8 +1246,8 @@
     .card-brand:hover { color: var(--copper-light); text-decoration: underline; }
 
 </style>
-<script>const DATA_VERSION = 'a3ed04ae5c1c';</script>
-<link rel="stylesheet" href="/theme.css?v=mobile-filter-5">
+<script>const DATA_VERSION = '02816d60cdc5';</script>
+<link rel="stylesheet" href="/theme.css?v=category-compact-6">
 <script src="/theme.js?v=menu-category-3"></script>
 </head>
 <body data-cat="whisky">
@@ -1259,8 +1258,6 @@
 <nav>
     <a href="/" class="nav-logo" aria-label="RomSniffer — forside"><span>RomSniffer</span></a>
     <div class="nav-links">
-        <a href="/whisky/" class="active" aria-current="page">Whisky</a>
-        <a href="/whisky/">Whisky</a>
         <a href="/om.html">Om</a>
     </div>
     <div class="nav-updated" id="nav-updated"></div>
@@ -1328,14 +1325,10 @@
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-title">Hurtige filtre</div>
+            <div class="sidebar-title">Visning</div>
             <div class="sidebar-filter-btns">
                 <button class="sidebar-filter-btn active" data-filter="all">Al whisky</button>
-                <button class="sidebar-filter-btn" data-filter="multi">I flere butikker</button>
-                <button class="sidebar-filter-btn" data-filter="deals">Tilbud</button>
                 <button class="sidebar-filter-btn" data-filter="favs">Favoritter <span id="fav-count"></span></button>
-                <button class="sidebar-filter-btn" data-filter="hverdagsrom">Hverdagswhisky (under 500 kr)</button>
-                <button class="sidebar-filter-btn" data-filter="premium">Over 1.500 kr</button>
             </div>
         </div>
 
@@ -1594,6 +1587,7 @@ function ageVal(r) {
 }
 
 function esc(s) { return (s || '').replace(/'/g, ' ').replace(/"/g, ' '); }
+function fmtDiscount(value) { return Math.round(Number(value) || 0).toLocaleString('da-DK') + ' %'; }
 
 // flagFor() replaced by flagImg()
 
@@ -1756,7 +1750,7 @@ function makeCard(r, delay) {
     const cardClasses = ['card', hasDeal ? 'has-deal' : '', isMulti ? 'multi-shop' : ''].filter(Boolean).join(' ');
 
     let html = `<div class="${cardClasses}" style="animation-delay:${delay}s" role="listitem">`;
-    if (hasDeal) html += `<div class="discount-badge">−${r.max_discount_pct}%</div>`;
+    if (hasDeal) html += `<div class="discount-badge">−${fmtDiscount(r.max_discount_pct)}</div>`;
     html += `<button class="fav-btn ${isFav ? 'active' : ''}"
                 aria-label="${isFav ? 'Fjern fra favoritter' : 'Tilføj til favoritter'}: ${esc(RS.clean(r.name))}"
                 onclick="toggleFav('${esc(r.name)}',this)">
@@ -1786,7 +1780,7 @@ function makeCard(r, delay) {
     html += `<div class="price-row cheapest${hasDeal ? ' has-discount' : ''}">
         <div class="price-row-header">
             <span class="price-row-shop">✓ ${cheapest.shop_name}</span>
-            ${cheapest.discount_pct ? `<span class="price-row-disc">−${cheapest.discount_pct}%</span>` : ''}
+            ${cheapest.discount_pct ? `<span class="price-row-disc">−${fmtDiscount(cheapest.discount_pct)}</span>` : ''}
         </div>
         <div class="price-row-main">
             <div class="price-row-left">
@@ -1816,7 +1810,7 @@ function makeCard(r, delay) {
             html += `<div class="price-row${p.discount_pct ? ' has-discount' : ''}">
                 <div class="price-row-header">
                     <span class="price-row-shop">${p.shop_name}</span>
-                    ${p.discount_pct ? `<span class="price-row-disc">−${p.discount_pct}%</span>` : ''}
+                    ${p.discount_pct ? `<span class="price-row-disc">−${fmtDiscount(p.discount_pct)}</span>` : ''}
                 </div>
                 <div class="price-row-main">
                     <div class="price-row-left">
@@ -2021,7 +2015,7 @@ function showSpotlight() {
             savingsEl.innerHTML = `Spar <strong>${savings.toFixed(0)} kr</strong> (${pct}%) vs dyreste`;
             savingsEl.style.display = 'block';
         } else if (rom.max_discount_pct > 0) {
-            savingsEl.innerHTML = `<strong>−${rom.max_discount_pct}%</strong> rabat`;
+            savingsEl.innerHTML = `<strong>−${fmtDiscount(rom.max_discount_pct)}</strong> rabat`;
             savingsEl.style.display = 'block';
         } else {
             savingsEl.style.display = 'none';
