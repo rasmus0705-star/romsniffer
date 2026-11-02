@@ -27,6 +27,8 @@ from generate_sitemap import main as generate_sitemap
 from generate_category_pages import main as generate_category_pages
 from generate_brand_pages import main as generate_brand_pages
 from stamp_data_version import main as stamp_data_version
+from build_whisky_pilot import main as build_whisky_data
+from generate_whisky_pages import main as generate_whisky_page
 
 
 
@@ -399,6 +401,14 @@ def main():
     # ── Gener brand-sider ──
     generate_brand_pages()
 
+    # ── Hent whiskytilbud og generér den separate whisky-side ──
+    try:
+        build_whisky_data([])
+        generate_whisky_page()
+    except (Exception, SystemExit) as e:
+        print(f"⚠️  Whisky-siden blev ikke opdateret denne gang: {e}")
+        print("   Rom-opdateringen fortsætter; den seneste genererede whisky-side bevares.")
+
     # ── Gener sitemap.xml ──
     generate_sitemap()
 
@@ -413,7 +423,7 @@ def main():
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
         subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json",
-                        "index.html", "premium.html", "404.html", "-A", "rom/"], check=True)
+                        "index.html", "premium.html", "404.html", "theme.js", "-A", "rom/", "whisky/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True

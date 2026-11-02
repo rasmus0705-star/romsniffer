@@ -10,7 +10,7 @@
 
   var CATS = [
     { id: 'rom',    label: 'Rom',    href: '/',        live: true  },
-    { id: 'whisky', label: 'Whisky', href: '/whisky/', live: false },
+    { id: 'whisky', label: 'Whisky', href: '/whisky/', live: true  },
     { id: 'gin',    label: 'Gin',    href: '/gin/',    live: false },
     { id: 'cognac', label: 'Cognac', href: '/cognac/', live: false }
   ];

@@ -214,21 +214,23 @@ def _build_item(listitem_html):
 # HOVEDFUNKTION
 # ────────────────────────────────────────────────────────────
 
-def scrape_juuls_rom(vis_kategorier=False):
+def scrape_juuls_rom(vis_kategorier=False, group=None, max_pages=None):
     """
     Hent alle rom fra juuls.dk.
 
     vis_kategorier: print en optaelling af alle category2-vaerdier,
     saa man kan se om der er rom-relaterede kategorier vi mangler.
     """
-    print(f"🥃 Henter rom fra Juul's (products-with-filters, {ROM_GROUP})...")
+    group = group or ROM_GROUP
+    page_limit = max_pages or MAX_PAGES
+    print(f"🥃 Henter produkter fra Juul's (products-with-filters, {group})...")
 
     items, set_urls = [], set()
     set_ids = set()
     kategorier = Counter()
 
-    for page in range(1, MAX_PAGES + 1):
-        url = API_URL.format(group=ROM_GROUP, page=page, size=PAGE_SIZE)
+    for page in range(1, page_limit + 1):
+        url = API_URL.format(group=group, page=page, size=PAGE_SIZE)
         try:
             r = requests.get(url, headers=HEADERS, timeout=25)
         except Exception as e:

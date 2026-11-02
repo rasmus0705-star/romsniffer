@@ -26,7 +26,7 @@ from rom_parser import (
 SHOP_NAME   = "Whisky.dk"
 BASE_URL    = "https://www.whisky.dk"
 CAT_URL     = "https://www.whisky.dk/shop/rom-4s{page}.html"
-MAX_PAGES   = 40
+MAX_PAGES   = 100
 PAUSE       = 1.5   # DanDomain er ikke en stor server
 
 HEADERS = {
@@ -192,7 +192,7 @@ def _max_page(soup) -> int:
     """Find højeste sidenummer fra pagineringslinks."""
     highest = 1
     for a in soup.select("a[href]"):
-        m = re.search(r"rom-4s(\d+)\.html", a["href"])
+        m = re.search(r"-\d+s(\d+)\.html", a["href"])
         if m:
             highest = max(highest, int(m.group(1)))
     return highest
@@ -202,16 +202,18 @@ def _max_page(soup) -> int:
 # HOVEDFUNKTION
 # ────────────────────────────────────────────────────────────
 
-def scrape_whiskydk_rom() -> list[dict]:
-    """Hent alle rom-produkter fra whisky.dk."""
-    print("🥃 Henter rom fra whisky.dk (DanDomain HTML-scraping)...")
+def scrape_whiskydk_rom(category_url: str | None = None, max_pages: int | None = None) -> list[dict]:
+    """Hent produkter fra en kategori på whisky.dk. Standard er rom."""
+    category_url = category_url or CAT_URL
+    page_limit = max_pages or MAX_PAGES
+    print(f"🥃 Henter produkter fra whisky.dk ({category_url.split('{')[0]}...)...")
 
     items     = []
     set_urls  = set()
-    max_page  = MAX_PAGES
+    max_page  = page_limit
 
-    for page in range(1, MAX_PAGES + 1):
-        url = CAT_URL.format(page=page)
+    for page in range(1, page_limit + 1):
+        url = category_url.format(page=page)
         try:
             r = requests.get(url, headers=HEADERS, timeout=20)
         except Exception as e:
@@ -231,7 +233,7 @@ def scrape_whiskydk_rom() -> list[dict]:
 
         # Find maks-side fra første side
         if page == 1:
-            max_page = min(_max_page(soup), MAX_PAGES)
+            max_page = min(_max_page(soup), page_limit)
             print(f"   📄 {max_page} sider fundet")
 
         print(f"   📦 Side {page}/{max_page}: {len(products)} produkter")

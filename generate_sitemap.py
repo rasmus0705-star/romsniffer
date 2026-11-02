@@ -89,6 +89,15 @@ def main():
             "priority": priority,
         })
 
+    whisky_index = os.path.join("whisky", "index.html")
+    if os.path.isfile(whisky_index):
+        urls.append({
+            "loc": f"{SITE_URL}/whisky/",
+            "lastmod": lastmod_for("whisky/", whisky_index),
+            "changefreq": "daily",
+            "priority": "0.8",
+        })
+
     # Kategorisider
     cat_count = 0
     for cat_type in CATEGORY_TYPES:
