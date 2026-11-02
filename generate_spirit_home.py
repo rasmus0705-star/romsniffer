@@ -1,18 +1,12 @@
 """Generate the category chooser at / and the RomSniffer rum listing at /rom/."""
 import json
 from pathlib import Path
+from datetime import datetime
+from html import escape
 
 TEMPLATE = Path("_rom_home_template.html")
 ROM_PAGE = Path("rom") / "index.html"
 HOME = Path("index.html")
-
-
-def _count(path, key):
-    try:
-        data = json.loads(Path(path).read_text(encoding="utf-8"))
-        return int(data.get("stats", {}).get(key, 0) or 0)
-    except (OSError, ValueError, TypeError):
-        return 0
 
 
 def _stats(path):
@@ -20,6 +14,39 @@ def _stats(path):
         return json.loads(Path(path).read_text(encoding="utf-8")).get("stats", {})
     except (OSError, ValueError, TypeError):
         return {}
+
+
+def _best_deal(path):
+    try:
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        candidates = [
+            item for item in data.get("roms", [])
+            if float(item.get("max_discount_pct") or 0) > 0 and float(item.get("min_price") or 0) > 0
+        ]
+        item = max(candidates, key=lambda row: float(row.get("max_discount_pct") or 0))
+        return {
+            "name": " ".join(item.get("name", "").split()[:7]),
+            "price": f"{float(item['min_price']):,.0f}".replace(",", "."),
+            "discount": round(float(item["max_discount_pct"])),
+        }
+    except (OSError, ValueError, TypeError, KeyError):
+        return None
+
+
+def _updated_label():
+    dates = []
+    for path in ("rom_data.json", "whisky_data.json"):
+        try:
+            updated = json.loads(Path(path).read_text(encoding="utf-8")).get("updated")
+            if updated:
+                dates.append(datetime.fromisoformat(updated))
+        except (OSError, ValueError, TypeError):
+            continue
+    if not dates:
+        return "Priser kontrolleres dagligt"
+    updated = max(dates)
+    months = ("januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december")
+    return f"Data opdateret {updated.day}. {months[updated.month - 1]} kl. {updated:%H.%M}"
 
 
 def _make_rom_page(template):
@@ -36,14 +63,20 @@ def _make_rom_page(template):
     return html
 
 
-def _make_home(rom_stats, whisky_stats):
+def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal, updated_label):
     def fmt(value):
         return f"{int(value or 0):,}".replace(",", ".")
 
     rom_products = fmt(rom_stats.get("total"))
     whisky_products = fmt(whisky_stats.get("total"))
-    rom_shops = len(rom_stats.get("shop_counts", {})) or len(rom_stats.get("shop_names", []))
-    whisky_shops = len(whisky_stats.get("shop_counts", {})) or len(whisky_stats.get("shop_names", []))
+    total_products = fmt(int(rom_stats.get("total") or 0) + int(whisky_stats.get("total") or 0))
+    meta_description = f"Sammenlign priser på {total_products} rom og whisky fra danske webshops. Se aktuelle tilbud og find din næste flaske til en god pris."
+    def deal_markup(deal):
+        if not deal:
+            return "<span class=\"choice-deal\"><small>Aktuelle tilbud</small><strong>Se dagens priser</strong></span>"
+        return (f"<span class=\"choice-deal\"><small>Største aktuelle besparelse</small>"
+                f"<strong>{escape(deal['name'])}</strong>"
+                f"<span>{escape(deal['price'])} kr. <b>−{deal['discount']}%</b></span></span>")
     return f'''<!doctype html>
 <html lang="da">
 <head>
@@ -52,13 +85,18 @@ def _make_home(rom_stats, whisky_stats):
   <!-- End cookieyes banner -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sammenlign priser på rom og whisky fra danske webshops med RomSniffer.">
+  <meta name="description" content="{escape(meta_description, quote=True)}">
   <link rel="canonical" href="https://www.romsniffer.dk/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RomSniffer">
   <meta property="og:title" content="Find rom og whisky til den bedste pris | RomSniffer">
-  <meta property="og:description" content="Vælg rom eller whisky og sammenlign priser fra danske webshops.">
+  <meta property="og:description" content="{escape(meta_description, quote=True)}">
   <meta property="og:url" content="https://www.romsniffer.dk/">
+  <meta property="og:image" content="https://www.romsniffer.dk/og-image.jpg">
+  <meta property="og:image:alt" content="RomSniffer — rom og whisky">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <title>Find rom og whisky til den bedste pris | RomSniffer</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -67,6 +105,8 @@ def _make_home(rom_stats, whisky_stats):
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/theme.css">
   <link rel="preload" as="image" href="/hero-bottles.png">
+  <link rel="preload" as="image" href="/category-rum.jpg">
+  <link rel="preload" as="image" href="/category-whisky.jpg">
   <script src="/theme.js?v=menu-category-3"></script>
   <style>
     * {{ box-sizing:border-box }}
@@ -81,19 +121,25 @@ def _make_home(rom_stats, whisky_stats):
     .eyebrow {{ color:#c9a84c; font-size:12px; text-transform:uppercase; letter-spacing:.24em; }}
     h1 {{ margin:14px 0 12px; color:#e8c868; font:500 clamp(38px,7vw,66px)/1.08 'Playfair Display',Georgia,serif; }}
     .intro {{ max-width:620px; color:#a39887; font-size:18px; margin:0; }}
-    .choices-title {{ margin:0 0 8px; color:#c9a84c; font:500 20px/1.3 'Playfair Display',Georgia,serif; }}
     .choices {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }}
-    .choice {{ position:relative; display:flex; min-height:clamp(175px,25svh,220px); flex-direction:column; justify-content:space-between; padding:22px; overflow:hidden; border:1px solid rgba(201,168,76,.25); background:radial-gradient(ellipse at 100% 0,rgba(201,168,76,.13),transparent 55%),#0f0c13; color:#f0e8d8; text-decoration:none; transition:border-color .2s,transform .2s,background .2s; }}
-    .choice:hover {{ border-color:#c9a84c; transform:translateY(-3px); background-color:#15111b; }}
+    .choice {{ position:relative; display:flex; min-height:clamp(230px,27svh,270px); flex-direction:column; justify-content:space-between; padding:22px; overflow:hidden; border:1px solid rgba(201,168,76,.25); background:#0f0c13; color:#f0e8d8; text-decoration:none; transition:border-color .2s,transform .2s,background .2s; }}
+    .choice::before {{ content:""; position:absolute; inset:0; z-index:1; background:linear-gradient(90deg,rgba(8,7,9,.96) 0%,rgba(8,7,9,.85) 48%,rgba(8,7,9,.32) 100%); transition:opacity .2s; }}
+    .choice-image {{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:right center; transition:transform .35s; }}
+    .choice > :not(.choice-image) {{ position:relative; z-index:2; }}
+    .choice:hover {{ border-color:#c9a84c; transform:translateY(-3px); }}
+    .choice:hover .choice-image {{ transform:scale(1.04); }}
     .choice-name {{ display:flex; align-items:center; gap:14px; color:#e8c868; font:500 clamp(32px,5vw,48px)/1.1 'Playfair Display',Georgia,serif; }}
-    .drink-icon {{ width:38px; height:38px; flex:0 0 38px; color:#c9a84c; }}
-    .choice-stats {{ display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin:16px 0 14px; }}
+    .choice-stats {{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:8px; margin:12px 0; }}
     .choice-stat {{ border-left:1px solid rgba(201,168,76,.3); padding-left:10px; color:#a39887; font-size:11px; line-height:1.35; }}
     .choice-stat strong {{ display:block; color:#f0e8d8; font:500 19px/1.2 'DM Sans',system-ui,sans-serif; margin-bottom:4px; }}
+    .choice-deal {{ display:flex; flex-direction:column; gap:2px; max-width:100%; color:#d7c9ae; font-size:12px; line-height:1.35; }}
+    .choice-deal small {{ color:#c9a84c; font-size:9px; letter-spacing:.13em; text-transform:uppercase; }}
+    .choice-deal strong {{ overflow:hidden; color:#f0e8d8; font-weight:500; text-overflow:ellipsis; white-space:nowrap; }}
+    .choice-deal b {{ color:#9ed4ad; font-weight:600; }}
     .choice-cta {{ color:#d6ad62; text-transform:uppercase; font-size:12px; letter-spacing:.2em; }}
     footer {{ padding:8px 18px 12px; color:#a39887; text-align:center; font-size:12px; letter-spacing:.06em; }}
-    @media(max-width:640px) {{ nav {{ min-height:50px; padding:8px 18px }} .nav-logo {{ font-size:17px }} main {{ width:calc(100% - 28px); margin:4px auto }} .hero {{ min-height:clamp(125px,22svh,170px); grid-template-columns:1.05fr .95fr; gap:2px; padding:12px 10px; margin-bottom:12px }} .hero-image {{ height:clamp(105px,20svh,155px); width:100% }} .eyebrow {{ font-size:8px; letter-spacing:.12em }} h1 {{ font-size:clamp(27px,7.6vw,36px); margin:8px 0 6px }} .intro {{ font-size:12px; line-height:1.3 }} .choices-title {{ font-size:17px; margin-bottom:6px }} .choices {{ grid-template-columns:1fr; gap:8px }} .choice {{ min-height:clamp(140px,22svh,165px); padding:14px 16px 12px }} .choice-name {{ gap:10px; font-size:30px }} .drink-icon {{ width:32px; height:32px; flex-basis:32px }} .choice-stats {{ grid-template-columns:repeat(2,minmax(0,1fr)); margin:10px 0; gap:6px 5px }} .choice-stat {{ padding-left:7px; font-size:9px }} .choice-stat strong {{ font-size:16px; margin-bottom:2px }} .choice-cta {{ font-size:11px }} footer {{ padding:6px 10px 8px; font-size:10px }} }}
-    @media(max-width:640px) and (max-height:700px) {{ .hero {{ min-height:112px; padding:9px 10px; margin-bottom:8px }} .hero-image {{ height:105px }} h1 {{ font-size:27px; margin:6px 0 4px }} .intro {{ font-size:11px }} .choices-title {{ margin-bottom:4px }} .choice {{ min-height:132px; padding:11px 14px 10px }} .choice-name {{ font-size:27px }} .choice-stats {{ margin:7px 0; gap:4px }} .choice-stat strong {{ font-size:15px }} footer {{ padding-block:4px }} }}
+    @media(max-width:640px) {{ nav {{ min-height:50px; padding:8px 18px }} .nav-logo {{ font-size:17px }} main {{ width:calc(100% - 28px); margin:4px auto }} .hero {{ min-height:clamp(125px,22svh,170px); grid-template-columns:1.05fr .95fr; gap:2px; padding:12px 10px; margin-bottom:12px }} .hero-image {{ height:clamp(105px,20svh,155px); width:100% }} .eyebrow {{ font-size:8px; letter-spacing:.12em }} h1 {{ font-size:clamp(27px,7.6vw,36px); margin:8px 0 6px }} .intro {{ font-size:12px; line-height:1.3 }} .choices {{ grid-template-columns:1fr; gap:8px }} .choice {{ min-height:clamp(205px,29svh,235px); padding:14px 16px 12px }} .choice::before {{ background:linear-gradient(90deg,rgba(8,7,9,.97) 0%,rgba(8,7,9,.86) 60%,rgba(8,7,9,.36) 100%) }} .choice-name {{ gap:10px; font-size:30px }} .choice-stats {{ grid-template-columns:repeat(3,minmax(0,1fr)); margin:8px 0; gap:5px }} .choice-stat {{ padding-left:7px; font-size:9px }} .choice-stat strong {{ font-size:16px; margin-bottom:2px }} .choice-deal {{ font-size:11px }} .choice-cta {{ font-size:11px }} footer {{ padding:6px 10px 8px; font-size:10px }} }}
+    @media(max-width:640px) and (max-height:700px) {{ .hero {{ min-height:112px; padding:9px 10px; margin-bottom:8px }} .hero-image {{ height:105px }} h1 {{ font-size:27px; margin:6px 0 4px }} .intro {{ font-size:11px }} .choice {{ min-height:clamp(175px,27svh,195px); padding:10px 14px 9px }} .choice-name {{ font-size:27px }} .choice-stats {{ margin:7px 0; gap:4px }} .choice-stat strong {{ font-size:15px }} .choice-deal {{ font-size:10px }} footer {{ padding-block:4px }} }}
   </style>
 </head>
 <body data-cat="home">
@@ -109,31 +155,32 @@ def _make_home(rom_stats, whisky_stats):
       </div>
       <img class="hero-image" src="/hero-bottles.png" alt="To flasker spiritus" fetchpriority="high">
     </section>
-    <h2 class="choices-title">Vælg kategori</h2>
-    <section class="choices" aria-label="Vælg kategori">
+    <section class="choices" aria-label="Vælg rom eller whisky">
       <a class="choice" href="/rom/" aria-label="Se {rom_products} rom">
-        <span class="choice-name"><svg class="drink-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 7h26l-3 27H10L7 7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 19 22-2-1.5 15h-18L9 19Z" fill="currentColor" opacity=".3"/><path d="M11 12h18" stroke="currentColor" stroke-width="1.3" opacity=".65"/></svg>Rom</span>
+        <img class="choice-image" src="/category-rum.jpg" alt="" loading="eager">
+        <span class="choice-name">Rom</span>
         <span class="choice-stats">
           <span class="choice-stat"><strong>{rom_products}</strong>produkter</span>
-          <span class="choice-stat"><strong>{rom_shops}</strong>butikker</span>
-          <span class="choice-stat"><strong>{fmt(rom_stats.get('multi_shop'))}</strong>findes flere steder</span>
+          <span class="choice-stat"><strong>{fmt(rom_stats.get('multi_shop'))}</strong>kan sammenlignes</span>
           <span class="choice-stat"><strong>{fmt(rom_stats.get('deals'))}</strong>aktive tilbud</span>
         </span>
+        {deal_markup(rom_deal)}
         <span class="choice-cta">Find rom →</span>
       </a>
       <a class="choice" href="/whisky/" aria-label="Se {whisky_products} whiskyer">
-        <span class="choice-name"><svg class="drink-icon" viewBox="0 0 40 40" aria-hidden="true"><path d="M7 7h26l-3 27H10L7 7Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 19 22-2-1.5 15h-18L9 19Z" fill="currentColor" opacity=".3"/><path d="M11 12h18" stroke="currentColor" stroke-width="1.3" opacity=".65"/></svg>Whisky</span>
+        <img class="choice-image" src="/category-whisky.jpg" alt="" loading="eager">
+        <span class="choice-name">Whisky</span>
         <span class="choice-stats">
           <span class="choice-stat"><strong>{whisky_products}</strong>produkter</span>
-          <span class="choice-stat"><strong>{whisky_shops}</strong>butikker</span>
-          <span class="choice-stat"><strong>{fmt(whisky_stats.get('multi_shop'))}</strong>findes flere steder</span>
+          <span class="choice-stat"><strong>{fmt(whisky_stats.get('multi_shop'))}</strong>kan sammenlignes</span>
           <span class="choice-stat"><strong>{fmt(whisky_stats.get('deals'))}</strong>aktive tilbud</span>
         </span>
+        {deal_markup(whisky_deal)}
         <span class="choice-cta">Find whisky →</span>
       </a>
     </section>
   </main>
-  <footer>Opdateres dagligt <span aria-hidden="true">·</span> Gratis <span aria-hidden="true">·</span> Ingen reklamer</footer>
+  <footer>{escape(updated_label)} <span aria-hidden="true">·</span> Gratis prissammenligning</footer>
 </body>
 </html>
 '''
@@ -145,7 +192,10 @@ def main():
     source = TEMPLATE.read_text(encoding="utf-8")
     ROM_PAGE.parent.mkdir(parents=True, exist_ok=True)
     ROM_PAGE.write_text(_make_rom_page(source), encoding="utf-8")
-    HOME.write_text(_make_home(_stats("rom_data.json"), _stats("whisky_data.json")), encoding="utf-8")
+    HOME.write_text(_make_home(
+        _stats("rom_data.json"), _stats("whisky_data.json"),
+        _best_deal("rom_data.json"), _best_deal("whisky_data.json"), _updated_label(),
+    ), encoding="utf-8")
     print(f"Kategoriforside genereret: {HOME.resolve()}; romoversigt: {ROM_PAGE.resolve()}")
 
 
