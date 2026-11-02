@@ -28,8 +28,10 @@
     nav { min-height:76px; display:flex; align-items:center; justify-content:space-between; padding:14px max(22px,calc((100vw - 1120px)/2)); }
     .nav-logo { color:#e8c868; text-decoration:none; font:500 19px Georgia,serif; letter-spacing:.3em; text-transform:uppercase; }
     .nav-links a { color:#a39887; text-decoration:none; text-transform:uppercase; font-size:12px; letter-spacing:.16em; }
-    main { width:min(1040px,calc(100% - 36px)); margin:clamp(32px,7vh,72px) auto 80px; }
-    .hero { min-height:390px; display:flex; flex-direction:column; justify-content:center; padding:clamp(24px,5vw,54px); margin-bottom:34px; border:1px solid rgba(201,168,76,.2); background-color:#09080b; background-image:linear-gradient(90deg,#09080b 0%,rgba(9,8,11,.96) 34%,rgba(9,8,11,.62) 57%,rgba(9,8,11,.06) 100%),url('/hero-bottles.png'); background-size:auto 125%; background-position:right center; background-repeat:no-repeat; box-shadow:0 22px 60px rgba(0,0,0,.28); }
+    main { width:min(1040px,calc(100% - 36px)); margin:clamp(20px,4vh,42px) auto 48px; }
+    .hero { min-height:300px; display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:18px; padding:26px clamp(20px,4vw,44px); margin-bottom:24px; border:1px solid rgba(201,168,76,.2); background:radial-gradient(ellipse at 80% 50%,rgba(201,168,76,.12),transparent 48%),#09080b; box-shadow:0 22px 60px rgba(0,0,0,.28); }
+    .hero-copy { position:relative; z-index:1; }
+    .hero-image { display:block; width:100%; height:270px; object-fit:contain; filter:drop-shadow(0 15px 22px rgba(0,0,0,.55)); }
     .eyebrow { color:#c9a84c; font-size:12px; text-transform:uppercase; letter-spacing:.24em; }
     h1 { margin:14px 0 12px; color:#e8c868; font:500 clamp(38px,7vw,66px)/1.08 'Playfair Display',Georgia,serif; }
     .intro { max-width:620px; color:#a39887; font-size:18px; margin:0 0 42px; }
@@ -41,7 +43,7 @@
     .choice-count { color:#a39887; font-size:14px; margin-top:12px; }
     .choice-cta { color:#d6ad62; text-transform:uppercase; font-size:12px; letter-spacing:.2em; }
     footer { border-top:1px solid rgba(201,168,76,.15); padding:24px 18px 34px; color:#7a7064; text-align:center; font-size:12px; letter-spacing:.08em; }
-    @media(max-width:640px) { main { margin-top:30px } .hero { min-height:470px; justify-content:flex-start; padding:26px 22px; margin-bottom:26px; background-image:linear-gradient(180deg,#09080b 0%,rgba(9,8,11,.96) 32%,rgba(9,8,11,.48) 63%,rgba(9,8,11,.08) 100%),url('/hero-bottles.png'); background-size:100% auto; background-position:center bottom } h1 { font-size:clamp(36px,11vw,48px) } .intro { font-size:16px; margin-bottom:18px } .choices-title { font-size:18px } .choices { grid-template-columns:1fr; gap:12px } .choice { min-height:170px; padding:22px } nav { padding-inline:18px } }
+    @media(max-width:640px) { main { margin-top:14px; margin-bottom:32px } .hero { min-height:0; grid-template-columns:1.05fr .95fr; gap:4px; padding:20px 14px; margin-bottom:18px } .hero-image { height:190px; width:100% } .eyebrow { font-size:9px; letter-spacing:.14em } h1 { font-size:clamp(28px,8vw,38px); margin:10px 0 8px } .intro { font-size:14px; line-height:1.4; margin:0 } .choices-title { font-size:18px } .choices { grid-template-columns:1fr; gap:10px } .choice { min-height:112px; padding:17px 20px } .choice-name { font-size:32px } .choice-count { font-size:12px; margin-top:5px } nav { padding-inline:18px } }
   </style>
 </head>
 <body data-cat="home">
@@ -50,9 +52,12 @@
   </nav>
   <main>
     <section class="hero" aria-labelledby="home-title">
+      <div class="hero-copy">
       <div class="eyebrow">Sammenlign danske webshops</div>
       <h1 id="home-title">Hvad leder du efter?</h1>
       <p class="intro">Find den bedste pris på din næste flaske.</p>
+      </div>
+      <img class="hero-image" src="/hero-bottles.png" alt="To flasker spiritus" fetchpriority="high">
     </section>
     <h2 class="choices-title">Vælg kategori</h2>
     <section class="choices" aria-label="Vælg kategori">
