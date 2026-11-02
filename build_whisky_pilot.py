@@ -221,7 +221,8 @@ def _make_groups(items):
             "country": country,
             "age": age,
             "ean": next((p.get("ean") for p in prices if p.get("ean")), None),
-            "prices": [{k: p.get(k) for k in ("shop_name", "price", "old_price", "url", "ean")} for p in prices],
+            "prices": [{k: p.get(k) for k in ("shop_name", "price", "old_price", "discount_pct", "url", "ean")} for p in prices],
+            "image": next((p.get("image") for p in prices if p.get("image")), None),
             "price_spread": round(prices[-1]["price"] - prices[0]["price"], 2),
         })
     return sorted(output, key=lambda g: (-g["price_spread"], g["name"].casefold()))
@@ -250,12 +251,13 @@ def main(argv=None):
         if not OUTPUT.is_file():
             raise SystemExit(f"Pilotdata ikke fundet: {OUTPUT}")
         output = json.loads(OUTPUT.read_text(encoding="utf-8"))
+        items = json.loads(RAW_OUTPUT.read_text(encoding="utf-8")) if RAW_OUTPUT.is_file() else []
         groups = [
             match for match in output.get("matches", [])
             if "grain spirit" not in (match.get("name") or "").casefold()
         ]
         shops = output.get("shops", [])
-        listings = output.get("stats", {}).get("listings", 0)
+        listings_count = output.get("stats", {}).get("listings", 0)
         with_volume = output.get("stats", {}).get("with_volume", 0)
         with_abv = output.get("stats", {}).get("with_abv", 0)
     else:
@@ -283,28 +285,58 @@ def main(argv=None):
         items = whisky_dk_items + juuls_items + vildmedvin_items
         shops = sorted({p.get("shop_name") for p in items})
         groups = _make_groups(items)
-        listings = len(items)
+        listings_count = len(items)
         with_volume = sum(p.get("volume_cl") is not None for p in items)
         with_abv = sum(p.get("abv") is not None for p in items)
         _write_source(RAW_OUTPUT, items)
 
     in_stock, unknown_stock, stock_checked, ean_conflicts = _check_match_stock(groups)
+    matched_urls = {
+        str(offer.get("url")) for match in in_stock for offer in match.get("prices", [])
+        if offer.get("url")
+    }
+    catalog_listings = list(in_stock)
+    seen_urls = set(matched_urls)
+    for item in items:
+        if "grain spirit" in (item.get("name") or "").casefold():
+            continue
+        url = str(item.get("url") or "")
+        if url and url in seen_urls:
+            continue
+        if url:
+            seen_urls.add(url)
+        catalog_listings.append({
+            "name": item.get("name") or "Whisky",
+            "volume_cl": item.get("volume_cl"),
+            "abv": item.get("abv"),
+            "country": item.get("country"),
+            "age": item.get("age"),
+            "image": item.get("image"),
+            "prices": [{k: item.get(k) for k in (
+                "shop_name", "price", "old_price", "discount_pct", "url", "ean"
+            )}],
+        })
+    catalog_listings.sort(key=lambda product: (str(product.get("name") or "").casefold(),
+                                               float(product.get("prices", [{}])[0].get("price") or 0)))
     output = {
         "updated": datetime.now().isoformat(timespec="seconds"),
         "category": "whisky",
         "shops": shops,
         "stats": {
-            "listings": listings,
+            "listings": listings_count,
             "with_volume": with_volume,
             "with_abv": with_abv,
             "strict_cross_shop_matches": len(groups),
             "in_stock_cross_shop_matches": len(in_stock),
+            "catalog_products": len(catalog_listings),
+            "single_shop_products": sum(len(p.get("prices", [])) == 1 for p in catalog_listings),
             "whisky_dk_stock_checked": stock_checked,
             "whisky_dk_stock_unknown": unknown_stock,
             "ean_verified_matches": sum(m.get("ean_check") == "verified" for m in in_stock),
             "ean_conflicts": ean_conflicts,
         },
         "matches": in_stock,
+        "listings": catalog_listings,
     }
     OUTPUT.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"\nPilotdata gemt lokalt: {OUTPUT}")

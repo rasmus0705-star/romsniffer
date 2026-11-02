@@ -32,22 +32,21 @@ def _age_sort(value):
 
 def _catalog(pilot):
     items = []
-    for match in pilot.get("matches", []):
+    for match in pilot.get("listings", pilot.get("matches", [])):
         offers = sorted(match.get("prices", []), key=lambda p: float(p.get("price") or 0))
-        if len(offers) < 2:
+        if not offers:
             continue
         low, high = float(offers[0]["price"]), float(offers[-1]["price"])
-        spread = round((high - low) / high * 100, 1) if high else 0
-        for i, offer in enumerate(offers):
-            offer["discount_pct"] = spread if i == 0 else 0
-            offer["old_price"] = None
+        spread = round((high - low) / high * 100, 1) if high and len(offers) > 1 else 0
+        shop_discount = max((float(p.get("discount_pct") or 0) for p in offers), default=0)
         name = match.get("name") or "Whisky"
         items.append({
             "name": name, "brand": "", "type": _type(name), "age": match.get("age") or _age(name),
             "country": match.get("country"),
-            "abv": match.get("abv"), "volume_cl": match.get("volume_cl"), "image": None,
+            "abv": match.get("abv"), "volume_cl": match.get("volume_cl"), "image": match.get("image"),
             "slug": "", "category": "whisky", "shop_count": len(offers),
-            "min_price": low, "cheapest_price": low, "max_discount_pct": spread, "prices": offers,
+            "min_price": low, "cheapest_price": low,
+            "max_discount_pct": max(spread, shop_discount), "prices": offers,
         })
     items.sort(key=lambda r: r["name"].casefold())
     return {
