@@ -89,6 +89,15 @@ def main():
             "priority": priority,
         })
 
+    rom_index = os.path.join("rom", "index.html")
+    if os.path.isfile(rom_index):
+        urls.append({
+            "loc": f"{SITE_URL}/rom/",
+            "lastmod": lastmod_for("rom/", rom_index),
+            "changefreq": "daily",
+            "priority": "0.9",
+        })
+
     whisky_index = os.path.join("whisky", "index.html")
     if os.path.isfile(whisky_index):
         urls.append({

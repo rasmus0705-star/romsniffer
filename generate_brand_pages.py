@@ -224,14 +224,14 @@ footer p {{ font-size: 0.65rem; color: var(--text-dim); margin-top: 0.5rem; lett
         <span>RomSniffer</span>
     </a>
     <div class="nav-links">
-        <a href="/">Alle rom</a>
+        <a href="/rom/">Alle rom</a>
         <a href="/premium.html">Premium</a>
         <a href="/guide.html">Guide</a>
         <a href="/om.html">Om</a>
     </div>
 </nav>
 
-<a href="/" class="back">← Alle rom</a>
+<a href="/rom/" class="back">← Alle rom</a>
 
 <div class="header">
     <div class="header-inner">

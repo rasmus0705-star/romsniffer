@@ -9,7 +9,7 @@
   var RS = window.RS = {};
 
   var CATS = [
-    { id: 'rom',    label: 'Rom',    href: '/',        live: true  },
+    { id: 'rom',    label: 'Rom',    href: '/rom/',    live: true  },
     { id: 'whisky', label: 'Whisky', href: '/whisky/', live: true  },
     { id: 'gin',    label: 'Gin',    href: '/gin/',    live: false },
     { id: 'cognac', label: 'Cognac', href: '/cognac/', live: false }

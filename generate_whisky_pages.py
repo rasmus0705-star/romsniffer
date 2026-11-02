@@ -5,7 +5,7 @@ import re
 from pathlib import Path
 
 PILOT = Path("whisky_pilot_data.json")
-TEMPLATE = Path("index.html")
+TEMPLATE = Path("_rom_home_template.html")
 DATA = Path("whisky_data.json")
 OUTPUT = Path("whisky") / "index.html"
 
@@ -78,6 +78,8 @@ def _render(source, catalog):
         'aria-label="Søg efter rom, brand eller land"': 'aria-label="Søg efter whisky, type eller butik"',
         '<div class="stat-lbl">Rom i alt</div>': '<div class="stat-lbl">Whisky i alt</div>',
         'class="sidebar-filter-btn active" data-filter="all">Alle rom': 'class="sidebar-filter-btn active" data-filter="all">Al whisky',
+        'Premium (over 1.500 kr)': 'Over 1.500 kr',
+        '>Premium</button>': '>Over 1.500 kr</button>',
         'Hverdagsrom (under 500 kr)': 'Hverdagswhisky (under 500 kr)',
         'Henter rom-data...': 'Henter whisky...',
         'Vis flere rom ↓': 'Vis flere whiskyer ↓',
@@ -94,6 +96,9 @@ def _render(source, catalog):
     # Every relative link in the root navigation must remain rooted from /whisky/.
     for page in ("premium.html", "guide.html", "om.html"):
         html = html.replace(f'href="{page}"', f'href="/{page}"')
+    html = html.replace('<a href="/premium.html">Premium</a>', '')
+    html = html.replace('<a href="/guide.html">Guide</a>', '')
+    html = html.replace('<a href="/whisky/">Alle whisky</a>', '')
 
     quick_bar = '''            <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
                 <button class="qbtn" data-qtype="filter" data-val="deals" onclick="quickFilter('deals')">Tilbud</button>
@@ -102,7 +107,7 @@ def _render(source, catalog):
                 <button class="qbtn" data-qtype="type" data-val="Bourbon" onclick="quickType('Bourbon')">Bourbon</button>
                 <button class="qbtn" data-qtype="type" data-val="Rye" onclick="quickType('Rye')">Rye</button>
                 <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">Under 500 kr</button>
-                <button class="qbtn" data-qtype="filter" data-val="premium" onclick="quickFilter('premium')">Premium</button>
+                <button class="qbtn" data-qtype="filter" data-val="premium" onclick="quickFilter('premium')">Over 1.500 kr</button>
                 <button class="qbtn" onclick="romRoulette()">Overrask mig</button>
             </div>
         </div>
@@ -130,6 +135,7 @@ def _render(source, catalog):
     html = html.replace('https://www.romsniffer.dk/">\n<meta property="og:type"', 'https://www.romsniffer.dk/whisky/">\n<meta property="og:type"')
     html = html.replace('content="https://www.romsniffer.dk/">', 'content="https://www.romsniffer.dk/whisky/">')
     html = html.replace('src="logo.png"', 'src="/logo.png"')
+    html = re.sub(r"(?m)^[ \t]+$", "", html)
     version = hashlib.sha1(json.dumps(catalog, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
     html = re.sub(r"const DATA_VERSION = '[^']*';", f"const DATA_VERSION = '{version}';", html, count=1)
     return html

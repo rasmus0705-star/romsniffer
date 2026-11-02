@@ -681,7 +681,7 @@ footer a {{ color: var(--copper-light); }}
             <span>RomSniffer</span>
         </a>
         <div class="nav-links">
-            <a href="{SITE_URL}/">Alle rom</a>
+            <a href="{SITE_URL}/rom/">Alle rom</a>
             <a href="{SITE_URL}/premium.html">Premium</a>
             <a href="{SITE_URL}/guide.html">Guide</a>
             <a href="{SITE_URL}/om.html">Om</a>
@@ -689,7 +689,7 @@ footer a {{ color: var(--copper-light); }}
     </nav>
 
     <div class="breadcrumb">
-        <a href="{SITE_URL}/">RomSniffer</a> › <a href="{SITE_URL}/">Alle rom</a> › {name_esc}
+        <a href="{SITE_URL}/">RomSniffer</a> › <a href="{SITE_URL}/rom/">Alle rom</a> › {name_esc}
     </div>
 
     <div class="product-hero">
@@ -725,7 +725,7 @@ footer a {{ color: var(--copper-light); }}
 {related_section}
 
     <footer>
-        <a href="{SITE_URL}/">← Alle rom og priser</a><br>
+        <a href="{SITE_URL}/rom/">← Alle rom og priser</a><br>
         <strong>Affiliate disclosure:</strong> RomSniffer kan modtage provision via links. Det koster dig intet ekstra.<br>
         RomSniffer © 2026 — Kun for personer over 18 år
     </footer>

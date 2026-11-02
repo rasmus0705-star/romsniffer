@@ -28,7 +28,7 @@ import re
 import sys
 
 DATA_FILE = "rom_data.json"
-TARGETS = ["index.html", "premium.html"]
+TARGETS = ["rom/index.html", "premium.html"]
 
 # Matcher et eksisterende stempel, uanset citationstegn og mellemrum
 _STAMP_RE = re.compile(
