@@ -53,7 +53,7 @@
         line-height: 1.6;
         overflow-x: hidden;
     }
-    body.sidebar-open { overflow: hidden; touch-action: none; }
+    body.sidebar-open { overflow: hidden; }
     body::before {
         content: '';
         position: fixed;
@@ -1219,7 +1219,7 @@
 
 </style>
 <script>const DATA_VERSION = '3056ce1914cd';</script>
-<link rel="stylesheet" href="/theme.css?v=mobile-filter-4">
+<link rel="stylesheet" href="/theme.css?v=mobile-filter-5">
 <script src="/theme.js"></script>
 </head>
 <body data-cat="rom">
@@ -2339,16 +2339,29 @@ async function loadData() {
 
 // ── MOBILE SIDEBAR ────────────────────────────────────────────────
 function openSidebar() {
-    document.getElementById('sidebar').classList.add('mobile-open');
+    var sidebar = document.getElementById('sidebar');
+    // Portal the drawer out of layout-wrap's stacking context while open.
+    if (!window.sidebarPlaceholder) {
+        window.sidebarPlaceholder = document.createComment('sidebar position');
+        sidebar.parentNode.insertBefore(window.sidebarPlaceholder, sidebar);
+        document.body.appendChild(sidebar);
+    }
+    sidebar.classList.add('mobile-open');
     document.getElementById('mobile-backdrop').classList.add('visible');
     document.body.classList.add('sidebar-open');
     document.getElementById('mobile-filter-open').setAttribute('aria-expanded', 'true');
 }
 function closeSidebar() {
-    document.getElementById('sidebar').classList.remove('mobile-open');
+    var sidebar = document.getElementById('sidebar');
+    sidebar.classList.remove('mobile-open');
     document.getElementById('mobile-backdrop').classList.remove('visible');
     document.body.classList.remove('sidebar-open');
     document.getElementById('mobile-filter-open').setAttribute('aria-expanded', 'false');
+    if (window.sidebarPlaceholder && window.sidebarPlaceholder.parentNode) {
+        window.sidebarPlaceholder.parentNode.insertBefore(sidebar, window.sidebarPlaceholder);
+        window.sidebarPlaceholder.remove();
+        window.sidebarPlaceholder = null;
+    }
 }
 
 // ── EVENT LISTENERS ───────────────────────────────────────────────
