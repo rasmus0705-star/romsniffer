@@ -51,7 +51,12 @@ def clean_name(name):
     name = re.sub(r"\bcasks\b", "cask", name)
 
     # Separatorer -> mellemrum
-    name = re.sub(r"[,\-\u2014\.()/\"&+]", " ", name)
+    name = re.sub(r"[,\-\u2014\.()/\"“”«»&+]", " ", name)
+    # The same Smuggler's Treasure bottle is listed with inconsistent
+    # punctuation and optional supplier/wood descriptors across shops.
+    if re.search(r"\bsmugglers?\s+treasure\b", name):
+        name = re.sub(r"\bsmugglers?\s+treasure\b", "smugglers treasure", name)
+        name = re.sub(r"\bwhite\s+oak\b|\bvarela\b", " ", name)
 
     words = [w for w in name.split() if w not in _STOP_WORDS and len(w) > 1]
     return re.sub(r"\s+", " ", " ".join(words)).strip()

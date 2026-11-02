@@ -89,11 +89,12 @@ def scrape_kokkensvinhus_rom():
             except:
                 sale = 0
 
-            actual_price = price
-            old_price = None
-            if sale > 0 and regular > 0 and sale < regular:
-                actual_price = sale
-                old_price = regular
+            # WooCommerce Store API's `price` is the active price. A
+            # `sale_price` can be populated before/after a scheduled sale, so
+            # never override the active value with it. Use sale_price only if
+            # the active price is absent from the response.
+            actual_price = price if price > 0 else sale
+            old_price = regular if regular > actual_price > 0 else None
 
             if actual_price < 50:
                 continue

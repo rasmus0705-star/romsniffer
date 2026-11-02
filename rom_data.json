@@ -1,8 +1,8 @@
 {
   "updated": "2026-11-02T20:33:13.763258",
   "stats": {
-    "total": 2039,
-    "deals": 184,
+    "total": 2036,
+    "deals": 183,
     "shops": 7,
     "shop_names": [
       "Con Maz",
@@ -84,14 +84,6 @@
     ],
     "ages": [
       "1 år",
-      "2 år",
-      "3 år",
-      "4 år",
-      "5 år",
-      "6 år",
-      "7 år",
-      "8 år",
-      "9 år",
       "10 år",
       "11 år",
       "12 år",
@@ -102,6 +94,7 @@
       "17 år",
       "18 år",
       "19 år",
+      "2 år",
       "20 år",
       "21 år",
       "22 år",
@@ -111,18 +104,25 @@
       "26 år",
       "27 år",
       "28 år",
+      "3 år",
       "30 år",
       "32 år",
       "35 år",
       "37 år",
       "39 år",
+      "4 år",
       "40 år",
-      "XO",
+      "5 år",
+      "6 år",
+      "7 år",
+      "8 år",
+      "9 år",
+      "Reserva",
       "Solera",
-      "Reserva"
+      "XO"
     ],
     "cheapest": 29.0,
-    "multi_shop": 280,
+    "multi_shop": 283,
     "shop_counts": {
       "Kokkens Vinhus": 259,
       "Spitus": 331,
@@ -13686,19 +13686,26 @@
       "country": "Panama",
       "brand": null,
       "abv": 40.0,
-      "volume_cl": null,
+      "volume_cl": 70.0,
       "age": "8 år",
       "category": "rom",
-      "shop_count": 1,
-      "min_price": 329.95,
-      "cheapest_price": 329.95,
-      "max_discount_pct": 17.5,
+      "shop_count": 2,
+      "min_price": 379.0,
+      "cheapest_price": 379.0,
+      "max_discount_pct": 0.0,
       "prices": [
         {
+          "shop_name": "Vault of Spirits",
+          "price": 379.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/moerk/smugglers-treasure-panama-varela-40/"
+        },
+        {
           "shop_name": "Kokkens Vinhus",
-          "price": 329.95,
-          "old_price": 399.95,
-          "discount_pct": 17.5,
+          "price": 399.95,
+          "old_price": null,
+          "discount_pct": null,
           "url": "https://www.kokkensvinhus.dk/shop/smugglers-treasure-panama-white-oak-40/"
         }
       ],
@@ -18599,32 +18606,6 @@
       "price_change_7d": null
     },
     {
-      "name": "Smuggler’s Treasure “The Forbidden Blend”, 40%",
-      "image": "https://www.vaultofspirits.dk/wp-content/uploads/smugglers-treasure-the-forbidden-blend-40-1.jpg",
-      "type": null,
-      "country": null,
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/spiced/smugglers-treasure-the-forbidden-blend-40/"
-        }
-      ],
-      "slug": "smugglers-treasure-the-forbidden-blend-40",
-      "price_change_7d": null
-    },
-    {
       "name": "Smuggler’s Treasure Jamaica, 40%",
       "image": "https://www.vaultofspirits.dk/wp-content/uploads/smugglers-treasure-jamaica-40-1.jpg",
       "type": null,
@@ -18648,58 +18629,6 @@
         }
       ],
       "slug": "smugglers-treasure-jamaica-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Smuggler’s Treasure Barbados, 40%",
-      "image": "https://www.vaultofspirits.dk/wp-content/uploads/smugglers-treasure-barbados-40-1.jpg",
-      "type": null,
-      "country": "Barbados",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": null,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/moerk/smugglers-treasure-barbados-40/"
-        }
-      ],
-      "slug": "smugglers-treasure-barbados-40",
-      "price_change_7d": null
-    },
-    {
-      "name": "Smuggler’s Treasure Panama (Varela), 40%",
-      "image": "https://www.vaultofspirits.dk/wp-content/uploads/smugglers-treasure-panama-varela-40-1.jpg",
-      "type": null,
-      "country": "Panama",
-      "brand": null,
-      "abv": 40.0,
-      "volume_cl": 70.0,
-      "age": null,
-      "category": "rom",
-      "shop_count": 1,
-      "min_price": 379.0,
-      "cheapest_price": 379.0,
-      "max_discount_pct": 0,
-      "prices": [
-        {
-          "shop_name": "Vault of Spirits",
-          "price": 379.0,
-          "old_price": null,
-          "discount_pct": null,
-          "url": "https://www.vaultofspirits.dk/rom/moerk/smugglers-treasure-panama-varela-40/"
-        }
-      ],
-      "slug": "smugglers-treasure-panama-varela-40",
       "price_change_7d": null
     },
     {
@@ -19515,11 +19444,18 @@
       "volume_cl": null,
       "age": "8 år",
       "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.0,
-      "cheapest_price": 399.0,
-      "max_discount_pct": 0,
+      "shop_count": 2,
+      "min_price": 379.0,
+      "cheapest_price": 379.0,
+      "max_discount_pct": 0.0,
       "prices": [
+        {
+          "shop_name": "Vault of Spirits",
+          "price": 379.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/spiced/smugglers-treasure-the-forbidden-blend-40/"
+        },
         {
           "shop_name": "Kokkens Vinhus",
           "price": 399.0,
@@ -22288,11 +22224,18 @@
       "volume_cl": null,
       "age": null,
       "category": "rom",
-      "shop_count": 1,
-      "min_price": 399.95,
-      "cheapest_price": 399.95,
-      "max_discount_pct": 0,
+      "shop_count": 2,
+      "min_price": 379.0,
+      "cheapest_price": 379.0,
+      "max_discount_pct": 0.0,
       "prices": [
+        {
+          "shop_name": "Vault of Spirits",
+          "price": 379.0,
+          "old_price": null,
+          "discount_pct": null,
+          "url": "https://www.vaultofspirits.dk/rom/moerk/smugglers-treasure-barbados-40/"
+        },
         {
           "shop_name": "Kokkens Vinhus",
           "price": 399.95,
