@@ -26,9 +26,18 @@ def _float(value):
 def _image_url(value):
     if not value:
         return None
+    value = str(value).strip()
+    if value.casefold() in {"no_selection", "no image", "placeholder"}:
+        return None
     if value.startswith("//"):
         return "https:" + value
-    return value if value.startswith("http") else BASE_URL + value
+    if value.startswith("http"):
+        return value
+    path = "/" + value.lstrip("/")
+    # The public catalog index omits Magento's media directory from these paths.
+    if not path.startswith(("/media/", "/pub/media/")):
+        path = "/media/catalog/product" + path
+    return BASE_URL + path
 
 
 def _attribute_options(code):
@@ -81,6 +90,7 @@ def _build_item(product, abv_options, volume_options):
     volume = extract_volume(name, path, product.get("description"), product.get("short_description"))
     if volume is None:
         volume = extract_volume(volume_label, path, product.get("description"), product.get("short_description"))
+    image = _image_url(product.get("image")) or _image_url(product.get("thumbnail"))
     return {
         "name": name,
         "shop_name": SHOP_NAME,
@@ -88,7 +98,7 @@ def _build_item(product, abv_options, volume_options):
         "old_price": old_price,
         "discount_pct": discount,
         "url": BASE_URL + "/" + path.lstrip("/"),
-        "image": _image_url(product.get("image") or product.get("thumbnail")),
+        "image": image,
         "brand": extract_brand(name, slug=path),
         "age": extract_age(name, path, product.get("description"), product.get("short_description")),
         "abv": abv,
