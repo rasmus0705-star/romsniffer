@@ -47,15 +47,17 @@ nav { background: rgba(7,6,10,.86) !important; backdrop-filter: blur(14px) satur
 .cat-switch a:hover { color: var(--text); }
 .cat-switch a.active { color: var(--accent); border-color: var(--accent); }
 @media (max-width: 720px) {
-  nav { flex-wrap: wrap; position: sticky; }
-  .nav-toggle { display: flex; margin-left: auto; }
+  nav { flex-wrap: nowrap !important; position: sticky; min-height: 58px; padding: .45rem .7rem !important; gap: .3rem; }
+  .nav-logo { flex: 0 0 auto; }
+  .nav-toggle { display: flex; flex: 0 0 36px; width: 36px; height: 34px; margin-left: 0; order: 3; }
   .nav-links { display: none !important; }
   nav.nav-open .nav-links { display: flex !important; flex-direction: column; flex-basis: 100%; gap: 0; padding: .4rem 0 .8rem; border-top: 1px solid var(--border); margin-top: .6rem; }
   nav.nav-open .nav-links a { display: block !important; padding: .85rem .2rem; border-bottom: 1px solid var(--border) !important; }
   nav.nav-open .nav-links .nav-sep { display: none !important; }
   .nav-updated { display: none !important; }
-  .cat-switch { margin-left: 0; padding-left: 0; border-left: 0; flex-basis: 100%; order: 3; }
-  .nav-logo span, .logo-link span { font-size: .92rem !important; letter-spacing: .24em !important; }
+  .cat-switch { flex: 0 0 auto; margin-left: auto; padding-left: 0; border-left: 0; order: 2; gap: .1rem; }
+  .cat-switch a { padding: .28rem .32rem; font-size: .56rem; letter-spacing: .1em; }
+  .nav-logo span, .logo-link span { font-size: .9rem !important; letter-spacing: .16em !important; }
 }
 
 /* ── Sidefod ──────────────────────────────────────────────────────────── */
@@ -112,6 +114,14 @@ footer strong { color: var(--text-muted); font-weight: 600; }
   .fund-cta { text-align: center; }
 }
 
+@media (max-width: 640px) {
+  .top-card-feature { display: flex !important; flex-direction: column; align-items: stretch; flex-basis: min(82vw, 320px); min-width: min(82vw, 320px); }
+  .top-card-feature .top-card-img, .top-card-feature .top-card-img-placeholder { width: 100%; height: 145px; min-height: 145px; box-sizing: border-box; }
+  .top-card-feature .top-card-body { width: 100%; min-width: 0; box-sizing: border-box; }
+  .top-deals-header { align-items: center; gap: .5rem; }
+  .top-deals-see-all { white-space: nowrap; text-transform: none !important; letter-spacing: 0 !important; }
+}
+
 /* ── Forside: tilbudsstrimmel ─────────────────────────────────────────── */
 .top-deals-section { padding: 1rem 1.5rem .9rem !important; border-color: var(--border) !important; background: transparent !important; }
 .top-deals-title { font-family: var(--serif) !important; font-size: 1.1rem !important; letter-spacing: .06em !important; color: var(--gold-light) !important; }
@@ -140,7 +150,8 @@ footer strong { color: var(--text-muted); font-weight: 600; }
 .empty-icon svg { stroke: var(--gold-dim); width: 3rem; height: 3rem; }
 .card-meta { gap: 0 !important; flex-wrap: wrap; }
 .card-tag { background: none !important; border: none !important; padding: 0 !important; color: var(--text-muted) !important; font-size: .72rem !important; border-radius: 0 !important; font-weight: 400 !important; display: inline-flex; align-items: center; gap: .3rem; }
-.card-tag + .card-tag::before { content: '·'; margin: 0 .45rem; opacity: .55; }
+.card-tag + .card-tag::before { content: none !important; display: none !important; }
+.card-meta { gap: .35rem .65rem !important; }
 .card-tag.ppl { display: none !important; }
 .type-tooltip-icon { display: none !important; }
 .card-name, .card-name a { font-family: var(--serif) !important; font-weight: 500 !important; color: var(--text) !important; text-wrap: balance; }
@@ -159,6 +170,8 @@ footer strong { color: var(--text-muted); font-weight: 600; }
 .price-row-link:hover { background: var(--gold) !important; color: #0a0806 !important; }
 .more-shops-toggle { border-radius: 2px !important; background: transparent !important; border: 1px solid var(--border) !important; letter-spacing: .1em; color: var(--text-muted) !important; }
 .transparency-badge { color: var(--text-dim) !important; letter-spacing: .08em; }
+body[data-cat="rom"] .transparency-badge,
+body[data-cat="whisky"] .transparency-badge { text-transform: none !important; letter-spacing: 0 !important; font-size: .78rem !important; }
 .fav-btn { background: rgba(15,12,19,.88) !important; border: 1px solid var(--border-light) !important; color: #fff; backdrop-filter: none !important; display: flex; align-items: center; justify-content: center; }
 .fav-btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .fav-btn.active { color: #ff5a5f; }
@@ -166,6 +179,10 @@ footer strong { color: var(--text-muted); font-weight: 600; }
 
 /* ── Sidebar og filtre ────────────────────────────────────────────────── */
 .sidebar { background: transparent !important; border-color: var(--border) !important; }
+.sidebar-checkbox-list { max-height: none !important; overflow: visible !important; }
+.sidebar-sort-section, .sidebar-mobile-footer { display: none; }
+.sidebar-show-all { display: block; width: 100%; margin-top: .3rem; padding: .55rem .65rem; color: var(--text-muted); background: transparent; border: 1px solid var(--border); font: inherit; font-size: .75rem; text-align: center; cursor: pointer; }
+.sidebar-show-all:hover { color: var(--gold-light); border-color: var(--gold); }
 .sidebar-title { letter-spacing: .2em !important; color: var(--gold) !important; }
 .sidebar-filter-btn, .sidebar-checkbox, .sidebar-reset { border-radius: 2px !important; }
 .sidebar-filter-btn.active { background: rgba(201,168,76,.1) !important; border-color: var(--gold) !important; color: var(--gold-light) !important; }
@@ -173,10 +190,23 @@ footer strong { color: var(--text-muted); font-weight: 600; }
 select, input[type=text], input[type=search] { border-radius: 2px !important; }
 .mobile-filter-btn { border-radius: 2px !important; }
 @media (max-width: 1100px) {
-  .mobile-filter-toggle { position: fixed !important; top: auto !important; bottom: max(18px, env(safe-area-inset-bottom)); left: 50%; right: auto; transform: translateX(-50%); background: none !important; border: none !important; padding: 0 !important; width: auto !important; z-index: 600; }
-  .mobile-filter-btn { flex: none; padding: .7rem 1.3rem !important; border-radius: 999px !important; min-height: 46px; background: var(--gold) !important; color: #0a0806 !important; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: .72rem; box-shadow: 0 8px 24px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.1) inset; }
+  .mobile-filter-toggle { position: static !important; transform: none !important; display: flex; justify-content: flex-end; padding: .35rem .75rem !important; background: transparent !important; border: 0 !important; }
+  .mobile-filter-btn { flex: none; padding: .5rem .9rem !important; border-radius: 999px !important; min-height: 38px; background: var(--gold) !important; color: #0a0806 !important; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; font-size: .7rem; box-shadow: none !important; }
   body.sidebar-open .mobile-filter-toggle { display: none !important; }
-  .grid-wrap { padding-bottom: 5.5rem; }
+  .grid-wrap { padding-bottom: 1rem; }
+  .sort-bar { position: relative !important; top: auto !important; z-index: 1 !important; backdrop-filter: none !important; }
+  .sort-select { width: 100%; }
+  .sidebar-mobile-footer { position: sticky; bottom: 0; z-index: 3; margin: auto -1rem -1.25rem; padding: .7rem 1rem max(.7rem, env(safe-area-inset-bottom)); background: #17131a; border-top: 1px solid var(--border-light); }
+  .sidebar-mobile-footer, .sidebar-sort-section { display: block; }
+  .sidebar-apply { width: 100%; min-height: 48px; border: 0; border-radius: 3px; background: var(--gold); color: #0a0806; font: 600 .78rem var(--sans); letter-spacing: .08em; cursor: pointer; }
+  .sidebar-sort-slot .sort-select { display: block; }
+  .cky-btn-revisit-wrapper, .scroll-top { display: none !important; }
+}
+@media (max-width: 500px) {
+  #grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .price-row-main { flex-direction: column !important; align-items: stretch !important; gap: .55rem !important; }
+  .price-row-actions, .price-row-link { width: 100%; }
+  .price-row-link { justify-content: center; }
 }
 
 /* ── Premium ──────────────────────────────────────────────────────────── */
@@ -305,6 +335,9 @@ select, input[type=text], input[type=search] { border-radius: 2px !important; }
     touch-action: pan-y;
   }
   body.sidebar-open { touch-action: auto; }
+}
+@media (max-width: 1100px) {
+  .sidebar { padding-bottom: 1.25rem !important; }
 }
 /* laesbarhed: kraftigere tekstfarver og lidt stoerre smaaskrift (samme udtryk, ingen layoutaendringer) */ :root{--text-muted:#cfc6b6;--text-dim:#b3a898} .price-row-old,.top-card-old,.fund-old{opacity:1!important;color:var(--text-dim)!important;text-decoration-color:#d7cfc0!important;text-decoration-thickness:1.5px} .price-row-old{font-size:.88rem!important} .top-card-old{font-size:.8rem!important} .transparency-badge{opacity:1!important;color:var(--text-muted)!important;font-size:.7rem!important;letter-spacing:.06em!important} .price-row-ppl{font-size:.72rem!important} .price-row-shop,.card-brand,.top-card-shop,.cat-bar-label{font-size:.7rem!important} .price-row-link,.top-card-link,.more-shops-toggle,.cat-chip,.qbtn,.stat-lbl{font-size:.7rem!important} .price-row-disc,.price-row-save,.price-drop-badge,.discount-badge,.top-card-pct,.fund-saving{font-size:.74rem!important} .nav-updated,.nav-links a,.fund-sub,.top-deals-see-all,footer a,.footer-copy,footer p{font-size:.76rem!important} .card-tag{font-size:.74rem!important}
 

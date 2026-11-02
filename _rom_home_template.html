@@ -1247,8 +1247,8 @@
 
 </style>
 <script>const DATA_VERSION = '3056ce1914cd';</script>
-<link rel="stylesheet" href="/theme.css?v=category-compact-6">
-<script src="/theme.js?v=menu-category-3"></script>
+<link rel="stylesheet" href="/theme.css?v=category-mobile-fix-7">
+<script src="/theme.js?v=menu-mobile-fix-4"></script>
 </head>
 <body data-cat="rom">
 
@@ -1293,7 +1293,7 @@
 <section class="top-deals-section" id="top-deals-section" style="display:none" role="region" aria-label="Dagens fund og bedste tilbud">
     <div class="top-deals-header">
         <span class="top-deals-title">Dagens fund &amp; bedste tilbud</span>
-        <a class="top-deals-see-all" role="button" tabindex="0" onclick="quickFilter('multi')">Se alle sammenligninger →</a>
+        <a class="top-deals-see-all" role="button" tabindex="0" onclick="quickFilter('multi')">Se alle →</a>
     </div>
     <div class="top-deals-scroll" id="top-deals-scroll" aria-label="Sammenligninger med størst besparelse"></div>
 </section>
@@ -1369,6 +1369,11 @@
             <a href="/rom/alder/xo/" class="sidebar-cat-link">Se alle aldre →</a>
         </div>
 
+        <div class="sidebar-section sidebar-sort-section">
+            <div class="sidebar-title">Sortering</div>
+            <div class="sidebar-sort-slot" id="sidebar-sort-slot"></div>
+        </div>
+
         <div class="sidebar-section">
             <div class="sidebar-title">Pris</div>
             <div class="range-slider">
@@ -1411,6 +1416,9 @@
 
         <div class="sidebar-section">
             <button class="sidebar-reset" id="reset-btn">Nulstil alle filtre</button>
+        </div>
+        <div class="sidebar-mobile-footer">
+            <button class="sidebar-apply" id="mobile-filter-apply">Vis 0 resultater</button>
         </div>
     </aside>
 
@@ -1467,6 +1475,7 @@
                 <li><a href="om.html#privatlivspolitik">Privatlivspolitik</a></li>
                 <li><a href="om.html#handelsbetingelser">Handelsbetingelser</a></li>
                 <li><a href="om.html#cookies">Cookiepolitik</a></li>
+                <li><a href="#" id="footer-cookie-settings">Cookieindstillinger</a></li>
             </ul>
         </div>
         <div class="footer-col">
@@ -1543,10 +1552,7 @@ const COUNTRY_ISO = {
     'Dansk': 'dk', 'Dominikansk': 'do', 'Filippinerne': 'ph', 'Østrig': 'at',
 };
 function flagImg(country, size) {
-    const iso = COUNTRY_ISO[country];
-    const svg = iso && FLAG_SVG[iso];
-    if (!svg) return '<span style="opacity:.6">\u{1F30D}</span>';
-    return '<span style="display:inline-block;vertical-align:middle;margin-right:3px;border-radius:2px;overflow:hidden;line-height:0;box-shadow:0 0 0 .5px rgba(0,0,0,.3)">' + svg + '</span>';
+    return '';
 }
 
 // ── STATE ─────────────────────────────────────────────────────────
@@ -1834,7 +1840,7 @@ function makeCard(r, delay) {
         html += `</div>`;
 
         if (savings > 10) {
-            html += `<div class="transparency-badge">Sammenlignet på tværs af ${r.shop_count} butikker — spar op til ${fmtPrice(savings)} kr</div>`;
+            html += `<div class="transparency-badge">${r.shop_count} butikker · spar ${fmtPrice(savings)} kr</div>`;
         }
     }
 
@@ -1848,6 +1854,8 @@ function render(append) {
     const grid = document.getElementById('grid');
 
     document.getElementById('result-count').textContent = filtered.length;
+    const applyButton = document.getElementById('mobile-filter-apply');
+    if (applyButton) applyButton.textContent = `Vis ${filtered.length.toLocaleString('da-DK')} resultater`;
     renderActiveChips();
     syncTopDealsVisibility();
 
@@ -2265,8 +2273,27 @@ async function loadData() {
             const list = document.getElementById(listId);
             list.innerHTML = items.map(v => `
                 <div class="sidebar-checkbox" data-${dataAttr}="${v}" role="checkbox" aria-checked="false" tabindex="0">
-                    <span class="cb"></span> ${dataAttr === 'country' ? flagImg(v, 'sm') + ' ' : ''}${v}
+                    <span class="cb"></span> ${v}
                 </div>`).join('');
+            list.querySelectorAll('.sidebar-checkbox').forEach((item, index) => {
+                if (index >= 5) item.style.display = 'none';
+            });
+            if (items.length > 5) {
+                const more = document.createElement('button');
+                more.type = 'button';
+                more.className = 'sidebar-show-all';
+                more.textContent = `Vis alle (${items.length})`;
+                more.setAttribute('aria-expanded', 'false');
+                more.addEventListener('click', () => {
+                    const expanded = more.getAttribute('aria-expanded') !== 'true';
+                    more.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+                    more.textContent = expanded ? 'Vis færre' : `Vis alle (${items.length})`;
+                    list.querySelectorAll('.sidebar-checkbox').forEach((item, index) => {
+                        item.style.display = expanded || index < 5 ? '' : 'none';
+                    });
+                });
+                list.after(more);
+            }
             list.querySelectorAll('.sidebar-checkbox').forEach(item => {
                 const toggle = () => {
                     const val = item.dataset[dataAttr];
@@ -2274,7 +2301,6 @@ async function loadData() {
                     updateFn();
                     currentPage = 1;
                     render();
-                    if (isMobile()) closeSidebar();
                 };
                 item.addEventListener('click', e => { e.stopPropagation(); toggle(); });
                 item.addEventListener('keydown', e => { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle(); } });
@@ -2403,6 +2429,7 @@ document.getElementById('reset-btn').addEventListener('click', resetAll);
 document.getElementById('clear-all').addEventListener('click', resetAll);
 document.getElementById('mobile-filter-open').addEventListener('click', openSidebar);
 document.getElementById('mobile-filter-close').addEventListener('click', closeSidebar);
+document.getElementById('mobile-filter-apply').addEventListener('click', closeSidebar);
 document.getElementById('mobile-backdrop').addEventListener('click', closeSidebar);
 
 document.getElementById('load-more').addEventListener('click', () => {

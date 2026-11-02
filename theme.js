@@ -88,6 +88,32 @@
     if (!nav) return;
     var cat = document.body.getAttribute('data-cat') || 'rom';
 
+    var sort = document.getElementById('sort-top');
+    var sortSlot = document.getElementById('sidebar-sort-slot');
+    var sortMarker = null;
+    if (sort && sortSlot && sort.parentNode) {
+      sortMarker = document.createComment('sort select home');
+      sort.parentNode.insertBefore(sortMarker, sort);
+      var placeSort = function () {
+        if (window.matchMedia('(max-width: 1100px)').matches) {
+          if (sort.parentNode !== sortSlot) sortSlot.appendChild(sort);
+        } else if (sort.parentNode !== sortMarker.parentNode) {
+          sortMarker.parentNode.insertBefore(sort, sortMarker.nextSibling);
+        }
+      };
+      placeSort();
+      window.addEventListener('resize', placeSort, { passive: true });
+    }
+
+    var cookieSettings = document.getElementById('footer-cookie-settings');
+    if (cookieSettings) {
+      cookieSettings.addEventListener('click', function (e) {
+        e.preventDefault();
+        var revisit = document.querySelector('.cky-btn-revisit-wrapper');
+        if (revisit) revisit.click();
+      });
+    }
+
     var links = nav.querySelector('.nav-links');
     if (links && !nav.querySelector('.nav-toggle')) {
       var b = document.createElement('button');

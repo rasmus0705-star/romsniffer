@@ -5,6 +5,7 @@ import json
 import re
 from pathlib import Path
 from slugify_rom import make_unique_slug
+from country_norm import normalize_country
 
 PILOT = Path("whisky_pilot_data.json")
 TEMPLATE = Path("_rom_home_template.html")
@@ -44,10 +45,28 @@ def _age_sort(value):
     return (0, int(match.group())) if match else (1, value.casefold())
 
 
+def _whisky_country(value):
+    if not value:
+        return None
+    raw = str(value).strip()
+    # Collapse Scottish distillery regions into the country used by filters.
+    if re.search(r"\b(?:highlands?|islay|speyside|lowlands?|campbeltown|orkney|arran|jura|skye|mull)\b", raw, re.I):
+        if not re.search(r"\b(?:japan|taiwan|india|ireland|irland|usa|canada|denmark|danmark|france|frankrig|sweden|sverige)\b", raw, re.I):
+            return "Skotland"
+    return normalize_country(raw)
+
+
 def _catalog(pilot):
     items = []
     for match in pilot.get("listings", pilot.get("matches", [])):
-        offers = sorted(match.get("prices", []), key=lambda p: float(p.get("price") or 0))
+        offers = [dict(p) for p in match.get("prices", [])]
+        for offer in offers:
+            # Vild med Vin's Magento original_price_incl_tax can be derived
+            # from a discount percentage, so it is not safe as a before-price.
+            if str(offer.get("shop_name") or "").strip().casefold() == "vild med vin":
+                offer["old_price"] = None
+                offer["discount_pct"] = None
+        offers = sorted(offers, key=lambda p: float(p.get("price") or 0))
         if not offers:
             continue
         low, high = float(offers[0]["price"]), float(offers[-1]["price"])
@@ -56,7 +75,7 @@ def _catalog(pilot):
         name = match.get("name") or "Whisky"
         items.append({
             "name": name, "brand": "", "type": _type(name), "age": match.get("age") or _age(name),
-            "country": match.get("country"),
+            "country": _whisky_country(match.get("country")),
             "abv": match.get("abv"), "volume_cl": match.get("volume_cl"), "image": match.get("image"),
             "slug": "", "category": "whisky", "shop_count": len(offers),
             "min_price": low, "cheapest_price": low,
@@ -127,12 +146,10 @@ def _render(source, catalog):
     html = html.replace('<a href="/guide.html">Guide</a>', '')
     html = html.replace('<a href="/whisky/">Alle whisky</a>', '')
 
-    html = html.replace('<span>Lande <span id="country-count-badge"', '<span>Oprindelse <span id="country-count-badge"')
     html = re.sub(r'\s*<a href="/rom/land/jamaica/" class="sidebar-cat-link">Se alle lande →</a>', '', html)
     html = html.replace('<div class="sidebar-title">Typer ', '<div class="sidebar-title">Stilarter ')
     html = html.replace('<span>Typer <span id="type-count-badge"', '<span>Stilarter <span id="type-count-badge"')
     html = re.sub(r'\s*<a href="/rom/(?:type/aged-rom|alder/xo)/" class="sidebar-cat-link">Se alle (?:typer|aldre) →</a>', '', html)
-    html = html.replace('<span>Lande <span id="country-count-badge"', '<span>Oprindelse <span id="country-count-badge"')
 
     # Keep product discovery on RomSniffer; each whisky gets a static comparison page.
     html = html.replace('href="/rom/${r.slug}/" class="card-img-wrap"', 'href="/whisky/${r.slug}/" class="card-img-wrap"')

@@ -1,4 +1,5 @@
 """Generate the category chooser at / and the RomSniffer rum listing at /rom/."""
+import hashlib
 import json
 import re
 from pathlib import Path
@@ -64,6 +65,8 @@ def _make_rom_page(template, rom_data):
     html = html.replace('<h2 class="hero-title">Samme flaske. <em>Laveste pris.</em></h2>', '<h1 class="hero-title">Find rom til den bedste pris</h1>')
     html = re.sub(r'<h1 style="position:absolute;width:1px;height:1px;[^>]*>.*?</h1>', '', html, count=1, flags=re.S)
     html = _add_static_catalog(html, rom_data)
+    version = hashlib.sha1(json.dumps(rom_data, sort_keys=True, ensure_ascii=False).encode("utf-8")).hexdigest()[:12]
+    html = re.sub(r"const DATA_VERSION = '[^']*';", f"const DATA_VERSION = '{version}';", html, count=1)
     for page in ("premium.html", "guide.html", "om.html"):
         html = html.replace(f'href="{page}"', f'href="/{page}"')
     return html
