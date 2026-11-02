@@ -28,6 +28,12 @@ OUTPUT_DIR = CATEGORY
 SITE_URL = "https://www.romsniffer.dk"
 MAX_RELATED = 6
 
+
+def format_price(value):
+    """Format Danish kroner exactly, keeping øre only when present."""
+    formatted = f"{float(value):,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return formatted[:-3] if formatted.endswith(",00") else formatted
+
 # ────────────────────────────────────────────────────────────
 # HELPERS
 # ────────────────────────────────────────────────────────────
@@ -109,7 +115,7 @@ def meta_description(rom):
     else:
         parts.append(f"Se pris på {name} fra danske webshops.")
 
-    parts.append(f"Billigste pris: {price:.0f} kr.")
+    parts.append(f"Billigste pris: {format_price(price)} kr.")
 
     extras = []
     if rom.get("brand"):
@@ -246,10 +252,10 @@ def render_page(rom, slug, related, slug_map, updated):
     prices_rows = []
     for i, p in enumerate(rom["prices"]):
         shop_esc = esc(p["shop_name"])
-        price_str = f'{p["price"]:.0f} kr'
+        price_str = f'{format_price(p["price"])} kr'
         old_price_html = ""
         if p.get("old_price") and p["old_price"] > p["price"]:
-            old_price_html = f'<span class="old-price">{p["old_price"]:.0f} kr</span>'
+            old_price_html = f'<span class="old-price">{format_price(p["old_price"])} kr</span>'
         discount_html = ""
         if p.get("discount_pct") and p["discount_pct"] > 0:
             discount_html = f'<span class="discount-badge">-{p["discount_pct"]:.0f}%</span>'
@@ -274,7 +280,7 @@ def render_page(rom, slug, related, slug_map, updated):
         lowest = rom["min_price"]
         if highest > lowest:
             savings = highest - lowest
-            savings_html = f'<p class="savings">Spar op til <strong>{savings:.0f} kr</strong> ved at vælge den billigste butik</p>'
+            savings_html = f'<p class="savings">Spar op til <strong>{format_price(savings)} kr</strong> ved at vælge den billigste butik</p>'
 
     # Relaterede rom
     related_cards = []
@@ -284,7 +290,7 @@ def render_page(rom, slug, related, slug_map, updated):
             continue
         r_img = esc(r.get("image") or "")
         r_name = esc(r["name"])
-        r_price = f'{r["min_price"]:.0f} kr'
+        r_price = f'{format_price(r["min_price"])} kr'
         r_badge = ""
         if r["shop_count"] > 1:
             r_badge = f'<span class="rel-shops">{r["shop_count"]} butikker</span>'
@@ -701,7 +707,7 @@ footer a {{ color: var(--copper-light); }}
             <div class="pills">
             {pills_html}
             </div>
-            <div class="hero-price">{rom["min_price"]:.0f} kr</div>
+            <div class="hero-price">{format_price(rom["min_price"])} kr</div>
             <p class="hero-price-sub">Billigste pris fra {esc(rom["prices"][0]["shop_name"])}</p>
             <a href="{esc(rom["prices"][0]["url"])}" target="_blank" rel="sponsored nofollow noopener noreferrer" class="hero-buy">Køb billigst →</a>
         </div>

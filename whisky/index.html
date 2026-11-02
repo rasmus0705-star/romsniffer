@@ -1588,6 +1588,7 @@ function ageVal(r) {
 
 function esc(s) { return (s || '').replace(/'/g, ' ').replace(/"/g, ' '); }
 function fmtDiscount(value) { return Math.round(Number(value) || 0).toLocaleString('da-DK') + ' %'; }
+function fmtPrice(value) { return Number(value || 0).toLocaleString('da-DK', { minimumFractionDigits: 0, maximumFractionDigits: 2 }); }
 
 // flagFor() replaced by flagImg()
 
@@ -1785,15 +1786,15 @@ function makeCard(r, delay) {
         <div class="price-row-main">
             <div class="price-row-left">
                 <div class="price-row-amounts">
-                    <span class="price-row-amount">${cheapest.price.toFixed(0)} kr</span>
-                    ${cheapest.old_price ? `<span class="price-row-old">${cheapest.old_price.toFixed(0)} kr</span>` : ''}
+                    <span class="price-row-amount">${fmtPrice(cheapest.price)} kr</span>
+                    ${cheapest.old_price ? `<span class="price-row-old">${fmtPrice(cheapest.old_price)} kr</span>` : ''}
                 </div>
-                ${cheapest.old_price ? `<span class="price-row-save">Spar ${(cheapest.old_price - cheapest.price).toFixed(0)} kr</span>` : ''}
+                ${cheapest.old_price ? `<span class="price-row-save">Spar ${fmtPrice(cheapest.old_price - cheapest.price)} kr</span>` : ''}
                 ${r.volume_cl && r.volume_cl > 0 ? `<span class="price-row-ppl">${(cheapest.price / r.volume_cl).toFixed(2)} kr/cl</span>` : ''}
             </div>
             <div class="price-row-actions">
                 ${cheapest.url ? `<a class="price-row-link" href="${cheapest.url}" target="_blank" rel="sponsored nofollow noopener"
-                    aria-label="Køb ${esc(RS.clean(r.name))} hos ${esc(cheapest.shop_name)} for ${cheapest.price.toFixed(0)} kr">Køb →</a>` : ''}
+                    aria-label="Køb ${esc(RS.clean(r.name))} hos ${esc(cheapest.shop_name)} for ${fmtPrice(cheapest.price)} kr">Køb →</a>` : ''}
             </div>
         </div>
     </div>`;
@@ -1815,13 +1816,13 @@ function makeCard(r, delay) {
                 <div class="price-row-main">
                     <div class="price-row-left">
                         <div class="price-row-amounts">
-                            <span class="price-row-amount">${p.price.toFixed(0)} kr</span>
-                            ${p.old_price ? `<span class="price-row-old">${p.old_price.toFixed(0)} kr</span>` : ''}
+                            <span class="price-row-amount">${fmtPrice(p.price)} kr</span>
+                            ${p.old_price ? `<span class="price-row-old">${fmtPrice(p.old_price)} kr</span>` : ''}
                         </div>
                     </div>
                     <div class="price-row-actions">
                         ${p.url ? `<a class="price-row-link" href="${p.url}" target="_blank" rel="sponsored nofollow noopener"
-                            aria-label="Køb ${esc(RS.clean(r.name))} hos ${esc(p.shop_name)} for ${p.price.toFixed(0)} kr">Køb →</a>` : ''}
+                            aria-label="Køb ${esc(RS.clean(r.name))} hos ${esc(p.shop_name)} for ${fmtPrice(p.price)} kr">Køb →</a>` : ''}
                     </div>
                 </div>
             </div>`;
@@ -1830,7 +1831,7 @@ function makeCard(r, delay) {
         html += `</div>`;
 
         if (savings > 10) {
-            html += `<div class="transparency-badge">Sammenlignet på tværs af ${r.shop_count} butikker — spar op til ${savings.toFixed(0)} kr</div>`;
+            html += `<div class="transparency-badge">Sammenlignet på tværs af ${r.shop_count} butikker — spar op til ${fmtPrice(savings)} kr</div>`;
         }
     }
 
@@ -1895,14 +1896,14 @@ function makeComparisonCard(r, featured = false) {
     const picture = r.image
         ? `<img class="top-card-img" src="${RS.thumb(r.image, 300)}" width="120" height="120" alt="" loading="lazy" decoding="async" onerror="this.style.display='none'">`
         : `<div class="top-card-img-placeholder">${RS.GLASS_SVG}</div>`;
-    return `<a href="${cheapest.url}" class="top-card${featured ? ' top-card-feature' : ''}" target="_blank" rel="sponsored nofollow noopener" style="text-decoration:none;color:inherit" aria-label="${featured ? 'Dagens fund: ' : 'Sammenlign '}${esc(RS.clean(r.name))}, laveste pris ${cheapest.price.toFixed(0)} kr hos ${esc(cheapest.shop_name)}">
+    return `<a href="${cheapest.url}" class="top-card${featured ? ' top-card-feature' : ''}" target="_blank" rel="sponsored nofollow noopener" style="text-decoration:none;color:inherit" aria-label="${featured ? 'Dagens fund: ' : 'Sammenlign '}${esc(RS.clean(r.name))}, laveste pris ${fmtPrice(cheapest.price)} kr hos ${esc(cheapest.shop_name)}">
         ${picture}
         <div class="top-card-body">
             ${featured ? '<div class="top-card-kicker">Dagens fund</div>' : ''}
             <div class="top-card-shop">Laveste pris hos ${esc(cheapest.shop_name)}</div>
             <div class="top-card-name">${RS.fix(r.name)}</div>
-            <div class="top-card-prices"><span class="top-card-price">${cheapest.price.toFixed(0)} kr</span></div>
-            <div class="top-card-savings">${mostExpensive.price.toFixed(0)} kr dyrest · ${savings.toFixed(0)} kr forskel</div>
+            <div class="top-card-prices"><span class="top-card-price">${fmtPrice(cheapest.price)} kr</span></div>
+            <div class="top-card-savings">${fmtPrice(mostExpensive.price)} kr dyrest · ${fmtPrice(savings)} kr forskel</div>
         </div>
     </a>`;
 }
@@ -2004,7 +2005,7 @@ function showSpotlight() {
         document.getElementById('spotlight-prices').innerHTML = sorted.map((p, i) => `
             <div class="spotlight-price-row">
                 <span class="spotlight-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
-                <span class="spotlight-price ${i === 0 ? 'best' : ''}">${p.price.toFixed(0)} kr</span>
+                <span class="spotlight-price ${i === 0 ? 'best' : ''}">${fmtPrice(p.price)} kr</span>
             </div>`).join('');
 
         // Besparelse
@@ -2012,7 +2013,7 @@ function showSpotlight() {
         const savings = getSavings(rom);
         if (savings > 5) {
             const pct = Math.round((savings / sorted[sorted.length - 1].price) * 100);
-            savingsEl.innerHTML = `Spar <strong>${savings.toFixed(0)} kr</strong> (${pct}%) vs dyreste`;
+            savingsEl.innerHTML = `Spar <strong>${fmtPrice(savings)} kr</strong> (${pct}%) vs dyreste`;
             savingsEl.style.display = 'block';
         } else if (rom.max_discount_pct > 0) {
             savingsEl.innerHTML = `<strong>−${fmtDiscount(rom.max_discount_pct)}</strong> rabat`;
