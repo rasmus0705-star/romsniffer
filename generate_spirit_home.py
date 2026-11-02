@@ -32,31 +32,22 @@ def _price_example(path):
         formatted_price = f"{price:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
         if formatted_price.endswith(",00"):
             formatted_price = formatted_price[:-3]
+        updated = datetime.fromisoformat(data["updated"]) if data.get("updated") else None
+        if updated:
+            months = ("januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december")
+            updated_label = f"{updated.day}. {months[updated.month - 1]} kl. {updated:%H.%M}"
+        else:
+            updated_label = "tidspunkt ukendt"
         return {
             "name": " ".join(item.get("name", "").split()[:7]),
             "price": formatted_price,
             "shop": best_price.get("shop_name", "webshoppen"),
             "url": best_price["url"],
             "shops": shop_count,
+            "updated": updated_label,
         }
     except (OSError, ValueError, TypeError, KeyError):
         return None
-
-
-def _updated_label():
-    dates = []
-    for path in ("rom_data.json", "whisky_data.json"):
-        try:
-            updated = json.loads(Path(path).read_text(encoding="utf-8")).get("updated")
-            if updated:
-                dates.append(datetime.fromisoformat(updated))
-        except (OSError, ValueError, TypeError):
-            continue
-    if not dates:
-        return "Priser kontrolleres dagligt"
-    updated = max(dates)
-    months = ("januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december")
-    return f"Data opdateret {updated.day}. {months[updated.month - 1]} kl. {updated:%H.%M}"
 
 
 def _make_rom_page(template):
@@ -73,7 +64,7 @@ def _make_rom_page(template):
     return html
 
 
-def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal, updated_label):
+def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal):
     def fmt(value):
         return f"{int(value or 0):,}".replace(",", ".")
 
@@ -85,7 +76,7 @@ def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal, updated_label):
         if not deal:
             return "<span class=\"choice-deal\"><small>Aktuel pris</small><strong>Se dagens priser</strong></span>"
         return (f"<a class=\"choice-deal\" href=\"{escape(deal['url'], quote=True)}\" aria-label=\"Se {escape(deal['name'], quote=True)} hos {escape(deal['shop'], quote=True)}\">"
-                f"<small>Bedste pris lige nu</small>"
+                f"<small>Senest registreret {escape(deal['updated'])}</small>"
                 f"<strong>{escape(deal['name'])}</strong>"
                 f"<span>{escape(deal['price'])} kr. hos {escape(deal['shop'])}</span>"
                 f"<small class=\"deal-compare\">Sammenlignet hos {deal['shops']} butikker</small></a>")
@@ -198,7 +189,7 @@ def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal, updated_label):
       </article>
     </section>
   </main>
-  <footer>{escape(updated_label)} <span aria-hidden="true">·</span> Gratis prissammenligning</footer>
+  <footer>Priser opdateres dagligt <span aria-hidden="true">·</span> Gratis prissammenligning</footer>
 </body>
 </html>
 '''
@@ -212,7 +203,7 @@ def main():
     ROM_PAGE.write_text(_make_rom_page(source), encoding="utf-8")
     HOME.write_text(_make_home(
         _stats("rom_data.json"), _stats("whisky_data.json"),
-        _price_example("rom_data.json"), _price_example("whisky_data.json"), _updated_label(),
+        _price_example("rom_data.json"), _price_example("whisky_data.json"),
     ), encoding="utf-8")
     print(f"Kategoriforside genereret: {HOME.resolve()}; romoversigt: {ROM_PAGE.resolve()}")
 
