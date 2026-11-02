@@ -20,64 +20,91 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Brugal 1888 Gran Reserva",
-  "url": "https://www.romsniffer.dk/rom/brugal-1888-gran-reserva/",
-  "category": "Rom",
-  "image": "https://www.vaultofspirits.dk/wp-content/uploads/brugal-1888-gran-reserva-double-matured-40-1.avif",
-  "brand": {
-    "@type": "Brand",
-    "name": "Brugal"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "315.00",
-    "highPrice": "459.00",
-    "priceCurrency": "DKK",
-    "offerCount": 3,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/brugal-1888-gran-reserva-rom/",
-        "priceCurrency": "DKK",
-        "price": "315.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+      "@type": "Product",
+      "name": "Brugal 1888 Gran Reserva",
+      "url": "https://www.romsniffer.dk/rom/brugal-1888-gran-reserva/",
+      "category": "Rom",
+      "image": "https://www.vaultofspirits.dk/wp-content/uploads/brugal-1888-gran-reserva-double-matured-40-1.avif",
+      "brand": {
+        "@type": "Brand",
+        "name": "Brugal"
       },
-      {
-        "@type": "Offer",
-        "url": "https://www.vaultofspirits.dk/rom/moerk/brugal-1888-gran-reserva-double-matured-40/",
-        "priceCurrency": "DKK",
-        "price": "379.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Vault of Spirits"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.juuls.dk/rom/varekort/brugal-1888-ron-gran-reserva",
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "315.00",
+        "highPrice": "459.00",
         "priceCurrency": "DKK",
-        "price": "459.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Juuls"
-        }
+        "offerCount": 3,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/brugal-1888-gran-reserva-rom/",
+            "priceCurrency": "DKK",
+            "price": "315.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.vaultofspirits.dk/rom/moerk/brugal-1888-gran-reserva-double-matured-40/",
+            "priceCurrency": "DKK",
+            "price": "379.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Vault of Spirits"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.juuls.dk/rom/varekort/brugal-1888-ron-gran-reserva",
+            "priceCurrency": "DKK",
+            "price": "459.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Juuls"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Brugal 1888 Gran Reserva",
+          "item": "https://www.romsniffer.dk/rom/brugal-1888-gran-reserva/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -426,6 +453,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

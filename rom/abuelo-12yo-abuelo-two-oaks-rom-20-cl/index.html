@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Abuelo 12YO + Abuelo Two Oaks Rom 20 cl",
-  "url": "https://www.romsniffer.dk/rom/abuelo-12yo-abuelo-two-oaks-rom-20-cl/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2025/01/Abuelo-12-years-og-20cl.-Abuelo-XII-Two-Oaks.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "Abuelo"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "439.00",
-    "highPrice": "439.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/abuelo-12yo-abuelo-two-oaks-20-cl/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Abuelo 12YO + Abuelo Two Oaks Rom 20 cl",
+      "url": "https://www.romsniffer.dk/rom/abuelo-12yo-abuelo-two-oaks-rom-20-cl/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2025/01/Abuelo-12-years-og-20cl.-Abuelo-XII-Two-Oaks.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Abuelo"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "439.00",
+        "highPrice": "439.00",
         "priceCurrency": "DKK",
-        "price": "439.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/abuelo-12yo-abuelo-two-oaks-20-cl/",
+            "priceCurrency": "DKK",
+            "price": "439.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Abuelo 12YO + Abuelo Two Oaks Rom 20 cl",
+          "item": "https://www.romsniffer.dk/rom/abuelo-12yo-abuelo-two-oaks-rom-20-cl/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

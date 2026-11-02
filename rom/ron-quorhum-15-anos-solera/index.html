@@ -20,53 +20,80 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Ron Quorhum 15 Años Solera",
-  "url": "https://www.romsniffer.dk/rom/ron-quorhum-15-anos-solera/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_a1f409ac-2ab1-493f-ab68-4799a925bf6d.png?v=1769421246",
-  "brand": {
-    "@type": "Brand",
-    "name": "Quorhum"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "425.00",
-    "highPrice": "449.00",
-    "priceCurrency": "DKK",
-    "offerCount": 2,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/ron-quorhum-15-anos-solera/",
-        "priceCurrency": "DKK",
-        "price": "425.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+      "@type": "Product",
+      "name": "Ron Quorhum 15 Años Solera",
+      "url": "https://www.romsniffer.dk/rom/ron-quorhum-15-anos-solera/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_a1f409ac-2ab1-493f-ab68-4799a925bf6d.png?v=1769421246",
+      "brand": {
+        "@type": "Brand",
+        "name": "Quorhum"
       },
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/ron-quorhum-15-qrm-rom",
-        "priceCurrency": "DKK",
-        "price": "449.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "425.00",
+        "highPrice": "449.00",
+        "priceCurrency": "DKK",
+        "offerCount": 2,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/ron-quorhum-15-anos-solera/",
+            "priceCurrency": "DKK",
+            "price": "425.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/ron-quorhum-15-qrm-rom",
+            "priceCurrency": "DKK",
+            "price": "449.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ron Quorhum 15 Años Solera",
+          "item": "https://www.romsniffer.dk/rom/ron-quorhum-15-anos-solera/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -415,6 +442,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

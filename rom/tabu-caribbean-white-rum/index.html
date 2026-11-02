@@ -20,31 +20,58 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Tabu Caribbean White Rum",
-  "url": "https://www.romsniffer.dk/rom/tabu-caribbean-white-rum/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2020/08/100261-1.jpg",
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "159.00",
-    "highPrice": "159.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/tabu-caribbean-white-rum/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Tabu Caribbean White Rum",
+      "url": "https://www.romsniffer.dk/rom/tabu-caribbean-white-rum/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2020/08/100261-1.jpg",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "159.00",
+        "highPrice": "159.00",
         "priceCurrency": "DKK",
-        "price": "159.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/tabu-caribbean-white-rum/",
+            "priceCurrency": "DKK",
+            "price": "159.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Tabu Caribbean White Rum",
+          "item": "https://www.romsniffer.dk/rom/tabu-caribbean-white-rum/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -393,6 +420,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>
@@ -461,7 +489,7 @@ footer a { color: var(--copper-light); }
                 <p class="rel-price">39 kr </p>
             </div>
         </a>
-        <a href="https://www.romsniffer.dk/rom/puntacana-club-silver-dry-2/" class="rel-card">
+        <a href="https://www.romsniffer.dk/rom/puntacana-club-silver-dry/" class="rel-card">
             <div class="rel-img"><img src="https://conmaz.dk/wp-content/uploads/2022/03/PC01-scaled.jpg" alt="Puntacana Club Silver Dry" loading="lazy"></div>
             <div class="rel-info">
                 <p class="rel-name">Puntacana Club Silver Dry</p>

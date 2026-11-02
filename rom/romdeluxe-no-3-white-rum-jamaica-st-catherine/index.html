@@ -20,42 +20,69 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Romdeluxe No. 3 White Rum Jamaica St. Catherine",
-  "url": "https://www.romsniffer.dk/rom/romdeluxe-no-3-white-rum-jamaica-st-catherine/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_1d3d2f4f-1c29-48a0-9f39-4f7b9714e9b4.png?v=1769427454",
-  "brand": {
-    "@type": "Brand",
-    "name": "Romdeluxe"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "65%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "395.00",
-    "highPrice": "395.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/no-3-white-rum-jamaica-st-catherine",
-        "priceCurrency": "DKK",
-        "price": "395.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
+      "@type": "Product",
+      "name": "Romdeluxe No. 3 White Rum Jamaica St. Catherine",
+      "url": "https://www.romsniffer.dk/rom/romdeluxe-no-3-white-rum-jamaica-st-catherine/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_1d3d2f4f-1c29-48a0-9f39-4f7b9714e9b4.png?v=1769427454",
+      "brand": {
+        "@type": "Brand",
+        "name": "Romdeluxe"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "65%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "395.00",
+        "highPrice": "395.00",
+        "priceCurrency": "DKK",
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/no-3-white-rum-jamaica-st-catherine",
+            "priceCurrency": "DKK",
+            "price": "395.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Romdeluxe No. 3 White Rum Jamaica St. Catherine",
+          "item": "https://www.romsniffer.dk/rom/romdeluxe-no-3-white-rum-jamaica-st-catherine/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -404,6 +431,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

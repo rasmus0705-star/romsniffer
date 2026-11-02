@@ -20,31 +20,58 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Flor De Cana 18 Y.O. Rom- 1 liter",
-  "url": "https://www.romsniffer.dk/rom/flor-de-cana-18-y-o-rom-1-liter/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2023/05/flor-de-cana-centenario-18-yo-gb.png",
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "495.00",
-    "highPrice": "495.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/flor-de-cana-18-y-o-1-liter/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Flor De Cana 18 Y.O. Rom- 1 liter",
+      "url": "https://www.romsniffer.dk/rom/flor-de-cana-18-y-o-rom-1-liter/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/flor-de-cana-centenario-18-yo-gb.png",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "495.00",
+        "highPrice": "495.00",
         "priceCurrency": "DKK",
-        "price": "495.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/flor-de-cana-18-y-o-1-liter/",
+            "priceCurrency": "DKK",
+            "price": "495.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Flor De Cana 18 Y.O. Rom- 1 liter",
+          "item": "https://www.romsniffer.dk/rom/flor-de-cana-18-y-o-rom-1-liter/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -393,6 +420,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

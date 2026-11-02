@@ -20,38 +20,65 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "El Ron Prohibido 12 år Mexico Solera Rom 70 cl 40%",
-  "url": "https://www.romsniffer.dk/rom/el-ron-prohibido-12-ar-mexico-solera-rom-70-cl-40/",
-  "category": "Rom",
-  "image": "https://whisky.gumlet.io/images/Ron-Prohibido_12_year_700-t.jpg",
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "319.00",
-    "highPrice": "319.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/el-ron-prohibido-3262p.html",
-        "priceCurrency": "DKK",
-        "price": "319.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
+      "@type": "Product",
+      "name": "El Ron Prohibido 12 år Mexico Solera Rom 70 cl 40%",
+      "url": "https://www.romsniffer.dk/rom/el-ron-prohibido-12-ar-mexico-solera-rom-70-cl-40/",
+      "category": "Rom",
+      "image": "https://whisky.gumlet.io/images/Ron-Prohibido_12_year_700-t.jpg",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "319.00",
+        "highPrice": "319.00",
+        "priceCurrency": "DKK",
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/el-ron-prohibido-3262p.html",
+            "priceCurrency": "DKK",
+            "price": "319.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "El Ron Prohibido 12 år Mexico Solera Rom 70 cl 40%",
+          "item": "https://www.romsniffer.dk/rom/el-ron-prohibido-12-ar-mexico-solera-rom-70-cl-40/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -400,6 +427,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

@@ -20,11 +20,56 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Rom fra Indien",
-  "description": "Udforsk rom fra Indien. Sammenlign priser på 2 rom fra Indien hos danske webshops.",
-  "url": "https://www.romsniffer.dk/rom/land/indien/",
-  "numberOfItems": 2
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Rom fra Indien",
+      "description": "Udforsk rom fra Indien. Sammenlign priser på 2 rom fra Indien hos danske webshops.",
+      "url": "https://www.romsniffer.dk/rom/land/indien/",
+      "numberOfItems": 2,
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 2,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://www.romsniffer.dk/rom/amrut-two-indies-rum/",
+            "name": "Amrut Two Indies Rum"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://www.romsniffer.dk/rom/himmaleh-white-habitation-velier/",
+            "name": "HIMMALEH White Habitation Velier"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rom fra Indien",
+          "item": "https://www.romsniffer.dk/rom/land/indien/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>

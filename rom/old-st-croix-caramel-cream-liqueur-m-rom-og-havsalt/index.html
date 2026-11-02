@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Old St. Croix Caramel Cream Liqueur m/rom og havsalt",
-  "url": "https://www.romsniffer.dk/rom/old-st-croix-caramel-cream-liqueur-m-rom-og-havsalt/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2025/07/old-st.-croix-cream-likoer-karamel-og-havsalt.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "Old St. Croix"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "189.00",
-    "highPrice": "189.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/old-st-croix-caramel-cream-liqueur-m-rom-og-havsalt/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Old St. Croix Caramel Cream Liqueur m/rom og havsalt",
+      "url": "https://www.romsniffer.dk/rom/old-st-croix-caramel-cream-liqueur-m-rom-og-havsalt/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2025/07/old-st.-croix-cream-likoer-karamel-og-havsalt.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Old St. Croix"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "189.00",
+        "highPrice": "189.00",
         "priceCurrency": "DKK",
-        "price": "189.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/old-st-croix-caramel-cream-liqueur-m-rom-og-havsalt/",
+            "priceCurrency": "DKK",
+            "price": "189.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Old St. Croix Caramel Cream Liqueur m/rom og havsalt",
+          "item": "https://www.romsniffer.dk/rom/old-st-croix-caramel-cream-liqueur-m-rom-og-havsalt/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

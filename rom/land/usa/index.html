@@ -20,11 +20,80 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Rom fra USA",
-  "description": "Udforsk rom fra USA. Sammenlign priser på 6 rom fra USA hos danske webshops.",
-  "url": "https://www.romsniffer.dk/rom/land/usa/",
-  "numberOfItems": 6
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "name": "Rom fra USA",
+      "description": "Udforsk rom fra USA. Sammenlign priser på 6 rom fra USA hos danske webshops.",
+      "url": "https://www.romsniffer.dk/rom/land/usa/",
+      "numberOfItems": 6,
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": 6,
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://www.romsniffer.dk/rom/bayou-rum-white/",
+            "name": "Bayou Rum White"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://www.romsniffer.dk/rom/rogue-hazelnut-spice-oregon-rom-usa-40/",
+            "name": "Rogue Hazelnut Spice Oregon Rom USA 40%"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://www.romsniffer.dk/rom/richland-rum-single-estate-virgin-coastal-43/",
+            "name": "Richland Rum Single Estate Virgin Coastal, 43%"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://www.romsniffer.dk/rom/richland-rum-single-barrel-93-2013-43/",
+            "name": "Richland Rum, Single Barrel #93 (2013), 43%"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "url": "https://www.romsniffer.dk/rom/richland-rum-terrapin-double-ipa-single-cask-43/",
+            "name": "Richland Rum Terrapin Double IPA Single Cask, 43%"
+          },
+          {
+            "@type": "ListItem",
+            "position": 6,
+            "url": "https://www.romsniffer.dk/rom/richland-rum-single-barrel-221-chateau-elan-port-cask-43/",
+            "name": "Richland Rum, Single Barrel #221 – Chateau Elan Port Cask, 43%"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rom fra USA",
+          "item": "https://www.romsniffer.dk/rom/land/usa/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>

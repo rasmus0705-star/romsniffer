@@ -20,46 +20,73 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Abuelo Anejo 12 Years Rom",
-  "url": "https://www.romsniffer.dk/rom/abuelo-anejo-12-years-rom/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2021/12/abuelo-anejo-12-y-k.jpg",
-  "brand": {
-    "@type": "Brand",
-    "name": "Abuelo"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "289.00",
-    "highPrice": "359.00",
-    "priceCurrency": "DKK",
-    "offerCount": 2,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/abuelo-anejo-12-years/",
-        "priceCurrency": "DKK",
-        "price": "289.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Abuelo Anejo 12 Years Rom",
+      "url": "https://www.romsniffer.dk/rom/abuelo-anejo-12-years-rom/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2021/12/abuelo-anejo-12-y-k.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "Abuelo"
       },
-      {
-        "@type": "Offer",
-        "url": "https://www.juuls.dk/rom/varekort/ron-abuelo-anejo-12-anos",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "289.00",
+        "highPrice": "359.00",
         "priceCurrency": "DKK",
-        "price": "359.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Juuls"
-        }
+        "offerCount": 2,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/abuelo-anejo-12-years/",
+            "priceCurrency": "DKK",
+            "price": "289.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.juuls.dk/rom/varekort/ron-abuelo-anejo-12-anos",
+            "priceCurrency": "DKK",
+            "price": "359.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Juuls"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Abuelo Anejo 12 Years Rom",
+          "item": "https://www.romsniffer.dk/rom/abuelo-anejo-12-years-rom/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -408,6 +435,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

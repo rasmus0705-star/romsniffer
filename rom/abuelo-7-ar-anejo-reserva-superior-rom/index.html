@@ -20,64 +20,91 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Abuelo 7 år Anejo Reserva Superior Rom",
-  "url": "https://www.romsniffer.dk/rom/abuelo-7-ar-anejo-reserva-superior-rom/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2026/09/abuelo-7.jpg",
-  "brand": {
-    "@type": "Brand",
-    "name": "Abuelo"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "235.00",
-    "highPrice": "259.00",
-    "priceCurrency": "DKK",
-    "offerCount": 3,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/abuelo-7-aar-anejo-reserva-superior-rom/",
-        "priceCurrency": "DKK",
-        "price": "235.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+      "@type": "Product",
+      "name": "Abuelo 7 år Anejo Reserva Superior Rom",
+      "url": "https://www.romsniffer.dk/rom/abuelo-7-ar-anejo-reserva-superior-rom/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2026/09/abuelo-7.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "Abuelo"
       },
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/ron-abuelo-7-superior-rom",
-        "priceCurrency": "DKK",
-        "price": "235.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/abuelo-anejo-reserva-278p.html",
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "235.00",
+        "highPrice": "259.00",
         "priceCurrency": "DKK",
-        "price": "259.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
-        }
+        "offerCount": 3,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/abuelo-7-aar-anejo-reserva-superior-rom/",
+            "priceCurrency": "DKK",
+            "price": "235.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/ron-abuelo-7-superior-rom",
+            "priceCurrency": "DKK",
+            "price": "235.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/abuelo-anejo-reserva-278p.html",
+            "priceCurrency": "DKK",
+            "price": "259.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Abuelo 7 år Anejo Reserva Superior Rom",
+          "item": "https://www.romsniffer.dk/rom/abuelo-7-ar-anejo-reserva-superior-rom/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -426,6 +453,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

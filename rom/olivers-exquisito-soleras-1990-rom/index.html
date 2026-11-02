@@ -20,42 +20,69 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Oliver's Exquisito Soleras 1990 Rom",
-  "url": "https://www.romsniffer.dk/rom/olivers-exquisito-soleras-1990-rom/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bea8f7ca-41e3-4124-aca0-b7e379fd8866.png?v=1769421975",
-  "brand": {
-    "@type": "Brand",
-    "name": "Exquisito"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "499.00",
-    "highPrice": "499.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/olivers-exquisito-soleras-1990-rom",
-        "priceCurrency": "DKK",
-        "price": "499.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
+      "@type": "Product",
+      "name": "Oliver's Exquisito Soleras 1990 Rom",
+      "url": "https://www.romsniffer.dk/rom/olivers-exquisito-soleras-1990-rom/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bea8f7ca-41e3-4124-aca0-b7e379fd8866.png?v=1769421975",
+      "brand": {
+        "@type": "Brand",
+        "name": "Exquisito"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "499.00",
+        "highPrice": "499.00",
+        "priceCurrency": "DKK",
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/olivers-exquisito-soleras-1990-rom",
+            "priceCurrency": "DKK",
+            "price": "499.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Oliver's Exquisito Soleras 1990 Rom",
+          "item": "https://www.romsniffer.dk/rom/olivers-exquisito-soleras-1990-rom/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -404,6 +431,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

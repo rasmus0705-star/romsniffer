@@ -20,53 +20,80 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Planteray Stiggins Fancy Pineapple Spirit Drink",
-  "url": "https://www.romsniffer.dk/rom/planteray-stiggins-fancy-pineapple-spirit-drink/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/PlanterayStigginsFancyPineappleSpiritDrink.png?v=1781088729",
-  "brand": {
-    "@type": "Brand",
-    "name": "Plantation"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "299.00",
-    "highPrice": "349.00",
-    "priceCurrency": "DKK",
-    "offerCount": 2,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/plantation-pineapple",
-        "priceCurrency": "DKK",
-        "price": "299.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
-        }
+      "@type": "Product",
+      "name": "Planteray Stiggins Fancy Pineapple Spirit Drink",
+      "url": "https://www.romsniffer.dk/rom/planteray-stiggins-fancy-pineapple-spirit-drink/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/PlanterayStigginsFancyPineappleSpiritDrink.png?v=1781088729",
+      "brand": {
+        "@type": "Brand",
+        "name": "Plantation"
       },
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/planteray-stiggins-fancy-23769p.html",
-        "priceCurrency": "DKK",
-        "price": "349.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "299.00",
+        "highPrice": "349.00",
+        "priceCurrency": "DKK",
+        "offerCount": 2,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/plantation-pineapple",
+            "priceCurrency": "DKK",
+            "price": "299.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/planteray-stiggins-fancy-23769p.html",
+            "priceCurrency": "DKK",
+            "price": "349.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Planteray Stiggins Fancy Pineapple Spirit Drink",
+          "item": "https://www.romsniffer.dk/rom/planteray-stiggins-fancy-pineapple-spirit-drink/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -415,6 +442,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

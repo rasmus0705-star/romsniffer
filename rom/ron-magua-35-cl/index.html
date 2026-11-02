@@ -20,31 +20,58 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Ron Maguá, 35 cl",
-  "url": "https://www.romsniffer.dk/rom/ron-magua-35-cl/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2025/09/ron-magua-35cl.png",
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "89.00",
-    "highPrice": "89.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/ron-magua-35-cl/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Ron Maguá, 35 cl",
+      "url": "https://www.romsniffer.dk/rom/ron-magua-35-cl/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2025/09/ron-magua-35cl.png",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "89.00",
+        "highPrice": "89.00",
         "priceCurrency": "DKK",
-        "price": "89.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/ron-magua-35-cl/",
+            "priceCurrency": "DKK",
+            "price": "89.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ron Maguá, 35 cl",
+          "item": "https://www.romsniffer.dk/rom/ron-magua-35-cl/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -393,6 +420,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

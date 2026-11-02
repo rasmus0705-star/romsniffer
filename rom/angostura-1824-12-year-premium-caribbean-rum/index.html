@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Angostura 1824 12 Year Premium Caribbean Rum",
-  "url": "https://www.romsniffer.dk/rom/angostura-1824-12-year-premium-caribbean-rum/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2026/01/Angostura-1824.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "Angostura"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "429.00",
-    "highPrice": "429.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/angostura-1824-12-year-premium-caribbean-rum/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Angostura 1824 12 Year Premium Caribbean Rum",
+      "url": "https://www.romsniffer.dk/rom/angostura-1824-12-year-premium-caribbean-rum/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2026/01/Angostura-1824.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Angostura"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "429.00",
+        "highPrice": "429.00",
         "priceCurrency": "DKK",
-        "price": "429.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/angostura-1824-12-year-premium-caribbean-rum/",
+            "priceCurrency": "DKK",
+            "price": "429.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Angostura 1824 12 Year Premium Caribbean Rum",
+          "item": "https://www.romsniffer.dk/rom/angostura-1824-12-year-premium-caribbean-rum/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

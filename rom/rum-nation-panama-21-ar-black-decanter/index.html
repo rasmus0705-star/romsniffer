@@ -20,64 +20,91 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Rum Nation – Panama 21 år Black Decanter",
-  "url": "https://www.romsniffer.dk/rom/rum-nation-panama-21-ar-black-decanter/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Rum_Nation_Panama_21_ar_Black_Decanter.png?v=1770200912",
-  "brand": {
-    "@type": "Brand",
-    "name": "Rum Nation"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "43%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "749.00",
-    "highPrice": "889.00",
-    "priceCurrency": "DKK",
-    "offerCount": 3,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/rum-nation-panama-21-aar-black-decanter/",
-        "priceCurrency": "DKK",
-        "price": "749.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+      "@type": "Product",
+      "name": "Rum Nation – Panama 21 år Black Decanter",
+      "url": "https://www.romsniffer.dk/rom/rum-nation-panama-21-ar-black-decanter/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/Rum_Nation_Panama_21_ar_Black_Decanter.png?v=1770200912",
+      "brand": {
+        "@type": "Brand",
+        "name": "Rum Nation"
       },
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/rum-nation-panama-21-black-decanter",
-        "priceCurrency": "DKK",
-        "price": "749.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "43%"
         }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/rum-nation-panama-20489p.html",
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "749.00",
+        "highPrice": "889.00",
         "priceCurrency": "DKK",
-        "price": "889.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
-        }
+        "offerCount": 3,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/rum-nation-panama-21-aar-black-decanter/",
+            "priceCurrency": "DKK",
+            "price": "749.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/rum-nation-panama-21-black-decanter",
+            "priceCurrency": "DKK",
+            "price": "749.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/rum-nation-panama-20489p.html",
+            "priceCurrency": "DKK",
+            "price": "889.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rum Nation – Panama 21 år Black Decanter",
+          "item": "https://www.romsniffer.dk/rom/rum-nation-panama-21-ar-black-decanter/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -426,6 +453,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

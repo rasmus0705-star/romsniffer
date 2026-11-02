@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "SBS Nicaragua 2015 Rom - Bourbon and Virgian Oak Cask",
-  "url": "https://www.romsniffer.dk/rom/sbs-nicaragua-2015-rom-bourbon-and-virgian-oak-cask/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/SBS-234_nicaragua-2015-svl.png?v=1788953884",
-  "brand": {
-    "@type": "Brand",
-    "name": "SBS"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "799.00",
-    "highPrice": "799.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/sbs-nicaragua-2015-rom-bourbon-and-virgian-oak-cask",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "SBS Nicaragua 2015 Rom - Bourbon and Virgian Oak Cask",
+      "url": "https://www.romsniffer.dk/rom/sbs-nicaragua-2015-rom-bourbon-and-virgian-oak-cask/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/SBS-234_nicaragua-2015-svl.png?v=1788953884",
+      "brand": {
+        "@type": "Brand",
+        "name": "SBS"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "799.00",
+        "highPrice": "799.00",
         "priceCurrency": "DKK",
-        "price": "799.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/sbs-nicaragua-2015-rom-bourbon-and-virgian-oak-cask",
+            "priceCurrency": "DKK",
+            "price": "799.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "SBS Nicaragua 2015 Rom - Bourbon and Virgian Oak Cask",
+          "item": "https://www.romsniffer.dk/rom/sbs-nicaragua-2015-rom-bourbon-and-virgian-oak-cask/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

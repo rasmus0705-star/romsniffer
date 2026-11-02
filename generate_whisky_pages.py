@@ -1,8 +1,10 @@
 """Build whisky data and reuse RomSniffer's established listing interface."""
 import hashlib
+from html import escape
 import json
 import re
 from pathlib import Path
+from slugify_rom import make_unique_slug
 
 PILOT = Path("whisky_pilot_data.json")
 TEMPLATE = Path("_rom_home_template.html")
@@ -61,6 +63,9 @@ def _catalog(pilot):
             "max_discount_pct": max(spread, shop_discount), "prices": offers,
         })
     items.sort(key=lambda r: r["name"].casefold())
+    used_slugs = set()
+    for item in items:
+        item["slug"] = make_unique_slug(item["name"], used_slugs)
     return {
         "updated": pilot.get("updated"),
         "stats": {
@@ -83,7 +88,8 @@ def _render(source, catalog):
         'Sammenlign rom-priser fra danske webshops | RomSniffer': 'Sammenlign whiskypriser fra danske webshops | RomSniffer',
         'Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.': 'Sammenlign whiskypriser fra danske webshops, og find den bedste pris.',
         '<body data-cat="rom">': '<body data-cat="whisky">',
-        'Find de bedste rom-priser i Danmark — RomSniffer': 'Find de bedste whiskypriser i Danmark — RomSniffer',
+        'Find de bedste rom-priser i Danmark — RomSniffer': 'Sammenlign whiskypriser fra danske webshops',
+        '<h2 class="hero-title">Samme flaske. <em>Laveste pris.</em></h2>': '<h1 class="hero-title">Find whisky til den bedste pris</h1>',
         '<a href="/">Alle rom</a>': '<a href="/whisky/">Alle whisky</a>',
         'Sammenlign <strong id="hero-count">1.000+</strong> rom fra danske webshops — opdateres dagligt': 'Sammenlign <strong id="hero-count">–</strong> whiskyer fra danske webshops — opdateres dagligt',
         'Ingen produkter matchede dine filtre': 'Ingen whiskyer matchede dine filtre',
@@ -105,6 +111,14 @@ def _render(source, catalog):
     }
     for old, new in replacements.items():
         html = html.replace(old, new)
+    html = html.replace('<div class="nav-links">\n        <a href="/om.html">Om</a>\n    </div>', '<div class="nav-links"><a href="/rom/">Rom</a><a href="/om.html">Om</a></div>')
+
+    description = (f'Sammenlign priser på {catalog["stats"]["total"]:,} whiskyer fra danske webshops. '
+                   'Se butikkernes priser og find din næste flaske til en god pris.').replace(',', '.')
+    html = re.sub(r'<meta name="description" content="[^"]*">',
+                  f'<meta name="description" content="{description}">', html, count=1)
+    html = re.sub(r'<meta property="og:description" content="[^"]*">',
+                  f'<meta property="og:description" content="{description}">', html, count=1)
 
     # Every relative link in the root navigation must remain rooted from /whisky/.
     for page in ("premium.html", "guide.html", "om.html"):
@@ -120,16 +134,54 @@ def _render(source, catalog):
     html = re.sub(r'\s*<a href="/rom/(?:type/aged-rom|alder/xo)/" class="sidebar-cat-link">Se alle (?:typer|aldre) →</a>', '', html)
     html = html.replace('<span>Lande <span id="country-count-badge"', '<span>Oprindelse <span id="country-count-badge"')
 
-    # Whisky cards link directly to the cheapest retailer offer; no rum product URLs are exposed.
-    html = html.replace('href="/rom/${r.slug}/" class="card-img-wrap"', 'href="${cheapest.url || \'#\'}" target="_blank" rel="noopener noreferrer" class="card-img-wrap"')
-    html = html.replace('<div class="card-name"><a href="/rom/${r.slug}/"', '<div class="card-name"><a href="${cheapest.url || \'#\'}" target="_blank" rel="noopener noreferrer"')
-    html = html.replace('href="/rom/${r.slug}/" class="top-card"', 'href="${best.url || \'#\'}" target="_blank" rel="noopener noreferrer" class="top-card"')
+    # Keep product discovery on RomSniffer; each whisky gets a static comparison page.
+    html = html.replace('href="/rom/${r.slug}/" class="card-img-wrap"', 'href="/whisky/${r.slug}/" class="card-img-wrap"')
+    html = html.replace('<div class="card-name"><a href="/rom/${r.slug}/"', '<div class="card-name"><a href="/whisky/${r.slug}/"')
+    html = html.replace('href="/rom/${r.slug}/" class="top-card"', 'href="/whisky/${r.slug}/" class="top-card"')
     html = html.replace('https://www.romsniffer.dk/">\n<meta property="og:type"', 'https://www.romsniffer.dk/whisky/">\n<meta property="og:type"')
     html = html.replace('content="https://www.romsniffer.dk/">', 'content="https://www.romsniffer.dk/whisky/">')
     html = html.replace('src="logo.png"', 'src="/logo.png"')
     html = re.sub(r"(?m)^[ \t]+$", "", html)
+    html = _add_static_catalog(html, catalog)
+    html = re.sub(r'<h1 style="position:absolute;width:1px;height:1px;[^>]*>.*?</h1>', '', html, count=1, flags=re.S)
     version = hashlib.sha1(json.dumps(catalog, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
     html = re.sub(r"const DATA_VERSION = '[^']*';", f"const DATA_VERSION = '{version}';", html, count=1)
+    return html
+
+
+def _add_static_catalog(html, catalog):
+    items = sorted(catalog["roms"], key=lambda r: (-r.get("shop_count", 0), r.get("min_price", 0)))
+    sample = items[:40]
+    cards = []
+    for item in sample:
+        name = escape(item["name"], quote=True)
+        href = f'/whisky/{item["slug"]}/'
+        image = f'<img class="card-img" src="{escape(item["image"], quote=True)}" width="300" height="300" alt="{name}" loading="lazy">' if item.get("image") else ''
+        cheapest = min(item["prices"], key=lambda p: float(p.get("price") or 0))
+        shop = escape(str(cheapest.get("shop_name", "")), quote=True)
+        price = f'{float(cheapest["price"]):,.2f}'.replace(",", "X").replace(".", ",").replace("X", ".")
+        cards.append(
+            f'<article class="card" role="listitem"><a href="{href}" class="card-img-wrap">{image}</a>'
+            f'<div class="card-body"><div class="card-name"><a href="{href}">{name}</a></div>'
+            f'<div class="price-row"><span class="price-row-shop">{shop}</span>'
+            f'<span class="price-row-amount">{price} kr</span></div></div></article>'
+        )
+    html = html.replace('<div class="grid" id="grid">\n                <div class="loading"><div class="spinner"></div>Henter whisky...</div>\n            </div>',
+                        '<div class="grid" id="grid">' + ''.join(cards) + '</div>')
+    html = html.replace('<strong id="result-count">0</strong>', f'<strong id="result-count">{catalog["stats"]["total"]:,}</strong>'.replace(',', '.'))
+    list_schema = {
+        "@type": "ItemList", "name": "Sammenlign whiskypriser fra danske webshops",
+        "numberOfItems": catalog["stats"]["total"],
+        "itemListElement": [{"@type": "ListItem", "position": i, "url": f'https://www.romsniffer.dk/whisky/{r["slug"]}/', "name": r["name"]} for i, r in enumerate(sample, 1)],
+    }
+    schema = {"@context": "https://schema.org", "@graph": [
+        {"@type": "CollectionPage", "name": "Sammenlign whiskypriser", "url": "https://www.romsniffer.dk/whisky/", "mainEntity": list_schema},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Forside", "item": "https://www.romsniffer.dk/"},
+            {"@type": "ListItem", "position": 2, "name": "Whisky", "item": "https://www.romsniffer.dk/whisky/"},
+        ]},
+    ]}
+    html = html.replace('</head>', '<script type="application/ld+json">' + json.dumps(schema, ensure_ascii=False) + '</script>\n</head>', 1)
     return html
 
 
@@ -140,6 +192,8 @@ def main():
     DATA.write_text(json.dumps(catalog, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(_render(TEMPLATE.read_text(encoding="utf-8"), catalog), encoding="utf-8")
+    from generate_whisky_product_pages import generate
+    generate(catalog)
     print(f"Whisky-side genereret med RomSniffer-layout: {OUTPUT.resolve()} ({catalog['stats']['total']} produkter)")
 
 

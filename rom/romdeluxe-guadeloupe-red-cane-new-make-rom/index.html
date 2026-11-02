@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Romdeluxe Guadeloupe Red Cane New Make Rom",
-  "url": "https://www.romsniffer.dk/rom/romdeluxe-guadeloupe-red-cane-new-make-rom/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bab7027c-4456-47e9-8cca-66a92474915e.png?v=1769436283",
-  "brand": {
-    "@type": "Brand",
-    "name": "Romdeluxe"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "595.00",
-    "highPrice": "595.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/guadeloupe-red-cane-new-make-romdeluxe",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Romdeluxe Guadeloupe Red Cane New Make Rom",
+      "url": "https://www.romsniffer.dk/rom/romdeluxe-guadeloupe-red-cane-new-make-rom/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_bab7027c-4456-47e9-8cca-66a92474915e.png?v=1769436283",
+      "brand": {
+        "@type": "Brand",
+        "name": "Romdeluxe"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "595.00",
+        "highPrice": "595.00",
         "priceCurrency": "DKK",
-        "price": "595.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/guadeloupe-red-cane-new-make-romdeluxe",
+            "priceCurrency": "DKK",
+            "price": "595.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Romdeluxe Guadeloupe Red Cane New Make Rom",
+          "item": "https://www.romsniffer.dk/rom/romdeluxe-guadeloupe-red-cane-new-make-rom/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

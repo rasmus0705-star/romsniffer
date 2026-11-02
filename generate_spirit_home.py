@@ -1,5 +1,6 @@
 """Generate the category chooser at / and the RomSniffer rum listing at /rom/."""
 import json
+import re
 from pathlib import Path
 from datetime import datetime
 from html import escape
@@ -50,7 +51,7 @@ def _price_example(path):
         return None
 
 
-def _make_rom_page(template):
+def _make_rom_page(template, rom_data):
     html = template
     html = html.replace('<link rel="canonical" href="https://www.romsniffer.dk/">',
                         '<link rel="canonical" href="https://www.romsniffer.dk/rom/">')
@@ -59,9 +60,55 @@ def _make_rom_page(template):
     html = html.replace('<a href="/">Alle rom</a>', '<a href="/rom/">Rom</a>')
     html = html.replace('<a href="/rom/">Rom</a>', '')
     html = html.replace("fetch('rom_data.json?v=' + DATA_VERSION)", "fetch('/rom_data.json?v=' + DATA_VERSION)")
+    html = html.replace('<div class="nav-links">\n        <a href="/om.html">Om</a>\n    </div>', '<div class="nav-links"><a href="/whisky/">Whisky</a><a href="/om.html">Om</a></div>')
+    html = html.replace('<h2 class="hero-title">Samme flaske. <em>Laveste pris.</em></h2>', '<h1 class="hero-title">Find rom til den bedste pris</h1>')
+    html = re.sub(r'<h1 style="position:absolute;width:1px;height:1px;[^>]*>.*?</h1>', '', html, count=1, flags=re.S)
+    html = _add_static_catalog(html, rom_data)
     for page in ("premium.html", "guide.html", "om.html"):
         html = html.replace(f'href="{page}"', f'href="/{page}"')
     return html
+
+
+def _add_static_catalog(page, data):
+    roms = data.get("roms", [])
+    sample = sorted(roms, key=lambda r: (-int(r.get("shop_count") or 0), float(r.get("min_price") or 0)))[:40]
+    cards = []
+    for item in sample:
+        name = escape(str(item.get("name") or "Rom"), quote=True)
+        slug = escape(str(item.get("slug") or ""), quote=True)
+        image = item.get("image")
+        image_html = f'<img class="card-img" src="{escape(str(image), quote=True)}" width="300" height="300" alt="{name}" loading="lazy">' if image else ""
+        prices = [p for p in item.get("prices", []) if float(p.get("price") or 0) > 0]
+        if not prices:
+            continue
+        cheapest = min(prices, key=lambda p: float(p["price"]))
+        shop = escape(str(cheapest.get("shop_name") or ""), quote=True)
+        price = f'{float(cheapest["price"]):,.2f}'.replace(",", "X").replace(".", ",").replace("X", ".")
+        href = f"/rom/{slug}/"
+        cards.append(f'<article class="card" role="listitem"><a href="{href}" class="card-img-wrap">{image_html}</a>'
+                     f'<div class="card-body"><div class="card-name"><a href="{href}">{name}</a></div>'
+                     f'<div class="price-row"><span class="price-row-shop">{shop}</span><span class="price-row-amount">{price} kr</span></div></div></article>')
+    page = page.replace('<div class="grid" id="grid">\n                <div class="loading"><div class="spinner"></div>Henter rom-data...</div>\n            </div>',
+                        '<div class="grid" id="grid">' + ''.join(cards) + '</div>')
+    total = int(data.get("stats", {}).get("total") or len(roms))
+    page = page.replace('<strong id="result-count">0</strong>', f'<strong id="result-count">{total:,}</strong>'.replace(",", "."))
+    page = page.replace('<strong id="hero-count">1.000+</strong>', f'<strong id="hero-count">{total:,}</strong>'.replace(",", "."))
+    item_list = {
+        "@type": "ItemList", "name": "Rom til salg hos danske webshops",
+        "numberOfItems": total,
+        "itemListElement": [{"@type": "ListItem", "position": i, "url": f'https://www.romsniffer.dk/rom/{r.get("slug", "")}/', "name": r.get("name", "")}
+                            for i, r in enumerate(sample, 1) if r.get("slug")],
+    }
+    schema = {"@context": "https://schema.org", "@graph": [
+        {"@type": "CollectionPage", "name": "Sammenlign rompriser fra danske webshops", "url": "https://www.romsniffer.dk/rom/", "mainEntity": item_list},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Forside", "item": "https://www.romsniffer.dk/"},
+            {"@type": "ListItem", "position": 2, "name": "Rom", "item": "https://www.romsniffer.dk/rom/"},
+        ]},
+    ]}
+    schema_tag = '<script type="application/ld+json">' + json.dumps(schema, ensure_ascii=False) + '</script>'
+    page = page.replace('</head>', schema_tag + '\n</head>', 1)
+    return page
 
 
 def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal):
@@ -75,11 +122,17 @@ def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal):
     def deal_markup(deal):
         if not deal:
             return "<span class=\"choice-deal\"><small>Aktuel pris</small><strong>Se dagens priser</strong></span>"
-        return (f"<a class=\"choice-deal\" href=\"{escape(deal['url'], quote=True)}\" aria-label=\"Se {escape(deal['name'], quote=True)} hos {escape(deal['shop'], quote=True)}\">"
+        return (f"<a class=\"choice-deal\" href=\"{escape(deal['url'], quote=True)}\" target=\"_blank\" rel=\"sponsored nofollow noopener\" aria-label=\"Se {escape(deal['name'], quote=True)} hos {escape(deal['shop'], quote=True)}\">"
                 f"<small>Senest registreret {escape(deal['updated'])}</small>"
                 f"<strong>{escape(deal['name'])}</strong>"
                 f"<span>{escape(deal['price'])} kr. hos {escape(deal['shop'])}</span>"
                 f"<small class=\"deal-compare\">Sammenlignet hos {deal['shops']} butikker</small></a>")
+    schema = {
+        "@context": "https://schema.org", "@graph": [
+            {"@type": "Organization", "@id": "https://www.romsniffer.dk/#organization", "name": "RomSniffer", "url": "https://www.romsniffer.dk/", "logo": "https://www.romsniffer.dk/og-image.png"},
+            {"@type": "WebSite", "@id": "https://www.romsniffer.dk/#website", "url": "https://www.romsniffer.dk/", "name": "RomSniffer", "publisher": {"@id": "https://www.romsniffer.dk/#organization"}},
+        ]
+    }
     return f'''<!doctype html>
 <html lang="da">
 <head>
@@ -100,6 +153,7 @@ def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal):
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
   <title>Find rom og whisky til den bedste pris | RomSniffer</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -189,7 +243,7 @@ def _make_home(rom_stats, whisky_stats, rom_deal, whisky_deal):
       </article>
     </section>
   </main>
-  <footer>Priser opdateres dagligt <span aria-hidden="true">·</span> Gratis prissammenligning</footer>
+  <footer>Priser opdateres dagligt <span aria-hidden="true">·</span> Gratis prissammenligning <span aria-hidden="true">·</span> RomSniffer kan modtage provision via forhandlerlinks.</footer>
 </body>
 </html>
 '''
@@ -200,7 +254,8 @@ def main():
         raise SystemExit(f"RomSniffer-skabelonen mangler: {TEMPLATE}")
     source = TEMPLATE.read_text(encoding="utf-8")
     ROM_PAGE.parent.mkdir(parents=True, exist_ok=True)
-    ROM_PAGE.write_text(_make_rom_page(source), encoding="utf-8")
+    rom_data = json.loads(Path("rom_data.json").read_text(encoding="utf-8")) if Path("rom_data.json").is_file() else {"roms": [], "stats": {}}
+    ROM_PAGE.write_text(_make_rom_page(source, rom_data), encoding="utf-8")
     HOME.write_text(_make_home(
         _stats("rom_data.json"), _stats("whisky_data.json"),
         _price_example("rom_data.json"), _price_example("whisky_data.json"),

@@ -12,6 +12,7 @@ Køres som del af build-pipeline i build_rom_data.py.
 """
 import json
 import os
+import re
 import shutil
 import sys
 from datetime import datetime
@@ -154,7 +155,6 @@ def json_ld(rom, slug):
         offers.append(offer)
 
     data = {
-        "@context": "https://schema.org",
         "@type": "Product",
         "name": clean_text(rom["name"]),
         "url": f"{SITE_URL}/rom/{slug}/",
@@ -180,7 +180,15 @@ def json_ld(rom, slug):
             "offers": offers,
         }
 
-    return json.dumps(data, ensure_ascii=False, indent=2)
+    breadcrumb = {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Forside", "item": f"{SITE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Rom", "item": f"{SITE_URL}/rom/"},
+            {"@type": "ListItem", "position": 3, "name": clean_text(rom["name"]), "item": f"{SITE_URL}/rom/{slug}/"},
+        ],
+    }
+    return json.dumps({"@context": "https://schema.org", "@graph": [data, breadcrumb]}, ensure_ascii=False, indent=2)
 
 
 def find_related(rom, all_roms, slug_map):
@@ -688,6 +696,7 @@ footer a {{ color: var(--copper-light); }}
         </a>
         <div class="nav-links">
             <a href="{SITE_URL}/rom/">Alle rom</a>
+            <a href="{SITE_URL}/whisky/">Whisky</a>
             <a href="{SITE_URL}/premium.html">Premium</a>
             <a href="{SITE_URL}/guide.html">Guide</a>
             <a href="{SITE_URL}/om.html">Om</a>
@@ -774,7 +783,9 @@ def main():
         print("      Kør build_rom_data.py — den tildeler slugs.")
         sys.exit(1)
     for rom in roms:
-        slug_map[rom["name"]] = rom["slug"]
+        # Product names are not unique (same bottle from separate sources can
+        # retain distinct product records), so never key URL generation by name.
+        slug_map.setdefault(rom["name"], rom["slug"])
 
     # Ryd gammel output (slet mapper der ikke længere har en rom)
     # Mapper der ikke skal slettes (kategorisider)
@@ -786,29 +797,20 @@ def main():
             if os.path.isdir(full) and entry not in PROTECTED_DIRS:
                 existing_dirs.add(entry)
 
-    new_slugs = set(slug_map.values())
+    new_slugs = {r["slug"] for r in roms}
     stale = existing_dirs - new_slugs
     if stale:
-        # Sikkerhedsgrænse: mange sletninger på én gang betyder næsten altid
-        # at noget er gået galt (scraper nede, slug-kort tabt) — ikke at
-        # butikkerne har afmeldt 500 produkter samtidig.
-        _limit = max(25, int(0.15 * len(new_slugs)))
         if "--prune" in sys.argv:
-            _limit = 10**9
-        if len(stale) > _limit:
-            print(f"   ⛔ {len(stale)} mapper ville blive slettet (grænse: {_limit})")
-            print("      Sletning SPRINGET OVER — de gamle sider bliver liggende.")
-            print("      Tjek at rom_slugs.json findes, og at alle scrapere kørte.")
-            print("      Er sletningen reel? Kør: python generate_rom_pages.py --prune")
-        else:
-            print(f"   🧹 Sletter {len(stale)} forældede rom-mapper...")
+            print(f"   🧹 Sletter {len(stale)} forældede rom-mapper (--prune)...")
             for s in stale:
                 shutil.rmtree(os.path.join(OUTPUT_DIR, s), ignore_errors=True)
+        else:
+            print(f"   ℹ️ Beholder {len(stale)} udgåede sider uden for sitemap og markerer dem noindex")
 
     # Generér sider
     count = 0
     for rom in roms:
-        slug = slug_map[rom["name"]]
+        slug = rom["slug"]
         related = find_related(rom, roms, slug_map)
         html = render_page(rom, slug, related, slug_map, updated)
 
@@ -820,6 +822,18 @@ def main():
             f.write(html)
 
         count += 1
+
+    # Keep old URLs available to visitors, but remove them from search results.
+    for old_slug in stale if stale and "--prune" not in sys.argv else ():
+        old_page = os.path.join(OUTPUT_DIR, old_slug, "index.html")
+        if not os.path.isfile(old_page):
+            continue
+        with open(old_page, "r", encoding="utf-8") as f:
+            old_html = f.read()
+        if not re.search(r'<meta\s+name=["\']robots["\']', old_html, re.I):
+            old_html = re.sub(r"</head>", '<meta name="robots" content="noindex,follow">\n</head>', old_html, count=1, flags=re.I)
+            with open(old_page, "w", encoding="utf-8") as f:
+                f.write(old_html)
 
     print(f"   ✅ {count} rom-sider genereret i /{OUTPUT_DIR}/")
 

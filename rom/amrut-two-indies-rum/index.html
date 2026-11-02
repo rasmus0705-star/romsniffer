@@ -20,38 +20,65 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Amrut Two Indies Rum",
-  "url": "https://www.romsniffer.dk/rom/amrut-two-indies-rum/",
-  "category": "Rom",
-  "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50645970.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50645970-Amrut-Two-Indies-Rum.jpg",
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "42,8%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "289.00",
-    "highPrice": "289.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://www.juuls.dk/rom/varekort/amrut-two-indies-rum",
-        "priceCurrency": "DKK",
-        "price": "289.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Juuls"
+      "@type": "Product",
+      "name": "Amrut Two Indies Rum",
+      "url": "https://www.romsniffer.dk/rom/amrut-two-indies-rum/",
+      "category": "Rom",
+      "image": "https://www.juuls.dk/admin/public/getimage.ashx?Image=/Files/Images/Products/50645970.JPG&Width=480&Height=0&Format=jpg&Quality=75&Crop=0&filename=50645970-Amrut-Two-Indies-Rum.jpg",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "42,8%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "289.00",
+        "highPrice": "289.00",
+        "priceCurrency": "DKK",
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.juuls.dk/rom/varekort/amrut-two-indies-rum",
+            "priceCurrency": "DKK",
+            "price": "289.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Juuls"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Amrut Two Indies Rum",
+          "item": "https://www.romsniffer.dk/rom/amrut-two-indies-rum/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -400,6 +427,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

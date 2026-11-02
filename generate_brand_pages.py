@@ -53,9 +53,10 @@ def flag_svg(country):
     return ''
 
 
-def build_brand_page(brand_name, roms, updated, all_brands):
+def build_brand_page(brand_name, roms, updated, all_brands, brand_slugs=None):
     """Byg HTML for én brand-side."""
-    slug = brand_slug(brand_name)
+    brand_slugs = brand_slugs or {}
+    slug = brand_slugs.get(brand_name, brand_slug(brand_name))
     brand_name = esc(brand_name)   # afkodet + escapet (efter slug er lavet)
     roms_sorted = sorted(roms, key=lambda r: r.get('min_price', 9999))
 
@@ -119,9 +120,25 @@ def build_brand_page(brand_name, roms, updated, all_brands):
     # Relaterede brands (navigation)
     brand_nav = ""
     for b in sorted(all_brands)[:30]:
-        bs = brand_slug(b)
+        bs = brand_slugs.get(b, brand_slug(b))
         active = ' class="active"' if b == brand_name else ''
         brand_nav += f'<a href="/rom/brand/{bs}/"{active}>{b}</a> '
+
+    schema = json.dumps({"@context": "https://schema.org", "@graph": [
+        {"@type": "CollectionPage", "name": f"{brand_name} rom", "description": desc,
+         "url": canonical, "numberOfItems": count,
+         "mainEntity": {"@type": "ItemList", "numberOfItems": count,
+                        "itemListElement": [{"@type": "ListItem", "position": i,
+                                             "url": f'https://www.romsniffer.dk/rom/{r.get("slug", "")}/',
+                                             "name": r.get("name", "")}
+                                            for i, r in enumerate(roms_sorted, 1) if r.get("slug")]}},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Forside", "item": "https://www.romsniffer.dk/"},
+            {"@type": "ListItem", "position": 2, "name": "Rom", "item": "https://www.romsniffer.dk/rom/"},
+            {"@type": "ListItem", "position": 3, "name": "Brands", "item": "https://www.romsniffer.dk/rom/brand/"},
+            {"@type": "ListItem", "position": 4, "name": f"{brand_name} rom", "item": canonical},
+        ]},
+    ]}, ensure_ascii=False)
 
     html = f'''<!DOCTYPE html>
 <html lang="da">
@@ -142,21 +159,7 @@ def build_brand_page(brand_name, roms, updated, all_brands):
 <link rel="preload" href="/fonts/playfair-display-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<script type="application/ld+json">
-{{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "{brand_name} rom",
-  "description": "{desc}",
-  "url": "{canonical}",
-  "numberOfItems": {count},
-  "provider": {{
-    "@type": "Organization",
-    "name": "RomSniffer",
-    "url": "https://www.romsniffer.dk"
-  }}
-}}
-</script>
+<script type="application/ld+json">{schema}</script>
 <style>
 :root {{
     --bg: #0a0604; --surface: #1a0f08; --surface2: #251810;
@@ -316,10 +319,21 @@ def main():
         shutil.rmtree(OUTPUT_BASE)
 
     all_brand_names = sorted(brands.keys())
+    used_slugs = set()
+    brand_slugs = {}
+    for name in all_brand_names:
+        base = brand_slug(name) or "brand"
+        slug = base
+        suffix = 2
+        while slug in used_slugs:
+            slug = f"{base}-{suffix}"
+            suffix += 1
+        used_slugs.add(slug)
+        brand_slugs[name] = slug
     count = 0
 
     for brand_name, brand_roms in sorted(brands.items()):
-        slug, html = build_brand_page(brand_name, brand_roms, updated, all_brand_names)
+        slug, html = build_brand_page(brand_name, brand_roms, updated, all_brand_names, brand_slugs)
         out_dir = os.path.join(OUTPUT_BASE, slug)
         os.makedirs(out_dir, exist_ok=True)
         with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:

@@ -20,60 +20,87 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "CashCane Saloon Cask",
-  "url": "https://www.romsniffer.dk/rom/cashcane-saloon-cask/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2023/11/cashcane-k.png",
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "55%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "399.00",
-    "highPrice": "459.00",
-    "priceCurrency": "DKK",
-    "offerCount": 3,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/cashcane-saloon-cask/",
-        "priceCurrency": "DKK",
-        "price": "399.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
+      "@type": "Product",
+      "name": "CashCane Saloon Cask",
+      "url": "https://www.romsniffer.dk/rom/cashcane-saloon-cask/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2023/11/cashcane-k.png",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "55%"
         }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.vaultofspirits.dk/rom/moerk/cashcane-saloon-cask-rum-55/",
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "399.00",
+        "highPrice": "459.00",
         "priceCurrency": "DKK",
-        "price": "399.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Vault of Spirits"
-        }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/cashcane-6-8-aar-7169p.html",
-        "priceCurrency": "DKK",
-        "price": "459.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
-        }
+        "offerCount": 3,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/cashcane-saloon-cask/",
+            "priceCurrency": "DKK",
+            "price": "399.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.vaultofspirits.dk/rom/moerk/cashcane-saloon-cask-rum-55/",
+            "priceCurrency": "DKK",
+            "price": "399.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Vault of Spirits"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/cashcane-6-8-aar-7169p.html",
+            "priceCurrency": "DKK",
+            "price": "459.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "CashCane Saloon Cask",
+          "item": "https://www.romsniffer.dk/rom/cashcane-saloon-cask/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -422,6 +449,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

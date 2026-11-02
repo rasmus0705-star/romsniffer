@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Santos Dumont XO Super Premium",
-  "url": "https://www.romsniffer.dk/rom/santos-dumont-xo-super-premium/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2024/10/Santos-Dumont-XO.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "Santos Dumont"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "459.00",
-    "highPrice": "459.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/santos-dumont-xo-super-premium-spirit-drink/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Santos Dumont XO Super Premium",
+      "url": "https://www.romsniffer.dk/rom/santos-dumont-xo-super-premium/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2024/10/Santos-Dumont-XO.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Santos Dumont"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "459.00",
+        "highPrice": "459.00",
         "priceCurrency": "DKK",
-        "price": "459.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/santos-dumont-xo-super-premium-spirit-drink/",
+            "priceCurrency": "DKK",
+            "price": "459.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Santos Dumont XO Super Premium",
+          "item": "https://www.romsniffer.dk/rom/santos-dumont-xo-super-premium/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>
@@ -484,7 +512,7 @@ footer a { color: var(--copper-light); }
             <div class="rel-img"><img src="https://spitus.dk/wp-content/uploads/2022/11/santos-dumont-heritage-k.jpg" alt="Santos Dumont Heritage Hors D’Age" loading="lazy"></div>
             <div class="rel-info">
                 <p class="rel-name">Santos Dumont Heritage Hors D’Age</p>
-                <p class="rel-price">1295 kr <span class="rel-shops">2 butikker</span></p>
+                <p class="rel-price">1.295 kr <span class="rel-shops">2 butikker</span></p>
             </div>
         </a>
         <a href="https://www.romsniffer.dk/rom/rum-nation-miniature-panama-10-ar-solera-limited-edition-rom-5-cl-40/" class="rel-card">

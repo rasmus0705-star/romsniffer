@@ -20,53 +20,80 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Don Q Oak Barrel Spiced Puerto Rico Rom 70 cl 45%",
-  "url": "https://www.romsniffer.dk/rom/don-q-oak-barrel-spiced/",
-  "category": "Rom",
-  "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ004-scaled.jpg",
-  "brand": {
-    "@type": "Brand",
-    "name": "Don Q"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "45%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "359.00",
-    "highPrice": "399.00",
-    "priceCurrency": "DKK",
-    "offerCount": 2,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/don-q-oak-15104p.html",
-        "priceCurrency": "DKK",
-        "price": "359.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
-        }
+      "@type": "Product",
+      "name": "Don Q Oak Barrel Spiced Puerto Rico Rom 70 cl 45%",
+      "url": "https://www.romsniffer.dk/rom/don-q-oak-barrel-spiced/",
+      "category": "Rom",
+      "image": "https://conmaz.dk/wp-content/uploads/2022/08/DQ004-scaled.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "Don Q"
       },
-      {
-        "@type": "Offer",
-        "url": "https://conmaz.dk/don-q-oak-barrel-spiced/",
-        "priceCurrency": "DKK",
-        "price": "399.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Con Maz"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "45%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "359.00",
+        "highPrice": "399.00",
+        "priceCurrency": "DKK",
+        "offerCount": 2,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/don-q-oak-15104p.html",
+            "priceCurrency": "DKK",
+            "price": "359.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://conmaz.dk/don-q-oak-barrel-spiced/",
+            "priceCurrency": "DKK",
+            "price": "399.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Con Maz"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Don Q Oak Barrel Spiced Puerto Rico Rom 70 cl 45%",
+          "item": "https://www.romsniffer.dk/rom/don-q-oak-barrel-spiced/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -415,6 +442,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

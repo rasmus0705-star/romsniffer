@@ -20,64 +20,91 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Santos Dumont XO",
-  "url": "https://www.romsniffer.dk/rom/santos-dumont-rum-xo/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_2ea14a8e-787c-49e5-9e39-096e45348c43.png?v=1769424696",
-  "brand": {
-    "@type": "Brand",
-    "name": "Santos Dumont"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "399.00",
-    "highPrice": "499.95",
-    "priceCurrency": "DKK",
-    "offerCount": 3,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/santos-dumont-xo",
-        "priceCurrency": "DKK",
-        "price": "399.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
-        }
+      "@type": "Product",
+      "name": "Santos Dumont XO",
+      "url": "https://www.romsniffer.dk/rom/santos-dumont-rum-xo/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_2ea14a8e-787c-49e5-9e39-096e45348c43.png?v=1769424696",
+      "brand": {
+        "@type": "Brand",
+        "name": "Santos Dumont"
       },
-      {
-        "@type": "Offer",
-        "url": "https://www.vaultofspirits.dk/rom/rombaseret/santos-dumont-xo-40/",
-        "priceCurrency": "DKK",
-        "price": "449.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Vault of Spirits"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.kokkensvinhus.dk/shop/santos-dumont-rum-xo-2/",
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "399.00",
+        "highPrice": "499.95",
         "priceCurrency": "DKK",
-        "price": "499.95",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Kokkens Vinhus"
-        }
+        "offerCount": 3,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/santos-dumont-xo",
+            "priceCurrency": "DKK",
+            "price": "399.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.vaultofspirits.dk/rom/rombaseret/santos-dumont-xo-40/",
+            "priceCurrency": "DKK",
+            "price": "449.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Vault of Spirits"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.kokkensvinhus.dk/shop/santos-dumont-rum-xo-2/",
+            "priceCurrency": "DKK",
+            "price": "499.95",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Kokkens Vinhus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Santos Dumont XO",
+          "item": "https://www.romsniffer.dk/rom/santos-dumont-rum-xo/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -426,6 +453,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>
@@ -486,13 +514,13 @@ footer a { color: var(--copper-light); }
                 <td class="shop-name">Kokkens Vinhus</td>
                 <td class="price-cell">
                     
-                    <span class="current-price">500 kr</span>
+                    <span class="current-price">499,95 kr</span>
                     
                 </td>
                 <td class="buy-cell"><a href="https://www.kokkensvinhus.dk/shop/santos-dumont-rum-xo-2/" target="_blank" rel="sponsored nofollow noopener noreferrer" class="buy-btn">Køb →</a></td>
             </tr>
         </table>
-        <p class="savings">Spar op til <strong>101 kr</strong> ved at vælge den billigste butik</p>
+        <p class="savings">Spar op til <strong>100,95 kr</strong> ved at vælge den billigste butik</p>
         <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.6rem;">
             Priser opdateret 2. november 2026 — tjek altid den endelige pris hos butikken.
         </p>
@@ -533,7 +561,7 @@ footer a { color: var(--copper-light); }
             <div class="rel-img"><img src="https://spitus.dk/wp-content/uploads/2022/11/santos-dumont-heritage-k.jpg" alt="Santos Dumont Heritage Hors D’Age" loading="lazy"></div>
             <div class="rel-info">
                 <p class="rel-name">Santos Dumont Heritage Hors D’Age</p>
-                <p class="rel-price">1295 kr <span class="rel-shops">2 butikker</span></p>
+                <p class="rel-price">1.295 kr <span class="rel-shops">2 butikker</span></p>
             </div>
         </a>
         <a href="https://www.romsniffer.dk/rom/rum-nation-miniature-panama-10-ar-solera-limited-edition-rom-5-cl-40/" class="rel-card">

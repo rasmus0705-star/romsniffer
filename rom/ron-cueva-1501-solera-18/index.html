@@ -20,31 +20,58 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Ron Cueva 1501 Solera 18",
-  "url": "https://www.romsniffer.dk/rom/ron-cueva-1501-solera-18/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2024/04/Ron-Cueva-1501-Solera-18.png",
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "599.00",
-    "highPrice": "599.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/ron-cueva-1501-solera-18/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Ron Cueva 1501 Solera 18",
+      "url": "https://www.romsniffer.dk/rom/ron-cueva-1501-solera-18/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2024/04/Ron-Cueva-1501-Solera-18.png",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "599.00",
+        "highPrice": "599.00",
         "priceCurrency": "DKK",
-        "price": "599.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/ron-cueva-1501-solera-18/",
+            "priceCurrency": "DKK",
+            "price": "599.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ron Cueva 1501 Solera 18",
+          "item": "https://www.romsniffer.dk/rom/ron-cueva-1501-solera-18/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -393,6 +420,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

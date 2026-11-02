@@ -20,42 +20,69 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Pampero Aniversario Extra Añejo Reserva Exclusiva Rom",
-  "url": "https://www.romsniffer.dk/rom/pampero-aniversario-extra-anejo-reserva-exclusiva-rom/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_dc88734e-c128-430c-a930-91e0b8292c8a.png?v=1769421150",
-  "brand": {
-    "@type": "Brand",
-    "name": "Pampero"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "265.00",
-    "highPrice": "265.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/pampero-aniversario-reserva-exclusiva-rum",
-        "priceCurrency": "DKK",
-        "price": "265.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
+      "@type": "Product",
+      "name": "Pampero Aniversario Extra Añejo Reserva Exclusiva Rom",
+      "url": "https://www.romsniffer.dk/rom/pampero-aniversario-extra-anejo-reserva-exclusiva-rom/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_dc88734e-c128-430c-a930-91e0b8292c8a.png?v=1769421150",
+      "brand": {
+        "@type": "Brand",
+        "name": "Pampero"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "265.00",
+        "highPrice": "265.00",
+        "priceCurrency": "DKK",
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/pampero-aniversario-reserva-exclusiva-rum",
+            "priceCurrency": "DKK",
+            "price": "265.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Pampero Aniversario Extra Añejo Reserva Exclusiva Rom",
+          "item": "https://www.romsniffer.dk/rom/pampero-aniversario-extra-anejo-reserva-exclusiva-rom/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -404,6 +431,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

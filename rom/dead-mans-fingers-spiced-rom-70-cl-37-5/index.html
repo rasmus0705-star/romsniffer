@@ -20,38 +20,65 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Dead Mans Fingers Spiced Rom 70 cl 37,5%",
-  "url": "https://www.romsniffer.dk/rom/dead-mans-fingers-spiced-rom-70-cl-37-5/",
-  "category": "Rom",
-  "image": "https://whisky.gumlet.io/images/Dead-Mans-Fingers-Spiced-Rom-37,5-alc-t.jpg",
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "37,5%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "239.00",
-    "highPrice": "239.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/dead-mans-fingers-10964p.html",
-        "priceCurrency": "DKK",
-        "price": "239.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
+      "@type": "Product",
+      "name": "Dead Mans Fingers Spiced Rom 70 cl 37,5%",
+      "url": "https://www.romsniffer.dk/rom/dead-mans-fingers-spiced-rom-70-cl-37-5/",
+      "category": "Rom",
+      "image": "https://whisky.gumlet.io/images/Dead-Mans-Fingers-Spiced-Rom-37,5-alc-t.jpg",
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "37,5%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "239.00",
+        "highPrice": "239.00",
+        "priceCurrency": "DKK",
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/dead-mans-fingers-10964p.html",
+            "priceCurrency": "DKK",
+            "price": "239.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Dead Mans Fingers Spiced Rom 70 cl 37,5%",
+          "item": "https://www.romsniffer.dk/rom/dead-mans-fingers-spiced-rom-70-cl-37-5/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -400,6 +427,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

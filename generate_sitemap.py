@@ -107,6 +107,35 @@ def main():
             "priority": "0.8",
         })
 
+    # Include only current catalog products, not stale output folders.
+    rom_count = 0
+    whisky_count = 0
+    missing_product_pages = 0
+    for catalog_path, root_name in (("rom_data.json", "rom"), ("whisky_data.json", "whisky")):
+        try:
+            with open(catalog_path, "r", encoding="utf-8") as f:
+                catalog = json.load(f)
+        except (OSError, json.JSONDecodeError):
+            catalog = {}
+        for product in catalog.get("roms", []):
+            slug = product.get("slug")
+            if not slug:
+                continue
+            index_path = os.path.join(root_name, slug, "index.html")
+            if not os.path.isfile(index_path):
+                missing_product_pages += 1
+                continue
+            urls.append({
+                "loc": f"{SITE_URL}/{root_name}/{slug}/",
+                "lastmod": lastmod_for(f"{root_name}/{slug}/", index_path),
+                "changefreq": "daily",
+                "priority": "0.6" if root_name == "rom" else "0.55",
+            })
+            if root_name == "rom":
+                rom_count += 1
+            else:
+                whisky_count += 1
+
     # Kategorisider
     cat_count = 0
     for cat_type in CATEGORY_TYPES:
@@ -122,22 +151,6 @@ def main():
                         "priority": "0.7",
                     })
                     cat_count += 1
-
-    # Rom-sider fra /rom/ mappen (kun direkte undermapper, ikke land/type/alder)
-    rom_count = 0
-    if os.path.isdir(ROM_DIR):
-        for entry in sorted(os.listdir(ROM_DIR)):
-            if entry in CATEGORY_TYPES or entry == "brand":
-                continue
-            index_path = os.path.join(ROM_DIR, entry, "index.html")
-            if os.path.isfile(index_path):
-                urls.append({
-                    "loc": f"{SITE_URL}/rom/{entry}/",
-                    "lastmod": lastmod_for(f"rom/{entry}/", index_path),
-                    "changefreq": "daily",
-                    "priority": "0.6",
-                })
-                rom_count += 1
 
     # Brand-sider fra /rom/brand/
     brand_count = 0
@@ -174,7 +187,9 @@ def main():
     with open(STATE_FILE, "w", encoding="utf-8") as f:
         json.dump(new_state, f, ensure_ascii=False)
 
-    print(f"   ✅ sitemap.xml skrevet med {len(urls)} URL'er ({rom_count} rom + {cat_count} kategorier + {len(static_pages)} faste + {brand_count} brands)")
+    print(f"   ✅ sitemap.xml skrevet med {len(urls)} URL'er ({rom_count} rom + {whisky_count} whisky + {cat_count} kategorier + {len(static_pages)} faste + {brand_count} brands)")
+    if missing_product_pages:
+        print(f"   ⚠️ {missing_product_pages} katalogprodukter mangler en genereret side og blev udeladt")
     print(f"   🕒 lastmod ændret i dag for {changed_today} sider (resten beholder deres gamle dato)")
 
 

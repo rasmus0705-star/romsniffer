@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://romsniffer.dk/sitemap.xml
+Sitemap: https://www.romsniffer.dk/sitemap.xml

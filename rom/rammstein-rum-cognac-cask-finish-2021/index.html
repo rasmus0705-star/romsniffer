@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Rammstein Rum Cognac Cask Finish 2021",
-  "url": "https://www.romsniffer.dk/rom/rammstein-rum-cognac-cask-finish-2021/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2023/05/rammstein-cognac-cask-finish-2021-gb-k.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "Rammstein"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "549.00",
-    "highPrice": "549.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/rammstein-rum-cognac-cask-finish-2021/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Rammstein Rum Cognac Cask Finish 2021",
+      "url": "https://www.romsniffer.dk/rom/rammstein-rum-cognac-cask-finish-2021/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/rammstein-cognac-cask-finish-2021-gb-k.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Rammstein"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "549.00",
+        "highPrice": "549.00",
         "priceCurrency": "DKK",
-        "price": "549.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/rammstein-rum-cognac-cask-finish-2021/",
+            "priceCurrency": "DKK",
+            "price": "549.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Rammstein Rum Cognac Cask Finish 2021",
+          "item": "https://www.romsniffer.dk/rom/rammstein-rum-cognac-cask-finish-2021/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

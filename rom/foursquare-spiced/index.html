@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Foursquare Spiced",
-  "url": "https://www.romsniffer.dk/rom/foursquare-spiced/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2023/05/foursquare.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "Foursquare"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "289.00",
-    "highPrice": "289.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/foursquare-spiced/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Foursquare Spiced",
+      "url": "https://www.romsniffer.dk/rom/foursquare-spiced/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2023/05/foursquare.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "Foursquare"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "289.00",
+        "highPrice": "289.00",
         "priceCurrency": "DKK",
-        "price": "289.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/foursquare-spiced/",
+            "priceCurrency": "DKK",
+            "price": "289.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Foursquare Spiced",
+          "item": "https://www.romsniffer.dk/rom/foursquare-spiced/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>
@@ -456,7 +484,7 @@ footer a { color: var(--copper-light); }
             <div class="rel-img"><img src="https://www.kokkensvinhus.dk/wp-content/uploads/2024/11/smugglers-treasure-barbados.jpg" alt="Smugglers Treasure Barbados White Oak 40%" loading="lazy"></div>
             <div class="rel-info">
                 <p class="rel-name">Smugglers Treasure Barbados White Oak 40%</p>
-                <p class="rel-price">400 kr </p>
+                <p class="rel-price">379 kr <span class="rel-shops">2 butikker</span></p>
             </div>
         </a>
         <a href="https://www.romsniffer.dk/rom/foursquare-5-ar-bapt-and-clems-wine-cask-finish-barbados-rom-43/" class="rel-card">
@@ -477,7 +505,7 @@ footer a { color: var(--copper-light); }
             <div class="rel-img"><img src="https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/hackelton-2nf-flaske-web.jpg" alt="Hackelton Rooster 1st Edition., Barbados Rum Limited Edition" loading="lazy"></div>
             <div class="rel-info">
                 <p class="rel-name">Hackelton Rooster 1st Edition., Barbados Rum Limited Edition</p>
-                <p class="rel-price">600 kr </p>
+                <p class="rel-price">599,95 kr </p>
             </div>
         </a>
         <a href="https://www.romsniffer.dk/rom/foursquare-8-yo-bottled-2021-tres-hombres-edition-46-43/" class="rel-card">

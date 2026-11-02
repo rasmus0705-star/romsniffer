@@ -153,14 +153,25 @@ def render_category_page(title, description, breadcrumb_label, breadcrumb_path,
     </section>'''
 
     # JSON-LD
-    json_ld = json.dumps({
-        "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": title,
-        "description": description[:155],
-        "url": canonical,
+    collection = {
+        "@type": "CollectionPage", "name": title,
+        "description": description[:155], "url": canonical,
         "numberOfItems": count,
-    }, ensure_ascii=False, indent=2)
+        "mainEntity": {
+            "@type": "ItemList", "numberOfItems": min(count, MAX_PRODUCTS_PER_PAGE),
+            "itemListElement": [
+                {"@type": "ListItem", "position": i, "url": f'{SITE_URL}/rom/{r.get("slug", "")}/', "name": r.get("name", "")}
+                for i, r in enumerate(roms[:MAX_PRODUCTS_PER_PAGE], 1) if r.get("slug")
+            ],
+        },
+    }
+    json_ld = json.dumps({"@context": "https://schema.org", "@graph": [collection, {
+        "@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Forside", "item": f"{SITE_URL}/"},
+            {"@type": "ListItem", "position": 2, "name": "Rom", "item": f"{SITE_URL}/rom/"},
+            {"@type": "ListItem", "position": 3, "name": title, "item": canonical},
+        ],
+    }]}, ensure_ascii=False, indent=2)
 
     return f'''<!DOCTYPE html>
 <html lang="da">

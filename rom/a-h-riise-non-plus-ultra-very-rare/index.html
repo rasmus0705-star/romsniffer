@@ -20,35 +20,62 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "A.H. Riise Non Plus Ultra Very Rare",
-  "url": "https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-very-rare/",
-  "category": "Rom",
-  "image": "https://spitus.dk/wp-content/uploads/2020/12/ah-riise-non-plus-ultra-very-rare-old-st-croix.png",
-  "brand": {
-    "@type": "Brand",
-    "name": "A.H. Riise"
-  },
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "798.00",
-    "highPrice": "798.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/a-h-riise-non-plus-ultra/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "A.H. Riise Non Plus Ultra Very Rare",
+      "url": "https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-very-rare/",
+      "category": "Rom",
+      "image": "https://spitus.dk/wp-content/uploads/2020/12/ah-riise-non-plus-ultra-very-rare-old-st-croix.png",
+      "brand": {
+        "@type": "Brand",
+        "name": "A.H. Riise"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "798.00",
+        "highPrice": "798.00",
         "priceCurrency": "DKK",
-        "price": "798.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/a-h-riise-non-plus-ultra/",
+            "priceCurrency": "DKK",
+            "price": "798.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "A.H. Riise Non Plus Ultra Very Rare",
+          "item": "https://www.romsniffer.dk/rom/a-h-riise-non-plus-ultra-very-rare/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -397,6 +424,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

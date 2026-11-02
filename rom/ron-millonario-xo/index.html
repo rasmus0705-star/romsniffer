@@ -20,75 +20,102 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Ron Millonario XO",
-  "url": "https://www.romsniffer.dk/rom/ron-millonario-xo/",
-  "category": "Rom",
-  "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/ron-millonario-xo.jpg",
-  "brand": {
-    "@type": "Brand",
-    "name": "Millonario"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "40%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "699.00",
-    "highPrice": "899.00",
-    "priceCurrency": "DKK",
-    "offerCount": 4,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/ron-millonario-xo-rum",
-        "priceCurrency": "DKK",
-        "price": "699.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
-        }
+      "@type": "Product",
+      "name": "Ron Millonario XO",
+      "url": "https://www.romsniffer.dk/rom/ron-millonario-xo/",
+      "category": "Rom",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/ron-millonario-xo.jpg",
+      "brand": {
+        "@type": "Brand",
+        "name": "Millonario"
       },
-      {
-        "@type": "Offer",
-        "url": "https://www.juuls.dk/rom/varekort/ron-millonario-xo-reserva-especial",
-        "priceCurrency": "DKK",
-        "price": "709.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Juuls"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "40%"
         }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://spitus.dk/product/ron-millonario-xo-solera-reserva-especial-2/",
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "699.00",
+        "highPrice": "899.00",
         "priceCurrency": "DKK",
-        "price": "799.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Spitus"
-        }
-      },
-      {
-        "@type": "Offer",
-        "url": "https://www.kokkensvinhus.dk/shop/ron-millonario-xo-solera-reserva-40-2/",
-        "priceCurrency": "DKK",
-        "price": "899.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Kokkens Vinhus"
-        }
+        "offerCount": 4,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/ron-millonario-xo-rum",
+            "priceCurrency": "DKK",
+            "price": "699.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.juuls.dk/rom/varekort/ron-millonario-xo-reserva-especial",
+            "priceCurrency": "DKK",
+            "price": "709.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Juuls"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://spitus.dk/product/ron-millonario-xo-solera-reserva-especial-2/",
+            "priceCurrency": "DKK",
+            "price": "799.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Spitus"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.kokkensvinhus.dk/shop/ron-millonario-xo-solera-reserva-40-2/",
+            "priceCurrency": "DKK",
+            "price": "899.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Kokkens Vinhus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ron Millonario XO",
+          "item": "https://www.romsniffer.dk/rom/ron-millonario-xo/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -437,6 +464,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

@@ -20,53 +20,80 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Ron Millonario Aniversario Cincuenta 10 års Rom",
-  "url": "https://www.romsniffer.dk/rom/ron-millonario-aniversario-cincuenta-10-ars-rom/",
-  "category": "Rom",
-  "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_6cc218db-4771-4fc0-844a-aa01fa9693ad.png?v=1769423394",
-  "brand": {
-    "@type": "Brand",
-    "name": "Millonario"
-  },
-  "additionalProperty": [
+  "@graph": [
     {
-      "@type": "PropertyValue",
-      "name": "ABV",
-      "value": "50%"
-    }
-  ],
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "325.00",
-    "highPrice": "359.00",
-    "priceCurrency": "DKK",
-    "offerCount": 2,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://rombo.dk/products/ron-millonario-10-aniversario-cincuenta",
-        "priceCurrency": "DKK",
-        "price": "325.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Rombo"
-        }
+      "@type": "Product",
+      "name": "Ron Millonario Aniversario Cincuenta 10 års Rom",
+      "url": "https://www.romsniffer.dk/rom/ron-millonario-aniversario-cincuenta-10-ars-rom/",
+      "category": "Rom",
+      "image": "https://cdn.shopify.com/s/files/1/0985/3911/0748/files/output_6cc218db-4771-4fc0-844a-aa01fa9693ad.png?v=1769423394",
+      "brand": {
+        "@type": "Brand",
+        "name": "Millonario"
       },
-      {
-        "@type": "Offer",
-        "url": "https://www.whisky.dk/shop/ron-millonario-10-8278p.html",
-        "priceCurrency": "DKK",
-        "price": "359.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Whisky.dk"
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "ABV",
+          "value": "50%"
         }
+      ],
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "325.00",
+        "highPrice": "359.00",
+        "priceCurrency": "DKK",
+        "offerCount": 2,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://rombo.dk/products/ron-millonario-10-aniversario-cincuenta",
+            "priceCurrency": "DKK",
+            "price": "325.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Rombo"
+            }
+          },
+          {
+            "@type": "Offer",
+            "url": "https://www.whisky.dk/shop/ron-millonario-10-8278p.html",
+            "priceCurrency": "DKK",
+            "price": "359.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Whisky.dk"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Ron Millonario Aniversario Cincuenta 10 års Rom",
+          "item": "https://www.romsniffer.dk/rom/ron-millonario-aniversario-cincuenta-10-ars-rom/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -415,6 +442,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>

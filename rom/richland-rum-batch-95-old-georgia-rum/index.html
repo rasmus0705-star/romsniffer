@@ -20,31 +20,58 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Product",
-  "name": "Richland Rum batch 95- Old Georgia Rum",
-  "url": "https://www.romsniffer.dk/rom/richland-rum-batch-95-old-georgia-rum/",
-  "category": "Rom",
-  "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/rich95..jpg",
-  "offers": {
-    "@type": "AggregateOffer",
-    "lowPrice": "749.00",
-    "highPrice": "749.00",
-    "priceCurrency": "DKK",
-    "offerCount": 1,
-    "offers": [
-      {
-        "@type": "Offer",
-        "url": "https://www.kokkensvinhus.dk/shop/richland-rum-batch-95-old-georgia-rum-2/",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "Richland Rum batch 95- Old Georgia Rum",
+      "url": "https://www.romsniffer.dk/rom/richland-rum-batch-95-old-georgia-rum/",
+      "category": "Rom",
+      "image": "https://www.kokkensvinhus.dk/wp-content/uploads/2021/06/rich95..jpg",
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "749.00",
+        "highPrice": "749.00",
         "priceCurrency": "DKK",
-        "price": "749.00",
-        "availability": "https://schema.org/InStock",
-        "seller": {
-          "@type": "Organization",
-          "name": "Kokkens Vinhus"
-        }
+        "offerCount": 1,
+        "offers": [
+          {
+            "@type": "Offer",
+            "url": "https://www.kokkensvinhus.dk/shop/richland-rum-batch-95-old-georgia-rum-2/",
+            "priceCurrency": "DKK",
+            "price": "749.00",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Kokkens Vinhus"
+            }
+          }
+        ]
       }
-    ]
-  }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Forside",
+          "item": "https://www.romsniffer.dk/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Rom",
+          "item": "https://www.romsniffer.dk/rom/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Richland Rum batch 95- Old Georgia Rum",
+          "item": "https://www.romsniffer.dk/rom/richland-rum-batch-95-old-georgia-rum/"
+        }
+      ]
+    }
+  ]
 }
 </script>
 <style>
@@ -393,6 +420,7 @@ footer a { color: var(--copper-light); }
         </a>
         <div class="nav-links">
             <a href="https://www.romsniffer.dk/rom/">Alle rom</a>
+            <a href="https://www.romsniffer.dk/whisky/">Whisky</a>
             <a href="https://www.romsniffer.dk/premium.html">Premium</a>
             <a href="https://www.romsniffer.dk/guide.html">Guide</a>
             <a href="https://www.romsniffer.dk/om.html">Om</a>
