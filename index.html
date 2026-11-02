@@ -64,7 +64,9 @@
         opacity: 0.5;
     }
     @media (max-width: 640px) { body::before { display: none; } }
-    body > * { position: relative; z-index: 2; }
+    /* Keep the main layout out of this stacking context so the fixed mobile
+       filter drawer can sit above its body-level backdrop. */
+    body > *:not(.layout-wrap) { position: relative; z-index: 2; }
 
     /* ── NAV ── */
     nav {
