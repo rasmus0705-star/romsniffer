@@ -55,17 +55,20 @@ def _make_home(rom_count, whisky_count):
   <link rel="preload" href="/fonts/dm-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="/theme.css">
-  <script src="/theme.js"></script>
+  <link rel="preload" as="image" href="/hero-bottles.png">
+  <script src="/theme.js?v=menu-category-3"></script>
   <style>
     * {{ box-sizing:border-box }}
     body {{ margin:0; min-height:100vh; background:#07060a; color:#f0e8d8; font:16px/1.55 'DM Sans',system-ui,sans-serif; }}
     nav {{ min-height:76px; display:flex; align-items:center; justify-content:space-between; padding:14px max(22px,calc((100vw - 1120px)/2)); }}
     .nav-logo {{ color:#e8c868; text-decoration:none; font:500 19px Georgia,serif; letter-spacing:.3em; text-transform:uppercase; }}
     .nav-links a {{ color:#a39887; text-decoration:none; text-transform:uppercase; font-size:12px; letter-spacing:.16em; }}
-    main {{ width:min(1040px,calc(100% - 36px)); margin:clamp(42px,9vh,100px) auto 80px; }}
+    main {{ width:min(1040px,calc(100% - 36px)); margin:clamp(32px,7vh,72px) auto 80px; }}
+    .hero {{ min-height:390px; display:flex; flex-direction:column; justify-content:center; padding:clamp(24px,5vw,54px); margin-bottom:34px; border:1px solid rgba(201,168,76,.2); background-color:#09080b; background-image:linear-gradient(90deg,#09080b 0%,rgba(9,8,11,.96) 34%,rgba(9,8,11,.62) 57%,rgba(9,8,11,.06) 100%),url('/hero-bottles.png'); background-size:auto 125%; background-position:right center; background-repeat:no-repeat; box-shadow:0 22px 60px rgba(0,0,0,.28); }}
     .eyebrow {{ color:#c9a84c; font-size:12px; text-transform:uppercase; letter-spacing:.24em; }}
     h1 {{ margin:14px 0 12px; color:#e8c868; font:500 clamp(38px,7vw,66px)/1.08 'Playfair Display',Georgia,serif; }}
     .intro {{ max-width:620px; color:#a39887; font-size:18px; margin:0 0 42px; }}
+    .choices-title {{ margin:0 0 14px; color:#c9a84c; font:500 20px/1.3 'Playfair Display',Georgia,serif; }}
     .choices {{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }}
     .choice {{ position:relative; display:flex; min-height:270px; flex-direction:column; justify-content:space-between; padding:30px; overflow:hidden; border:1px solid rgba(201,168,76,.25); background:radial-gradient(ellipse at 100% 0,rgba(201,168,76,.13),transparent 55%),#0f0c13; color:#f0e8d8; text-decoration:none; transition:border-color .2s,transform .2s,background .2s; }}
     .choice:hover {{ border-color:#c9a84c; transform:translateY(-3px); background-color:#15111b; }}
@@ -73,7 +76,7 @@ def _make_home(rom_count, whisky_count):
     .choice-count {{ color:#a39887; font-size:14px; margin-top:12px; }}
     .choice-cta {{ color:#d6ad62; text-transform:uppercase; font-size:12px; letter-spacing:.2em; }}
     footer {{ border-top:1px solid rgba(201,168,76,.15); padding:24px 18px 34px; color:#7a7064; text-align:center; font-size:12px; letter-spacing:.08em; }}
-    @media(max-width:640px) {{ main {{ margin-top:46px }} .intro {{ font-size:16px; margin-bottom:28px }} .choices {{ grid-template-columns:1fr; gap:12px }} .choice {{ min-height:190px; padding:23px }} nav {{ padding-inline:18px }} }}
+    @media(max-width:640px) {{ main {{ margin-top:30px }} .hero {{ min-height:470px; justify-content:flex-start; padding:26px 22px; margin-bottom:26px; background-image:linear-gradient(180deg,#09080b 0%,rgba(9,8,11,.96) 32%,rgba(9,8,11,.48) 63%,rgba(9,8,11,.08) 100%),url('/hero-bottles.png'); background-size:100% auto; background-position:center bottom }} h1 {{ font-size:clamp(36px,11vw,48px) }} .intro {{ font-size:16px; margin-bottom:18px }} .choices-title {{ font-size:18px }} .choices {{ grid-template-columns:1fr; gap:12px }} .choice {{ min-height:170px; padding:22px }} nav {{ padding-inline:18px }} }}
   </style>
 </head>
 <body data-cat="home">
@@ -81,9 +84,12 @@ def _make_home(rom_count, whisky_count):
     <a href="/" class="nav-logo"><span>RomSniffer</span></a>
   </nav>
   <main>
-    <div class="eyebrow">Sammenlign danske webshops</div>
-    <h1>Hvad leder du efter?</h1>
-    <p class="intro">Vælg en type spiritus for at se priser, tilbud og butikker samlet ét sted.</p>
+    <section class="hero" aria-labelledby="home-title">
+      <div class="eyebrow">Sammenlign danske webshops</div>
+      <h1 id="home-title">Hvad leder du efter?</h1>
+      <p class="intro">Find den bedste pris på din næste flaske.</p>
+    </section>
+    <h2 class="choices-title">Vælg kategori</h2>
     <section class="choices" aria-label="Vælg kategori">
       <a class="choice" href="/rom/" aria-label="Se {rom_label} rom">
         <span><span class="choice-name">Rom</span><span class="choice-count">{escape(rom_label)} produkter · sammenlign priser på tværs af butikker</span></span>

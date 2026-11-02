@@ -356,7 +356,7 @@ footer {{
 footer a {{ color: var(--copper-light); }}
 </style>
 <link rel="stylesheet" href="/theme.css">
-<script src="/theme.js"></script>
+<script src="/theme.js?v=menu-category-3"></script>
 </head>
 <body data-cat="{CATEGORY}">
     <nav>
