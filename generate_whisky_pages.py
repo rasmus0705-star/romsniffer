@@ -12,11 +12,19 @@ OUTPUT = Path("whisky") / "index.html"
 
 def _type(name):
     n = name.casefold()
+    if "springbank" in n:
+        return "Single malt"
     for needle, label in (("single pot still", "Single pot still"), ("single grain", "Single grain"),
                           ("blended malt", "Blended malt"), ("single malt", "Single malt"),
-                          ("bourbon", "Bourbon"), ("rye", "Rye"), ("blended", "Blended whisky")):
+                          ("rye whiskey", "Rye"), ("rye whisky", "Rye"),
+                          ("blended", "Blended whisky")):
         if needle in n:
             return label
+    bourbon_cask = re.search(r"\b(?:ex[- ]?)?bourbon\s+(?:cask|barrel|wood|finish|matured|maturation)\b", n)
+    if "bourbon" in n and not bourbon_cask:
+        return "Bourbon"
+    if re.search(r"\brye\b", n):
+        return "Rye"
     return "Whisky"
 
 
@@ -74,6 +82,7 @@ def _render(source, catalog):
         'Find de bedste rom-priser i Danmark — RomSniffer': 'Find de bedste whiskypriser i Danmark — RomSniffer',
         '<a href="/">Alle rom</a>': '<a href="/whisky/">Alle whisky</a>',
         'Sammenlign <strong id="hero-count">1.000+</strong> rom fra danske webshops — opdateres dagligt': 'Sammenlign <strong id="hero-count">–</strong> whiskyer fra danske webshops — opdateres dagligt',
+        'Ingen produkter matchede dine filtre': 'Ingen whiskyer matchede dine filtre',
         'placeholder="Søg rom, brand, land..."': 'placeholder="Søg whisky, type eller butik..."',
         'aria-label="Søg efter rom, brand eller land"': 'aria-label="Søg efter whisky, type eller butik"',
         '<div class="stat-lbl">Rom i alt</div>': '<div class="stat-lbl">Whisky i alt</div>',
@@ -93,6 +102,11 @@ def _render(source, catalog):
     for old, new in replacements.items():
         html = html.replace(old, new)
 
+    html = html.replace(
+        '<a href="/rom/" class="active" aria-current="page">Rom</a>',
+        '<a href="/whisky/" class="active" aria-current="page">Whisky</a>',
+    )
+
     # Every relative link in the root navigation must remain rooted from /whisky/.
     for page in ("premium.html", "guide.html", "om.html"):
         html = html.replace(f'href="{page}"', f'href="/{page}"')
@@ -100,27 +114,6 @@ def _render(source, catalog):
     html = html.replace('<a href="/guide.html">Guide</a>', '')
     html = html.replace('<a href="/whisky/">Alle whisky</a>', '')
 
-    quick_bar = '''            <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
-                <button class="qbtn" data-qtype="filter" data-val="deals" onclick="quickFilter('deals')">Tilbud</button>
-                <button class="qbtn" data-qtype="filter" data-val="multi" onclick="quickFilter('multi')">Billigst på tværs</button>
-                <button class="qbtn" data-qtype="type" data-val="Single malt" onclick="quickType('Single malt')">Single malt</button>
-                <button class="qbtn" data-qtype="type" data-val="Bourbon" onclick="quickType('Bourbon')">Bourbon</button>
-                <button class="qbtn" data-qtype="type" data-val="Rye" onclick="quickType('Rye')">Rye</button>
-                <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">Under 500 kr</button>
-                <button class="qbtn" data-qtype="filter" data-val="premium" onclick="quickFilter('premium')">Over 1.500 kr</button>
-                <button class="qbtn" onclick="romRoulette()">Overrask mig</button>
-            </div>
-        </div>
-
-    </div>
-</div>'''
-    html, count = re.subn(r'            <div class="quick-bar" id="quick-bar".*?\n            </div>\n        </div>\n\n    </div>\n</div>', quick_bar, html, count=1, flags=re.S)
-    if count != 1:
-        raise ValueError("Could not adapt the RomSniffer quick-filter bar")
-
-    html, count = re.subn(r'<!-- CATEGORY BAR -->.*?</div>\s*\n', '', html, count=1, flags=re.S)
-    if count != 1:
-        raise ValueError("Could not remove rum-only category shortcuts")
     html = html.replace('<span>Lande <span id="country-count-badge"', '<span>Oprindelse <span id="country-count-badge"')
     html = re.sub(r'\s*<a href="/rom/land/jamaica/" class="sidebar-cat-link">Se alle lande →</a>', '', html)
     html = html.replace('<div class="sidebar-title">Typer ', '<div class="sidebar-title">Stilarter ')
