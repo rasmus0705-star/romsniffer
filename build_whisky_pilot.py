@@ -212,10 +212,14 @@ def _make_groups(items):
         if any(not _same_bottle(a, b) for i, a in enumerate(products) for b in products[i + 1:]):
             continue
         prices = sorted(products, key=lambda p: p["price"])
+        country = next((p.get("country") for p in prices if p.get("country")), None)
+        age = next((p.get("age") for p in prices if p.get("age")), None)
         output.append({
             "name": prices[0]["name"],
             "volume_cl": prices[0].get("volume_cl"),
             "abv": prices[0].get("abv"),
+            "country": country,
+            "age": age,
             "ean": next((p.get("ean") for p in prices if p.get("ean")), None),
             "prices": [{k: p.get(k) for k in ("shop_name", "price", "old_price", "url", "ean")} for p in prices],
             "price_spread": round(prices[-1]["price"] - prices[0]["price"], 2),

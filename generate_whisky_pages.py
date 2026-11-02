@@ -1,139 +1,149 @@
-"""Generér den statiske whisky-prissammenligning fra verificerede match."""
+"""Build whisky data and reuse RomSniffer's established listing interface."""
+import hashlib
 import json
-from datetime import datetime
-from html import escape
+import re
 from pathlib import Path
 
+PILOT = Path("whisky_pilot_data.json")
+TEMPLATE = Path("index.html")
+DATA = Path("whisky_data.json")
+OUTPUT = Path("whisky") / "index.html"
 
-DATA_FILE = Path("whisky_pilot_data.json")
-OUTPUT_FILE = Path("whisky") / "index.html"
+
+def _type(name):
+    n = name.casefold()
+    for needle, label in (("single pot still", "Single pot still"), ("single grain", "Single grain"),
+                          ("blended malt", "Blended malt"), ("single malt", "Single malt"),
+                          ("bourbon", "Bourbon"), ("rye", "Rye"), ("blended", "Blended whisky")):
+        if needle in n:
+            return label
+    return "Whisky"
+
+
+def _age(name):
+    m = re.search(r"\b(\d{1,2})\s*(?:years?\s*old|years?\s*|yo\b|år\b)", name, re.I)
+    return f"{m.group(1)} år" if m else None
+
+
+def _age_sort(value):
+    match = re.search(r"\d+", value)
+    return (0, int(match.group())) if match else (1, value.casefold())
+
+
+def _catalog(pilot):
+    items = []
+    for match in pilot.get("matches", []):
+        offers = sorted(match.get("prices", []), key=lambda p: float(p.get("price") or 0))
+        if len(offers) < 2:
+            continue
+        low, high = float(offers[0]["price"]), float(offers[-1]["price"])
+        spread = round((high - low) / high * 100, 1) if high else 0
+        for i, offer in enumerate(offers):
+            offer["discount_pct"] = spread if i == 0 else 0
+            offer["old_price"] = None
+        name = match.get("name") or "Whisky"
+        items.append({
+            "name": name, "brand": "", "type": _type(name), "age": match.get("age") or _age(name),
+            "country": match.get("country"),
+            "abv": match.get("abv"), "volume_cl": match.get("volume_cl"), "image": None,
+            "slug": "", "category": "whisky", "shop_count": len(offers),
+            "min_price": low, "cheapest_price": low, "max_discount_pct": spread, "prices": offers,
+        })
+    items.sort(key=lambda r: r["name"].casefold())
+    return {
+        "updated": pilot.get("updated"),
+        "stats": {
+            "total": len(items), "multi_shop": sum(r["shop_count"] > 1 for r in items),
+            "deals": sum(r["max_discount_pct"] > 0 for r in items),
+            "cheapest": min((r["min_price"] for r in items), default=0),
+            "shop_names": sorted({p["shop_name"] for r in items for p in r["prices"]}),
+            "countries": sorted({r["country"] for r in items if r.get("country")}),
+            "types": sorted({r["type"] for r in items}),
+            "ages": sorted({r["age"] for r in items if r["age"]}, key=_age_sort),
+        },
+        "roms": items,
+    }
+
+
+def _render(source, catalog):
+    html = source
+    replacements = {
+        '<title>Sammenlign rom-priser fra danske webshops | RomSniffer</title>': '<title>Sammenlign whiskypriser fra danske webshops | RomSniffer</title>',
+        'Sammenlign rom-priser fra danske webshops | RomSniffer': 'Sammenlign whiskypriser fra danske webshops | RomSniffer',
+        'Find den bedste pris på rom. Vi sammenligner priser fra danske webshops og viser dig hvor du sparer mest.': 'Sammenlign whiskypriser fra danske webshops, og find den bedste pris.',
+        '<body data-cat="rom">': '<body data-cat="whisky">',
+        'Find de bedste rom-priser i Danmark — RomSniffer': 'Find de bedste whiskypriser i Danmark — RomSniffer',
+        '<a href="/">Alle rom</a>': '<a href="/whisky/">Alle whisky</a>',
+        'Sammenlign <strong id="hero-count">1.000+</strong> rom fra danske webshops — opdateres dagligt': 'Sammenlign <strong id="hero-count">–</strong> whiskyer fra danske webshops — opdateres dagligt',
+        'placeholder="Søg rom, brand, land..."': 'placeholder="Søg whisky, type eller butik..."',
+        'aria-label="Søg efter rom, brand eller land"': 'aria-label="Søg efter whisky, type eller butik"',
+        '<div class="stat-lbl">Rom i alt</div>': '<div class="stat-lbl">Whisky i alt</div>',
+        'class="sidebar-filter-btn active" data-filter="all">Alle rom': 'class="sidebar-filter-btn active" data-filter="all">Al whisky',
+        'Hverdagsrom (under 500 kr)': 'Hverdagswhisky (under 500 kr)',
+        'Henter rom-data...': 'Henter whisky...',
+        'Vis flere rom ↓': 'Vis flere whiskyer ↓',
+        'Danmarks rom-prisaggregator. Vi sammenligner priser fra danske webshops så du altid får den bedste deal på din næste flaske rom.': 'RomSniffer sammenligner whiskypriser fra danske webshops, så du nemt kan finde den bedste pris.',
+        'localStorage.getItem(\'rom_favs\')': 'localStorage.getItem(\'whisky_favs\')',
+        'localStorage.setItem(\'rom_favs\'': 'localStorage.setItem(\'whisky_favs\'',
+        'fetch(\'rom_data.json?v=\' + DATA_VERSION)': 'fetch(\'/whisky_data.json?v=\' + DATA_VERSION)',
+        'Kunne ikke hente rom_data.json': 'Kunne ikke hente whisky_data.json',
+        'Kunne ikke hente rom-data — tjek at rom_data.json findes': 'Kunne ikke hente whiskydata — prøv igen senere',
+    }
+    for old, new in replacements.items():
+        html = html.replace(old, new)
+
+    # Every relative link in the root navigation must remain rooted from /whisky/.
+    for page in ("premium.html", "guide.html", "om.html"):
+        html = html.replace(f'href="{page}"', f'href="/{page}"')
+
+    quick_bar = '''            <div class="quick-bar" id="quick-bar" role="navigation" aria-label="Hurtige kategorier">
+                <button class="qbtn" data-qtype="filter" data-val="deals" onclick="quickFilter('deals')">Tilbud</button>
+                <button class="qbtn" data-qtype="filter" data-val="multi" onclick="quickFilter('multi')">Billigst på tværs</button>
+                <button class="qbtn" data-qtype="type" data-val="Single malt" onclick="quickType('Single malt')">Single malt</button>
+                <button class="qbtn" data-qtype="type" data-val="Bourbon" onclick="quickType('Bourbon')">Bourbon</button>
+                <button class="qbtn" data-qtype="type" data-val="Rye" onclick="quickType('Rye')">Rye</button>
+                <button class="qbtn" data-qtype="filter" data-val="hverdagsrom" onclick="quickFilter('hverdagsrom')">Under 500 kr</button>
+                <button class="qbtn" data-qtype="filter" data-val="premium" onclick="quickFilter('premium')">Premium</button>
+                <button class="qbtn" onclick="romRoulette()">Overrask mig</button>
+            </div>
+        </div>
+
+    </div>
+</div>'''
+    html, count = re.subn(r'            <div class="quick-bar" id="quick-bar".*?\n            </div>\n        </div>\n\n    </div>\n</div>', quick_bar, html, count=1, flags=re.S)
+    if count != 1:
+        raise ValueError("Could not adapt the RomSniffer quick-filter bar")
+
+    html, count = re.subn(r'<!-- CATEGORY BAR -->.*?</div>\s*\n', '', html, count=1, flags=re.S)
+    if count != 1:
+        raise ValueError("Could not remove rum-only category shortcuts")
+    html = html.replace('<span>Lande <span id="country-count-badge"', '<span>Oprindelse <span id="country-count-badge"')
+    html = re.sub(r'\s*<a href="/rom/land/jamaica/" class="sidebar-cat-link">Se alle lande →</a>', '', html)
+    html = html.replace('<div class="sidebar-title">Typer ', '<div class="sidebar-title">Stilarter ')
+    html = html.replace('<span>Typer <span id="type-count-badge"', '<span>Stilarter <span id="type-count-badge"')
+    html = re.sub(r'\s*<a href="/rom/(?:type/aged-rom|alder/xo)/" class="sidebar-cat-link">Se alle (?:typer|aldre) →</a>', '', html)
+    html = html.replace('<span>Lande <span id="country-count-badge"', '<span>Oprindelse <span id="country-count-badge"')
+
+    # Whisky cards link directly to the cheapest retailer offer; no rum product URLs are exposed.
+    html = html.replace('href="/rom/${r.slug}/" class="card-img-wrap"', 'href="${cheapest.url || \'#\'}" target="_blank" rel="noopener noreferrer" class="card-img-wrap"')
+    html = html.replace('<div class="card-name"><a href="/rom/${r.slug}/"', '<div class="card-name"><a href="${cheapest.url || \'#\'}" target="_blank" rel="noopener noreferrer"')
+    html = html.replace('href="/rom/${r.slug}/" class="top-card"', 'href="${best.url || \'#\'}" target="_blank" rel="noopener noreferrer" class="top-card"')
+    html = html.replace('https://www.romsniffer.dk/">\n<meta property="og:type"', 'https://www.romsniffer.dk/whisky/">\n<meta property="og:type"')
+    html = html.replace('content="https://www.romsniffer.dk/">', 'content="https://www.romsniffer.dk/whisky/">')
+    html = html.replace('src="logo.png"', 'src="/logo.png"')
+    version = hashlib.sha1(json.dumps(catalog, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:12]
+    html = re.sub(r"const DATA_VERSION = '[^']*';", f"const DATA_VERSION = '{version}';", html, count=1)
+    return html
 
 
 def main():
-    if not DATA_FILE.is_file():
-        raise SystemExit(f"Pilotdata mangler: {DATA_FILE}")
-    data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
-    matches = data.get("matches", [])
-    payload = []
-    for match in matches:
-        offers = sorted(match.get("prices", []), key=lambda item: item["price"])
-        if not offers:
-            continue
-        low, high = offers[0]["price"], offers[-1]["price"]
-        payload.append({
-            "name": match.get("name", "Whisky"),
-            "volume": match.get("volume_cl"),
-            "abv": match.get("abv"),
-            "prices": offers,
-            "saving": round(high - low, 2),
-            "saving_pct": round((high - low) / high * 100, 1) if high else 0,
-            "ean_check": match.get("ean_check"),
-            "whisky_dk_stock": match.get("whisky_dk_stock"),
-        })
-
-    encoded = json.dumps(payload, ensure_ascii=False).replace("</", "<\\/")
-    updated = escape(str(data.get("updated", ""))[:16].replace("T", " "))
-    html = f'''<!doctype html>
-<html lang="da">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sammenlign whiskypriser hos danske butikker, og find den laveste pris på tværs af butikkerne.">
-  <link rel="canonical" href="https://www.romsniffer.dk/whisky/">
-  <link rel="stylesheet" href="/theme.css">
-  <script src="/theme.js"></script>
-  <title>Whisky tilbud og prissammenligning | RomSniffer</title>
-  <style>
-    :root {{ color-scheme: dark; --bg:#0a0604; --panel:#17100b; --panel2:#21170f; --line:#3d2818; --gold:#d4a847; --text:#f5e4cf; --muted:#aa927b; --green:#8bd1a8; }}
-    * {{ box-sizing:border-box }}
-    body {{ margin:0; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif; }}
-    header {{ border-bottom:1px solid var(--line); padding:24px max(20px,calc((100vw - 1120px)/2)); background:linear-gradient(135deg,#21170f,#0a0604 70%); }}
-    .brand {{ color:var(--gold); font:600 14px/1.2 Georgia,serif; letter-spacing:.22em; text-transform:uppercase; }}
-    h1 {{ margin:12px 0 4px; font:500 clamp(30px,5vw,46px)/1.1 Georgia,serif; color:var(--gold); }}
-    .sub {{ color:var(--muted); margin:8px 0 0; }}
-    main {{ width:min(1120px,100% - 32px); margin:24px auto 70px; }}
-    .toolbar {{ display:flex; gap:12px; align-items:center; margin-bottom:18px; }}
-    input,select {{ min-height:46px; border:1px solid var(--line); border-radius:8px; background:var(--panel); color:var(--text); padding:10px 13px; font:inherit; }}
-    input {{ flex:1; min-width:0; }}
-    .count {{ white-space:nowrap; color:var(--muted); font-size:14px; }}
-    .grid {{ display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr)); gap:14px; }}
-    article {{ background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:18px; min-width:0; }}
-    h2 {{ font:500 22px/1.25 Georgia,serif; margin:0 0 8px; }}
-    .facts {{ color:var(--muted); font-size:14px; margin-bottom:15px; }}
-    .saving {{ color:var(--green); font-size:14px; margin:0 0 12px; }}
-    .offers {{ display:grid; gap:8px; }}
-    .offer {{ display:flex; justify-content:space-between; align-items:center; gap:12px; padding:10px 12px; border:1px solid #332419; border-radius:8px; background:var(--panel2); }}
-    .offer a {{ color:var(--text); text-decoration:none; }}
-    .offer a:hover {{ color:var(--gold); text-decoration:underline; }}
-    .price {{ color:var(--gold); font-weight:700; white-space:nowrap; }}
-    .price.lowest {{ color:var(--green); }}
-    .badge {{ display:inline-block; color:var(--muted); border:1px solid var(--line); border-radius:20px; padding:2px 8px; margin-top:12px; font-size:12px; }}
-    .empty {{ color:var(--muted); text-align:center; padding:50px 12px; }}
-    footer {{ color:var(--muted); font-size:13px; text-align:center; padding:0 16px 28px; }}
-    @media(max-width:560px) {{ header {{ padding:20px 16px }} main {{ width:calc(100% - 24px); margin-top:16px }} .toolbar {{ flex-wrap:wrap }} .toolbar input {{ flex-basis:100% }} .count {{ margin-left:auto }} article {{ padding:15px }} }}
-  </style>
-</head>
-<body data-cat="whisky">
-  <nav><a href="/" class="nav-logo"><span>RomSniffer</span></a><div class="nav-links"><a href="/">Forside</a></div></nav>
-  <header>
-    <div class="brand">RomSniffer · Whisky</div>
-    <h1>Whisky til gode priser</h1>
-    <p class="sub">{len(payload)} sammenligninger · kildedata opdateret {updated}</p>
-  </header>
-  <main>
-    <div class="toolbar">
-      <input id="search" type="search" placeholder="Søg efter whisky eller butik" aria-label="Søg">
-      <select id="sort" aria-label="Sortér">
-        <option value="saving">Størst besparelse</option>
-        <option value="price">Laveste pris</option>
-        <option value="name">Navn A–Å</option>
-      </select>
-      <span class="count" id="count"></span>
-    </div>
-    <section class="grid" id="grid" aria-live="polite"></section>
-  </main>
-  <footer>Priser og lagerstatus kan ændre sig; kontrollér altid oplysningerne hos butikken.</footer>
-  <script>
-    const products = {encoded};
-    const grid = document.getElementById('grid');
-    const search = document.getElementById('search');
-    const sort = document.getElementById('sort');
-    const count = document.getElementById('count');
-    const fmt = n => new Intl.NumberFormat('da-DK', {{minimumFractionDigits:0, maximumFractionDigits:2}}).format(n) + ' kr';
-    function render() {{
-      const query = search.value.trim().toLocaleLowerCase('da');
-      const visible = products.filter(p => (p.name + ' ' + p.prices.map(x => x.shop_name).join(' ')).toLocaleLowerCase('da').includes(query));
-      visible.sort((a,b) => sort.value === 'name' ? a.name.localeCompare(b.name,'da') : sort.value === 'price' ? a.prices[0].price-b.prices[0].price : b.saving-a.saving);
-      count.textContent = visible.length + ' varer';
-      grid.replaceChildren();
-      if (!visible.length) {{ const empty=document.createElement('p'); empty.className='empty'; empty.textContent='Ingen whisky fundet.'; grid.append(empty); return; }}
-      visible.forEach(p => {{
-        const card=document.createElement('article');
-        const title=document.createElement('h2'); title.textContent=p.name; card.append(title);
-        const facts=document.createElement('div'); facts.className='facts';
-        facts.textContent=[p.volume ? Number(p.volume).toLocaleString('da-DK')+' cl' : null,p.abv ? Number(p.abv).toLocaleString('da-DK')+'%' : null].filter(Boolean).join(' · ');
-        card.append(facts);
-        if (p.saving > 0) {{ const save=document.createElement('p'); save.className='saving'; save.textContent='Spar '+fmt(p.saving)+' ('+p.saving_pct.toLocaleString('da-DK')+'%)'; card.append(save); }}
-        const offers=document.createElement('div'); offers.className='offers';
-        p.prices.forEach((offer,index) => {{
-          const row=document.createElement('div'); row.className='offer';
-          const link=document.createElement('a'); link.href=offer.url; link.target='_blank'; link.rel='noopener noreferrer'; link.textContent=offer.shop_name;
-          const price=document.createElement('span'); price.className='price'+(index===0?' lowest':''); price.textContent=fmt(offer.price);
-          row.append(link,price); offers.append(row);
-        }});
-        card.append(offers);
-        const badge=document.createElement('span'); badge.className='badge';
-        badge.textContent=p.ean_check==='verified'?'EAN bekræftet':p.whisky_dk_stock==='in_stock'?'Lager kontrolleret':'Lagerstatus fra butiksfeed';
-        card.append(badge); grid.append(card);
-      }});
-    }}
-    search.addEventListener('input',render); sort.addEventListener('change',render); render();
-  </script>
-</body>
-</html>'''
-    OUTPUT_FILE.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_FILE.write_text(html, encoding="utf-8")
-    print(f"Whisky-side genereret: {OUTPUT_FILE.resolve()} ({len(payload)} produkter)")
+    if not PILOT.is_file() or not TEMPLATE.is_file():
+        raise SystemExit("Whisky-pilotdata eller RomSniffer-forsidens skabelon mangler.")
+    catalog = _catalog(json.loads(PILOT.read_text(encoding="utf-8")))
+    DATA.write_text(json.dumps(catalog, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    OUTPUT.parent.mkdir(parents=True, exist_ok=True)
+    OUTPUT.write_text(_render(TEMPLATE.read_text(encoding="utf-8"), catalog), encoding="utf-8")
+    print(f"Whisky-side genereret med RomSniffer-layout: {OUTPUT.resolve()} ({catalog['stats']['total']} produkter)")
 
 
 if __name__ == "__main__":

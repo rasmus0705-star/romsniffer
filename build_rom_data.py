@@ -423,7 +423,8 @@ def main():
     print("\n📤 Pusher rom_data.json til GitHub...")
     try:
         subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json",
-                        "index.html", "premium.html", "404.html", "theme.js", "-A", "rom/", "whisky/"], check=True)
+                        "index.html", "premium.html", "404.html", "theme.js", "whisky_data.json",
+                        "-A", "rom/", "whisky/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True
