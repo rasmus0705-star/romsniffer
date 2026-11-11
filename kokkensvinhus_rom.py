@@ -26,6 +26,7 @@ def scrape_kokkensvinhus_rom():
             headers=HEADERS,
             timeout=15
         )
+        cat_response.raise_for_status()
         categories = cat_response.json()
         rom_cat_id = None
         for cat in categories:
@@ -34,11 +35,10 @@ def scrape_kokkensvinhus_rom():
                 print(f"✅ Fandt rom kategori: id={rom_cat_id}")
                 break
         if not rom_cat_id:
-            print("❌ Fandt ikke 'rom' kategori")
-            return items
+            raise RuntimeError("Kokkens Vinhus: Fandt ikke 'rom'-kategorien i API-svaret")
     except Exception as e:
         print(f"❌ Kunne ikke hente kategorier: {e}")
-        return items
+        raise RuntimeError(f"Kokkens Vinhus kunne ikke hente kategorier: {e}") from e
 
     skip_keywords = [
         "glas", "krus", "opener", "trøje", "gave", "gavekort",
@@ -52,13 +52,16 @@ def scrape_kokkensvinhus_rom():
             r = requests.get(url, headers=HEADERS, timeout=20)
         except Exception as e:
             print(f"❌ Fejl på side {page}: {e}")
+            raise RuntimeError(f"Kokkens Vinhus: netværksfejl på side {page}: {e}") from e
+        if r.status_code == 404 and page > 1:
+            print(f"ℹ️ Kokkens Vinhus: side {page} findes ikke — afslutter pagineringen")
             break
         if r.status_code != 200:
-            break
+            raise RuntimeError(f"Kokkens Vinhus: HTTP {r.status_code} på side {page}")
         try:
             products = r.json()
-        except:
-            break
+        except ValueError as e:
+            raise RuntimeError(f"Kokkens Vinhus: ugyldigt JSON-svar på side {page}") from e
         if not products:
             break
 

@@ -140,7 +140,8 @@ def meta_description(rom):
 def json_ld(rom, slug):
     """Product + AggregateOffer structured data."""
     offers = []
-    for p in rom["prices"]:
+    fresh_prices = [p for p in rom["prices"] if not p.get("stale")]
+    for p in fresh_prices:
         offer = {
             "@type": "Offer",
             "url": p["url"],
@@ -173,8 +174,8 @@ def json_ld(rom, slug):
     if offers:
         data["offers"] = {
             "@type": "AggregateOffer",
-            "lowPrice": f"{rom['min_price']:.2f}",
-            "highPrice": f"{max(p['price'] for p in rom['prices']):.2f}",
+            "lowPrice": f"{min(p['price'] for p in fresh_prices):.2f}",
+            "highPrice": f"{max(p['price'] for p in fresh_prices):.2f}",
             "priceCurrency": "DKK",
             "offerCount": len(offers),
             "offers": offers,
@@ -261,17 +262,24 @@ def render_page(rom, slug, related, slug_map, updated):
     for i, p in enumerate(rom["prices"]):
         shop_esc = esc(p["shop_name"])
         price_str = f'{format_price(p["price"])} kr'
+        stale_note = ""
+        if p.get("stale") and p.get("fetched_at"):
+            try:
+                stale_date = datetime.fromisoformat(p["fetched_at"])
+                stale_note = f'<span class="stale-price-note">Prisdata fra {dk_date(stale_date)}</span>'
+            except (TypeError, ValueError):
+                stale_note = '<span class="stale-price-note">Forældet prisdata</span>'
         old_price_html = ""
-        if p.get("old_price") and p["old_price"] > p["price"]:
+        if not p.get("stale") and p.get("old_price") and p["old_price"] > p["price"]:
             old_price_html = f'<span class="old-price">{format_price(p["old_price"])} kr</span>'
         discount_html = ""
-        if p.get("discount_pct") and p["discount_pct"] > 0:
+        if not p.get("stale") and p.get("discount_pct") and p["discount_pct"] > 0:
             discount_html = f'<span class="discount-badge">-{p["discount_pct"]:.0f}%</span>'
 
-        cheapest_class = ' class="cheapest"' if i == 0 and len(rom["prices"]) > 1 else ""
+        cheapest_class = ' class="cheapest"' if i == 0 and len(rom["prices"]) > 1 and not p.get("stale") else (' class="stale-price"' if p.get("stale") else "")
 
         prices_rows.append(f"""            <tr{cheapest_class}>
-                <td class="shop-name">{shop_esc}</td>
+                <td class="shop-name">{shop_esc} {stale_note}</td>
                 <td class="price-cell">
                     {old_price_html}
                     <span class="current-price">{price_str}</span>
@@ -283,9 +291,10 @@ def render_page(rom, slug, related, slug_map, updated):
 
     # Besparelse
     savings_html = ""
-    if len(rom["prices"]) > 1:
-        highest = max(p["price"] for p in rom["prices"])
-        lowest = rom["min_price"]
+    current_prices = [p["price"] for p in rom["prices"] if not p.get("stale")]
+    if len(current_prices) > 1:
+        highest = max(current_prices)
+        lowest = min(current_prices)
         if highest > lowest:
             savings = highest - lowest
             savings_html = f'<p class="savings">Spar op til <strong>{format_price(savings)} kr</strong> ved at vælge den billigste butik</p>'
@@ -560,6 +569,8 @@ h1 {{
 .prices-table tr:last-child {{ border-bottom: none; }}
 .prices-table td {{ padding: 0.85rem 1rem; vertical-align: middle; }}
 .shop-name {{ font-weight: 500; color: var(--text); }}
+.stale-price {{ opacity: 0.8; }}
+.stale-price-note {{ display: block; color: var(--text-muted); font-size: 0.72rem; margin-top: 0.2rem; }}
 .price-cell {{ text-align: right; white-space: nowrap; }}
 .current-price {{ font-weight: 700; font-size: 1.05rem; }}
 .old-price {{

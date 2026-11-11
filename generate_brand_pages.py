@@ -82,7 +82,14 @@ def build_brand_page(brand_name, roms, updated, all_brands, brand_slugs=None):
         price = best_price.get('price', r.get('min_price', 0))
         shop = best_price.get('shop_name', '')
         url = best_price.get('url', '#')
-        old_price = best_price.get('old_price')
+        old_price = None if best_price.get('stale') else best_price.get('old_price')
+        stale_note = ""
+        if best_price.get('stale'):
+            try:
+                stale_date = datetime.fromisoformat(best_price["fetched_at"])
+                stale_note = f'<span class="bp-stale">Prisdata fra {dk_date(stale_date)}</span>'
+            except (TypeError, ValueError, KeyError):
+                stale_note = '<span class="bp-stale">Forældet prisdata</span>'
         disc = r.get('max_discount_pct', 0)
         rom_slug = r.get('slug', '')
 
@@ -111,6 +118,7 @@ def build_brand_page(brand_name, roms, updated, all_brands, brand_slugs=None):
                     <span class="bp-shop">✓ {shop}</span>
                     <span class="bp-price">{price:.0f} kr</span>
                 </div>
+                {stale_note}
                 {f'<span class="bp-old">{old_price:.0f} kr</span>' if old_price else ''}
                 {f'<div class="bp-multi">I {r["shop_count"]} butikker</div>' if r.get("shop_count", 0) > 1 else ''}
             </div>
@@ -201,6 +209,7 @@ nav {{ background: rgba(10,6,4,0.97); border-bottom: 1px solid var(--border); pa
 .bp-name {{ font-family: 'Playfair Display', serif; font-size: 0.85rem; font-weight: 600; line-height: 1.3; min-height: 2.2em; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }}
 .bp-price-row {{ display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 0.4rem; border-top: 1px solid var(--border); }}
 .bp-shop {{ font-size: 0.6rem; color: var(--discount); text-transform: uppercase; letter-spacing: 0.08em; }}
+.bp-stale {{ display: block; color: var(--text-dim); font-size: 0.65rem; margin-top: 0.15rem; }}
 .bp-price {{ font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; color: var(--copper-light); }}
 .bp-old {{ font-size: 0.68rem; color: #a08070; text-decoration: line-through; text-decoration-color: #e05050; }}
 .bp-multi {{ font-size: 0.6rem; color: var(--gold); margin-top: 0.15rem; }}

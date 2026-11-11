@@ -85,6 +85,14 @@ def render_product_card(rom):
     slug = rom.get("slug", "")
     name_esc = esc(rom["name"])
     price_str = f'{rom["min_price"]:.0f} kr'
+    best_price = rom.get("prices", [{}])[0] if rom.get("prices") else {}
+    stale_note = ""
+    if best_price.get("stale"):
+        try:
+            stale_date = datetime.fromisoformat(best_price["fetched_at"])
+            stale_note = f'<span class="card-stale">Prisdata fra {dk_date(stale_date)}</span>'
+        except (TypeError, ValueError, KeyError):
+            stale_note = '<span class="card-stale">Forældet prisdata</span>'
     image = rom.get("image") or ""
 
     img_html = f'<img src="{esc(image)}" alt="{name_esc}" loading="lazy">' if image else '<div class="card-ph">' + GLASS_SVG + '</div>'
@@ -116,6 +124,7 @@ def render_product_card(rom):
                 <span class="card-price">{price_str}</span>
                 {shop_badge}
             </div>
+            {stale_note}
         </div>
     </a>'''
 
@@ -330,6 +339,7 @@ nav {{
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.1rem; color: var(--caramel-light);
 }}
+.card-stale {{ display: block; font-size: 0.65rem; color: var(--text-dim); margin-top: 0.15rem; }}
 .card-shops {{
     font-size: 0.65rem; font-weight: 600; color: var(--discount);
     background: rgba(61,186,111,0.1); padding: 0.1rem 0.4rem;

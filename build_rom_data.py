@@ -23,6 +23,7 @@ from generate_rom_pages import main as generate_rom_pages
 from slugify_rom import make_unique_slug
 from rom_slugs import assign_slugs
 import scrape_guard
+from scrape_cache_rom import load_shop_cache, save_shop_cache
 from generate_sitemap import main as generate_sitemap
 from generate_category_pages import main as generate_category_pages
 from generate_brand_pages import main as generate_brand_pages
@@ -150,6 +151,8 @@ def main():
 
     start = time.time()
     all_items = []
+    fallback_info = {}
+    scrape_errors = {}
 
     # Butikker: (visningsnavn, scraper-funktion)
     # En butik der crasher giver 0 produkter, og scrape_guard stopper så buildet
@@ -167,17 +170,33 @@ def main():
     for shop_label, scraper in SHOPS:
         print(f"\n🥃 Kører {shop_label}...")
         try:
-            shop_items = scraper()
+            shop_items = list(scraper())
+            if not shop_items:
+                raise RuntimeError(f"{shop_label} returnerede 0 produkter")
         except Exception as e:
             import traceback
             print(f"   ❌ {shop_label} fejlede: {e}")
-            traceback.print_exc()
-            shop_items = []
+            scrape_errors[shop_label] = str(e)
+            cached = load_shop_cache(shop_label)
+            if cached:
+                shop_items, fetched_at = cached
+                fallback_info[shop_label] = {"fetched_at": fetched_at, "error": str(e)}
+                cached_at = datetime.fromisoformat(fetched_at).astimezone().strftime("%d-%m %H:%M")
+                print(f"   ♻️ {shop_label}: {len(shop_items)} produkter fra cache (hentet {cached_at}) — {e}")
+            else:
+                traceback.print_exc()
+                shop_items = []
+        else:
+            try:
+                if save_shop_cache(shop_label, shop_items):
+                    print(f"   💾 Frisk cache gemt for {shop_label}")
+            except OSError as e:
+                print(f"   ⚠️ {shop_label}: live data hentet, men cachen kunne ikke gemmes: {e}")
         all_items.extend(shop_items)
         print(f"   ✅ {len(shop_items)} produkter")
 
     if not all_items:
-        print("❌ Ingen produkter — afslutter")
+        print(f"❌ Ingen produkter — afslutter. Ingen gyldig cache for: {', '.join(scrape_errors)}")
         sys.exit(1)
 
     # ── Sundhedstjek: stop hvis en butik fejlede tavst ──
@@ -281,7 +300,7 @@ def main():
     # Byg final rom-objekter
     unique_roms = []
     for group in groups:
-        group_sorted = sorted(group, key=lambda x: x["price"])
+        group_sorted = sorted(group, key=lambda x: (bool(x.get("_stale_cache")), x["price"]))
         first = group_sorted[0]
         
         prices = []
@@ -289,13 +308,14 @@ def main():
             prices.append({
                 "shop_name": item["shop_name"],
                 "price": item["price"],
-                "old_price": item.get("old_price"),
-                "discount_pct": item.get("discount_pct"),
+                "old_price": None if item.get("_stale_cache") else item.get("old_price"),
+                "discount_pct": None if item.get("_stale_cache") else item.get("discount_pct"),
                 "url": item["url"],
+                **({"stale": True, "fetched_at": item.get("_cache_fetched_at")} if item.get("_stale_cache") else {}),
             })
         
         cheapest_price = prices[0]["price"]
-        max_discount_pct = max((p.get("discount_pct") or 0 for p in prices), default=0)
+        max_discount_pct = max((p.get("discount_pct") or 0 for p in prices if not p.get("stale")), default=0)
         
         # Vælg bedste metadata (fra den med flest udfyldte felter)
         best_meta = max(group, key=lambda x: sum(1 for v in [
@@ -327,7 +347,12 @@ def main():
 
     # Beregn prisændringer fra historik
     print("\n📊 Beregner prisændringer...")
-    calc_price_changes(unique_roms)
+    if fallback_info:
+        for rom in unique_roms:
+            rom["price_change_7d"] = None
+        print(f"   ⚠️ Springes over: {', '.join(fallback_info)} bruger forældede priser")
+    else:
+        calc_price_changes(unique_roms)
 
     # Statistik
     total = len(unique_roms)
@@ -354,6 +379,7 @@ def main():
             "cheapest": cheapest,
             "multi_shop": multi_shop_count,
             "shop_counts": _shop_counts,
+            "stale_shops": sorted(fallback_info),
         },
         "roms": unique_roms,
     }
@@ -372,16 +398,17 @@ def main():
 
     today = datetime.now().strftime("%Y-%m-%d")
     today_data = {}
-    for rom in unique_roms:
-        key = rom["name"]
-        shops = {}
-        for p in rom["prices"]:
-            shops[p["shop_name"]] = p["price"]
-        today_data[key] = {
-            "min": rom["min_price"],
-            "shops": shops,
-        }
-    history[today] = today_data
+    if fallback_info:
+        print(f"   ⚠️ Prishistorikken får intet nyt datapunkt i dag: {', '.join(fallback_info)} bruger cache")
+    else:
+        for rom in unique_roms:
+            key = rom["name"]
+            shops = {p["shop_name"]: p["price"] for p in rom["prices"]}
+            today_data[key] = {
+                "min": rom["min_price"],
+                "shops": shops,
+            }
+        history[today] = today_data
 
     # Behold max 90 dages historik
     dates = sorted(history.keys())
@@ -391,7 +418,8 @@ def main():
 
     with open(history_file, "w", encoding="utf-8") as hf:
         json.dump(history, hf, ensure_ascii=False)
-    print(f"   ✅ Prishistorik gemt for {len(today_data)} rom ({today})")
+    if not fallback_info:
+        print(f"   ✅ Prishistorik gemt for {len(today_data)} rom ({today})")
 
     # ── Gener statiske rom-sider ──
     generate_rom_pages()
@@ -428,7 +456,7 @@ def main():
     try:
         subprocess.run(["git", "add", "rom_data.json", "price_history.json", "sitemap.xml", "rom_slugs.json",
                         "index.html", "_rom_home_template.html", "premium.html", "404.html", "theme.js", "whisky_data.json",
-                        "-A", "rom/", "whisky/"], check=True)
+                        "-A", "rom/", "whisky/", "smagning/"], check=True)
         subprocess.run(
             ["git", "commit", "-m", f"Opdater rompriser {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
             check=True

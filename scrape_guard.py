@@ -126,20 +126,24 @@ def check(all_items, force=False, path=ROM_DATA_FILE):
     print("=" * 70)
     for p in problems:
         print(f"   • {p}")
-    print("\n   Ingen filer er ændret, og der er ikke pushet til GitHub.")
+    print("\n   Rom-data blev ikke bygget eller pushet. Lokale scraper-caches kan være opdateret.")
     print("\n   Mulige årsager:")
     print("     - Butikken blokerer scraperen (403/429) — tjek User-Agent")
     print("     - Butikken har ændret API eller kategori-ID")
     print("     - Netværksfejl")
     print("\n   Undersøg med:")
     print("     python -c \"from rombo_rom import scrape_rombo_rom as s; print(len(s()))\"")
-    print("\n   Er faldet reelt (butik lukket, sortiment skrumpet)? Kør så:")
+    print("\n   --force kan kun overstyre faldgrænser; en butik uden produkter/cache stopper altid buildet.")
+    print("   Er et sortimentsfald reelt (og alle butikker har stadig data)? Kør så:")
     print("     python build_rom_data.py --force")
     print("=" * 70)
 
-    if force:
+    missing_shops = [shop for shop in EXPECTED_SHOPS if shop_counts.get(shop, 0) == 0]
+    if force and not missing_shops:
         print("\n⚠️  --force angivet — fortsætter alligevel\n")
         return True, shop_counts
+    if force and missing_shops:
+        print("\n⚠️  --force kan ikke overstyre butikker uden live data eller gyldig cache.\n")
 
     return False, shop_counts
 
@@ -163,8 +167,8 @@ if __name__ == "__main__":
     ok, _ = check(items_bad, path="/nonexistent.json")
     assert not ok, "burde have stoppet buildet"
 
-    print("\n── Test: samme, men med --force ──")
+    print("\n── Test: --force kan ikke overstyre en butik med 0 produkter ──")
     ok, _ = check(items_bad, force=True, path="/nonexistent.json")
-    assert ok
+    assert not ok
 
     print("\n✅ Alle tests bestået")

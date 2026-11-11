@@ -11,6 +11,10 @@ diag_*.py
 repair_*.py
 *.bak
 *.tmp
+whisky_pilot_data.json
+whisky_pilot_raw.json
+whisky_pilot_*.json
+whisky_pilot_preview.html
 
 # Python
 __pycache__/
@@ -46,3 +50,7 @@ samle*.py
 scraped_raw*.json
 fejl_snapshot.json
 ~$*
+
+PROJECT_*.md
+.projectmapignore
+cache/shops/

@@ -16,14 +16,9 @@ echo Python: %PY%
 if defined ROM_NO_PUSH echo OBS: ROM_NO_PUSH er sat - pusher IKKE.
 "%PY%" build_rom_data.py %*
 if errorlevel 1 (
-    echo Forsoeg 1 fejlede - venter 60 sek...
-    timeout /t 60 /nobreak >nul
-    "%PY%" build_rom_data.py %*
-    if errorlevel 1 (
-        echo FEJL: Build fejlede to gange
-        pause
-        exit /b 1
-    )
+    echo FEJL: Buildet blev stoppet. Se scrape-loggen ovenfor; der koeres ikke et automatisk fuldt genforsog.
+    pause
+    exit /b 1
 )
 echo Faerdig - siden opdateres om 1-2 min
 timeout /t 5

@@ -26,6 +26,8 @@ def _price_example(path):
             prices = [p for p in item.get("prices", []) if float(p.get("price") or 0) > 0 and p.get("url", "").startswith("http")]
             if not prices:
                 continue
+            fresh = [p for p in prices if not p.get("stale")]
+            prices = fresh or prices
             prices.sort(key=lambda row: float(row["price"]))
             spread = float(prices[-1]["price"]) - float(prices[0]["price"])
             candidates.append((spread, len(prices), item, prices[0], len(prices)))
@@ -34,12 +36,15 @@ def _price_example(path):
         formatted_price = f"{price:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
         if formatted_price.endswith(",00"):
             formatted_price = formatted_price[:-3]
+        months = ("januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december")
         updated = datetime.fromisoformat(data["updated"]) if data.get("updated") else None
         if updated:
-            months = ("januar", "februar", "marts", "april", "maj", "juni", "juli", "august", "september", "oktober", "november", "december")
             updated_label = f"{updated.day}. {months[updated.month - 1]} kl. {updated:%H.%M}"
         else:
             updated_label = "tidspunkt ukendt"
+        if best_price.get("stale") and best_price.get("fetched_at"):
+            stale_date = datetime.fromisoformat(best_price["fetched_at"])
+            updated_label = f"prisdata fra {stale_date.day}. {months[stale_date.month - 1]} {stale_date.year}"
         return {
             "name": " ".join(item.get("name", "").split()[:7]),
             "price": formatted_price,
@@ -84,13 +89,18 @@ def _add_static_catalog(page, data):
         prices = [p for p in item.get("prices", []) if float(p.get("price") or 0) > 0]
         if not prices:
             continue
-        cheapest = min(prices, key=lambda p: float(p["price"]))
+        fresh = [p for p in prices if not p.get("stale")]
+        cheapest = min(fresh or prices, key=lambda p: float(p["price"]))
         shop = escape(str(cheapest.get("shop_name") or ""), quote=True)
         price = f'{float(cheapest["price"]):,.2f}'.replace(",", "X").replace(".", ",").replace("X", ".")
+        stale_note = ""
+        if cheapest.get("stale") and cheapest.get("fetched_at"):
+            stale_date = datetime.fromisoformat(cheapest["fetched_at"])
+            stale_note = f'<span class="stale-price-note">Prisdata fra {stale_date.day}. {stale_date.month:02d} {stale_date.year}</span>'
         href = f"/rom/{slug}/"
         cards.append(f'<article class="card" role="listitem"><a href="{href}" class="card-img-wrap">{image_html}</a>'
                      f'<div class="card-body"><div class="card-name"><a href="{href}">{name}</a></div>'
-                     f'<div class="price-row"><span class="price-row-shop">{shop}</span><span class="price-row-amount">{price} kr</span></div></div></article>')
+                     f'<div class="price-row"><span class="price-row-shop">{shop}</span><span class="price-row-amount">{price} kr</span>{stale_note}</div></div></article>')
     page = page.replace('<div class="grid" id="grid">\n                <div class="loading"><div class="spinner"></div>Henter rom-data...</div>\n            </div>',
                         '<div class="grid" id="grid">' + ''.join(cards) + '</div>')
     total = int(data.get("stats", {}).get("total") or len(roms))

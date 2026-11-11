@@ -881,6 +881,8 @@
     .price-row:hover { border-color: var(--copper); }
     .price-row.cheapest { border: 2px solid var(--copper); background: linear-gradient(135deg, rgba(184,115,51,0.12), rgba(107,44,14,0.05)); }
     .price-row.cheapest.has-discount { border-color: var(--discount); background: linear-gradient(135deg, rgba(61,186,111,0.14), rgba(184,115,51,0.04)); }
+    .price-row.stale-price { opacity: 0.84; border-style: dashed; }
+    .stale-price-note { color: var(--text-muted); font-size: 0.65rem; }
     .price-row-header { display: flex; justify-content: space-between; align-items: center; gap: 0.4rem; }
     .price-row-shop {
         font-size: 0.6rem;
@@ -1572,9 +1574,16 @@ const isMobile = () => window.innerWidth <= 1100;
 
 // ── HELPERS ───────────────────────────────────────────────────────
 function getSavings(r) {
-    if (!r.prices || r.prices.length < 2) return 0;
-    const s = [...r.prices].sort((a, b) => a.price - b.price);
+    const current = (r.prices || []).filter(p => !p.stale);
+    if (current.length < 2) return 0;
+    const s = [...current].sort((a, b) => a.price - b.price);
     return s[s.length - 1].price - s[0].price;
+}
+
+function stalePriceLabel(p) {
+    if (!p.stale) return '';
+    const date = p.fetched_at ? new Intl.DateTimeFormat('da-DK', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(p.fetched_at)) : '';
+    return `<span class="stale-price-note">Prisdata fra ${date || 'tidligere'}</span>`;
 }
 
 function getVolumeBucket(vol) {
@@ -1741,7 +1750,7 @@ function makeCard(r, delay) {
     const hasDeal = r.max_discount_pct > 0;
     const isMulti = r.shop_count > 1;
     const isFav = favorites.has(r.name);
-    const sortedPrices = [...r.prices].sort((a, b) => a.price - b.price);
+    const sortedPrices = [...r.prices].sort((a, b) => (Boolean(a.stale) - Boolean(b.stale)) || (a.price - b.price));
     const cheapest = sortedPrices[0];
 
     // flag variabel fjernet
@@ -1787,18 +1796,19 @@ function makeCard(r, delay) {
         <div class="price-rows">`;
 
     // Cheapest price row
-    html += `<div class="price-row cheapest${hasDeal ? ' has-discount' : ''}">
+    html += `<div class="price-row${!cheapest.stale ? ' cheapest' : ' stale-price'}${hasDeal && !cheapest.stale ? ' has-discount' : ''}">
         <div class="price-row-header">
             <span class="price-row-shop">✓ ${cheapest.shop_name}</span>
-            ${cheapest.discount_pct ? `<span class="price-row-disc">−${fmtDiscount(cheapest.discount_pct)}</span>` : ''}
+            ${stalePriceLabel(cheapest)}
+            ${!cheapest.stale && cheapest.discount_pct ? `<span class="price-row-disc">−${fmtDiscount(cheapest.discount_pct)}</span>` : ''}
         </div>
         <div class="price-row-main">
             <div class="price-row-left">
                 <div class="price-row-amounts">
                     <span class="price-row-amount">${fmtPrice(cheapest.price)} kr</span>
-                    ${cheapest.old_price ? `<span class="price-row-old">${fmtPrice(cheapest.old_price)} kr</span>` : ''}
+                    ${!cheapest.stale && cheapest.old_price ? `<span class="price-row-old">${fmtPrice(cheapest.old_price)} kr</span>` : ''}
                 </div>
-                ${cheapest.old_price ? `<span class="price-row-save">Spar ${fmtPrice(cheapest.old_price - cheapest.price)} kr</span>` : ''}
+                ${!cheapest.stale && cheapest.old_price ? `<span class="price-row-save">Spar ${fmtPrice(cheapest.old_price - cheapest.price)} kr</span>` : ''}
                 ${r.volume_cl && r.volume_cl > 0 ? `<span class="price-row-ppl">${(cheapest.price / r.volume_cl).toFixed(2)} kr/cl</span>` : ''}
             </div>
             <div class="price-row-actions">
@@ -1817,16 +1827,17 @@ function makeCard(r, delay) {
         <div class="more-shops" style="display:none">`;
 
         sortedPrices.slice(1).forEach(p => {
-            html += `<div class="price-row${p.discount_pct ? ' has-discount' : ''}">
+            html += `<div class="price-row${p.stale ? ' stale-price' : ''}${!p.stale && p.discount_pct ? ' has-discount' : ''}">
                 <div class="price-row-header">
                     <span class="price-row-shop">${p.shop_name}</span>
-                    ${p.discount_pct ? `<span class="price-row-disc">−${fmtDiscount(p.discount_pct)}</span>` : ''}
+                    ${stalePriceLabel(p)}
+                    ${!p.stale && p.discount_pct ? `<span class="price-row-disc">−${fmtDiscount(p.discount_pct)}</span>` : ''}
                 </div>
                 <div class="price-row-main">
                     <div class="price-row-left">
                         <div class="price-row-amounts">
                             <span class="price-row-amount">${fmtPrice(p.price)} kr</span>
-                            ${p.old_price ? `<span class="price-row-old">${fmtPrice(p.old_price)} kr</span>` : ''}
+                            ${!p.stale && p.old_price ? `<span class="price-row-old">${fmtPrice(p.old_price)} kr</span>` : ''}
                         </div>
                     </div>
                     <div class="price-row-actions">
@@ -2012,11 +2023,12 @@ function showSpotlight() {
         document.getElementById('spotlight-meta').innerHTML = meta.join('');
 
         // Priser
-        const sorted = [...rom.prices].sort((a, b) => a.price - b.price);
+        const sorted = [...rom.prices].sort((a, b) => (Boolean(a.stale) - Boolean(b.stale)) || (a.price - b.price));
         document.getElementById('spotlight-prices').innerHTML = sorted.map((p, i) => `
             <div class="spotlight-price-row">
-                <span class="spotlight-shop ${i === 0 ? 'best' : ''}">${p.shop_name}</span>
-                <span class="spotlight-price ${i === 0 ? 'best' : ''}">${fmtPrice(p.price)} kr</span>
+                <span class="spotlight-shop ${i === 0 && !p.stale ? 'best' : ''}">${p.shop_name}</span>
+                ${stalePriceLabel(p)}
+                <span class="spotlight-price ${i === 0 && !p.stale ? 'best' : ''}">${fmtPrice(p.price)} kr</span>
             </div>`).join('');
 
         // Besparelse
